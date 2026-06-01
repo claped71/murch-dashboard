@@ -627,6 +627,33 @@ dd {
   gap: 12px;
 }
 
+.resource-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.resource-chip {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.resource-chip strong {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.resource-chip span,
+.resource-chip small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
 .milestone {
   padding: 18px;
 }
@@ -715,6 +742,10 @@ footer p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .resource-numbers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .status-strip {
     transform: translateY(-28px);
   }
@@ -754,6 +785,10 @@ footer p {
   }
 
   .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resource-numbers {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -996,6 +1031,7 @@ footer p {
           <div class="chart-panel">
             <canvas id="resourceChart" width="920" height="420" aria-label="Weekly resource chart"></canvas>
           </div>
+          <div class="resource-numbers" id="resourceNumbers" aria-label="Weekly site population numbers"></div>
         </div>
         <div>
           <div class="section-heading compact">
@@ -1043,7 +1079,7 @@ footer p {
     contractors: [
       { name: 'ECCS', scope: 6271, installed: 4481, remaining: 1790, done: 71.5, zones: '20% scope | Zone E', status: 'Active', note: 'Estimated completion in 7 days at 250 piles/day per Audelio update.' },
       { name: 'LATNOVVA', scope: 15745, installed: 6055, remaining: 9690, done: 38.5, zones: '50% scope | A, C, E, EW, B, D, G', status: 'At Risk', note: '3,756 piles remain in Zone E/EW from on-site stock; 5,937 piles missing to complete full scope.' },
-      { name: 'New subcontractor', scope: 3356, installed: 0, remaining: 3356, done: 0, zones: 'Zone F', status: 'Critical', note: 'Zone F to be assigned; cannot start until 2nd-50% pile deliveries begin June 8.' },
+      { name: 'JB Solar', scope: 3356, installed: 0, remaining: 3356, done: 0, zones: 'Zone F', status: 'Critical', note: 'Expected mobilization June 8; start remains tied to 2nd-50% pile deliveries.' },
       { name: 'Project Total', scope: 31352, installed: 10536, remaining: 20816, done: 33.6, zones: 'All zones', status: 'At Risk', note: '10,536 piles installed to date; 15,745 received, 5,209 on-site stock remaining.' }
     ],
     zones: [
@@ -1053,7 +1089,7 @@ footer p {
       { zone: 'Zone EW', contractor: 'Latnovva', scope: 846, installed: 0, remaining: 846, done: 0, status: 'At Risk', note: 'Pending first-50% completion; included in Latnovva on-site stock plan.' },
       { zone: 'Zone B', contractor: 'Latnovva', scope: 2788, installed: 0, remaining: 2788, done: 0, status: 'Material Hold', note: '2nd-50% work; cannot start until pile deliveries begin June 8.' },
       { zone: 'Zone D', contractor: 'TBD / Latnovva', scope: 1468, installed: 0, remaining: 1468, done: 0, status: 'Material Hold', note: '2nd-50% work; no start before June 8 material arrivals.' },
-      { zone: 'Zone F', contractor: 'New subcontractor', scope: 3356, installed: 0, remaining: 3356, done: 0, status: 'Critical', note: 'To be assigned to new subcontractor; material-dependent start.' },
+      { zone: 'Zone F', contractor: 'JB Solar', scope: 3356, installed: 0, remaining: 3356, done: 0, status: 'Critical', note: 'JB Solar assigned; expected mobilization June 8, material-dependent start.' },
       { zone: 'Zone G', contractor: 'Latnovva', scope: 3146, installed: 0, remaining: 3146, done: 0, status: 'Material Hold', note: 'Assigned to Latnovva; depends on remaining 50% pile delivery.' }
     ],
     production: [
@@ -1069,10 +1105,10 @@ footer p {
       { activity: 'LATNOVVA on-site stock install', contractor: 'LATNOVVA', start: '2026-05-30', end: '2026-06-14', status: 'At Risk', note: '3,756 piles remain in Zone E/EW from on-site stock; 14-day forecast at 250/day.' },
       { activity: '2nd-50% pile delivery - first batch', contractor: 'Procurement / Logistics', start: '2026-06-08', end: '2026-06-08', status: 'Critical', note: 'First deliveries arrive; B/D/F/G cannot start before this gate.' },
       { activity: '2nd-50% pile delivery - final batch', contractor: 'Procurement / Logistics', start: '2026-07-16', end: '2026-07-16', status: 'Critical', note: 'Final piles of the remaining 50% arrive on site.' },
-      { activity: 'Tracker Structural Assembly', contractor: 'East Carolina', start: '2026-06-02', end: '2026-07-22', status: 'At Risk', note: 'Start is behind Gantt; not blocked by purlins.' },
+      { activity: 'Tracker Structural Assembly', contractor: 'ECCS', start: '2026-06-02', end: '2026-07-22', status: 'At Risk', note: 'Start is behind Gantt; not blocked by purlins.' },
       { activity: 'MV Cable / HDD', contractor: 'ITS Company', start: '2026-06-01', end: '2026-09-30', status: 'Mobilizing', note: 'MV cable purchased and in transit.' },
       { activity: 'Inverter Installation', contractor: 'EPC / OEM', start: '2026-07-01', end: '2026-09-15', status: 'Confirmed', note: '23 x 4.2 MW units; pads must cure before delivery.' },
-      { activity: 'Purlin Installation', contractor: 'East Carolina', start: '2026-07-22', end: '2026-08-12', status: 'Critical', note: 'GameChange redesign; first delivery delayed to Jul 22.' },
+      { activity: 'Purlin Installation', contractor: 'ECCS', start: '2026-07-22', end: '2026-08-12', status: 'Critical', note: 'GameChange redesign; first delivery delayed to Jul 22.' },
       { activity: 'Module Installation', contractor: 'Panel Sub', start: '2026-07-22', end: '2026-09-20', status: 'Critical', note: 'Blocked until purlins arrive; 50 laborers recommended.' },
       { activity: 'DC Wiring / SCADA', contractor: 'Electrical Sub TBD', start: '2026-08-01', end: '2026-11-01', status: 'Critical', note: 'Not awarded; award immediately to protect commissioning.' },
       { activity: 'Electrical Pre-Commissioning', contractor: 'EPC + OEMs', start: '2026-09-15', end: '2026-11-01', status: 'Planned', note: 'Zonal energization after inverter and tracker completion.' }
@@ -1112,7 +1148,7 @@ footer p {
       { title: 'GameChange purlin redesign', level: 'Critical', owner: 'PM / GC / Procurement', note: 'First purlin delivery Jul 22 blocks all module installation and makes Sep 25 MC infeasible. Issue formal written notice and push accelerated manufacturing.' },
       { title: '2nd-50% pile delivery controls B/D/F/G', level: 'Critical', owner: 'Procurement / Logistics / PM', note: 'Audelio confirms no work can begin in Zones B, D, F, or G until material starts arriving June 8; final delivery is July 16.' },
       { title: 'LATNOVVA missing piles to complete scope', level: 'Critical', owner: 'PM / LATNOVVA / Procurement', note: 'LATNOVVA has 6,055 installed, 3,756 remaining in E/EW from on-site stock, and 5,937 missing piles to complete full scope.' },
-      { title: 'Zone F subcontractor not assigned', level: 'Critical', owner: 'PM / Contracts', note: 'Audelio identifies Zone F as assigned to a new subcontractor. Award and mobilization path must be locked before material arrives.' },
+      { title: 'JB Solar Zone F mobilization', level: 'Critical', owner: 'PM / JB Solar', note: 'Zone F is assigned to JB Solar with expected mobilization June 8. Confirm rig count, crew list, access, and pile release before arrival.' },
       { title: 'DC BOS subcontract not awarded', level: 'Critical', owner: 'PM / Contracts', note: 'Electrical materials are purchased, but wiring/SCADA work needs subcontract award to protect Aug 1 mobilization.' },
       { title: 'Michigan weather window', level: 'Watch', owner: 'Construction Mgmt', note: 'Outdoor work must be substantially complete before Nov 15. Recovery plans should preserve float before late-fall conditions.' }
     ]
@@ -1369,6 +1405,16 @@ footer p {
     ctx.fillText('Peak 310 on W30', width - 140, 24);
   }
 
+  function renderResourceNumbers() {
+    document.getElementById('resourceNumbers').innerHTML = data.resources.map((row) => `
+      <div class="resource-chip">
+        <span>${row.week} | ${row.date}</span>
+        <strong>${fmt(row.total)}</strong>
+        <small>people on site</small>
+      </div>
+    `).join('');
+  }
+
   function renderMilestones() {
     document.getElementById('milestones').innerHTML = data.milestones.map((row) => `
       <article class="milestone">
@@ -1419,6 +1465,7 @@ footer p {
   renderTimeline();
   renderSchedule();
   drawResourceChart();
+  renderResourceNumbers();
   renderMilestones();
   renderRisks();
   bindEvents();
