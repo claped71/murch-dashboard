@@ -412,6 +412,34 @@ small {
   align-items: start;
 }
 
+.impact-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.stop-forecast {
+  padding: 26px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--red);
+  box-shadow: 0 8px 24px rgba(20, 33, 29, 0.06);
+}
+
+.stop-forecast strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--red);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 0.95;
+}
+
+.stop-forecast p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .chart-panel {
   min-height: 320px;
   padding: 16px;
@@ -733,6 +761,7 @@ footer p {
   .scope-grid,
   .risk-grid,
   .photo-feature,
+  .impact-layout,
   .chart-layout,
   .split {
     grid-template-columns: 1fr;
@@ -865,7 +894,7 @@ footer p {
       </nav>
 
       <section class="hero-content">
-        <p class="eyebrow">Van Buren County, MI | Pile update May 30, 2026 | Dashboard update June 1, 2026</p>
+        <p class="eyebrow">Van Buren County, MI | GameChange PM update June 1, 2026 | Dashboard update June 1, 2026</p>
         <h1>Murch Solar Project Control Dashboard</h1>
         <p class="lede">102 MWp utility-scale PV project with turnkey EPC scope, GameChange single-axis trackers, 31,352 piles, 2,486 tracker rows, and 171,470 modules.</p>
         <div class="hero-actions" aria-label="Dashboard quick links">
@@ -882,7 +911,7 @@ footer p {
         <article>
           <span class="label">Overall Status</span>
           <strong class="critical">Critical</strong>
-          <small>2nd-50% pile delivery controls B/D/F/G start.</small>
+          <small>June 22 pile delay creates a piling pause risk.</small>
         </article>
         <article>
           <span class="label">Piles Installed</span>
@@ -896,8 +925,8 @@ footer p {
         </article>
         <article>
           <span class="label">Next Material Gate</span>
-          <strong>Jun 8</strong>
-          <small>First 2nd-50% pile deliveries arrive.</small>
+          <strong>Jun 22</strong>
+          <small>2nd pile batch delayed; partial purlins for ~15 MW expected.</small>
         </article>
       </section>
 
@@ -978,15 +1007,49 @@ footer p {
         </div>
         <aside class="insight-panel">
           <p class="eyebrow">Schedule read</p>
-          <h3>Pile delivery is the immediate mechanical control point.</h3>
-          <p>Audelio Zuniga's May 30 field update clarifies that Zones B, D, F, and G cannot start until the remaining 50% of piles begins arriving on June 8. The dashboard now treats inventory and zone assignment as the mechanical schedule driver.</p>
+          <h3>GameChange June 22 delivery is now the mechanical control point.</h3>
+          <p>After today's GameChange PM meeting, the first batch of the second pile delivery is delayed to June 22. Once the 5,209 piles currently in store are depleted, piling cannot continue until that delivery arrives. The upside is that GameChange expects partial purlin delivery on June 22 for approximately 15 MW, allowing a first tracker/module completion wave if workfronts are ready.</p>
           <dl>
             <div><dt>Received piles installed</dt><dd>66.9%</dd></div>
             <div><dt>On-site pile stock</dt><dd>5,209</dd></div>
-            <div><dt>Final 2nd-50% delivery</dt><dd>Jul 16</dd></div>
+            <div><dt>2nd pile batch</dt><dd>Jun 22</dd></div>
+            <div><dt>Partial purlins</dt><dd>~15 MW</dd></div>
             <div><dt>Weather hard stop</dt><dd>Nov 15, 2026</dd></div>
           </dl>
         </aside>
+      </section>
+
+      <section class="section impact" id="impact">
+        <div class="section-heading">
+          <p class="eyebrow">Delay impact</p>
+          <h2>Piling stop forecast and successor activity impacts</h2>
+        </div>
+        <div class="impact-layout">
+          <aside class="stop-forecast">
+            <span class="label">Forecast stop window</span>
+            <strong>Jun 12-15</strong>
+            <p>At approximately 500 piles/day combined production, the current 5,209-pile store lasts about 10.4 production days. If no extra piles arrive before June 22, plan for a 7-10 day piling interruption.</p>
+            <dl>
+              <div><dt>Current store</dt><dd>5,209 piles</dd></div>
+              <div><dt>Assumed burn rate</dt><dd>~500/day</dd></div>
+              <div><dt>Stock duration</dt><dd>~10.4 days</dd></div>
+              <div><dt>Idle gap to Jun 22</dt><dd>~7-10 days</dd></div>
+            </dl>
+          </aside>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Successor activity</th>
+                  <th>Dependency</th>
+                  <th>Impact</th>
+                  <th>Mitigation</th>
+                </tr>
+              </thead>
+              <tbody id="successorBody"></tbody>
+            </table>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="schedule">
@@ -1079,7 +1142,7 @@ footer p {
     contractors: [
       { name: 'ECCS', scope: 6271, installed: 4481, remaining: 1790, done: 71.5, zones: '20% scope | Zone E', status: 'Active', note: 'Estimated completion in 7 days at 250 piles/day per Audelio update.' },
       { name: 'LATNOVVA', scope: 15745, installed: 6055, remaining: 9690, done: 38.5, zones: '50% scope | A, C, E, EW, B, D, G', status: 'At Risk', note: '3,756 piles remain in Zone E/EW from on-site stock; 5,937 piles missing to complete full scope.' },
-      { name: 'JB Solar', scope: 3356, installed: 0, remaining: 3356, done: 0, zones: 'Zone F', status: 'Critical', note: 'Expected mobilization June 8; start remains tied to 2nd-50% pile deliveries.' },
+      { name: 'JB Solar', scope: 3356, installed: 0, remaining: 3356, done: 0, zones: 'Zone F', status: 'Critical', note: 'Expected mobilization June 8; pile production is material-limited until the delayed June 22 delivery.' },
       { name: 'Project Total', scope: 31352, installed: 10536, remaining: 20816, done: 33.6, zones: 'All zones', status: 'At Risk', note: '10,536 piles installed to date; 15,745 received, 5,209 on-site stock remaining.' }
     ],
     zones: [
@@ -1087,29 +1150,37 @@ footer p {
       { zone: 'Zone C', contractor: 'Latnovva', scope: 2946, installed: 2318, remaining: 628, done: 78.7, status: 'Active', note: '628 piles pending to reach 1st-50% completion.' },
       { zone: 'Zone E', contractor: 'ECCS / Latnovva', scope: 8456, installed: 4481, remaining: 3975, done: 53.0, status: 'Active', note: 'Area E(2) has 3,975 piles pending to complete first 50% target.' },
       { zone: 'Zone EW', contractor: 'Latnovva', scope: 846, installed: 0, remaining: 846, done: 0, status: 'At Risk', note: 'Pending first-50% completion; included in Latnovva on-site stock plan.' },
-      { zone: 'Zone B', contractor: 'Latnovva', scope: 2788, installed: 0, remaining: 2788, done: 0, status: 'Material Hold', note: '2nd-50% work; cannot start until pile deliveries begin June 8.' },
-      { zone: 'Zone D', contractor: 'TBD / Latnovva', scope: 1468, installed: 0, remaining: 1468, done: 0, status: 'Material Hold', note: '2nd-50% work; no start before June 8 material arrivals.' },
-      { zone: 'Zone F', contractor: 'JB Solar', scope: 3356, installed: 0, remaining: 3356, done: 0, status: 'Critical', note: 'JB Solar assigned; expected mobilization June 8, material-dependent start.' },
-      { zone: 'Zone G', contractor: 'Latnovva', scope: 3146, installed: 0, remaining: 3146, done: 0, status: 'Material Hold', note: 'Assigned to Latnovva; depends on remaining 50% pile delivery.' }
+      { zone: 'Zone B', contractor: 'Latnovva', scope: 2788, installed: 0, remaining: 2788, done: 0, status: 'Material Hold', note: '2nd-50% work; cannot start until delayed pile delivery arrives June 22.' },
+      { zone: 'Zone D', contractor: 'TBD / Latnovva', scope: 1468, installed: 0, remaining: 1468, done: 0, status: 'Material Hold', note: '2nd-50% work; no start before June 22 material arrivals.' },
+      { zone: 'Zone F', contractor: 'JB Solar', scope: 3356, installed: 0, remaining: 3356, done: 0, status: 'Critical', note: 'JB Solar assigned; expected mobilization June 8, but pile production waits on June 22 delivery.' },
+      { zone: 'Zone G', contractor: 'Latnovva', scope: 3146, installed: 0, remaining: 3146, done: 0, status: 'Material Hold', note: 'Assigned to Latnovva; depends on delayed June 22 pile delivery.' }
     ],
     production: [
       { name: 'ECCS Zone E', remaining: '1,790 piles', required: 250, observed: 250, status: 'Active', note: 'Audelio forecast: 7 days at 250 piles/day.' },
       { name: 'LATNOVVA on-site stock - E/EW', remaining: '3,756 piles', required: 250, observed: 250, status: 'At Risk', note: 'Audelio forecast: 14 days at 250 piles/day to exhaust on-site stock.' },
       { name: 'First-50% pending areas', remaining: '5,546 piles', required: 0, observed: 0, status: 'Watch', note: 'A: 97, C: 628, E(2): 3,975, EW: 846.' },
-      { name: '2nd-50% zones B/D/F/G', remaining: 'Material gate', required: 0, observed: 0, status: 'Material Hold', note: 'No work can begin until remaining 50% piles start arriving June 8; final delivery July 16.' },
-      { name: 'Module installation', remaining: '171,470 modules', required: 5000, observed: 0, status: 'Critical', note: 'Earliest start Jul 22; 50 laborers target Sep 15 finish.' }
+      { name: '2nd-50% zones B/D/F/G', remaining: 'Material gate', required: 0, observed: 0, status: 'Material Hold', note: 'First batch delayed to June 22; piling pauses if current store is depleted before then.' },
+      { name: 'Partial purlin recovery wave', remaining: '~15 MW purlins', required: 0, observed: 0, status: 'Watch', note: 'GameChange expects partial purlin delivery June 22, allowing tracker/module completion to start on ready workfronts.' },
+      { name: 'Module installation', remaining: '171,470 modules', required: 5000, observed: 0, status: 'At Risk', note: 'Partial start may be possible June 22 for ~15 MW as purlins arrive; full production still depends on remaining purlin supply.' }
+    ],
+    successors: [
+      { activity: 'Tracker structural assembly', dependency: 'Completed piles by zone/block', impact: 'Can continue only in areas with piles already installed. B/D/F/G tracker work remains blocked behind June 22 pile delivery and subsequent pile installation.', mitigation: 'Prioritize tracker crews into A/C/E/EW workfronts with completed pile rows; freeze no-productive mobilization into blocked zones.' },
+      { activity: 'Purlin installation / tracker completion', dependency: 'Tracker structure plus purlin delivery', impact: 'June 22 purlins for ~15 MW create a limited recovery window, but only on tracker rows already structurally ready.', mitigation: 'Preselect the 15 MW receiving areas now; stage hardware, QA, and ECCS crews to install immediately on delivery.' },
+      { activity: 'Module installation', dependency: 'Completed tracker rows with purlins', impact: 'Can start a first wave around June 22 only where purlins and tracker rows are complete. Full module ramp remains constrained until remaining purlins and piles are available.', mitigation: 'Mobilize a controlled module crew for the 15 MW wave; avoid full 50-person ramp until continuous purlin supply is confirmed.' },
+      { activity: 'DC string wiring / combiner work', dependency: 'Modules set and accessible rows', impact: 'Electrical DC production will be fragmented by workfront availability, increasing crew moves and testing discontinuity.', mitigation: 'Sequence electrical crews by completed inverter block; use partial completion packages and clean turnover boundaries.' },
+      { activity: 'Commissioning and MC', dependency: 'Continuous mechanical completion by zone', impact: 'The June 22 pile delay consumes remaining float and makes Sep 25 MC more difficult unless the 15 MW purlin wave is converted immediately into finished tracker/module work.', mitigation: 'Issue recovery plan: lock GameChange delivery dates, prepare weekend/OT plan after June 22, and track daily pile burn versus stock remaining.' }
     ],
     schedule: [
       { activity: 'D&F Pre-Drilling', contractor: 'Kalamazoo Drilling', start: '2026-05-27', end: '2026-06-20', status: 'Active', note: 'Maintain at least one-week lead ahead of pile rigs.' },
       { activity: 'ECCS pile installation', contractor: 'ECCS', start: '2026-05-30', end: '2026-06-07', status: 'Active', note: '1,790 piles remaining; forecast completion 7 days at 250/day.' },
       { activity: 'LATNOVVA on-site stock install', contractor: 'LATNOVVA', start: '2026-05-30', end: '2026-06-14', status: 'At Risk', note: '3,756 piles remain in Zone E/EW from on-site stock; 14-day forecast at 250/day.' },
-      { activity: '2nd-50% pile delivery - first batch', contractor: 'Procurement / Logistics', start: '2026-06-08', end: '2026-06-08', status: 'Critical', note: 'First deliveries arrive; B/D/F/G cannot start before this gate.' },
-      { activity: '2nd-50% pile delivery - final batch', contractor: 'Procurement / Logistics', start: '2026-07-16', end: '2026-07-16', status: 'Critical', note: 'Final piles of the remaining 50% arrive on site.' },
+      { activity: '2nd-50% pile delivery - first batch', contractor: 'GameChange / Logistics', start: '2026-06-22', end: '2026-06-22', status: 'Critical', note: 'Delayed from June 8 to June 22; B/D/F/G cannot start before this gate.' },
+      { activity: 'Potential piling pause', contractor: 'All pile contractors', start: '2026-06-14', end: '2026-06-22', status: 'Critical', note: 'If current store is depleted, piling stops until the delayed second pile batch arrives.' },
       { activity: 'Tracker Structural Assembly', contractor: 'ECCS', start: '2026-06-02', end: '2026-07-22', status: 'At Risk', note: 'Start is behind Gantt; not blocked by purlins.' },
       { activity: 'MV Cable / HDD', contractor: 'ITS Company', start: '2026-06-01', end: '2026-09-30', status: 'Mobilizing', note: 'MV cable purchased and in transit.' },
       { activity: 'Inverter Installation', contractor: 'EPC / OEM', start: '2026-07-01', end: '2026-09-15', status: 'Confirmed', note: '23 x 4.2 MW units; pads must cure before delivery.' },
-      { activity: 'Purlin Installation', contractor: 'ECCS', start: '2026-07-22', end: '2026-08-12', status: 'Critical', note: 'GameChange redesign; first delivery delayed to Jul 22.' },
-      { activity: 'Module Installation', contractor: 'Panel Sub', start: '2026-07-22', end: '2026-09-20', status: 'Critical', note: 'Blocked until purlins arrive; 50 laborers recommended.' },
+      { activity: 'Partial purlin delivery / install', contractor: 'GameChange / ECCS', start: '2026-06-22', end: '2026-07-05', status: 'Watch', note: 'Approx. 15 MW of purlins expected June 22; use to finish first tracker/module areas.' },
+      { activity: 'Module Installation - first wave', contractor: 'Panel Sub', start: '2026-06-22', end: '2026-07-15', status: 'Watch', note: 'Can start only on tracker areas receiving June 22 purlins; full ramp still depends on remaining purlin supply.' },
       { activity: 'DC Wiring / SCADA', contractor: 'Electrical Sub TBD', start: '2026-08-01', end: '2026-11-01', status: 'Critical', note: 'Not awarded; award immediately to protect commissioning.' },
       { activity: 'Electrical Pre-Commissioning', contractor: 'EPC + OEMs', start: '2026-09-15', end: '2026-11-01', status: 'Planned', note: 'Zonal energization after inverter and tracker completion.' }
     ],
@@ -1139,14 +1210,14 @@ footer p {
       { week: 'W44', date: 'Oct 26', total: 75 }
     ],
     milestones: [
-      { name: 'Mechanical Completion', target: 'Sep 25, 2026', forecast: 'Oct 10-15, 2026', status: 'Infeasible', note: 'Panel install blocked by purlin redesign; formal re-forecast and owner notice required.' },
+      { name: 'Mechanical Completion', target: 'Sep 25, 2026', forecast: 'Oct 10-15, 2026', status: 'Infeasible', note: 'June 22 pile delay worsens the pile path; partial June 22 purlins may recover the first tracker/module wave only.' },
       { name: 'Provisional Interconnection', target: 'Oct 16, 2026', forecast: 'Oct 20-25, 2026', status: 'Critical', note: 'Depends on revised MC; utility/offtake renegotiation likely required.' },
       { name: 'Commercial Operation Date', target: 'Nov 9, 2026', forecast: 'Nov 5-9, 2026', status: 'High', note: 'Feasible only in optimistic scenario; zero float remains.' },
       { name: 'Substantial Completion', target: 'Nov 30, 2026', forecast: 'Nov 30, 2026', status: 'Watch', note: 'Still achievable if COD is protected and outdoor work closes before weather stop.' }
     ],
     risks: [
-      { title: 'GameChange purlin redesign', level: 'Critical', owner: 'PM / GC / Procurement', note: 'First purlin delivery Jul 22 blocks all module installation and makes Sep 25 MC infeasible. Issue formal written notice and push accelerated manufacturing.' },
-      { title: '2nd-50% pile delivery controls B/D/F/G', level: 'Critical', owner: 'Procurement / Logistics / PM', note: 'Audelio confirms no work can begin in Zones B, D, F, or G until material starts arriving June 8; final delivery is July 16.' },
+      { title: 'GameChange second pile delivery delayed', level: 'Critical', owner: 'GameChange / Procurement / PM', note: 'First batch of the second pile delivery has moved to June 22. Once current pile stock is depleted, piling cannot continue until the delivery arrives.' },
+      { title: 'Partial purlin recovery opportunity', level: 'Watch', owner: 'GameChange / ECCS / PM', note: 'GameChange expects purlins for approximately 15 MW on June 22. Prepare tracker workfronts and module crews to convert this into immediate completion progress.' },
       { title: 'LATNOVVA missing piles to complete scope', level: 'Critical', owner: 'PM / LATNOVVA / Procurement', note: 'LATNOVVA has 6,055 installed, 3,756 remaining in E/EW from on-site stock, and 5,937 missing piles to complete full scope.' },
       { title: 'JB Solar Zone F mobilization', level: 'Critical', owner: 'PM / JB Solar', note: 'Zone F is assigned to JB Solar with expected mobilization June 8. Confirm rig count, crew list, access, and pile release before arrival.' },
       { title: 'DC BOS subcontract not awarded', level: 'Critical', owner: 'PM / Contracts', note: 'Electrical materials are purchased, but wiring/SCADA work needs subcontract award to protect Aug 1 mobilization.' },
@@ -1316,6 +1387,17 @@ footer p {
     `).join('');
   }
 
+  function renderSuccessors() {
+    document.getElementById('successorBody').innerHTML = data.successors.map((row) => `
+      <tr>
+        <td data-label="Successor activity"><strong>${row.activity}</strong></td>
+        <td data-label="Dependency">${row.dependency}</td>
+        <td data-label="Impact">${row.impact}</td>
+        <td data-label="Mitigation">${row.mitigation}</td>
+      </tr>
+    `).join('');
+  }
+
   function dateToTime(date) {
     return new Date(`${date}T00:00:00`).getTime();
   }
@@ -1462,6 +1544,7 @@ footer p {
   renderPhotos();
   renderProgressTable();
   renderProduction();
+  renderSuccessors();
   renderTimeline();
   renderSchedule();
   drawResourceChart();
