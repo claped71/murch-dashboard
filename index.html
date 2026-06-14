@@ -823,31 +823,11 @@ dd {
   gap: 12px;
 }
 
-.resource-numbers {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.resource-chip {
-  display: grid;
-  gap: 4px;
-  padding: 12px;
-  background: var(--white);
-  border: 1px solid var(--line);
-}
-
-.resource-chip strong {
-  font-size: 1.35rem;
-  line-height: 1;
-}
-
-.resource-chip span,
-.resource-chip small {
+.personnel-note {
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 750;
+  font-size: 0.84rem;
+  line-height: 1.5;
 }
 
 .milestone {
@@ -948,10 +928,6 @@ footer p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .resource-numbers {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .status-strip {
     transform: translateY(-28px);
   }
@@ -991,10 +967,6 @@ footer p {
   }
 
   .photo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .resource-numbers {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1132,7 +1104,7 @@ footer p {
           <article>
             <span class="label">Safety Orientations</span>
             <strong>155</strong>
-            <small>26 people trained in May; current May site population was 70 workers.</small>
+            <small>May orientations completed; current site headcount is intentionally not reported.</small>
           </article>
           <article>
             <span class="label">Toolbox Talks</span>
@@ -1236,7 +1208,7 @@ footer p {
               <tr><td data-label="Time">Jun 10, 10:57 PM</td><td data-label="Member"><strong>Audelio Zuniga</strong></td><td data-label="Latest production/progress comment">13,809 of 15,751 delivered piles installed; LATNOVVA has 944 remaining and ECCS has 280 remaining.</td><td data-label="Dashboard treatment">Used as the controlling installed-production headline under the project reporting rule.</td></tr>
               <tr><td data-label="Time">Jun 10, 11:00 PM</td><td data-label="Member"><strong>Audelio Zuniga</strong></td><td data-label="Latest production/progress comment">Approximately 44% of project piles installed.</td><td data-label="Dashboard treatment">Confirmed by calculation: 13,809 / 31,352 = 44.05%.</td></tr>
               <tr><td data-label="Time">Jun 10, 11:25 PM</td><td data-label="Member"><strong>Audelio Zuniga</strong></td><td data-label="Latest production/progress comment">Section B has 1,580 pre-drills remaining.</td><td data-label="Dashboard treatment">Used as controlling field remainder; master control shows 2,685 remaining and requires reconciliation.</td></tr>
-              <tr><td data-label="Time">Jun 11, 8:20 AM</td><td data-label="Member"><strong>Luis Romero / Jose Romero</strong></td><td data-label="Latest production/progress comment">Module team discussion identifies 23 people plus a separate ECCS crew covering 20 MW; learning-period estimate approximately 2,000 modules/day versus 5,000/day needed.</td><td data-label="Dashboard treatment">Flagged as an unconfirmed recovery-capacity gap requiring a complete crew and output plan.</td></tr>
+              <tr><td data-label="Time">Jun 11, 8:20 AM</td><td data-label="Member"><strong>Luis Romero / Jose Romero</strong></td><td data-label="Latest production/progress comment">Module team discussion indicates that learning-period output remains below the production rate needed for recovery.</td><td data-label="Dashboard treatment">Flagged as an unconfirmed recovery-capacity gap requiring a reliable staffing and output plan.</td></tr>
               <tr><td data-label="Time">Jun 14, 9:12 AM</td><td data-label="Member"><strong>Jose Romero / Axel Cano</strong></td><td data-label="Latest production/progress comment">Heavy rain affected site conditions; AB Power attendance was not confirmed at 8:30 AM and arrival was expected by 10:00 AM.</td><td data-label="Dashboard treatment">Intraday weather and SET/civil attendance risk; full-day impact remains unconfirmed.</td></tr>
               <tr><td data-label="Time">Jun 10, 10:59 PM</td><td data-label="Member"><strong>Rosario Ruiz Fernandez</strong></td><td data-label="Latest production/progress comment">No inverter-foundation piles have been driven; only topographic work has been completed.</td><td data-label="Dashboard treatment">Corrected prior 100% foundation entry to 0% installed / survey complete.</td></tr>
               <tr><td data-label="Time">Jun 10, 2:02 PM</td><td data-label="Member"><strong>Daniel Morilla</strong></td><td data-label="Latest production/progress comment">64% of executed piles have been released by Greensol; client release of Zone C awaits confirmation.</td><td data-label="Dashboard treatment">Quality section retains 7,029 / 11,092 = 63.37% and Zone C release constraint.</td></tr>
@@ -1535,13 +1507,13 @@ footer p {
       <section class="section split">
         <div>
           <div class="section-heading compact">
-            <p class="eyebrow">Resource loading</p>
-            <h2>Latest actual site population and planned weekly resource curve</h2>
+            <p class="eyebrow">Estimated personnel outlook</p>
+            <h2>Indicative staffing intensity for the remainder of the project</h2>
           </div>
           <div class="chart-panel">
-            <canvas id="resourceChart" width="920" height="420" aria-label="Weekly resource chart"></canvas>
+            <canvas id="personnelChart" width="920" height="420" aria-label="Qualitative estimated personnel outlook"></canvas>
           </div>
-          <div class="resource-numbers" id="resourceNumbers" aria-label="Weekly site population numbers"></div>
+          <p class="personnel-note">Directional planning view only. It illustrates the expected staffing pattern and intentionally excludes headcount values because current personnel records are not sufficiently reliable.</p>
         </div>
         <div>
           <div class="section-heading compact">
@@ -1651,7 +1623,7 @@ footer p {
       { name: 'Tracker material delivery', remaining: '314 / 598 shipment lines', required: 0, observed: 0, status: 'Critical', note: 'The June 10 delivery schedule shows 284 shipment lines confirmed on site (47.5%) and 314 pending. Latest confirmed-on-site record is June 1.' },
       { name: 'Purlin delivery', remaining: '59,547 Purlin units', required: 0, observed: 0, status: 'Critical', note: 'No Purlin shipment lines are confirmed on site. First planned delivery is 13,856 units on June 17; remaining planned deliveries continue through July 8.' },
       { name: 'Tracker Purlin delivery', remaining: '117,778 units', required: 0, observed: 0, status: 'Critical', note: 'No Tracker Purlin shipment lines are confirmed on site. Planned deliveries start June 23 and continue through July 16.' },
-      { name: 'Module installation', remaining: '171,470 modules', required: 5531, observed: 0, status: 'Critical', note: 'June 12 master control reports zero installed and approximately 5,531/day required. The June 11 field discussion identifies 23 people plus a separate ECCS crew covering 20 MW and estimates approximately 2,000/day during learning, materially below the 5,000/day management need.' }
+      { name: 'Module installation', remaining: '171,470 modules', required: 5531, observed: 0, status: 'Critical', note: 'June 12 master control reports zero installed and approximately 5,531/day required. The June 11 field discussion indicates that learning-period output is materially below the management need; staffing quantities are intentionally excluded pending reliable personnel records.' }
     ],
     successors: [
       { activity: 'Tracker structural assembly', dependency: 'Completed piles by zone/block; final tracker finish after final pile finish', impact: 'Can overlap piling only in released areas. Final tracker structure cannot finish before the revised July 28 pile forecast; the August 19 tracker forecast remains provisional and requires 40 completed rows/day.', mitigation: 'Prioritize tracker crews into released workfronts and maintain linked finish-to-finish controls.' },
@@ -1679,31 +1651,13 @@ footer p {
       { activity: 'DC Wiring / SCADA', contractor: 'Electrical Sub TBD', start: '2026-08-01', end: '2026-11-01', status: 'Critical', note: 'Not awarded; award immediately to protect commissioning.' },
       { activity: 'Electrical Pre-Commissioning', contractor: 'EPC + OEMs', start: '2026-09-15', end: '2026-11-01', status: 'Planned', note: 'Zonal energization after inverter and tracker completion.' }
     ],
-    resources: [
-      { week: 'Actual', date: 'Jun 12', total: 17 },
-      { week: 'W22', date: 'May 25', total: 135 },
-      { week: 'W23', date: 'Jun 1', total: 281 },
-      { week: 'W24', date: 'Jun 8', total: 281 },
-      { week: 'W25', date: 'Jun 15', total: 281 },
-      { week: 'W26', date: 'Jun 22', total: 229 },
-      { week: 'W27', date: 'Jun 29', total: 228 },
-      { week: 'W28', date: 'Jul 6', total: 228 },
-      { week: 'W29', date: 'Jul 13', total: 228 },
-      { week: 'W30', date: 'Jul 20', total: 310 },
-      { week: 'W31', date: 'Jul 27', total: 220 },
-      { week: 'W32', date: 'Aug 3', total: 255 },
-      { week: 'W33', date: 'Aug 10', total: 255 },
-      { week: 'W34', date: 'Aug 17', total: 205 },
-      { week: 'W35', date: 'Aug 24', total: 205 },
-      { week: 'W36', date: 'Aug 31', total: 205 },
-      { week: 'W37', date: 'Sep 7', total: 205 },
-      { week: 'W38', date: 'Sep 14', total: 205 },
-      { week: 'W39', date: 'Sep 21', total: 155 },
-      { week: 'W40', date: 'Sep 28', total: 155 },
-      { week: 'W41', date: 'Oct 5', total: 130 },
-      { week: 'W42', date: 'Oct 12', total: 130 },
-      { week: 'W43', date: 'Oct 19', total: 75 },
-      { week: 'W44', date: 'Oct 26', total: 75 }
+    personnelOutlook: [
+      { period: 'Jun', level: 0.58, label: 'Recovery ramp-up' },
+      { period: 'Jul', level: 0.95, label: 'Peak overlap' },
+      { period: 'Aug', level: 0.88, label: 'High installation' },
+      { period: 'Sep', level: 0.68, label: 'Electrical transition' },
+      { period: 'Oct', level: 0.38, label: 'Commissioning' },
+      { period: 'Nov', level: 0.18, label: 'Closeout' }
     ],
     milestones: [
       { name: 'Mechanical Completion', target: 'Sep 25, 2026', forecast: 'Oct 10-15, 2026 provisional', status: 'Critical', note: 'The revised July 28 pile and provisional August 19 tracker forecasts leave no recovery margin; MC still depends on full purlin completion by September 18 and modules by October 9.' },
@@ -1717,7 +1671,7 @@ footer p {
       { title: 'Production-control and QC reconciliation gaps', level: 'Critical', owner: 'Construction Controls / Mechanical Subs / QA/QC', note: "Audelio's controlling field report shows 13,809 installed, versus 13,836 in the June 12 detailed log, 11,794 in the paired master headline, and 11,092 QC-executed. Reconcile the 27-, 2,015-, and 2,717-pile gaps while retaining Audelio's number as the production headline." },
       { title: 'Seven-machine pile recovery capacity below required pace', level: 'Critical', owner: 'Construction Mgmt / Pile Contractors', note: 'From June 22, 7 ramming machines averaging 80 piles each provide 560 piles/day, below the master-required 698.5/day pace. Uninterrupted production forecasts pile completion around July 28; downtime or material interruption will move it later.' },
       { title: 'Pre-drilling field/master reconciliation and recovery', level: 'Critical', owner: 'Kalamazoo Excavating / Construction Mgmt', note: "Audelio reports 1,580 pre-drills remaining in Section B, while June 12 master control reports 2,685 remaining and its latest entry records no production. Use Audelio's remainder for current field status and reconcile the 1,105-unit difference." },
-      { title: 'Module-installation workforce and learning-rate gap', level: 'Critical', owner: 'Construction Mgmt / ECCS / Module Crew', note: 'June 11 field discussion identifies 23 people plus a separate ECCS crew covering 20 MW. Learning-period output was discussed at approximately 2,000 modules/day versus a management need of 5,000/day and a master-required rate of approximately 5,531/day. Confirm total crew, equipment, workfronts, and ramp plan.' },
+      { title: 'Module-installation workforce and learning-rate gap', level: 'Critical', owner: 'Construction Mgmt / ECCS / Module Crew', note: 'June 11 field discussion indicates that learning-period output remains below the rate needed for recovery. Confirm reliable staffing records, equipment, workfronts, and the ramp plan before publishing personnel quantities.' },
       { title: 'Heavy rain and SET/civil attendance', level: 'Watch', owner: 'AB Power / Civil Superintendent / Construction Mgmt', note: 'On June 14, heavy rain affected site conditions and AB Power attendance was not confirmed at 8:30 AM; arrival was expected by 10:00 AM. Confirm the full-day production effect before closing the daily report.' },
       { title: 'Civil weekly pace below minimum', level: 'Critical', owner: 'Civil Superintendent / Project Controls', note: 'Civil control reports approximately 0.68% average weekly progress over the latest three weeks versus a minimum required pace of approximately 2.95% per week.' },
       { title: 'Areas F and G civil release dates not confirmed', level: 'Critical', owner: 'Project Management / Civil Superintendent', note: 'Rosario Ruiz reports that completion planning for the remaining TBD civil works requires confirmed release dates for Areas F and G. Obtain and integrate the release dates into the civil lookahead immediately.' },
@@ -1974,61 +1928,76 @@ footer p {
     `).join('');
   }
 
-  function drawResourceChart() {
-    const canvas = document.getElementById('resourceChart');
+  function drawPersonnelChart() {
+    const canvas = document.getElementById('personnelChart');
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
     const height = canvas.height;
-    const pad = { left: 54, top: 34, right: 24, bottom: 58 };
+    const pad = { left: 72, top: 56, right: 34, bottom: 74 };
     const chartW = width - pad.left - pad.right;
     const chartH = height - pad.top - pad.bottom;
-    const max = Math.max(...data.resources.map((row) => row.total));
+    const rows = data.personnelOutlook;
+    const points = rows.map((row, index) => ({
+      ...row,
+      x: pad.left + (index * chartW) / (rows.length - 1),
+      y: pad.top + chartH - row.level * chartH
+    }));
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, width, height);
     ctx.strokeStyle = colors.line;
     ctx.lineWidth = 1;
-    [0, 0.25, 0.5, 0.75, 1].forEach((p) => {
+    [0, 0.5, 1].forEach((p) => {
       const y = pad.top + chartH - p * chartH;
       ctx.beginPath();
       ctx.moveTo(pad.left, y);
       ctx.lineTo(width - pad.right, y);
       ctx.stroke();
     });
-    const gap = 6;
-    const barW = Math.max(10, chartW / data.resources.length - gap);
-    data.resources.forEach((row, index) => {
-      const h = (row.total / max) * chartH;
-      const x = pad.left + index * (barW + gap);
-      const y = pad.top + chartH - h;
-      ctx.fillStyle = row.total >= 300 ? colors.red : row.total >= 250 ? colors.amber : colors.blue;
-      ctx.fillRect(x, y, barW, h);
-      if (index % 2 === 0) {
-        ctx.save();
-        ctx.translate(x + barW / 2, height - 18);
-        ctx.rotate(-Math.PI / 4);
-        ctx.fillStyle = colors.muted;
-        ctx.font = '11px system-ui';
-        ctx.fillText(row.week, 0, 0);
-        ctx.restore();
-      }
+    const baseline = pad.top + chartH;
+    const gradient = ctx.createLinearGradient(0, pad.top, 0, baseline);
+    gradient.addColorStop(0, 'rgba(15, 118, 110, 0.34)');
+    gradient.addColorStop(1, 'rgba(15, 118, 110, 0.04)');
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, baseline);
+    points.forEach((point) => ctx.lineTo(point.x, point.y));
+    ctx.lineTo(points[points.length - 1].x, baseline);
+    ctx.closePath();
+    ctx.fillStyle = gradient;
+    ctx.fill();
+    ctx.beginPath();
+    points.forEach((point, index) => {
+      if (index === 0) ctx.moveTo(point.x, point.y);
+      else ctx.lineTo(point.x, point.y);
+    });
+    ctx.strokeStyle = '#0f766e';
+    ctx.lineWidth = 5;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+    points.forEach((point) => {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 7, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      ctx.strokeStyle = '#0f766e';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+      ctx.fillStyle = colors.ink;
+      ctx.font = '700 13px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText(point.period, point.x, height - 42);
+      ctx.fillStyle = colors.muted;
+      ctx.font = '11px system-ui';
+      ctx.fillText(point.label, point.x, height - 20);
     });
     ctx.fillStyle = colors.ink;
     ctx.font = '700 18px system-ui';
-    ctx.fillText('Total weekly headcount', 24, 24);
+    ctx.textAlign = 'left';
+    ctx.fillText('Estimated staffing intensity', 24, 28);
     ctx.fillStyle = colors.muted;
     ctx.font = '12px system-ui';
-    ctx.fillText('Peak 310 on W30', width - 140, 24);
-  }
-
-  function renderResourceNumbers() {
-    document.getElementById('resourceNumbers').innerHTML = data.resources.map((row) => `
-      <div class="resource-chip">
-        <span>${row.week} | ${row.date}</span>
-        <strong>${fmt(row.total)}</strong>
-        <small>people on site</small>
-      </div>
-    `).join('');
+    ctx.fillText('Higher intensity', 8, pad.top + 4);
+    ctx.fillText('Lower intensity', 8, baseline);
   }
 
   function renderMilestones() {
@@ -2070,7 +2039,7 @@ footer p {
     document.getElementById('scheduleFilter').addEventListener('change', renderSchedule);
     window.addEventListener('resize', () => {
       drawProgressChart(progressView === 'contractors' ? data.contractors : data.zones);
-      drawResourceChart();
+      drawPersonnelChart();
     });
   }
 
@@ -2082,8 +2051,7 @@ footer p {
   renderSuccessors();
   renderTimeline();
   renderSchedule();
-  drawResourceChart();
-  renderResourceNumbers();
+  drawPersonnelChart();
   renderMilestones();
   renderRisks();
   bindEvents();
