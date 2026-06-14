@@ -620,6 +620,10 @@ canvas {
   height: auto;
 }
 
+#personnelChart {
+  height: 320px;
+}
+
 .table-wrap {
   overflow: auto;
   min-width: 0;
@@ -1124,29 +1128,29 @@ footer p {
 
       <section class="section quality-summary" id="quality">
         <div class="section-heading">
-          <p class="eyebrow">Pile quality control | Update dated June 8, 2026</p>
-          <h2>Greensol has released 63.4% and Heelstone has approved 13.40% of executed piles</h2>
+          <p class="eyebrow">Pile quality control | Audelio production basis with QA update dated June 8, 2026</p>
+          <h2>Quality percentages aligned to Audelio's controlling production total of 13,809 piles</h2>
         </div>
         <div class="quality-grid">
           <article>
-            <span class="label">QC Executed Piles</span>
-            <strong>11,092</strong>
-            <small>2,717 below Audelio's controlling June 10 field-installed total; 2,744 below the June 12 detailed mechanical log.</small>
+            <span class="label">Audelio-Reported Production</span>
+            <strong>13,809</strong>
+            <small>Controlling installed-pile total used consistently across production and quality reporting.</small>
           </article>
           <article>
             <span class="label">Greensol Approved</span>
             <strong>7,029</strong>
-            <small>63.4% of piles recorded as executed in the June 8 quality update.</small>
+            <small>50.90% of Audelio-reported installed production.</small>
           </article>
           <article class="quality-alert">
-            <span class="label">Inspection Pending</span>
+            <span class="label">QA Log Inspection Pending</span>
             <strong>3,880</strong>
-            <small>35.0% of executed piles await Greensol inspection, concentrated in Zones C and E.</small>
+            <small>28.10% of Audelio-reported production; concentrated in Zones C and E.</small>
           </article>
           <article>
             <span class="label">Heelstone Approved</span>
-            <strong>13.40%</strong>
-            <small>1,486 of 11,092 executed piles. Zone C client release awaits confirmation to begin.</small>
+            <strong>10.76%</strong>
+            <small>1,486 of 13,809 Audelio-reported installed piles. Zone C client release awaits confirmation.</small>
           </article>
         </div>
         <div class="table-wrap">
@@ -1154,7 +1158,7 @@ footer p {
             <thead>
               <tr>
                 <th>Quality zone</th>
-                <th>Executed</th>
+                <th>QA log executed</th>
                 <th>Greensol approved</th>
                 <th>Pending inspection</th>
                 <th>Defects</th>
@@ -1166,11 +1170,11 @@ footer p {
               <tr><td data-label="Quality zone"><strong>C</strong></td><td data-label="Executed">2,406 / 2,946 (81.67%)</td><td data-label="Greensol approved">606 (25.19%)</td><td data-label="Pending inspection">1,800 (74.81%)</td><td data-label="Defects">0</td><td data-label="Heelstone approved">0 - release awaiting confirmation</td></tr>
               <tr><td data-label="Quality zone"><strong>E</strong></td><td data-label="Executed">4,906 / 8,456 (58.02%)</td><td data-label="Greensol approved">3,240 (66.04%)</td><td data-label="Pending inspection">1,664 (33.92%)</td><td data-label="Defects">115 (3.55% of approved)</td><td data-label="Heelstone approved">0</td></tr>
               <tr><td data-label="Quality zone"><strong>B / D / F / G / EW</strong></td><td data-label="Executed">0</td><td data-label="Greensol approved">0</td><td data-label="Pending inspection">0</td><td data-label="Defects">0</td><td data-label="Heelstone approved">0</td></tr>
-              <tr><td data-label="Quality zone"><strong>Project total</strong></td><td data-label="Executed"><strong>11,092</strong></td><td data-label="Greensol approved"><strong>7,029 (63.37%)</strong></td><td data-label="Pending inspection"><strong>3,880 (34.98%)</strong></td><td data-label="Defects"><strong>115</strong></td><td data-label="Heelstone approved"><strong>1,486 (13.40%)</strong></td></tr>
+              <tr><td data-label="Quality zone"><strong>Project total / controlling basis</strong></td><td data-label="QA log executed"><strong>13,809 Audelio production</strong><br><small>June 8 QA log: 11,092</small></td><td data-label="Greensol approved"><strong>7,029 (50.90%)</strong></td><td data-label="Pending inspection"><strong>3,880 (28.10%)</strong></td><td data-label="Defects"><strong>115</strong></td><td data-label="Heelstone approved"><strong>1,486 (10.76%)</strong></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="quality-note"><strong>Quality status: At Risk.</strong> The June 8 quality update reports 115 inspected piles with defects and 183 pending color-change approval. Audelio's controlling field report shows 13,809 installed piles, creating a 2,717-pile installed-to-QC-executed gap; the June 12 detailed log is another 27 piles higher. Confirm whether Zone C client release may begin and reconcile the field, mechanical, master-control, and QA/QC records.</p>
+        <p class="quality-note"><strong>Quality status: At Risk.</strong> Audelio's 13,809 installed piles control the production denominator. The June 8 QA log contains 11,092 executed piles, leaving 2,717 installed piles not yet reconciled into that quality record. Approval and pending-inspection counts remain from the QA log, while project-level percentages are calculated against Audelio's production total.</p>
       </section>
 
       <section class="section" id="field-updates">
@@ -1211,7 +1215,7 @@ footer p {
               <tr><td data-label="Time">Jun 11, 8:20 AM</td><td data-label="Member"><strong>Luis Romero / Jose Romero</strong></td><td data-label="Latest production/progress comment">Module team discussion indicates that learning-period output remains below the production rate needed for recovery.</td><td data-label="Dashboard treatment">Flagged as an unconfirmed recovery-capacity gap requiring a reliable staffing and output plan.</td></tr>
               <tr><td data-label="Time">Jun 14, 9:12 AM</td><td data-label="Member"><strong>Jose Romero / Axel Cano</strong></td><td data-label="Latest production/progress comment">Heavy rain affected site conditions; AB Power attendance was not confirmed at 8:30 AM and arrival was expected by 10:00 AM.</td><td data-label="Dashboard treatment">Intraday weather and SET/civil attendance risk; full-day impact remains unconfirmed.</td></tr>
               <tr><td data-label="Time">Jun 10, 10:59 PM</td><td data-label="Member"><strong>Rosario Ruiz Fernandez</strong></td><td data-label="Latest production/progress comment">No inverter-foundation piles have been driven; only topographic work has been completed.</td><td data-label="Dashboard treatment">Corrected prior 100% foundation entry to 0% installed / survey complete.</td></tr>
-              <tr><td data-label="Time">Jun 10, 2:02 PM</td><td data-label="Member"><strong>Daniel Morilla</strong></td><td data-label="Latest production/progress comment">64% of executed piles have been released by Greensol; client release of Zone C awaits confirmation.</td><td data-label="Dashboard treatment">Quality section retains 7,029 / 11,092 = 63.37% and Zone C release constraint.</td></tr>
+              <tr><td data-label="Time">Jun 10, 2:02 PM</td><td data-label="Member"><strong>Daniel Morilla</strong></td><td data-label="Latest production/progress comment">The June 8 QA log reports 7,029 piles released by Greensol; client release of Zone C awaits confirmation.</td><td data-label="Dashboard treatment">Approval count retained, while the dashboard percentage is aligned to Audelio's controlling production: 7,029 / 13,809 = 50.90%.</td></tr>
             </tbody>
           </table>
         </div>
@@ -1508,12 +1512,12 @@ footer p {
         <div>
           <div class="section-heading compact">
             <p class="eyebrow">Estimated personnel outlook</p>
-            <h2>Indicative staffing intensity for the remainder of the project</h2>
+            <h2>Estimated weekly manpower across the full construction period</h2>
           </div>
           <div class="chart-panel">
-            <canvas id="personnelChart" width="920" height="420" aria-label="Qualitative estimated personnel outlook"></canvas>
+            <canvas id="personnelChart" width="920" height="420" aria-label="Estimated weekly manpower in people from May through November 2026"></canvas>
           </div>
-          <p class="personnel-note">Directional planning view only. It illustrates the expected staffing pattern and intentionally excludes headcount values because current personnel records are not sufficiently reliable.</p>
+          <p class="personnel-note">Planning estimate from the May 27 resource-loading plan, covering May 25 through November 16, 2026. Values are estimated manpower units, not verified actual site counts.</p>
         </div>
         <div>
           <div class="section-heading compact">
@@ -1652,12 +1656,32 @@ footer p {
       { activity: 'Electrical Pre-Commissioning', contractor: 'EPC + OEMs', start: '2026-09-15', end: '2026-11-01', status: 'Planned', note: 'Zonal energization after inverter and tracker completion.' }
     ],
     personnelOutlook: [
-      { period: 'Jun', level: 0.58, label: 'Recovery ramp-up' },
-      { period: 'Jul', level: 0.95, label: 'Peak overlap' },
-      { period: 'Aug', level: 0.88, label: 'High installation' },
-      { period: 'Sep', level: 0.68, label: 'Electrical transition' },
-      { period: 'Oct', level: 0.38, label: 'Commissioning' },
-      { period: 'Nov', level: 0.18, label: 'Closeout' }
+      { week: 'W22', date: 'May 25', people: 135 },
+      { week: 'W23', date: 'Jun 1', people: 281 },
+      { week: 'W24', date: 'Jun 8', people: 281 },
+      { week: 'W25', date: 'Jun 15', people: 281 },
+      { week: 'W26', date: 'Jun 22', people: 229 },
+      { week: 'W27', date: 'Jun 29', people: 228 },
+      { week: 'W28', date: 'Jul 6', people: 228 },
+      { week: 'W29', date: 'Jul 13', people: 228 },
+      { week: 'W30', date: 'Jul 20', people: 310 },
+      { week: 'W31', date: 'Jul 27', people: 220 },
+      { week: 'W32', date: 'Aug 3', people: 255 },
+      { week: 'W33', date: 'Aug 10', people: 255 },
+      { week: 'W34', date: 'Aug 17', people: 205 },
+      { week: 'W35', date: 'Aug 24', people: 205 },
+      { week: 'W36', date: 'Aug 31', people: 205 },
+      { week: 'W37', date: 'Sep 7', people: 205 },
+      { week: 'W38', date: 'Sep 14', people: 205 },
+      { week: 'W39', date: 'Sep 21', people: 155 },
+      { week: 'W40', date: 'Sep 28', people: 155 },
+      { week: 'W41', date: 'Oct 5', people: 130 },
+      { week: 'W42', date: 'Oct 12', people: 130 },
+      { week: 'W43', date: 'Oct 19', people: 75 },
+      { week: 'W44', date: 'Oct 26', people: 75 },
+      { week: 'W45', date: 'Nov 2', people: 75 },
+      { week: 'W46', date: 'Nov 9', people: 75 },
+      { week: 'W47', date: 'Nov 16', people: 0 }
     ],
     milestones: [
       { name: 'Mechanical Completion', target: 'Sep 25, 2026', forecast: 'Oct 10-15, 2026 provisional', status: 'Critical', note: 'The revised July 28 pile and provisional August 19 tracker forecasts leave no recovery margin; MC still depends on full purlin completion by September 18 and modules by October 9.' },
@@ -1937,22 +1961,27 @@ footer p {
     const chartW = width - pad.left - pad.right;
     const chartH = height - pad.top - pad.bottom;
     const rows = data.personnelOutlook;
+    const max = 320;
     const points = rows.map((row, index) => ({
       ...row,
       x: pad.left + (index * chartW) / (rows.length - 1),
-      y: pad.top + chartH - row.level * chartH
+      y: pad.top + chartH - (row.people / max) * chartH
     }));
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, width, height);
     ctx.strokeStyle = colors.line;
     ctx.lineWidth = 1;
-    [0, 0.5, 1].forEach((p) => {
-      const y = pad.top + chartH - p * chartH;
+    [0, 100, 200, 300].forEach((value) => {
+      const y = pad.top + chartH - (value / max) * chartH;
       ctx.beginPath();
       ctx.moveTo(pad.left, y);
       ctx.lineTo(width - pad.right, y);
       ctx.stroke();
+      ctx.fillStyle = colors.muted;
+      ctx.font = '11px system-ui';
+      ctx.textAlign = 'right';
+      ctx.fillText(String(value), pad.left - 10, y + 4);
     });
     const baseline = pad.top + chartH;
     const gradient = ctx.createLinearGradient(0, pad.top, 0, baseline);
@@ -1974,30 +2003,36 @@ footer p {
     ctx.lineWidth = 5;
     ctx.lineJoin = 'round';
     ctx.stroke();
-    points.forEach((point) => {
+    points.forEach((point, index) => {
       ctx.beginPath();
-      ctx.arc(point.x, point.y, 7, 0, Math.PI * 2);
+      ctx.arc(point.x, point.y, index === 8 ? 7 : 4, 0, Math.PI * 2);
       ctx.fillStyle = '#ffffff';
       ctx.fill();
       ctx.strokeStyle = '#0f766e';
-      ctx.lineWidth = 4;
+      ctx.lineWidth = index === 8 ? 4 : 3;
       ctx.stroke();
-      ctx.fillStyle = colors.ink;
-      ctx.font = '700 13px system-ui';
-      ctx.textAlign = 'center';
-      ctx.fillText(point.period, point.x, height - 42);
-      ctx.fillStyle = colors.muted;
-      ctx.font = '11px system-ui';
-      ctx.fillText(point.label, point.x, height - 20);
+      if (index % 4 === 0 || index === rows.length - 1) {
+        ctx.fillStyle = colors.ink;
+        ctx.font = '700 11px system-ui';
+        ctx.textAlign = 'center';
+        ctx.fillText(point.week, point.x, height - 40);
+        ctx.fillStyle = colors.muted;
+        ctx.font = '10px system-ui';
+        ctx.fillText(point.date, point.x, height - 22);
+      }
     });
+    const peak = points[8];
+    ctx.fillStyle = '#b91c1c';
+    ctx.font = '800 13px system-ui';
+    ctx.textAlign = 'center';
+    ctx.fillText('310 people', peak.x, peak.y - 14);
     ctx.fillStyle = colors.ink;
     ctx.font = '700 18px system-ui';
     ctx.textAlign = 'left';
-    ctx.fillText('Estimated staffing intensity', 24, 28);
+    ctx.fillText('Estimated manpower (people)', 24, 28);
     ctx.fillStyle = colors.muted;
     ctx.font = '12px system-ui';
-    ctx.fillText('Higher intensity', 8, pad.top + 4);
-    ctx.fillText('Lower intensity', 8, baseline);
+    ctx.fillText('Weekly planning estimate | May 25-Nov 16, 2026', width - 290, 28);
   }
 
   function renderMilestones() {
