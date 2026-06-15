@@ -160,7 +160,7 @@ a {
 }
 
 .hero {
-  min-height: 88vh;
+  min-height: 76vh;
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
@@ -243,7 +243,7 @@ a {
 .hero-content {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 11vh 0 18vh;
+  padding: 8vh 0 10vh;
   align-self: end;
   position: relative;
   z-index: 2;
@@ -331,14 +331,13 @@ main {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
-  transform: translateY(-50%);
+  margin-top: 16px;
   background: var(--line);
   box-shadow: var(--shadow);
 }
 
 .status-strip article {
-  min-height: 138px;
-  padding: 22px;
+  padding: 18px;
   background: var(--white);
 }
 
@@ -371,12 +370,12 @@ small {
 }
 
 .section {
-  padding: 38px 0 54px;
+  padding: 30px 0 38px;
 }
 
 .section-heading {
   max-width: 800px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .row-heading {
@@ -420,8 +419,7 @@ small {
 
 .safety-grid article,
 .quality-grid article {
-  min-height: 142px;
-  padding: 20px;
+  padding: 17px;
   background: var(--white);
   border: 1px solid var(--line);
   border-top: 5px solid var(--green);
@@ -507,8 +505,7 @@ small {
 }
 
 .recovery-grid article {
-  min-height: 150px;
-  padding: 20px;
+  padding: 17px;
   color: var(--white);
   background: #163c35;
   border-top: 5px solid var(--amber);
@@ -576,12 +573,12 @@ small {
 }
 
 .photo-feature img {
-  height: min(55vw, 520px);
-  min-height: 310px;
+  height: min(45vw, 440px);
+  min-height: 270px;
 }
 
 .photo-feature > div {
-  padding: 26px;
+  padding: 20px;
   background: var(--white);
   border: 1px solid var(--line);
   box-shadow: 0 8px 24px rgba(20, 33, 29, 0.06);
@@ -606,7 +603,6 @@ small {
 
 .photo-card {
   position: relative;
-  min-height: 132px;
   border: 2px solid transparent;
   padding: 0;
   background: transparent;
@@ -645,8 +641,7 @@ small {
 
 .scope-card,
 .risk-card {
-  min-height: 160px;
-  padding: 22px;
+  padding: 18px;
 }
 
 .scope-card .metric {
@@ -672,7 +667,7 @@ small {
 }
 
 .civil-kpis {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-bottom: 18px;
 }
 
@@ -685,19 +680,6 @@ small {
 
 .civil-insight {
   border-left: 6px solid var(--red);
-}
-
-.subcontractor-register {
-  margin-top: 28px;
-}
-
-.compact-heading {
-  margin-bottom: 14px;
-}
-
-.compact-heading h3 {
-  margin: 0;
-  font-size: 1.35rem;
 }
 
 .impact-layout {
@@ -1035,7 +1017,7 @@ dd {
 }
 
 footer {
-  margin-top: 44px;
+  margin-top: 28px;
   padding: 28px 16px 34px;
   color: var(--muted);
   background: #e8eee9;
@@ -1055,7 +1037,7 @@ footer p {
   }
 
   .hero {
-    min-height: 82vh;
+    min-height: 72vh;
   }
 
   .topbar,
@@ -1089,10 +1071,6 @@ footer p {
 
   .photo-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .status-strip {
-    transform: translateY(-28px);
   }
 
   .timeline-row {
@@ -1163,7 +1141,7 @@ footer p {
   }
 
   .section {
-    padding-block: 28px;
+    padding-block: 22px;
   }
 
   .segmented,
@@ -1454,14 +1432,13 @@ footer p {
         </div>
         <div class="scope-grid civil-kpis" id="civilKpis"></div>
         <div class="civil-layout">
-          <div class="table-wrap">
+          <div class="table-wrap civil-activity-table">
             <table>
               <thead>
                 <tr>
                   <th>Civil activity</th>
                   <th>Responsible company</th>
                   <th>% Complete</th>
-                  <th>% Remaining</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -1479,26 +1456,7 @@ footer p {
               <div><dt>Internal roads</dt><dd>20%</dd></div>
               <div><dt>Report cut-off</dt><dd>Jun 5, 2026</dd></div>
             </dl>
-            <p><strong>Planning constraint:</strong> obtain formal release dates for Areas F and G before publishing completion dates for the remaining TBD civil scopes.</p>
           </aside>
-        </div>
-        <div class="subcontractor-register">
-          <div class="section-heading compact-heading">
-            <p class="eyebrow">Confirmed civil responsibilities</p>
-            <h3>Civil subcontractor and field-services register</h3>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Company</th>
-                  <th>Assigned scope</th>
-                  <th>Current role / status</th>
-                </tr>
-              </thead>
-              <tbody id="civilSubcontractorBody"></tbody>
-            </table>
-          </div>
         </div>
       </section>
 
@@ -1788,7 +1746,6 @@ footer p {
     civilKpis: [
       { title: 'Civil control progress', metric: '14.36%', note: 'Overall civil progress reported in the June 12 master control workbook.' },
       { title: 'Civil weekly pace', metric: '0.68% / 2.95%', note: 'Latest three-week average versus minimum required weekly progress; recovery is required.' },
-      { title: 'SET civil responsibility', metric: 'AB Power', note: 'AB Power performs the current SET civil works; Van Laan completed the SET foundation, and Marshall completed the SET earthwork.' },
       { title: 'F / G release dates', metric: 'TBD', note: 'Release dates are required before forecasting completion of remaining TBD civil works.' }
     ],
     civilActivities: [
@@ -1797,23 +1754,7 @@ footer p {
       { activity: 'Sediment basins / environmental controls', company: 'Lounsbury / ECS', done: 47, remaining: 53, status: 'At Risk', note: 'Week 22 superintendent update. Basin work started March 26; final date remains TBD.' },
       { activity: 'Internal roads', company: 'Topland', done: 28.1, remaining: 71.9, status: 'Critical', note: 'June 12 master control reports 5,140 of 18,320 complete. The workbook-required-rate result is invalid because the baseline date is overdue; roads continue to control logistics access.' },
       { activity: 'Inverter foundation piles', company: 'Civil / Survey team', done: 20, remaining: 80, status: 'Critical', note: 'Detailed control records survey/enabling progress at 20%, while Rosario Ruiz confirms that foundation pile ramming remains 0%. Do not interpret the master overview 100% entry as installed foundations.' },
-      { activity: 'O&M building', company: 'TBD', done: 0, remaining: 100, status: 'Planned', note: 'Reported start July 10 and finish July 11; scope remains TBD.' },
-      { activity: 'SET earthwork', company: 'Marshall (completed scope)', done: 100, remaining: 0, status: 'Completed', note: 'Marshall completed the SET earthwork before leaving the project.' },
-      { activity: 'SET foundation', company: 'Van Laan', done: 100, remaining: 0, status: 'Completed', note: 'Van Laan performed and completed the SET foundation scope.' },
       { activity: 'Current SET civil works', company: 'AB Power', done: 40, remaining: 60, status: 'Active', note: 'AB Power performs the current SET civil works. The latest recorded SET civil progress remains 40%, pending a newer quantified update.' }
-    ],
-    civilSubcontractors: [
-      { company: 'Greensol', scope: 'EPC delivery and global project management', status: 'Active | Overall project leadership, coordination, controls, and subcontractor management.' },
-      { company: 'Lounsbury', scope: 'Earthworks, grading, silo demolition, and sediment basins', status: 'Active | Continuing remaining grading and basin work.' },
-      { company: 'Topland', scope: 'Internal and project roads', status: 'Active | Road construction and access work.' },
-      { company: 'Hurricane', scope: 'Perimeter fencing', status: 'Active | Fence installation contractor.' },
-      { company: 'ECS', scope: 'BMP and environmental maintenance', status: 'Active | Environmental-control inspection and maintenance.' },
-      { company: 'Kalamazoo Excavating', scope: 'Pre-drilling', status: 'Active | Supports pile installation in pre-drill areas.' },
-      { company: 'TVANT', scope: 'Survey and drone services', status: 'Active | Topographic and aerial survey support.' },
-      { company: 'SSI', scope: 'Field survey services', status: 'Active | Field surveyors.' },
-      { company: 'AB Power', scope: 'Current SET civil works', status: 'Active | Responsible for current SET civil construction.' },
-      { company: 'Van Laan', scope: 'SET foundation', status: 'Completed | Performed the SET foundation scope.' },
-      { company: 'Marshall', scope: 'SET earthwork and previous civil works', status: 'Completed / Off project | Completed the SET earthwork before leaving site.' }
     ],
     contractors: [
       { name: 'ECCS / LATNOVVA detailed zones', scope: 15236, installed: 13836, remaining: 1400, done: 90.8, zones: 'Zones A, C, and E', status: 'Watch', note: 'June 12 detailed mechanical control reports 13,836 installed across active Zones A, C, and E. The file does not provide a defensible contractor split, so this combined view avoids an unsupported allocation.' },
@@ -1972,18 +1913,10 @@ footer p {
     `).join('');
     document.getElementById('civilBody').innerHTML = data.civilActivities.map((row) => `
       <tr>
-        <td data-label="Civil activity"><strong>${row.activity}</strong><br><small>${row.note}</small></td>
+        <td data-label="Civil activity"><strong>${row.activity}</strong></td>
         <td data-label="Responsible company"><strong>${row.company}</strong></td>
         <td data-label="% Complete">${row.done.toFixed(1)}%</td>
-        <td data-label="% Remaining">${row.remaining.toFixed(1)}%</td>
         <td data-label="Status">${badge(row.status)}</td>
-      </tr>
-    `).join('');
-    document.getElementById('civilSubcontractorBody').innerHTML = data.civilSubcontractors.map((row) => `
-      <tr>
-        <td data-label="Company"><strong>${row.company}</strong></td>
-        <td data-label="Assigned scope">${row.scope}</td>
-        <td data-label="Current role / status">${row.status}</td>
       </tr>
     `).join('');
   }
