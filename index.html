@@ -39,6 +39,126 @@ a {
   text-decoration: none;
 }
 
+.weather-panel {
+  width: min(1180px, calc(100% - 32px));
+  margin: 24px auto 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(20, 33, 29, 0.08);
+}
+
+.weather-now {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.weather-now h2 {
+  max-width: 760px;
+  margin-bottom: 8px;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.weather-now p:not(.eyebrow) {
+  max-width: 820px;
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.weather-current {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 190px;
+  padding-left: 22px;
+  border-left: 1px solid var(--line);
+}
+
+.weather-symbol {
+  color: #e0a21b;
+  font-size: 2.7rem;
+  line-height: 1;
+}
+
+.weather-current span:last-child {
+  display: grid;
+}
+
+.weather-current small,
+.weather-current em {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.weather-current strong {
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.weather-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.weather-week article {
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: #f4f8fa;
+}
+
+.weather-week span,
+.weather-week strong,
+.weather-week small {
+  display: block;
+}
+
+.weather-week span {
+  color: var(--blue);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.weather-week strong {
+  margin: 8px 0 6px;
+  font-size: 1.05rem;
+}
+
+.weather-week small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.weather-week .weather-watch {
+  border-color: #e5c78d;
+  background: #fff8e9;
+}
+
+.weather-week .weather-critical {
+  border-color: #e1a0a0;
+  background: #fff1f1;
+}
+
+.weather-note {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .hero {
   min-height: 88vh;
   display: grid;
@@ -895,6 +1015,10 @@ footer p {
 }
 
 @media (max-width: 900px) {
+  .weather-week {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .hero {
     min-height: 82vh;
   }
@@ -947,6 +1071,31 @@ footer p {
 }
 
 @media (max-width: 560px) {
+  .weather-panel {
+    width: 100%;
+    margin-top: 14px;
+    padding: 16px;
+  }
+
+  .weather-now {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .weather-now h2 {
+    font-size: 1.25rem;
+  }
+
+  .weather-current {
+    padding: 14px 0 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .weather-week {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   main,
   .topbar,
   .hero-content {
@@ -1066,6 +1215,34 @@ footer p {
     </header>
 
     <main>
+      <section class="weather-panel" id="weather" aria-label="Current site weather and weekly forecast">
+        <div class="weather-now">
+          <div>
+            <p class="eyebrow">Lawrence, Michigan | Weather updated June 15, 2026</p>
+            <h2>Clear now, with storm and high-wind exposure Tuesday and Wednesday</h2>
+            <p>Plan weather-sensitive piling, lifting, electrical, unloading, and earthwork around the midweek storm window. Confirm the daily forecast and site conditions before each shift.</p>
+          </div>
+          <div class="weather-current">
+            <span class="weather-symbol" aria-hidden="true">☀</span>
+            <span>
+              <small>Current conditions</small>
+              <strong>70&deg;F</strong>
+              <em>Clear | Wind 11 mph, gusts 22 mph</em>
+            </span>
+          </div>
+        </div>
+        <div class="weather-week" aria-label="Seven-day weather forecast">
+          <article><span>Mon 15</span><strong>72&deg; / 55&deg;</strong><small>Mostly sunny, gusts to 22 mph</small></article>
+          <article class="weather-watch"><span>Tue 16</span><strong>73&deg; / 53&deg;</strong><small>Showers and storms likely, gusts to 31 mph</small></article>
+          <article class="weather-critical"><span>Wed 17</span><strong>74&deg; / 57&deg;</strong><small>Rain and thunderstorms, gusts to 31 mph</small></article>
+          <article><span>Thu 18</span><strong>69&deg; / 54&deg;</strong><small>Early shower chance, then partly sunny</small></article>
+          <article><span>Fri 19</span><strong>71&deg; / 54&deg;</strong><small>Sunny</small></article>
+          <article><span>Sat 20</span><strong>73&deg; / 55&deg;</strong><small>Sunny, late-night shower chance</small></article>
+          <article><span>Sun 21</span><strong>76&deg; / 56&deg;</strong><small>Chance of showers</small></article>
+        </div>
+        <p class="weather-note"><strong>Construction weather risk:</strong> Tuesday and Wednesday may interrupt piling, lifting, unloading, earthwork, and electrical activities due to rain, thunderstorms, and wind gusts up to approximately 31 mph. Forecast conditions are not recorded production impacts; document actual lost hours in the daily report.</p>
+      </section>
+
       <section class="status-strip safety-strip" aria-label="Safety KPI summary">
         <article>
           <span class="label">Days Without LTI</span>
@@ -1539,7 +1716,7 @@ footer p {
     </main>
 
     <footer>
-      <p>Sources: WhatsApp Murch dashboard chat export, field comments through June 14, 2026 at 9:12 AM; Audelio Zuniga's latest field production reports control when production records disagree; ProductionProgress_JS-3.xlsx, reviewed June 15, 2026 with latest complete production entries through June 12; DELIVERY AND MECHANICAL-2.xlsx, reviewed June 15, 2026 with detailed control remaining at 13,836 installed and latest entries through June 12-13; June 8, 2026 pile-quality update supplied by Daniel Morilla; GameChange_Delivery_Schedule_Current_2026-06-15.csv, newest tracker-material plan reviewed June 15, 2026 with latest customer-confirmed site receipt dated June 1, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Rosario Ruiz, Avances Civiles Semana 22, issued June 5, 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work. Dashboard updated June 15, 2026.</p>
+      <p>Sources: National Weather Service Lawrence, Michigan point forecast and South Haven Airport observation, retrieved June 15, 2026; WhatsApp Murch dashboard chat export, field comments through June 14, 2026 at 9:12 AM; Audelio Zuniga's latest field production reports control when production records disagree; ProductionProgress_JS-3.xlsx, reviewed June 15, 2026 with latest complete production entries through June 12; DELIVERY AND MECHANICAL-2.xlsx, reviewed June 15, 2026 with detailed control remaining at 13,836 installed and latest entries through June 12-13; June 8, 2026 pile-quality update supplied by Daniel Morilla; GameChange_Delivery_Schedule_Current_2026-06-15.csv, newest tracker-material plan reviewed June 15, 2026 with latest customer-confirmed site receipt dated June 1, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Rosario Ruiz, Avances Civiles Semana 22, issued June 5, 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work. Dashboard updated June 15, 2026.</p>
     </footer>
 
     <script>
