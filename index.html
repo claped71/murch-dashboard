@@ -901,6 +901,28 @@ dd {
   gap: 14px;
 }
 
+.timeline-axis {
+  display: grid;
+  grid-template-columns: 190px 1fr 110px;
+  gap: 14px;
+  min-height: 26px;
+}
+
+.timeline-axis-track {
+  position: relative;
+  border-bottom: 1px solid #b8c6bf;
+}
+
+.timeline-axis-track span {
+  position: absolute;
+  bottom: 5px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 750;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
 .timeline-label {
   color: #33413d;
   font-size: 0.9rem;
@@ -909,17 +931,24 @@ dd {
 
 .track {
   height: 18px;
-  background: #dfe8e3;
+  background-color: #dfe8e3;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.65) 1px, transparent 1px);
+  background-size: calc(100% / 6) 100%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .bar {
   position: absolute;
   top: 0;
   bottom: 0;
-  min-width: 2%;
   background: var(--green);
+}
+
+.bar.milestone-marker {
+  width: 3px !important;
+  min-width: 3px;
+  transform: translateX(-1px);
 }
 
 .bar.critical {
@@ -940,6 +969,12 @@ dd {
   color: var(--muted);
   font-size: 0.84rem;
   text-align: right;
+}
+
+.timeline-date small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.68rem;
 }
 
 .milestone-list {
@@ -1063,6 +1098,10 @@ footer p {
   .timeline-row {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .timeline-axis {
+    display: none;
   }
 
   .timeline-date {
@@ -1668,7 +1707,7 @@ footer p {
             </select>
           </label>
         </div>
-        <p class="schedule-logic"><strong>Forecast logic:</strong> Activities may overlap by released block, but project-level finishes must follow the physical sequence: piles complete before tracker structure completes; tracker structure and full purlin installation complete before final module installation; modules complete before DC completion and commissioning.</p>
+        <p class="schedule-logic"><strong>Forecast logic:</strong> Bar position and length represent each activity's full dated calendar window on a common May 6-November 15 scale; one-day activities are shown as milestone markers. Activities with pending or dependency-based dates remain in the table but are excluded from the bar chart. Activities may overlap by released block, but project-level finishes must follow the physical installation sequence.</p>
         <div class="timeline" id="timeline"></div>
         <div class="table-wrap">
           <table>
@@ -2089,25 +2128,57 @@ footer p {
     `).join('');
   }
 
-  function dateToTime(date) {
-    return new Date(`${date}T00:00:00`).getTime();
+  function scheduleDate(date) {
+    const match = String(date).match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!match) return null;
+    return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
   }
 
   function renderTimeline() {
-    const start = dateToTime('2026-05-25');
-    const end = dateToTime('2026-11-15');
+    const day = 24 * 60 * 60 * 1000;
+    const start = scheduleDate('2026-05-06');
+    const end = scheduleDate('2026-11-15') + day;
     const span = end - start;
-    document.getElementById('timeline').innerHTML = data.schedule.slice(0, 9).map((row) => {
-      const s = ((dateToTime(row.start) - start) / span) * 100;
-      const e = ((dateToTime(row.end) - start) / span) * 100;
+    const datedRows = data.schedule.map((row) => ({
+      ...row,
+      startTime: scheduleDate(row.start),
+      endTime: scheduleDate(row.end)
+    })).filter((row) => row.startTime !== null && row.endTime !== null);
+    const months = [
+      ['May 6', '2026-05-06'],
+      ['Jun', '2026-06-01'],
+      ['Jul', '2026-07-01'],
+      ['Aug', '2026-08-01'],
+      ['Sep', '2026-09-01'],
+      ['Oct', '2026-10-01'],
+      ['Nov 15', '2026-11-15']
+    ];
+    const axis = `
+      <div class="timeline-axis" aria-hidden="true">
+        <div></div>
+        <div class="timeline-axis-track">${months.map(([label, date]) => {
+          const position = ((scheduleDate(date) - start) / span) * 100;
+          return `<span style="left:${position}%">${label}</span>`;
+        }).join('')}</div>
+        <div></div>
+      </div>
+    `;
+    const rows = datedRows.map((row) => {
+      const clippedStart = Math.max(start, row.startTime);
+      const clippedEnd = Math.min(end, row.endTime + day);
+      const left = ((clippedStart - start) / span) * 100;
+      const width = Math.max(0, ((clippedEnd - clippedStart) / span) * 100);
+      const duration = Math.round((row.endTime - row.startTime) / day) + 1;
+      const markerClass = duration === 1 ? ' milestone-marker' : '';
       return `
         <div class="timeline-row">
           <div class="timeline-label">${row.activity}</div>
-          <div class="track"><span class="bar ${statusClass(row.status)}" style="left:${Math.max(0, s)}%;width:${Math.max(2, e - s)}%"></span></div>
-          <div class="timeline-date">${row.start.slice(5)} to ${row.end.slice(5)}</div>
+          <div class="track"><span class="bar ${statusClass(row.status)}${markerClass}" style="left:${left}%;width:${width}%" title="${duration} calendar day${duration === 1 ? '' : 's'}"></span></div>
+          <div class="timeline-date">${row.start.slice(5, 10)} to ${row.end.slice(5, 10)}<small>${duration} day${duration === 1 ? '' : 's'}</small></div>
         </div>
       `;
     }).join('');
+    document.getElementById('timeline').innerHTML = axis + rows;
   }
 
   function renderSchedule() {
