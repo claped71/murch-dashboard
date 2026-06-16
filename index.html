@@ -208,14 +208,16 @@ a {
 }
 
 .brand {
-  gap: 12px;
+  gap: 14px;
   font-weight: 800;
   letter-spacing: 0;
+  min-width: 210px;
 }
 
 .brand img {
-  width: 46px;
-  height: 30px;
+  width: 136px;
+  height: auto;
+  max-height: 76px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -1117,6 +1119,15 @@ footer p {
   .topbar,
   .hero-content {
     width: min(100% - 24px, 1180px);
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand img {
+    width: 124px;
+    max-height: 68px;
   }
 
   .hero-content {
