@@ -1235,29 +1235,23 @@ footer p {
       <section class="weather-panel" id="weather" aria-label="Current site weather and weekly forecast">
         <div class="weather-now">
           <div>
-            <p class="eyebrow">Lawrence, Michigan | Weather updated June 15, 2026</p>
-            <h2>Clear now, with storm and high-wind exposure Tuesday and Wednesday</h2>
-            <p>Plan weather-sensitive piling, lifting, electrical, unloading, and earthwork around the midweek storm window. Confirm the daily forecast and site conditions before each shift.</p>
+            <p class="eyebrow" id="weatherEyebrow">Lawrence, Michigan | Weather loading...</p>
+            <h2 id="weatherHeadline">Current site weather and weekly forecast</h2>
+            <p id="weatherNarrative">Opening the dashboard refreshes current conditions, forecast highs/lows, wind gusts, and precipitation risk for the project area.</p>
           </div>
           <div class="weather-current">
-            <span class="weather-symbol" aria-hidden="true">☀</span>
+            <span class="weather-symbol" id="weatherSymbol" aria-hidden="true">--</span>
             <span>
               <small>Current conditions</small>
-              <strong>70&deg;F</strong>
-              <em>Clear | Wind 11 mph, gusts 22 mph</em>
+              <strong id="weatherTemp">--&deg;F</strong>
+              <em id="weatherSummary">Loading weather...</em>
             </span>
           </div>
         </div>
-        <div class="weather-week" aria-label="Seven-day weather forecast">
-          <article><span>Mon 15</span><strong>72&deg; / 55&deg;</strong><small>Mostly sunny, gusts to 22 mph</small></article>
-          <article class="weather-watch"><span>Tue 16</span><strong>73&deg; / 53&deg;</strong><small>Showers and storms likely, gusts to 31 mph</small></article>
-          <article class="weather-critical"><span>Wed 17</span><strong>74&deg; / 57&deg;</strong><small>Rain and thunderstorms, gusts to 31 mph</small></article>
-          <article><span>Thu 18</span><strong>69&deg; / 54&deg;</strong><small>Early shower chance, then partly sunny</small></article>
-          <article><span>Fri 19</span><strong>71&deg; / 54&deg;</strong><small>Sunny</small></article>
-          <article><span>Sat 20</span><strong>73&deg; / 55&deg;</strong><small>Sunny, late-night shower chance</small></article>
-          <article><span>Sun 21</span><strong>76&deg; / 56&deg;</strong><small>Chance of showers</small></article>
+        <div class="weather-week" id="weatherWeek" aria-label="Seven-day weather forecast">
+          <article><span>Loading</span><strong>--&deg; / --&deg;</strong><small>Fetching current forecast...</small></article>
         </div>
-        <p class="weather-note"><strong>Construction weather risk:</strong> Tuesday and Wednesday may interrupt piling, lifting, unloading, earthwork, and electrical activities due to rain, thunderstorms, and wind gusts up to approximately 31 mph. Forecast conditions are not recorded production impacts; document actual lost hours in the daily report.</p>
+        <p class="weather-note" id="weatherNote"><strong>Construction weather risk:</strong> Weather data refreshes when this dashboard is opened. Forecast conditions are not recorded production impacts; document actual lost hours in the daily report.</p>
       </section>
 
       <section class="status-strip safety-strip" aria-label="Safety KPI summary">
@@ -1727,7 +1721,7 @@ footer p {
     </main>
 
     <footer>
-      <p>Sources: National Weather Service Lawrence, Michigan point forecast and South Haven Airport observation, retrieved June 15, 2026; WhatsApp Murch dashboard chat export, field comments through June 14, 2026 at 9:12 AM; Audelio Zuniga's DELIVERY AND MECHANICAL-3.xlsx controls installed pile production at 14,586 piles, reviewed June 16, 2026; ProductionProgress_JS-4.xlsx is used only for non-pile-production supporting controls such as civil quantities and recovery-rate context; June 8, 2026 pile-quality update supplied by Daniel Morilla; GameChange_Delivery_Schedule_Current_2026-06-15.csv, newest tracker-material plan reviewed June 15, 2026 with latest customer-confirmed site receipt dated June 1, 2026; Drainage Commissioner partial release for Zones F and G reported June 16, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Rosario Ruiz, Avances Civiles Semana 22, issued June 5, 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work. Dashboard updated June 16, 2026.</p>
+      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan, refreshed in browser with local update time; WhatsApp Murch dashboard chat export, field comments through June 14, 2026 at 9:12 AM; Audelio Zuniga's DELIVERY AND MECHANICAL-3.xlsx controls installed pile production at 14,586 piles, reviewed June 16, 2026; ProductionProgress_JS-4.xlsx is used only for non-pile-production supporting controls such as civil quantities and recovery-rate context; June 8, 2026 pile-quality update supplied by Daniel Morilla; GameChange_Delivery_Schedule_Current_2026-06-15.csv, newest tracker-material plan reviewed June 15, 2026 with latest customer-confirmed site receipt dated June 1, 2026; Drainage Commissioner partial release for Zones F and G reported June 16, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Rosario Ruiz, Avances Civiles Semana 22, issued June 5, 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work. Dashboard updated June 16, 2026.</p>
     </footer>
 
     <script>
@@ -1744,18 +1738,18 @@ footer p {
       { title: 'Commissioning', metric: 'PIS Oct 16', note: 'Cold commissioning, energization, tracker testing, inverter start-up, PR test path, punch list, COD, and substantial completion.' }
     ],
     photos: [
-      { src: '/murch-dashboard/assets/recent/recent-1.jpg', date: 'June 13, 2026', title: 'SET foundation construction', note: 'Newest site photo showing the concrete foundation, reinforcement cages, embedded items, excavation equipment, and active SET civil workfront.' },
-      { src: '/murch-dashboard/assets/recent/recent-2.jpg', date: 'June 12, 2026', title: 'Road and equipment activity', note: 'Recent civil and logistics view showing equipment operating beside the project access road and adjacent work areas.' },
-      { src: '/murch-dashboard/assets/recent/recent-3.jpg', date: 'June 11, 2026', title: 'Tracker actuator installation detail', note: 'Recent mechanical close-up documenting actuator installation, tracker steel connections, cabling, and field quality checks.' },
-      { src: '/murch-dashboard/assets/recent/recent-4.jpg', date: 'June 11, 2026', title: 'Tracker field inspection', note: 'Recent multidisciplinary field inspection of installed tracker rows and mechanical workfront conditions.' },
-      { src: '/murch-dashboard/assets/recent/recent-5.jpg', date: 'June 11, 2026', title: 'Environmental controls and field support', note: 'Recent civil and environmental view showing stabilized access, sediment-control wattles, drainage protection, and field-support facilities.' },
-      { src: '/murch-dashboard/assets/recent/recent-6.jpg', date: 'April 9, 2026', title: 'Truck unloading operation', note: 'Telehandler unloading tracker components from delivery trailer into the staging area.' },
-      { src: '/murch-dashboard/assets/recent/recent-7.jpg', date: 'April 13, 2026', title: 'Racking material storage', note: 'Racking and tracker material staged on site for mechanical installation sequencing.' },
-      { src: '/murch-dashboard/assets/recent/recent-8.jpg', date: 'June 2, 2026', title: 'Access road condition', note: 'Recent civil access-road view supporting logistics, crew movement, and material deliveries.' },
-      { src: '/murch-dashboard/assets/recent/recent-9.jpg', date: 'May 26, 2026', title: 'Pile field progression', note: 'Installed pile rows showing foundation workfront progress and remaining mechanical access.' },
-      { src: '/murch-dashboard/assets/recent/recent-10.jpg', date: 'May 19, 2026', title: 'Tracker assembly', note: 'Mechanical assembly work with equipment placing tracker components on installed piles.' },
-      { src: '/murch-dashboard/assets/recent/recent-11.jpg', date: 'June 2, 2026', title: 'Tracker line and pile workfront', note: 'Recent workfront photo showing installed tracker line conditions and available field access.' },
-      { src: '/murch-dashboard/assets/recent/recent-12.jpg', date: 'April 15, 2026', title: 'Pile ramming operation', note: 'Older mechanical progress record showing pile driving equipment active in the field.' }
+      { src: '/murch-dashboard/assets/recent/recent-1.jpg', date: 'June 15, 2026', title: 'Latest site access and equipment view', note: 'Newest site overview showing active equipment, access roads, and current workfront conditions.' },
+      { src: '/murch-dashboard/assets/recent/recent-2.jpg', date: 'June 15, 2026', title: 'SET foundation workfront', note: 'Field crew working around the SET foundation area, documenting current civil and structural coordination.' },
+      { src: '/murch-dashboard/assets/recent/recent-3.jpg', date: 'June 13, 2026', title: 'SET foundation reinforcement', note: 'Recent SET foundation view showing concrete, reinforcement, embedded items, equipment, and active civil progress.' },
+      { src: '/murch-dashboard/assets/recent/recent-4.jpg', date: 'June 12, 2026', title: 'Access road and civil logistics', note: 'Recent access-road view supporting equipment movement, material deliveries, and civil logistics.' },
+      { src: '/murch-dashboard/assets/recent/recent-5.jpg', date: 'June 11, 2026', title: 'Tracker actuator detail', note: 'Mechanical close-up documenting actuator installation, tracker steel connections, and field quality checks.' },
+      { src: '/murch-dashboard/assets/recent/recent-6.jpg', date: 'June 11, 2026', title: 'Tracker field inspection', note: 'Field inspection of installed tracker rows and active mechanical workfront conditions.' },
+      { src: '/murch-dashboard/assets/recent/recent-7.jpg', date: 'June 11, 2026', title: 'Environmental controls and field support', note: 'Civil and environmental view showing stabilized access, sediment-control wattles, drainage protection, and support facilities.' },
+      { src: '/murch-dashboard/assets/recent/recent-8.jpg', date: 'June 3, 2026', title: 'Aerial civil and laydown context', note: 'Drone view showing the broader civil layout, access roads, laydown area, and surrounding project workfronts.' },
+      { src: '/murch-dashboard/assets/recent/recent-9.jpg', date: 'June 3, 2026', title: 'Aerial pile and road operation', note: 'Drone view of equipment working along the road and pile workfront, useful for logistics and sequencing context.' },
+      { src: '/murch-dashboard/assets/recent/recent-10.jpg', date: 'May 19, 2026', title: 'Tracker and module field review', note: 'Representative mechanical photo showing tracker/module interface review and installed component checks.' },
+      { src: '/murch-dashboard/assets/recent/recent-11.jpg', date: 'May 26, 2026', title: 'Basin and road stabilization', note: 'Representative civil/environmental photo showing stabilized basin slopes and access-road construction.' },
+      { src: '/murch-dashboard/assets/recent/recent-12.jpg', date: 'April 9, 2026', title: 'Early site logistics and material handling', note: 'Older representative logistics view retained to show project material-handling and mobilization history.' }
     ],
     civilKpis: [
       { title: 'Civil control progress', metric: '14.36%', note: 'Overall civil progress reported in the June 16 master control workbook.' },
@@ -2259,6 +2253,115 @@ footer p {
     `).join('');
   }
 
+  const weatherCodeMap = {
+    0: ['Clear', '☀'],
+    1: ['Mainly clear', '☀'],
+    2: ['Partly cloudy', '◐'],
+    3: ['Overcast', '☁'],
+    45: ['Fog', '≋'],
+    48: ['Depositing rime fog', '≋'],
+    51: ['Light drizzle', '☂'],
+    53: ['Drizzle', '☂'],
+    55: ['Dense drizzle', '☂'],
+    61: ['Light rain', '☂'],
+    63: ['Rain', '☂'],
+    65: ['Heavy rain', '☂'],
+    71: ['Light snow', '❄'],
+    73: ['Snow', '❄'],
+    75: ['Heavy snow', '❄'],
+    80: ['Rain showers', '☂'],
+    81: ['Rain showers', '☂'],
+    82: ['Heavy showers', '☂'],
+    95: ['Thunderstorm', '⚡'],
+    96: ['Thunderstorm with hail', '⚡'],
+    99: ['Thunderstorm with hail', '⚡']
+  };
+
+  function weatherText(code) {
+    return weatherCodeMap[code] || ['Weather update', '•'];
+  }
+
+  function formatProjectTime(date = new Date()) {
+    return new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Detroit',
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      timeZoneName: 'short'
+    }).format(date);
+  }
+
+  function formatForecastDay(isoDate) {
+    const [year, month, day] = isoDate.split('-').map(Number);
+    return new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Detroit',
+      weekday: 'short',
+      month: 'numeric',
+      day: 'numeric'
+    }).format(new Date(Date.UTC(year, month - 1, day, 12)));
+  }
+
+  function weatherClass(code, precip, gust) {
+    if ([95, 96, 99].includes(code) || precip >= 60 || gust >= 30) return 'weather-critical';
+    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code) || precip >= 35 || gust >= 24) return 'weather-watch';
+    return '';
+  }
+
+  function renderWeatherFallback(message) {
+    document.getElementById('weatherEyebrow').textContent = `Lawrence, Michigan | Weather unavailable ${formatProjectTime()}`;
+    document.getElementById('weatherHeadline').textContent = 'Check current site weather before starting weather-sensitive work';
+    document.getElementById('weatherNarrative').textContent = message;
+    document.getElementById('weatherSymbol').textContent = '--';
+    document.getElementById('weatherTemp').innerHTML = '--&deg;F';
+    document.getElementById('weatherSummary').textContent = 'Live feed unavailable';
+    document.getElementById('weatherWeek').innerHTML = '<article class="weather-watch"><span>Manual check</span><strong>Required</strong><small>Confirm weather before piling, lifting, unloading, earthwork, and electrical activities.</small></article>';
+  }
+
+  async function renderWeather() {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=42.2195&longitude=-86.0517&current=temperature_2m,weather_code,wind_speed_10m,wind_gusts_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_gusts_10m_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FDetroit&forecast_days=7';
+    try {
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Weather feed returned ${response.status}`);
+      const weather = await response.json();
+      const current = weather.current;
+      const daily = weather.daily;
+      const [condition, symbol] = weatherText(current.weather_code);
+      const gust = Math.round(current.wind_gusts_10m || 0);
+      const wind = Math.round(current.wind_speed_10m || 0);
+      const temp = Math.round(current.temperature_2m);
+      const maxGust = Math.max(...daily.wind_gusts_10m_max.map((value) => Math.round(value || 0)));
+      const maxPrecip = Math.max(...daily.precipitation_probability_max.map((value) => Math.round(value || 0)));
+      const riskText = maxPrecip >= 60 || maxGust >= 30
+        ? 'High weather exposure this week. Protect piling, lifting, unloading, earthwork, and electrical activities around rain, storms, and wind windows.'
+        : maxPrecip >= 35 || maxGust >= 24
+          ? 'Moderate weather exposure this week. Confirm daily site conditions before weather-sensitive operations.'
+          : 'Weather exposure is currently manageable, but daily site verification is still required before each shift.';
+
+      document.getElementById('weatherEyebrow').textContent = `Lawrence, Michigan | Updated ${formatProjectTime()}`;
+      document.getElementById('weatherHeadline').textContent = `${condition} now, ${temp}°F, wind ${wind} mph`;
+      document.getElementById('weatherNarrative').textContent = riskText;
+      document.getElementById('weatherSymbol').textContent = symbol;
+      document.getElementById('weatherTemp').innerHTML = `${temp}&deg;F`;
+      document.getElementById('weatherSummary').textContent = `${condition} | Wind ${wind} mph, gusts ${gust} mph`;
+      document.getElementById('weatherWeek').innerHTML = daily.time.map((day, index) => {
+        const code = daily.weather_code[index];
+        const [text] = weatherText(code);
+        const high = Math.round(daily.temperature_2m_max[index]);
+        const low = Math.round(daily.temperature_2m_min[index]);
+        const precip = Math.round(daily.precipitation_probability_max[index] || 0);
+        const dayGust = Math.round(daily.wind_gusts_10m_max[index] || 0);
+        const className = weatherClass(code, precip, dayGust);
+        return `<article class="${className}"><span>${formatForecastDay(day)}</span><strong>${high}&deg; / ${low}&deg;</strong><small>${text}; rain ${precip}%, gusts ${dayGust} mph</small></article>`;
+      }).join('');
+      document.getElementById('weatherNote').innerHTML = `<strong>Construction weather risk:</strong> ${riskText} Forecast conditions are not recorded production impacts; document actual lost hours in the daily report.`;
+    } catch (error) {
+      renderWeatherFallback('Live weather could not be refreshed from the dashboard. Confirm current conditions manually before weather-sensitive operations.');
+    }
+  }
+
   function bindEvents() {
     document.getElementById('prevPhoto').addEventListener('click', () => setPhoto(photoIndex - 1, true));
     document.getElementById('nextPhoto').addEventListener('click', () => setPhoto(photoIndex + 1, true));
@@ -2287,6 +2390,7 @@ footer p {
   drawPersonnelChart();
   renderMilestones();
   renderRisks();
+  renderWeather();
   bindEvents();
 }());
 
