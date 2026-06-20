@@ -215,41 +215,22 @@ a {
 }
 
 .brand-mark {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background:
-    linear-gradient(135deg, rgba(250, 253, 251, 0.22), rgba(224, 238, 231, 0.08)),
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.24), transparent 58%);
-  box-shadow:
-    0 14px 30px rgba(10, 20, 17, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(16px) saturate(145%);
-  -webkit-backdrop-filter: blur(16px) saturate(145%);
-  overflow: hidden;
-}
-
-.brand-mark::before {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(107, 141, 124, 0.06));
-  pointer-events: none;
+  padding: 0;
 }
 
 .brand img {
-  position: relative;
-  z-index: 1;
   width: 136px;
   height: auto;
   max-height: 76px;
   object-fit: contain;
-  filter: drop-shadow(0 3px 10px rgba(17, 43, 31, 0.18));
+  filter:
+    brightness(0)
+    invert(1)
+    drop-shadow(0 3px 12px rgba(5, 13, 11, 0.42))
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.35));
 }
 
 .brand-title {
