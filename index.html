@@ -214,12 +214,21 @@ a {
   min-width: 210px;
 }
 
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 24px rgba(13, 23, 20, 0.18);
+}
+
 .brand img {
   width: 136px;
   height: auto;
   max-height: 76px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 .navlinks {
@@ -1216,7 +1225,9 @@ footer p {
       <div class="hero-slide" aria-hidden="true"></div>
       <nav class="topbar" aria-label="Dashboard sections">
         <a class="brand" href="#top" aria-label="Murch dashboard home">
-          <img src="/murch-dashboard/assets/greensol_logo_green_transparent.png" alt="">
+          <span class="brand-mark">
+            <img src="https://claped71.github.io/murch-dashboard/assets/greensol_logo_green_transparent.png?v=20260620-logo2" data-fallback="https://claped71.github.io/murch-dashboard/assets/greensol_logo_green_transparent.png" alt="Greensol logo" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
+          </span>
           <span>Murch Solar</span>
         </a>
         <div class="navlinks">
@@ -1225,7 +1236,7 @@ footer p {
           <a href="#progress">Progress</a>
           <a href="#civil">Civil</a>
           <a href="#production">Production</a>
-          <a href="#recovery">Recovery</a>
+          <a href="#weekly-plan">Weekly Plan</a>
           <a href="#schedule">Schedule</a>
           <a href="#risks">Risks</a>
         </div>
