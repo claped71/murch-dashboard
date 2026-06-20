@@ -1446,6 +1446,7 @@ footer p {
               <tr>
                 <th>Area / Workfront</th>
                 <th>This week target</th>
+                <th>Minimum target / control unit</th>
                 <th>Primary gate</th>
                 <th>Owners</th>
               </tr>
@@ -1453,7 +1454,7 @@ footer p {
             <tbody id="weeklyPlanBody"></tbody>
           </table>
         </div>
-        <p class="quality-note"><strong>Management focus:</strong> The weekly plan is shown by workfront, with named Greensol leaders and subcontractors responsible for opening the next sequence.</p>
+        <p class="quality-note"><strong>Management focus:</strong> The weekly plan is shown by workfront, with named Greensol leaders and subcontractors responsible for opening the next sequence. Minimum targets convert the current schedule-driving rates into weekly control units; enabling scopes use fronts or package counts where installation quantities are not yet the controlling metric.</p>
       </section>
 
       <section class="section" id="civil">
@@ -1690,14 +1691,14 @@ footer p {
       { src: asset('assets/recent/recent-12.jpg'), fallbackSrc: assetFallback('assets/recent/recent-12.jpg'), date: 'April 9, 2026', title: 'Early site logistics and material handling', note: 'Older representative logistics view retained to show project material-handling and mobilization history.' }
     ],
     weeklyPlan: [
-      { area: 'Area A tracker release', target: 'Keep tracker assembly advancing and release purlin-ready rows for the first module fronts.', gate: 'Continuous material kits and clean handoff from mechanical to follow-on crews.', owners: 'ECCS | Audelio Zuniga | Manuel Ramirez' },
-      { area: 'Area E mechanical closeout', target: 'Close remaining mechanical punch and convert approved rows into stable released workfronts.', gate: 'Tracker completion, QA turnover, and no gaps in follow-on material kits.', owners: 'ECCS / LATNOVVA | Audelio Zuniga | Manuel Ramirez' },
-      { area: 'Zone B piling continuity', target: 'Protect post allocation and sustain production after the first 250 counted installed piles.', gate: 'Confirmed post receipts and released pile-driving fronts.', owners: 'LATNOVVA | Audelio Zuniga | Manuel Ramirez | Karina Mucino' },
-      { area: 'Zone F startup', target: 'Finish pile-spot marking by June 21 and start pile ramming June 22.', gate: 'Access, safety onboarding, released workfront, and delivered piles.', owners: 'United | Audelio Zuniga | Manuel Ramirez | Joshua Spalding' },
-      { area: 'Zones F/G civil release', target: 'Advance grading, basins, roads, and fence fronts under the partial release.', gate: 'Drainage-Commissioner restrictions and daily access readiness.', owners: 'Lounsbury / Topland / ECS / Hurricane | Audelio Zuniga | Rosario Ruiz | Nolberi' },
-      { area: 'SET / inverter area', target: 'Keep current SET civil works moving to protect the July 1 inverter-installation window.', gate: 'Pad and civil readiness for the inverter sequence.', owners: 'AB Power | Audelio Zuniga | Axel Cano | Joshua Spalding' },
-      { area: 'LV aerial-system readiness', target: 'Lock the July 7 Chemik delivery and prepare messenger-wire / tension-pile installation fronts.', gate: 'Cable delivery, released module areas, and East Carolina plus self-perform readiness.', owners: 'ECCS / Greensol Self-Perform | Audelio Zuniga | Angel Urbina | Luis Romero | Karina Mucino' },
-      { area: 'MV / HDD corridor', target: 'Convert ITS mobilization into measurable boring and MV production without blocking other fronts.', gate: 'Crossing approvals, access control, and equipment continuity.', owners: 'ITS | Audelio Zuniga | Angel Urbina | Joshua Spalding' }
+      { area: 'Area A tracker release', target: 'Keep tracker assembly advancing and release purlin-ready rows for the first module fronts.', minimum: '>= 240 tracker structures/week on released rows', gate: 'Continuous material kits and clean handoff from mechanical to follow-on crews.', owners: 'ECCS | Audelio Zuniga | Manuel Ramirez' },
+      { area: 'Area E mechanical closeout', target: 'Close remaining mechanical punch and convert approved rows into stable released workfronts.', minimum: '100% closure of current open blockers in completed Area E rows this week', gate: 'Tracker completion, QA turnover, and no gaps in follow-on material kits.', owners: 'ECCS / LATNOVVA | Audelio Zuniga | Manuel Ramirez' },
+      { area: 'Zone B piling continuity', target: 'Protect post allocation and sustain production after the first 250 counted installed piles.', minimum: '>= 4,512 piles/week project minimum with daily installed piles continuing in Zone B', gate: 'Confirmed post receipts and released pile-driving fronts.', owners: 'LATNOVVA | Audelio Zuniga | Manuel Ramirez | Karina Mucino' },
+      { area: 'Zone F startup', target: 'Finish pile-spot marking by June 21 and start pile ramming June 22.', minimum: '>= 1 fully active pile-driving front and first counted installed piles this week', gate: 'Access, safety onboarding, released workfront, and delivered piles.', owners: 'United | Audelio Zuniga | Manuel Ramirez | Joshua Spalding' },
+      { area: 'Zones F/G civil release', target: 'Advance grading, basins, roads, and fence fronts under the partial release.', minimum: '>= 3 active civil fronts this week: grading, basin/environmental, and road or fence', gate: 'Drainage-Commissioner restrictions and daily access readiness.', owners: 'Lounsbury / Topland / ECS / Hurricane | Audelio Zuniga | Rosario Ruiz | Nolberi' },
+      { area: 'SET / inverter area', target: 'Keep current SET civil works moving to protect the July 1 inverter-installation window.', minimum: '>= 1 continuous SET civil front with zero pad-release slippage this week', gate: 'Pad and civil readiness for the inverter sequence.', owners: 'AB Power | Audelio Zuniga | Axel Cano | Joshua Spalding' },
+      { area: 'LV aerial-system readiness', target: 'Lock the July 7 Chemik delivery and prepare messenger-wire / tension-pile installation fronts.', minimum: '>= 1 first-batch cable delivery package and >= 1 released LV block package by July 7', gate: 'Cable delivery, released module areas, and East Carolina plus self-perform readiness.', owners: 'ECCS / Greensol Self-Perform | Audelio Zuniga | Angel Urbina | Luis Romero | Karina Mucino' },
+      { area: 'MV / HDD corridor', target: 'Convert ITS mobilization into measurable boring and MV production without blocking other fronts.', minimum: '>= 1 continuous MV/HDD front this week with zero access stoppage', gate: 'Crossing approvals, access control, and equipment continuity.', owners: 'ITS | Audelio Zuniga | Angel Urbina | Joshua Spalding' }
     ],
     civilKpis: [
       { title: 'Civil control progress', metric: '14.36%', note: 'Overall civil progress reported in the June 16 civil planning workbook.' },
@@ -1866,6 +1867,7 @@ footer p {
       <tr>
         <td data-label="Area / Workfront"><strong>${row.area}</strong></td>
         <td data-label="This week target">${row.target}</td>
+        <td data-label="Minimum target / control unit"><strong>${row.minimum}</strong></td>
         <td data-label="Primary gate">${row.gate}</td>
         <td data-label="Owners">${row.owners}</td>
       </tr>
