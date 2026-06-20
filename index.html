@@ -1481,7 +1481,7 @@ footer p {
           </div>
         </div>
         <div class="photo-feature">
-          <img id="featuredPhoto" src="/murch-dashboard/assets/recent/recent-1.jpg" alt="Representative Murch site scope progress">
+          <img id="featuredPhoto" src="/murch-dashboard/assets/recent/recent-1.jpg?v=20260619-photos3" alt="Representative Murch site scope progress">
           <div>
             <span class="label" id="featuredPhotoDate">June 13, 2026</span>
             <h3 id="featuredPhotoTitle">SET foundation construction</h3>
@@ -1709,13 +1709,24 @@ footer p {
       <section class="section split">
         <div>
           <div class="section-heading compact">
-            <p class="eyebrow">Estimated personnel outlook</p>
-            <h2>Estimated weekly manpower across the full construction period</h2>
+            <p class="eyebrow">Verified on-site manpower</p>
+            <h2>Subcontractor headcount on June 16 and June 17</h2>
           </div>
-          <div class="chart-panel">
-            <canvas id="personnelChart" width="920" height="420" aria-label="Estimated weekly manpower in people from May through November 2026"></canvas>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Contractor</th>
+                  <th>Jun 16</th>
+                  <th>Jun 17</th>
+                  <th>Total Used</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody id="actualHeadcountBody"></tbody>
+            </table>
           </div>
-          <p class="personnel-note">Planning estimate from the May 27 resource-loading plan, covering May 25 through November 16, 2026. Values are estimated manpower units, not verified actual site counts.</p>
+          <p class="personnel-note">Source: whiteboard photos for June 16 and June 17, 2026. Blank entries were treated as zero. Greensol is set to 24 total people per instruction: 15 site staff plus 9 laborers for maintenance and general activities.</p>
         </div>
         <div>
           <div class="section-heading compact">
@@ -1753,18 +1764,18 @@ footer p {
       { title: 'Commissioning', metric: 'PIS Oct 16', note: 'Cold commissioning, energization, tracker testing, inverter start-up, PR test path, punch list, COD, and substantial completion.' }
     ],
     photos: [
-      { src: '/murch-dashboard/assets/recent/recent-1.jpg', date: 'June 19, 2026', title: 'ITS plowing machine arrival', note: 'Joshua Spalding reported that the ITS plowing machine arrived on site for the MW cable scope; this photo shows the equipment staged and ready for electrical mobilization.' },
-      { src: '/murch-dashboard/assets/recent/recent-2.jpg', date: 'June 19, 2026', title: 'ITS plowing convoy on access road', note: 'June 19 field photo showing the ITS plowing machine being hauled along the project access road, confirming active electrical-scope mobilization.' },
-      { src: '/murch-dashboard/assets/recent/recent-3.jpg', date: 'June 19, 2026', title: 'Plowing attachment at Area A', note: 'Additional June 19 view of the ITS plowing equipment and blade assembly in the field, reinforcing that MW cable installation equipment is physically on site.' },
-      { src: '/murch-dashboard/assets/recent/recent-4.jpg', date: 'June 17, 2026', title: 'Tracker workfront conditions', note: 'June 17 site photo showing muddy tracker rows, standing water, and access conditions affecting mechanical and follow-on workfront continuity.' },
-      { src: '/murch-dashboard/assets/recent/recent-5.jpg', date: 'June 17, 2026', title: 'Released-row field access', note: 'June 17 field photo showing current released-row conditions and tracker pile lines, useful context for daily access, sequencing, and recovery planning.' },
-      { src: '/murch-dashboard/assets/recent/recent-6.jpg', date: 'June 11, 2026', title: 'Tracker field inspection', note: 'Field inspection of installed tracker rows and active mechanical workfront conditions.' },
-      { src: '/murch-dashboard/assets/recent/recent-7.jpg', date: 'June 11, 2026', title: 'Environmental controls and field support', note: 'Civil and environmental view showing stabilized access, sediment-control wattles, drainage protection, and support facilities.' },
-      { src: '/murch-dashboard/assets/recent/recent-8.jpg', date: 'June 3, 2026', title: 'Aerial civil and laydown context', note: 'Drone view showing the broader civil layout, access roads, laydown area, and surrounding project workfronts.' },
-      { src: '/murch-dashboard/assets/recent/recent-9.jpg', date: 'June 3, 2026', title: 'Aerial pile and road operation', note: 'Drone view of equipment working along the road and pile workfront, useful for logistics and sequencing context.' },
-      { src: '/murch-dashboard/assets/recent/recent-10.jpg', date: 'May 19, 2026', title: 'Tracker and module field review', note: 'Representative mechanical photo showing tracker/module interface review and installed component checks.' },
-      { src: '/murch-dashboard/assets/recent/recent-11.jpg', date: 'May 26, 2026', title: 'Basin and road stabilization', note: 'Representative civil/environmental photo showing stabilized basin slopes and access-road construction.' },
-      { src: '/murch-dashboard/assets/recent/recent-12.jpg', date: 'April 9, 2026', title: 'Early site logistics and material handling', note: 'Older representative logistics view retained to show project material-handling and mobilization history.' }
+      { src: '/murch-dashboard/assets/recent/recent-1.jpg?v=20260619-photos3', date: 'June 19, 2026', title: 'ITS plowing machine arrival', note: 'Joshua Spalding reported that the ITS plowing machine arrived on site for the MW cable scope; this photo shows the equipment staged and ready for electrical mobilization.' },
+      { src: '/murch-dashboard/assets/recent/recent-2.jpg?v=20260619-photos3', date: 'June 19, 2026', title: 'ITS plowing convoy on access road', note: 'June 19 field photo showing the ITS plowing machine being hauled along the project access road, confirming active electrical-scope mobilization.' },
+      { src: '/murch-dashboard/assets/recent/recent-3.jpg?v=20260619-photos3', date: 'June 19, 2026', title: 'Plowing attachment at Area A', note: 'Additional June 19 view of the ITS plowing equipment and blade assembly in the field, reinforcing that MW cable installation equipment is physically on site.' },
+      { src: '/murch-dashboard/assets/recent/recent-4.jpg?v=20260619-photos3', date: 'June 17, 2026', title: 'Tracker workfront conditions', note: 'June 17 site photo showing muddy tracker rows, standing water, and access conditions affecting mechanical and follow-on workfront continuity.' },
+      { src: '/murch-dashboard/assets/recent/recent-5.jpg?v=20260619-photos3', date: 'June 17, 2026', title: 'Released-row field access', note: 'June 17 field photo showing current released-row conditions and tracker pile lines, useful context for daily access, sequencing, and recovery planning.' },
+      { src: '/murch-dashboard/assets/recent/recent-6.jpg?v=20260619-photos3', date: 'June 11, 2026', title: 'Tracker field inspection', note: 'Field inspection of installed tracker rows and active mechanical workfront conditions.' },
+      { src: '/murch-dashboard/assets/recent/recent-7.jpg?v=20260619-photos3', date: 'June 11, 2026', title: 'Environmental controls and field support', note: 'Civil and environmental view showing stabilized access, sediment-control wattles, drainage protection, and support facilities.' },
+      { src: '/murch-dashboard/assets/recent/recent-8.jpg?v=20260619-photos3', date: 'June 3, 2026', title: 'Aerial civil and laydown context', note: 'Drone view showing the broader civil layout, access roads, laydown area, and surrounding project workfronts.' },
+      { src: '/murch-dashboard/assets/recent/recent-9.jpg?v=20260619-photos3', date: 'June 3, 2026', title: 'Aerial pile and road operation', note: 'Drone view of equipment working along the road and pile workfront, useful for logistics and sequencing context.' },
+      { src: '/murch-dashboard/assets/recent/recent-10.jpg?v=20260619-photos3', date: 'May 19, 2026', title: 'Tracker and module field review', note: 'Representative mechanical photo showing tracker/module interface review and installed component checks.' },
+      { src: '/murch-dashboard/assets/recent/recent-11.jpg?v=20260619-photos3', date: 'May 26, 2026', title: 'Basin and road stabilization', note: 'Representative civil/environmental photo showing stabilized basin slopes and access-road construction.' },
+      { src: '/murch-dashboard/assets/recent/recent-12.jpg?v=20260619-photos3', date: 'April 9, 2026', title: 'Early site logistics and material handling', note: 'Older representative logistics view retained to show project material-handling and mobilization history.' }
     ],
     civilKpis: [
       { title: 'Civil control progress', metric: '14.36%', note: 'Overall civil progress reported in the June 16 civil planning workbook.' },
@@ -1809,12 +1820,12 @@ footer p {
       { name: 'Tracker material delivery', remaining: '318 / 602 shipment lines', required: 0, observed: 0, status: 'Critical', note: 'The June 15 GameChange delivery plan shows 284 shipment lines customer-confirmed on site (47.2%) and 318 pending. Latest customer-confirmed site record is June 1; 9 additional lines show carrier pickup but no confirmed site receipt.' },
       { name: 'Purlin delivery', remaining: '59,547 Purlin units', required: 0, observed: 0, status: 'Critical', note: 'No Purlin shipment lines are confirmed on site. Planned dated deliveries total 46,080 units from June 17 through July 8; 13,467 Purlins have no planned site-delivery date.' },
       { name: 'Tracker Purlin delivery', remaining: '117,778 units', required: 0, observed: 0, status: 'Critical', note: 'No Tracker Purlin shipment lines are confirmed on site. Planned deliveries start June 23 and continue through July 16.' },
-      { name: 'Module installation', remaining: '171,470 modules', required: 5531, observed: 0, status: 'Critical', note: 'Const. Management-reviewed production basis shows no module installation reported yet. Approximately 5,531/day will be required after release; staffing quantities are intentionally excluded pending reliable personnel records.' }
+      { name: 'Module installation', remaining: '171,470 modules', required: 5531, observed: 0, status: 'Critical', note: 'Workforce, the module-installation subcontractor, is expected to land on June 29 with approximately 22 workers. Enough tracker-complete released areas must be open by then, or the crew will not have productive workfronts.' }
     ],
     successors: [
       { activity: 'Tracker structural assembly', dependency: 'Completed piles by zone/block; final tracker finish after final pile finish', impact: 'Can overlap piling only in released areas. Final tracker structure cannot finish before the revised July 28 pile forecast; the August 19 tracker forecast remains provisional and requires 40 completed rows/day.', mitigation: 'Prioritize tracker crews into released workfronts and maintain linked finish-to-finish controls.' },
       { activity: 'Purlin installation / tracker completion', dependency: 'Completed tracker structure plus both Purlin types confirmed on site', impact: 'The June 17 Purlin load alone cannot complete tracker rows. The first defensible completion wave is after the first Tracker Purlin delivery planned June 23, subject to complete kits and confirmed receipt.', mitigation: 'Confirm each planned load before release, prioritize complete material kits by block, and track planned versus confirmed arrivals daily.' },
-      { activity: 'Module installation', dependency: 'Completed tracker rows with both Purlin types installed; final module finish after final purlin finish', impact: 'The earliest defensible first module wave is after June 23, once both Purlin types are physically received and installed on released rows. Final project module completion cannot precede the July 16 planned final Tracker Purlin delivery and subsequent installation.', mitigation: 'Mobilize a controlled module crew only against fully released rows and maintain a block-level tracker/purlin/module constraint log.' },
+      { activity: 'Module installation', dependency: 'Completed tracker rows with both Purlin types installed; final module finish after final purlin finish', impact: 'Workforce is expected to mobilize on June 29 with approximately 22 workers. If enough tracker-ready released areas are not open by then, the first module wave will stall and project completion will move later.', mitigation: 'Open tracker-complete released areas before June 29 and maintain a block-level tracker/purlin/module constraint log for the Workforce crew.' },
       { activity: 'DC wire / LV installation', dependency: 'Released tracker rows and modules set by block', impact: 'DC wire and LV installation start in the second week of July and must follow module installation by block, finishing with only a minimal gap after final module completion.', mitigation: 'Sequence electrical crews immediately behind module crews by inverter block; use partial completion packages and clean turnover boundaries.' },
       { activity: 'Commissioning and MC', dependency: 'Continuous mechanical completion by zone', impact: 'Unconfirmed post receipts and the incomplete purlin plan consume remaining float and make Sep 25 MC more difficult unless early material waves are converted immediately into finished tracker/module work.', mitigation: 'Lock GameChange delivery dates, obtain a site date for the 13,467 unscheduled Purlins, prepare weekend/OT recovery, and track daily pile burn versus confirmed receipts.' }
     ],
@@ -1831,11 +1842,26 @@ footer p {
       { activity: 'Inverter Installation', contractor: 'EPC / OEM', start: '2026-07-01', end: '2026-09-15', status: 'Confirmed', note: '23 x 4.2 MW units; pads must cure before delivery.' },
       { activity: 'Purlin delivery sequence', contractor: 'GameChange / Logistics', start: '2026-06-17', end: '2026-07-08 plus unscheduled balance', status: 'Critical', note: 'The June 15 plan contains 59,547 Purlins, but only 46,080 have planned site dates across June 17-July 8. The remaining 13,467 have no planned site-delivery date, and zero Purlin shipment lines are customer-confirmed on site.' },
       { activity: 'Tracker Purlin delivery sequence', contractor: 'GameChange / Logistics', start: '2026-06-23', end: '2026-07-16', status: 'Critical', note: '117,778 Tracker Purlin units planned across eight delivery dates. Zero Tracker Purlin shipment lines are currently confirmed on site.' },
-      { activity: 'Module Installation - first wave', contractor: 'Panel Sub', start: 'After Jun 23 confirmed complete-kit receipt', end: 'TBD by released workfront', status: 'Critical', note: 'The Jun 17 Purlin load alone does not release modules. Start only after both Purlin types are physically received and installed on fully released tracker rows.' },
+      { activity: 'Module Installation - first wave', contractor: 'Workforce', start: '2026-06-29', end: 'TBD by released workfront', status: 'Critical', note: 'Workforce is expected to land on June 29 with approximately 22 workers. Start only if enough tracker-complete released areas exist; the Jun 17 Purlin load alone does not release modules.' },
       { activity: 'Full purlin installation / tracker completion', contractor: 'GameChange / ECCS', start: 'After released tracker rows', end: 'TBD after Jul 16 planned final delivery', status: 'Critical', note: 'Final finish must be after tracker structural completion and after all required purlin loads are confirmed on site and installed.' },
       { activity: 'Final module installation completion', contractor: 'Panel Sub', start: 'After released rows with purlins', end: 'TBD after full purlin install', status: 'Critical', note: 'Final module completion must occur after final purlin installation. No defensible project finish date exists until the full purlin plan is confirmed.' },
       { activity: 'DC Wire / LV Installation', contractor: 'Electrical Sub TBD', start: '2026-07-06', end: '2026-10-12 provisional', status: 'Critical', note: 'DC wire scope includes the LV installation. Start in the second week of July and progress directly behind module installation by block. Finish should follow final module completion with only a minimal closeout gap.' },
       { activity: 'Electrical Pre-Commissioning', contractor: 'EPC + OEMs', start: '2026-09-15', end: '2026-11-01', status: 'Planned', note: 'Zonal energization after inverter, MV/HDD, tracker, module, and DC/LV turnover by block.' }
+    ],
+    actualHeadcount: [
+      { contractor: 'Greensol', jun16: 24, jun17: 24, total: 24, note: '15 site staff + 9 laborers for maintenance and general activities.' },
+      { contractor: 'ECCS', jun16: 50, jun17: 47, total: 47, note: 'Whiteboard counts for June 16 and June 17.' },
+      { contractor: 'Latnovva', jun16: 19, jun17: 22, total: 22, note: 'Whiteboard counts for June 16 and June 17.' },
+      { contractor: 'Lounsbury', jun16: 0, jun17: 0, total: 0, note: 'No workers shown on either whiteboard.' },
+      { contractor: 'Topland', jun16: 0, jun17: 4, total: 4, note: 'June 16 entry left blank; June 17 shows 4.' },
+      { contractor: 'ECS', jun16: 2, jun17: 4, total: 4, note: 'June 17 circled value interpreted as 4.' },
+      { contractor: 'Hurricane', jun16: 0, jun17: 3, total: 3, note: 'June 16 entry left blank; June 17 shows 3.' },
+      { contractor: 'ITS', jun16: 11, jun17: 4, total: 4, note: 'Whiteboard counts for June 16 and June 17.' },
+      { contractor: 'AB Power', jun16: 6, jun17: 6, total: 6, note: 'Whiteboard counts for both days.' },
+      { contractor: 'Kalamazoo Excavating', jun16: 3, jun17: 3, total: 3, note: 'Interpreted from the whiteboard "EX 3" note on both days.' },
+      { contractor: 'Westwood', jun16: 0, jun17: 0, total: 0, note: 'No workers shown on either whiteboard.' },
+      { contractor: 'United', jun16: 15, jun17: 15, total: 15, note: 'Whiteboard counts for both days.' },
+      { contractor: 'Dig It', jun16: 0, jun17: 4, total: 4, note: 'June 16 entry left blank; June 17 shows 4.' }
     ],
     personnelOutlook: [
       { week: 'W22', date: 'May 25', people: 135 },
@@ -1878,7 +1904,7 @@ footer p {
       { title: 'Seven-machine pile recovery capacity below required pace', level: 'Critical', owner: 'Construction Mgmt / Pile Contractors', note: 'From June 22, 7 ramming machines averaging 80 piles each provide 560 piles/day, below the estimated recovery need of 752/day. Uninterrupted production forecasts pile completion around July 27-28; downtime or material interruption will move it later.' },
       { title: 'Production reporting source governance', level: 'Watch', owner: 'Construction Controls / Field Management', note: "Per management direction, the Construction Manager's report is the official and non-disputable production basis for dashboard progress." },
       { title: 'Pre-drilling recovery', level: 'Critical', owner: 'Kalamazoo Excavating / Construction Mgmt', note: "The June 16 Const. Management-reviewed daily log shows 858 pre-drills remaining. Protect the June 20 target and update the lookahead from this reviewed field record." },
-      { title: 'Module-installation workforce and learning-rate risk', level: 'Critical', owner: 'Construction Mgmt / ECCS / Module Crew', note: 'June 11 field discussion indicates that learning-period output remains below the rate needed for recovery. Confirm reliable staffing records, equipment, workfronts, and the ramp plan before publishing personnel quantities.' },
+      { title: 'Workforce mobilizes June 29 for module installation', level: 'Critical', owner: 'Construction Mgmt / Workforce / ECCS', note: 'Workforce is expected to arrive on June 29 with approximately 22 workers. Enough tracker-complete released areas must be open before mobilization, or the crew will not have productive module-installation fronts.' },
       { title: 'Heavy rain and SET/civil attendance', level: 'Watch', owner: 'AB Power / Civil Superintendent / Construction Mgmt', note: 'On June 14, heavy rain affected site conditions and AB Power attendance was not confirmed at 8:30 AM; arrival was expected by 10:00 AM. Confirm the full-day production effect before closing the daily report.' },
       { title: 'Civil weekly pace below minimum', level: 'Critical', owner: 'Civil Superintendent / Project Controls', note: 'Civil control reports approximately 0.68% average weekly progress over the latest three weeks versus a minimum required pace of approximately 2.95% per week.' },
       { title: 'Zones F and G civil work partially released', level: 'Watch', owner: 'Civil Superintendent / Lounsbury / ECS / Hurricane', note: 'Drainage Commissioner approval allows grading and temporary or permanent basin construction to resume in Zones F and G. Fence installation can continue except in Zone G, where full Commissioner approval is still required. Update the civil and fencing lookaheads with crews, dates, and basin sequence.' },
@@ -2161,6 +2187,7 @@ footer p {
 
   function drawPersonnelChart() {
     const canvas = document.getElementById('personnelChart');
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
     const height = canvas.height;
@@ -2240,6 +2267,20 @@ footer p {
     ctx.fillStyle = colors.muted;
     ctx.font = '12px system-ui';
     ctx.fillText('Weekly planning estimate | May 25-Nov 16, 2026', width - 290, 28);
+  }
+
+  function renderActualHeadcount() {
+    const body = document.getElementById('actualHeadcountBody');
+    if (!body) return;
+    body.innerHTML = data.actualHeadcount.map((row) => `
+      <tr>
+        <td data-label="Contractor"><strong>${row.contractor}</strong></td>
+        <td data-label="Jun 16">${fmt(row.jun16)}</td>
+        <td data-label="Jun 17">${fmt(row.jun17)}</td>
+        <td data-label="Total Used"><strong>${fmt(row.total)}</strong></td>
+        <td data-label="Note">${row.note}</td>
+      </tr>
+    `).join('');
   }
 
   function renderMilestones() {
@@ -2402,6 +2443,7 @@ footer p {
   renderSuccessors();
   renderTimeline();
   renderSchedule();
+  renderActualHeadcount();
   drawPersonnelChart();
   renderMilestones();
   renderRisks();
