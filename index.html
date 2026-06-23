@@ -1895,6 +1895,10 @@ footer p {
     return `<span class="badge ${statusClass(value)}">${value}</span>`;
   }
 
+  function byId(id) {
+    return document.getElementById(id);
+  }
+
   function renderScope() {
     document.getElementById('scopeGrid').innerHTML = data.scope.map((item) => `
       <article class="scope-card">
@@ -1921,6 +1925,115 @@ footer p {
         <td data-label="Status">${badge(row.status)}</td>
       </tr>
     `).join('');
+  }
+
+  function renderWeeklyPlan() {
+    const body = byId('weeklyPlanBody');
+    if (!body) return;
+    body.innerHTML = data.weeklyPlan.map((row) => `
+      <tr>
+        <td data-label="Area / Workfront"><strong>${row.area}</strong></td>
+        <td data-label="This week target">${row.target}</td>
+        <td data-label="Minimum target / control unit">${row.minimum}</td>
+        <td data-label="Primary gate">${row.gate}</td>
+        <td data-label="Owners">${row.owners}</td>
+      </tr>
+    `).join('');
+  }
+
+  const weatherCodes = {
+    0: ['Clear', '☀'],
+    1: ['Mostly clear', '🌤'],
+    2: ['Partly cloudy', '⛅'],
+    3: ['Cloudy', '☁'],
+    45: ['Fog', '🌫'],
+    48: ['Freezing fog', '🌫'],
+    51: ['Light drizzle', '🌦'],
+    53: ['Drizzle', '🌦'],
+    55: ['Heavy drizzle', '🌧'],
+    61: ['Light rain', '🌧'],
+    63: ['Rain', '🌧'],
+    65: ['Heavy rain', '🌧'],
+    71: ['Light snow', '🌨'],
+    73: ['Snow', '🌨'],
+    75: ['Heavy snow', '🌨'],
+    80: ['Rain showers', '🌦'],
+    81: ['Rain showers', '🌦'],
+    82: ['Heavy showers', '⛈'],
+    95: ['Thunderstorm', '⛈'],
+    96: ['Thunderstorm / hail', '⛈'],
+    99: ['Severe thunderstorm', '⛈']
+  };
+
+  function weatherLabel(code) {
+    return weatherCodes[Number(code)] || ['Variable conditions', '◇'];
+  }
+
+  function formatWeatherDate(value) {
+    const date = new Date(`${value}T12:00:00`);
+    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+
+  function setWeatherFallback(message) {
+    const note = byId('weatherNote');
+    if (byId('weatherEyebrow')) byId('weatherEyebrow').textContent = 'Lawrence, Michigan | Weather unavailable';
+    if (byId('weatherHeadline')) byId('weatherHeadline').textContent = 'Weather feed unavailable';
+    if (byId('weatherNarrative')) byId('weatherNarrative').textContent = 'Use the daily field report for actual weather impacts until the live feed refreshes.';
+    if (byId('weatherSymbol')) byId('weatherSymbol').textContent = '!';
+    if (byId('weatherTemp')) byId('weatherTemp').innerHTML = '--&deg;F';
+    if (byId('weatherSummary')) byId('weatherSummary').textContent = message;
+    if (byId('weatherWeek')) byId('weatherWeek').innerHTML = '<article><span>Forecast</span><strong>Unavailable</strong><small>Refresh page or check site weather directly.</small></article>';
+    if (note) note.innerHTML = '<strong>Construction weather risk:</strong> Live weather could not be loaded. Do not treat this as a no-impact day; verify wind, rain, lightning, and soil/access effects in the daily report.';
+  }
+
+  async function renderWeather() {
+    if (!byId('weatherWeek')) return;
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=42.22&longitude=-85.99&timezone=America%2FDetroit&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_gusts_10m_max';
+    try {
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Weather HTTP ${response.status}`);
+      const json = await response.json();
+      const current = json.current || {};
+      const daily = json.daily || {};
+      const [summary, symbol] = weatherLabel(current.weather_code);
+      const temp = Math.round(current.temperature_2m);
+      const gust = Math.round(current.wind_gusts_10m || 0);
+      const precip = Number(current.precipitation || 0);
+      const todayRain = Number((daily.precipitation_probability_max || [0])[0] || 0);
+      const high = Math.round((daily.temperature_2m_max || [temp])[0]);
+      const low = Math.round((daily.temperature_2m_min || [temp])[0]);
+      const updated = new Date().toLocaleString('en-US', {
+        timeZone: 'America/Detroit',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      });
+      const risk = gust >= 30 || todayRain >= 60 || precip >= 0.1 ? 'Critical weather watch' : gust >= 22 || todayRain >= 35 ? 'Weather watch' : 'Weather acceptable';
+      if (byId('weatherEyebrow')) byId('weatherEyebrow').textContent = `Lawrence, Michigan | Live weather refreshed ${updated}`;
+      if (byId('weatherHeadline')) byId('weatherHeadline').textContent = `${risk}: ${summary}, ${temp}°F`;
+      if (byId('weatherNarrative')) byId('weatherNarrative').textContent = `Today forecast high/low is ${high}°/${low}°F. Current gusts are ${gust} mph and today's precipitation probability is ${todayRain}%.`;
+      if (byId('weatherSymbol')) byId('weatherSymbol').textContent = symbol;
+      if (byId('weatherTemp')) byId('weatherTemp').innerHTML = `${temp}&deg;F`;
+      if (byId('weatherSummary')) byId('weatherSummary').textContent = `${summary}; feels like ${Math.round(current.apparent_temperature)}°F`;
+      byId('weatherWeek').innerHTML = (daily.time || []).slice(0, 7).map((day, index) => {
+        const [label, daySymbol] = weatherLabel(daily.weather_code[index]);
+        const pop = Number(daily.precipitation_probability_max[index] || 0);
+        const dayGust = Math.round(daily.wind_gusts_10m_max[index] || 0);
+        const cls = dayGust >= 30 || pop >= 60 ? 'weather-critical' : dayGust >= 22 || pop >= 35 ? 'weather-watch' : '';
+        return `
+          <article class="${cls}">
+            <span>${formatWeatherDate(day)} ${daySymbol}</span>
+            <strong>${Math.round(daily.temperature_2m_max[index])}&deg; / ${Math.round(daily.temperature_2m_min[index])}&deg;</strong>
+            <small>${label}; rain ${pop}%; gust ${dayGust} mph</small>
+          </article>
+        `;
+      }).join('');
+      if (byId('weatherNote')) byId('weatherNote').innerHTML = `<strong>Construction weather risk:</strong> ${risk}. Verify actual lost hours, access restrictions, wind stops, and lightning delays in the daily report before claiming production impacts.`;
+    } catch (error) {
+      setWeatherFallback('Live weather failed to load.');
+    }
   }
 
   let photoIndex = 0;
@@ -2053,7 +2166,9 @@ footer p {
   }
 
   function renderSuccessors() {
-    document.getElementById('successorBody').innerHTML = data.successors.map((row) => `
+    const body = byId('successorBody');
+    if (!body) return;
+    body.innerHTML = data.successors.map((row) => `
       <tr>
         <td data-label="Successor activity"><strong>${row.activity}</strong></td>
         <td data-label="Dependency">${row.dependency}</td>
@@ -2264,7 +2379,9 @@ footer p {
   }
 
   renderScope();
+  renderWeather();
   renderCivil();
+  renderWeeklyPlan();
   renderPhotos();
   renderProgressTable();
   renderProduction();
