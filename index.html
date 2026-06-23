@@ -1688,6 +1688,17 @@ footer p {
 'use strict';
 
 (function () {
+  const assetVersion = '20260622-stable';
+  const assetBase = 'https://claped71.github.io/murch-dashboard/';
+
+  function asset(path) {
+    return `${assetBase}${path}?v=${assetVersion}`;
+  }
+
+  function assetFallback(path) {
+    return `${assetBase}${path}`;
+  }
+
   const data = {
     scope: [
       { title: 'EPC Management', metric: 'Turnkey', note: 'Project management, safety, QC, contractor deliverables, owner reporting, permitting support, and trade coordination through completion.' },
@@ -1900,7 +1911,9 @@ footer p {
   }
 
   function renderScope() {
-    document.getElementById('scopeGrid').innerHTML = data.scope.map((item) => `
+    const grid = byId('scopeGrid');
+    if (!grid) return;
+    grid.innerHTML = data.scope.map((item) => `
       <article class="scope-card">
         <span class="label">${item.title}</span>
         <strong class="metric">${item.metric}</strong>
@@ -2043,7 +2056,7 @@ footer p {
   function renderPhotos() {
     document.getElementById('photoGrid').innerHTML = data.photos.map((photo, index) => `
       <button class="photo-card ${index === photoIndex ? 'active' : ''}" type="button" data-photo-index="${index}" aria-label="Show ${photo.title}">
-        <img src="${photo.src}" alt="${photo.title}">
+        <img src="${photo.src}" data-fallback="${photo.fallbackSrc}" alt="${photo.title}" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
         <span>${photo.date}</span>
       </button>
     `).join('');
@@ -2057,7 +2070,16 @@ footer p {
   function setPhoto(index, restart) {
     photoIndex = (index + data.photos.length) % data.photos.length;
     const photo = data.photos[photoIndex];
-    document.getElementById('featuredPhoto').src = photo.src;
+    const featuredPhoto = document.getElementById('featuredPhoto');
+    featuredPhoto.dataset.failed = '';
+    featuredPhoto.dataset.fallback = photo.fallbackSrc;
+    featuredPhoto.onerror = function () {
+      if (!this.dataset.failed) {
+        this.dataset.failed = '1';
+        this.src = this.dataset.fallback;
+      }
+    };
+    featuredPhoto.src = photo.src;
     document.getElementById('featuredPhotoDate').textContent = photo.date;
     document.getElementById('featuredPhotoTitle').textContent = photo.title;
     document.getElementById('featuredPhotoNote').textContent = photo.note;
