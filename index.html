@@ -1702,15 +1702,15 @@ footer p {
         <div>
           <div class="section-heading compact">
             <p class="eyebrow">Field resources</p>
-            <h2>Forecast people versus actual field resources</h2>
+            <h2>Current people versus recovery-resource targets</h2>
           </div>
           <div class="chart-panel">
-            <canvas id="personnelChart" width="920" height="360" aria-label="Forecast workforce versus actual field resources"></canvas>
+            <canvas id="personnelChart" width="920" height="360" aria-label="Current people versus recovery-resource targets"></canvas>
           </div>
           <div class="chart-panel">
             <canvas id="resourceChart" width="920" height="360" aria-label="Current subcontractor field resources"></canvas>
           </div>
-          <p class="personnel-note">Forecast values use the weekly manpower outlook. Actual field-resource snapshots are based on the whiteboard photos for June 16 and June 17, 2026, plus Greensol fixed at 24 people by instruction: 15 staff and 9 laborers.</p>
+          <p class="personnel-note">Actual field resources use the June 17, 2026 whiteboard snapshot plus Greensol fixed at 24 people by instruction: 15 staff and 9 laborers. Recovery targets come from <em>Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx</em>: module Phase 1 requires 22 workers, module full-field release requires 40 workers, tracker/purlin recovery requires 38 average / 40-45 peak workers, and the recovery peak histogram is 95-105 workers including management, QC, and HSE. The chart shows headcount against target; the decisive issue is having the right trade mix at the right released workfront.</p>
         </div>
         <div>
           <div class="section-heading compact">
@@ -1731,7 +1731,7 @@ footer p {
     </main>
 
     <footer>
-      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan, refreshed in browser with local update time; WhatsApp Murch dashboard chat export, field comments and attachments through June 22, 2026 including Joshua Spalding's ITS plowing-machine mobilization photos, owner-issued LV electrical scope notes, and Daniel Morilla's June 22 pile-quality update; official Delivery / Mechanical workbook refreshed June 22, 2026 and used as the Construction Manager production report with controlling installed pile production at 15,761 piles; ProductionProgress_JS.xlsx refreshed June 22, 2026 for schedule and activity outlook; Shreeya Devkota / GameChange and Manuel Ramirez, Re: Murch Project Primary Email Thread nº2, issued June 22, 2026 with June 23 confirmed deliveries and Greensol receiving limits; Rosario Ruiz, RE: Avances Civiles Semana 24, issued June 22, 2026 with progress through June 19; GameChange_Delivery_Schedule_Current_2026-06-15.csv, tracker-material plan reviewed June 15, 2026 and used to map Shreeya's confirmed packing lists to material quantities; Drainage Commissioner partial release for Zones F and G reported June 16, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work; Chemik photovoltaic harnessing reference; Shoals above-ground BLA system reference. Dashboard updated June 22, 2026.</p>
+      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan, refreshed in browser with local update time; WhatsApp Murch dashboard chat export, field comments and attachments through June 22, 2026 including Joshua Spalding's ITS plowing-machine mobilization photos, owner-issued LV electrical scope notes, and Daniel Morilla's June 22 pile-quality update; official Delivery / Mechanical workbook refreshed June 22, 2026 and used as the Construction Manager production report with controlling installed pile production at 15,761 piles; ProductionProgress_JS.xlsx refreshed June 22, 2026 for schedule and activity outlook; Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx for recovery-resource targets and workforce histogram; Shreeya Devkota / GameChange and Manuel Ramirez, Re: Murch Project Primary Email Thread nº2, issued June 22, 2026 with June 23 confirmed deliveries and Greensol receiving limits; Rosario Ruiz, RE: Avances Civiles Semana 24, issued June 22, 2026 with progress through June 19; GameChange_Delivery_Schedule_Current_2026-06-15.csv, tracker-material plan reviewed June 15, 2026 and used to map Shreeya's confirmed packing lists to material quantities; Drainage Commissioner partial release for Zones F and G reported June 16, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work; Chemik photovoltaic harnessing reference; Shoals above-ground BLA system reference. Dashboard updated June 22, 2026.</p>
     </footer>
 
     <script>
@@ -1874,6 +1874,13 @@ footer p {
       { contractor: 'Kalamazoo', people: 3 },
       { contractor: 'Lounsbury', people: 0 },
       { contractor: 'Westwood', people: 0 }
+    ],
+    resourcePlan: [
+      { label: 'Total site resources', actual: 136, target: 105, targetLabel: 'Recovery peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the June 17 whiteboard total.' },
+      { label: 'Tracker / purlin crew', actual: 47, target: 45, targetLabel: '38 avg / 40-45 peak', note: 'ECCS visible field resources are compared with the tracker/purlin recovery target.' },
+      { label: 'Module crew Phase 1', actual: 0, committed: 22, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce is expected to land June 29 with about 22 workers for the rolling start.' },
+      { label: 'Module full-field crew', actual: 0, committed: 22, target: 40, targetLabel: '40 by Jul 13+', note: 'Phase 2 reinforcement adds 18 workers to reach the full-field module gate.' },
+      { label: 'Greensol site team', actual: 24, target: 24, targetLabel: '15 staff + 9 labor', note: 'User-provided fixed Greensol site staffing basis.' }
     ],
     personnelOutlook: [
       { week: 'W22', date: 'May 25', people: 135 },
@@ -2329,23 +2336,23 @@ footer p {
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
     const height = canvas.height;
-    const pad = { left: 72, top: 56, right: 34, bottom: 74 };
+    const pad = { left: 82, top: 62, right: 34, bottom: 94 };
     const chartW = width - pad.left - pad.right;
     const chartH = height - pad.top - pad.bottom;
-    const rows = data.personnelOutlook;
-    const max = 320;
-    const points = rows.map((row, index) => ({
-      ...row,
-      x: pad.left + (index * chartW) / (rows.length - 1),
-      y: pad.top + chartH - (row.people / max) * chartH
-    }));
+    const rows = data.resourcePlan;
+    const max = 150;
+    const groupW = chartW / rows.length;
+    const barW = Math.min(28, groupW / 5);
+    const yFor = (value) => pad.top + chartH - (value / max) * chartH;
+
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, width, height);
+
     ctx.strokeStyle = colors.line;
     ctx.lineWidth = 1;
-    [0, 100, 200, 300].forEach((value) => {
-      const y = pad.top + chartH - (value / max) * chartH;
+    [0, 30, 60, 90, 120, 150].forEach((value) => {
+      const y = yFor(value);
       ctx.beginPath();
       ctx.moveTo(pad.left, y);
       ctx.lineTo(width - pad.right, y);
@@ -2355,56 +2362,60 @@ footer p {
       ctx.textAlign = 'right';
       ctx.fillText(String(value), pad.left - 10, y + 4);
     });
-    const baseline = pad.top + chartH;
-    const gradient = ctx.createLinearGradient(0, pad.top, 0, baseline);
-    gradient.addColorStop(0, 'rgba(15, 118, 110, 0.34)');
-    gradient.addColorStop(1, 'rgba(15, 118, 110, 0.04)');
-    ctx.beginPath();
-    ctx.moveTo(points[0].x, baseline);
-    points.forEach((point) => ctx.lineTo(point.x, point.y));
-    ctx.lineTo(points[points.length - 1].x, baseline);
-    ctx.closePath();
-    ctx.fillStyle = gradient;
-    ctx.fill();
-    ctx.beginPath();
-    points.forEach((point, index) => {
-      if (index === 0) ctx.moveTo(point.x, point.y);
-      else ctx.lineTo(point.x, point.y);
-    });
-    ctx.strokeStyle = '#0f766e';
-    ctx.lineWidth = 5;
-    ctx.lineJoin = 'round';
-    ctx.stroke();
-    points.forEach((point, index) => {
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, index === 8 ? 7 : 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffffff';
-      ctx.fill();
-      ctx.strokeStyle = '#0f766e';
-      ctx.lineWidth = index === 8 ? 4 : 3;
-      ctx.stroke();
-      if (index % 4 === 0 || index === rows.length - 1) {
+
+    rows.forEach((row, index) => {
+      const center = pad.left + groupW * index + groupW / 2;
+      const bars = [
+        { label: 'Actual', value: row.actual, color: row.actual >= row.target ? colors.green : colors.red, x: center - barW - 4 },
+        { label: 'Committed', value: row.committed || 0, color: colors.amber, x: center },
+        { label: 'Target', value: row.target, color: colors.blue, x: center + barW + 4 }
+      ];
+      bars.forEach((bar) => {
+        if (!bar.value && bar.label === 'Committed') return;
+        const y = yFor(bar.value);
+        ctx.fillStyle = bar.color;
+        ctx.fillRect(bar.x - barW / 2, y, barW, pad.top + chartH - y);
         ctx.fillStyle = colors.ink;
-        ctx.font = '700 11px system-ui';
+        ctx.font = '800 11px system-ui';
         ctx.textAlign = 'center';
-        ctx.fillText(point.week, point.x, height - 40);
-        ctx.fillStyle = colors.muted;
-        ctx.font = '10px system-ui';
-        ctx.fillText(point.date, point.x, height - 22);
-      }
+        ctx.fillText(String(bar.value), bar.x, y - 7);
+      });
+
+      ctx.fillStyle = colors.ink;
+      ctx.font = '800 11px system-ui';
+      ctx.textAlign = 'center';
+      const words = row.label.split(' ');
+      const line1 = words.slice(0, 2).join(' ');
+      const line2 = words.slice(2).join(' ');
+      ctx.fillText(line1, center, height - 48);
+      if (line2) ctx.fillText(line2, center, height - 32);
+      ctx.fillStyle = colors.muted;
+      ctx.font = '10px system-ui';
+      ctx.fillText(row.targetLabel, center, height - 16);
     });
-    const peak = points[8];
-    ctx.fillStyle = '#b91c1c';
-    ctx.font = '800 13px system-ui';
-    ctx.textAlign = 'center';
-    ctx.fillText('310 people', peak.x, peak.y - 14);
+
     ctx.fillStyle = colors.ink;
     ctx.font = '700 18px system-ui';
     ctx.textAlign = 'left';
-    ctx.fillText('Estimated manpower (people)', 24, 28);
+    ctx.fillText('Current vs recovery target resources', 24, 28);
+    const legend = [
+      ['Actual', colors.green],
+      ['Actual below target', colors.red],
+      ['Committed / mobilizing', colors.amber],
+      ['Target', colors.blue]
+    ];
+    legend.forEach(([label, color], index) => {
+      const x = width - 520 + index * 128;
+      ctx.fillStyle = color;
+      ctx.fillRect(x, 18, 12, 12);
+      ctx.fillStyle = colors.muted;
+      ctx.font = '11px system-ui';
+      ctx.textAlign = 'left';
+      ctx.fillText(label, x + 18, 28);
+    });
     ctx.fillStyle = colors.muted;
     ctx.font = '12px system-ui';
-    ctx.fillText('Weekly planning estimate | May 25-Nov 16, 2026', width - 290, 28);
+    ctx.fillText('Source: Resource Analysis docx dated June 22, 2026 + June 17 field whiteboard actuals', 24, 48);
   }
 
   function renderMilestones() {
