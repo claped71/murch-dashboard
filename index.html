@@ -1702,15 +1702,15 @@ footer p {
         <div>
           <div class="section-heading compact">
             <p class="eyebrow">Field resources</p>
-            <h2>Current people versus recovery-resource targets</h2>
+            <h2>Mechanical recovery manpower load required to protect milestones</h2>
           </div>
           <div class="chart-panel">
-            <canvas id="personnelChart" width="920" height="360" aria-label="Current people versus recovery-resource targets"></canvas>
+            <canvas id="personnelChart" width="920" height="420" aria-label="Mechanical recovery manpower load required to protect project milestones"></canvas>
           </div>
           <div class="chart-panel">
             <canvas id="resourceChart" width="920" height="360" aria-label="Current subcontractor field resources"></canvas>
           </div>
-          <p class="personnel-note">Actual field resources use the June 17, 2026 whiteboard snapshot plus Greensol fixed at 24 people by instruction: 15 staff and 9 laborers. Recovery targets come from <em>Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx</em>: module Phase 1 requires 22 workers, module full-field release requires 40 workers, tracker/purlin recovery requires 38 average / 40-45 peak workers, and the recovery peak histogram is 95-105 workers including management, QC, and HSE. The chart shows headcount against target; the decisive issue is having the right trade mix at the right released workfront.</p>
+          <p class="personnel-note">The stacked histogram is the mechanical recovery manpower load from <em>Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx</em>. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles done around June 28, purlin/tracker recovery through September 18, and modules complete by October 9. The June 17 whiteboard shows 136 total people on site, but milestone protection depends on the correct mechanical trade mix: tracker/purlin labor must hold around 40-45 workers and the module crew must ramp from 22 to 40 workers before full-field release.</p>
         </div>
         <div>
           <div class="section-heading compact">
@@ -1881,6 +1881,29 @@ footer p {
       { label: 'Module crew Phase 1', actual: 0, committed: 22, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce is expected to land June 29 with about 22 workers for the rolling start.' },
       { label: 'Module full-field crew', actual: 0, committed: 22, target: 40, targetLabel: '40 by Jul 13+', note: 'Phase 2 reinforcement adds 18 workers to reach the full-field module gate.' },
       { label: 'Greensol site team', actual: 24, target: 24, targetLabel: '15 staff + 9 labor', note: 'User-provided fixed Greensol site staffing basis.' }
+    ],
+    mechanicalManpowerLoad: [
+      { week: 'Jun 22', pile: 9, tracker: 16, module: 0, management: 13, total: 38 },
+      { week: 'Jun 29', pile: 10, tracker: 28, module: 0, management: 13, total: 51 },
+      { week: 'Jul 6', pile: 10, tracker: 35, module: 0, management: 13, total: 58 },
+      { week: 'Jul 13', pile: 10, tracker: 42, module: 22, management: 13, total: 87 },
+      { week: 'Jul 20', pile: 0, tracker: 50, module: 37, management: 13, total: 100 },
+      { week: 'Jul 27', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Aug 3', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Aug 10', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Aug 17', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Aug 24', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Sep 7', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Sep 14', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
+      { week: 'Sep 21', pile: 0, tracker: 0, module: 40, management: 10, total: 50 },
+      { week: 'Sep 28', pile: 0, tracker: 0, module: 40, management: 10, total: 50 },
+      { week: 'Oct 5', pile: 0, tracker: 0, module: 0, management: 5, total: 5 }
+    ],
+    mechanicalManpowerMilestones: [
+      { week: 'Jun 22', label: 'Today / current review', color: '#b53030', align: 'right' },
+      { week: 'Jun 29', label: 'Piles done around Jun 28', color: '#66716d', align: 'left' },
+      { week: 'Sep 14', label: 'Trackers / purlins done Sep 18', color: '#168a5b', align: 'right' },
+      { week: 'Oct 5', label: 'Modules done Oct 9', color: '#2769a8', align: 'left' }
     ],
     personnelOutlook: [
       { week: 'W22', date: 'May 25', people: 135 },
@@ -2336,17 +2359,23 @@ footer p {
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
     const height = canvas.height;
-    const pad = { left: 82, top: 62, right: 34, bottom: 94 };
+    const pad = { left: 72, top: 76, right: 26, bottom: 98 };
     const chartW = width - pad.left - pad.right;
     const chartH = height - pad.top - pad.bottom;
-    const rows = data.resourcePlan;
+    const rows = data.mechanicalManpowerLoad;
     const max = 150;
     const groupW = chartW / rows.length;
-    const barW = Math.min(28, groupW / 5);
+    const barW = Math.min(34, groupW * 0.58);
     const yFor = (value) => pad.top + chartH - (value / max) * chartH;
+    const categoryColors = {
+      pile: '#6b7d94',
+      tracker: '#168a5b',
+      module: '#2f66dc',
+      management: '#d97706'
+    };
 
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#fbfcf8';
     ctx.fillRect(0, 0, width, height);
 
     ctx.strokeStyle = colors.line;
@@ -2365,47 +2394,87 @@ footer p {
 
     rows.forEach((row, index) => {
       const center = pad.left + groupW * index + groupW / 2;
-      const bars = [
-        { label: 'Actual', value: row.actual, color: row.actual >= row.target ? colors.green : colors.red, x: center - barW - 4 },
-        { label: 'Committed', value: row.committed || 0, color: colors.amber, x: center },
-        { label: 'Target', value: row.target, color: colors.blue, x: center + barW + 4 }
-      ];
-      bars.forEach((bar) => {
-        if (!bar.value && bar.label === 'Committed') return;
-        const y = yFor(bar.value);
-        ctx.fillStyle = bar.color;
-        ctx.fillRect(bar.x - barW / 2, y, barW, pad.top + chartH - y);
-        ctx.fillStyle = colors.ink;
-        ctx.font = '800 11px system-ui';
-        ctx.textAlign = 'center';
-        ctx.fillText(String(bar.value), bar.x, y - 7);
+      let running = 0;
+      ['pile', 'tracker', 'module', 'management'].forEach((key) => {
+        const value = row[key];
+        if (!value) return;
+        const yTop = yFor(running + value);
+        const yBottom = yFor(running);
+        ctx.fillStyle = categoryColors[key];
+        ctx.fillRect(center - barW / 2, yTop, barW, yBottom - yTop);
+        running += value;
       });
+      ctx.fillStyle = colors.ink;
+      ctx.font = '800 11px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText(String(row.total), center, yFor(row.total) - 8);
 
       ctx.fillStyle = colors.ink;
       ctx.font = '800 11px system-ui';
       ctx.textAlign = 'center';
-      const words = row.label.split(' ');
-      const line1 = words.slice(0, 2).join(' ');
-      const line2 = words.slice(2).join(' ');
-      ctx.fillText(line1, center, height - 48);
-      if (line2) ctx.fillText(line2, center, height - 32);
-      ctx.fillStyle = colors.muted;
-      ctx.font = '10px system-ui';
-      ctx.fillText(row.targetLabel, center, height - 16);
+      ctx.save();
+      ctx.translate(center, height - 50);
+      ctx.rotate(-Math.PI / 4);
+      ctx.fillText(row.week, 0, 0);
+      ctx.restore();
     });
+
+    data.mechanicalManpowerMilestones.forEach((milestone) => {
+      const index = rows.findIndex((row) => row.week === milestone.week);
+      if (index < 0) return;
+      const x = pad.left + groupW * index + groupW / 2;
+      ctx.strokeStyle = milestone.color;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(x, pad.top);
+      ctx.lineTo(x, pad.top + chartH);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = milestone.color;
+      ctx.font = '800 11px system-ui';
+      ctx.textAlign = milestone.align;
+      const textX = milestone.align === 'right' ? x - 6 : x + 6;
+      ctx.fillText(milestone.label, textX, pad.top + 18);
+    });
+
+    const actualY = yFor(136);
+    ctx.strokeStyle = '#b53030';
+    ctx.setLineDash([7, 6]);
+    ctx.beginPath();
+    ctx.moveTo(pad.left, actualY);
+    ctx.lineTo(width - pad.right, actualY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#b53030';
+    ctx.font = '800 11px system-ui';
+    ctx.textAlign = 'right';
+    ctx.fillText('Jun 17 actual site snapshot: 136 total people', width - pad.right, actualY - 8);
+
+    const baselineY = yFor(66);
+    ctx.strokeStyle = 'rgba(12, 95, 67, 0.58)';
+    ctx.setLineDash([2, 5]);
+    ctx.beginPath();
+    ctx.moveTo(pad.left, baselineY);
+    ctx.lineTo(width - pad.right, baselineY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#0c5f43';
+    ctx.font = '800 11px system-ui';
+    ctx.textAlign = 'right';
+    ctx.fillText('Baseline peak: 66', width - pad.right, baselineY - 8);
 
     ctx.fillStyle = colors.ink;
     ctx.font = '700 18px system-ui';
     ctx.textAlign = 'left';
-    ctx.fillText('Current vs recovery target resources', 24, 28);
+    ctx.fillText('Weekly mechanical manpower load to protect milestone dates', 24, 28);
     const legend = [
-      ['Actual', colors.green],
-      ['Actual below target', colors.red],
-      ['Committed / mobilizing', colors.amber],
-      ['Target', colors.blue]
+      ['Pile operators', categoryColors.pile],
+      ['Tracker / purlin crew', categoryColors.tracker],
+      ['Module crew', categoryColors.module],
+      ['Mgmt / QC / HSE', categoryColors.management]
     ];
     legend.forEach(([label, color], index) => {
-      const x = width - 520 + index * 128;
+      const x = width - 590 + index * 145;
       ctx.fillStyle = color;
       ctx.fillRect(x, 18, 12, 12);
       ctx.fillStyle = colors.muted;
@@ -2415,7 +2484,7 @@ footer p {
     });
     ctx.fillStyle = colors.muted;
     ctx.font = '12px system-ui';
-    ctx.fillText('Source: Resource Analysis docx dated June 22, 2026 + June 17 field whiteboard actuals', 24, 48);
+    ctx.fillText('Mechanical scope only: pile, tracker/purlin, and module erection. LV electrical manpower is excluded.', 24, 50);
   }
 
   function renderMilestones() {
