@@ -1246,6 +1246,7 @@ footer p {
           <a href="#progress">Progress</a>
           <a href="#civil">Civil</a>
           <a href="#production">Production</a>
+          <a href="#delivery-control">Delivery</a>
           <a href="#weekly-plan">Weekly Plan</a>
           <a href="#schedule">Schedule</a>
           <a href="#risks">Risks</a>
@@ -1260,6 +1261,7 @@ footer p {
           <a class="button primary" href="#safety">Safety KPIs</a>
           <a class="button primary" href="#progress">View progress</a>
           <a class="button secondary" href="#civil">Civil status</a>
+          <a class="button secondary" href="#delivery-control">Delivery control</a>
           <a class="button secondary" href="#photos">Recent photos</a>
           <a class="button secondary" href="#schedule">Schedule status</a>
         </div>
@@ -1465,6 +1467,54 @@ footer p {
           </article>
         </div>
         <p class="quality-note"><strong>Control note:</strong> The Construction Manager's Delivery / Mechanical workbook remains the official and non-disputable installed-production basis for this dashboard.</p>
+      </section>
+
+      <section class="section" id="delivery-control">
+        <div class="section-heading">
+          <p class="eyebrow">Delivery control | Shreeya June 22 email and Manuel receiving limits</p>
+          <h2>Pile deliveries are the immediate mechanical continuity gate</h2>
+        </div>
+        <div class="quality-grid">
+          <article class="quality-alert">
+            <span class="label">Confirmed Pile Buffer</span>
+            <strong>0 piles</strong>
+            <small>15,751 delivered/logged piles versus 15,761 installed; the dashboard does not count unreceived future loads as available stock.</small>
+          </article>
+          <article>
+            <span class="label">June 23 Pile/Post Loads</span>
+            <strong>658 posts</strong>
+            <small>90 Light Green, 150 Red, 90 Light Green, and 328 Orange posts scheduled by Shreeya; receipt remains pending POD/site confirmation.</small>
+          </article>
+          <article>
+            <span class="label">June 23 Purlin / Racking Loads</span>
+            <strong>21,834 purlins</strong>
+            <small>Plus 20,251 purlin strips, 640 row tubes, and 2,760 heavy squeeze splices scheduled for the same delivery wave.</small>
+          </article>
+          <article class="quality-alert">
+            <span class="label">Receiving Rule</span>
+            <strong>8 pile loads/day</strong>
+            <small>Manuel allows up to 16 total trucks/day only with max 8 pile loads, max 8 non-pile loads, and no more than 3 loads in the same hour.</small>
+          </article>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Delivery topic</th>
+                <th>Current reading</th>
+                <th>Dashboard implication</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Delivery topic"><strong>Site pile stock</strong></td><td data-label="Current reading">15,751 delivered/logged vs 15,761 installed</td><td data-label="Dashboard implication">No confirmed buffer; daily ramming depends on same-day pile receipt until the delivery count gets ahead of production.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>June 23 confirmed loads</strong></td><td data-label="Current reading">11 scheduled trucks: 4 pile/post loads and 7 purlin, row-tube, strip, and splice loads</td><td data-label="Dashboard implication">The delivery wave supports both ramming continuity and the tracker/module-release sequence, but must be verified by POD before counting as available.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>Manuel's receiving condition</strong></td><td data-label="Current reading">Appointment compliance required; early or late trucks may be turned away</td><td data-label="Dashboard implication">The limit is not a blanket 16-truck acceptance. GameChange must sequence trucks by hour and material type.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>Recovery test</strong></td><td data-label="Current reading">7 ramming machines at 80 piles/day = 560 piles/day production capacity</td><td data-label="Dashboard implication">Eight pile loads/day must contain enough posts to exceed the daily burn rate; otherwise the pile shortage can stop ramming even while trucks are arriving.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>Forward risk</strong></td><td data-label="Current reading">15,591 piles remain after the official installed count</td><td data-label="Dashboard implication">To finish piling before the end of July, the dated pile plan must be converted into daily POD-confirmed receipts and compared against actual rig output.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="quality-note"><strong>Delivery action:</strong> Report pile delivery by count, not only by truck count. The next daily control should show scheduled piles, received/POD-confirmed piles, piles installed, and ending pile stock by subcontractor or laydown location.</p>
       </section>
 
       <section class="section" id="weekly-plan">
@@ -1681,7 +1731,7 @@ footer p {
     </main>
 
     <footer>
-      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan, refreshed in browser with local update time; WhatsApp Murch dashboard chat export, field comments and attachments through June 22, 2026 including Joshua Spalding's ITS plowing-machine mobilization photos, owner-issued LV electrical scope notes, and Daniel Morilla's June 22 pile-quality update; official Delivery / Mechanical workbook refreshed June 22, 2026 and used as the Construction Manager production report with controlling installed pile production at 15,761 piles; ProductionProgress_JS.xlsx refreshed June 22, 2026 for schedule and activity outlook; Shreeya Devkota / GameChange, Re: Murch Project Primary Email Thread nº2, issued June 22, 2026 with latest delivery-plan notes; Rosario Ruiz, RE: Avances Civiles Semana 24, issued June 22, 2026 with progress through June 19; GameChange_Delivery_Schedule_Current_2026-06-15.csv, tracker-material plan reviewed June 15, 2026 and superseded for current delivery outlook by Shreeya's June 22 email; Drainage Commissioner partial release for Zones F and G reported June 16, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work; Chemik photovoltaic harnessing reference; Shoals above-ground BLA system reference. Dashboard updated June 22, 2026.</p>
+      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan, refreshed in browser with local update time; WhatsApp Murch dashboard chat export, field comments and attachments through June 22, 2026 including Joshua Spalding's ITS plowing-machine mobilization photos, owner-issued LV electrical scope notes, and Daniel Morilla's June 22 pile-quality update; official Delivery / Mechanical workbook refreshed June 22, 2026 and used as the Construction Manager production report with controlling installed pile production at 15,761 piles; ProductionProgress_JS.xlsx refreshed June 22, 2026 for schedule and activity outlook; Shreeya Devkota / GameChange and Manuel Ramirez, Re: Murch Project Primary Email Thread nº2, issued June 22, 2026 with June 23 confirmed deliveries and Greensol receiving limits; Rosario Ruiz, RE: Avances Civiles Semana 24, issued June 22, 2026 with progress through June 19; GameChange_Delivery_Schedule_Current_2026-06-15.csv, tracker-material plan reviewed June 15, 2026 and used to map Shreeya's confirmed packing lists to material quantities; Drainage Commissioner partial release for Zones F and G reported June 16, 2026; 2026-05 DASHBOARD MURCH PROJECT_MAY.xlsx, H&amp;S report through May 2026; Murch_ScheduleActivities_CivilWorks_05222026-2.xlsx; Project Schedule - Murch - 2026-04-28.pdf; Attachment A Scope of Work; Chemik photovoltaic harnessing reference; Shoals above-ground BLA system reference. Dashboard updated June 22, 2026.</p>
     </footer>
 
     <script>
