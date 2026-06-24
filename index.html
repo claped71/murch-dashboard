@@ -744,11 +744,32 @@ canvas {
 }
 
 #personnelChart {
-  height: 320px;
+  height: auto;
+  min-width: 920px;
 }
 
 #resourceChart {
   height: 320px;
+}
+
+.resource-section > .chart-panel {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.chart-context {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.resource-lower {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: 18px;
+  margin-top: 18px;
+  align-items: start;
 }
 
 .table-wrap {
@@ -1117,6 +1138,7 @@ footer p {
   .civil-kpis,
   .civil-layout,
   .chart-layout,
+  .resource-lower,
   .split {
     grid-template-columns: 1fr;
   }
@@ -1623,11 +1645,11 @@ footer p {
           </div>
         </div>
         <div class="photo-feature">
-          <img id="featuredPhoto" src="https://claped71.github.io/murch-dashboard/assets/recent/recent-1.jpg?v=20260622-stable" data-fallback="https://claped71.github.io/murch-dashboard/assets/recent/recent-1.jpg" alt="Representative Murch site scope progress" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
+          <img id="featuredPhoto" src="https://claped71.github.io/murch-dashboard/assets/recent/recent-14.jpg?v=20260624-photos" data-fallback="https://claped71.github.io/murch-dashboard/assets/recent/recent-14.jpg" alt="Representative Murch site scope progress" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
           <div>
             <span class="label" id="featuredPhotoDate">June 19, 2026</span>
-            <h3 id="featuredPhotoTitle">ITS plowing machine arrival</h3>
-            <p id="featuredPhotoNote">Joshua Spalding reported that the ITS plowing machine arrived on site for the MW cable scope; this photo shows the equipment staged and ready for electrical mobilization.</p>
+            <h3 id="featuredPhotoTitle">Racking workfront beside stabilized access</h3>
+            <p id="featuredPhotoNote">Installed pile and racking lines beside the project access road, documenting active mechanical workfront conditions.</p>
           </div>
         </div>
         <div class="photo-grid" id="photoGrid"></div>
@@ -1736,27 +1758,34 @@ footer p {
         </div>
       </section>
 
-      <section class="section split">
-        <div>
-          <div class="section-heading compact">
-            <p class="eyebrow">Field resources</p>
-            <h2>Mechanical recovery manpower load required to protect milestones</h2>
-          </div>
-          <div class="chart-panel">
-            <canvas id="personnelChart" width="920" height="420" aria-label="Mechanical recovery manpower load required to protect project milestones"></canvas>
-          </div>
-          <div class="chart-panel">
-            <canvas id="resourceChart" width="920" height="360" aria-label="Current subcontractor field resources"></canvas>
-          </div>
-          <p class="personnel-note">The stacked histogram is the mechanical recovery manpower load from <em>Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx</em>. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles done around June 28, purlin/tracker recovery through September 18, and modules complete by October 9. The June 17 whiteboard shows 136 total people on site, but milestone protection depends on the correct mechanical trade mix: tracker/purlin labor must hold around 40-45 workers and the module crew must ramp from 22 to 40 workers before full-field release.</p>
+      <section class="section resource-section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Field resources</p>
+          <h2>Mechanical recovery manpower load required to protect milestones</h2>
         </div>
-        <div>
-          <div class="section-heading compact">
-            <p class="eyebrow">Milestones</p>
-            <h2>Contract dates versus current forecast</h2>
-          </div>
-          <div class="milestone-list" id="milestones"></div>
+        <div class="chart-panel">
+          <p class="chart-context">Weekly mechanical plan by trade. Values are planned resource loads, not total site headcount; LV electrical personnel are excluded.</p>
+          <canvas id="personnelChart" width="1120" height="520" aria-label="Mechanical recovery manpower load required to protect project milestones"></canvas>
         </div>
+        <div class="resource-lower">
+          <div>
+            <div class="section-heading compact">
+              <p class="eyebrow">Field snapshot</p>
+              <h2>Subcontractor resources reported on site</h2>
+            </div>
+            <div class="chart-panel">
+              <canvas id="resourceChart" width="920" height="360" aria-label="Current subcontractor field resources"></canvas>
+            </div>
+          </div>
+          <div>
+            <div class="section-heading compact">
+              <p class="eyebrow">Milestones</p>
+              <h2>Contract dates versus current forecast</h2>
+            </div>
+            <div class="milestone-list" id="milestones"></div>
+          </div>
+        </div>
+        <p class="personnel-note">The stacked histogram is the mechanical recovery manpower load from <em>Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx</em>. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles done around June 28, purlin/tracker recovery through September 18, and modules complete by October 9. The June 17 whiteboard total of 136 people includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
       </section>
 
       <section class="section risks" id="risks">
@@ -1776,7 +1805,7 @@ footer p {
 'use strict';
 
 (function () {
-  const assetVersion = '20260624-dashboard';
+  const assetVersion = '20260624-photos-chart';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
@@ -1797,18 +1826,18 @@ footer p {
       { title: 'Commissioning', metric: 'PIS Oct 16', note: 'Cold commissioning, energization, tracker testing, inverter start-up, PR test path, punch list, COD, and substantial completion.' }
     ],
     photos: [
+      { src: asset('assets/recent/recent-14.jpg'), fallbackSrc: assetFallback('assets/recent/recent-14.jpg'), date: 'June 19, 2026', title: 'Racking workfront beside stabilized access', note: 'Installed pile and racking lines beside the project access road, documenting active mechanical workfront conditions.' },
+      { src: asset('assets/recent/recent-13.jpg'), fallbackSrc: assetFallback('assets/recent/recent-13.jpg'), date: 'June 19, 2026', title: 'Tracker and racking installation', note: 'Wide field view of active tracker and racking installation, showing the scale of the released mechanical workfront.' },
+      { src: asset('assets/recent/recent-15.jpg'), fallbackSrc: assetFallback('assets/recent/recent-15.jpg'), date: 'June 19, 2026', title: 'ITS MV boring operation', note: 'Excavator and crew supporting the ITS medium-voltage boring scope at the wooded crossing workfront.' },
+      { src: asset('assets/recent/recent-16.jpg'), fallbackSrc: assetFallback('assets/recent/recent-16.jpg'), date: 'June 19, 2026', title: 'MV conduit handling and bore preparation', note: 'ITS crew handling conduit and preparing the bore workfront for the underground medium-voltage crossing.' },
+      { src: asset('assets/recent/recent-17.jpg'), fallbackSrc: assetFallback('assets/recent/recent-17.jpg'), date: 'June 19, 2026', title: 'MV boring materials staged in Area F', note: 'Conduit and boring materials staged at the Area F crossing, showing the physical preparation for the ITS installation sequence.' },
+      { src: asset('assets/recent/recent-18.jpg'), fallbackSrc: assetFallback('assets/recent/recent-18.jpg'), date: 'June 19, 2026', title: 'Wooded crossing workfront preparation', note: 'Compact equipment clearing and preparing access at the wooded MV crossing before boring and conduit installation.' },
+      { src: asset('assets/recent/recent-19.jpg'), fallbackSrc: assetFallback('assets/recent/recent-19.jpg'), date: 'June 19, 2026', title: 'Substation foundation formwork', note: 'Substation foundation and containment formwork under construction, documenting current SET civil progress.' },
       { src: asset('assets/recent/recent-1.jpg'), fallbackSrc: assetFallback('assets/recent/recent-1.jpg'), date: 'June 19, 2026', title: 'ITS plowing machine arrival', note: 'Joshua Spalding reported that the ITS plowing machine arrived on site for the MW cable scope; this photo shows the equipment staged and ready for electrical mobilization.' },
-      { src: asset('assets/recent/recent-2.jpg'), fallbackSrc: assetFallback('assets/recent/recent-2.jpg'), date: 'June 19, 2026', title: 'ITS plowing convoy on access road', note: 'June 19 field photo showing the ITS plowing machine being hauled along the project access road, confirming active electrical-scope mobilization.' },
-      { src: asset('assets/recent/recent-3.jpg'), fallbackSrc: assetFallback('assets/recent/recent-3.jpg'), date: 'June 19, 2026', title: 'Plowing attachment at Area A', note: 'Additional June 19 view of the ITS plowing equipment and blade assembly in the field, reinforcing that MW cable installation equipment is physically on site.' },
       { src: asset('assets/recent/recent-4.jpg'), fallbackSrc: assetFallback('assets/recent/recent-4.jpg'), date: 'June 17, 2026', title: 'Tracker workfront conditions', note: 'June 17 site photo showing muddy tracker rows, standing water, and access conditions affecting mechanical and follow-on workfront continuity.' },
-      { src: asset('assets/recent/recent-5.jpg'), fallbackSrc: assetFallback('assets/recent/recent-5.jpg'), date: 'June 17, 2026', title: 'Released-row field access', note: 'June 17 field photo showing current released-row conditions and tracker pile lines, useful context for daily access, sequencing, and recovery planning.' },
-      { src: asset('assets/recent/recent-6.jpg'), fallbackSrc: assetFallback('assets/recent/recent-6.jpg'), date: 'June 11, 2026', title: 'Tracker field inspection', note: 'Field inspection of installed tracker rows and active mechanical workfront conditions.' },
       { src: asset('assets/recent/recent-7.jpg'), fallbackSrc: assetFallback('assets/recent/recent-7.jpg'), date: 'June 11, 2026', title: 'Environmental controls and field support', note: 'Civil and environmental view showing stabilized access, sediment-control wattles, drainage protection, and support facilities.' },
       { src: asset('assets/recent/recent-8.jpg'), fallbackSrc: assetFallback('assets/recent/recent-8.jpg'), date: 'June 3, 2026', title: 'Aerial civil and laydown context', note: 'Drone view showing the broader civil layout, access roads, laydown area, and surrounding project workfronts.' },
-      { src: asset('assets/recent/recent-9.jpg'), fallbackSrc: assetFallback('assets/recent/recent-9.jpg'), date: 'June 3, 2026', title: 'Aerial pile and road operation', note: 'Drone view of equipment working along the road and pile workfront, useful for logistics and sequencing context.' },
-      { src: asset('assets/recent/recent-10.jpg'), fallbackSrc: assetFallback('assets/recent/recent-10.jpg'), date: 'May 19, 2026', title: 'Tracker and module field review', note: 'Representative mechanical photo showing tracker/module interface review and installed component checks.' },
-      { src: asset('assets/recent/recent-11.jpg'), fallbackSrc: assetFallback('assets/recent/recent-11.jpg'), date: 'May 26, 2026', title: 'Basin and road stabilization', note: 'Representative civil/environmental photo showing stabilized basin slopes and access-road construction.' },
-      { src: asset('assets/recent/recent-12.jpg'), fallbackSrc: assetFallback('assets/recent/recent-12.jpg'), date: 'April 9, 2026', title: 'Early site logistics and material handling', note: 'Older representative logistics view retained to show project material-handling and mobilization history.' }
+      { src: asset('assets/recent/recent-11.jpg'), fallbackSrc: assetFallback('assets/recent/recent-11.jpg'), date: 'May 26, 2026', title: 'Basin and road stabilization', note: 'Representative civil/environmental photo showing stabilized basin slopes and access-road construction.' }
     ],
     weeklyPlan: [
       { area: 'Area A tracker release', target: 'Keep tracker assembly advancing and release purlin-ready rows for the first module fronts.', minimum: '>= 240 tracker structures/week on released rows', gate: 'Continuous material kits and clean handoff from mechanical to follow-on crews.', owners: 'ECCS | Audelio Zuniga | Manuel Ramirez' },
@@ -1939,10 +1968,10 @@ footer p {
       { week: 'Oct 5', pile: 0, tracker: 0, module: 0, management: 5, total: 5 }
     ],
     mechanicalManpowerMilestones: [
-      { week: 'Jun 22', label: 'Today / current review', color: '#b53030', align: 'right' },
-      { week: 'Jun 29', label: 'Piles done around Jun 28', color: '#66716d', align: 'left' },
-      { week: 'Sep 14', label: 'Trackers / purlins done Sep 18', color: '#168a5b', align: 'right' },
-      { week: 'Oct 5', label: 'Modules done Oct 9', color: '#2769a8', align: 'left' }
+      { week: 'Jun 22', label: 'Recovery plan starts', color: '#b53030', row: 0 },
+      { week: 'Jun 29', label: 'Piles complete ~Jun 28', color: '#66716d', row: 1 },
+      { week: 'Sep 14', label: 'Trackers / purlins · Sep 18', color: '#168a5b', row: 0 },
+      { week: 'Oct 5', label: 'Modules · Oct 9', color: '#2769a8', row: 1 }
     ],
     personnelOutlook: [
       { week: 'W22', date: 'May 25', people: 135 },
@@ -2395,13 +2424,13 @@ footer p {
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
     const height = canvas.height;
-    const pad = { left: 72, top: 76, right: 26, bottom: 98 };
+    const pad = { left: 66, top: 126, right: 28, bottom: 62 };
     const chartW = width - pad.left - pad.right;
     const chartH = height - pad.top - pad.bottom;
     const rows = data.mechanicalManpowerLoad;
     const max = 150;
     const groupW = chartW / rows.length;
-    const barW = Math.min(34, groupW * 0.58);
+    const barW = Math.min(42, groupW * 0.62);
     const yFor = (value) => pad.top + chartH - (value / max) * chartH;
     const categoryColors = {
       pile: '#6b7d94',
@@ -2409,10 +2438,39 @@ footer p {
       module: '#2f66dc',
       management: '#d97706'
     };
+    const drawLabel = (text, x, y, color, align = 'center') => {
+      ctx.font = '800 11px system-ui';
+      const labelW = ctx.measureText(text).width + 18;
+      const boxX = Math.max(4, Math.min(width - labelW - 4, align === 'center' ? x - labelW / 2 : x));
+      ctx.fillStyle = 'rgba(255,255,255,0.96)';
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
+      ctx.fillRect(boxX, y - 14, labelW, 22);
+      ctx.strokeRect(boxX, y - 14, labelW, 22);
+      ctx.fillStyle = color;
+      ctx.textAlign = 'left';
+      ctx.fillText(text, boxX + 9, y + 1);
+    };
 
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = '#fbfcf8';
     ctx.fillRect(0, 0, width, height);
+
+    const legend = [
+      ['Pile operators', categoryColors.pile],
+      ['Tracker / purlin crew', categoryColors.tracker],
+      ['Module crew', categoryColors.module],
+      ['Mgmt / QC / HSE', categoryColors.management]
+    ];
+    legend.forEach(([label, color], index) => {
+      const x = 28 + index * 255;
+      ctx.fillStyle = color;
+      ctx.fillRect(x, 20, 14, 14);
+      ctx.fillStyle = colors.ink;
+      ctx.font = '700 12px system-ui';
+      ctx.textAlign = 'left';
+      ctx.fillText(label, x + 22, 32);
+    });
 
     ctx.strokeStyle = colors.line;
     ctx.lineWidth = 1;
@@ -2448,11 +2506,7 @@ footer p {
       ctx.fillStyle = colors.ink;
       ctx.font = '800 11px system-ui';
       ctx.textAlign = 'center';
-      ctx.save();
-      ctx.translate(center, height - 50);
-      ctx.rotate(-Math.PI / 4);
-      ctx.fillText(row.week, 0, 0);
-      ctx.restore();
+      ctx.fillText(row.week, center, height - 28);
     });
 
     data.mechanicalManpowerMilestones.forEach((milestone) => {
@@ -2466,25 +2520,8 @@ footer p {
       ctx.lineTo(x, pad.top + chartH);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = milestone.color;
-      ctx.font = '800 11px system-ui';
-      ctx.textAlign = milestone.align;
-      const textX = milestone.align === 'right' ? x - 6 : x + 6;
-      ctx.fillText(milestone.label, textX, pad.top + 18);
+      drawLabel(milestone.label, x, 69 + milestone.row * 27, milestone.color);
     });
-
-    const actualY = yFor(136);
-    ctx.strokeStyle = '#b53030';
-    ctx.setLineDash([7, 6]);
-    ctx.beginPath();
-    ctx.moveTo(pad.left, actualY);
-    ctx.lineTo(width - pad.right, actualY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle = '#b53030';
-    ctx.font = '800 11px system-ui';
-    ctx.textAlign = 'right';
-    ctx.fillText('Jun 17 actual site snapshot: 136 total people', width - pad.right, actualY - 8);
 
     const baselineY = yFor(66);
     ctx.strokeStyle = 'rgba(12, 95, 67, 0.58)';
@@ -2494,33 +2531,7 @@ footer p {
     ctx.lineTo(width - pad.right, baselineY);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#0c5f43';
-    ctx.font = '800 11px system-ui';
-    ctx.textAlign = 'right';
-    ctx.fillText('Baseline peak: 66', width - pad.right, baselineY - 8);
-
-    ctx.fillStyle = colors.ink;
-    ctx.font = '700 18px system-ui';
-    ctx.textAlign = 'left';
-    ctx.fillText('Weekly mechanical manpower load to protect milestone dates', 24, 28);
-    const legend = [
-      ['Pile operators', categoryColors.pile],
-      ['Tracker / purlin crew', categoryColors.tracker],
-      ['Module crew', categoryColors.module],
-      ['Mgmt / QC / HSE', categoryColors.management]
-    ];
-    legend.forEach(([label, color], index) => {
-      const x = width - 590 + index * 145;
-      ctx.fillStyle = color;
-      ctx.fillRect(x, 18, 12, 12);
-      ctx.fillStyle = colors.muted;
-      ctx.font = '11px system-ui';
-      ctx.textAlign = 'left';
-      ctx.fillText(label, x + 18, 28);
-    });
-    ctx.fillStyle = colors.muted;
-    ctx.font = '12px system-ui';
-    ctx.fillText('Mechanical scope only: pile, tracker/purlin, and module erection. LV electrical manpower is excluded.', 24, 50);
+    drawLabel('Original baseline peak · 66', width - pad.right - 92, baselineY - 8, '#0c5f43');
   }
 
   function renderMilestones() {
