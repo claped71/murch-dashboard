@@ -930,6 +930,37 @@ dd {
   white-space: nowrap;
 }
 
+.timeline-today {
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  width: 2px;
+  background: #142a24;
+  transform: translateX(-1px);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.timeline-today-label {
+  position: absolute;
+  top: -24px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #142a24;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.track .timeline-today {
+  top: -4px;
+  bottom: -4px;
+}
+
 .timeline-label {
   color: #33413d;
   font-size: 0.9rem;
@@ -2300,6 +2331,14 @@ footer p {
     const start = scheduleDate('2026-05-06');
     const end = scheduleDate('2026-11-15') + day;
     const span = end - start;
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    const todayVisible = today >= start && today < end;
+    const todayPosition = Math.min(100, Math.max(0, ((today - start) / span) * 100));
+    const todayLabel = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const todayLine = todayVisible
+      ? `<span class="timeline-today" style="left:${todayPosition}%" aria-hidden="true"></span>`
+      : '';
     const datedRows = data.schedule.map((row) => ({
       ...row,
       startTime: scheduleDate(row.start),
@@ -2320,7 +2359,7 @@ footer p {
         <div class="timeline-axis-track">${months.map(([label, date]) => {
           const position = ((scheduleDate(date) - start) / span) * 100;
           return `<span style="left:${position}%">${label}</span>`;
-        }).join('')}</div>
+        }).join('')}${todayLine}${todayVisible ? `<strong class="timeline-today-label" style="left:${todayPosition}%">Today · ${todayLabel}</strong>` : ''}</div>
         <div></div>
       </div>
     `;
@@ -2334,7 +2373,7 @@ footer p {
       return `
         <div class="timeline-row">
           <div class="timeline-label">${row.activity}</div>
-          <div class="track"><span class="bar ${statusClass(row.status)}${markerClass}" style="left:${left}%;width:${width}%" title="${duration} calendar day${duration === 1 ? '' : 's'}"></span></div>
+          <div class="track"><span class="bar ${statusClass(row.status)}${markerClass}" style="left:${left}%;width:${width}%" title="${duration} calendar day${duration === 1 ? '' : 's'}"></span>${todayLine}</div>
           <div class="timeline-date">${row.start.slice(5, 10)} to ${row.end.slice(5, 10)}<small>${duration} day${duration === 1 ? '' : 's'}</small></div>
         </div>
       `;
