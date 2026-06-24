@@ -1689,16 +1689,17 @@ footer p {
             <thead>
               <tr>
                 <th>Control item</th>
-                <th>Remaining / Gate</th>
-                <th>Required or planned</th>
-                <th>Current actual</th>
+                <th>Remaining scope / gate</th>
+                <th>Target / control basis</th>
+                <th>Latest measured output</th>
+                <th>Cumulative progress / stock</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody id="productionBody"></tbody>
           </table>
         </div>
-        <p class="quality-note"><strong>Display rule:</strong> Only production items that directly control the schedule are shown here.</p>
+        <p class="quality-note"><strong>How to read this table:</strong> Target is the daily recovery requirement or control assumption. Latest measured output is limited to the stated reporting period and is never replaced by a cumulative quantity. Cumulative progress / stock shows total installed, completed, delivered, or available. A dash means that the source does not define a comparable daily target or actual.</p>
       </section>
 
       <section class="section" id="schedule">
@@ -1850,23 +1851,19 @@ footer p {
       { zone: 'Zone G', contractor: 'Latnovva', scope: 3356, installed: 0, remaining: 3356, done: 0, status: 'Material Hold', note: 'Assigned to Latnovva. The Week 24 civil update keeps Area G release as the blocker for remaining TBD civil planning and Zone G fence completion.' }
     ],
     production: [
-      { name: 'Project pile installation', remaining: '15,490 piles', required: 560, observed: 101, status: 'Critical', note: "The June 23 official Delivery/Mechanical workbook shows 15,862 installed (50.6%). Seven-machine capacity remains 560/day; June 23 added 101 piles, so the recovery rate still has to improve while material continuity is protected." },
-      { name: 'Pile delivery / site stock', remaining: '13,625 piles undelivered', required: 560, observed: 1865, status: 'Critical', note: "17,727 of 31,352 piles are logged delivered, leaving a 1,865-pile buffer versus installed production. This covers about 3.3 days at the 560/day recovery capacity." },
-      { name: 'Drill and backfill', remaining: '309 pre-drills', required: 250, observed: 316, status: 'Critical', note: "The June 22 Const. Management PROGRESS sheet shows 7,385 of 7,694 drill-and-backfill units complete, with Zone B as the remaining workfront." },
-      { name: 'Civil grading / cut-fill', remaining: '39%', required: 0, observed: 61, status: 'On Track', note: 'Rosario Ruiz Week 24 civil update reports earthworks cut/fill at 61% executed.' },
-      { name: 'Internal roads', remaining: '65%', required: 0, observed: 35, status: 'Critical', note: 'Rosario Ruiz Week 24 civil update reports internal roads in Areas A-B-C-E at 35% executed.' },
-      { name: 'Tracker assembly', remaining: '2,316 trackers', required: 48, observed: 170, status: 'Critical', note: 'June 23 Const. Management workbook reports 170 of 2,486 trackers installed (6.8%). Final tracker completion remains dependent on completed piles and complete purlin kits.' },
-      { name: 'Torque tube installation', remaining: '25,327 tubes', required: 0, observed: 3542, status: 'Critical', note: 'Refreshed June 23 Const. Management workbook reports 3,542 of 28,869 torque tubes installed (12.3%).' },
-      { name: 'ITS HDD boring', remaining: '13 of 20 bores', required: 1, observed: 7, status: 'Watch', note: 'The detailed ITS log supports 7 completed bores and 1,334.2 ft installed. A June 24 status-label formula issue is excluded from the dashboard; 13 workers were mobilized with no new footage entered at cut-off.' },
-      { name: 'ITS MV plowing', remaining: '46 segments', required: 1, observed: 0, status: 'Critical', note: 'No plowing footage is complete. A 13-person ITS crew was reported on MV11A June 24, but measurable footage and completed segments were still blank at cut-off.' },
-      { name: 'SET construction', remaining: '93.5% overall', required: 0, observed: 6.5, status: 'Critical', note: 'The June 24 SET tracker reports 6.5% overall progress, 31.2% civil, 75% control-building foundation piles, 12 workers on site, and material-date gates requiring confirmation.' },
-      { name: 'Purlin installation', remaining: '176,442 purlins', required: 8402, observed: 0, status: 'Critical', note: 'Current master control reports zero installed. Required pace is approximately 8,402/day; installation depends on complete tracker structures and confirmed material kits.' },
-      { name: 'Panel delivery', remaining: '14,230 modules', required: 0, observed: 0, status: 'On Track', note: 'The June 23 Const. Management workbook reports 157,240 of 171,470 panels delivered (91.7%).' },
-      { name: '2nd-50% zones B/D/F/G', remaining: 'Material gate', required: 0, observed: 0, status: 'Material Hold', note: 'Zone B and Zone F now have counted installation, but continuity in the remaining 2nd-50% zones depends on confirmed GameChange post deliveries.' },
-      { name: 'Tracker material delivery', remaining: '318 / 602 shipment lines', required: 0, observed: 0, status: 'Critical', note: 'The June 15 GameChange delivery plan shows 284 shipment lines customer-confirmed on site (47.2%) and 318 pending. Latest customer-confirmed site record is June 1; 9 additional lines show carrier pickup but no confirmed site receipt.' },
-      { name: 'Purlin delivery', remaining: '59,547 Purlin units', required: 0, observed: 0, status: 'Critical', note: 'No Purlin shipment lines are confirmed on site. Planned dated deliveries total 46,080 units from June 17 through July 8; 13,467 Purlins have no planned site-delivery date.' },
-      { name: 'Tracker Purlin delivery', remaining: '117,778 units', required: 0, observed: 0, status: 'Critical', note: 'No Tracker Purlin shipment lines are confirmed on site. Planned deliveries start June 23 and continue through July 16.' },
-      { name: 'Module installation', remaining: '171,470 modules', required: 5531, observed: 0, status: 'Critical', note: 'June 16 master control reports zero installed and approximately 5,531/day required. The June 11 field discussion indicates that learning-period output is materially below the management need; staffing quantities are intentionally excluded pending reliable personnel records.' }
+      { name: 'Project pile installation', remaining: '15,490 piles', target: '560 piles/day recovery capacity', latest: '101 piles installed on Jun 23', cumulative: '15,862 / 31,352 installed (50.6%)', status: 'Critical', note: 'Installed production follows the Construction Manager workbook. The 560/day figure is a modeled capacity assumption: 7 ramming machines at 80 piles per machine per production day.' },
+      { name: 'Pile delivery / site stock', remaining: '13,625 piles undelivered', target: 'Receipts must exceed 560 piles/day burn', latest: '658 additional delivered piles recorded Jun 23', cumulative: '17,727 delivered; 1,865 available above installed', status: 'Critical', note: 'Available stock equals delivered piles less officially installed piles. The current buffer covers about 3.3 production days at the recovery-capacity assumption.' },
+      { name: 'Drill and backfill', remaining: '309 pre-drills', target: '250 units/day recovery target', latest: '316 units in the latest reported period', cumulative: '7,385 / 7,694 complete (96.0%)', status: 'Critical', note: 'June 22 Construction Management progress source. Zone B remains the final pre-drill workfront.' },
+      { name: 'Civil grading / cut-fill', remaining: '39% of scope', target: '— No approved daily target in source', latest: '— Daily quantity not reported', cumulative: '61% complete through Jun 19', status: 'On Track', note: 'Current percentage follows Rosario Ruiz Week 24 civil update; it is cumulative progress, not a daily production rate.' },
+      { name: 'Internal roads', remaining: '65% of scope', target: '— No approved daily target in source', latest: '— Daily quantity not reported', cumulative: '35% complete through Jun 19', status: 'Critical', note: 'Current percentage follows Rosario Ruiz Week 24 civil update for Areas A-B-C-E.' },
+      { name: 'Tracker assembly', remaining: '2,316 trackers', target: '48 trackers/day recovery target', latest: '— Daily installed quantity not reported', cumulative: '170 / 2,486 installed (6.8%)', status: 'Critical', note: 'The official cumulative tracker count is retained. It is not presented as a daily actual.' },
+      { name: 'Torque tube installation', remaining: '25,327 tubes', target: '— No approved daily target in source', latest: '— Daily installed quantity not reported', cumulative: '3,542 / 28,869 installed (12.3%)', status: 'Critical', note: 'June 23 Construction Manager workbook cumulative quantity.' },
+      { name: 'ITS HDD boring', remaining: '13 of 20 bores', target: 'Minimum 1 completed bore/day', latest: '0 bores and 0 ft added on Jun 24', cumulative: '7 / 20 bores; 1,334.2 ft installed', status: 'Watch', note: 'The detailed ITS log controls. The workbook formula affected by the Complete/Completed status wording is excluded.' },
+      { name: 'ITS MV plowing', remaining: '46 segments', target: 'Minimum 1 completed segment/day', latest: '0 segments and 0 ft reported on Jun 24', cumulative: '0 / 46 segments complete', status: 'Critical', note: 'A 13-person ITS crew was reported at MV11A, but the workbook contained no measurable plowing output at cut-off.' },
+      { name: 'SET construction', remaining: '93.5% of overall scope', target: '— No approved daily progress target in source', latest: '— Daily earned progress not reported', cumulative: '6.5% overall; civil 31.2%; foundation piles 75%', status: 'Critical', note: 'June 24 SET tracker. The 12-person workforce is a resource count and is intentionally not shown as production output.' },
+      { name: 'Purlin installation', remaining: '176,442 purlins', target: '8,402 purlins/day recovery target', latest: '0 installed in latest control source', cumulative: '0 installed', status: 'Critical', note: 'Installation cannot start at the required rate until complete material kits and tracker-ready workfronts are released.' },
+      { name: 'Panel delivery', remaining: '14,230 modules to deliver', target: '— No approved daily delivery target in source', latest: '— Latest daily receipt not reported', cumulative: '157,240 / 171,470 delivered (91.7%)', status: 'On Track', note: 'June 23 Construction Manager workbook cumulative delivery quantity.' },
+      { name: 'Module installation', remaining: '171,470 modules', target: '5,531 modules/day recovery target', latest: '0 installed in latest control source', cumulative: '0 installed', status: 'Critical', note: 'The target is a recovery requirement, not achieved production. Workforce mobilization is planned for June 29 and installation requires fully released tracker rows.' }
     ],
     successors: [
       { activity: 'Tracker structural assembly', dependency: 'Completed piles by zone/block; final tracker finish after final pile finish', impact: 'Can overlap piling only in released areas. Final tracker structure cannot finish before the revised late-July pile forecast; the August 19 tracker forecast remains provisional and requires 40 completed rows/day.', mitigation: 'Prioritize tracker crews into released workfronts and maintain linked finish-to-finish controls.' },
@@ -2288,10 +2285,11 @@ footer p {
   function renderProduction() {
     document.getElementById('productionBody').innerHTML = data.production.map((row) => `
       <tr>
-        <td data-label="Contractor / Scope"><strong>${row.name}</strong><br><small>${row.note}</small></td>
-        <td data-label="Remaining">${row.remaining}</td>
-        <td data-label="Required/day">${fmt(row.required)}</td>
-        <td data-label="Observed/day">${fmt(row.observed)}</td>
+        <td data-label="Control item"><strong>${row.name}</strong><br><small>${row.note}</small></td>
+        <td data-label="Remaining scope / gate">${row.remaining}</td>
+        <td data-label="Target / control basis">${row.target}</td>
+        <td data-label="Latest measured output">${row.latest}</td>
+        <td data-label="Cumulative progress / stock">${row.cumulative}</td>
         <td data-label="Assessment">${badge(row.status)}</td>
       </tr>
     `).join('');
