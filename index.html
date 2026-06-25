@@ -556,6 +556,53 @@ small {
   line-height: 1.55;
 }
 
+.daily-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 230px;
+}
+
+.daily-chip {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 58px;
+  padding: 6px 8px 8px;
+  color: var(--ink);
+  background: #f4f7f5;
+  border: 1px solid var(--line);
+  border-bottom: 4px solid var(--line);
+}
+
+.daily-chip .day {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.daily-chip .qty {
+  margin-top: 2px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.daily-chip.good {
+  background: #eaf7ef;
+  border-bottom-color: var(--green);
+}
+
+.daily-chip.warn {
+  background: #fff6df;
+  border-bottom-color: var(--amber);
+}
+
+.daily-chip.bad {
+  background: #fff0ed;
+  border-bottom-color: var(--red);
+}
+
 .photo-controls {
   display: flex;
   gap: 8px;
@@ -1307,7 +1354,7 @@ footer p {
       </nav>
 
       <section class="hero-content">
-        <p class="eyebrow">Van Buren County, MI | Source files refreshed June 24, 2026 | Latest complete installed-production data through June 23, 2026</p>
+        <p class="eyebrow">Van Buren County, MI | Source files refreshed June 25, 2026 | Latest complete installed-production data through June 23, 2026</p>
         <h1>Murch Solar Project Control Dashboard</h1>
         <p class="lede">102 MWp utility-scale PV project with turnkey EPC scope, GameChange single-axis trackers, 31,352 piles, 2,486 tracker rows, and 171,470 modules.</p>
         <div class="hero-actions" aria-label="Dashboard quick links">
@@ -1459,7 +1506,7 @@ footer p {
 
       <section class="section" id="field-updates">
         <div class="section-heading">
-          <p class="eyebrow">Latest status review | Source files refreshed June 24</p>
+          <p class="eyebrow">Latest status review | Source files refreshed June 25</p>
           <h2>Official production headline and schedule-driving status</h2>
         </div>
         <div class="quality-grid">
@@ -1476,7 +1523,7 @@ footer p {
           <article class="quality-alert">
             <span class="label">GameChange Delivery Status</span>
             <strong>658 piles received</strong>
-            <small>The refreshed Delivery / Mechanical workbook raises delivered piles to 17,727. Six additional June 24 trucks remain planned until receipt is confirmed.</small>
+            <small>The June 25 Delivery / Mechanical workbook keeps delivered piles at 17,727. No newer POD-confirmed pile receipt is shown after the June 23 recorded wave.</small>
           </article>
           <article class="quality-alert">
             <span class="label">Pre-Drill Status</span>
@@ -1516,7 +1563,7 @@ footer p {
           <article>
             <span class="label">MV / HDD Scope</span>
             <strong>7 / 20 bores</strong>
-            <small>ITS retains 7 completed bores and 1,334.2 ft of HDD. A 13-person crew was mobilized June 24; no new boring or plowing footage was reported at cut-off.</small>
+            <small>ITS retains 7 completed bores and 1,334.2 ft of HDD. The June 25 report shows 0 ft boring/plowing today, with first MV11A plowing segments planned June 25-26.</small>
           </article>
         </div>
         <p class="quality-note"><strong>Control note:</strong> The Construction Manager's Delivery / Mechanical workbook remains the official and non-disputable installed-production basis for this dashboard.</p>
@@ -1524,7 +1571,7 @@ footer p {
 
       <section class="section" id="delivery-control">
         <div class="section-heading">
-          <p class="eyebrow">Delivery control | Official workbook refreshed June 24 and Manuel receiving limits</p>
+          <p class="eyebrow">Delivery control | Official workbook refreshed June 25 and Manuel receiving limits</p>
           <h2>Pile deliveries are the immediate mechanical continuity gate</h2>
         </div>
         <div class="quality-grid">
@@ -1536,7 +1583,7 @@ footer p {
           <article>
             <span class="label">June 23 Pile/Post Loads</span>
             <strong>658 received</strong>
-            <small>The refreshed official workbook records the June 23 pile increase in delivered stock. These piles are now included in the site buffer.</small>
+            <small>The June 25 official workbook still records the June 23 pile increase as the latest POD-backed pile receipt. These piles remain included in the site buffer.</small>
           </article>
           <article>
             <span class="label">June 23 Purlin / Racking Loads</span>
@@ -1645,11 +1692,11 @@ footer p {
           </div>
         </div>
         <div class="photo-feature">
-          <img id="featuredPhoto" src="https://claped71.github.io/murch-dashboard/assets/recent/recent-14.jpg?v=20260624-photos" data-fallback="https://claped71.github.io/murch-dashboard/assets/recent/recent-14.jpg" alt="Representative Murch site scope progress" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
+          <img id="featuredPhoto" src="https://claped71.github.io/murch-dashboard/assets/recent/recent-20.jpg?v=20260625-golden-row" data-fallback="https://claped71.github.io/murch-dashboard/assets/recent/recent-20.jpg" alt="Representative Murch site scope progress" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
           <div>
-            <span class="label" id="featuredPhotoDate">June 19, 2026</span>
-            <h3 id="featuredPhotoTitle">Racking workfront beside stabilized access</h3>
-            <p id="featuredPhotoNote">Installed pile and racking lines beside the project access road, documenting active mechanical workfront conditions.</p>
+            <span class="label" id="featuredPhotoDate">June 25, 2026</span>
+            <h3 id="featuredPhotoTitle">Golden Row installation</h3>
+            <p id="featuredPhotoNote">Field crew installing the Golden Row tracker/racking assembly, documenting the first representative mechanical installation sequence.</p>
           </div>
         </div>
         <div class="photo-grid" id="photoGrid"></div>
@@ -1722,6 +1769,28 @@ footer p {
           </table>
         </div>
         <p class="quality-note"><strong>How to read this table:</strong> Target is the daily acceleration requirement or control assumption. Latest measured output is limited to the stated reporting period and is never replaced by a cumulative quantity. Cumulative progress / stock shows total installed, completed, delivered, or available. A dash means that the source does not define a comparable daily target or actual.</p>
+        <div class="section-heading compact" style="margin-top:28px">
+          <p class="eyebrow">Daily production history | Critical control tasks</p>
+          <h2>Days above and below minimum production needed to protect the plan</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Critical task</th>
+                <th>Measured period</th>
+                <th>Minimum daily target</th>
+                <th>Days at / above</th>
+                <th>Days below</th>
+                <th>Latest measured day</th>
+                <th>Daily fulfillment scale</th>
+                <th>Control reading</th>
+              </tr>
+            </thead>
+            <tbody id="dailyHistoryBody"></tbody>
+          </table>
+        </div>
+        <p class="quality-note"><strong>Daily history rule:</strong> Counts use only dated actual-production rows in the current workbooks. Planned rows, blank future rows, delivery quantities, and resource counts are excluded. Pile installation follows the official Delivery / Mechanical installed-production basis when sources differ.</p>
       </section>
 
       <section class="section" id="schedule">
@@ -1785,7 +1854,7 @@ footer p {
             <div class="milestone-list" id="milestones"></div>
           </div>
         </div>
-        <p class="personnel-note">The stacked histogram is the mechanical acceleration manpower load from <em>Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx</em>, corrected to align pile resources with the dashboard acceleration schedule through July 28. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles complete July 28, purlin/tracker acceleration through September 18, and modules complete by October 9. The June 17 whiteboard total of 136 people includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
+        <p class="personnel-note">The stacked histogram is the mechanical acceleration manpower load from the resource analysis document, corrected to align pile resources with the dashboard acceleration schedule through July 28. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles complete July 28, purlin/tracker acceleration through September 18, and modules complete by October 9. The June 17 whiteboard total of 136 people includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
       </section>
 
       <section class="section risks" id="risks">
@@ -1798,14 +1867,14 @@ footer p {
     </main>
 
     <footer>
-      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan; DELIVERY AND MECHANICAL-4.xlsx refreshed June 24, 2026 and used as the Construction Manager production report with controlling installed pile production at 15,862 piles and 17,727 delivered piles; MURCH Plowing + Boring_MT_Tracking-2.xlsx with ITS field data through June 24, 2026; SE_Construction_Tracker_Murch_Solar.xlsx with SET progress and June 24 daily status; Shreeya Devkota / GameChange and Manuel Ramirez delivery correspondence; Daniel Morilla's June 22 pile-quality update; Rosario Ruiz Week 24 civil update with progress through June 19; Murch_ResourceAnalysis_BL_vs_Recovery_2026-06-22.docx; H&amp;S May dashboard; current schedule and contract references. Dashboard updated June 24, 2026.</p>
+      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan; DELIVERY AND MECHANICAL.xlsx refreshed June 25, 2026 and used as the Construction Manager production report with controlling installed pile production at 15,862 piles and 17,727 delivered piles; ProductionProgress_JS.xlsx refreshed June 25, 2026; MURCH Plowing + Boring_MT_Tracking.xlsx with ITS field data/report date through June 25, 2026; SE_Construction_Tracker_Murch_Solar.xlsx with SET progress and June 24 daily status; Shreeya Devkota / GameChange and Manuel Ramirez delivery correspondence; Daniel Morilla's June 22 pile-quality update; Rosario Ruiz Week 24 civil update with progress through June 19; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated June 25, 2026.</p>
     </footer>
 
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260624-photos-chart';
+  const assetVersion = '20260625-golden-row';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
@@ -1826,6 +1895,7 @@ footer p {
       { title: 'Commissioning', metric: 'PIS Oct 16', note: 'Cold commissioning, energization, tracker testing, inverter start-up, PR test path, punch list, COD, and substantial completion.' }
     ],
     photos: [
+      { src: asset('assets/recent/recent-20.jpg'), fallbackSrc: assetFallback('assets/recent/recent-20.jpg'), date: 'June 25, 2026', title: 'Golden Row installation', note: 'Field crew installing the Golden Row tracker/racking assembly, documenting the first representative mechanical installation sequence.' },
       { src: asset('assets/recent/recent-14.jpg'), fallbackSrc: assetFallback('assets/recent/recent-14.jpg'), date: 'June 19, 2026', title: 'Racking workfront beside stabilized access', note: 'Installed pile and racking lines beside the project access road, documenting active mechanical workfront conditions.' },
       { src: asset('assets/recent/recent-13.jpg'), fallbackSrc: assetFallback('assets/recent/recent-13.jpg'), date: 'June 19, 2026', title: 'Tracker and racking installation', note: 'Wide field view of active tracker and racking installation, showing the scale of the released mechanical workfront.' },
       { src: asset('assets/recent/recent-15.jpg'), fallbackSrc: assetFallback('assets/recent/recent-15.jpg'), date: 'June 19, 2026', title: 'ITS MV boring operation', note: 'Excavator and crew supporting the ITS medium-voltage boring scope at the wooded crossing workfront.' },
@@ -1887,12 +1957,19 @@ footer p {
       { name: 'Internal roads', remaining: '65% of scope', target: '— No approved daily target in source', latest: '— Daily quantity not reported', cumulative: '35% complete through Jun 19', status: 'Critical', note: 'Current percentage follows Rosario Ruiz Week 24 civil update for Areas A-B-C-E.' },
       { name: 'Tracker assembly', remaining: '2,316 trackers', target: '48 trackers/day acceleration target', latest: '— Daily installed quantity not reported', cumulative: '170 / 2,486 installed (6.8%)', status: 'Critical', note: 'The official cumulative tracker count is retained. It is not presented as a daily actual.' },
       { name: 'Torque tube installation', remaining: '25,327 tubes', target: '— No approved daily target in source', latest: '— Daily installed quantity not reported', cumulative: '3,542 / 28,869 installed (12.3%)', status: 'Critical', note: 'June 23 Construction Manager workbook cumulative quantity.' },
-      { name: 'ITS HDD boring', remaining: '13 of 20 bores', target: 'Minimum 1 completed bore/day', latest: '0 bores and 0 ft added on Jun 24', cumulative: '7 / 20 bores; 1,334.2 ft installed', status: 'Watch', note: 'The detailed ITS log controls. The workbook formula affected by the Complete/Completed status wording is excluded.' },
-      { name: 'ITS MV plowing', remaining: '46 segments', target: 'Minimum 1 completed segment/day', latest: '0 segments and 0 ft reported on Jun 24', cumulative: '0 / 46 segments complete', status: 'Critical', note: 'A 13-person ITS crew was reported at MV11A, but the workbook contained no measurable plowing output at cut-off.' },
+      { name: 'ITS HDD boring', remaining: '13 of 20 bores', target: 'Minimum 1 completed bore/day', latest: '0 bores and 0 ft reported on Jun 25', cumulative: '7 / 20 bores; 1,334.2 ft installed', status: 'Watch', note: 'The detailed ITS log controls. The June 25 executive report still shows 0 ft boring today and this week.' },
+      { name: 'ITS MV plowing', remaining: '46 segments', target: 'Minimum 1 completed segment/day', latest: '0 segments and 0 ft reported on Jun 25', cumulative: '0 / 46 segments complete', status: 'Critical', note: 'The June 25 ITS workbook still shows zero plowing complete. First MV11A plowing segments are planned June 25-26 and must be converted into measured feet.' },
       { name: 'SET construction', remaining: '93.5% of overall scope', target: '— No approved daily progress target in source', latest: '— Daily earned progress not reported', cumulative: '6.5% overall; civil 31.2%; foundation piles 75%', status: 'Critical', note: 'June 24 SET tracker. The 12-person workforce is a resource count and is intentionally not shown as production output.' },
       { name: 'Purlin installation', remaining: '176,442 purlins', target: '8,402 purlins/day acceleration target', latest: '0 installed in latest control source', cumulative: '0 installed', status: 'Critical', note: 'Installation cannot start at the required rate until complete material kits and tracker-ready workfronts are released.' },
       { name: 'Panel delivery', remaining: '14,230 modules to deliver', target: '— No approved daily delivery target in source', latest: '— Latest daily receipt not reported', cumulative: '157,240 / 171,470 delivered (91.7%)', status: 'On Track', note: 'June 23 Construction Manager workbook cumulative delivery quantity.' },
       { name: 'Module installation', remaining: '171,470 modules', target: '5,531 modules/day acceleration target', latest: '0 installed in latest control source', cumulative: '0 installed', status: 'Critical', note: 'The target is an acceleration requirement, not achieved production. Workforce mobilization is planned for June 29 and installation requires fully released tracker rows.' }
+    ],
+    dailyProductionHistory: [
+      { task: 'Pile installation', period: 'Jun 18-Jun 23 measured days', minimum: '560 piles/day', above: 0, below: 4, latest: 'Jun 23: 101 piles', note: 'Only measured pile-production days are counted; blank calendar days are excluded. Latest official daily output remains below the 560/day control rate.', daily: [{ day: 'Jun 18', value: 20, target: 560, unit: 'piles' }, { day: 'Jun 19', value: 79, target: 560, unit: 'piles' }, { day: 'Jun 22', value: 251, target: 560, unit: 'piles' }, { day: 'Jun 23', value: 101, target: 560, unit: 'piles' }] },
+      { task: 'Tracker / torque-tube work', period: 'Jun 17-Jun 25', minimum: '48 tracker units/day', above: 1, below: 8, latest: 'Jun 25: 0 units', note: 'Only Jun 22 met the 48/day control rate. Golden Row installation is visible in the photo report, but the workbook has not yet converted it into a reported tracker daily quantity.', daily: [{ day: 'Jun 17', value: 15, target: 48, unit: 'units' }, { day: 'Jun 18', value: 35, target: 48, unit: 'units' }, { day: 'Jun 19', value: 26, target: 48, unit: 'units' }, { day: 'Jun 20', value: 31, target: 48, unit: 'units' }, { day: 'Jun 21', value: 0, target: 48, unit: 'units' }, { day: 'Jun 22', value: 48, target: 48, unit: 'units' }, { day: 'Jun 23', value: 31, target: 48, unit: 'units' }, { day: 'Jun 24', value: 0, target: 48, unit: 'units' }, { day: 'Jun 25', value: 0, target: 48, unit: 'units' }] },
+      { task: 'Purlin installation', period: 'Jun 17-Jun 25', minimum: '8,402 purlins/day', above: 0, below: 9, latest: 'Jun 25: 0 purlins', note: 'No purlin installation quantity is reported yet; complete material kits and tracker-ready workfronts remain the gate.', daily: [{ day: 'Jun 17', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 18', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 19', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 20', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 21', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 22', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 23', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 24', value: 0, target: 8402, unit: 'purlins' }, { day: 'Jun 25', value: 0, target: 8402, unit: 'purlins' }] },
+      { task: 'Module installation', period: 'Jun 17-Jun 25', minimum: '5,531 modules/day', above: 0, below: 9, latest: 'Jun 25: 0 modules', note: 'Module work remains at zero installed; Workforce mobilization is still planned for Jun 29 and requires released tracker rows.', daily: [{ day: 'Jun 17', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 18', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 19', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 20', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 21', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 22', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 23', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 24', value: 0, target: 5531, unit: 'modules' }, { day: 'Jun 25', value: 0, target: 5531, unit: 'modules' }] },
+      { task: 'ITS MV plowing', period: 'Jun 17-Jun 25', minimum: '1 completed segment/day', above: 0, below: 9, latest: 'Jun 25: 0 ft / 0 segments', note: 'The June 25 ITS report still shows zero plowing production; first MV11A segments are planned Jun 25-26.', daily: [{ day: 'Jun 17', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 18', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 19', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 20', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 21', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 22', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 23', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 24', value: 0, target: 1, unit: 'seg' }, { day: 'Jun 25', value: 0, target: 1, unit: 'seg' }] }
     ],
     successors: [
       { activity: 'Tracker structural assembly', dependency: 'Completed piles by zone/block; final tracker finish after final pile finish', impact: 'Can overlap piling only in released areas. Final tracker structure cannot finish before the revised late-July pile forecast; the August 19 tracker forecast remains provisional and requires 40 completed rows/day.', mitigation: 'Prioritize tracker crews into released workfronts and maintain linked finish-to-finish controls.' },
@@ -1903,7 +1980,7 @@ footer p {
     ],
     schedule: [
       { activity: 'D&F Pre-Drilling', contractor: 'Kalamazoo Excavating', start: '2026-05-06', end: '2026-06-22', status: 'Critical', note: 'The June 22 Const. Management PROGRESS sheet shows 7,385 complete and 309 remaining, all in Zone B.' },
-      { activity: 'Current pile delivery burn', contractor: 'ECCS / LATNOVVA / United', start: '2026-06-16', end: '2026-06-24', status: 'Critical', note: 'The refreshed official workbook reports 15,862 installed and 17,727 delivered piles, leaving a 1,865-pile buffer. Scheduled June 24 posts remain excluded until POD/site receipt.' },
+      { activity: 'Current pile delivery burn', contractor: 'ECCS / LATNOVVA / United', start: '2026-06-16', end: '2026-06-25', status: 'Critical', note: 'The refreshed official workbook reports 15,862 installed and 17,727 delivered piles, leaving a 1,865-pile buffer. No newer POD-confirmed pile receipt is shown after the June 23 recorded wave.' },
       { activity: 'June 23 recorded delivery wave', contractor: 'GameChange / Logistics', start: '2026-06-23', end: '2026-06-23', status: 'Confirmed', note: 'The refreshed official workbook records 658 additional delivered piles and receipt lines for 21,672 tracker purlins, 20,251 purlin strips, 640 row tubes, and 2,760 heavy squeeze splices.' },
       { activity: 'June 24 scheduled delivery wave', contractor: 'GameChange / Logistics', start: '2026-06-24', end: '2026-06-24', status: 'Critical', note: 'Shreeya scheduled 6 trucks: 90 Light Green posts, 7,956 tracker purlins, 5,520 heavy splices, 7,840 saddle brackets, and 272 row tubes. Count as pending until POD/site receipt.' },
       { activity: 'Delivery receiving-cap control', contractor: 'GameChange / Greensol Logistics', start: '2026-06-23', end: '2026-06-26', status: 'Critical', note: "Manuel's receiving rule controls this week: max 16 trucks/day, max 8 pile loads/day, max 8 non-pile loads/day, and max 3 loads/hour. Early/late trucks may be turned away, so the Gantt assumes scheduled delivery only until daily receipts are verified." },
@@ -1911,8 +1988,8 @@ footer p {
       { activity: 'United Zone F pile ramming start', contractor: 'United', start: '2026-06-22', end: '2026-06-22', status: 'Critical', note: 'United starts pile ramming on June 22, subject to the delayed pile delivery, completed marking, access, and released workfronts.' },
       { activity: 'Overall pile installation acceleration', contractor: 'All pile contractors', start: '2026-06-22', end: '2026-07-28', status: 'Critical', note: 'The June 23 official Delivery/Mechanical workbook leaves 15,490 piles. Seven-machine capacity of 560/day implies about 28 production days remaining if material, access, and crews hold.' },
       { activity: 'Tracker Structural Assembly', contractor: 'ECCS', start: '2026-06-08', end: '2026-08-19 provisional', status: 'At Risk', note: 'Refreshed workbook shows 170 installed tracker structures. Trackers overlap by released block but final completion must remain after final pile completion.' },
-      { activity: 'ITS HDD boring', contractor: 'ITS', start: '2026-06-12', end: '2026-08-15', status: 'Active', note: 'Seven of 20 bores are complete with 1,334.2 ft installed. The June 24 report shows 13 workers mobilized but no additional footage; a status-label formula error is excluded from the dashboard.' },
-      { activity: 'ITS MV cable plowing', contractor: 'ITS', start: '2026-06-24', end: '2026-08-15', status: 'Critical', note: 'Zero plowing footage is complete. A 13-person ITS crew was reported at MV11A June 24; actual production must now be reported in feet and completed segments.' },
+      { activity: 'ITS HDD boring', contractor: 'ITS', start: '2026-06-12', end: '2026-08-15', status: 'Active', note: 'Seven of 20 bores are complete with 1,334.2 ft installed. The June 25 report shows 0 ft boring today and this week; a status-label formula issue is excluded from the dashboard.' },
+      { activity: 'ITS MV cable plowing', contractor: 'ITS', start: '2026-06-25', end: '2026-08-15', status: 'Critical', note: 'Zero plowing footage is complete. First MV11A plowing segments are planned June 25-26; actual production must now be reported in feet and completed segments.' },
       { activity: 'Control building foundation and delivery gate', contractor: 'AB Power / SET team', start: '2026-06-20', end: '2026-07-10', status: 'Critical', note: 'Control-building foundation piles are 75% complete. Confirm anchor bolts and resolve the prior June 25 delivery statement against the current tracker commitment of July 7 and required-on-site date of July 10.' },
       { activity: 'SET equipment required-on-site gate', contractor: 'SET team / Procurement / Suppliers', start: '2026-06-24', end: '2026-07-10', status: 'Critical', note: 'Main transformer, control building, and structural steel remain in fabrication. Several electrical items show committed dates after the July 10 required-on-site date and require procurement acceleration.' },
       { activity: 'Inverter foundation readiness', contractor: 'EPC / Civil / Electrical', start: '2026-06-20', end: '2026-07-25 provisional', status: 'Critical', note: 'The 23 inverter units are expected to land at the end of July, not the beginning of July. All inverter pile foundations must be ready before the first inverter arrives.' },
@@ -2013,7 +2090,7 @@ footer p {
       { title: 'Complete tracker kits control module release', level: 'Critical', owner: 'GameChange / ECCS / Manuel Ramirez', note: 'June 23 racking receipts improve availability, but tracker rows can be released only when complete purlin kits are allocated, installed, and QA-cleared. Workforce arrives June 29 with approximately 22 module workers.' },
       { title: 'SET foundation and delivery dates require closure', level: 'Critical', owner: 'Axel Cano / AB Power / Karina Mucino / Joshua Spalding', note: 'Control-building foundation piles are 75% complete. Resolve anchor bolts and the conflict between the prior June 25 delivery statement and the current tracker dates of July 7 commitment and July 10 required on site.' },
       { title: 'SET equipment commitments trail required dates', level: 'Critical', owner: 'Axel Cano / Karina Mucino / Project Management', note: 'The transformer, control building, and structural steel remain in fabrication, and several electrical items show committed dates after the July 10 required-on-site gate. A supplier acceleration plan is required.' },
-      { title: 'ITS mobilization has not converted to reported output', level: 'Critical', owner: 'ITS / Audelio Zuniga / Angel Urbina', note: 'ITS reported 13 workers June 24, but boring remains at 7 of 20 bores and plowing remains at zero reported feet. Daily footage and completed segments must be entered against the active workfront.' },
+      { title: 'ITS mobilization has not converted to reported output', level: 'Critical', owner: 'ITS / Audelio Zuniga / Angel Urbina', note: 'The June 25 ITS report keeps boring at 7 of 20 bores and plowing at zero reported feet. Daily footage and completed segments must be entered against the active workfront.' },
       { title: 'Area G release controls mechanical access', level: 'Critical', owner: 'Rosario Ruiz / Audelio Zuniga / Lounsbury', note: 'Area G grading and basin work must be launched and released quickly so mechanical installation can open the next workfront without schedule interruption.' },
       { title: 'Acceleration targets remain linked to COD', level: 'Critical', owner: 'Construction Management / All Production Owners', note: 'Protecting November 9 COD requires approximately 560 piles/day, at least 40 tracker rows/day, 2,500 purlins/day, and 3,000 modules/day after ramp, supported by materials, access, and QA turnover.' }
     ]
@@ -2312,6 +2389,23 @@ footer p {
   }
 
   function renderProduction() {
+    const fulfillmentClass = (item) => {
+      const pct = item.target ? item.value / item.target : 0;
+      if (pct >= 1) return 'good';
+      if (pct >= 0.5) return 'warn';
+      return 'bad';
+    };
+    const renderDailyScale = (items) => `
+      <div class="daily-scale">
+        ${items.map((item) => {
+          const pct = item.target ? Math.round((item.value / item.target) * 100) : 0;
+          return `<span class="daily-chip ${fulfillmentClass(item)}" title="${item.day}: ${fmt(item.value)} ${item.unit}, ${pct}% of minimum ${fmt(item.target)}">
+            <span class="day">${item.day}</span>
+            <span class="qty">${fmt(item.value)}</span>
+          </span>`;
+        }).join('')}
+      </div>
+    `;
     document.getElementById('productionBody').innerHTML = data.production.map((row) => `
       <tr>
         <td data-label="Control item"><strong>${row.name}</strong><br><small>${row.note}</small></td>
@@ -2322,6 +2416,21 @@ footer p {
         <td data-label="Assessment">${badge(row.status)}</td>
       </tr>
     `).join('');
+    const dailyBody = byId('dailyHistoryBody');
+    if (dailyBody) {
+      dailyBody.innerHTML = data.dailyProductionHistory.map((row) => `
+        <tr>
+          <td data-label="Critical task"><strong>${row.task}</strong><br><small>${row.note}</small></td>
+          <td data-label="Measured period">${row.period}</td>
+          <td data-label="Minimum daily target">${row.minimum}</td>
+          <td data-label="Days at / above"><strong class="safe">${row.above}</strong></td>
+          <td data-label="Days below"><strong>${row.below}</strong></td>
+          <td data-label="Latest measured day">${row.latest}</td>
+          <td data-label="Daily fulfillment scale">${renderDailyScale(row.daily)}</td>
+          <td data-label="Control reading">${row.above > row.below ? badge('On Track') : badge('Critical')}</td>
+        </tr>
+      `).join('');
+    }
   }
 
   function renderSuccessors() {
