@@ -1103,41 +1103,8 @@ dd {
   line-height: 1.5;
 }
 
-.resource-snapshot {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+.resource-table {
   margin-top: 14px;
-}
-
-.resource-card {
-  padding: 12px;
-  border: 1px solid var(--line);
-  background: #f8faf8;
-}
-
-.resource-card span {
-  display: block;
-  color: var(--green-dark);
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.resource-card strong {
-  display: block;
-  margin-top: 6px;
-  color: var(--ink);
-  font-size: 1.05rem;
-}
-
-.resource-card small {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.35;
 }
 
 .milestone {
@@ -1231,7 +1198,6 @@ footer p {
   .civil-layout,
   .chart-layout,
   .resource-lower,
-  .resource-snapshot,
   .split {
     grid-template-columns: 1fr;
   }
@@ -1907,33 +1873,6 @@ footer p {
           <p class="chart-context">Weekly mechanical plan by trade. Values are planned resource loads, not total site headcount; LV electrical personnel are excluded.</p>
           <canvas id="personnelChart" width="1120" height="520" aria-label="Mechanical acceleration manpower load required to protect project milestones"></canvas>
         </div>
-        <div class="resource-snapshot" aria-label="Latest subcontractor manpower and machine notes from WhatsApp">
-          <article class="resource-card">
-            <span>ECCS</span>
-            <strong>47-48 people</strong>
-            <small>Tracker work. July 2 note: 25 trackers complete and 29 pre-mounted.</small>
-          </article>
-          <article class="resource-card">
-            <span>United</span>
-            <strong>16-20 people</strong>
-            <small>7-8 ramming machines / pile-driving rigs reported; 1 damaged on July 2, and only 5 operating in Area F on July 3 due to operator rest.</small>
-          </article>
-          <article class="resource-card">
-            <span>Latnovva</span>
-            <strong>17 people</strong>
-            <small>2 ramming machines / pile-driving rigs reported, 1 damaged. Latest note: 152 tracker-closing piles plus 8 LBD.</small>
-          </article>
-          <article class="resource-card">
-            <span>Workforce</span>
-            <strong>12 people</strong>
-            <small>Module crew started: 234 modules installed in the latest WhatsApp field note.</small>
-          </article>
-          <article class="resource-card">
-            <span>ITS</span>
-            <strong>14 crew</strong>
-            <small>Previously reported with active HDD boring and MV plowing production.</small>
-          </article>
-        </div>
         <div class="resource-lower">
           <div>
             <div class="section-heading compact">
@@ -1942,6 +1881,25 @@ footer p {
             </div>
             <div class="chart-panel">
               <canvas id="resourceChart" width="920" height="360" aria-label="Current subcontractor field resources"></canvas>
+            </div>
+            <div class="table-wrap resource-table" aria-label="Latest subcontractor manpower and machine notes from WhatsApp">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Subcontractor</th>
+                    <th>People reported</th>
+                    <th>Machines / equipment</th>
+                    <th>Latest reported output</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Subcontractor"><strong>ECCS</strong></td><td data-label="People reported">47-48 people</td><td data-label="Machines / equipment">Tracker installation crews</td><td data-label="Latest reported output">July 2: 25 trackers complete and 29 pre-mounted.</td></tr>
+                  <tr><td data-label="Subcontractor"><strong>United</strong></td><td data-label="People reported">16-20 people</td><td data-label="Machines / equipment">7-8 ramming machines / pile-driving rigs reported; 1 damaged on July 2; only 5 operating in Area F on July 3 due to operator rest.</td><td data-label="Latest reported output">Area F piling: July 2 reported 212 piles plus 1 inverter pile; July 3 reported 134 piles plus 4 inverter piles.</td></tr>
+                  <tr><td data-label="Subcontractor"><strong>Latnovva</strong></td><td data-label="People reported">17 people</td><td data-label="Machines / equipment">2 ramming machines / pile-driving rigs reported; 1 damaged.</td><td data-label="Latest reported output">152 tracker-closing piles plus 8 LBD piles.</td></tr>
+                  <tr><td data-label="Subcontractor"><strong>Workforce</strong></td><td data-label="People reported">12 people</td><td data-label="Machines / equipment">Module installation crew</td><td data-label="Latest reported output">Module installation started: 234 modules installed.</td></tr>
+                  <tr><td data-label="Subcontractor"><strong>ITS</strong></td><td data-label="People reported">14 crew</td><td data-label="Machines / equipment">HDD boring and MV plowing equipment</td><td data-label="Latest reported output">Active boring/plowing production; latest ITS status shows 16 of 46 plow segments complete.</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <div>
@@ -1953,7 +1911,6 @@ footer p {
           </div>
         </div>
         <p class="personnel-note">The stacked histogram is the mechanical acceleration manpower load from the resource analysis document, corrected to align pile resources with the dashboard acceleration schedule through July 28. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles complete July 28, purlin/tracker acceleration through September 18, and modules complete by October 9. The June 30 official manpower total of 148 people (Jul 1 Delivery/Mechanical workbook) includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
-        <p class="personnel-note"><strong>Latest WhatsApp resource notes:</strong> ECCS reported 47-48 people on tracker work, with 25 complete trackers and 29 pre-mounted trackers on July 2; United reported 20 people and 7 ramming machines / pile-driving rigs, 1 damaged, on July 2, then 16 people and 8 ramming machines / pile-driving rigs in Area F on July 3, with only 5 operating due to operator rest; Latnovva reported 17 people and 2 ramming machines / pile-driving rigs, 1 damaged, with 152 tracker-closing piles plus 8 LBD; Workforce reported 12 people and 234 modules installed; ITS previously reported 14 crew with active boring/plowing production. Other file-based resource control found in this pass is the June 30 official manpower table in the Delivery/Mechanical workbook.</p>
       </section>
 
       <section class="section risks" id="risks">
