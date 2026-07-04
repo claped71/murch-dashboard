@@ -1,1 +1,1 @@
-Forcing fresh GitHub Pages deployment - 2026-07-04T08:45:00Z - dashboard content verified correct in repo, this file forces Pages to rebuild and clear any stuck CDN cache.
+Retrigger Pages deployment - 2026-07-04 - previous deploy of d09e738 failed on GitHub's side.
