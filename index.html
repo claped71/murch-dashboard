@@ -1907,6 +1907,33 @@ footer p {
           <p class="chart-context">Weekly mechanical plan by trade. Values are planned resource loads, not total site headcount; LV electrical personnel are excluded.</p>
           <canvas id="personnelChart" width="1120" height="520" aria-label="Mechanical acceleration manpower load required to protect project milestones"></canvas>
         </div>
+        <div class="resource-snapshot" aria-label="Latest subcontractor manpower and machine notes from WhatsApp">
+          <article class="resource-card">
+            <span>ECCS</span>
+            <strong>47-48 people</strong>
+            <small>Tracker work. July 2 note: 25 trackers complete and 29 pre-mounted.</small>
+          </article>
+          <article class="resource-card">
+            <span>United</span>
+            <strong>16-20 people</strong>
+            <small>7-8 ramming machines / pile-driving rigs reported; 1 damaged on July 2, and only 5 operating in Area F on July 3 due to operator rest.</small>
+          </article>
+          <article class="resource-card">
+            <span>Latnovva</span>
+            <strong>17 people</strong>
+            <small>2 ramming machines / pile-driving rigs reported, 1 damaged. Latest note: 152 tracker-closing piles plus 8 LBD.</small>
+          </article>
+          <article class="resource-card">
+            <span>Workforce</span>
+            <strong>12 people</strong>
+            <small>Module crew started: 234 modules installed in the latest WhatsApp field note.</small>
+          </article>
+          <article class="resource-card">
+            <span>ITS</span>
+            <strong>14 crew</strong>
+            <small>Previously reported with active HDD boring and MV plowing production.</small>
+          </article>
+        </div>
         <div class="resource-lower">
           <div>
             <div class="section-heading compact">
@@ -1925,35 +1952,8 @@ footer p {
             <div class="milestone-list" id="milestones"></div>
           </div>
         </div>
-        <div class="resource-snapshot" aria-label="Latest subcontractor manpower and machine notes from WhatsApp">
-          <article class="resource-card">
-            <span>ECCS</span>
-            <strong>47-48 people</strong>
-            <small>Tracker work. July 2 note: 25 trackers complete and 29 pre-mounted.</small>
-          </article>
-          <article class="resource-card">
-            <span>United</span>
-            <strong>16-20 people</strong>
-            <small>7-8 hincadoras reported; 1 damaged on July 2, and only 5 operating in Area F on July 3 due to operator rest.</small>
-          </article>
-          <article class="resource-card">
-            <span>Latnovva</span>
-            <strong>17 people</strong>
-            <small>2 hincadoras reported, 1 damaged. Latest note: 152 tracker-closing piles plus 8 LBD.</small>
-          </article>
-          <article class="resource-card">
-            <span>Workforce</span>
-            <strong>12 people</strong>
-            <small>Module crew started: 234 modules installed in the latest WhatsApp field note.</small>
-          </article>
-          <article class="resource-card">
-            <span>ITS</span>
-            <strong>14 crew</strong>
-            <small>Previously reported with active HDD boring and MV plowing production.</small>
-          </article>
-        </div>
         <p class="personnel-note">The stacked histogram is the mechanical acceleration manpower load from the resource analysis document, corrected to align pile resources with the dashboard acceleration schedule through July 28. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles complete July 28, purlin/tracker acceleration through September 18, and modules complete by October 9. The June 30 official manpower total of 148 people (Jul 1 Delivery/Mechanical workbook) includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
-        <p class="personnel-note"><strong>Latest WhatsApp resource notes:</strong> ECCS reported 47-48 people on tracker work, with 25 complete trackers and 29 pre-mounted trackers on July 2; United reported 20 people and 7 hincadoras, 1 damaged, on July 2, then 16 people and 8 hincadoras in Area F on July 3, with only 5 operating due to operator rest; Latnovva reported 17 people and 2 hincadoras, 1 damaged, with 152 tracker-closing piles plus 8 LBD; Workforce reported 12 people and 234 modules installed; ITS previously reported 14 crew with active boring/plowing production. Other file-based resource control found in this pass is the June 30 official manpower table in the Delivery/Mechanical workbook.</p>
+        <p class="personnel-note"><strong>Latest WhatsApp resource notes:</strong> ECCS reported 47-48 people on tracker work, with 25 complete trackers and 29 pre-mounted trackers on July 2; United reported 20 people and 7 ramming machines / pile-driving rigs, 1 damaged, on July 2, then 16 people and 8 ramming machines / pile-driving rigs in Area F on July 3, with only 5 operating due to operator rest; Latnovva reported 17 people and 2 ramming machines / pile-driving rigs, 1 damaged, with 152 tracker-closing piles plus 8 LBD; Workforce reported 12 people and 234 modules installed; ITS previously reported 14 crew with active boring/plowing production. Other file-based resource control found in this pass is the June 30 official manpower table in the Delivery/Mechanical workbook.</p>
       </section>
 
       <section class="section risks" id="risks">
@@ -2303,9 +2303,44 @@ footer p {
     return weatherCodes[Number(code)] || ['Variable conditions', '◇'];
   }
 
+  function weatherSymbolFromText(text = '') {
+    const lower = String(text).toLowerCase();
+    if (lower.includes('thunder')) return '⛈';
+    if (lower.includes('snow') || lower.includes('sleet') || lower.includes('ice')) return '🌨';
+    if (lower.includes('rain') || lower.includes('shower') || lower.includes('drizzle')) return '🌧';
+    if (lower.includes('fog') || lower.includes('mist') || lower.includes('haze')) return '🌫';
+    if (lower.includes('cloud') || lower.includes('overcast')) return '☁';
+    if (lower.includes('partly') || lower.includes('mostly')) return '⛅';
+    if (lower.includes('clear') || lower.includes('sun')) return '☀';
+    return '◇';
+  }
+
   function formatWeatherDate(value) {
     const date = new Date(`${value}T12:00:00`);
     return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+
+  function fetchWithTimeout(url, timeoutMs = 8000) {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+    return fetch(url, {
+      cache: 'no-store',
+      signal: controller.signal,
+      headers: { Accept: 'application/geo+json, application/json' }
+    }).finally(() => window.clearTimeout(timeout));
+  }
+
+  function cToF(value) {
+    return Number.isFinite(Number(value)) ? Math.round((Number(value) * 9 / 5) + 32) : null;
+  }
+
+  function msToMph(value) {
+    return Number.isFinite(Number(value)) ? Math.round(Number(value) * 2.23694) : 0;
+  }
+
+  function extractWindMph(text = '') {
+    const match = String(text).match(/(\d+)/);
+    return match ? Number(match[1]) : 0;
   }
 
   function setWeatherFallback(message) {
@@ -2325,24 +2360,29 @@ footer p {
 
   async function renderWeather() {
     if (!byId('weatherWeek')) return;
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude=42.22&longitude=-85.99&timezone=America%2FDetroit&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_gusts_10m_max';
     setWeatherFallback('Live weather request in progress...');
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 6500);
     try {
-      const response = await fetch(url, { cache: 'no-store', signal: controller.signal });
-      if (!response.ok) throw new Error(`Weather HTTP ${response.status}`);
-      const json = await response.json();
-      window.clearTimeout(timeout);
-      const current = json.current || {};
-      const daily = json.daily || {};
-      const [summary, symbol] = weatherLabel(current.weather_code);
-      const temp = Math.round(current.temperature_2m);
-      const gust = Math.round(current.wind_gusts_10m || 0);
-      const precip = Number(current.precipitation || 0);
-      const todayRain = Number((daily.precipitation_probability_max || [0])[0] || 0);
-      const high = Math.round((daily.temperature_2m_max || [temp])[0]);
-      const low = Math.round((daily.temperature_2m_min || [temp])[0]);
+      const [obsResponse, forecastResponse] = await Promise.all([
+        fetchWithTimeout('https://api.weather.gov/stations/KAZO/observations/latest', 8000),
+        fetchWithTimeout('https://api.weather.gov/gridpoints/GRR/52,31/forecast', 8000)
+      ]);
+      if (!obsResponse.ok) throw new Error(`NWS observation HTTP ${obsResponse.status}`);
+      if (!forecastResponse.ok) throw new Error(`NWS forecast HTTP ${forecastResponse.status}`);
+      const observation = await obsResponse.json();
+      const forecast = await forecastResponse.json();
+      const current = observation.properties || {};
+      const periods = (forecast.properties && forecast.properties.periods) || [];
+      const today = periods[0] || {};
+      const tonight = periods[1] || {};
+      const summary = current.textDescription || today.shortForecast || 'Variable conditions';
+      const symbol = weatherSymbolFromText(summary);
+      const temp = cToF(current.temperature && current.temperature.value);
+      const apparent = cToF(current.heatIndex && current.heatIndex.value) || cToF(current.windChill && current.windChill.value) || temp;
+      const gust = msToMph(current.windGust && current.windGust.value) || extractWindMph(today.windSpeed);
+      const precip = Number((current.precipitationLastHour && current.precipitationLastHour.value) || 0);
+      const todayRain = Number((today.probabilityOfPrecipitation && today.probabilityOfPrecipitation.value) || 0);
+      const high = today.isDaytime ? today.temperature : (periods.find((period) => period.isDaytime) || today).temperature;
+      const low = !tonight.isDaytime ? tonight.temperature : (periods.find((period) => !period.isDaytime) || tonight).temperature;
       const updated = new Date().toLocaleString('en-US', {
         timeZone: 'America/Detroit',
         month: 'short',
@@ -2352,28 +2392,26 @@ footer p {
         timeZoneName: 'short'
       });
       const risk = gust >= 30 || todayRain >= 60 || precip >= 0.1 ? 'Critical weather watch' : gust >= 22 || todayRain >= 35 ? 'Weather watch' : 'Weather acceptable';
-      if (byId('weatherEyebrow')) byId('weatherEyebrow').textContent = `Lawrence, Michigan | Live weather refreshed ${updated}`;
-      if (byId('weatherHeadline')) byId('weatherHeadline').textContent = `${risk}: ${summary}, ${temp}°F`;
-      if (byId('weatherNarrative')) byId('weatherNarrative').textContent = `Today forecast high/low is ${high}°/${low}°F. Current gusts are ${gust} mph and today's precipitation probability is ${todayRain}%.`;
+      if (byId('weatherEyebrow')) byId('weatherEyebrow').textContent = `Lawrence, Michigan | NWS live weather refreshed ${updated}`;
+      if (byId('weatherHeadline')) byId('weatherHeadline').textContent = `${risk}: ${summary}, ${temp ?? '--'}°F`;
+      if (byId('weatherNarrative')) byId('weatherNarrative').textContent = `Today forecast high/low is ${high ?? '--'}°/${low ?? '--'}°F. Current gusts are ${gust} mph and today's precipitation probability is ${todayRain}%.`;
       if (byId('weatherSymbol')) byId('weatherSymbol').textContent = symbol;
-      if (byId('weatherTemp')) byId('weatherTemp').innerHTML = `${temp}&deg;F`;
-      if (byId('weatherSummary')) byId('weatherSummary').textContent = `${summary}; feels like ${Math.round(current.apparent_temperature)}°F`;
-      byId('weatherWeek').innerHTML = (daily.time || []).slice(0, 7).map((day, index) => {
-        const [label, daySymbol] = weatherLabel(daily.weather_code[index]);
-        const pop = Number(daily.precipitation_probability_max[index] || 0);
-        const dayGust = Math.round(daily.wind_gusts_10m_max[index] || 0);
+      if (byId('weatherTemp')) byId('weatherTemp').innerHTML = `${temp ?? '--'}&deg;F`;
+      if (byId('weatherSummary')) byId('weatherSummary').textContent = `${summary}; feels like ${apparent ?? '--'}°F`;
+      byId('weatherWeek').innerHTML = periods.slice(0, 7).map((period) => {
+        const pop = Number((period.probabilityOfPrecipitation && period.probabilityOfPrecipitation.value) || 0);
+        const dayGust = extractWindMph(period.windSpeed);
         const cls = dayGust >= 30 || pop >= 60 ? 'weather-critical' : dayGust >= 22 || pop >= 35 ? 'weather-watch' : '';
         return `
           <article class="${cls}">
-            <span>${formatWeatherDate(day)} ${daySymbol}</span>
-            <strong>${Math.round(daily.temperature_2m_max[index])}&deg; / ${Math.round(daily.temperature_2m_min[index])}&deg;</strong>
-            <small>${label}; rain ${pop}%; gust ${dayGust} mph</small>
+            <span>${period.name || formatWeatherDate(period.startTime.slice(0, 10))} ${weatherSymbolFromText(period.shortForecast)}</span>
+            <strong>${period.temperature}&deg; ${period.temperatureUnit || 'F'}</strong>
+            <small>${period.shortForecast}; rain ${pop}%; wind ${period.windSpeed || 'not reported'}</small>
           </article>
         `;
       }).join('');
       if (byId('weatherNote')) byId('weatherNote').innerHTML = `<strong>Construction weather risk:</strong> ${risk}. Verify actual lost hours, access restrictions, wind stops, and lightning delays in the daily report before claiming production impacts.`;
     } catch (error) {
-      window.clearTimeout(timeout);
       setWeatherFallback(error.name === 'AbortError' ? 'Live weather request timed out.' : 'Live weather failed to load.');
     }
   }
