@@ -884,6 +884,10 @@ td {
   background: var(--green);
 }
 
+.badge.complete {
+  background: #3f5350;
+}
+
 .badge.mobilizing {
   background: var(--blue);
 }
@@ -1069,6 +1073,10 @@ dd {
 
 .bar.mobilizing {
   background: var(--blue);
+}
+
+.bar.complete {
+  background: #3f5350;
 }
 
 .timeline-date {
@@ -1613,13 +1621,13 @@ footer p {
           </article>
           <article class="quality-alert">
             <span class="label">Receiving Rule</span>
-            <strong>8 pile loads/day</strong>
-            <small>Manuel allows up to 16 total trucks/day only with max 8 pile loads, max 8 non-pile loads, and no more than 3 loads in the same hour.</small>
+            <strong>14 pile + 8 rack</strong>
+            <small>Latest email chain: July 3 and July 6 piles-only where possible; following days can receive up to 14 pile loads plus 8 racking loads if appointments hold.</small>
           </article>
           <article>
-            <span class="label">June 30 Confirmed Deliveries</span>
-            <strong>12 loads</strong>
-            <small>Shreeya confirmed a timed sequence from 7:00 am to 2:30 pm; one load, MRSU8536763, moved from June 29 after late loading in Los Angeles.</small>
+            <span class="label">Latest Confirmed Deliveries</span>
+            <strong>Jul 2 / Jul 3</strong>
+            <small>Shreeya's July 2 chain confirms nine named loads for July 2 and six named NTG loads for July 3; count as scheduled until POD/site receipt is logged.</small>
           </article>
         </div>
         <div class="table-wrap">
@@ -1635,16 +1643,17 @@ footer p {
               <tr><td data-label="Delivery topic"><strong>Site pile stock</strong></td><td data-label="Current reading">19,432 delivered/logged vs 17,068 installed</td><td data-label="Dashboard implication">2,364 piles are available on the workbook basis, about 4.2 days at the 560/day acceleration capacity.</td></tr>
               <tr><td data-label="Delivery topic"><strong>July 1 recorded position</strong></td><td data-label="Current reading">Delivered piles unchanged at 19,432; installed piles increased by 226 versus the prior dashboard basis</td><td data-label="Dashboard implication">Pile delivery did not grow while production consumed stock, so the buffer tightened.</td></tr>
               <tr><td data-label="Delivery topic"><strong>Racking material status</strong></td><td data-label="Current reading">Panels 157,240 delivered; torque tubes 17,884 delivered; purlin/racking receipts continue in the official workbook</td><td data-label="Dashboard implication">Purlins remain a material-release gate, but daily production is now controlled through completed tracker rows, not a separate purlin log.</td></tr>
-              <tr><td data-label="Delivery topic"><strong>June 30 confirmed GameChange loads</strong></td><td data-label="Current reading">12 scheduled loads: PL-3295-002-RE-Flint, BMOU6267064, PL-3295-008-RE-HA, YMMU6892128, YMMU6832031, PL-3295-077-HT, PL-3295-102-HT, PL-3295-097-HT, PL-3295-062-HT, PL-3295-002-RE-BR, MRSU8536763, and PL-3295-087-HT</td><td data-label="Dashboard implication">Treat as scheduled/confirmed-by-email until POD/site receipt is logged. The sequence stays within Manuel's appointment-control logic, but each load still needs material-type and POD confirmation.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>July 2 confirmed GameChange loads</strong></td><td data-label="Current reading">9 named loads: BMOU6274269, YMMU7323738, EGSU9724554, PL-3295-079-HT, TCNU1781388, TGBU6951018, PL-3295-065-HT, PL-3295-089-HT, and PL-3295-013-RE-HA.</td><td data-label="Dashboard implication">Treat as scheduled/confirmed-by-email until POD/site receipt is logged. Material type and received quantity still need same-day confirmation.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>July 3 confirmed GameChange loads</strong></td><td data-label="Current reading">6 named NTG loads: TCLU1477450, YMMU6239469, EITU9400207, TXGU6059112, TRHU8675801, and TRHU6565282. The email shows a blank 10:45 appointment line.</td><td data-label="Dashboard implication">July 3 was requested as piles-only if possible. Confirm actual material type, POD, and whether the blank slot was used before counting receipts into stock.</td></tr>
               <tr><td data-label="Delivery topic"><strong>June 29 carryover</strong></td><td data-label="Current reading">MRSU8536763 was moved into the June 30 delivery sequence because the driver loaded late Friday in Los Angeles and was running behind.</td><td data-label="Dashboard implication">Carryover loads remain a schedule-risk signal: delivery planning must track missed loads by BOL/container, not only daily truck count.</td></tr>
-              <tr><td data-label="Delivery topic"><strong>GameChange contact coverage</strong></td><td data-label="Current reading">Shreeya is OOO on June 30; Reuben Mulholland is the escalation contact in her absence.</td><td data-label="Dashboard implication">Use Reuben for same-day delivery clarifications, POD follow-up, and material-type confirmation while Shreeya is out.</td></tr>
-              <tr><td data-label="Delivery topic"><strong>Manuel's receiving condition</strong></td><td data-label="Current reading">Appointment compliance required; early or late trucks may be turned away</td><td data-label="Dashboard implication">The limit is not a blanket 16-truck acceptance. GameChange must sequence trucks by hour and material type.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>Receiving-cap update</strong></td><td data-label="Current reading">Manuel's June 24 email says July 3 and July 6 should be piles-only where possible; after that, the site can receive up to 14 pile loads/day plus 8 racking loads/day.</td><td data-label="Dashboard implication">This is an increased receiving posture versus the earlier 8 pile + 8 non-pile cap, but still depends on appointment compliance, material segregation, and offloading resources.</td></tr>
+              <tr><td data-label="Delivery topic"><strong>Manuel's appointment condition</strong></td><td data-label="Current reading">Appointment compliance required; early or late trucks may be turned away. Delivery appointments must avoid congestion and stay coordinated by hour.</td><td data-label="Dashboard implication">The higher cap is not unconditional. GameChange must sequence trucks by hour and material type, and Greensol still needs POD/site-receipt evidence before stock is updated.</td></tr>
               <tr><td data-label="Delivery topic"><strong>Acceleration test</strong></td><td data-label="Current reading">7 ramming machines at 80 piles/day = 560 piles/day production capacity</td><td data-label="Dashboard implication">Eight pile loads/day must contain enough posts to exceed the daily burn rate; otherwise the pile shortage can stop ramming even while trucks are arriving.</td></tr>
               <tr><td data-label="Delivery topic"><strong>Forward risk</strong></td><td data-label="Current reading">14,284 piles remain after the official installed count</td><td data-label="Dashboard implication">The current buffer protects about 4.2 production days; daily POD-confirmed receipts still need to stay ahead of actual rig output.</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="quality-note"><strong>Delivery action:</strong> Keep reporting pile delivery by count, not only by truck count. The next daily control should show scheduled piles, received/POD-confirmed piles, piles installed, and ending pile stock by subcontractor or laydown location.</p>
+        <p class="quality-note"><strong>Delivery action:</strong> Keep reporting pile delivery by count, not only by truck count. The next daily control should show scheduled loads, material type, received/POD-confirmed quantities, piles installed, and ending pile stock by subcontractor or laydown location.</p>
       </section>
 
       <section class="section" id="weekly-plan">
@@ -1879,6 +1888,7 @@ footer p {
           </div>
         </div>
         <p class="personnel-note">The stacked histogram is the mechanical acceleration manpower load from the resource analysis document, corrected to align pile resources with the dashboard acceleration schedule through July 28. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles complete July 28, purlin/tracker acceleration through September 18, and modules complete by October 9. The June 30 official manpower total of 148 people (Jul 1 Delivery/Mechanical workbook) includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
+        <p class="personnel-note"><strong>Latest WhatsApp resource notes:</strong> ECCS reported 47-48 people on tracker work, with 25 complete trackers and 29 pre-mounted trackers on July 2; United reported 20 people and 7 hincadoras, 1 damaged, on July 2, then 16 people and 8 hincadoras in Area F on July 3, with only 5 operating due to operator rest; Latnovva reported 17 people and 2 hincadoras, 1 damaged, with 152 tracker-closing piles plus 8 LBD; Workforce reported 12 people and 234 modules installed; ITS previously reported 14 crew with active boring/plowing production. Other file-based resource control found in this pass is the June 30 official manpower table in the Delivery/Mechanical workbook.</p>
       </section>
 
       <section class="section risks" id="risks">
@@ -1891,7 +1901,7 @@ footer p {
     </main>
 
     <footer>
-      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan; DELIVERY AND MECHANICAL_2026-07-01.xlsx used as the Construction Manager production report with controlling installed pile production at 17,068 piles and 19,432 delivered piles; ProductionProgress_JS_2026-07-01.xlsx; MURCH_Plowing_Boring_MT_Tracking_2026-07-01.xlsx with ITS report date July 1; SE_Construction_Tracker_Murch_Solar_2026-07-01.xlsx with SET progress through July 1; WhatsApp Chat - Murch dashboard 2026-07-03.zip for Daniel Morilla QA/QC confirmation, Manuel Ramirez production notes, Axel Cano ITS status, and factual field notes; Shreeya Devkota / GameChange June 30 delivery email and Manuel Ramirez delivery correspondence; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 3, 2026.</p>
+      <p>Sources: Live Open-Meteo weather for Lawrence, Michigan; DELIVERY AND MECHANICAL_2026-07-01.xlsx used as the Construction Manager production report with controlling installed pile production at 17,068 piles and 19,432 delivered piles; ProductionProgress_JS_2026-07-01.xlsx; MURCH_Plowing_Boring_MT_Tracking_2026-07-01.xlsx with ITS report date July 1; SE_Construction_Tracker_Murch_Solar_2026-07-01.xlsx with SET progress through July 1; WhatsApp Chat - Murch dashboard 2026-07-03.zip for Daniel Morilla QA/QC confirmation, Manuel Ramirez production notes, Axel Cano ITS status, and factual field notes; Shreeya Devkota / GameChange July 2 delivery email chain and Manuel Ramirez delivery correspondence; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 3, 2026.</p>
     </footer>
 
     <script>
@@ -1942,7 +1952,7 @@ footer p {
     ],
     weeklyPlan: [
       { area: '<u>Pile production recovery — Zones B / F / D-G</u><span style="background:#b53030;color:#fff;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700;margin-left:6px">CRITICAL</span>', target: 'Recover ramming output immediately: 3,726 piles this week to protect the Jul 28 pile-complete gate (14,284 remaining).', minimum: '>= 621 piles/day required; official daily rows averaged ~214/day over the last 9 measured days (Jul 1 field: 270)', gate: 'Rig count and Area F hard-soil mitigation; the 2,364-pile site buffer must be re-fed daily by GC Lot 2 receipts inside the receiving cap.', owners: 'LATNOVVA / United | Audelio Zuniga | Manuel Ramirez | Joshua Spalding' },
-      { area: '<u>GameChange purlin + post deliveries</u><span style="background:#b53030;color:#fff;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700;margin-left:6px">CRITICAL</span>', target: 'Receive ~50,000 purlin units this week (108,980 pending, final planned date Jul 16) plus ~7,000 Lot 2 posts; log POD/site receipt same day.', minimum: '>= 8,400 purlin units/calendar day within the receiving cap (16 trucks/day, 8 pile + 8 non-pile loads, 3/hour)', gate: 'Purlin receipts remain the project critical-path gate: any slip moves tracker completion, module start, and Mechanical Completion day-for-day.', owners: 'GameChange (Shreeya Devkota) | Manuel Ramirez | Briana Figueroa' },
+      { area: '<u>GameChange purlin + post deliveries</u><span style="background:#b53030;color:#fff;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700;margin-left:6px">CRITICAL</span>', target: 'Convert July 2-3 confirmed loads into POD/site-receipted quantities and keep the Jul 16 tracker-purlin delivery gate protected.', minimum: 'July 3/6 piles-only where possible; following days can receive up to 14 pile loads/day plus 8 racking loads/day if appointments and offloading resources hold.', gate: 'Purlin receipts remain the project critical-path gate: any slip moves tracker completion, module start, and Mechanical Completion day-for-day.', owners: 'GameChange (Shreeya Devkota) | Manuel Ramirez | Briana Figueroa' },
       { area: '<u>First module installation — Area A</u><span style="background:#b53030;color:#fff;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700;margin-left:6px">CRITICAL</span>', target: 'Start module erection on purlin-complete, QA-released Area A rows; place the first 4,000-6,000 modules by Jul 8.', minimum: 'Ramp to >= 2,000 modules/day this week; the acceleration plan requires 5,531/day full-field from mid-July', gate: 'Workforce crew (22 landed Jun 29) + 213 purlin-complete rows available + module-spacing QC control from the Golden Row slot-tolerance finding.', owners: 'Workforce | Audelio Zuniga | Daniel Morilla (QA/QC) | Manuel Ramirez' },
       { area: 'Tracker assembly and purlin row completion', target: 'Convert purlin receipts into completed rows: close Area A (98 rows remaining), open Area C, and keep Steps 1-6 rolling into C/E.', minimum: '>= 48 tracker units/day (Jul 1: 51 — first day above target) and ramp toward 40 completed rows/day', gate: 'Complete purlin kits allocated by block and same-week QA turnover of finished rows.', owners: 'ECCS | Audelio Zuniga | Manuel Ramirez' },
       { area: 'Civil Area F/G release and internal roads', target: 'Grade Area F (started Jul 1), advance Area G basins 66/70 piping and structure, and push internal roads beyond 35%.', minimum: 'Daily confirmed grading production in Area F; roads remain the controlling logistics constraint', gate: 'Civil access, fencing gates, and drainage release ahead of the mechanical fronts.', owners: 'Lounsbury / Hurricane / Topland | Rosario Ruiz | Audelio Zuniga' },
@@ -2012,7 +2022,9 @@ footer p {
       { activity: 'June 23 recorded delivery wave', contractor: 'GameChange / Logistics', start: '2026-06-23', end: '2026-06-23', status: 'Confirmed', note: 'The refreshed official workbook records 658 additional delivered piles and receipt lines for 21,672 tracker purlins, 20,251 purlin strips, 640 row tubes, and 2,760 heavy squeeze splices.' },
       { activity: 'June 24 scheduled delivery wave', contractor: 'GameChange / Logistics', start: '2026-06-24', end: '2026-06-24', status: 'Critical', note: 'Shreeya scheduled 6 trucks: 90 Light Green posts, 7,956 tracker purlins, 5,520 heavy splices, 7,840 saddle brackets, and 272 row tubes. Count as pending until POD/site receipt.' },
       { activity: 'June 30 confirmed delivery sequence', contractor: 'GameChange / NTG / Landstar', start: '2026-06-30', end: '2026-06-30', status: 'Critical', note: 'Shreeya confirmed 12 timed loads for June 30 from 7:00 am to 2:30 pm. MRSU8536763 is a carryover from June 29 after late loading in Los Angeles. Count as scheduled/confirmed until POD/site receipt is logged.' },
-      { activity: 'Delivery receiving-cap control', contractor: 'GameChange / Greensol Logistics', start: '2026-06-23', end: '2026-06-26', status: 'Critical', note: "Manuel's receiving rule controls this week: max 16 trucks/day, max 8 pile loads/day, max 8 non-pile loads/day, and max 3 loads/hour. Early/late trucks may be turned away, so the Gantt assumes scheduled delivery only until daily receipts are verified." },
+      { activity: 'July 2 confirmed delivery sequence', contractor: 'GameChange / NTG / Landstar', start: '2026-07-02', end: '2026-07-02', status: 'Critical', note: 'Shreeya confirmed 9 named loads for July 2. Count as scheduled until POD/site receipt, material type, and actual quantities are logged.' },
+      { activity: 'July 3 confirmed delivery sequence', contractor: 'GameChange / NTG', start: '2026-07-03', end: '2026-07-03', status: 'Critical', note: 'Shreeya confirmed 6 named NTG loads for July 3: TCLU1477450, YMMU6239469, EITU9400207, TXGU6059112, TRHU8675801, and TRHU6565282. The email shows a blank 10:45 appointment line; confirm whether it was used.' },
+      { activity: 'Delivery receiving-cap control', contractor: 'GameChange / Greensol Logistics', start: '2026-06-23', end: '2026-07-06', status: 'Critical', note: "Manuel's latest delivery position requests July 3 and July 6 as piles-only where possible; following days can receive up to 14 pile loads/day plus 8 racking loads/day, still subject to appointment discipline and POD/site receipt." },
       { activity: 'United Zone F mobilization and pile-spot marking', contractor: 'United', start: '2026-06-15', end: '2026-06-21', status: 'Mobilizing', note: 'United replaces JB Solar for Zone F. Complete pile-spot marking, crew and equipment mobilization, safety onboarding, access readiness, and workfront release before ramming.' },
       { activity: 'United Zone F pile ramming start', contractor: 'United', start: '2026-06-22', end: '2026-06-22', status: 'Critical', note: 'United starts pile ramming on June 22, subject to the delayed pile delivery, completed marking, access, and released workfronts.' },
       { activity: 'Overall pile installation acceleration', contractor: 'All pile contractors', start: '2026-06-22', end: '2026-07-28', status: 'Critical', note: 'The official workbook leaves 14,284 piles. July 1 field output was 270 piles versus the 560/day target; July 2-3 field notes confirm output remains constrained by Area F hard soil, damaged rigs, and the need for pre-drilling or more effective machines.' },
@@ -2116,7 +2128,7 @@ footer p {
     ],
     risks: [
       { title: 'Pile stock remains a short-duration buffer', level: 'Critical', owner: 'GameChange / Karina Mucino / Audelio Zuniga', note: 'The refreshed workbook shows 2,364 piles available above installed production, about 4.2 days at the 560-pile/day acceleration capacity. Confirm receipts, PODs, and subcontractor allocation every day.' },
-      { title: 'June 30 GameChange loads need POD confirmation', level: 'Critical', owner: 'GameChange / Reuben Mulholland / Karina Mucino / Manuel Ramirez', note: 'Shreeya confirmed 12 timed June 30 loads, with MRSU8536763 carried over from June 29 due to late loading in Los Angeles. Treat these as scheduled until POD/site receipt and material type are confirmed.' },
+      { title: 'July 2-3 GameChange loads need POD confirmation', level: 'Critical', owner: 'GameChange / Shreeya Devkota / Karina Mucino / Manuel Ramirez', note: 'Shreeya confirmed 9 named loads for July 2 and 6 named NTG loads for July 3. Treat these as scheduled until POD/site receipt, material type, and actual quantities are confirmed.' },
       { title: 'Area F hard soil is limiting pile output', level: 'Critical', owner: 'Audelio Zuniga / United / Manuel Ramirez', note: 'July 2-3 WhatsApp field notes keep pile output well below the 560/day target. The team discussed Kalamazoo support for roughly 3,000 pre-drills, 4-ft pilot drilling tests, stronger machines, and/or more effective ramming machines to protect the July 28 pile gate.' },
       { title: 'Complete tracker kits control module release', level: 'Critical', owner: 'GameChange / ECCS / Manuel Ramirez', note: 'Manuel confirmed purlins will be reported as complete trackers once installed. Workforce has started modules with 234 reported, but module production still needs fully complete, QA-cleared tracker rows.' },
       { title: 'SET foundation and delivery dates require closure', level: 'Critical', owner: 'Axel Cano / AB Power / Karina Mucino / Joshua Spalding', note: 'July 1 SET tracker shows 8.7% overall progress. Control-building FAT was reported passed, but the July 7 delivery gate still must stay aligned with foundation readiness.' },
