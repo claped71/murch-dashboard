@@ -1439,7 +1439,7 @@ footer p {
             </span>
           </div>
         </div>
-        <div class="weather-week" id="weatherWeek" aria-label="Seven-day weather forecast">
+        <div class="weather-week" id="weatherWeek" aria-label="Seven-day daytime forecast, no night shifts">
           <article><span>Loading</span><strong>--&deg; / --&deg;</strong><small>Fetching current forecast...</small></article>
         </div>
         <div class="weather-recommendation" id="weatherRecommendation">
@@ -1448,7 +1448,7 @@ footer p {
             <article><span class="label">Loading</span><small>Building today's recommendation from live conditions...</small></article>
           </div>
         </div>
-        <p class="weather-note" id="weatherNote"><strong>Construction weather risk:</strong> Weather data refreshes when this dashboard is opened. Forecast conditions are not recorded production impacts; document actual lost hours in the daily report.</p>
+        <p class="weather-note" id="weatherNote"><strong>Weather acceptable.</strong> Document actual lost hours in the daily report — forecast conditions alone don't count as a recorded production impact.</p>
       </section>
 
       <section class="status-strip safety-strip" aria-label="Safety KPI summary">
@@ -1577,76 +1577,6 @@ footer p {
           </table>
         </div>
         <p class="quality-note"><strong>Quality status: Watch.</strong> Daniel Morilla's July 1 QA/QC comments and snapshots report 14,995 Greensol-approved piles, 5,842 Heelstone-approved piles, 239 refusals/main defects, and 107 trackers released by both Greensol and Heelstone. Daniel confirmed on July 2 that the updated quality dashboard figures were OK; keep using his QA/QC comments as the controlling quality-release source.</p>
-      </section>
-
-      <section class="section" id="field-updates">
-        <div class="section-heading">
-          <p class="eyebrow">Latest status review | Source files refreshed July 3</p>
-          <h2>Official production headline and schedule-driving status</h2>
-        </div>
-        <div class="quality-grid">
-          <article>
-            <span class="label">Field-Reported Piles Installed</span>
-            <strong>17,068</strong>
-            <small>54.44% of the 31,352-pile project scope; controlling official production headline.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Pile Buffer</span>
-            <strong>2,364 piles</strong>
-            <small>19,432 delivered less 17,068 installed. This is about 4.2 days at the 560-pile/day acceleration capacity.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Piling Productivity Constraint</span>
-            <strong>270 vs 560</strong>
-            <small>July 1 field report: United 223 piles and Latnovva 47 piles, still below 50% of the daily acceleration target.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">GameChange Delivery Status</span>
-            <strong>No change</strong>
-            <small>The July 1 Delivery / Mechanical workbook keeps logged pile delivery at 19,432 piles.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Pre-Drill Status</span>
-            <strong>7,694 / 0</strong>
-            <small>Drill-and-backfill is now complete in the official workbook.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Tracker Structures</span>
-            <strong>213 / 2,486</strong>
-            <small>Complete tracker installation increased to 213; this is the production-control metric for tracker rows including purlin completion.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Torque Tubes</span>
-            <strong>3,542 / 28,869</strong>
-            <small>Torque-tube installation advanced to 12.27% overall, with Area E carrying the latest increase.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Module Start</span>
-            <strong>234</strong>
-            <small>Workforce field note reports the first 234 modules installed; this is a field start signal pending workbook incorporation.</small>
-          </article>
-          <article>
-            <span class="label">Civil Release F/G</span>
-            <strong>Area F Jul 1</strong>
-            <small>June 26 civil note: Area E expected complete June 30; start Area F July 1; Area G basins 66 and 70 grading with piping/structure planned Monday.</small>
-          </article>
-          <article>
-            <span class="label">SET Progress</span>
-            <strong>8.7% overall</strong>
-            <small>July 1 SET tracker: 21 activities complete, 3 in progress, and 238 pending; civil progress is 33.8%, structural 1.9%, and electrical 2.3%.</small>
-          </article>
-          <article class="quality-alert">
-            <span class="label">Inverter Units</span>
-            <strong>23 end-July</strong>
-            <small>Inverter units are expected at the end of July, not early July; all inverter pile foundations must be ready before first arrival.</small>
-          </article>
-          <article>
-            <span class="label">MV / HDD Scope</span>
-            <strong>10 bores / 16 plow segments</strong>
-            <small>July 2 ITS status screenshot: 10 of 20 bores and 16 of 46 plow segments complete.</small>
-          </article>
-        </div>
-        <p class="quality-note"><strong>Control note:</strong> The Construction Manager's Delivery / Mechanical workbook remains the official and non-disputable installed-production basis for this dashboard.</p>
       </section>
 
       <section class="section" id="delivery-control">
@@ -2187,15 +2117,12 @@ footer p {
       { name: 'Substantial Completion', target: 'Nov 30, 2026', forecast: 'Nov 30, 2026', status: 'Watch', note: 'Still achievable if COD is protected and outdoor work closes before weather stop.' }
     ],
     risks: [
-      { title: 'Pile stock remains a short-duration buffer', level: 'Critical', owner: 'GameChange / Karina Mucino / Audelio Zuniga', note: 'The refreshed workbook shows 2,364 piles available above installed production, about 4.2 days at the 560-pile/day acceleration capacity. Confirm receipts, PODs, and subcontractor allocation every day.' },
-      { title: 'July 2-3 GameChange loads need POD confirmation', level: 'Critical', owner: 'GameChange / Shreeya Devkota / Karina Mucino / Manuel Ramirez', note: 'Shreeya confirmed 9 named loads for July 2 and 6 named NTG loads for July 3. Treat these as scheduled until POD/site receipt, material type, and actual quantities are confirmed.' },
+      { title: 'Pile stock is a short-duration buffer, and July 2-3 loads still need POD confirmation', level: 'Critical', owner: 'GameChange / Shreeya Devkota / Karina Mucino / Manuel Ramirez / Audelio Zuniga', note: 'The refreshed workbook shows 2,364 piles available above installed production, about 4.2 days at the 560-pile/day acceleration capacity. Shreeya confirmed 9 named loads for July 2 and 6 named NTG loads for July 3 — treat these as scheduled until POD/site receipt, material type, and actual quantities are confirmed. Confirm receipts and subcontractor allocation every day.' },
       { title: 'Area F hard soil is limiting pile output', level: 'Critical', owner: 'Audelio Zuniga / United / Manuel Ramirez', note: 'July 2-3 WhatsApp field notes keep pile output well below the 560/day target. The team discussed Kalamazoo support for roughly 3,000 pre-drills, 4-ft pilot drilling tests, stronger machines, and/or more effective ramming machines to protect the July 28 pile gate.' },
       { title: 'Complete tracker kits control module release', level: 'Critical', owner: 'GameChange / ECCS / Manuel Ramirez', note: 'Manuel confirmed purlins will be reported as complete trackers once installed. Workforce has started modules with 234 reported, but module production still needs fully complete, QA-cleared tracker rows.' },
-      { title: 'SET foundation and delivery dates require closure', level: 'Critical', owner: 'Axel Cano / AB Power / Karina Mucino / Joshua Spalding', note: 'July 1 SET tracker shows 8.7% overall progress. Control-building FAT was reported passed, but the July 7 delivery gate still must stay aligned with foundation readiness.' },
-      { title: 'SET equipment commitments trail required dates', level: 'Critical', owner: 'Axel Cano / Karina Mucino / Project Management', note: 'The transformer, control building, and structural steel remain in fabrication, and several electrical items show committed dates after the July 10 required-on-site gate. A supplier acceleration plan is required.' },
+      { title: 'SET foundation, delivery dates, and equipment commitments all need closure', level: 'Critical', owner: 'Axel Cano / AB Power / Karina Mucino / Joshua Spalding / Project Management', note: 'July 1 SET tracker shows 8.7% overall progress. Control-building FAT was reported passed, but the July 7 delivery gate still must stay aligned with foundation readiness. The transformer, control building, and structural steel remain in fabrication, and several electrical items show committed dates after the July 10 required-on-site gate — a supplier acceleration plan is required.' },
       { title: 'ITS plowing must sustain the first production jump', level: 'Watch', owner: 'ITS / Audelio Zuniga / Angel Urbina', note: 'July 2 ITS status confirms 16 of 46 plow segments complete. Keep daily LF and segment reporting active while closing the remaining 10 bores.' },
-      { title: 'Area F/G civil release controls mechanical access', level: 'Critical', owner: 'Rosario Ruiz / Audelio Zuniga / Lounsbury', note: 'June 26 field note sets Area E completion for June 30 and Area F start for July 1, while Area G basins 66/70 continue. These fronts must release quickly to avoid starving mechanical crews.' },
-      { title: 'Acceleration targets remain linked to COD', level: 'Critical', owner: 'Construction Management / All Production Owners', note: 'Protecting November 9 COD requires approximately 560 piles/day, at least 40 completed tracker rows/day including purlins, and 3,000 modules/day after ramp, supported by materials, access, and QA turnover.' }
+      { title: 'Area F/G civil release controls mechanical access', level: 'Critical', owner: 'Rosario Ruiz / Audelio Zuniga / Lounsbury', note: 'June 26 field note sets Area E completion for June 30 and Area F start for July 1, while Area G basins 66/70 continue. These fronts must release quickly to avoid starving mechanical crews.' }
     ]
   };
 
@@ -2455,7 +2382,7 @@ footer p {
       if (byId('weatherSymbol')) byId('weatherSymbol').textContent = symbol;
       if (byId('weatherTemp')) byId('weatherTemp').innerHTML = `${temp ?? '--'}&deg;F`;
       if (byId('weatherSummary')) byId('weatherSummary').textContent = `${summary}; feels like ${apparent ?? '--'}°F`;
-      byId('weatherWeek').innerHTML = periods.slice(0, 7).map((period) => {
+      byId('weatherWeek').innerHTML = periods.filter((period) => period.isDaytime).slice(0, 7).map((period) => {
         const pop = Number((period.probabilityOfPrecipitation && period.probabilityOfPrecipitation.value) || 0);
         const dayGust = extractWindMph(period.windSpeed);
         const cls = dayGust >= 30 || pop >= 60 ? 'weather-critical' : dayGust >= 22 || pop >= 35 ? 'weather-watch' : '';
@@ -2467,7 +2394,7 @@ footer p {
           </article>
         `;
       }).join('');
-      if (byId('weatherNote')) byId('weatherNote').innerHTML = `<strong>Construction weather risk:</strong> ${risk}. Verify actual lost hours, access restrictions, wind stops, and lightning delays in the daily report before claiming production impacts.`;
+      if (byId('weatherNote')) byId('weatherNote').innerHTML = `<strong>${risk}.</strong> Document actual lost hours in the daily report — forecast conditions alone don't count as a recorded production impact.`;
       const localHour = Number(new Date().toLocaleString('en-US', { timeZone: 'America/Detroit', hour: 'numeric', hour12: false }));
       renderWeatherRecommendation({ temp, gust, todayRain, precip }, localHour);
     } catch (error) {
