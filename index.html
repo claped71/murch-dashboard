@@ -159,6 +159,46 @@ a {
   line-height: 1.45;
 }
 
+.weather-recommendation {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.weather-reco-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.weather-reco-grid article {
+  padding: 13px 14px;
+  background: #f4f8f5;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+}
+
+.weather-reco-grid article.reco-watch {
+  border-left-color: var(--amber);
+  background: #fff8ed;
+}
+
+.weather-reco-grid article.reco-critical {
+  border-left-color: var(--red);
+  background: #fff3f1;
+}
+
+.weather-reco-grid .label {
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+}
+
+.weather-reco-grid small {
+  color: #33413d;
+  line-height: 1.4;
+}
+
 .hero {
   min-height: 76vh;
   display: grid;
@@ -1192,6 +1232,7 @@ footer p {
   .safety-grid,
   .quality-grid,
   .recovery-grid,
+  .weather-reco-grid,
   .photo-feature,
   .impact-layout,
   .civil-kpis,
@@ -1400,6 +1441,12 @@ footer p {
         </div>
         <div class="weather-week" id="weatherWeek" aria-label="Seven-day weather forecast">
           <article><span>Loading</span><strong>--&deg; / --&deg;</strong><small>Fetching current forecast...</small></article>
+        </div>
+        <div class="weather-recommendation" id="weatherRecommendation">
+          <p class="eyebrow" id="weatherRecoEyebrow">Today's field recommendation | Based on live conditions and the time this was opened</p>
+          <div class="weather-reco-grid" id="weatherRecoGrid">
+            <article><span class="label">Loading</span><small>Building today's recommendation from live conditions...</small></article>
+          </div>
         </div>
         <p class="weather-note" id="weatherNote"><strong>Construction weather risk:</strong> Weather data refreshes when this dashboard is opened. Forecast conditions are not recorded production impacts; document actual lost hours in the daily report.</p>
       </section>
@@ -2304,6 +2351,68 @@ footer p {
       <article><span>Production rule</span><strong>Verify field</strong><small>Confirm wind, rain, lightning, and soil/access with the daily report.</small></article>
     `;
     if (note) note.innerHTML = '<strong>Construction weather risk:</strong> Live weather could not be loaded within the dashboard timeout. Do not treat this as a no-impact day; verify wind, rain, lightning, and soil/access effects in the daily report.';
+    if (byId('weatherRecoGrid')) byId('weatherRecoGrid').innerHTML = `
+      <article class="reco-watch"><span class="label">Recommendation unavailable</span><small>Live weather did not load in time. Do not assume clear conditions — confirm wind, rain, and soil/access status directly with the field before committing today's plan.</small></article>
+    `;
+  }
+
+  function timeOfDayContext(hour) {
+    if (hour < 6) return { label: 'Before shift start', note: 'Conditions reflect early-morning readings; recheck at crew call-on before committing the day\u2019s plan.' };
+    if (hour < 11) return { label: 'Morning window', note: 'Most of the productive shift is still ahead — use this to plan the full day.' };
+    if (hour < 15) return { label: 'Midday check', note: 'This is close to today\u2019s peak conditions — good checkpoint for afternoon go/no-go calls.' };
+    if (hour < 18) return { label: 'Afternoon window', note: 'Limited daylight and shift time remain — weigh whether to push or wrap early.' };
+    return { label: 'After hours', note: 'Outside normal shift hours — treat this as tomorrow\u2019s early planning read, not today\u2019s remaining work.' };
+  }
+
+  function buildFieldRecommendation({ temp, gust, todayRain, precip, hour }) {
+    const tod = timeOfDayContext(hour);
+    const items = [];
+
+    if (gust >= 25 || precip >= 0.05) {
+      items.push({ cls: 'reco-critical', label: 'Piling / ramming', text: `Gusts ${gust} mph${precip >= 0.05 ? ' with active precipitation' : ''} — expect slower rig productivity and wetter soil in Area F; confirm hincadoras are still safe to operate.` });
+    } else if (gust >= 18 || todayRain >= 40) {
+      items.push({ cls: 'reco-watch', label: 'Piling / ramming', text: `Gusts near ${gust} mph, ${todayRain}% rain chance today — watch soil conditions in unstabilized zones through the shift.` });
+    } else {
+      items.push({ cls: '', label: 'Piling / ramming', text: `Wind and rain both favorable (${gust} mph gusts, ${todayRain}% rain) — no weather constraint on ramming output today.` });
+    }
+
+    if (gust >= 25) {
+      items.push({ cls: 'reco-critical', label: 'Tracker / module handling', text: `${gust} mph gusts — large panel and purlin handling gets risky; consider holding module placement until wind drops.` });
+    } else if (gust >= 18) {
+      items.push({ cls: 'reco-watch', label: 'Tracker / module handling', text: `${gust} mph gusts — usable, but keep an eye on panel handling in open rows; brief crews on wind awareness.` });
+    } else {
+      items.push({ cls: '', label: 'Tracker / module handling', text: `Wind is low (${gust} mph) — good conditions for tracker, purlin, and module handling today.` });
+    }
+
+    if (precip >= 0.05 || todayRain >= 60) {
+      items.push({ cls: 'reco-critical', label: 'HDD / MV plowing', text: `${todayRain}% rain chance — expect mud and traction issues on the ITS boring/plowing fronts; plan for reduced footage.` });
+    } else if (todayRain >= 35) {
+      items.push({ cls: 'reco-watch', label: 'HDD / MV plowing', text: `${todayRain}% rain chance — monitor access conditions on the ITS crossing workfronts through the day.` });
+    } else {
+      items.push({ cls: '', label: 'HDD / MV plowing', text: `Dry conditions expected (${todayRain}% rain) — no access constraint anticipated for boring/plowing today.` });
+    }
+
+    if (temp !== null && temp >= 90) {
+      items.push({ cls: 'reco-critical', label: 'General site', text: `${temp}°F — heat stress risk; enforce hydration breaks and shade rotation for all crews.` });
+    } else if (temp !== null && temp <= 20) {
+      items.push({ cls: 'reco-critical', label: 'General site', text: `${temp}°F — cold-weather risk; watch for equipment cold-start issues and brief crews on cold-stress signs.` });
+    } else {
+      items.push({ cls: '', label: 'General site', text: `${temp ?? '--'}°F — comfortable working range; standard PPE and hydration protocol applies. (${tod.label}: ${tod.note})` });
+    }
+
+    return items;
+  }
+
+  function renderWeatherRecommendation(payload, hour) {
+    const grid = byId('weatherRecoGrid');
+    if (!grid) return;
+    const items = buildFieldRecommendation({ ...payload, hour });
+    grid.innerHTML = items.map((item) => `
+      <article class="${item.cls}">
+        <span class="label">${item.label}</span>
+        <small>${item.text}</small>
+      </article>
+    `).join('');
   }
 
   async function renderWeather() {
@@ -2359,6 +2468,8 @@ footer p {
         `;
       }).join('');
       if (byId('weatherNote')) byId('weatherNote').innerHTML = `<strong>Construction weather risk:</strong> ${risk}. Verify actual lost hours, access restrictions, wind stops, and lightning delays in the daily report before claiming production impacts.`;
+      const localHour = Number(new Date().toLocaleString('en-US', { timeZone: 'America/Detroit', hour: 'numeric', hour12: false }));
+      renderWeatherRecommendation({ temp, gust, todayRain, precip }, localHour);
     } catch (error) {
       setWeatherFallback(error.name === 'AbortError' ? 'Live weather request timed out.' : 'Live weather failed to load.');
     }
