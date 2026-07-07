@@ -260,3 +260,103 @@ window.MURCH_DATA = {
       { title: 'Area G civil release must convert into workfront access', level: 'Critical', owner: 'Rosario Ruiz / Audelio Zuniga / Lounsbury', note: 'Rosario Ruiz Week 26 email says Area G is released for pile driving and material distribution. Civil cut/fill in Area G starts after basin completion; this needs to convert quickly into mechanical access.' }
     ]
   };
+
+// ---- Jul 7 field-snapshot render patch (runs after main dashboard script) ----
+(function () {
+  function patchFieldResources() {
+    try {
+      var d = window.MURCH_DATA;
+      if (!d || !d.todayFieldSnapshot) return;
+
+      var section = document.getElementById('field-resources');
+      if (section) {
+        var headings = section.querySelectorAll('.section-heading.compact');
+        if (headings[1]) {
+          var eyebrow = headings[1].querySelector('.eyebrow');
+          var h2 = headings[1].querySelector('h2');
+          if (eyebrow) eyebrow.textContent = 'Field snapshot | On-site headcount board, ' + d.todayFieldSnapshot.date;
+          if (h2) h2.textContent = 'Subcontractor and GreenSol team resources reported on site';
+        }
+        var ctxP = section.querySelectorAll('.chart-context')[1];
+        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Machine and equipment detail is in the table below.';
+      }
+
+      var resourceTable = document.querySelector('.resource-table table');
+      if (resourceTable && d.equipmentNotes) {
+        var thead = resourceTable.querySelector('thead');
+        var tbody = resourceTable.querySelector('tbody');
+        if (thead) thead.innerHTML = '<tr><th>Company</th><th>Machines / equipment</th><th>Latest reported output</th></tr>';
+        if (tbody) tbody.innerHTML = d.equipmentNotes.map(function (row) {
+          return '<tr><td data-label="Company"><strong>' + row.contractor + '</strong></td>' +
+            '<td data-label="Machines / equipment">' + row.equipment + '</td>' +
+            '<td data-label="Latest reported output">' + row.output + '</td></tr>';
+        }).join('');
+      }
+
+      var canvas = document.getElementById('resourceChart');
+      if (!canvas) return;
+      var snapshot = d.todayFieldSnapshot;
+      var rows = snapshot.rows.slice().sort(function (a, b) { return b.people - a.people; });
+      var catColors = { epc: '#0c5f43', pile: '#2769a8', module: '#168a5b', electrical: '#8a4dbf', civil: '#b96f18', set: '#b53030', support: '#9aa39d' };
+      var catLabels = { epc: 'GreenSol EPC team', pile: 'Pile / tracker structural', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / earthworks', set: 'Substation crane', support: 'Support / no crew' };
+      var rowH = 30;
+      var pad = { left: 190, top: 64, right: 70, bottom: 40 };
+      var width = 1120;
+      canvas.width = width;
+      canvas.height = pad.top + rows.length * rowH + pad.bottom;
+      canvas.style.height = 'auto';
+      var ctx = canvas.getContext('2d');
+      var chartW = width - pad.left - pad.right;
+      ctx.clearRect(0, 0, width, canvas.height);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, width, canvas.height);
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#18201f';
+      ctx.font = '800 17px system-ui';
+      ctx.fillText(snapshot.total + ' people on site \u2014 ' + snapshot.date, 4, 24);
+      ctx.font = '700 12.5px system-ui';
+      ctx.fillStyle = '#66716d';
+      ctx.fillText('GreenSol EPC team + subcontractor crews, sorted by headcount', 4, 44);
+      var max = 1;
+      rows.forEach(function (r) { if (r.people > max) max = r.people; });
+      var barMaxW = chartW - 46;
+      rows.forEach(function (row, index) {
+        var y = pad.top + index * rowH;
+        var barW = row.people > 0 ? Math.max(3, (row.people / max) * barMaxW) : 0;
+        ctx.textAlign = 'right';
+        ctx.font = '750 13px system-ui';
+        ctx.fillStyle = '#18201f';
+        ctx.fillText(row.contractor, pad.left - 14, y + rowH / 2 + 4);
+        ctx.fillStyle = '#eef2ef';
+        ctx.fillRect(pad.left, y + 5, barMaxW, rowH - 12);
+        ctx.fillStyle = row.people > 0 ? (catColors[row.category] || '#66716d') : '#c7cdc9';
+        if (barW > 0) ctx.fillRect(pad.left, y + 5, barW, rowH - 12);
+        ctx.textAlign = 'left';
+        ctx.font = '800 13px system-ui';
+        ctx.fillStyle = '#18201f';
+        ctx.fillText(String(row.people), pad.left + Math.max(barW, 3) + 8, y + rowH / 2 + 4);
+      });
+      var legendCats = ['epc', 'pile', 'module', 'electrical', 'civil', 'set', 'support'];
+      var legendY = canvas.height - 12;
+      var legendX = pad.left;
+      ctx.font = '700 11px system-ui';
+      legendCats.forEach(function (cat) {
+        var text = catLabels[cat];
+        var textW = ctx.measureText(text).width;
+        if (legendX + 24 + textW > width - pad.right) { legendX = pad.left; legendY += 16; }
+        ctx.fillStyle = catColors[cat];
+        ctx.fillRect(legendX, legendY - 9, 10, 10);
+        ctx.fillStyle = '#66716d';
+        ctx.textAlign = 'left';
+        ctx.fillText(text, legendX + 14, legendY);
+        legendX += 18 + textW + 14;
+      });
+    } catch (e) { /* non-fatal: keep default rendering */ }
+  }
+  if (document.readyState === 'complete') {
+    patchFieldResources();
+  } else {
+    window.addEventListener('load', patchFieldResources);
+  }
+  window.addEventListener('resize', function () { window.setTimeout(patchFieldResources, 50); });
+}());
