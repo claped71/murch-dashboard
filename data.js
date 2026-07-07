@@ -8,7 +8,7 @@ window.MURCH_DATA = {
     scope: [
       { title: 'EPC Management', metric: 'Turnkey', note: 'Project management, safety, QC, contractor deliverables, owner reporting, permitting support, and trade coordination through completion.' },
       { title: 'Civil and Environmental', metric: 'G released', note: 'Rosario Week 26 email says Area G is released for pile driving and material distribution; Area G cut/fill starts after basin completion.' },
-      { title: 'Mechanical BOS', metric: '31,352 piles', note: 'Pile driving, D&F pre-drilling where required, GameChange SAT tracker assembly, purlin install, and module placement.' },
+      { title: 'Mechanical BOS', metric: '31,352 piles · 2,486 trackers', note: 'Pile driving (18,097 installed, 57.7%), GameChange SAT tracker assembly incl. purlins (528 done — 235 QA-released, 293 pending Quality), and module placement. D&F pre-drilling complete (7,694/7,694).' },
       { title: 'Electrical BOS', metric: 'ITS plowing on site', note: 'MV collection, HDD, plowing, grounding, DC string and combiner wiring, LV/AC works, inverter installation, SCADA, and testing. Joshua Spalding reported the ITS plowing machine arrived on June 19.' },
       { title: 'Procurement', metric: '171,470 modules', note: 'Panels, racking, purlins, actuators, controllers, cables, inverter stations, combiner boxes, and SET equipment.' },
       { title: 'Commissioning', metric: 'PIS Oct 16', note: 'Cold commissioning, energization, tracker testing, inverter start-up, PR test path, punch list, COD, and substantial completion.' }
