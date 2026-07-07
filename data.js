@@ -121,14 +121,28 @@ window.MURCH_DATA = {
     fieldResourceSnapshots: [
       { label: 'Jun 17 actual', week: 'W25', people: 136, color: '#b53030', offset: -18 },
       { label: 'Jun 30 official', week: 'W27', people: 148, color: '#2769a8', offset: 18 },
-      { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 }
+      { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 },
+      { label: 'Jul 7 field', week: 'W28', people: 170, color: '#8a4dbf', offset: 78 }
     ],
     actualResources: [
-      { contractor: 'ECCS', people: 0, label: 'No work Jul 6' },
-      { contractor: 'United', people: 22, label: '22 people / 7 rigs' },
-      { contractor: 'Latnovva', people: 17, label: '17 people' },
-      { contractor: 'ITS', people: 14, label: '14 crew' },
-      { contractor: 'Workforce', people: 17, label: '17 people' }
+      { contractor: 'GreenSol', people: 15, label: 'EPC management/safety/QC staff' },
+      { contractor: 'GreenSol Construction', people: 9, label: 'Self-perform labor' },
+      { contractor: 'ECS', people: 0, label: 'No crew on site' },
+      { contractor: 'Hurricane', people: 3, label: 'Civil crew' },
+      { contractor: 'Topland', people: 7, label: 'Civil/roads crew — Area F blocked as of 10 AM (concrete pour)' },
+      { contractor: 'Lounsbury', people: 6, label: 'Civil/grading crew' },
+      { contractor: 'ECCS', people: 38, label: 'Pile driving / tracker structural crew' },
+      { contractor: 'United', people: 21, label: 'Pile driving crew, Zone F' },
+      { contractor: 'Latnovva', people: 19, label: 'Pile driving / tracker structural crew' },
+      { contractor: 'Workforce', people: 19, label: 'Module installation crew' },
+      { contractor: 'Bru', people: 0, label: 'Module installation sub — mobilizing Jul 8' },
+      { contractor: 'ITS', people: 13, label: 'MV plowing/HDD electrical crew' },
+      { contractor: 'AB Power', people: 9, label: 'SET/electrical crew' },
+      { contractor: 'Dig It', people: 4, label: 'Electrical/SET support crew' },
+      { contractor: 'Hi Tech', people: 4, label: 'Electrical/SET support crew' },
+      { contractor: 'Crane crew', people: 3, label: 'Substation — installing control building today' },
+      { contractor: 'Westwood', people: 0, label: 'No crew on site' },
+      { contractor: 'SWCA', people: 0, label: 'No crew on site' }
     ],
     resourcePlan: [
       { label: 'Total site resources', actual: 148, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the June 30 official manpower table from the Jul 1 Delivery/Mechanical workbook.' },
