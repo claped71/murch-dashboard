@@ -1394,6 +1394,7 @@ footer p {
           <span class="brand-title">Murch Solar</span>
         </a>
         <div class="navlinks">
+          <a href="#overview">Overview</a>
           <a href="#safety">Safety</a>
           <a href="#quality">QA/QC</a>
           <a href="#progress">Progress</a>
@@ -1402,6 +1403,7 @@ footer p {
           <a href="#delivery-control">Delivery</a>
           <a href="#weekly-plan">Weekly Plan</a>
           <a href="#schedule">Schedule</a>
+          <a href="#field-resources">Resources</a>
           <a href="#risks">Risks</a>
         </div>
       </nav>
@@ -1449,6 +1451,15 @@ footer p {
           </div>
         </div>
         <p class="weather-note" id="weatherNote"><strong>Weather acceptable.</strong> Document actual lost hours in the daily report — forecast conditions alone don't count as a recorded production impact.</p>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="section-heading">
+          <p class="eyebrow">Project overview | Current source-backed categories</p>
+          <h2>Dashboard sections are grouped by control subject, not by source file</h2>
+        </div>
+        <div class="scope-grid" id="scopeGrid"></div>
+        <p class="quality-note"><strong>Reading order:</strong> Weather and safety show current field readiness; QA/QC, delivery, civil, production, schedule, resources, and risks show the construction controls needed to protect the acceleration plan. Old discrepancy notes and source-file chatter are excluded from the visible dashboard.</p>
       </section>
 
       <section class="status-strip safety-strip" aria-label="Safety KPI summary">
@@ -1707,7 +1718,7 @@ footer p {
           </div>
         </div>
         <div class="photo-feature">
-          <img id="featuredPhoto" src="https://claped71.github.io/murch-dashboard/assets/recent/recent-21.jpg?v=20260627-whatsapp-field" data-fallback="https://claped71.github.io/murch-dashboard/assets/recent/recent-21.jpg" alt="Representative Murch site scope progress" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
+          <img id="featuredPhoto" src="https://claped71.github.io/murch-dashboard/assets/recent/thumb-recent-21.jpg?v=20260706-photo-fix" data-fallback="https://claped71.github.io/murch-dashboard/assets/recent/recent-21.jpg" alt="Representative Murch site scope progress" loading="eager" decoding="async" onerror="if(!this.dataset.failed){this.dataset.failed='1';this.src=this.dataset.fallback;}">
           <div>
             <span class="label" id="featuredPhotoDate">June 25, 2026</span>
             <h3 id="featuredPhotoTitle">Golden Row installation</h3>
@@ -1842,7 +1853,7 @@ footer p {
         </div>
       </section>
 
-      <section class="section resource-section">
+      <section class="section resource-section" id="field-resources">
         <div class="section-heading compact">
           <p class="eyebrow">Field resources</p>
           <h2>Mechanical acceleration manpower load required to protect milestones</h2>
