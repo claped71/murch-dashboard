@@ -1380,6 +1380,34 @@ footer p {
   }
 }
 
+
+/* ---- Project Pulse (gate strip / trends / scoreboard) ---- */
+.pulse { margin: 18px 0 6px; }
+.gate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 14px; margin-top: 12px; }
+.gate-tile { background: var(--white); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow); border-top: 5px solid var(--muted); }
+.gate-tile.rag-red { border-top-color: var(--red); }
+.gate-tile.rag-amber { border-top-color: var(--amber); }
+.gate-tile.rag-green { border-top-color: var(--green); }
+.gate-tile h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 0 0 4px; }
+.gate-tile .gate-big { font-size: 24px; font-weight: 800; color: var(--ink); }
+.gate-tile .gate-big em { font-style: normal; font-size: 13px; font-weight: 700; }
+.gate-tile.rag-red .gate-big em { color: var(--red); }
+.gate-tile.rag-amber .gate-big em { color: var(--amber); }
+.gate-tile.rag-green .gate-big em { color: var(--green); }
+.gate-tile .gate-rows { margin-top: 8px; font-size: 12.5px; line-height: 1.55; color: var(--ink); }
+.gate-tile .gate-rows b { font-variant-numeric: tabular-nums; }
+.gate-pill { display:inline-block; padding:2px 9px; border-radius:10px; color:#fff; font-size:11px; font-weight:700; }
+.rag-red .gate-pill { background: var(--red); } .rag-amber .gate-pill { background: var(--amber); } .rag-green .gate-pill { background: var(--green); }
+.trend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-top: 14px; }
+.trend-card { background: var(--white); border-radius: 14px; padding: 12px 14px; box-shadow: var(--shadow); }
+.trend-card h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin: 0 0 2px; }
+.trend-card svg { width: 100%; height: auto; display: block; }
+.trend-key { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.score-wrap { margin-top: 14px; }
+.score-bar { background: #e8eeea; border-radius: 6px; height: 12px; position: relative; min-width: 120px; }
+.score-bar i { position:absolute; left:0; top:0; bottom:0; border-radius:6px; }
+@media (max-width: 640px) { .gate-tile .gate-big { font-size: 20px; } }
+
     </style>
   </head>
   <body>
@@ -1394,7 +1422,7 @@ footer p {
           <span class="brand-title">Murch Solar</span>
         </a>
         <div class="navlinks">
-          <a href="#overview">Overview</a>
+          <a href="#pulse">Pulse</a><a href="#overview">Overview</a>
           <a href="#safety">Safety</a>
           <a href="#quality">QA/QC</a>
           <a href="#progress">Progress</a>
@@ -1425,6 +1453,24 @@ footer p {
     </header>
 
     <main>
+      <section class="section pulse" id="pulse" aria-label="Project pulse: gates, rates, contractor scoreboard">
+        <div class="section-heading">
+          <p class="eyebrow" id="pulseEyebrow">Project pulse | Are we winning or losing the gate sequence?</p>
+          <h2>Gate status at current production rates</h2>
+        </div>
+        <div class="gate-grid" id="gateStrip"></div>
+        <div class="trend-grid" id="trendGrid"></div>
+        <div class="score-wrap table-wrap">
+          <div class="section-heading compact" style="margin:16px 0 8px">
+            <p class="eyebrow">Contractor scoreboard | Daily output vs contract criterion</p>
+          </div>
+          <table>
+            <thead><tr><th>Date</th><th>Contractor</th><th>Trade</th><th>Output</th><th>Resources</th><th>vs criterion</th><th>Fulfillment</th></tr></thead>
+            <tbody id="scoreBody"></tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="weather-panel" id="weather" aria-label="Current site weather and weekly forecast">
         <div class="weather-now">
           <div>
@@ -2693,6 +2739,101 @@ footer p {
   bindEvents();
 }());
 
+    </script>
+
+    <script>
+    (function () {
+      'use strict';
+      var D = window.MURCH_DATA; if (!D || !D.control) return;
+      var C = D.control;
+      function wdBetween(a, b) { var n = 0, d = new Date(a); while (d <= b) { if (d.getDay() !== 0) n++; d.setDate(d.getDate() + 1); } return n; }
+      function addWd(a, n) { var d = new Date(a); while (n > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0) n--; } return d; }
+      function fmtD(d) { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); }
+      function series(rx) { var t = (D.dailyProductionHistory || []).filter(function (x) { return rx.test(x.task); })[0]; return t ? t.daily : []; }
+      function rate5(daily) { var v = daily.slice(-5).map(function (x) { return x.value; }); if (!v.length) return 0; return v.reduce(function (a, b) { return a + b; }, 0) / v.length; }
+      var today = new Date(2026, 6, 8);
+
+      var defs = [
+        { c: C.piles, daily: series(/Pile installation/i), remaining: C.piles.total - C.piles.installed },
+        { c: C.trackers, daily: series(/Tracker/i), remaining: C.trackers.total - C.trackers.installed },
+        { c: C.modules, daily: series(/Module installation/i), remaining: C.modules.total - C.modules.installed }
+      ];
+      var strip = document.getElementById('gateStrip');
+      var worst = 'green';
+      var rank = { green: 0, amber: 1, red: 2 };
+      defs.forEach(function (g) {
+        var r5 = rate5(g.daily);
+        var gate = new Date(g.c.gate + 'T12:00:00');
+        var wdLeft = wdBetween(today, gate);
+        var reqNow = wdLeft > 0 ? Math.ceil(g.remaining / wdLeft) : Infinity;
+        var proj = r5 > 0 ? addWd(today, Math.ceil(g.remaining / r5)) : null;
+        var lateWd = proj ? (proj > gate ? wdBetween(gate, proj) - 1 : -(wdBetween(proj, gate) - 1)) : Infinity;
+        var rag = lateWd <= 0 ? 'green' : (lateWd <= 7 ? 'amber' : 'red');
+        if (rank[rag] > rank[worst]) worst = rag;
+        var pct = (g.c.installed / g.c.total * 100).toFixed(1);
+        strip.insertAdjacentHTML('beforeend',
+          '<article class="gate-tile rag-' + rag + '"><h3>' + g.c.name + ' · gate ' + g.c.gateLabel + '</h3>' +
+          '<div class="gate-big">' + g.c.installed.toLocaleString() + ' <em>/ ' + g.c.total.toLocaleString() + ' (' + pct + '%)</em></div>' +
+          '<div class="gate-rows">' +
+          'Required now: <b>' + reqNow.toLocaleString() + ' ' + g.c.unit + '</b><br>' +
+          'Actual (5-day avg): <b>' + Math.round(r5).toLocaleString() + ' ' + g.c.unit + '</b><br>' +
+          'Projected finish at current rate: <b>' + (proj ? fmtD(proj) : 'n/a') + '</b><br>' +
+          '<span class="gate-pill">' + (lateWd <= 0 ? 'ON GATE' : lateWd + ' working days late') + '</span>' +
+          '</div></article>');
+      });
+      strip.insertAdjacentHTML('beforeend',
+        '<article class="gate-tile rag-' + worst + '"><h3>' + C.mc.name + ' · target ' + C.mc.target + '</h3>' +
+        '<div class="gate-big">' + C.mc.forecast + ' <em>forecast</em></div>' +
+        '<div class="gate-rows">Forecast holds only if the three gates left recover to their required rates.<br>' +
+        '<span class="gate-pill">' + (worst === 'green' ? 'ON TARGET' : worst === 'amber' ? 'AT RISK' : 'RECOVERY REQUIRED') + '</span></div></article>');
+      document.getElementById('pulseEyebrow').textContent = 'Project pulse | Basis: ' + C.asOf + ' official workbook + latest field reports';
+
+      // ---- rate trend small multiples ----
+      var tg = document.getElementById('trendGrid');
+      defs.forEach(function (g) {
+        var d = g.daily; if (!d.length) return;
+        var W = 560, H = 190, L = 46, B = 24, T = 12;
+        var ymax = Math.max(g.c.required, g.c.capacity || 0, Math.max.apply(null, d.map(function (x) { return x.value; }))) * 1.12;
+        var bw = (W - L - 8) / d.length;
+        var y = function (v) { return T + (H - T - B) * (1 - v / ymax); };
+        var bars = d.map(function (x, i) {
+          var bh = (H - T - B) - (y(x.value) - T);
+          return '<rect x="' + (L + i * bw + 2) + '" y="' + y(x.value) + '" width="' + Math.max(bw - 4, 3) + '" height="' + Math.max(bh, 1) + '" fill="#2769a8" opacity="0.82"/>' +
+            (i % 2 === 0 ? '<text x="' + (L + i * bw + bw / 2) + '" y="' + (H - 8) + '" font-size="9" text-anchor="middle" fill="#66716d">' + x.day.replace(' ', '') + '</text>' : '');
+        }).join('');
+        var avgPts = d.map(function (x, i) {
+          var from = Math.max(0, i - 6), seg = d.slice(from, i + 1);
+          var a = seg.reduce(function (s2, p) { return s2 + p.value; }, 0) / seg.length;
+          return (L + i * bw + bw / 2) + ',' + y(a);
+        }).join(' ');
+        var lines = '<line x1="' + L + '" x2="' + W + '" y1="' + y(g.c.required) + '" y2="' + y(g.c.required) + '" stroke="#b53030" stroke-width="1.6" stroke-dasharray="6 4"/>' +
+          '<text x="' + (W - 4) + '" y="' + (y(g.c.required) - 4) + '" font-size="10" text-anchor="end" fill="#b53030" font-weight="700">required ' + g.c.required.toLocaleString() + '</text>';
+        if (g.c.capacity && g.c.capacity !== g.c.required) {
+          lines += '<line x1="' + L + '" x2="' + W + '" y1="' + y(g.c.capacity) + '" y2="' + y(g.c.capacity) + '" stroke="#b96f18" stroke-width="1.4" stroke-dasharray="3 4"/>' +
+            '<text x="' + (W - 4) + '" y="' + (y(g.c.capacity) - 4) + '" font-size="10" text-anchor="end" fill="#b96f18">capacity ' + g.c.capacity.toLocaleString() + '</text>';
+        }
+        tg.insertAdjacentHTML('beforeend', '<article class="trend-card"><h3>' + g.c.name + ' — daily output vs required</h3>' +
+          '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img">' +
+          '<line x1="' + L + '" x2="' + W + '" y1="' + (H - B) + '" y2="' + (H - B) + '" stroke="#dbe3de"/>' +
+          '<text x="' + (L - 6) + '" y="' + (y(ymax / 1.12) + 3) + '" font-size="9" text-anchor="end" fill="#66716d">' + Math.round(ymax / 1.12).toLocaleString() + '</text>' +
+          '<text x="' + (L - 6) + '" y="' + (H - B + 3) + '" font-size="9" text-anchor="end" fill="#66716d">0</text>' +
+          bars + lines +
+          '<polyline points="' + avgPts + '" fill="none" stroke="#168a5b" stroke-width="2.4"/>' +
+          '</svg><p class="trend-key">Blue bars = measured days · green line = 7-day rolling average · red dashes = required rate for the gate</p></article>');
+      });
+
+      // ---- contractor scoreboard ----
+      var sb = document.getElementById('scoreBody');
+      (D.contractorScore || []).forEach(function (r) {
+        var pc = Math.min(100, Math.round(r.perUnit / r.criterion * 100));
+        var col = pc >= 90 ? 'var(--green)' : pc >= 55 ? 'var(--amber)' : 'var(--red)';
+        sb.insertAdjacentHTML('beforeend', '<tr>' +
+          '<td>' + r.date + '</td><td><strong>' + r.contractor + '</strong></td><td>' + r.trade + '</td>' +
+          '<td>' + r.output.toLocaleString() + '</td><td>' + r.resource + '</td>' +
+          '<td>' + r.perUnit.toLocaleString() + ' vs ' + r.critLabel + '</td>' +
+          '<td><div class="score-bar" title="' + pc + '%"><i style="width:' + pc + '%;background:' + col + '"></i></div> <small>' + pc + '%</small></td></tr>');
+      });
+    })();
     </script>
   </body>
 </html>

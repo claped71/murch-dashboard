@@ -5,6 +5,23 @@ const assetBase = 'https://claped71.github.io/murch-dashboard/';
 function asset(path) { return assetBase + path + '?v=' + assetVersion; }
 function assetFallback(path) { return assetBase + path; }
 window.MURCH_DATA = {
+    control: {
+      asOf: 'Jul 8, 2026',
+      piles:    { installed: 17642, total: 31352, gate: '2026-07-28', gateLabel: 'Jul 28', required: 762, capacity: 560, name: 'Piles', unit: 'piles/day' },
+      trackers: { installed: 535, released: 235, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 43, capacity: 48, name: 'Trackers incl. purlins', unit: 'rows/day' },
+      modules:  { installed: 936, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 3280, capacity: 5531, name: 'Modules', unit: 'mod/day' },
+      mc:       { target: 'Sep 25', forecast: 'Sep 20-25', name: 'Mechanical Completion' }
+    },
+    contractorScore: [
+      { date: 'Jul 7', contractor: 'United', trade: 'Piles', output: 380, resource: '7 rigs', perUnit: 54, criterion: 80, critLabel: '80 piles/rig-day' },
+      { date: 'Jul 7', contractor: 'LATNOVVA', trade: 'Piles', output: 16, resource: '1 rig', perUnit: 16, criterion: 80, critLabel: '80 piles/rig-day' },
+      { date: 'Jul 7', contractor: 'ECCS', trade: 'Trackers', output: 29, resource: 'tracker crew', perUnit: 29, criterion: 48, critLabel: '48 rows/day' },
+      { date: 'Jul 7', contractor: 'Workforce', trade: 'Modules', output: 156, resource: '19 people', perUnit: 156, criterion: 2000, critLabel: '2,000 mod/day by Jul 10' },
+      { date: 'Jul 6', contractor: 'United', trade: 'Piles', output: 307, resource: '7 rigs', perUnit: 44, criterion: 80, critLabel: '80 piles/rig-day' },
+      { date: 'Jul 6', contractor: 'LATNOVVA', trade: 'Piles', output: 0, resource: 'crew on vacation', perUnit: 0, criterion: 80, critLabel: '80 piles/rig-day' },
+      { date: 'Jul 6', contractor: 'ECCS', trade: 'Trackers', output: 0, resource: 'no work reported', perUnit: 0, criterion: 48, critLabel: '48 rows/day' },
+      { date: 'Jul 6', contractor: 'Workforce', trade: 'Modules', output: 780, resource: '17 people', perUnit: 780, criterion: 2000, critLabel: '2,000 mod/day by Jul 10' }
+    ],
     scope: [
       { title: 'EPC Management', metric: 'Turnkey', note: 'Project management, safety, QC, contractor deliverables, owner reporting, permitting support, and trade coordination through completion.' },
       { title: 'Civil and Environmental', metric: 'G released', note: 'Rosario Week 26 email says Area G is released for pile driving and material distribution; Area G cut/fill starts after basin completion.' },
