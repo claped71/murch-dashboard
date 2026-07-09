@@ -11,6 +11,22 @@ window.MURCH_DATA = {
       modules:  { installed: 1872, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 3325, capacity: 5531, name: 'Modules', unit: 'mod/day' },
       mc:       { target: 'Sep 25', forecast: 'Sep 20-25', name: 'Mechanical Completion' }
     },
+    manpowerHistory: [
+      { day: 'Jun 17', total: 136, src: 'field actual' },
+      { day: 'Jun 25', total: 149, src: 'workbook' },
+      { day: 'Jun 26', total: 134, src: 'workbook' },
+      { day: 'Jun 29', total: 146, src: 'workbook' },
+      { day: 'Jun 30', total: 148, src: 'official' },
+      { day: 'Jul 7', total: 170, src: 'field report' },
+      { day: 'Jul 9', total: 193, src: 'site board' }
+    ],
+    manpowerMixToday: { day: 'Jul 9', total: 193, mix: [
+      { trade: 'Mechanical', people: 126, color: '#168a5b' },
+      { trade: 'Electrical', people: 30, color: '#2769a8' },
+      { trade: 'Greensol EPC', people: 20, color: '#66716d' },
+      { trade: 'Civil / Env', people: 14, color: '#b96f18' },
+      { trade: 'Support', people: 3, color: '#8a4dbf' }
+    ] },
     contractorScore: [
       { date: 'Jul 8', contractor: 'United', trade: 'Piles', output: 490, resource: '23 people · 7 rigs · +1 inverter pile', perUnit: 70, criterion: 80, critLabel: '80 piles/rig-day' },
       { date: 'Jul 8', contractor: 'LATNOVVA', trade: 'Piles', output: 150, resource: '19 people · 2 rigs (3rd on site Jul 9) · B6', perUnit: 75, criterion: 80, critLabel: '80 piles/rig-day' },

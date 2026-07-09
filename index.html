@@ -1915,6 +1915,7 @@ footer p {
         </div>
         <div class="chart-panel">
           <p class="chart-context">People and machines currently reported on site by subcontractor, from the latest daily field notes. Machine and output detail is shown directly below the histogram.</p>
+          <div class="trend-card" style="margin-bottom:14px"><h3 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 2px">Manpower story — total on site by report date</h3><div id="manpowerStory"></div><p class="trend-key">Green area = total headcount per complete report (partial-report days excluded) · right bar = Jul 9 trade mix</p></div>
           <canvas id="resourceChart" width="1120" height="300" aria-label="Current subcontractor field resources by headcount"></canvas>
         </div>
         <div class="resource-lower">
@@ -1962,7 +1963,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; DELIVERY AND MECHANICAL-2_2026-07-08.xlsx (rev 2) used as the Construction Manager production report with controlling installed pile production at 19,274 piles (PROGRESS pile-installation table, Jul 8 evening) and 25,509 delivered piles; ProductionProgress_JS_2026-07-08.xlsx; MURCH_Plowing_Boring_MT_Tracking_2026-07-08.xlsx with ITS control through July 8; SE_Construction_Tracker_Murch_Solar_2026-07-08.xlsx with SET progress through July 8 (control building installed July 7); WhatsApp Chat - Murch dashboard 2026-07-08.zip for Daniel Morilla QA/QC confirmation, Manuel Ramirez production notes, and factual field-resource notes; Shreeya Devkota / GameChange July 6 delivery email chain and Manuel Ramirez delivery correspondence; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 9, 2026 (manpower board); production data through July 8.</p>
     </footer>
 
-    <script src="data.js?v=20260709-board193"></script>
+    <script src="data.js?v=20260709-mpstory"></script>
     <script>
 'use strict';
 
@@ -2833,6 +2834,39 @@ footer p {
           '<td>' + r.perUnit.toLocaleString() + ' vs ' + r.critLabel + '</td>' +
           '<td><div class="score-bar" title="' + pc + '%"><i style="width:' + pc + '%;background:' + col + '"></i></div> <small>' + pc + '%</small></td></tr>');
       });
+
+      // ---- manpower story ----
+      var mh = D.manpowerHistory, mx = D.manpowerMixToday;
+      var host = document.getElementById('manpowerStory');
+      if (host && mh && mh.length) {
+        var W2 = 860, H2 = 210, L2 = 40, B2 = 26, T2 = 14, R2 = mx ? 220 : 10;
+        var ymax2 = Math.max.apply(null, mh.map(function (p) { return p.total; })) * 1.18;
+        var xs = function (i) { return L2 + (W2 - L2 - R2 - 10) * (mh.length === 1 ? 0 : i / (mh.length - 1)); };
+        var ys = function (v) { return T2 + (H2 - T2 - B2) * (1 - v / ymax2); };
+        var pts = mh.map(function (p, i) { return xs(i) + ',' + ys(p.total); }).join(' ');
+        var area = 'M' + xs(0) + ',' + (H2 - B2) + ' L' + pts.replace(/ /g, ' L') + ' L' + xs(mh.length - 1) + ',' + (H2 - B2) + ' Z';
+        var svg = '<svg viewBox="0 0 ' + W2 + ' ' + H2 + '" style="width:100%;height:auto;display:block">' +
+          '<line x1="' + L2 + '" x2="' + (W2 - R2) + '" y1="' + (H2 - B2) + '" y2="' + (H2 - B2) + '" stroke="#dbe3de"/>' +
+          '<path d="' + area + '" fill="rgba(22,138,91,0.14)"/>' +
+          '<polyline points="' + pts + '" fill="none" stroke="#168a5b" stroke-width="2.6"/>';
+        mh.forEach(function (p, i) {
+          svg += '<circle cx="' + xs(i) + '" cy="' + ys(p.total) + '" r="4.5" fill="#168a5b"/>' +
+            '<text x="' + xs(i) + '" y="' + (ys(p.total) - 10) + '" font-size="12" font-weight="700" text-anchor="middle" fill="#18201f">' + p.total + '</text>' +
+            '<text x="' + xs(i) + '" y="' + (H2 - 8) + '" font-size="10" text-anchor="middle" fill="#66716d">' + p.day + '</text>';
+        });
+        if (mx) {
+          var bx = W2 - R2 + 30, bw2 = 44, avail = H2 - T2 - B2, y0 = T2;
+          svg += '<text x="' + bx + '" y="' + (T2 - 2) + '" font-size="10" font-weight="700" fill="#66716d">' + mx.day + ' MIX — ' + mx.total + '</text>';
+          mx.mix.forEach(function (m) {
+            var h = avail * m.people / mx.total;
+            svg += '<rect x="' + bx + '" y="' + y0 + '" width="' + bw2 + '" height="' + Math.max(h - 1, 1) + '" fill="' + m.color + '"/>' +
+              '<text x="' + (bx + bw2 + 8) + '" y="' + (y0 + h / 2 + 4) + '" font-size="11" fill="#18201f">' + m.trade + ' ' + m.people + '</text>';
+            y0 += h;
+          });
+        }
+        svg += '</svg>';
+        host.innerHTML = svg;
+      }
     })();
     </script>
   </body>
