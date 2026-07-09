@@ -77,10 +77,10 @@ window.MURCH_DATA = {
     ],
     civilActivities: [
       { activity: 'Earthworks cut / fill', company: 'Lounsbury', done: 61, remaining: 39, status: 'Active', note: 'Latest quantified percentage remains Week 24. Rosario Week 26 adds that Area G cut/fill starts after the Area G basins are finished.' },
-      { activity: 'Perimeter fence', company: 'Hurricane', done: 76, remaining: 24, status: 'Active', note: 'Week 24 baseline remains 76%. June 26 field note says Areas A, B, C, E, EW and F are complete, with gates next.' },
+      { activity: 'Perimeter fence', company: 'Hurricane', done: 66.5, remaining: 33.5, status: 'Active', note: 'Rosario Jul 9 measured basis: 20,808 of 31,267 weighted lf (66.5%) — replaces the coarse 76% estimate. Areas A-F essentially complete; Zone G, substation perimeter and gates are the remainder.' },
       { activity: 'Sediment basins / environmental controls', company: 'Lounsbury / ECS', done: 47, remaining: 53, status: 'At Risk', note: 'Latest quantified percentage remains Week 24. Rosario Week 26 states Area G basins must finish before Area G cut/fill starts.' },
-      { activity: 'Internal roads', company: 'Topland', done: 35, remaining: 65, status: 'Critical', note: 'Week 24 civil update shows roads in Areas A-B-C-E at 35% executed; roads continue to control logistics access.' },
-      { activity: 'PS foundations', company: 'United', done: 38, remaining: 62, status: 'Critical', note: 'Week 24 civil update reports PS foundations at 38% executed, with work planned through August 10.' },
+      { activity: 'Internal roads', company: 'Topland', done: 63.8, remaining: 36.2, status: 'Active', note: 'Rosario Jul 9 quantity sheet: 10,696 of 16,755 lf done-equivalent (63.8%, weighted by layer). Major recovery from the 35% Week 24 baseline — roads are easing as the logistics constraint.' },
+      { activity: 'PS foundations', company: 'United', done: 51.3, remaining: 48.7, status: 'Active', note: 'Rosario Jul 9 sheet: 51.3% weighted across the 23 power stations — consistent with 114/230 inverter piles complete. Work planned through August 10.' },
       { activity: 'Foundation SET', company: 'AB Power', done: 8.7, remaining: 91.3, status: 'Active', note: 'July 6 SET workbook shows overall substation progress at 8.7%; civil progress is 33.8%, structural progress is 1.9%, and electrical progress is 2.3%.' }
     ],
     contractors: [
