@@ -1,5 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
+// CACHE BUSTER: Force rebuild on Jul 9, 2026 at 12:50 UTC
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
