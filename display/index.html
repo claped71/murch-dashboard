@@ -298,10 +298,13 @@ class Component extends DCLogic {
     this._poll = setInterval(() => this.fetchData(), 300000);
     this._rot  = setInterval(() => this.setState(s => ({ current: (s.current + 1) % 5 })), this.rotateMs);
     this._clk  = setInterval(() => this.forceUpdate(), 1000);
+    // Auto-reload the whole page every 30 min so a remote screen picks up new
+    // deployments (design/code changes) with no manual refresh.
+    this._reload = setInterval(() => location.reload(), 1800000);
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this._onResize);
-    clearInterval(this._poll); clearInterval(this._rot); clearInterval(this._clk);
+    clearInterval(this._poll); clearInterval(this._rot); clearInterval(this._clk); clearInterval(this._reload);
   }
   applyScale() {
     const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
