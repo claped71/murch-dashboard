@@ -14,7 +14,7 @@ window.MURCH_DATA = {
     },
     contractorScore: [
       { date: 'Jul 8', contractor: 'United', trade: 'Piles', output: 490, resource: '23 people · 7 rigs · +1 inverter pile', perUnit: 70, criterion: 80, critLabel: '80 piles/rig-day' },
-      { date: 'Jul 8', contractor: 'LATNOVVA', trade: 'Piles', output: 150, resource: '19 people · zone B6 (rig count n/r)', perUnit: 150, criterion: 80, critLabel: '80 piles/rig-day' },
+      { date: 'Jul 8', contractor: 'LATNOVVA', trade: 'Piles', output: 150, resource: '19 people · 2 rigs · zone B6', perUnit: 75, criterion: 80, critLabel: '80 piles/rig-day' },
       { date: 'Jul 8', contractor: 'ECCS', trade: 'Trackers', output: 0, resource: '45 people · 13 rows at 75% in C', perUnit: 0, criterion: 48, critLabel: '48 rows/day' },
       { date: 'Jul 8', contractor: 'Workforce', trade: 'Modules', output: 780, resource: '20 people · zone A', perUnit: 780, criterion: 2000, critLabel: '2,000 mod/day by Jul 10' },
       { date: 'Jul 8', contractor: 'Brumont', trade: 'Modules', output: 156, resource: '18 people · zone A (new crew)', perUnit: 156, criterion: 2000, critLabel: '2,000 mod/day by Jul 10' },
