@@ -161,8 +161,7 @@ window.MURCH_DATA = {
       { contractor: 'Dig It', people: 4, label: 'Electrical / SET support crew' },
       { contractor: 'Hi Tech', people: 4, label: 'Electrical / SET support crew' },
       { contractor: 'SWCA', people: 1, label: 'Environmental monitor' },
-      { contractor: 'Kalamazoo', people: 2, label: 'D&F closeout / support' },
-      { contractor: 'Westwood', people: 0, label: 'Not legible on board — confirm' }
+      { contractor: 'Kalamazoo Excavation', people: 2, label: 'Excavation support crew' }
     ],
     todayFieldSnapshot: {
       date: 'Jul 7, 2026',
