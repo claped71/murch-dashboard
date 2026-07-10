@@ -491,6 +491,8 @@ small {
   border-top-color: var(--amber);
 }
 
+.quality-grid article.quality-done { background: #eaf3ed; border: 1px solid #b7d6c4; border-left: 5px solid var(--green-dark); }
+.quality-grid article.quality-done strong { color: var(--green-dark); }
 .quality-grid article.quality-alert {
   border-top-color: var(--red);
 }
@@ -1785,10 +1787,10 @@ footer p {
             <strong>19,943 / 31,352</strong>
             <small>Official installed basis from the Construction Manager workbook.</small>
           </article>
-          <article class="quality-alert">
-            <span class="label">Pre-drills Remaining</span>
-            <strong>0</strong>
-            <small>Drill-and-backfill is complete in the June 30 official workbook.</small>
+          <article class="quality-done">
+            <span class="label">Drill &amp; Backfill</span>
+            <strong>COMPLETE</strong>
+            <small>7,694 / 7,694 pre-drills closed in the official workbook — no gate to piling.</small>
           </article>
           <article>
             <span class="label">Trackers Installed</span>
@@ -1938,7 +1940,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; DELIVERY AND MECHANICAL-2_2026-07-08.xlsx (rev 2) used as the Construction Manager production report with controlling installed pile production at 19,274 piles (PROGRESS pile-installation table, Jul 8 evening) and 25,509 delivered piles; ProductionProgress_JS_2026-07-08.xlsx; MURCH_Plowing_Boring_MT_Tracking_2026-07-08.xlsx with ITS control through July 8; SE_Construction_Tracker_Murch_Solar_2026-07-08.xlsx with SET progress through July 8 (control building installed July 7); WhatsApp Chat - Murch dashboard 2026-07-08.zip for Daniel Morilla QA/QC confirmation, Manuel Ramirez production notes, and factual field-resource notes; Shreeya Devkota / GameChange July 6 delivery email chain and Manuel Ramirez delivery correspondence; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 10, 2026; production data through July 9.</p>
     </footer>
 
-    <script src="data.js?v=20260710-photos"></script>
+    <script src="data.js?v=20260710-gates"></script>
     <script>
 'use strict';
 
