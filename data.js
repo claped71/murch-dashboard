@@ -32,7 +32,8 @@ window.MURCH_DATA = {
       { date: 'Jul 11 Sat', contractor: 'Brumont', trade: 'Modules', output: 517, resource: '18 people · zone A — Saturday crew', perUnit: 517, criterion: 2000, critLabel: '2,000 mod/day target' },
       { date: 'Jul 11 Sat', contractor: 'United', trade: 'Piles', output: 446, resource: '23 people · 6 rigs (2 damaged) — Saturday crew', perUnit: 74, criterion: 80, critLabel: '80 piles/rig-day' },
             { date: 'Jul 10', contractor: 'ECCS', trade: 'Trackers', output: 0, resource: '46 people · 18 rows at 75% in C · +2 inverter stations (E) — Saturday figure pending from mechanical superintendent', perUnit: 0, criterion: 48, critLabel: '48 rows/day' },
-            { date: 'Jul 10', contractor: 'Workforce', trade: 'Modules', output: 702, resource: '15 people · zone A — did not work Saturday', perUnit: 702, criterion: 2000, critLabel: '2,000 mod/day target' }
+            { date: 'Jul 10', contractor: 'Workforce', trade: 'Modules', output: 702, resource: '15 people · zone A — did not work Saturday', perUnit: 702, criterion: 2000, critLabel: '2,000 mod/day target' },
+            { date: 'Jul 10', contractor: 'Brumont', trade: 'Modules', output: 1100, resource: '18 people · zone A — balance of the 1,802 record day (derived: 1,802 total less Workforce 702); confirm split with the field', perUnit: 1100, criterion: 2000, critLabel: '2,000 mod/day target — combined crews 1,802 on Jul 10, the record day' }
     ],
     scope: [
       { title: 'EPC Management', metric: 'Turnkey', note: 'Project management, safety, QC, contractor deliverables, owner reporting, permitting support, and trade coordination through completion.' },
