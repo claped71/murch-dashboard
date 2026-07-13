@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Jul 12, 2026 — all cards aligned to the Project Pulse executed totals (piles 21,144 / trackers 535 / modules 5,499)
+// CACHE BUSTER: Jul 13, 2026 — personnel snapshot updated with corrected scope assignments
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
@@ -18,13 +18,14 @@ window.MURCH_DATA = {
       { day: 'Jun 29', total: 146, src: 'workbook' },
       { day: 'Jun 30', total: 148, src: 'official' },
       { day: 'Jul 7', total: 170, src: 'field report' },
-      { day: 'Jul 9', total: 191, src: 'site board' }
+      { day: 'Jul 9', total: 191, src: 'site board' },
+      { day: 'Jul 13', total: 191, src: 'current field snapshot' }
     ],
-    manpowerMixToday: { day: 'Jul 9', total: 191, mix: [
-      { trade: 'Trackers & Piling', people: 99, color: '#0c5f43' },
+    manpowerMixToday: { day: 'Jul 13, 2026', total: 191, mix: [
+      { trade: 'Trackers & Piling', people: 85, color: '#0c5f43' },
       { trade: 'Module Installation', people: 41, color: '#168a5b' },
       { trade: 'Electrical & SET', people: 27, color: '#2769a8' },
-      { trade: 'Civil & Fencing', people: 17, color: '#b96f18' },
+      { trade: 'Civil & Fencing', people: 18, color: '#b96f18' },
       { trade: 'GreenSol EPC', people: 20, color: '#66716d' }
     ] },
     contractorScore: [
@@ -100,12 +101,12 @@ window.MURCH_DATA = {
       { zone: 'Zone G', contractor: 'Latnovva', scope: 3356, installed: 0, remaining: 3356, done: 0, status: 'Active', note: 'Assigned to Latnovva. Rosario Ruiz Week 26 email says Area G is released for pile driving and material distribution; civil cut/fill starts after Area G basins are finished.' }
     ],
     production: [
-      { name: 'Project pile installation', remaining: '10,208 piles', target: '~729 piles/day required for Jul 28 (560/day stated capacity)', latest: 'Jul 11 (Sat): 680 piles — FOURTH straight day above 560 (United 446 with 6 rigs, 2 damaged; Latnovva 234 at 117/rig-day, best rate yet). ECCS Saturday figure still pending', cumulative: '21,144 / 31,352 executed (67.4%) — 20,464 Jul 11 workbook + 680 Sat field-reported', status: 'Critical', note: 'Jul 11 workbook roll-up remains the official basis (Zone B still held at 1,420; Zone F Sat +446 also pending allocation). Four straight days above capacity — 646, 669, 680, 680 — the Saturday 680 achieved with a partial fleet (United down to 4 healthy rigs of 6). Holding Jul 28 needs ~729/day over 14 working days (Mon-Sat); rig repairs and the 3rd Latnovva rig are the levers.' },
+      { name: 'Project pile installation', remaining: '10,208 piles', target: '~729 piles/day required for Jul 28 (560/day stated capacity)', latest: 'Jul 11 (Sat): 680 piles — FOURTH straight day above 560 (United 446 with 6 rigs, 2 damaged; Latnovva 234 at 117/rig-day, best rate yet). ECCS Saturday figure still pending', cumulative: '21,144 / 31,352 executed (67.4%) — 20,464 Jul 11 workbook + 680 Sat field-reported', status: 'Critical', note: 'Jul 11 workbook roll-up remains the official basis (Zone B still held at 1,420; Zone F Sat +446 also pending allocation). Four straight days above capacity — 646, 669, 680, 680 — the Saturday 680 with a partial fleet (United down to 4 healthy rigs of 6). Holding Jul 28 needs ~729/day over 14 working days (Mon-Sat); rig repairs and the 3rd Latnovva rig are the levers.' },
       { name: 'Pile delivery / site stock', remaining: '5,843 piles undelivered', target: 'Receipts must exceed 560 piles/day burn', latest: 'Jul 6 workbook: delivered piles increased to 25,509', cumulative: '25,509 delivered; 4,365 available above the 21,144 executed', status: 'Watch', note: 'Available stock equals delivered piles less officially installed piles (20,464 per the Jul 11 workbook) — 5,045 official, ~4,365 after the Saturday 680 field-reported piles (~7.8 days at the 560/day capacity assumption).' },
       { name: 'Drill and backfill', remaining: '0 pre-drills', target: 'Scope closed — no gate to piling', latest: 'All units closed in the official workbook', cumulative: '7,694 / 7,694 complete (100.0%)', status: 'Complete', note: 'July 6 Construction Management progress source shows drill-and-backfill complete.' },
       { name: 'Civil grading / cut-fill', remaining: '39% of scope', target: '— No approved daily target in source', latest: 'Week 26 email: Area G cut/fill starts after basins finish', cumulative: '61% complete through latest quantified civil baseline', status: 'On Track', note: 'Current percentage follows Rosario Ruiz civil baseline; Week 26 adds Area G release for pile driving and material distribution.' },
       { name: 'Internal roads', remaining: '34.1% of scope', target: '— No approved daily target in source', latest: 'Rosario Jul 10 quantity sheet (lf-weighted)', cumulative: '65.9% complete — matches Civil Progress Control', status: 'Active', note: 'Current percentage follows Rosario Ruiz civil baseline for Areas A-B-C-E; roads continue to control logistics access.' },
-      { name: 'Tracker completion incl. purlins', remaining: '1,951 to build · 2,251 to QA-release', target: '48 completed tracker rows/day acceleration target', latest: 'No Saturday report from ECCS. Jul 10: 0 rows completed — third straight zero day; 18 rows at 75% in Zone C', cumulative: '535 done (21.5%): 235 QA-released + 300 pending Quality · 493 rows pre-assembled / 2,486 total', status: 'Critical', note: 'Torque tubes and purlins are installed as part of the tracker row — no separate daily control. 535 trackers are physically done, of which Quality has released 235; the 300-row QA backlog is the immediate module-workfront lever. Best-estimate completion for all trackers is August 30.' },
+      { name: 'Tracker completion incl. purlins', remaining: '1,951 to build · 2,251 to QA-release', target: '48 completed tracker rows/day acceleration target', latest: 'No Saturday report from ECCS. Jul 10: 0 rows — third straight zero day', note: 'Purlin installation is integrated into this tracker control metric: a row counts once its purlins are installed. Total done is 535 rows — 235 released by Quality and 300 pending QA approval. Three straight zero-row days through Jul 10 and no Saturday report — trackers remain the controlling risk for the module front.', cumulative: '535 done (21.5%): 235 QA-released + 300 pending Quality · 493 rows pre-assembled / 2,486 total', status: 'Critical' },
       { name: 'ITS HDD boring', remaining: '6 of 20 bores (1 in progress)', target: 'Minimum 1 completed bore/day', latest: 'Jul 11 (Sat): +1 bore — 14 / 20 complete (70%), 1 in progress', cumulative: '14 / 20 bores complete (70%); 4,499.2 ft installed through Jul 10 (Sat footage not yet reported)', status: 'Watch', note: 'Jul 11 field table: 14 done / 1 in progress / 5 pending. Third straight day with a bore closed; boring remains the slower ITS front.' },
       { name: 'ITS MV plowing', remaining: '17 of 46 segments', target: 'Minimum 1 completed segment/day', latest: 'Jul 11 (Sat): +1 segment — 29 / 46 complete (61.7% per field table)', cumulative: '29 / 46 segments complete; 88,596 ft installed through Jul 10 (Sat footage not yet reported)', status: 'On Track', note: 'Jul 11 field table: 29 done / 0 in progress / 17 pending — a segment closed on the Saturday shift after the +5/+2/+5 push. Plowing comfortably leads the electrical sequence.' },
       { name: 'SET construction', remaining: '91.3% of overall scope', target: '— No approved daily progress target in source', latest: 'Jul 12 (Sun): transformer-foundation containment berm complete — ready for the main transformer', cumulative: '~9.5% by activity count; steel-structures advance certified this period', status: 'Critical', note: 'Jul 8 SET tracker — two more activities closed since Jul 6. Jul 6 discipline split: civil 33.8%, structural 1.9%, electrical 2.3%.' },
@@ -148,43 +149,44 @@ window.MURCH_DATA = {
       { label: 'Jun 30 official', week: 'W27', people: 148, color: '#2769a8', offset: 18 },
       { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 },
       { label: 'Jul 7 field', week: 'W28', people: 170, color: '#8a4dbf', offset: 78 },
-      { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 }
+      { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 },
+      { label: 'Jul 13 current', week: 'W29', people: 191, color: '#0c5f43', offset: 138 }
     ],
     actualResources: [
-      { contractor: 'ECCS', people: 50, label: '50 · trackers' },
-      { contractor: 'WORKFORCE', people: 26, label: '26 · modules' },
-      { contractor: 'UNITED', people: 21, label: '21 · F piling' },
-      { contractor: 'BRUMONT', people: 15, label: '15 · modules' },
-      { contractor: 'LATNOVVA', people: 14, label: '14 · B piling' },
-      { contractor: 'ITS', people: 14, label: '14 · MV/HDD' },
-      { contractor: 'GREENSOL', people: 13, label: '13 · EPC mgmt' },
-      { contractor: 'GREENSOL CONSTRUCTION', people: 7, label: '7 · supervision' },
-      { contractor: 'TOPLAND', people: 7, label: '7 · civil roads' },
-      { contractor: 'ABPOWER', people: 5, label: '5 · electrical' },
-      { contractor: 'DIG IT', people: 4, label: '4 · SET found.' },
-      { contractor: 'HI-TECH', people: 4, label: '4 · subst./QI' },
-      { contractor: 'HURRICANE', people: 3, label: '3 · fencing' },
-      { contractor: 'LOUNSBURY', people: 3, label: '3 · earthworks' },
-      { contractor: 'ECS', people: 2, label: '2 · environmental' },
-      { contractor: 'SWCA', people: 2, label: '2 · environ. comp' },
-      { contractor: 'WESTWOOD', people: 1, label: '1 · civil consult' }
+      { contractor: 'ECCS', people: 50, label: '50 · tracker installation' },
+      { contractor: 'WORKFORCE', people: 26, label: '26 · module installation' },
+      { contractor: 'UNITED', people: 21, label: '21 · F Area piling' },
+      { contractor: 'BRUMONT', people: 15, label: '15 · module installation' },
+      { contractor: 'LATNOVVA', people: 14, label: '14 · B Area piling' },
+      { contractor: 'ITS', people: 14, label: '14 · electrical MV/HDD' },
+      { contractor: 'GREENSOL', people: 13, label: '13 · EPC management' },
+      { contractor: 'GREENSOL CONSTRUCTION', people: 7, label: '7 · site supervision' },
+      { contractor: 'TOPLAND', people: 7, label: '7 · civil & roads' },
+      { contractor: 'ABPOWER', people: 5, label: '5 · electrical systems' },
+      { contractor: 'DIG IT', people: 4, label: '4 · SET foundations (AB sub)' },
+      { contractor: 'HI-TECH', people: 4, label: '4 · substation & QI' },
+      { contractor: 'HURRICANE', people: 3, label: '3 · fencing contractor' },
+      { contractor: 'LOUNSBURY', people: 3, label: '3 · civil earthworks' },
+      { contractor: 'ECS', people: 2, label: '2 · environmental support' },
+      { contractor: 'SWCA', people: 2, label: '2 · environmental compliance' },
+      { contractor: 'WESTWOOD', people: 1, label: '1 · civil consulting' }
     ],
     todayFieldSnapshot: {
-      date: 'Jul 9, 2026',
+      date: 'Jul 13, 2026',
       total: 191,
       rows: [
-        { contractor: 'ECCS', people: 50, category: 'tracker', note: 'Tracker structural installation crew' },
+        { contractor: 'ECCS', people: 50, category: 'tracker', note: 'Tracker structural installation — all blocks' },
         { contractor: 'WORKFORCE', people: 26, category: 'module', note: 'Module installation crew, primary' },
-        { contractor: 'UNITED', people: 21, category: 'pile', note: 'F Area pile driving — 6 rigs (2 damaged)' },
+        { contractor: 'UNITED', people: 21, category: 'pile', note: 'F Area pile driving — 6 ramming machines (2 damaged)' },
         { contractor: 'BRUMONT', people: 15, category: 'module', note: 'Module installation crew, secondary' },
-        { contractor: 'LATNOVVA', people: 14, category: 'pile', note: 'B Area pile driving — 3 rigs' },
-        { contractor: 'ITS', people: 14, category: 'electrical', note: 'MV plowing / HDD boring electrical' },
+        { contractor: 'LATNOVVA', people: 14, category: 'pile', note: 'B Area pile driving — 3 ramming machines' },
+        { contractor: 'ITS', people: 14, category: 'electrical', note: 'Electrical: MV plowing and HDD boring' },
         { contractor: 'GREENSOL (EPC Team)', people: 13, category: 'epc', note: 'Project management and EPC oversight' },
         { contractor: 'GREENSOL CONSTRUCTION', people: 7, category: 'epc', note: 'Self-perform site supervision and QA' },
-        { contractor: 'TOPLAND', people: 7, category: 'civil', note: 'Civil / internal roads' },
-        { contractor: 'ABPOWER', people: 5, category: 'electrical', note: 'Electrical systems support' },
-        { contractor: 'DIG IT', people: 4, category: 'electrical', note: 'SET foundations (sub of ABPOWER)' },
-        { contractor: 'HI-TECH', people: 4, category: 'electrical', note: 'Substation grounding + Quality Inspector' },
+        { contractor: 'TOPLAND', people: 7, category: 'civil', note: 'Civil / internal roads preparation' },
+        { contractor: 'ABPOWER', people: 5, category: 'electrical', note: 'Electrical systems and SET support' },
+        { contractor: 'DIG IT', people: 4, category: 'electrical', note: 'SET foundations (subcontractor of ABPOWER)' },
+        { contractor: 'HI-TECH', people: 4, category: 'electrical', note: 'Substation grounding and Quality Inspector' },
         { contractor: 'HURRICANE', people: 3, category: 'civil', note: 'Perimeter fencing — 95.6% complete' },
         { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / basin closeout' },
         { contractor: 'ECS', people: 2, category: 'civil', note: 'Environmental controls / sediment basins' },
@@ -199,31 +201,32 @@ window.MURCH_DATA = {
       { contractor: 'Hurricane', equipment: 'Standard fencing install tools (post drivers, hand tools).', output: 'Fence ~95.6% complete (Jul 9 sheet): A-F done, Zone G at 71.1%, gates remaining.' },
       { contractor: 'Topland', equipment: 'Grading/road equipment (grader, roller).', output: 'Internal roads scope; Area F access blocked ~10 AM by a concrete pour.' },
       { contractor: 'Lounsbury', equipment: 'Earthwork equipment (excavator, dozer) for cut/fill and basin work.', output: 'Area G basin closeout continuing ahead of cut/fill start.' },
-      { contractor: 'ECCS', equipment: 'Pile-driving / tracker structural crew; rig count not separately reported today.', output: 'Largest crew on site; July 7: 29 trackers mounted plus 1 inverter pile driven.' },
+      { contractor: 'ECCS', equipment: 'Tracker structural installation crew; equipment count varies by workfront.', output: 'Largest crew on site; assembling and installing tracker rows; July 7: 29 trackers completed.' },
       { contractor: 'United', equipment: '6 ramming machines on site — 2 damaged (rig repairs escalated).', output: 'Jul 11 (Sat): 446 piles in Zone F (74/rig-day on the 6-rig fleet).' },
       { contractor: 'Latnovva', equipment: '3 ramming machines on site (3rd still out of production — escalated).', output: 'Jul 11 (Sat): 234 piles with 2 rigs — 117/rig-day, best rig-day rate yet.' },
       { contractor: 'Workforce', equipment: 'Module installation hand tools / torque equipment.', output: 'Jul 10: 702 modules (with Brumont, 1,802 record day; 5,499 total executed). Did not work Saturday.' },
-      { contractor: 'Brumont', equipment: 'Module installation tools; 18-person crew.', output: 'Jul 11 (Sat): 517 modules, Zone A — sole Saturday module crew.' },
+      { contractor: 'Brumont', equipment: 'Module installation tools; 15-person crew.', output: 'Jul 11 (Sat): 517 modules, Zone A — sole Saturday module crew.' },
       { contractor: 'ITS', equipment: 'HDD boring rig and MV cable-plowing machine.', output: 'Jul 11 field table: 29/46 plow segments and 14/20 bores (70%) complete, 1 bore in progress.' },
       { contractor: 'AB Power', equipment: 'SET / electrical installation equipment.', output: 'Supporting control-building and SET electrical scope.' },
-      { contractor: 'Dig It', equipment: 'Trenching / electrical support equipment.', output: 'SET / electrical support scope.' },
-      { contractor: 'Hi Tech', equipment: 'Electrical / SET support equipment.', output: 'SET / electrical support scope.' },
-      { contractor: 'Crane Crew', equipment: '1 mobile crane.', output: 'Installing the control building today (SET scope).' },
+      { contractor: 'Dig It', equipment: 'Trenching / electrical support equipment (AB Power subcontractor).', output: 'SET foundation and electrical support scope.' },
+      { contractor: 'Hi Tech', equipment: 'Electrical / substation support equipment; Quality Inspector coordination.', output: 'SET / substation grounding and commissioning support scope.' },
       { contractor: 'Westwood', equipment: 'No crew or equipment on site today.', output: 'Not applicable.' },
       { contractor: 'SWCA', equipment: 'No crew or equipment on site today.', output: 'Not applicable.' }
     ],
     resourcePlan: [
-      { label: 'Total site resources', actual: 191, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the Jul 9 on-site whiteboard count (191) from the Jul 1 Delivery/Mechanical workbook.' },
-      { label: 'Tracker / purlin crew', actual: 50, target: 45, targetLabel: '38 avg / 40-45 peak', note: 'ECCS visible field resources are compared with the tracker/purlin acceleration target.' },
+      { label: 'Total site resources', actual: 191, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the Jul 13 on-site field snapshot (191) tracking current crew allocation.' },
+      { label: 'Tracker / piling crew', actual: 85, target: 85, targetLabel: 'ECCS (50) + United (21) + Latnovva (14)', note: 'Tracker (50) and piling (35) combined: 85 personnel dedicated to structural and piling scope.' },
       { label: 'Module crew Phase 1', actual: 26, committed: 26, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce is producing at 26 with the rolling start; primary module crew on site.' },
       { label: 'Module full-field crew', actual: 41, committed: 41, target: 40, targetLabel: '40 by Jul 13+', note: 'Workforce (26) + Brumont (15) = 41 installers on site — full-field module gate achieved.' },
-      { label: 'Greensol site team', actual: 20, target: 20, targetLabel: '13 staff + 7 labor', note: 'GREENSOL (13) + GREENSOL CONSTRUCTION (7) = 20 EPC team members on site.' }
+      { label: 'Electrical & SET crew', actual: 27, committed: 27, target: 25, targetLabel: '25 electrical + SET', note: 'ITS (14) + ABPOWER (5) + DIG IT (4) + HI-TECH (4) = 27 electrical and SET-related personnel.' },
+      { label: 'Greensol site team', actual: 20, target: 20, targetLabel: '13 staff + 7 labor', note: 'GREENSOL (13) + GREENSOL CONSTRUCTION (7) = 20 EPC team members on site.' },
+      { label: 'Civil & environmental crew', actual: 18, committed: 18, target: 15, targetLabel: '15 civil/environmental', note: 'HURRICANE (3) + TOPLAND (7) + LOUNSBURY (3) + WESTWOOD (1) + ECS (2) + SWCA (2) = 18 civil and environmental support.' }
     ],
     mechanicalManpowerLoad: [
       { week: 'Jun 22', pile: 9, tracker: 16, module: 0, management: 13, total: 38 },
       { week: 'Jun 29', pile: 10, tracker: 28, module: 0, management: 13, total: 51 },
       { week: 'Jul 6', pile: 10, tracker: 35, module: 0, management: 13, total: 58 },
-      { week: 'Jul 13', pile: 10, tracker: 42, module: 22, management: 13, total: 87 },
+      { week: 'Jul 13', pile: 35, tracker: 50, module: 41, management: 20, total: 146 },
       { week: 'Jul 20', pile: 10, tracker: 50, module: 37, management: 13, total: 110 },
       { week: 'Jul 27', pile: 10, tracker: 42, module: 40, management: 13, total: 105 },
       { week: 'Aug 3', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
@@ -286,7 +289,7 @@ window.MURCH_DATA = {
     ]
   };
 
-// ---- Jul 7 field-snapshot render patch (runs after main dashboard script) ----
+// ---- Jul 13 field-snapshot render patch (runs after main dashboard script) ----
 (function () {
   function patchFieldResources() {
     try {
@@ -303,7 +306,7 @@ window.MURCH_DATA = {
           if (h2) h2.textContent = 'Subcontractor and GreenSol team resources reported on site';
         }
         var ctxP = section.querySelectorAll('.chart-context')[1];
-        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Machine and equipment detail is in the table below.';
+        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Scope breakdown: Trackers & Piling (85), Module Installation (41), Electrical & SET (27), Civil & Fencing (18), GreenSol EPC (20).';
       }
 
       var resourceTable = document.querySelector('.resource-table table');
@@ -323,7 +326,7 @@ window.MURCH_DATA = {
       var snapshot = d.todayFieldSnapshot;
       var rows = snapshot.rows.slice().sort(function (a, b) { return b.people - a.people; });
       var catColors = { epc: '#0c5f43', tracker: '#0a3d2a', pile: '#2769a8', module: '#168a5b', electrical: '#8a4dbf', civil: '#b96f18', set: '#b53030', support: '#9aa39d' };
-      var catLabels = { epc: 'GreenSol EPC team', tracker: 'Tracker installation', pile: 'Pile driving', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / earthworks', set: 'Substation crane', support: 'Support / no crew' };
+      var catLabels = { epc: 'GreenSol EPC team', tracker: 'Tracker installation', pile: 'Pile driving', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / fencing', set: 'Substation', support: 'Support / no crew' };
       var rowH = 30;
       var pad = { left: 190, top: 64, right: 70, bottom: 40 };
       var width = 1120;
