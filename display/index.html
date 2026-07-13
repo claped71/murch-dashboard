@@ -80,12 +80,16 @@
       <!-- ===== SCREEN 2: DAILY PRODUCTION BY SUB ===== -->
       <sc-if value="{{ showToday }}" hint-placeholder-val="{{ false }}">
         <div style="position:absolute; inset:0; padding:40px 64px; box-sizing:border-box; display:flex; flex-direction:column;">
-          <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 150px 1.1fr; align-items:center; gap:20px; padding:0 24px 16px; font-family:'IBM Plex Mono',monospace; font-size:19px; letter-spacing:.08em; color:#6B7269; border-bottom:2px solid #1A1F1C;">
-            <div></div><div>SUB</div><div>SCOPE OF WORK</div><div style="text-align:right;">TODAY</div><div style="text-align:right;">STATUS</div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px;">
+            <div style="font-size:30px; font-weight:700;">Production by Sub — last reported day</div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.08em; color:#6B7269;">{{ todayCaption }}</div>
+          </div>
+          <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 190px 1.1fr; align-items:center; gap:20px; padding:0 24px 16px; font-family:'IBM Plex Mono',monospace; font-size:19px; letter-spacing:.08em; color:#6B7269; border-bottom:2px solid #1A1F1C;">
+            <div></div><div>SUB</div><div>SCOPE OF WORK</div><div style="text-align:right;">{{ todayLabel }}</div><div style="text-align:right;">STATUS</div>
           </div>
           <div style="display:flex; flex-direction:column; gap:16px; margin-top:18px; flex:1;">
             <sc-for list="{{ today }}" as="row" hint-placeholder-count="5">
-              <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 150px 1.1fr; align-items:center; gap:20px; background:#F5F6F4; border:1px solid #E3E5E1; border-radius:14px; padding:22px 24px; flex:1;">
+              <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 190px 1.1fr; align-items:center; gap:20px; background:#F5F6F4; border:1px solid #E3E5E1; border-radius:14px; padding:22px 24px; flex:1;">
                 <div style="width:8px; align-self:stretch; border-radius:4px; background:{{ row.accent }};"></div>
                 <div style="font-size:34px; font-weight:700;">{{ row.sub }}</div>
                 <div style="font-size:26px; color:#6B7269;">{{ row.scope }}</div>
@@ -242,6 +246,7 @@ class Component extends DCLogic {
       { sub: "Workforce", scope: "Module install",   qty: "156",    status: "neutral", note: "936 modules cumulative" },
       { sub: "ITS",       scope: "Elec. trenching",  qty: "43k ft", status: "good",    note: "on track" }
     ],
+    todayLabel: "Jul 11 Sat",
     vsTarget: { actual: 396, required: 762, capacity: 560, gateSlip: "Aug 5" },
     scopes: [
       { label: "Piles",           pct: 56, override: null },
@@ -332,10 +337,15 @@ class Component extends DCLogic {
 
     const score = D.contractorScore || [];
     const yr = (String(C.asOf).match(/\d{4}/) || ["2026"])[0];
-    const parseD = (s) => { const t = Date.parse(String(s) + ", " + yr); return isNaN(t) ? 0 : t; };
+    const parseD = (s) => {
+      const m = String(s).match(/^\s*([A-Za-z]{3,})\s+(\d{1,2})/);
+      const t = m ? Date.parse(m[1] + " " + m[2] + ", " + yr) : Date.parse(String(s) + ", " + yr);
+      return isNaN(t) ? 0 : t;
+    };
     const latestT = score.reduce((mx, r) => Math.max(mx, parseD(r.date)), 0);
     const latestDate = (score.find(r => parseD(r.date) === latestT) || {}).date;
     const dayRows = latestDate ? score.filter(r => r.date === latestDate) : score.slice(0, 6);
+    const todayLabel = latestDate || "";
     const today = dayRows.slice(0, 6).map(r => {
       const val = (r.perUnit != null ? r.perUnit : r.output);
       const ratio = r.criterion ? val / r.criterion : 1;
@@ -392,7 +402,7 @@ class Component extends DCLogic {
       reportDate: C.asOf || "", updated: C.asOf || "",
       project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
       kpis, safety: { daysLtiFree: D.safetyDaysLtiFree || 204 },
-      today, vsTarget, scopes, deadlines, manpower
+      today, todayLabel, vsTarget, scopes, deadlines, manpower
     };
   }
 
@@ -476,7 +486,9 @@ class Component extends DCLogic {
       screenTitle: titles[cur],
       timeStr,
       showOverview: cur === 0, showToday: cur === 1, showScope: cur === 2, showDeadlines: cur === 3, showManpower: cur === 4,
-      kpis, today, scopes, deadlines, manpower, manpowerCats, manpowerTotal: String(mpTotal), manpowerDate: mp.date || "",
+      kpis, today, todayLabel: (d.todayLabel || "").toUpperCase(),
+      todayCaption: d.todayLabel ? ("LAST REPORTED DAY  ·  " + d.todayLabel) : "",
+      scopes, deadlines, manpower, manpowerCats, manpowerTotal: String(mpTotal), manpowerDate: mp.date || "",
       deadlineCols: Math.max(1, deadlines.length),
       safetyDays: String((d.safety && d.safety.daysLtiFree) ?? 0),
       paceActual: String(vt.actual ?? 0),
