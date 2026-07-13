@@ -18,14 +18,14 @@ window.MURCH_DATA = {
       { day: 'Jun 29', total: 146, src: 'workbook' },
       { day: 'Jun 30', total: 148, src: 'official' },
       { day: 'Jul 7', total: 170, src: 'field report' },
-      { day: 'Jul 9', total: 193, src: 'site board' }
+      { day: 'Jul 9', total: 191, src: 'site board' }
     ],
-    manpowerMixToday: { day: 'Jul 9', total: 193, mix: [
-      { trade: 'Mechanical', people: 126, color: '#168a5b' },
-      { trade: 'Electrical', people: 30, color: '#2769a8' },
-      { trade: 'Greensol EPC', people: 20, color: '#66716d' },
-      { trade: 'Civil / Env', people: 14, color: '#b96f18' },
-      { trade: 'Support', people: 3, color: '#8a4dbf' }
+    manpowerMixToday: { day: 'Jul 9', total: 191, mix: [
+      { trade: 'Trackers & Piling', people: 99, color: '#0c5f43' },
+      { trade: 'Module Installation', people: 41, color: '#168a5b' },
+      { trade: 'Electrical & SET', people: 27, color: '#2769a8' },
+      { trade: 'Civil & Fencing', people: 17, color: '#b96f18' },
+      { trade: 'GreenSol EPC', people: 20, color: '#66716d' }
     ] },
     contractorScore: [
       { date: 'Jul 11 Sat', contractor: 'LATNOVVA', trade: 'Piles', output: 234, resource: '16 people · 2 rigs (3rd still out) — Saturday crew', perUnit: 117, criterion: 80, critLabel: '80 piles/rig-day — ABOVE criterion, best rig-day rate yet' },
@@ -148,49 +148,48 @@ window.MURCH_DATA = {
       { label: 'Jun 30 official', week: 'W27', people: 148, color: '#2769a8', offset: 18 },
       { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 },
       { label: 'Jul 7 field', week: 'W28', people: 170, color: '#8a4dbf', offset: 78 },
-      { label: 'Jul 9 board', week: 'W28', people: 193, color: '#b96f18', offset: 108 }
+      { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 }
     ],
     actualResources: [
-      { contractor: 'ECCS', people: 46, label: '46' },
-      { contractor: 'United', people: 23, label: '23 · 7 rigs' },
-      { contractor: 'Brumont', people: 20, label: '20' },
-      { contractor: 'Latnovva', people: 19, label: '19 · 3 rigs' },
-      { contractor: 'Workforce', people: 18, label: '18' },
-      { contractor: 'GreenSol', people: 14, label: '14' },
-      { contractor: 'ITS', people: 13, label: '13' },
-      { contractor: 'AB Power', people: 9, label: '9' },
-      { contractor: 'GS Constr.', people: 6, label: '6' },
-      { contractor: 'Topland', people: 6, label: '6' },
-      { contractor: 'Dig It', people: 4, label: '4' },
-      { contractor: 'Hi Tech', people: 4, label: '4' },
-      { contractor: 'Hurricane', people: 3, label: '3' },
-      { contractor: 'Lounsbury', people: 3, label: '3' },
-      { contractor: 'ECS', people: 2, label: '2' },
-      { contractor: 'Kalamazoo', people: 2, label: '2' },
-      { contractor: 'SWCA', people: 1, label: '1' },
-      { contractor: 'Westwood', people: 0, label: '0' }
+      { contractor: 'ECCS', people: 50, label: '50 · trackers' },
+      { contractor: 'WORKFORCE', people: 26, label: '26 · modules' },
+      { contractor: 'UNITED', people: 21, label: '21 · F piling' },
+      { contractor: 'BRUMONT', people: 15, label: '15 · modules' },
+      { contractor: 'LATNOVVA', people: 14, label: '14 · B piling' },
+      { contractor: 'ITS', people: 14, label: '14 · MV/HDD' },
+      { contractor: 'GREENSOL', people: 13, label: '13 · EPC mgmt' },
+      { contractor: 'GREENSOL CONSTRUCTION', people: 7, label: '7 · supervision' },
+      { contractor: 'TOPLAND', people: 7, label: '7 · civil roads' },
+      { contractor: 'ABPOWER', people: 5, label: '5 · electrical' },
+      { contractor: 'DIG IT', people: 4, label: '4 · SET found.' },
+      { contractor: 'HI-TECH', people: 4, label: '4 · subst./QI' },
+      { contractor: 'HURRICANE', people: 3, label: '3 · fencing' },
+      { contractor: 'LOUNSBURY', people: 3, label: '3 · earthworks' },
+      { contractor: 'ECS', people: 2, label: '2 · environmental' },
+      { contractor: 'SWCA', people: 2, label: '2 · environ. comp' },
+      { contractor: 'WESTWOOD', people: 1, label: '1 · civil consult' }
     ],
     todayFieldSnapshot: {
       date: 'Jul 9, 2026',
-      total: 193,
+      total: 191,
       rows: [
-        { contractor: 'ECCS', people: 46, category: 'pile', note: 'Tracker structural / mechanical crew' },
-        { contractor: 'United', people: 23, category: 'pile', note: 'Pile driving crew, Zone F — 7 rigs' },
-        { contractor: 'Brumont', people: 20, category: 'module', note: 'Module installation crew, Zone A (2nd crew)' },
-        { contractor: 'GreenSol (EPC Team)', people: 20, category: 'epc', note: '14 staff + 6 self-perform labor' },
-        { contractor: 'Latnovva', people: 19, category: 'pile', note: 'Pile driving crew, Zone B — 3 rigs on site (3rd commissioned Jul 9)' },
-        { contractor: 'Workforce', people: 18, category: 'module', note: 'Module installation crew, Zone A' },
-        { contractor: 'ITS', people: 13, category: 'electrical', note: 'MV plowing / HDD electrical crew' },
-        { contractor: 'AB Power', people: 9, category: 'electrical', note: 'SET / electrical crew' },
-        { contractor: 'Topland', people: 6, category: 'civil', note: 'Civil / roads crew' },
-        { contractor: 'Dig It', people: 4, category: 'electrical', note: 'Electrical / SET support crew' },
-        { contractor: 'Hi Tech', people: 4, category: 'electrical', note: 'Electrical / SET support crew' },
-        { contractor: 'Hurricane', people: 3, category: 'civil', note: 'Civil / fence crew' },
-        { contractor: 'Lounsbury', people: 3, category: 'civil', note: 'Civil / grading crew' },
-        { contractor: 'ECS', people: 2, category: 'civil', note: 'Environmental controls crew' },
-        { contractor: 'Kalamazoo Excavation', people: 2, category: 'support', note: 'Excavation support crew' },
-        { contractor: 'SWCA', people: 1, category: 'support', note: 'Environmental monitor' },
-        { contractor: 'Westwood', people: 0, category: 'support', note: 'No crew on site' }
+        { contractor: 'ECCS', people: 50, category: 'tracker', note: 'Tracker structural installation crew' },
+        { contractor: 'WORKFORCE', people: 26, category: 'module', note: 'Module installation crew, primary' },
+        { contractor: 'UNITED', people: 21, category: 'pile', note: 'F Area pile driving — 6 rigs (2 damaged)' },
+        { contractor: 'BRUMONT', people: 15, category: 'module', note: 'Module installation crew, secondary' },
+        { contractor: 'LATNOVVA', people: 14, category: 'pile', note: 'B Area pile driving — 3 rigs' },
+        { contractor: 'ITS', people: 14, category: 'electrical', note: 'MV plowing / HDD boring electrical' },
+        { contractor: 'GREENSOL (EPC Team)', people: 13, category: 'epc', note: 'Project management and EPC oversight' },
+        { contractor: 'GREENSOL CONSTRUCTION', people: 7, category: 'epc', note: 'Self-perform site supervision and QA' },
+        { contractor: 'TOPLAND', people: 7, category: 'civil', note: 'Civil / internal roads' },
+        { contractor: 'ABPOWER', people: 5, category: 'electrical', note: 'Electrical systems support' },
+        { contractor: 'DIG IT', people: 4, category: 'electrical', note: 'SET foundations (sub of ABPOWER)' },
+        { contractor: 'HI-TECH', people: 4, category: 'electrical', note: 'Substation grounding + Quality Inspector' },
+        { contractor: 'HURRICANE', people: 3, category: 'civil', note: 'Perimeter fencing — 95.6% complete' },
+        { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / basin closeout' },
+        { contractor: 'ECS', people: 2, category: 'civil', note: 'Environmental controls / sediment basins' },
+        { contractor: 'SWCA', people: 2, category: 'civil', note: 'Environmental compliance monitoring' },
+        { contractor: 'WESTWOOD', people: 1, category: 'civil', note: 'Civil / environmental consulting' }
       ]
     },
     equipmentNotes: [
@@ -214,11 +213,11 @@ window.MURCH_DATA = {
       { contractor: 'SWCA', equipment: 'No crew or equipment on site today.', output: 'Not applicable.' }
     ],
     resourcePlan: [
-      { label: 'Total site resources', actual: 193, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the Jul 9 on-site whiteboard count (193) from the Jul 1 Delivery/Mechanical workbook.' },
-      { label: 'Tracker / purlin crew', actual: 47, target: 45, targetLabel: '38 avg / 40-45 peak', note: 'ECCS visible field resources are compared with the tracker/purlin acceleration target.' },
-      { label: 'Module crew Phase 1', actual: 0, committed: 22, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce is expected to land June 29 with about 22 workers for the rolling start.' },
-      { label: 'Module full-field crew', actual: 0, committed: 22, target: 40, targetLabel: '40 by Jul 13+', note: 'Phase 2 reinforcement adds 18 workers to reach the full-field module gate.' },
-      { label: 'Greensol site team', actual: 24, target: 24, targetLabel: '15 staff + 9 labor', note: 'User-provided fixed Greensol site staffing basis.' }
+      { label: 'Total site resources', actual: 191, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the Jul 9 on-site whiteboard count (191) from the Jul 1 Delivery/Mechanical workbook.' },
+      { label: 'Tracker / purlin crew', actual: 50, target: 45, targetLabel: '38 avg / 40-45 peak', note: 'ECCS visible field resources are compared with the tracker/purlin acceleration target.' },
+      { label: 'Module crew Phase 1', actual: 26, committed: 26, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce is producing at 26 with the rolling start; primary module crew on site.' },
+      { label: 'Module full-field crew', actual: 41, committed: 41, target: 40, targetLabel: '40 by Jul 13+', note: 'Workforce (26) + Brumont (15) = 41 installers on site — full-field module gate achieved.' },
+      { label: 'Greensol site team', actual: 20, target: 20, targetLabel: '13 staff + 7 labor', note: 'GREENSOL (13) + GREENSOL CONSTRUCTION (7) = 20 EPC team members on site.' }
     ],
     mechanicalManpowerLoad: [
       { week: 'Jun 22', pile: 9, tracker: 16, module: 0, management: 13, total: 38 },
@@ -323,8 +322,8 @@ window.MURCH_DATA = {
       if (!canvas) return;
       var snapshot = d.todayFieldSnapshot;
       var rows = snapshot.rows.slice().sort(function (a, b) { return b.people - a.people; });
-      var catColors = { epc: '#0c5f43', pile: '#2769a8', module: '#168a5b', electrical: '#8a4dbf', civil: '#b96f18', set: '#b53030', support: '#9aa39d' };
-      var catLabels = { epc: 'GreenSol EPC team', pile: 'Pile / tracker structural', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / earthworks', set: 'Substation crane', support: 'Support / no crew' };
+      var catColors = { epc: '#0c5f43', tracker: '#0a3d2a', pile: '#2769a8', module: '#168a5b', electrical: '#8a4dbf', civil: '#b96f18', set: '#b53030', support: '#9aa39d' };
+      var catLabels = { epc: 'GreenSol EPC team', tracker: 'Tracker installation', pile: 'Pile driving', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / earthworks', set: 'Substation crane', support: 'Support / no crew' };
       var rowH = 30;
       var pad = { left: 190, top: 64, right: 70, bottom: 40 };
       var width = 1120;
@@ -362,7 +361,7 @@ window.MURCH_DATA = {
         ctx.fillStyle = '#18201f';
         ctx.fillText(String(row.people), pad.left + Math.max(barW, 3) + 8, y + rowH / 2 + 4);
       });
-      var legendCats = ['epc', 'pile', 'module', 'electrical', 'civil', 'set', 'support'];
+      var legendCats = ['epc', 'tracker', 'pile', 'module', 'electrical', 'civil', 'set', 'support'];
       var legendY = canvas.height - 12;
       var legendX = pad.left;
       ctx.font = '700 11px system-ui';
