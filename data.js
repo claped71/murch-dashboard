@@ -19,14 +19,15 @@ window.MURCH_DATA = {
       { day: 'Jun 30', total: 148, src: 'official' },
       { day: 'Jul 7', total: 170, src: 'field report' },
       { day: 'Jul 9', total: 191, src: 'site board' },
-      { day: 'Jul 13', total: 191, src: 'current field snapshot' }
+      { day: 'Jul 13', total: 191, src: 'field snapshot' },
+      { day: 'Jul 14', total: 202, src: 'site board' }
     ],
-    manpowerMixToday: { day: 'Jul 13, 2026', total: 191, mix: [
-      { trade: 'Trackers & Piling', people: 85, color: '#0c5f43' },
-      { trade: 'Module Installation', people: 41, color: '#168a5b' },
-      { trade: 'Electrical & SET', people: 27, color: '#2769a8' },
-      { trade: 'Civil & Fencing', people: 18, color: '#b96f18' },
-      { trade: 'GreenSol EPC', people: 20, color: '#66716d' }
+    manpowerMixToday: { day: 'Jul 14, 2026', total: 202, mix: [
+      { trade: 'Trackers & Piling', people: 92, color: '#0c5f43' },
+      { trade: 'Module Installation', people: 46, color: '#168a5b' },
+      { trade: 'Electrical & SET', people: 30, color: '#2769a8' },
+      { trade: 'Civil & Fencing', people: 15, color: '#b96f18' },
+      { trade: 'GreenSol EPC', people: 19, color: '#66716d' }
     ] },
     contractorScore: [
       { date: 'Jul 13 Mon', contractor: 'United', trade: 'Piles', output: 536, resource: '23 people · 8 rigs on site, 2 broken (6 running) — zone F', perUnit: 89, criterion: 80, critLabel: '80 piles/rig-day — ABOVE criterion' },
@@ -178,26 +179,27 @@ window.MURCH_DATA = {
       { contractor: 'WESTWOOD', people: 1, label: '1 · civil consulting' }
     ],
     todayFieldSnapshot: {
-      date: 'Jul 13, 2026',
-      total: 191,
+      date: 'Jul 14, 2026',
+      total: 202,
       rows: [
-        { contractor: 'ECCS', people: 50, category: 'tracker', note: 'Tracker structural installation — all blocks' },
-        { contractor: 'WORKFORCE', people: 26, category: 'module', note: 'Module installation crew, primary' },
-        { contractor: 'UNITED', people: 21, category: 'pile', note: 'F Area pile driving — 6 ramming machines (2 damaged)' },
-        { contractor: 'BRUMONT', people: 15, category: 'module', note: 'Module installation crew, secondary' },
-        { contractor: 'LATNOVVA', people: 14, category: 'pile', note: 'B Area pile driving — 3 ramming machines' },
-        { contractor: 'ITS', people: 14, category: 'electrical', note: 'Electrical: MV plowing and HDD boring' },
-        { contractor: 'GREENSOL (EPC Team)', people: 13, category: 'epc', note: 'Project management and EPC oversight' },
-        { contractor: 'GREENSOL CONSTRUCTION', people: 7, category: 'epc', note: 'Self-perform site supervision and QA' },
-        { contractor: 'TOPLAND', people: 7, category: 'civil', note: 'Civil / internal roads preparation' },
-        { contractor: 'ABPOWER', people: 5, category: 'electrical', note: 'Electrical systems and SET support' },
-        { contractor: 'DIG IT', people: 4, category: 'electrical', note: 'SET foundations (subcontractor of ABPOWER)' },
-        { contractor: 'HI-TECH', people: 4, category: 'electrical', note: 'Substation grounding and Quality Inspector' },
-        { contractor: 'HURRICANE', people: 3, category: 'civil', note: 'Perimeter fencing — 95.6% complete' },
-        { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / basin closeout' },
+        { contractor: 'ECCS', people: 54, category: 'tracker', note: 'Tracker structural installation — Zone C, the controlling front' },
+        { contractor: 'WORKFORCE', people: 28, category: 'module', note: 'Module installation crew, primary (incl. administrative)' },
+        { contractor: 'UNITED', people: 24, category: 'pile', note: 'Zone F pile driving — 8 rigs on site, 2 broken (6 running)' },
+        { contractor: 'BRUMONT', people: 18, category: 'module', note: 'Module installation crew, secondary — moves into Zone C Wed Jul 15' },
+        { contractor: 'ITS', people: 16, category: 'electrical', note: 'Electrical: MV plowing and HDD boring' },
+        { contractor: 'LATNOVVA', people: 14, category: 'pile', note: 'Zone B pile driving — 2 rigs, 1 broken (1 running)' },
+        { contractor: 'GREENSOL (EPC Team)', people: 12, category: 'epc', note: 'Project management and EPC oversight' },
+        { contractor: 'GREENSOL CONSTRUCTION', people: 7, category: 'epc', note: 'Self-perform site supervision, QA and rework' },
+        { contractor: 'TOPLAND', people: 6, category: 'civil', note: 'Internal roads — 65.9% complete' },
+        { contractor: 'ABPOWER', people: 6, category: 'electrical', note: 'Substation (SET) and inverter-station works' },
+        { contractor: 'HI-TECH', people: 5, category: 'electrical', note: 'Substation grounding and Quality Inspector' },
+        { contractor: 'HURRICANE', people: 4, category: 'civil', note: 'Perimeter fencing — 95.6% complete; Zone G and gates remain' },
+        { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / Area G basin closeout' },
+        { contractor: 'DIG IT', people: 3, category: 'electrical', note: 'SET foundations (subcontractor of ABPOWER)' },
         { contractor: 'ECS', people: 2, category: 'civil', note: 'Environmental controls / sediment basins' },
-        { contractor: 'SWCA', people: 2, category: 'civil', note: 'Environmental compliance monitoring' },
-        { contractor: 'WESTWOOD', people: 1, category: 'civil', note: 'Civil / environmental consulting' }
+        { contractor: 'WESTWOOD', people: 0, category: 'support', note: 'No crew on site today' },
+        { contractor: 'SWCA', people: 0, category: 'support', note: 'No crew on site today' },
+        { contractor: 'KALAMAZOO', people: 0, category: 'support', note: 'No crew on site today' }
       ]
     },
     equipmentNotes: [
@@ -312,7 +314,7 @@ window.MURCH_DATA = {
           if (h2) h2.textContent = 'Subcontractor and GreenSol team resources reported on site';
         }
         var ctxP = section.querySelectorAll('.chart-context')[1];
-        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Scope breakdown: Trackers & Piling (85), Module Installation (41), Electrical & SET (27), Civil & Fencing (18), GreenSol EPC (20).';
+        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Scope breakdown: Trackers & Piling (92), Module Installation (46), Electrical & SET (30), Civil & Fencing (15), GreenSol EPC (19).';
       }
 
       var resourceTable = document.querySelector('.resource-table table');
