@@ -1095,7 +1095,51 @@ dd {
   top: 0;
   bottom: 0;
   background: var(--green);
+  opacity: 0.28;
+  border-radius: 2px;
 }
+
+.bar .bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  opacity: 1;
+  border-radius: 2px;
+}
+
+.bar .bar-target {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  background: #10221c;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.85);
+  border-radius: 1px;
+}
+
+.bar-readout {
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bar-readout small {
+  display: block;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.bar-readout.ahead { color: #0c5f43; }
+.bar-readout.behind { color: #b53030; }
+.bar-readout.ontrack { color: #2769a8; }
+
+.progress-cell strong { display: block; }
+.progress-cell small { color: var(--muted); }
+.progress-cell.behind strong { color: #b53030; }
+.progress-cell.ahead strong { color: #0c5f43; }
 
 .bar.milestone-marker {
   width: 3px !important;
@@ -1864,7 +1908,7 @@ footer p {
             </select>
           </label>
         </div>
-        <p class="schedule-logic"><strong>Forecast logic:</strong> Bar position and length represent each activity's full dated calendar window on a common May 6-November 15 scale; one-day activities are shown as milestone markers. Activities with pending or dependency-based dates remain in the table but are excluded from the bar chart. Activities may overlap by released block, but project-level finishes must follow the physical installation sequence.</p>
+        <p class="schedule-logic"><strong>Forecast logic:</strong> Bar position and length represent each activity's full dated calendar window on a common May 6-November 15 scale; one-day activities are shown as milestone markers. <strong>Each bar is filled to its actual % complete</strong>, and the dark tick inside the bar marks the <strong>plan-to-date %</strong> for today's date (linear from the activity's start position to 100% at its finish). Fill short of the tick means the activity is behind its own plan; the point variance is printed under each activity name and in the table. Activities with pending or dependency-based dates remain in the table but are excluded from the bar chart. Activities may overlap by released block, but project-level finishes must follow the physical installation sequence.</p>
         <div class="timeline" id="timeline"></div>
         <div class="table-wrap">
           <table>
@@ -1873,6 +1917,7 @@ footer p {
                 <th>Activity</th>
                 <th>Contractor</th>
                 <th>Window</th>
+                <th>Progress vs plan</th>
                 <th>Status</th>
                 <th>Key note</th>
               </tr>
@@ -1945,7 +1990,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 13 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — official basis 20,550 installed piles (block-map roll-up through Jul 10); total executed shown across the dashboard is 21,838 (official basis + 680 Jul 11 Saturday and 608 Jul 13 Monday field piles) against 28,343 delivered piles; MURCH_Plowing_Boring_MT_Tracking (Jul 13) with ITS control — 31/46 plow segments and 16/20 bores; SE_Construction_Tracker_Murch_Solar (Jul 13) with SET progress at 11.8%; WhatsApp Chat - Murch dashboard export (Jul 13) for Manuel Ramirez daily subcontractor reports, Daniel Morilla QA/QC status, and Axel Cano SET/field notes; Shreeya Devkota / GameChange delivery email chain; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 13, 2026; production data through July 13.</p>
     </footer>
 
-    <script src="data.js?v=20260713-weeklyplan"></script>
+    <script src="data.js?v=20260713-gantt-progress"></script>
     <script>
 'use strict';
 
@@ -2434,6 +2479,23 @@ footer p {
     return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
   }
 
+  // Actual % complete vs the plan-to-date % for a schedule bar.
+  // Plan-to-date runs linearly from the activity's baseline (% complete when the bar starts)
+  // to 100% at its finish date, evaluated at today's date.
+  function progressVsPlan(row, today) {
+    if (typeof row.progress !== 'number') return null;
+    const startTime = row.startTime;
+    const endTime = row.endTime;
+    if (startTime === null || endTime === null || endTime <= startTime) return null;
+    const baseline = typeof row.baseline === 'number' ? row.baseline : 0;
+    const elapsed = Math.min(1, Math.max(0, (today - startTime) / (endTime - startTime)));
+    const planned = baseline + (100 - baseline) * elapsed;
+    const actual = row.progress;
+    const variance = actual - planned;
+    const tone = variance >= 2 ? 'ahead' : (variance <= -2 ? 'behind' : 'ontrack');
+    return { actual, planned, variance, tone };
+  }
+
   function renderTimeline() {
     const day = 24 * 60 * 60 * 1000;
     const start = scheduleDate('2026-05-06');
@@ -2478,10 +2540,20 @@ footer p {
       const width = Math.max(0, ((clippedEnd - clippedStart) / span) * 100);
       const duration = Math.round((row.endTime - row.startTime) / day) + 1;
       const markerClass = duration === 1 ? ' milestone-marker' : '';
+      const pr = progressVsPlan(row, today);
+      const fill = pr ? `<span class="bar-fill" style="width:${Math.min(100, pr.actual)}%"></span>` : '';
+      const target = pr && pr.planned > 0 && pr.planned < 100
+        ? `<span class="bar-target" style="left:${pr.planned}%" title="Plan to date: ${pr.planned.toFixed(0)}%"></span>` : '';
+      const barTitle = pr
+        ? `${duration} calendar days · actual ${pr.actual.toFixed(1)}% vs plan-to-date ${pr.planned.toFixed(0)}% (${pr.variance >= 0 ? '+' : ''}${pr.variance.toFixed(0)} pts)`
+        : `${duration} calendar day${duration === 1 ? '' : 's'}`;
+      const readout = pr
+        ? `<div class="bar-readout ${pr.tone}">${pr.actual.toFixed(0)}% <span style="color:var(--muted);font-weight:500">vs</span> ${pr.planned.toFixed(0)}%<small>${pr.variance >= 0 ? '+' : ''}${pr.variance.toFixed(0)} pts vs plan</small></div>`
+        : '';
       return `
         <div class="timeline-row">
-          <div class="timeline-label">${row.activity}</div>
-          <div class="track"><span class="bar ${statusClass(row.status)}${markerClass}" style="left:${left}%;width:${width}%" title="${duration} calendar day${duration === 1 ? '' : 's'}"></span>${todayLine}</div>
+          <div class="timeline-label">${row.activity}${readout}</div>
+          <div class="track"><span class="bar ${statusClass(row.status)}${markerClass}" style="left:${left}%;width:${width}%" title="${barTitle}">${fill}${target}</span>${todayLine}</div>
           <div class="timeline-date">${row.start.slice(5, 10)} to ${row.end.slice(5, 10)}<small>${duration} day${duration === 1 ? '' : 's'}</small></div>
         </div>
       `;
@@ -2499,15 +2571,23 @@ footer p {
       if (filter === 'planned') return row.status === 'Planned';
       return true;
     });
-    document.getElementById('scheduleBody').innerHTML = rows.map((row) => `
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    document.getElementById('scheduleBody').innerHTML = rows.map((row) => {
+      const pr = progressVsPlan({ ...row, startTime: scheduleDate(row.start), endTime: scheduleDate(row.end) }, today);
+      const cell = pr
+        ? `<div class="progress-cell ${pr.tone}"><strong>${pr.actual.toFixed(1)}% actual</strong><small>plan to date ${pr.planned.toFixed(0)}% · ${pr.variance >= 0 ? '+' : ''}${pr.variance.toFixed(0)} pts</small></div>`
+        : '<span style="color:var(--muted)">—</span>';
+      return `
       <tr>
         <td data-label="Activity"><strong>${row.activity}</strong></td>
         <td data-label="Contractor">${row.contractor}</td>
         <td data-label="Window">${row.start} to ${row.end}</td>
+        <td data-label="Progress vs plan">${cell}</td>
         <td data-label="Status">${badge(row.status)}</td>
         <td data-label="Key note">${row.note}</td>
       </tr>
-    `).join('');
+    `;}).join('');
   }
 
   function drawPersonnelChart() {
