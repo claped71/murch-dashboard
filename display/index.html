@@ -91,7 +91,7 @@
             <sc-for list="{{ today }}" as="row" hint-placeholder-count="5">
               <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 190px 1.1fr; align-items:center; gap:20px; background:#F5F6F4; border:1px solid #E3E5E1; border-radius:14px; padding:22px 24px; flex:1;">
                 <div style="width:8px; align-self:stretch; border-radius:4px; background:{{ row.accent }};"></div>
-                <div style="font-size:34px; font-weight:700;">{{ row.sub }}</div>
+                <div style="display:flex; align-items:center; min-width:0; overflow:hidden;"><div role="img" aria-label="{{ row.sub }}" style="{{ row.logoStyle }}"></div><span class="subname" style="{{ row.nameStyle }}">{{ row.sub }}</span></div>
                 <div style="font-size:26px; color:#6B7269;">{{ row.scope }}</div>
                 <div style="font-family:'Barlow Semi Condensed',sans-serif; font-size:60px; font-weight:700; text-align:right; color:{{ row.qtyColor }}; line-height:.9;">{{ row.qty }}</div>
                 <div style="font-size:24px; font-weight:600; text-align:right; color:{{ row.noteColor }};">{{ row.note }}</div>
@@ -361,10 +361,13 @@ class Component extends DCLogic {
     const base = (function () { const t = Date.parse(C.asOf); return isNaN(t) ? new Date() : new Date(t); })();
     const addWd = (start, n) => { const d = new Date(start); while (n > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0) n--; } return d; };
     const remaining = C.piles.total - C.piles.installed;
-    const proj = C.piles.capacity ? addWd(base, Math.ceil(remaining / C.piles.capacity)) : null;
+    const recentPileVals = pileDailyArr.slice(-5).map(x => Number(x.value) || 0).filter(v => v > 0);
+    const derivedCap = recentPileVals.length ? Math.round(recentPileVals.reduce((a, b) => a + b, 0) / recentPileVals.length) : 0;
+    const pilesCap = C.piles.capacity || derivedCap;
+    const proj = pilesCap ? addWd(base, Math.ceil(remaining / pilesCap)) : null;
     const gateSlip = proj ? proj.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—";
     const vsTarget = { actual: pileActual || (C.piles.latest || 0), required: C.piles.required || 0,
-                       capacity: C.piles.capacity || 0, gateSlip };
+                       capacity: pilesCap, gateSlip };
 
     const scopes = [
       { label: "Piles",        pct: pct(kpis.piles) },
@@ -376,7 +379,7 @@ class Component extends DCLogic {
     const gateNote = (g) => (g.capacity && g.required)
       ? (this.commas(g.capacity) + "/day capacity vs " + this.commas(g.required) + " needed") : "";
     const deadlines = [
-      { label: "Piles complete", date: C.piles.gateLabel, status: gateStatus(C.piles), note: gateNote(C.piles) },
+      { label: "Piles complete", date: C.piles.gateLabel, status: gateStatus({ ...C.piles, capacity: pilesCap }), note: gateNote({ ...C.piles, capacity: pilesCap }) },
       { label: C.trackers.name || "Trackers complete", date: C.trackers.gateLabel, status: gateStatus(C.trackers), note: gateNote(C.trackers) },
       { label: "Modules complete", date: C.modules.gateLabel, status: gateStatus(C.modules), note: gateNote(C.modules) },
       { label: (C.mc && C.mc.name) || "Mechanical Completion", date: (C.mc && C.mc.target) || "—", status: "warn", note: (C.mc && C.mc.forecast) ? ("Forecast " + C.mc.forecast) : "" }
@@ -423,12 +426,28 @@ class Component extends DCLogic {
     };
     const kpis = [ mk("PILES", k.piles), mk("TRACKER ROWS", k.trackers), mk("MODULES", k.modules) ];
 
-    const today = (d.today || []).map(r => ({
-      sub: r.sub, scope: r.scope, qty: r.qty, note: r.note,
-      accent: r.status === "bad" ? "#D24B3E" : "#1F8A4C",
-      qtyColor: r.status === "bad" ? "#D24B3E" : "#14603A",
-      noteColor: CMAP[r.status] || "#6B7269"
-    }));
+    const LOGOS = {
+      united:   "https://www.unitedservices.work/wp-content/uploads/2022/08/a.png",
+      eccs:     "https://eccssolargroup.com/wp-content/uploads/2026/05/image-removebg-preview.png",
+      its:      "https://itsenergy.ca/wp-content/uploads/2023/12/its_logo_new1-colour-on-transparent-background.png",
+      latnovva: "https://www.latnovva.com/wp-content/uploads/2023/11/latnovva-logo.svg",
+      brumont:  "https://brumont.cl/brand/brumont-logo-dark.png"
+    };
+    const LOGO_BOX = "flex:0 0 auto; height:58px; width:220px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
+    const NAME_ST = "font-size:34px; font-weight:700;";
+    const today = (d.today || []).map(r => {
+      const key = String(r.sub || "").toLowerCase().replace(/[^a-z]/g, "");
+      const logo = LOGOS[key] || null;
+      const logoFix = { latnovva: " filter:brightness(0) saturate(100%);" }[key] || "";
+      return {
+        sub: r.sub, scope: r.scope, qty: r.qty, note: r.note,
+        accent: r.status === "bad" ? "#D24B3E" : "#1F8A4C",
+        qtyColor: r.status === "bad" ? "#D24B3E" : "#14603A",
+        noteColor: CMAP[r.status] || "#6B7269",
+        logoStyle: logo ? (LOGO_BOX + " background-image:url('" + logo + "');" + logoFix) : "display:none;",
+        nameStyle: logo ? (NAME_ST + " display:none;") : NAME_ST
+      };
+    });
 
     const scopes = (d.scopes || []).map(s => ({
       label: s.label,
