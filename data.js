@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Jul 15, 2026 (rev2) — Jul 14 production incl. Latnovva 198 piles; required rates recomputed
+// CACHE BUSTER: Jul 15, 2026 (rev3) — Jul 15 on-site personnel board added (209 total)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
@@ -20,14 +20,15 @@ window.MURCH_DATA = {
       { day: 'Jul 7', total: 170, src: 'field report' },
       { day: 'Jul 9', total: 191, src: 'site board' },
       { day: 'Jul 13', total: 191, src: 'field snapshot' },
-      { day: 'Jul 14', total: 202, src: 'site board' }
+      { day: 'Jul 14', total: 202, src: 'site board' },
+      { day: 'Jul 15', total: 209, src: 'site board' }
     ],
-    manpowerMixToday: { day: 'Jul 14, 2026', total: 202, mix: [
-      { trade: 'Trackers & Piling', people: 92, color: '#0c5f43' },
+    manpowerMixToday: { day: 'Jul 15, 2026', total: 209, mix: [
+      { trade: 'Trackers & Piling', people: 100, color: '#0c5f43' },
       { trade: 'Module Installation', people: 46, color: '#168a5b' },
       { trade: 'Electrical & SET', people: 30, color: '#2769a8' },
-      { trade: 'Civil & Fencing', people: 15, color: '#b96f18' },
-      { trade: 'GreenSol EPC', people: 19, color: '#66716d' }
+      { trade: 'Civil & Fencing', people: 12, color: '#b96f18' },
+      { trade: 'GreenSol EPC', people: 21, color: '#66716d' }
     ] },
     contractorScore: [
       { date: 'Jul 14 Tue', contractor: 'United', trade: 'Piles', output: 497, resource: '24 people · 8 rigs, 2 damaged (6 running) — zone F', perUnit: 83, criterion: 80, critLabel: '80 piles/rig-day — ABOVE criterion on the 6 running rigs' },
@@ -159,46 +160,46 @@ window.MURCH_DATA = {
       { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 },
       { label: 'Jul 7 field', week: 'W28', people: 170, color: '#8a4dbf', offset: 78 },
       { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 },
-      { label: 'Jul 14 current', week: 'W29', people: 202, color: '#0c5f43', offset: 138 }
+      { label: 'Jul 15 current', week: 'W29', people: 209, color: '#0c5f43', offset: 138 }
     ],
     actualResources: [
-      { contractor: 'ECCS', people: 50, label: '50 · tracker installation' },
-      { contractor: 'WORKFORCE', people: 26, label: '26 · module installation' },
-      { contractor: 'UNITED', people: 21, label: '21 · F Area piling' },
-      { contractor: 'BRUMONT', people: 15, label: '15 · module installation' },
-      { contractor: 'LATNOVVA', people: 14, label: '14 · B Area piling' },
-      { contractor: 'ITS', people: 14, label: '14 · electrical MV/HDD' },
-      { contractor: 'GREENSOL', people: 13, label: '13 · EPC management' },
+      { contractor: 'ECCS', people: 60, label: '60 · tracker installation' },
+      { contractor: 'WORKFORCE', people: 28, label: '28 · module installation' },
+      { contractor: 'UNITED', people: 23, label: '23 · F Area piling' },
+      { contractor: 'LATNOVVA', people: 17, label: '17 · B Area piling' },
+      { contractor: 'BRUMONT', people: 18, label: '18 · module installation' },
+      { contractor: 'ITS', people: 15, label: '15 · electrical MV/HDD' },
+      { contractor: 'GREENSOL', people: 14, label: '14 · EPC management' },
       { contractor: 'GREENSOL CONSTRUCTION', people: 7, label: '7 · site supervision' },
-      { contractor: 'TOPLAND', people: 7, label: '7 · civil & roads' },
-      { contractor: 'ABPOWER', people: 5, label: '5 · electrical systems' },
+      { contractor: 'TOPLAND', people: 6, label: '6 · civil & roads' },
+      { contractor: 'ABPOWER', people: 6, label: '6 · electrical systems' },
+      { contractor: 'HI-TECH', people: 5, label: '5 · substation & QI' },
       { contractor: 'DIG IT', people: 4, label: '4 · SET foundations (AB sub)' },
-      { contractor: 'HI-TECH', people: 4, label: '4 · substation & QI' },
       { contractor: 'HURRICANE', people: 3, label: '3 · fencing contractor' },
       { contractor: 'LOUNSBURY', people: 3, label: '3 · civil earthworks' },
-      { contractor: 'ECS', people: 2, label: '2 · environmental support' },
-      { contractor: 'SWCA', people: 2, label: '2 · environmental compliance' },
-      { contractor: 'WESTWOOD', people: 1, label: '1 · civil consulting' }
+      { contractor: 'ECS', people: 0, label: '0 · environmental support (off site)' },
+      { contractor: 'SWCA', people: 0, label: '0 · environmental compliance (off site)' },
+      { contractor: 'WESTWOOD', people: 0, label: '0 · civil consulting (off site)' }
     ],
     todayFieldSnapshot: {
-      date: 'Jul 14, 2026',
-      total: 202,
+      date: 'Jul 15, 2026',
+      total: 209,
       rows: [
-        { contractor: 'ECCS', people: 54, category: 'tracker', note: 'Tracker structural installation — Zone C, the controlling front' },
+        { contractor: 'ECCS', people: 60, category: 'tracker', note: 'Tracker structural installation — Zone C, the controlling front (crew up 54 -> 60)' },
         { contractor: 'WORKFORCE', people: 28, category: 'module', note: 'Module installation crew, primary (incl. administrative)' },
-        { contractor: 'UNITED', people: 24, category: 'pile', note: 'Zone F pile driving — 8 rigs on site, 2 broken (6 running)' },
-        { contractor: 'BRUMONT', people: 18, category: 'module', note: 'Module installation crew, secondary — moves into Zone C Wed Jul 15' },
-        { contractor: 'ITS', people: 16, category: 'electrical', note: 'Electrical: MV plowing and HDD boring' },
-        { contractor: 'LATNOVVA', people: 14, category: 'pile', note: 'Zone B pile driving — 2 rigs, 1 broken (1 running)' },
-        { contractor: 'GREENSOL (EPC Team)', people: 12, category: 'epc', note: 'Project management and EPC oversight' },
+        { contractor: 'UNITED', people: 23, category: 'pile', note: 'Zone F pile driving — 8 rigs on site, 2 broken (6 running)' },
+        { contractor: 'BRUMONT', people: 18, category: 'module', note: 'Module installation crew, secondary — now in Zone C' },
+        { contractor: 'LATNOVVA', people: 17, category: 'pile', note: 'Zone B pile driving — crew up 14 -> 17; still on a single working rig' },
+        { contractor: 'ITS', people: 15, category: 'electrical', note: 'Electrical: MV plowing and HDD boring' },
+        { contractor: 'GREENSOL (EPC Team)', people: 14, category: 'epc', note: 'Project management and EPC oversight' },
         { contractor: 'GREENSOL CONSTRUCTION', people: 7, category: 'epc', note: 'Self-perform site supervision, QA and rework' },
         { contractor: 'TOPLAND', people: 6, category: 'civil', note: 'Internal roads — 65.9% complete' },
         { contractor: 'ABPOWER', people: 6, category: 'electrical', note: 'Substation (SET) and inverter-station works' },
         { contractor: 'HI-TECH', people: 5, category: 'electrical', note: 'Substation grounding and Quality Inspector' },
-        { contractor: 'HURRICANE', people: 4, category: 'civil', note: 'Perimeter fencing — 95.6% complete; Zone G and gates remain' },
+        { contractor: 'DIG IT', people: 4, category: 'electrical', note: 'SET foundations (subcontractor of ABPOWER)' },
+        { contractor: 'HURRICANE', people: 3, category: 'civil', note: 'Perimeter fencing — 95.6% complete; Zone G and gates remain' },
         { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / Area G basin closeout' },
-        { contractor: 'DIG IT', people: 3, category: 'electrical', note: 'SET foundations (subcontractor of ABPOWER)' },
-        { contractor: 'ECS', people: 2, category: 'civil', note: 'Environmental controls / sediment basins' },
+        { contractor: 'ECS', people: 0, category: 'civil', note: 'Environmental controls — no crew on site today' },
         { contractor: 'WESTWOOD', people: 0, category: 'support', note: 'No crew on site today' },
         { contractor: 'SWCA', people: 0, category: 'support', note: 'No crew on site today' },
         { contractor: 'KALAMAZOO', people: 0, category: 'support', note: 'No crew on site today' }
