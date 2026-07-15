@@ -159,7 +159,7 @@ window.MURCH_DATA = {
       { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 },
       { label: 'Jul 7 field', week: 'W28', people: 170, color: '#8a4dbf', offset: 78 },
       { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 },
-      { label: 'Jul 13 current', week: 'W29', people: 191, color: '#0c5f43', offset: 138 }
+      { label: 'Jul 14 current', week: 'W29', people: 202, color: '#0c5f43', offset: 138 }
     ],
     actualResources: [
       { contractor: 'ECCS', people: 50, label: '50 · tracker installation' },
