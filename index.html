@@ -2068,7 +2068,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 17 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — official basis 22,900 installed piles; total executed shown across the dashboard is 23,518 (block-map 22,900 + 618 field logs not yet mapped — Jul 16: United 364 F + ECCS 30 E + Latnovva 110 B) against 28,343 delivered piles; MURCH_Plowing_Boring_MT_Tracking (Jul 15) with ITS control — 36/46 plow segments and 16/20 bores; SE_Construction_Tracker_Murch_Solar (Jul 13) with SET progress at 11.8%; WhatsApp Chat - Murch dashboard export (Jul 17) for Manuel Ramirez daily subcontractor reports, Daniel Morilla QA/QC status, and Axel Cano SET/field notes; Shreeya Devkota / GameChange delivery email chain; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 16, 2026; production data through July 15.</p>
     </footer>
 
-    <script src="data.js?v=20260717-jul16e"></script>
+    <script src="data.js?v=20260717-jul16f"></script>
     <script>
 'use strict';
 
@@ -2925,6 +2925,16 @@ footer p {
           '<span class="gate-pill">' + (lateWd <= 0 ? 'ON GATE' : lateWd + ' working days late') + '</span>' +
           '</div></article>');
       });
+      (function(){ var e = C.electrical; if(e){ var pct=(e.installed/e.total*100).toFixed(1);
+        strip.insertAdjacentHTML('beforeend',
+          '<article class="gate-tile rag-red"><h3>' + e.name + ' · gate ' + e.gateLabel + '</h3>' +
+          '<div class="gate-big">' + e.installed.toLocaleString() + ' <em>/ ' + e.total.toLocaleString() + ' lf (' + pct + '%)</em></div>' +
+          '<div class="gate-rows">' +
+          'Required rate: <b>' + e.required.toLocaleString() + ' ' + e.unit + ' to ' + e.gateLabel + '</b><br>' +
+          'Pulled to date: <b>' + e.installed.toLocaleString() + ' lf (0.0%)</b><br>' +
+          'Binding gate: <b>Chemik material by AIR before end Aug</b><br>' +
+          '<span class="gate-pill">MATERIAL-GATED · kick-off Jul 21</span>' +
+          '</div></article>'); } })();
       strip.insertAdjacentHTML('beforeend',
         '<article class="gate-tile rag-' + worst + '"><h3>' + C.mc.name + ' · target ' + C.mc.target + '</h3>' +
         '<div class="gate-big">' + C.mc.forecast + ' <em>forecast</em></div>' +

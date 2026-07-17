@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Jul 17, 2026 (rev2) — Chemik LV delivery risk + Zone G piles reassigned Latnovva->United
+// CACHE BUSTER: Jul 17, 2026 (rev3) — LV Electrical gate tile added to gate status
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
@@ -9,6 +9,7 @@ window.MURCH_DATA = {
       piles:    { installed: 23518, total: 31352, gate: '2026-07-28', gateLabel: 'Jul 28', required: 870, capacity: null, name: 'Piles', unit: 'piles/day' },
       trackers: { installed: 683, released: 235, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 49, capacity: 48, name: 'Trackers incl. purlins', unit: 'rows/day' },
       modules:  { installed: 12394, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 3699, capacity: null, name: 'Modules', unit: 'mod/day' },
+      electrical: { installed: 0, total: 274720, gate: '2026-09-18', gateLabel: 'Sep 18', required: 5283, capacity: null, name: 'LV Electrical', unit: 'lf/day' },
       mc:       { target: 'Sep 25', forecast: 'Sep 20-25', name: 'Mechanical Completion' }
     },
     manpowerHistory: [
