@@ -2074,7 +2074,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 17 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — official basis 22,900 installed piles; total executed shown across the dashboard is 23,990 (block-map 22,900 + 1,090 field logs not yet mapped — Jul 17: United 368 F + ECCS 19 E + Latnovva 85 B) against 28,343 delivered piles; MURCH_Plowing_Boring_MT_Tracking (Jul 15) with ITS control — 36/46 plow segments and 16/20 bores; SE_Construction_Tracker_Murch_Solar (Jul 13) with SET progress at 11.8%; WhatsApp Chat - Murch dashboard export (Jul 17) for Manuel Ramirez daily subcontractor reports, Daniel Morilla QA/QC status, and Axel Cano SET/field notes; Shreeya Devkota / GameChange delivery email chain; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 16, 2026; production data through July 15.</p>
     </footer>
 
-    <script src="data.js?v=20260718-jul17c"></script>
+    <script src="data.js?v=20260718-jul17d"></script>
     <script>
 'use strict';
 
@@ -2901,7 +2901,7 @@ footer p {
       function fmtD(d) { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); }
       function series(rx) { var t = (D.dailyProductionHistory || []).filter(function (x) { return rx.test(x.task); })[0]; return t ? t.daily : []; }
       function rate5(daily) { var v = daily.slice(-5).map(function (x) { return x.value; }); if (!v.length) return 0; return v.reduce(function (a, b) { return a + b; }, 0) / v.length; }
-      var today = new Date(2026, 6, 8);
+      var today = C.asOf ? new Date(C.asOf) : new Date(2026, 6, 8);
 
       var defs = [
         { c: C.piles, daily: series(/Pile installation/i), remaining: C.piles.total - C.piles.installed },
@@ -2925,7 +2925,7 @@ footer p {
           '<article class="gate-tile rag-' + rag + '"><h3>' + g.c.name + ' · gate ' + g.c.gateLabel + '</h3>' +
           '<div class="gate-big">' + g.c.installed.toLocaleString() + ' <em>/ ' + g.c.total.toLocaleString() + ' (' + pct + '%)</em></div>' +
           '<div class="gate-rows">' +
-          'Required now: <b>' + reqNow.toLocaleString() + ' ' + g.c.unit + '</b><br>' +
+          'Required now: <b>' + g.c.required.toLocaleString() + ' ' + g.c.unit + '</b><br>' +
           'Actual (5-day avg): <b>' + Math.round(r5).toLocaleString() + ' ' + g.c.unit + '</b><br>' +
           'Projected finish at current rate: <b>' + (proj ? fmtD(proj) : 'n/a') + '</b><br>' +
           '<span class="gate-pill">' + (lateWd <= 0 ? 'ON GATE' : lateWd + ' working days late') + '</span>' +
