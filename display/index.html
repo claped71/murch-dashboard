@@ -47,14 +47,14 @@
       <!-- ===== SCREEN 1: SITE PROGRESS ===== -->
       <sc-if value="{{ showOverview }}" hint-placeholder-val="{{ true }}">
         <div style="position:absolute; inset:0; padding:44px 64px; box-sizing:border-box; display:flex; flex-direction:column; gap:32px;">
-          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px; flex:1;">
-            <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="3">
-              <div style="background:#F5F6F4; border:1px solid #E3E5E1; border-radius:18px; padding:40px 44px; box-sizing:border-box; display:flex; flex-direction:column;">
-                <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.1em; color:#6B7269;">{{ k.label }}</div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; flex:1;">
+            <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+              <div style="background:#F5F6F4; border:1px solid #E3E5E1; border-radius:18px; padding:36px 32px; box-sizing:border-box; display:flex; flex-direction:column;">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:19px; letter-spacing:.08em; color:#6B7269;">{{ k.label }}</div>
                 <div style="display:flex; align-items:baseline; gap:16px; margin-top:14px;">
-                  <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:130px; font-weight:700; line-height:.85; color:#14603A;">{{ k.pctLabel }}<span style="font-size:56px;">%</span></span>
+                  <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:104px; font-weight:700; line-height:.85; color:#14603A;">{{ k.pctLabel }}<span style="font-size:46px;">%</span></span>
                 </div>
-                <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; color:#6B7269; margin-top:8px;">{{ k.detail }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; color:#6B7269; margin-top:8px;">{{ k.detail }}</div>
                 <div style="margin-top:auto; height:20px; background:#E3E5E1; border-radius:10px; overflow:hidden;">
                   <div style="width:{{ k.pctStr }}; height:100%; background:#1F8A4C;"></div>
                 </div>
@@ -234,9 +234,10 @@ class Component extends DCLogic {
     updated: "2026-07-08 06:00",
     project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
     kpis: {
-      piles:    { done: 17642, total: 31352 },
-      trackers: { done: 535,   total: 2486 },
-      modules:  { done: 936,   total: 171470 }
+      piles:      { done: 23990, total: 31352 },
+      trackers:   { done: 708,   total: 2486 },
+      modules:    { done: 14620, total: 171470 },
+      electrical: { done: 0,     total: 274720 }
     },
     safety: { daysLtiFree: 204 },
     today: [
@@ -249,9 +250,10 @@ class Component extends DCLogic {
     todayLabel: "Jul 11 Sat",
     vsTarget: { actual: 396, required: 762, capacity: 560, gateSlip: "Aug 5" },
     scopes: [
-      { label: "Piles",           pct: 56, override: null },
-      { label: "Tracker rows",    pct: 22 },
-      { label: "Modules",         pct: 1, override: "<1" },
+      { label: "Piles",           pct: 76, override: null },
+      { label: "Tracker rows",    pct: 28 },
+      { label: "Modules",         pct: 9 },
+      { label: "LV Electrical",   pct: 0, override: null },
       { label: "Earthworks",      pct: 61 },
       { label: "Perimeter fence", pct: 76 },
       { label: "Internal roads",  pct: 35 }
@@ -259,7 +261,8 @@ class Component extends DCLogic {
     deadlines: [
       { label: "Piles complete",    date: "Jul 28", status: "at-risk", note: "762/day needed vs 560 capacity — accelerating rigs." },
       { label: "Trackers complete", date: "Aug 30", status: "ok",      note: "Purlin deliveries 50% received; assembly ramping." },
-      { label: "Modules complete",  date: "Sep 6",  status: "ok",      note: "157k of 171k panels delivered to site." }
+      { label: "Modules complete",  date: "Sep 6",  status: "ok",      note: "157k of 171k panels delivered to site." },
+      { label: "LV Electrical complete", date: "Sep 18", status: "warn", note: "5,283 lf/day needed to hold gate — material-gated." }
     ],
     manpower: {
       date: "Jul 9, 2026", total: 193,
@@ -330,9 +333,10 @@ class Component extends DCLogic {
     const pct = (o) => (o && o.total) ? (o.done / o.total) * 100 : 0;
 
     const kpis = {
-      piles:    { done: C.piles.installed,    total: C.piles.total },
-      trackers: { done: C.trackers.installed, total: C.trackers.total },
-      modules:  { done: C.modules.installed,  total: C.modules.total }
+      piles:      { done: C.piles.installed,    total: C.piles.total },
+      trackers:   { done: C.trackers.installed, total: C.trackers.total },
+      modules:    { done: C.modules.installed,  total: C.modules.total },
+      electrical: C.electrical ? { done: C.electrical.installed, total: C.electrical.total } : null
     };
 
     const score = D.contractorScore || [];
@@ -373,7 +377,9 @@ class Component extends DCLogic {
       { label: "Piles",        pct: pct(kpis.piles) },
       { label: "Tracker rows", pct: pct(kpis.trackers) },
       { label: "Modules",      pct: pct(kpis.modules), override: pct(kpis.modules) < 1 ? "<1" : null }
-    ].concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })));
+    ].concat(kpis.electrical ? [{ label: "LV Electrical", pct: pct(kpis.electrical),
+        override: (pct(kpis.electrical) > 0 && pct(kpis.electrical) < 1) ? "<1" : null }] : [])
+     .concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })));
 
     const gateStatus = (g) => (g.capacity && g.required && g.capacity < g.required) ? "at-risk" : "ok";
     const gateNote = (g) => (g.capacity && g.required)
@@ -382,6 +388,9 @@ class Component extends DCLogic {
       { label: "Piles complete", date: C.piles.gateLabel, status: gateStatus({ ...C.piles, capacity: pilesCap }), note: gateNote({ ...C.piles, capacity: pilesCap }) },
       { label: C.trackers.name || "Trackers complete", date: C.trackers.gateLabel, status: gateStatus(C.trackers), note: gateNote(C.trackers) },
       { label: "Modules complete", date: C.modules.gateLabel, status: gateStatus(C.modules), note: gateNote(C.modules) },
+      ...(C.electrical ? [{ label: (C.electrical.name || "LV Electrical") + " complete", date: C.electrical.gateLabel,
+          status: (C.electrical.installed > 0 ? gateStatus(C.electrical) : "warn"),
+          note: C.electrical.required ? (this.commas(C.electrical.required) + " lf/day needed to hold gate") : "" }] : []),
       { label: (C.mc && C.mc.name) || "Mechanical Completion", date: (C.mc && C.mc.target) || "—", status: "warn", note: (C.mc && C.mc.forecast) ? ("Forecast " + C.mc.forecast) : "" }
     ];
 
@@ -425,6 +434,7 @@ class Component extends DCLogic {
                detail: this.commas(o && o.done) + " / " + this.commas(o && o.total) };
     };
     const kpis = [ mk("PILES", k.piles), mk("TRACKER ROWS", k.trackers), mk("MODULES", k.modules) ];
+    if (k.electrical) kpis.push(mk("LV ELECTRICAL", k.electrical));
 
     const LOGOS = {
       united:   "https://www.unitedservices.work/wp-content/uploads/2022/08/a.png",
