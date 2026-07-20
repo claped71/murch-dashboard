@@ -127,10 +127,11 @@
                 <div style="display:flex; flex-direction:column; gap:10px; flex:1; justify-content:center;">
                   <div style="display:flex; justify-content:space-between; align-items:baseline;">
                     <span style="font-size:27px; font-weight:600;">{{ s.label }}</span>
-                    <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:32px; font-weight:700; color:#14603A;">{{ s.pctLabel }}%</span>
+                    <span style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:19px; color:#8A9490;">{{ s.targetLabel }}</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:32px; font-weight:700; color:#14603A;">{{ s.pctLabel }}%</span></span>
                   </div>
-                  <div style="height:22px; background:#E3E5E1; border-radius:11px; overflow:hidden;">
+                  <div style="position:relative; height:22px; background:#E3E5E1; border-radius:11px; overflow:hidden;">
                     <div style="width:{{ s.pctStr }}; height:100%; background:#1F8A4C;"></div>
+                    <div style="{{ s.markerStyle }}"></div>
                   </div>
                 </div>
               </sc-for>
@@ -373,13 +374,28 @@ class Component extends DCLogic {
     const vsTarget = { actual: pileActual || (C.piles.latest || 0), required: C.piles.required || 0,
                        capacity: pilesCap, gateSlip };
 
+    const SCHED = {
+      "Piles": "Overall pile installation acceleration",
+      "Tracker rows": "Tracker assembly incl. purlin install",
+      "Modules": "Final module installation completion",
+      "LV Electrical": "DC Wire / LV Installation"
+    };
+    const asOfT = Date.parse(C.asOf);
+    const schedPct = (label) => {
+      const a = (D.schedule || []).find(x => x.activity === SCHED[label]);
+      if (!a || !a.start || !a.end) return null;
+      const s0 = Date.parse(a.start), e0 = Date.parse(String(a.end).replace(/\s*provisional/i, ""));
+      if (isNaN(s0) || isNaN(e0) || e0 <= s0 || isNaN(asOfT)) return null;
+      return Math.max(0, Math.min(100, Math.round(((asOfT - s0) / (e0 - s0)) * 100)));
+    };
     const scopes = [
       { label: "Piles",        pct: pct(kpis.piles) },
       { label: "Tracker rows", pct: pct(kpis.trackers) },
       { label: "Modules",      pct: pct(kpis.modules), override: pct(kpis.modules) < 1 ? "<1" : null }
     ].concat(kpis.electrical ? [{ label: "LV Electrical", pct: pct(kpis.electrical),
         override: (pct(kpis.electrical) > 0 && pct(kpis.electrical) < 1) ? "<1" : null }] : [])
-     .concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })));
+     .concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })))
+     .map(sc => ({ ...sc, target: schedPct(sc.label) }));
 
     const gateStatus = (g) => (g.capacity && g.required && g.capacity < g.required) ? "at-risk" : "ok";
     const gateNote = (g) => (g.capacity && g.required)
@@ -459,11 +475,18 @@ class Component extends DCLogic {
       };
     });
 
-    const scopes = (d.scopes || []).map(s => ({
-      label: s.label,
-      pctLabel: String(this.pctLabel(s.pct, s.override)),
-      pctStr: Math.max(2, Math.round(s.pct)) + "%"
-    }));
+    const scopes = (d.scopes || []).map(s => {
+      const hasT = (s.target !== null && s.target !== undefined);
+      return {
+        label: s.label,
+        pctLabel: String(this.pctLabel(s.pct, s.override)),
+        pctStr: Math.max(2, Math.round(s.pct)) + "%",
+        targetLabel: hasT ? ("plan " + s.target + "%") : "",
+        markerStyle: hasT
+          ? ("position:absolute; top:0; bottom:0; left:" + s.target + "%; width:3px; background:#1A1F1C;")
+          : "display:none;"
+      };
+    });
 
     const vt = d.vsTarget || {};
     const pacePct = vt.required ? Math.min(100, Math.round((vt.actual / vt.required) * 100)) : 0;
