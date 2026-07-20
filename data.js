@@ -23,13 +23,14 @@ window.MURCH_DATA = {
       { day: 'Jul 13', total: 191, src: 'field snapshot' },
       { day: 'Jul 14', total: 202, src: 'site board' },
       { day: 'Jul 15', total: 209, src: 'site board' },
-      { day: 'Jul 16', total: 198, src: 'site board' }
+      { day: 'Jul 16', total: 198, src: 'site board' },
+      { day: 'Jul 20', total: 192, src: 'site board' }
     ],
-    manpowerMixToday: { day: 'Jul 16, 2026', total: 198, mix: [
-      { trade: 'Trackers & Piling', people: 104, color: '#0c5f43' },
-      { trade: 'Module Installation', people: 45, color: '#168a5b' },
-      { trade: 'Electrical & SET', people: 18, color: '#2769a8' },
-      { trade: 'Civil & Fencing', people: 12, color: '#b96f18' },
+    manpowerMixToday: { day: 'Jul 20, 2026', total: 192, mix: [
+      { trade: 'Trackers & Piling', people: 97, color: '#0c5f43' },
+      { trade: 'Module Installation', people: 51, color: '#168a5b' },
+      { trade: 'Electrical & SET', people: 14, color: '#2769a8' },
+      { trade: 'Civil & Fencing', people: 11, color: '#b96f18' },
       { trade: 'GreenSol EPC', people: 19, color: '#66716d' }
     ] },
     contractorScore: [
@@ -192,47 +193,48 @@ window.MURCH_DATA = {
       { label: 'Jul 6 field', week: 'W28', people: 70, color: '#168a5b', offset: 48 },
       { label: 'Jul 7 field', week: 'W28', people: 170, color: '#8a4dbf', offset: 78 },
       { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 },
-      { label: 'Jul 16 current', week: 'W29', people: 198, color: '#0c5f43', offset: 138 }
+      { label: 'Jul 16', week: 'W29', people: 198, color: '#66716d', offset: 138 },
+      { label: 'Jul 20 current', week: 'W30', people: 192, color: '#0c5f43', offset: 168 }
     ],
     actualResources: [
       { contractor: 'ECCS', people: 60, label: '60 · tracker installation' },
-      { contractor: 'UNITED', people: 28, label: '28 · F Area piling' },
-      { contractor: 'WORKFORCE', people: 28, label: '28 · module installation' },
+      { contractor: 'WORKFORCE', people: 34, label: '34 · module installation' },
+      { contractor: 'UNITED', people: 24, label: '24 · F Area piling' },
       { contractor: 'BRUMONT', people: 17, label: '17 · module installation' },
-      { contractor: 'LATNOVVA', people: 16, label: '16 · B Area piling' },
+      { contractor: 'LATNOVVA', people: 13, label: '13 · B Area piling' },
       { contractor: 'GREENSOL', people: 12, label: '12 · EPC management' },
       { contractor: 'ITS', people: 9, label: '9 · electrical MV/HDD' },
       { contractor: 'GREENSOL CONSTRUCTION', people: 7, label: '7 · site supervision' },
       { contractor: 'TOPLAND', people: 6, label: '6 · civil & roads' },
-      { contractor: 'ABPOWER', people: 6, label: '6 · electrical systems' },
-      { contractor: 'DIG IT', people: 3, label: '3 · SET foundations (AB sub)' },
+      { contractor: 'ABPOWER', people: 5, label: '5 · electrical systems' },
       { contractor: 'LOUNSBURY', people: 3, label: '3 · civil earthworks' },
       { contractor: 'ECS', people: 2, label: '2 · environmental support' },
-      { contractor: 'SWCA', people: 1, label: '1 · environmental compliance' },
+      { contractor: 'DIG IT', people: 0, label: '0 · SET foundations (off site)' },
       { contractor: 'HI-TECH', people: 0, label: '0 · substation & QI (off site)' },
       { contractor: 'HURRICANE', people: 0, label: '0 · fencing (off site)' },
+      { contractor: 'SWCA', people: 0, label: '0 · environmental (off site)' },
       { contractor: 'WESTWOOD', people: 0, label: '0 · civil consulting (off site)' }
     ],
     todayFieldSnapshot: {
-      date: 'Jul 16, 2026',
-      total: 198,
+      date: 'Jul 20, 2026',
+      total: 192,
       rows: [
-        { contractor: 'ECCS', people: 60, category: 'tracker', note: 'Tracker structural installation — Zone C, the controlling front' },
-        { contractor: 'UNITED', people: 28, category: 'pile', note: 'Zone F pile driving — crew up to 28, but only 2 of 5 rigs running' },
-        { contractor: 'WORKFORCE', people: 28, category: 'module', note: 'Module installation crew, primary (incl. administrative)' },
-        { contractor: 'BRUMONT', people: 17, category: 'module', note: 'Module installation crew, secondary — in Zone C' },
-        { contractor: 'LATNOVVA', people: 16, category: 'pile', note: 'Zone B pile driving — single working rig, 2nd in repair' },
+        { contractor: 'ECCS', people: 60, category: 'tracker', note: 'Tracker structural installation + QA — Zones C1/C2 releasing today, the controlling front' },
+        { contractor: 'WORKFORCE', people: 34, category: 'module', note: 'Module installation crew, primary — ramped to 34' },
+        { contractor: 'UNITED', people: 24, category: 'pile', note: 'Zone F pile driving — 24 crew, 4 of 6 rigs (2 damaged)' },
+        { contractor: 'BRUMONT', people: 17, category: 'module', note: 'Module installation crew, secondary' },
+        { contractor: 'LATNOVVA', people: 13, category: 'pile', note: 'Zone B pile driving — 2 rigs' },
         { contractor: 'GREENSOL (EPC Team)', people: 12, category: 'epc', note: 'Project management and EPC oversight' },
-        { contractor: 'ITS', people: 9, category: 'electrical', note: 'Electrical: MV plowing and HDD boring (crew down 15 -> 9)' },
+        { contractor: 'ITS', people: 9, category: 'electrical', note: 'Electrical: MV plowing / HDD — DC bore restarts Tue Jul 21' },
         { contractor: 'GREENSOL CONSTRUCTION', people: 7, category: 'epc', note: 'Self-perform site supervision, QA and rework' },
-        { contractor: 'TOPLAND', people: 6, category: 'civil', note: 'Internal roads — 65.9% complete' },
-        { contractor: 'ABPOWER', people: 6, category: 'electrical', note: 'Substation (SET) and inverter-station works' },
-        { contractor: 'DIG IT', people: 3, category: 'electrical', note: 'SET foundations (subcontractor of ABPOWER)' },
-        { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / Area G basin closeout' },
+        { contractor: 'TOPLAND', people: 6, category: 'civil', note: 'Internal roads' },
+        { contractor: 'ABPOWER', people: 5, category: 'electrical', note: 'Substation (SET) and inverter-station works' },
+        { contractor: 'LOUNSBURY', people: 3, category: 'civil', note: 'Civil earthworks / Area G basins' },
         { contractor: 'ECS', people: 2, category: 'civil', note: 'Environmental controls / sediment basins' },
-        { contractor: 'SWCA', people: 1, category: 'support', note: 'Environmental compliance' },
+        { contractor: 'DIG IT', people: 0, category: 'electrical', note: 'No crew on site today' },
         { contractor: 'HI-TECH', people: 0, category: 'electrical', note: 'No crew on site today' },
         { contractor: 'HURRICANE', people: 0, category: 'civil', note: 'No fencing crew on site today' },
+        { contractor: 'SWCA', people: 0, category: 'support', note: 'No crew on site today' },
         { contractor: 'WESTWOOD', people: 0, category: 'support', note: 'No crew on site today' },
         { contractor: 'KALAMAZOO', people: 0, category: 'support', note: 'No crew on site today' }
       ]
@@ -354,7 +356,7 @@ window.MURCH_DATA = {
           if (h2) h2.textContent = 'Subcontractor and GreenSol team resources reported on site';
         }
         var ctxP = section.querySelectorAll('.chart-context')[1];
-        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Scope breakdown: Trackers & Piling (92), Module Installation (46), Electrical & SET (30), Civil & Fencing (15), GreenSol EPC (19).';
+        if (ctxP) ctxP.textContent = 'Total headcount by crew from today\u2019s on-site tracking board. GreenSol management and self-perform labor are combined into a single EPC-team bar; subcontractor crews are shown individually, largest to smallest. Scope breakdown: Trackers & Piling (97), Module Installation (51), Electrical & SET (14), Civil & Fencing (11), GreenSol EPC (19).';
       }
 
       var resourceTable = document.querySelector('.resource-table table');
