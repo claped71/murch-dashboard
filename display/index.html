@@ -47,7 +47,7 @@
       <!-- ===== SCREEN 1: SITE PROGRESS ===== -->
       <sc-if value="{{ showOverview }}" hint-placeholder-val="{{ true }}">
         <div style="position:absolute; inset:0; padding:44px 64px; box-sizing:border-box; display:flex; flex-direction:column; gap:32px;">
-          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; flex:1;">
+          <div style="display:grid; grid-template-columns:repeat({{ kpiCols }},1fr); gap:24px; flex:1;">
             <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
               <div style="background:#F5F6F4; border:1px solid #E3E5E1; border-radius:18px; padding:36px 32px; box-sizing:border-box; display:flex; flex-direction:column;">
                 <div style="font-family:'IBM Plex Mono',monospace; font-size:19px; letter-spacing:.08em; color:#6B7269;">{{ k.label }}</div>
@@ -399,7 +399,6 @@ class Component extends DCLogic {
      .concat((function () {
         const setAct = (D.civilActivities || []).find(a => /Foundation SET|Substation/i.test(a.activity));
         return setAct ? [{ label: "Substation (SET)", pct: setAct.done,
-          logo: "https://abpowers.com/wp-content/uploads/2017/12/ABP-logo-vector1.png",
           critical: true, note: "blocks MC \u00b7 " + ((C.mc && C.mc.target) ? String(C.mc.target).replace(/,\s*\d{4}/, "") : "Sep 25") }] : [];
       })())
      .concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })))
@@ -438,7 +437,8 @@ class Component extends DCLogic {
       reportDate: C.asOf || "", updated: C.asOf || "",
       project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
       kpis, safety: { daysLtiFree: D.safetyDaysLtiFree || 204 },
-      today, todayLabel, vsTarget, scopes, deadlines, manpower
+      today, todayLabel, vsTarget, scopes, deadlines, manpower,
+      set: (function () { const a = (D.civilActivities || []).find(x => /Foundation SET|Substation/i.test(x.activity)); return a ? { pct: a.done } : null; })()
     };
   }
 
@@ -459,6 +459,8 @@ class Component extends DCLogic {
     };
     const kpis = [ mk("PILES", k.piles), mk("TRACKER ROWS", k.trackers), mk("MODULES", k.modules) ];
     if (k.electrical) kpis.push(mk("LV ELECTRICAL", k.electrical));
+    if (d.set) kpis.push({ label: "SUBSTATION (SET)", pctLabel: String(this.pctLabel(d.set.pct)),
+      pctStr: Math.max(2, Math.round(d.set.pct)) + "%", detail: "AB Power \u00b7 MC Sep 25" });
 
     const LOGOS = {
       united:   "https://www.unitedservices.work/wp-content/uploads/2022/08/a.png",
@@ -553,7 +555,7 @@ class Component extends DCLogic {
       screenTitle: titles[cur],
       timeStr,
       showOverview: cur === 0, showToday: cur === 1, showScope: cur === 2, showDeadlines: cur === 3, showManpower: cur === 4,
-      kpis, today, todayLabel: (d.todayLabel || "").toUpperCase(),
+      kpis, kpiCols: String(kpis.length), today, todayLabel: (d.todayLabel || "").toUpperCase(),
       todayCaption: d.todayLabel ? ("LAST REPORTED DAY  ·  " + d.todayLabel) : "",
       scopes, deadlines, manpower, manpowerCats, manpowerTotal: String(mpTotal), manpowerDate: mp.date || "",
       deadlineCols: Math.max(1, deadlines.length),
