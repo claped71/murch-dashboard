@@ -2081,7 +2081,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 20 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — official basis 22,900 installed piles; total executed shown across the dashboard is 25,220 (block-map 22,900 + 2,320 field logs not yet mapped — Jul 20 Mon: United 444 F + Latnovva 132 B + ECCS 46 E) against 28,343 delivered piles; MURCH_Plowing_Boring_MT_Tracking (Jul 20) with ITS control — 36/46 plow segments and 17/20 bores; SE_Construction_Tracker_Murch_Solar (Jul 20) with SET progress at 16.0%; WhatsApp Chat - Murch dashboard export (Jul 20) for Manuel Ramirez daily subcontractor reports, Daniel Morilla QA/QC status, and Axel Cano SET/field notes; Shreeya Devkota / GameChange delivery email chain; Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 20, 2026; production data through July 20 (Monday).</p>
     </footer>
 
-    <script src="data.js?v=20260721c-setgate"></script>
+    <script src="data.js?v=20260721d-7day"></script>
     <script>
 'use strict';
 
@@ -2958,7 +2958,9 @@ footer p {
       // ---- rate trend small multiples ----
       var tg = document.getElementById('trendGrid');
       defs.forEach(function (g) {
-        var d = g.daily; if (!d.length) return;
+        var dAll = g.daily; if (!dAll.length) return;
+        var d = dAll.slice(-7);
+        var off = dAll.length - d.length;
         var W = 560, H = 190, L = 46, B = 24, T = 12;
         var ymax = Math.max(g.c.required, g.c.capacity || 0, Math.max.apply(null, d.map(function (x) { return x.value; }))) * 1.12;
         var bw = (W - L - 8) / d.length;
@@ -2966,10 +2968,10 @@ footer p {
         var bars = d.map(function (x, i) {
           var bh = (H - T - B) - (y(x.value) - T);
           return '<rect x="' + (L + i * bw + 2) + '" y="' + y(x.value) + '" width="' + Math.max(bw - 4, 3) + '" height="' + Math.max(bh, 1) + '" fill="#2769a8" opacity="0.82"/>' +
-            (i % 2 === 0 ? '<text x="' + (L + i * bw + bw / 2) + '" y="' + (H - 8) + '" font-size="9" text-anchor="middle" fill="#66716d">' + x.day.replace(' ', '') + '</text>' : '');
+            (d.length <= 10 || i % 2 === 0 ? '<text x="' + (L + i * bw + bw / 2) + '" y="' + (H - 8) + '" font-size="9" text-anchor="middle" fill="#66716d">' + x.day.replace(' ', '') + '</text>' : '');
         }).join('');
         var avgPts = d.map(function (x, i) {
-          var from = Math.max(0, i - 6), seg = d.slice(from, i + 1);
+          var from = Math.max(0, off + i - 6), seg = dAll.slice(from, off + i + 1);
           var a = seg.reduce(function (s2, p) { return s2 + p.value; }, 0) / seg.length;
           return (L + i * bw + bw / 2) + ',' + y(a);
         }).join(' ');
@@ -2986,7 +2988,7 @@ footer p {
           '<text x="' + (L - 6) + '" y="' + (H - B + 3) + '" font-size="9" text-anchor="end" fill="#66716d">0</text>' +
           bars + lines +
           '<polyline points="' + avgPts + '" fill="none" stroke="#168a5b" stroke-width="2.4"/>' +
-          '</svg><p class="trend-key">Blue bars = measured days · green line = 7-day rolling average · red dashes = required rate for the gate</p></article>');
+          '</svg><p class="trend-key">Blue bars = last 7 measured days · green line = 7-day rolling average (computed over the full history) · red dashes = required rate for the gate</p></article>');
       });
 
       // ---- contractor scoreboard ----
