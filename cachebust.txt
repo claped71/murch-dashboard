@@ -1,1 +1,1 @@
-Jul 20 (Mon) — piles 25,220 (80.4%, +622); trackers 729 (+21); modules 18,221 (10.6%, +3,601 best day). SET 16.0% vs ~43% plan (Gantt bar live). ITS boring 17/20. Deployed via .nojekyll fix Jul 21.
+Jul 21 — SET equipment gate set to 0% vs 100% (main transformer + breakers still awaited). SET bar 16% vs ~43% plan live in Schedule of Activities. Basis: piles 25,220 / trackers 729 / modules 18,221.
