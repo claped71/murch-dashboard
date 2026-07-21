@@ -130,9 +130,10 @@
                     <span style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:19px; color:#8A9490;">{{ s.targetLabel }}</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:32px; font-weight:700; color:#14603A;">{{ s.pctLabel }}%</span></span>
                   </div>
                   <div style="position:relative; height:22px; background:#E3E5E1; border-radius:11px; overflow:hidden;">
-                    <div style="width:{{ s.pctStr }}; height:100%; background:#1F8A4C;"></div>
+                    <div style="width:{{ s.pctStr }}; height:100%; background:{{ s.barColor }};"></div>
                     <div style="{{ s.markerStyle }}"></div>
                   </div>
+                  <div style="{{ s.noteStyle }}">{{ s.noteText }}</div>
                 </div>
               </sc-for>
             </div>
@@ -398,7 +399,8 @@ class Component extends DCLogic {
      .concat((function () {
         const setAct = (D.civilActivities || []).find(a => /Foundation SET|Substation/i.test(a.activity));
         return setAct ? [{ label: "Substation (SET)", pct: setAct.done,
-          logo: "https://abpowers.com/wp-content/uploads/2017/12/ABP-logo-vector1.png" }] : [];
+          logo: "https://abpowers.com/wp-content/uploads/2017/12/ABP-logo-vector1.png",
+          critical: true, note: "blocks MC \u00b7 " + ((C.mc && C.mc.target) ? String(C.mc.target).replace(/,\s*\d{4}/, "") : "Sep 25") }] : [];
       })())
      .concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })))
      .map(sc => ({ ...sc, target: schedPct(sc.label) }));
@@ -484,15 +486,20 @@ class Component extends DCLogic {
     const scopes = (d.scopes || []).map(s => {
       const hasT = (s.target !== null && s.target !== undefined);
       const LGST = "flex:0 0 auto; width:66px; height:32px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
+      const gap = hasT ? (s.target - s.pct) : 0;
+      const critColor = (s.critical && gap >= 8) ? "#D24B3E" : (s.critical && gap > 0) ? "#E0902A" : null;
       return {
         label: s.label,
         pctLabel: String(this.pctLabel(s.pct, s.override)),
         pctStr: Math.max(2, Math.round(s.pct)) + "%",
         targetLabel: hasT ? ("plan " + s.target + "%") : "",
+        barColor: critColor || "#1F8A4C",
         markerStyle: hasT
           ? ("position:absolute; top:0; bottom:0; left:" + s.target + "%; width:3px; background:#1A1F1C;")
           : "display:none;",
-        labelLogoStyle: s.logo ? (LGST + " background-image:url('" + s.logo + "');") : "display:none;"
+        labelLogoStyle: s.logo ? (LGST + " background-image:url('" + s.logo + "');") : "display:none;",
+        noteText: s.note || "",
+        noteStyle: s.note ? ("font-family:'IBM Plex Mono',monospace; font-size:18px; letter-spacing:.03em; margin-top:2px; color:" + (critColor || "#6B7269") + ";") : "display:none;"
       };
     });
 
