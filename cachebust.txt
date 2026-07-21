@@ -1,1 +1,1 @@
-Jul 21 — trend charts now show last 7 measured days (Jul 13-20); rolling avg still computed over full history. SET gate 0% vs 100%; SET bar 16% vs ~43%. Basis: piles 25,220 / trackers 729 / modules 18,221.
+Jul 21 — gallery: office trailers relocated off Zone D (recent-39), Zone D slab demolition RELEASED. Trend charts last-7-days; SET gate 0% vs 100%; SET bar 16% vs ~43%. Basis: piles 25,220 / trackers 729 / modules 18,221.
