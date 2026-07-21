@@ -122,14 +122,14 @@
           <div style="display:flex; flex-direction:column;">
             <div style="font-size:30px; font-weight:700; margin-bottom:6px;">Scope of Work — % Complete</div>
             <div style="height:4px; background:#1F8A4C; width:120px; margin-bottom:24px;"></div>
-            <div style="display:flex; flex-direction:column; gap:20px; flex:1;">
+            <div style="display:flex; flex-direction:column; gap:12px; flex:1;">
               <sc-for list="{{ scopes }}" as="s" hint-placeholder-count="6">
-                <div style="display:flex; flex-direction:column; gap:10px; flex:1; justify-content:center;">
+                <div style="display:flex; flex-direction:column; gap:6px; flex:1; justify-content:center;">
                   <div style="display:flex; justify-content:space-between; align-items:baseline;">
                     <span style="display:flex; align-items:center; gap:14px; min-width:0;"><span role="img" aria-label="{{ s.label }}" style="{{ s.labelLogoStyle }}"></span><span style="font-size:27px; font-weight:600;">{{ s.label }}</span></span>
                     <span style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:19px; color:#8A9490;">{{ s.targetLabel }}</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:32px; font-weight:700; color:#14603A;">{{ s.pctLabel }}%</span></span>
                   </div>
-                  <div style="position:relative; height:22px; background:#E3E5E1; border-radius:11px; overflow:hidden;">
+                  <div style="position:relative; height:18px; background:#E3E5E1; border-radius:9px; overflow:hidden;">
                     <div style="width:{{ s.pctStr }}; height:100%; background:{{ s.barColor }};"></div>
                     <div style="{{ s.markerStyle }}"></div>
                   </div>
