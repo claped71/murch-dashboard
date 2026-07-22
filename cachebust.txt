@@ -1,1 +1,1 @@
-Jul 21 CLOSED with United log: 253 piles (United 147 F + 22 G FIRST ZONE G + Latnovva 84 B) -> 25,473 (81.3%), req 1,176/day. +45 electrical CB/TP piles tracked outside the 31,352. Trackers 754, modules 21,303 (req 3,754/day).
+Jul 21-22 — SET MILESTONE: substation pier construction STARTED (Pier E5, 1 of 17; plan 3-4/day, first pour Thu Jul 23 — Axel Cano). SET re-based 16.3% (civil 51.1 / structural 5.7 / electrical 5.2). Smoke alert LIFTED Jul 20. Basis: piles 25,473 / trackers 754 / modules 21,303.
