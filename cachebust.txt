@@ -1,1 +1,1 @@
-Jul 21 (Tue) production: modules 3,082 (WF 1,700 A + Brumont 1,382 C) -> 21,303 (12.4%), required RE-BASED to 3,754/day (150,167 pending / 40 working days to Sep 6). Trackers 754 (+25, req 51/day). Piles 25,304 (+84 Latnovva only - NO United report, chase). Inverter foundations 21/23 (1 done Zone G, 2 remain).
+Jul 21 CLOSED with United log: 253 piles (United 147 F + 22 G FIRST ZONE G + Latnovva 84 B) -> 25,473 (81.3%), req 1,176/day. +45 electrical CB/TP piles tracked outside the 31,352. Trackers 754, modules 21,303 (req 3,754/day).
