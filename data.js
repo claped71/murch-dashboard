@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Jul 20, 2026 (PM) — Saturday Jul 18 production added: +608 piles (United 415 Zone F + Latnovva 193 Zone B); trackers & modules idle Saturday. Executed piles 25,675 (81.9%), required 1,419/day to Jul 28 (unrecoverable, slips ~early Aug). Trackers 754 hold (Daniel Jul 20: Zones C1 & C2 released today with Client — first since Jul 10); modules 24,190 hold. ITS Bore-10 frac-outs, DC bore restarts Jul 21.
+// CACHE BUSTER: Jul 22, 2026 (Wed) — Jul 22 production: piles +202 (United 104 F + 63 G + ECCS 35 E) -> 25,675 (81.9%, req 1,419/day to Jul 28); trackers +39 Zone C -> 793 (235 released); modules +2,887 (Brumont 2,055 + Workforce 832) -> 24,190 (14.1%). index.html hardcoded tiles reconciled to this basis Jul 23 (split-state fixed).
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
