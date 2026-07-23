@@ -1,1 +1,1 @@
-Jul 22 — gallery: MILESTONE Pier E5 photo added (recent-40, geotagged) — first of 17 substation piers; 3-4/day plan, first pour Thu Jul 23. SET 16.3%. ITS on DC boring (17/20). Basis: piles 25,473 / trackers 754 / modules 21,303.
+Jul 22 (Wed): piles +202 -> 25,675 (81.9%, req 1,419/day); trackers +39 Zone C -> 793; modules +2,887 -> 24,190 (14.1%, Brumont 2,055 above target); inverter fnd 22/23; United 7 rigs. GameChange POSTS COMPLETE (5+5 loads Jul 20-21). Chemik PL reconciliation. Pushed via GitHub connector (PAT revoked).
