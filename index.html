@@ -1622,39 +1622,44 @@ footer p {
 
       <section class="section quality-summary" id="quality">
         <div class="section-heading">
-          <p class="eyebrow">Pile and tracker quality control | Production basis July 25, 2026 · latest QA approval snapshot July 6/13 (updated QA report owed)</p>
-          <h2>Quality release measured against the CURRENT executed production — 26,559 piles (84.7%) and 851 tracker rows through Jul 25</h2>
+          <p class="eyebrow">Pile, tracker and module quality control | Production basis July 25, 2026 · QA report July 27, 2026 (Maurin Moure)</p>
+          <h2>QA has closed the pile inspection gap — 26,439 piles inspected (99.5% of the 26,559 executed) and 606 tracker rows released</h2>
         </div>
         <div class="quality-grid">
           <article>
             <span class="label">Total Executed Piles</span>
             <strong>26,559</strong>
-            <small>Official block-map roll-up 22,900 + 3,659 field logs not yet mapped = 26,559 executed (Jul 25). All QA percentages on this card row are measured against this current executed total. United ran 14 pile pull tests Jul 25.</small>
+            <small>Current executed basis (Jul 25 field logs) — all QA percentages on this card row are measured against this total. Maurin's Jul 27 QA table carries 25,854 mapped executed (82.46% of scope); it trails the field logs by ~705 piles.</small>
           </article>
           <article>
-            <span class="label">Greensol Approved</span>
-            <strong>15,274</strong>
-            <small>57.5% of the 26,559 executed (66.7% of the 22,900 block-map). Count from Daniel's Jul 6/13 QA snapshot — the approval log has not been re-issued since; updated report owed.</small>
+            <span class="label">QA Inspected (Executed Q)</span>
+            <strong>26,439</strong>
+            <small>99.5% of the 26,559 current executed · 84.33% of the full 31,352 scope. Maurin Moure's Jul 27 report supersedes the Jul 6/13 snapshot (15,274) — the paper backlog is closed. A, C and EW at ~100% (A/C log a few more inspections than zone scope).</small>
+          </article>
+          <article>
+            <span class="label">Not Yet QA Inspected</span>
+            <strong>~120</strong>
+            <small>26,559 executed minus 26,439 inspected — down from the 11,285 shown until Jul 25. Open inspection fronts follow production: Zone G at 23.2% (779 / 3,356 scope) and Zone B at 94.9% (2,646 / 2,788). Zone D not started.</small>
           </article>
           <article class="quality-alert">
-            <span class="label">Not Yet Greensol Released</span>
-            <strong>11,285</strong>
-            <small>26,559 executed minus 15,274 Greensol-approved: the QA release backlog vs TODAY's production. It grows every day the approval log stays frozen at the Jul 6/13 snapshot.</small>
-          </article>
-          <article>
             <span class="label">Heelstone Approved</span>
             <strong>6,682</strong>
-            <small>25.2% of the 26,559 executed. Heelstone approval trails Greensol release; count also frozen at the Jul 6/13 snapshot.</small>
+            <small>25.2% of the 26,559 executed — STILL frozen at the Jul 6/13 snapshot. With Greensol inspection now at 99.5%, the updated Heelstone approval log is the main open QA item.</small>
           </article>
           <article class="quality-alert">
             <span class="label">Refusals / Main Defects</span>
             <strong>242</strong>
-            <small>Daniel Morilla's July 6 QA snapshot: main defects remain concentrated in Area E, with minor isolated F/EW items.</small>
+            <small>From the Jul 6 snapshot (concentrated in Area E, minor F/EW items). Maurin's Jul 27 report does not restate defects — a refreshed defect count is owed.</small>
           </article>
           <article class="quality-alert">
             <span class="label">Tracker QA Release</span>
-            <strong>235 / 851</strong>
-            <small>235 tracker rows released by Quality against 851 executed (616 pending QA) — the released count is STALE since the Jul 20 C1/C2 release; updated QA split owed. Prior freeze Jul 10-18.</small>
+            <strong>606 / 851</strong>
+            <small>606 rows released by Quality (24.4% of the 2,486 total · 71.2% of the 851 executed): A 311 (100%), C 222 (97.8%), E 73 (E1/E2 only). 245 executed rows pending — release cadence must now track the build rate; released rows feed the module front.</small>
+          </article>
+          <article class="quality-alert">
+            <span class="label">Module Release Today</span>
+            <strong>~35%</strong>
+            <small>Maurin (Jul 27): today's module QA release lands around 35% per inspections, even though installation on the inspected areas is complete — inspection cadence, not execution, sets the released number.</small>
           </article>
           <article class="quality-alert">
             <span class="label">Purlin / Module Fit Risk</span>
@@ -1667,25 +1672,28 @@ footer p {
             <thead>
               <tr>
                 <th>Quality zone</th>
-                <th>Quality zone basis</th>
-                <th>Greensol approved</th>
-                <th>Pending inspection</th>
-                <th>Defects</th>
-                <th>Heelstone approved</th>
+                <th>Zone scope</th>
+                <th>QA inspected (Q) — Jul 27</th>
+                <th>% of scope inspected</th>
+                <th>Executed per QA map (Real)</th>
+                <th>Heelstone approved (Jul 6/13)</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td data-label="Quality zone"><strong>A</strong></td><td data-label="Quality basis">3,816 / 3,834 (99.61%)</td><td data-label="Greensol approved">3,816 approved; 15 pending inspection</td><td data-label="Pending inspection">15 (0.39%)</td><td data-label="Defects">0</td><td data-label="Heelstone approved">2,752 (72.12% of Greensol-approved)</td></tr>
-              <tr><td data-label="Quality zone"><strong>C</strong></td><td data-label="Quality basis">2,761 / 2,946 (93.72%)</td><td data-label="Greensol approved">2,761 approved; 185 pending inspection</td><td data-label="Pending inspection">185 (6.28%)</td><td data-label="Defects">0</td><td data-label="Heelstone approved">1,020 (36.94% of Greensol-approved)</td></tr>
-              <tr><td data-label="Quality zone"><strong>E</strong></td><td data-label="Quality basis">7,310 / 8,456 (91.24%)</td><td data-label="Greensol approved">7,310 approved; 702 pending inspection</td><td data-label="Pending inspection">702 (8.76%)</td><td data-label="Defects">237</td><td data-label="Heelstone approved">2,176 (29.77% of Greensol-approved)</td></tr>
-              <tr><td data-label="Quality zone"><strong>F / EW</strong></td><td data-label="Quality basis">F 544 executed; EW 843 executed</td><td data-label="Greensol approved">F 544 approved; EW 843 approved</td><td data-label="Pending inspection">F 1,166 pending; EW over-reconciled by 20 in QA snapshot</td><td data-label="Defects">F 2; EW 3</td><td data-label="Heelstone approved">F 0; EW 734</td></tr>
-              <tr><td data-label="Quality zone"><strong>B / D / G</strong></td><td data-label="Quality basis">B 0 / D 0 / G 0 in QA snapshot</td><td data-label="Greensol approved">0</td><td data-label="Pending inspection">B 379; D 0; G 0</td><td data-label="Defects">0</td><td data-label="Heelstone approved">0</td></tr>
-              <tr><td data-label="Quality zone"><strong>Project total / current basis</strong></td><td data-label="Quality zone basis"><strong>26,559 executed piles (Jul 25 current basis)</strong></td><td data-label="Greensol approved"><strong>15,274 (57.5% of executed — Jul 6/13 snapshot)</strong></td><td data-label="Pending inspection"><strong>11,285 vs current executed</strong></td><td data-label="Defects"><strong>242</strong></td><td data-label="Heelstone approved"><strong>6,682 (25.2% of executed)</strong></td></tr>
-              <tr><td data-label="Quality zone"><strong>Tracker release</strong></td><td data-label="Quality zone basis">851 executed trackers (Jul 24 current basis)</td><td data-label="Greensol approved">235 released by Quality (stale since Jul 20 C1/C2 release)</td><td data-label="Pending inspection">616 trackers</td><td data-label="Defects">Not reported in tracker snapshot</td><td data-label="Heelstone approved">107 (45.5% of the 235 released)</td></tr>
+              <tr><td data-label="Quality zone"><strong>A</strong></td><td data-label="Zone scope">3,834</td><td data-label="QA inspected">3,835</td><td data-label="% of scope">100.03%</td><td data-label="Executed (Real)">3,834 (100.00%)</td><td data-label="Heelstone approved">2,752</td></tr>
+              <tr><td data-label="Quality zone"><strong>B</strong></td><td data-label="Zone scope">2,788</td><td data-label="QA inspected">2,646</td><td data-label="% of scope">94.91%</td><td data-label="Executed (Real)">2,646 (94.91%)</td><td data-label="Heelstone approved">0</td></tr>
+              <tr><td data-label="Quality zone"><strong>C</strong></td><td data-label="Zone scope">2,946</td><td data-label="QA inspected">2,950</td><td data-label="% of scope">100.14%</td><td data-label="Executed (Real)">2,946 (100.00%)</td><td data-label="Heelstone approved">1,020</td></tr>
+              <tr><td data-label="Quality zone"><strong>D</strong></td><td data-label="Zone scope">1,468</td><td data-label="QA inspected">0</td><td data-label="% of scope">0.00%</td><td data-label="Executed (Real)">0 — zone not started</td><td data-label="Heelstone approved">0</td></tr>
+              <tr><td data-label="Quality zone"><strong>E</strong></td><td data-label="Zone scope">8,456</td><td data-label="QA inspected">7,757</td><td data-label="% of scope">91.73%</td><td data-label="Executed (Real)">8,012 (94.75%)</td><td data-label="Heelstone approved">2,176</td></tr>
+              <tr><td data-label="Quality zone"><strong>F</strong></td><td data-label="Zone scope">7,658</td><td data-label="QA inspected">7,629</td><td data-label="% of scope">99.62%</td><td data-label="Executed (Real)">7,570 (98.85%)</td><td data-label="Heelstone approved">0</td></tr>
+              <tr><td data-label="Quality zone"><strong>G</strong></td><td data-label="Zone scope">3,356</td><td data-label="QA inspected">779</td><td data-label="% of scope">23.21%</td><td data-label="Executed (Real)">Not yet mapped in QA report</td><td data-label="Heelstone approved">0</td></tr>
+              <tr><td data-label="Quality zone"><strong>EW</strong></td><td data-label="Zone scope">846</td><td data-label="QA inspected">843</td><td data-label="% of scope">99.65%</td><td data-label="Executed (Real)">846 (100.00%)</td><td data-label="Heelstone approved">734</td></tr>
+              <tr><td data-label="Quality zone"><strong>Project total / current basis</strong></td><td data-label="Zone scope"><strong>31,352</strong></td><td data-label="QA inspected"><strong>26,439 (84.33% of scope · 99.5% of the 26,559 executed)</strong></td><td data-label="% of scope"><strong>84.33%</strong></td><td data-label="Executed (Real)"><strong>25,854 mapped (field basis 26,559, Jul 25)</strong></td><td data-label="Heelstone approved"><strong>6,682 (25.2% of executed)</strong></td></tr>
+              <tr><td data-label="Quality zone"><strong>Tracker release</strong></td><td data-label="Zone scope">2,486 total rows</td><td data-label="QA inspected">606 released (24.38%) — A 311 · C 222 · E 73</td><td data-label="% of scope">71.2% of the 851 executed</td><td data-label="Executed (Real)">851 executed · 245 pending release</td><td data-label="Heelstone approved">107</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="quality-note"><strong>Quality status: Critical — the QA control lags the field by ~11 days.</strong> Production stands at 26,559 executed piles (Jul 25), but the last pile QA approval log is Daniel Morilla's July 6 snapshot (re-updated Jul 13): 15,274 Greensol-approved (57.5% of current executed), 6,682 Heelstone-approved (25.2%) and 242 refusals/main defects. Every per-zone row in the table above carries those Jul 6/13 QA counts against today's executed totals — an updated pile QA report is owed to close the 11,285-pile approval backlog on paper. Trackers: 851 rows done (Jul 24), 235 released by Quality and 616 pending — the released count is stale since the Jul 20 C1/C2 release with the Client; updated split owed. Open action: some Area F zones were released internally without the subcontractor's quality documents — those documents must be recovered.</p>
+        <p class="quality-note"><strong>Quality status: pile QA gap closed.</strong> Maurin Moure’s July 27 report re-baselines pile inspections at 26,439 (84.33% of the 31,352 scope; 99.5% of the 26,559 executed), superseding the July 6/13 snapshot and closing the 11,285-pile paper backlog. Remaining inspection fronts follow production: Zone G (23.2%) and Zone B (94.9%); Zone D not started. Trackers: 606 of 851 executed rows released — significant movement in C (222) plus 73 rows in E covering E1/E2 only — with 245 pending; release cadence must now match the build rate, since released rows feed the module front (~160-row buffer, ~3 days at the required module rate). Modules: today’s QA release lands ≈35% per inspections even though installation on the inspected areas is complete. Still open: Heelstone approvals frozen at the Jul 6/13 snapshot (6,682 piles / 107 tracker rows), a refreshed defect count (242 as of Jul 6), and recovery of the Area F subcontractor quality documents released internally without documentation.</p>
       </section>
 
       <section class="section" id="delivery-control">
@@ -2049,7 +2057,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 24 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — official basis 22,900 installed piles; total executed shown across the dashboard is 26,559 (block-map 22,900 + 3,659 field logs not yet mapped — Jul 25 Sat: United 236, all Zone G) against 28,343 delivered piles; MURCH_Plowing_Boring_MT_DC_Tracking (Jul 24) with ITS control — 36/46 plow segments, 17/20 MV bores and 2/14 DC bores; SE_Construction_Tracker_Murch_Solar (Jul 24) with SET progress at 20.0%; WhatsApp Chat - Murch dashboard export (Jul 24) for Manuel Ramirez daily subcontractor reports, Daniel Morilla QA/QC status, and Axel Cano SET/field notes; Shreeya Devkota / GameChange delivery email chain (Jul 24); Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 25, 2026; pile production through July 25 (Saturday) — tracker/module Saturday logs pending.</p>
     </footer>
 
-    <script src="data.js?v=20260727a-sat236"></script>
+    <script src="data.js?v=20260727b-qa606"></script>
     <script>
 'use strict';
 
