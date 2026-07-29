@@ -247,7 +247,7 @@
     photoTimer = window.setInterval(() => setPhoto(photoIndex + 1, false), 5200);
   }
 
-  let progressView = 'contractors';
+  let progressView = 'zones';
 
   function renderProgressTable() {
     const head = document.getElementById('progressHead');
@@ -255,7 +255,7 @@
     const rows = progressView === 'contractors' ? data.contractors : data.zones;
 
     if (progressView === 'contractors') {
-      head.innerHTML = '<tr><th>Contractor</th><th>Scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>';
+      head.innerHTML = '<tr><th>Contractor (piles)</th><th>Scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>';
       body.innerHTML = rows.map((row) => `
         <tr>
           <td data-label="Contractor"><strong>${row.name}</strong><br><small>${row.zones}</small></td>
@@ -268,13 +268,14 @@
         </tr>
       `).join('');
     } else {
-      head.innerHTML = '<tr><th>Zone</th><th>Contractor</th><th>Scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>';
+      head.innerHTML = '<tr><th>Zone</th><th>Tracker contractor</th><th>Rows in scope</th><th>Built</th><th>QA-released</th><th>Remaining</th><th>% Built</th><th>Status</th><th>Note</th></tr>';
       body.innerHTML = rows.map((row) => `
         <tr>
           <td data-label="Zone"><strong>${row.zone}</strong></td>
-          <td data-label="Contractor">${row.contractor}</td>
-          <td data-label="Scope">${fmt(row.scope)}</td>
-          <td data-label="Installed">${fmt(row.installed)}</td>
+          <td data-label="Tracker contractor">${row.contractor}</td>
+          <td data-label="Rows in scope">${fmt(row.scope)}</td>
+          <td data-label="Built">${fmt(row.installed)}</td>
+          <td data-label="QA-released">${fmt(row.released)}</td>
           <td data-label="Remaining">${fmt(row.remaining)}</td>
           <td data-label="% Done">${row.done.toFixed(1)}%</td>
           <td data-label="Status">${badge(row.status)}</td>
@@ -303,7 +304,7 @@
 
     ctx.font = '700 18px system-ui';
     ctx.fillStyle = colors.ink;
-    ctx.fillText(progressView === 'contractors' ? 'Installed vs. remaining piles' : 'Pile progress by zone', 24, 24);
+    ctx.fillText(progressView === 'contractors' ? 'Installed vs. remaining piles (contractors)' : 'Tracker rows built vs. scope by zone — critical path', 24, 24);
 
     rows.forEach((row, index) => {
       const y = top + index * rowH + 18;
