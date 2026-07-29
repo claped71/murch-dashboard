@@ -252,22 +252,9 @@
   function renderProgressTable() {
     const head = document.getElementById('progressHead');
     const body = document.getElementById('progressBody');
-    const rows = progressView === 'contractors' ? data.contractors : data.zones;
+    const rows = progressView === 'piles' ? data.pilesByZone : progressView === 'modules' ? data.modulesByZone : data.zones;
 
-    if (progressView === 'contractors') {
-      head.innerHTML = '<tr><th>Contractor (piles)</th><th>Scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>';
-      body.innerHTML = rows.map((row) => `
-        <tr>
-          <td data-label="Contractor"><strong>${row.name}</strong><br><small>${row.zones}</small></td>
-          <td data-label="Scope">${fmt(row.scope)}</td>
-          <td data-label="Installed">${fmt(row.installed)}</td>
-          <td data-label="Remaining">${fmt(row.remaining)}</td>
-          <td data-label="% Done">${row.done.toFixed(1)}%</td>
-          <td data-label="Status">${badge(row.status)}</td>
-          <td data-label="Note">${row.note}</td>
-        </tr>
-      `).join('');
-    } else {
+    if (progressView === 'zones') {
       head.innerHTML = '<tr><th>Zone</th><th>Tracker contractor</th><th>Rows in scope</th><th>Built</th><th>QA-released</th><th>Remaining</th><th>% Built</th><th>Status</th><th>Note</th></tr>';
       body.innerHTML = rows.map((row) => `
         <tr>
@@ -276,6 +263,21 @@
           <td data-label="Rows in scope">${fmt(row.scope)}</td>
           <td data-label="Built">${fmt(row.installed)}</td>
           <td data-label="QA-released">${fmt(row.released)}</td>
+          <td data-label="Remaining">${fmt(row.remaining)}</td>
+          <td data-label="% Built">${row.done.toFixed(1)}%</td>
+          <td data-label="Status">${badge(row.status)}</td>
+          <td data-label="Note">${row.note}</td>
+        </tr>
+      `).join('');
+    } else {
+      const unit = progressView === 'piles' ? 'Piles' : 'Modules';
+      head.innerHTML = `<tr><th>Zone</th><th>Contractor / sequence</th><th>${unit} in scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>`;
+      body.innerHTML = rows.map((row) => `
+        <tr>
+          <td data-label="Zone"><strong>${row.zone}</strong></td>
+          <td data-label="Contractor / sequence">${row.contractor}</td>
+          <td data-label="Scope">${fmt(row.scope)}</td>
+          <td data-label="Installed">${fmt(row.installed)}</td>
           <td data-label="Remaining">${fmt(row.remaining)}</td>
           <td data-label="% Done">${row.done.toFixed(1)}%</td>
           <td data-label="Status">${badge(row.status)}</td>
@@ -304,7 +306,7 @@
 
     ctx.font = '700 18px system-ui';
     ctx.fillStyle = colors.ink;
-    ctx.fillText(progressView === 'contractors' ? 'Installed vs. remaining piles (contractors)' : 'Tracker rows built vs. scope by zone — critical path', 24, 24);
+    ctx.fillText(progressView === 'piles' ? 'Pile progress by zone' : progressView === 'modules' ? 'Module progress by zone' : 'Tracker rows built vs. scope by zone — critical path', 24, 24);
 
     rows.forEach((row, index) => {
       const y = top + index * rowH + 18;
@@ -541,7 +543,7 @@
     });
     document.getElementById('scheduleFilter').addEventListener('change', renderSchedule);
     window.addEventListener('resize', () => {
-      drawProgressChart(progressView === 'contractors' ? data.contractors : data.zones);
+      drawProgressChart(progressView === 'piles' ? data.pilesByZone : progressView === 'modules' ? data.modulesByZone : data.zones);
       drawPersonnelChart();
     });
   }

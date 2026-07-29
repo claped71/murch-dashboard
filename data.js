@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Jul 28, 2026 (Tue) EOD-3 — CURRENT-PROGRESS ZONES VIEW SWITCHED TO TRACKERS (Jose directive): zones[] now carries TRACKER production by zone (critical path for mechanical), default view = zones. Built by zone: A 311 / C 226 / E 344 = 881; released A 311 / C 222 / E 73 = 606. Contractors view stays pile-based. Basis 27,175 piles / 881 trackers / 33,880 modules stands.
+// CACHE BUSTER: Jul 28, 2026 (Tue) EOD-4 — CURRENT PROGRESS now THREE zone views (Jose): Trackers by zone (default) + PILES BY ZONE (new pilesByZone[]) + MODULES BY ZONE (new modulesByZone[]); piles-by-contractor view REMOVED from the UI (contractors[] array kept for data consumers). All three reconcile to control{}: trackers 881/606, piles 27,175, modules 33,880.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
@@ -147,6 +147,28 @@ window.MURCH_DATA = {
       { zone: 'TOTAL', contractor: 'All tracker crews', scope: 2486, installed: 881, released: 606, remaining: 1605, done: 35.4, status: 'Critical', note: '881 built (35.4%) · 606 QA-released · 57 completed rows/day required for the Aug 30 gate — trackers are the critical path for mechanical installation.' }
     ],
 
+    pilesByZone: [
+      { zone: 'Zone A', contractor: 'Latnovva (closed out)', scope: 3834, installed: 3834, remaining: 0, done: 100.0, status: 'Complete', note: 'Zone complete.' },
+      { zone: 'Zone C', contractor: 'Latnovva (closed out)', scope: 2946, installed: 2946, remaining: 0, done: 100.0, status: 'Complete', note: 'Zone complete.' },
+      { zone: 'Zone EW', contractor: 'Latnovva (closed out)', scope: 846, installed: 846, remaining: 0, done: 100.0, status: 'Complete', note: 'Zone complete.' },
+      { zone: 'Zone F', contractor: 'United', scope: 7658, installed: 7647, remaining: 11, done: 99.9, status: 'Active', note: 'Only 11 piles from zone close (Jul 28 workbook reconciliation).' },
+      { zone: 'Zone E', contractor: 'ECCS / United', scope: 8456, installed: 8112, remaining: 344, done: 95.9, status: 'Active', note: 'Jul 28: +100 (ECCS) — 344 to close.' },
+      { zone: 'Zone B', contractor: 'United (transferred)', scope: 2788, installed: 2574, remaining: 214, done: 92.3, status: 'Active', note: 'Transferred with the Latnovva closeout; 214 to close.' },
+      { zone: 'Zone G', contractor: 'United', scope: 3356, installed: 1216, remaining: 2140, done: 36.2, status: 'Critical', note: 'Jul 28: +339 (44 people). Ground VERY HARD — as Zone F at its start — capping the rate. Signed ChO still owed for full release.' },
+      { zone: 'Zone D', contractor: 'United', scope: 1468, installed: 0, remaining: 1468, done: 0, status: 'Ready', note: 'Slab demolition FINISHED (Jul 28) — piling opens ~Aug 5-7.' },
+      { zone: 'TOTAL', contractor: 'All pile crews', scope: 31352, installed: 27175, remaining: 4177, done: 86.7, status: 'Critical', note: '27,175 executed (86.7%) — 464/day holds the ~Aug 7 finish.' }
+    ],
+    modulesByZone: [
+      { zone: 'Zone A', contractor: 'Workforce', scope: 22360, installed: 19860, remaining: 2500, done: 88.8, status: 'Active', note: 'Workbook-mapped 19,860 — closing behind the released tracker rows.' },
+      { zone: 'Zone C', contractor: 'Workforce / Brumont', scope: 14950, installed: 14020, remaining: 930, done: 93.8, status: 'Active', note: 'Active module front (Jul 28: 3,100 here). Workbook maps 9,666; 4,354 recent field-logged modules pending workbook mapping.' },
+      { zone: 'Zone E', contractor: 'Follows released rows', scope: 52234, installed: 0, remaining: 52234, done: 0, status: 'Pending', note: 'Largest module zone — opens as Zone E tracker rows are QA-released (73 released so far).' },
+      { zone: 'Zone F', contractor: 'Follows released rows', scope: 44642, installed: 0, remaining: 44642, done: 0, status: 'Pending', note: 'Opens behind the United racking ramp.' },
+      { zone: 'Zone D', contractor: 'Sequenced', scope: 14898, installed: 0, remaining: 14898, done: 0, status: 'Pending', note: 'Follows Zone D piling (~Aug 5-7) and tracker assembly.' },
+      { zone: 'Zone G', contractor: 'Sequenced', scope: 14924, installed: 0, remaining: 14924, done: 0, status: 'Pending', note: 'Follows the Zone G pile and tracker fronts.' },
+      { zone: 'Zone B', contractor: 'Sequenced', scope: 7436, installed: 0, remaining: 7436, done: 0, status: 'Pending', note: 'Follows Zone B tracker assembly.' },
+      { zone: 'Zone EW', contractor: 'Sequenced', scope: 26, installed: 0, remaining: 26, done: 0, status: 'Pending', note: 'Workbook carries EW module scope within Zone E; 26-module residual vs the 171,470 project total.' },
+      { zone: 'TOTAL', contractor: 'All module crews', scope: 171470, installed: 33880, remaining: 137590, done: 19.8, status: 'Critical', note: '33,880 executed (19.8%) — 4,047/day holds Sep 6; released tracker rows set the ceiling.' }
+    ],
     production: [
       { name: 'Project pile installation', remaining: '4,793 piles', target: 'Floor 464/day holds ~Aug 7 (4,177 remain)', latest: 'Jul 28: 439 (ECCS 100 E + United 339 G). Jul 27: 0 (weather)', cumulative: '27,175 / 31,352 executed (86.7%) — workbook roll-up 26,736 + 439 field (Jul 28)', status: 'Critical', note: 'Workbook roll-up is the controlling basis; field logs add the daily deltas. Latnovva closed out — United carries all remaining pile scope; finish projects ~Aug 7 at 464/day.' },
       { name: 'Pile delivery / site stock', remaining: '3,009 piles undelivered', target: 'Receipts must exceed the install burn to zone close', latest: 'Jul 28 workbook: 28,343 piles delivered (90.4% of 31,352)', cumulative: '28,343 delivered; 1,168 available above the 27,175 executed', status: 'On Track', note: 'Stock = delivered minus executed. Delivery is not the constraint.' },
