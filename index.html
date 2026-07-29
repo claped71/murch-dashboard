@@ -2058,7 +2058,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 28 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — roll-up 26,736 installed piles (block map reconciled), the controlling executed basis (block-map 22,900 + 3,659 field logs not yet mapped — Jul 25 Sat: United 236, all Zone G) against 28,343 delivered piles; MURCH_Plowing_Boring_MT_DC_Tracking (Jul 24) with ITS control — 36/46 plow segments, 17/20 MV bores and 2/14 DC bores; SE_Construction_Tracker_Murch_Solar (Jul 24) with SET progress at 20.0%; WhatsApp Chat - Murch dashboard export (Jul 24) for Manuel Ramirez daily subcontractor reports, Daniel Morilla QA/QC status, and Axel Cano SET/field notes; Shreeya Devkota / GameChange delivery email chain (Jul 24); Rosario Ruiz civil updates; mechanical acceleration resource analysis; H&amp;S May dashboard; current schedule and contract references. Dashboard updated July 25, 2026; pile production through July 25 (Saturday) — tracker/module Saturday logs pending.; Jose Romero's Jul 27 field report (WEATHER DAY — zero production; inverter #1 unloaded onto its foundation, inverter #2 offload canceled); Audelio's Jul 27 'Chemik - cable Este Oeste' email (E-W routing review, Unistrut proposals); Shreeya Devkota's Jul 27 GameChange confirmation (BOM complete minus 16 purple tubes, BOL/POD requests); Jul 28 geotagged field photos (inverter stations — Zone A 01/02/03 and Zone C 05/06 all set; Inverter 06 at 14:36 closed Zone C); Jul 28 DELIVERY AND MECHANICAL workbook (roll-up 26,736 piles — controlling basis), LBD'S TENSION CABLE take-off, Jul 28 ITS MV/DC tracking, Chemik 'Seguimiento envios' thread (air confirmed Jul 28), Audelio's Jul 27 'borins ITS' reply; Jose's Jul 28 directive (Latnovva closeout — scope transferred to United Services); Jul 28 EOD WhatsApp field logs (Manuel Ramirez / Angel Urbina — piles, trackers, modules, LV, inverters); Axel Cano's Jul 28 AB Powers tracker (21.7%) and inverter serial tracker; Manuel Ramirez's Jul 28 17:39 United report (44 people, 339 piles Zone G; saddles/bearings Zone F; Zone D ~1.5 wks; slab demolition finished per Luis Romero)</p>
     </footer>
 
-    <script src="data.js?v=20260728h-3views"></script>
+    <script src="data.js?v=20260728j-3views-live"></script>
     <script>
 'use strict';
 
@@ -2405,32 +2405,35 @@ footer p {
     photoTimer = window.setInterval(() => setPhoto(photoIndex + 1, false), 5200);
   }
 
-  let progressView = 'contractors';
+  let progressView = 'zones';
 
   function renderProgressTable() {
     const head = document.getElementById('progressHead');
     const body = document.getElementById('progressBody');
-    const rows = progressView === 'contractors' ? data.contractors : data.zones;
+    const rows = progressView === 'piles' ? data.pilesByZone : progressView === 'modules' ? data.modulesByZone : data.zones;
 
-    if (progressView === 'contractors') {
-      head.innerHTML = '<tr><th>Contractor</th><th>Scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>';
+    if (progressView === 'zones') {
+      head.innerHTML = '<tr><th>Zone</th><th>Tracker contractor</th><th>Rows in scope</th><th>Built</th><th>QA-released</th><th>Remaining</th><th>% Built</th><th>Status</th><th>Note</th></tr>';
       body.innerHTML = rows.map((row) => `
         <tr>
-          <td data-label="Contractor"><strong>${row.name}</strong><br><small>${row.zones}</small></td>
-          <td data-label="Scope">${fmt(row.scope)}</td>
-          <td data-label="Installed">${fmt(row.installed)}</td>
+          <td data-label="Zone"><strong>${row.zone}</strong></td>
+          <td data-label="Tracker contractor">${row.contractor}</td>
+          <td data-label="Rows in scope">${fmt(row.scope)}</td>
+          <td data-label="Built">${fmt(row.installed)}</td>
+          <td data-label="QA-released">${fmt(row.released)}</td>
           <td data-label="Remaining">${fmt(row.remaining)}</td>
-          <td data-label="% Done">${row.done.toFixed(1)}%</td>
+          <td data-label="% Built">${row.done.toFixed(1)}%</td>
           <td data-label="Status">${badge(row.status)}</td>
           <td data-label="Note">${row.note}</td>
         </tr>
       `).join('');
     } else {
-      head.innerHTML = '<tr><th>Zone</th><th>Contractor</th><th>Scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>';
+      const unit = progressView === 'piles' ? 'Piles' : 'Modules';
+      head.innerHTML = `<tr><th>Zone</th><th>Contractor / sequence</th><th>${unit} in scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>`;
       body.innerHTML = rows.map((row) => `
         <tr>
           <td data-label="Zone"><strong>${row.zone}</strong></td>
-          <td data-label="Contractor">${row.contractor}</td>
+          <td data-label="Contractor / sequence">${row.contractor}</td>
           <td data-label="Scope">${fmt(row.scope)}</td>
           <td data-label="Installed">${fmt(row.installed)}</td>
           <td data-label="Remaining">${fmt(row.remaining)}</td>
@@ -2444,6 +2447,7 @@ footer p {
   }
 
   function drawProgressChart(rows) {
+    rows = rows.filter((row) => String(row.zone || row.name || '').toUpperCase() !== 'TOTAL' && row.name !== 'Project Total');
     const canvas = document.getElementById('progressChart');
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
@@ -2461,7 +2465,7 @@ footer p {
 
     ctx.font = '700 18px system-ui';
     ctx.fillStyle = colors.ink;
-    ctx.fillText(progressView === 'contractors' ? 'Installed vs. remaining piles' : 'Pile progress by zone', 24, 24);
+    ctx.fillText(progressView === 'piles' ? 'Pile progress by zone' : progressView === 'modules' ? 'Module progress by zone' : 'Tracker rows built vs. scope by zone — critical path', 24, 24);
 
     rows.forEach((row, index) => {
       const y = top + index * rowH + 18;
@@ -2850,7 +2854,7 @@ footer p {
     });
     document.getElementById('scheduleFilter').addEventListener('change', renderSchedule);
     window.addEventListener('resize', () => {
-      drawProgressChart(progressView === 'contractors' ? data.contractors : data.zones);
+      drawProgressChart(progressView === 'piles' ? data.pilesByZone : progressView === 'modules' ? data.modulesByZone : data.zones);
       drawPersonnelChart();
       drawResourceChart();
     });

@@ -289,6 +289,7 @@
   }
 
   function drawProgressChart(rows) {
+    rows = rows.filter((row) => String(row.zone || row.name || '').toUpperCase() !== 'TOTAL' && row.name !== 'Project Total');
     const canvas = document.getElementById('progressChart');
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
