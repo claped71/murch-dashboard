@@ -2125,7 +2125,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 28 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report — roll-up 26,736 installed piles (block map reconciled), the controlling executed basis, against 28,343 delivered piles; Jul 28-29 WhatsApp field logs (Manuel Ramirez daily subcontractor blocks and Angel Urbina LV/ITS reports) for the 978 field-reported piles, 65 tracker rows, 6,209 modules and the LV quantities; the Jul 29 ECCS <em>LBD CONTROL STATUS</em> sheet (per-area and per-inverter tables both reconciling to 56 of 419 mounted LBDs — Area A 50/50 complete, Area C 6/41), which re-bases the LBD figure previously carried at 111/418; the Jul 29 on-site headcount board (248 people); Jul 29 geotagged field photos (substation pier F5 anchor-bolt template and backfill at 19:04; a further inverter station craned onto its welded piles at 13:25); MURCH_Plowing_Boring_MT_DC_Tracking (Jul 24) with ITS control — 36/46 plow segments, 17/20 MV bores, 2/14 DC bores; SE_Construction_Tracker_Murch_Solar and Axel Cano's Jul 28 AB Powers tracker (SET 21.7%, piers 7/17) plus the inverter serial tracker; Maurin Moure's Jul 27 QA report (26,439 piles inspected, 606 tracker rows released); Shreeya Devkota / GameChange delivery thread (Jul 27 — BOM complete minus 16 purple tubes, BOL/POD requests, claim PL-3295-094-HT); Chemik 'Seguimiento envios' thread (air confirmed Jul 28); Rosario Ruiz civil updates (Jul 23); mechanical acceleration resource analysis; current schedule and contract references. Dashboard updated July 30, 2026 on the July 29 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260730e-total"></script>
+    <script src="data.js?v=20260730f-mvset"></script>
     <script>
 'use strict';
 
@@ -2978,7 +2978,7 @@ footer p {
           '<div class="gate-rows">' +
           'Completed units only: <b>' + T.gatePct.toFixed(1) + '%</b><br>' +
           'Including work in progress: <b>' + T.earnedPct.toFixed(1) + '%</b><br>' +
-          'Weighting: <b>piles 28 \u00b7 trackers 22 \u00b7 modules 26 \u00b7 LV 14 \u00b7 civil 10</b><br>' +
+          'Weighting: <b>piles 28 \u00b7 trackers 22 \u00b7 modules 26 \u00b7 electrical 14 \u00b7 civil 10</b><br>' +
           '<span class="gate-pill">GATE ' + T.gatePct.toFixed(1) + '% \u00b7 EARNED ' + T.earnedPct.toFixed(1) + '%</span>' +
           '</div></article>'); })();
       var worst = 'green';
@@ -3013,6 +3013,25 @@ footer p {
           'Binding gate: <b>Chemik material by AIR before end Aug</b><br>' +
           '<span class="gate-pill">MATERIAL-GATED · kick-off Jul 21</span>' +
           '</div></article>'); } })();
+      (function(){ var M = C.mv, S = C.set;
+        if (M) strip.insertAdjacentHTML('beforeend',
+          '<article class="gate-tile rag-amber"><h3>' + M.name + ' \u00b7 gate ' + M.gateLabel + '</h3>' +
+          '<div class="gate-big">' + M.pct.toFixed(1) + '% <em>weighted composite</em></div>' +
+          '<div class="gate-rows">' +
+          'Plowing: <b>36 / 46 segments (120,738 ft)</b><br>' +
+          'MV bores: <b>17 / 20</b> \u00b7 DC ducts: <b>2 / 14</b><br>' +
+          'MV terminations: <b>0 / 138</b><br>' +
+          '<span class="gate-pill">MOST ADVANCED ELECTRICAL FRONT</span>' +
+          '</div></article>');
+        if (S) strip.insertAdjacentHTML('beforeend',
+          '<article class="gate-tile rag-red"><h3>' + S.name + ' \u00b7 gate ' + S.gateLabel + '</h3>' +
+          '<div class="gate-big">' + S.pct.toFixed(1) + '% <em>vs ~' + S.planToDate + '% plan-to-date</em></div>' +
+          '<div class="gate-rows">' +
+          'Civil <b>65.6%</b> \u00b7 structural <b>10.8%</b> \u00b7 electrical <b>5.7%</b><br>' +
+          'Piers: <b>7 / 17</b> \u00b7 transformer <b>SET Jul 24</b><br>' +
+          'Binding: <b>structural steel + breakers in fabrication</b><br>' +
+          '<span class="gate-pill">WORST VARIANCE ON THE PROJECT</span>' +
+          '</div></article>'); })();
       strip.insertAdjacentHTML('beforeend',
         '<article class="gate-tile rag-' + worst + '"><h3>' + C.mc.name + ' · target ' + C.mc.target + '</h3>' +
         '<div class="gate-big">' + C.mc.forecast + ' <em>forecast</em></div>' +

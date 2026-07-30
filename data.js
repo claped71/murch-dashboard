@@ -10,6 +10,8 @@ window.MURCH_DATA = {
       trackers: { installed: 916, released: 606, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 58, capacity: 48, name: 'Trackers incl. purlins', unit: 'rows/day', wipRows: 136, wipEquivalent: 50.1, earnedEquivalent: 966.1, earnedPct: 38.9, earnedBasis: '5-step weighted ladder (adopted Jul 30, 2026)' },
       modules:  { installed: 36989, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 4075, capacity: null, name: 'Modules', unit: 'mod/day' },
       electrical: { installed: 0, total: 274720, gate: '2026-09-18', gateLabel: 'Sep 18', required: 6243, capacity: null, name: 'LV Electrical', unit: 'lf/day', earnedPct: 1.3, earnedBasis: 'weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)' },
+      mv:       { pct: 58.6, gate: '2026-09-14', gateLabel: 'Sep 14', name: 'MV Collection', unit: '%', earnedPct: 58.6, basis: 'weighted composite: plowing 45%, MV bores 25%, DC ducts 15%, MV terminations 15%' },
+      set:      { pct: 21.7, gate: '2026-09-25', gateLabel: 'Sep 25', name: 'Substation (SET)', unit: '%', earnedPct: 21.7, planToDate: 44, basis: 'AB Powers tracker: civil 65.6%, structural 10.8%, electrical 5.7%' },
       mc:       { target: 'Sep 25', forecast: 'Sep 20-25', name: 'Mechanical Completion' }
     },
     manpowerHistory: [
@@ -175,19 +177,58 @@ window.MURCH_DATA = {
       { zone: 'Zone EW', contractor: 'Sequenced', scope: 26, installed: 0, remaining: 26, done: 0, status: 'Pending', note: 'Workbook carries EW module scope within Zone E; 26-module residual vs the 171,470 project total.' },
       { zone: 'TOTAL', contractor: 'All module crews', scope: 171470, installed: 36989, remaining: 134481, done: 21.6, status: 'Critical', note: '36,989 executed (21.6%) — 4,075/day over the 33 working days to Sep 6; released tracker rows set the ceiling.' }
     ],
+    mvProgress: {
+      asOf: 'Jul 29, 2026',
+      basis: 'Weighted composite of the MV collection scope by labour content',
+      compositePct: 58.6,
+      gateLabel: 'Sep 14 — pre-commissioning start',
+      components: [
+        { component: 'MV cable plowing', scope: '46 segments', done: 36, pct: 78.3, weight: 45, contribution: 35.22, note: '120,738 ft installed. No segment closed Jul 28-29 — crews on the bores.' },
+        { component: 'MV HDD bores', scope: '20 bores', done: 17, pct: 85.0, weight: 25, contribution: 21.25, note: '5,162 ft. MVHB-11 open two days. EGLE ruled the last bores stay bores.' },
+        { component: 'DC duct bores', scope: '14 locations', done: 2, pct: 14.3, weight: 15, contribution: 2.14, note: '391 lf. Second drill assigned here since Jul 24.' },
+        { component: 'MV terminations', scope: '138 connections', done: 0, pct: 0, weight: 15, contribution: 0, note: 'Follows inverter and substation readiness. MV couplings carry a ~40-week lead — emergency plan still owed.' }
+      ],
+      note: 'MV was previously invisible in the project roll-up: the gate strip carried piles, trackers, modules and LV only, so 36 plowed segments and 17 completed bores earned nothing at project level. At 58.6% MV is the most advanced electrical front by some distance. The exposure is the 138 terminations at zero and the coupling lead time.'
+    },
+    setProgress: {
+      asOf: 'Jul 28, 2026 (AB Powers tracker)',
+      compositePct: 21.7,
+      planToDatePct: 44,
+      gateLabel: 'Sep 25 — Mechanical Completion',
+      components: [
+        { component: 'Civil', pct: 65.6, note: 'Transformer foundation and containment berm complete Jul 12; piers 7 of 17 incl. concrete.' },
+        { component: 'Structural', pct: 10.8, note: 'Structural steel still in fabrication — now a controlling item.' },
+        { component: 'Electrical', pct: 5.7, note: 'Breakers awaited; several committed dates fall after the gate.' }
+      ],
+      milestones: 'Control building set Jul 7 · containment berm Jul 12 · MAIN POWER TRANSFORMER set Jul 24 · piers 7/17 (41.2%), pier F5 backfilled Jul 29.',
+      note: 'The single worst variance on the project: 21.7% executed against roughly 44% plan-to-date on the linear baseline to Sep 25. The two biggest physical milestones are done (transformer set, control building on site) yet structural steel and breakers remain in fabrication, so the percentage cannot move much until they land.'
+    },
+    electricalTotal: {
+      asOf: 'Jul 29, 2026',
+      basis: 'Weighted composite of the four electrical fronts by labour content',
+      gatePct: 16.1,
+      earnedPct: 21.5,
+      components: [
+        { name: 'LV / DC installation', weight: 45, gate: 0.0, earned: 1.3, note: '274,720 lf of cable, 419 boxes. 56 boxes mounted; zero measured cable footage.' },
+        { name: 'MV collection', weight: 22, gate: 58.6, earned: 58.6, note: 'Plowing 36/46, MV bores 17/20, DC ducts 2/14, terminations 0/138.' },
+        { name: 'Inverter stations', weight: 18, gate: 0.0, earned: 26.3, note: '5 of 23 set on foundations; ZERO terminated, which is the gate measure.' },
+        { name: 'Substation (SET)', weight: 15, gate: 21.7, earned: 21.7, note: 'Civil 65.6%, structural 10.8%, electrical 5.7%.' }
+      ],
+      note: 'One electrical total across all four fronts: 16.1% on completed units, 21.5% including verified work in progress. MV carries almost the whole figure — strip it out and the other three fronts together stand at about 3 points of the 100. This is the number to watch against the Oct 16 interconnection date.'
+    },
     projectTotal: {
       asOf: 'Jul 29, 2026',
-      gatePct: 46.1,
-      earnedPct: 46.7,
+      gatePct: 49.4,
+      earnedPct: 50.7,
       weights: { piles: 28, trackers: 22, modules: 26, electrical: 14, civil: 10 },
       components: [
         { name: 'Piles', weight: 28, gate: 88.4, earned: 88.4 },
         { name: 'Trackers', weight: 22, gate: 36.8, earned: 38.9 },
         { name: 'Modules', weight: 26, gate: 21.6, earned: 21.6 },
-        { name: 'LV / DC', weight: 14, gate: 0.0, earned: 1.3 },
-        { name: 'Civil & substation', weight: 10, gate: 76.3, earned: 76.3 }
+        { name: 'Electrical (LV + MV + inverters + SET)', weight: 14, gate: 16.1, earned: 21.5 },
+        { name: 'Civil (excl. substation)', weight: 10, gate: 87.2, earned: 87.2 }
       ],
-      note: 'Weighted physical completion on the same weighting the client report uses, so the two documents always agree. Gate 46.1% counts finished units only; earned 46.7% adds verified partial work on trackers and LV. Civil 76.3% is the mean of the six civil/substation activities.'
+      note: 'Weighted physical completion, same weighting as the client report so the two documents always agree. RE-BASED Jul 30: the electrical component now covers all four electrical fronts (LV/DC, MV collection, inverter stations, substation) instead of LV cable alone, and civil excludes the substation to avoid double counting it — civil is now the mean of the five remaining civil activities (87.2%). The total moved from 46.1% to 49.4% because MV collection, at 58.6%, was not counted anywhere in the previous roll-up.'
     },
     earnedMethod: {
       adopted: 'Jul 30, 2026',
