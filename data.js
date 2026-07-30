@@ -9,7 +9,7 @@ window.MURCH_DATA = {
       piles:    { installed: 27714, total: 31352, gate: '2026-07-28', gateLabel: 'Jul 28', required: 3638, capacity: null, name: 'Piles', unit: 'piles/day' },
       trackers: { installed: 916, released: 606, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 58, capacity: 48, name: 'Trackers incl. purlins', unit: 'rows/day', wipRows: 136, wipEquivalent: 50.1, earnedEquivalent: 966.1, earnedPct: 38.9, earnedBasis: '5-step weighted ladder (adopted Jul 30, 2026)' },
       modules:  { installed: 36989, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 4075, capacity: null, name: 'Modules', unit: 'mod/day' },
-      electrical: { installed: 0, total: 274720, gate: '2026-09-18', gateLabel: 'Sep 18', required: 6243, capacity: null, name: 'LV Electrical', unit: 'lf/day' },
+      electrical: { installed: 0, total: 274720, gate: '2026-09-18', gateLabel: 'Sep 18', required: 6243, capacity: null, name: 'LV Electrical', unit: 'lf/day', earnedPct: 1.3, earnedBasis: 'weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)' },
       mc:       { target: 'Sep 25', forecast: 'Sep 20-25', name: 'Mechanical Completion' }
     },
     manpowerHistory: [
@@ -175,6 +175,64 @@ window.MURCH_DATA = {
       { zone: 'Zone EW', contractor: 'Sequenced', scope: 26, installed: 0, remaining: 26, done: 0, status: 'Pending', note: 'Workbook carries EW module scope within Zone E; 26-module residual vs the 171,470 project total.' },
       { zone: 'TOTAL', contractor: 'All module crews', scope: 171470, installed: 36989, remaining: 134481, done: 21.6, status: 'Critical', note: '36,989 executed (21.6%) — 4,075/day over the 33 working days to Sep 6; released tracker rows set the ceiling.' }
     ],
+    earnedMethod: {
+      adopted: 'Jul 30, 2026',
+      title: 'How progress is assigned to multi-step scopes',
+      rule: 'THREE INSTRUMENTS, chosen by the shape of the scope — not one method forced onto everything. (1) ATOMIC UNITS — piles and modules. A pile is driven or it is not; a module is placed or it is not. Count units. NO ladder: adding one would only create room for optimism on work that has no intermediate state worth crediting. (2) MULTI-STEP SINGLE DELIVERABLES — tracker rows and inverter stations. One unit passes through several verifiable physical states before it is usable, and the intermediate states carry real installed material and labour. Use a FIXED WEIGHTED STEP LADDER and report the step reached, never an estimated percentage. (3) SCOPES ALREADY BROKEN INTO COMPONENT LINES — LV/DC. The take-off already measures cable, box mounting, supports, terminations and testing separately in their own units, so a ladder would double count. Instead WEIGHT THE COMPONENT LINES by labour content into one composite percentage. In every case the completion gate keeps counting finished units only; the earned measure sits beside it and never moves a date.',
+      scopes: [
+        { scope: 'Piles', instrument: 'Atomic unit count', gate: '27,714 / 31,352 = 88.4%', earned: 'n/a — no intermediate state', note: 'Driven or not driven. Pull tests and inspection are QA gates, not construction steps.' },
+        { scope: 'Modules', instrument: 'Atomic unit count', gate: '36,989 / 171,470 = 21.6%', earned: 'n/a — no intermediate state', note: 'Placed and torqued or not placed.' },
+        { scope: 'Tracker rows', instrument: '5-step weighted ladder', gate: '916 / 2,486 = 36.8%', earned: '966.1 equivalents = 38.9%', note: 'See trackerWip. 136 rows open across three zones.' },
+        { scope: 'Inverter stations', instrument: '5-step weighted ladder', gate: '5 / 23 = 21.7%', earned: '6.05 equivalents = 26.3%', note: 'See inverterProgress. Delivery and setting carry real value ahead of terminations.' },
+        { scope: 'LV / DC', instrument: 'Weighted component composite', gate: '0 / 274,720 lf = 0.0%', earned: '1.3% (up to 3.8% once supports are quantified)', note: 'See lvComposite. Cable-only denomination hides the box and support work — but the composite confirms LV has barely started.' }
+      ]
+    },
+    inverterProgress: {
+      asOf: 'Jul 29, 2026',
+      basis: '5-step weighted ladder (adopted Jul 30, 2026)',
+      totalStations: 23,
+      stationsSet: 5,
+      gatePct: 21.7,
+      equivalents: 6.05,
+      earnedPct: 26.3,
+      steps: [
+        { step: 1, name: 'Foundation ready — station piles driven and base plates welded', weight: 10, cumulative: 10 },
+        { step: 2, name: 'Station delivered and staged on site', weight: 15, cumulative: 25 },
+        { step: 3, name: 'Station set and anchored on its foundation', weight: 25, cumulative: 50 },
+        { step: 4, name: 'LV / DC terminations complete', weight: 25, cumulative: 75 },
+        { step: 5, name: 'MV terminations, grounding and megger checks complete', weight: 25, cumulative: 100 }
+      ],
+      standing: [
+        { step: 3, label: 'Set and anchored on foundation', stations: 5, detail: 'Zone A 01/02/03 and Zone C 05/06 — serials logged (Jul 28)', pct: 50, equiv: 2.50 },
+        { step: 2, label: 'Delivered and staged on site', stations: 13, detail: '18 on site with base plates welded (Jul 12) minus the 5 already set', pct: 25, equiv: 3.25 },
+        { step: 1, label: 'Foundation ready, station not yet delivered', stations: 3, detail: '21 of 23 station pile-sets complete minus the 18 on site', pct: 10, equiv: 0.30 },
+        { step: 0, label: 'Foundation not complete', stations: 2, detail: 'Stations 10-D and 16-F — pile-sets still pending', pct: 0, equiv: 0 }
+      ],
+      note: 'The gate measure for this scope stays STATIONS FULLY TERMINATED, because a station only becomes usable plant when LV, MV, grounding and testing are closed — and today that number is ZERO. What the project currently reports, 5 of 23 set, is itself an interim measure: it credits delivery and setting but shows nothing for the 13 stations sitting on site with base plates welded, nor for the foundations standing ready. On the ladder those states earn 6.05 station-equivalents, 26.3%, against the 21.7% the set-count implies. The important message runs the other way, though: NO station has a single termination complete, so on the true completion measure this scope is at 0% with the Sep 25 mechanical completion date eight weeks out.',
+      dataToConfirm: 'Two inputs are stale or unconfirmed and both move this number: (1) the delivered-and-staged count of 18 dates from Jul 12 and needs a current figure from Axel Cano; (2) a further station was photographed being craned onto its piers on Jul 29 at 13:25 but All State filed no count, so the set total is carried at 5 rather than 6 pending confirmation.'
+    },
+    lvComposite: {
+      asOf: 'Jul 29, 2026',
+      basis: 'Weighted composite of the LV control line by labour content (adopted Jul 30, 2026)',
+      gateUnit: 'lf of cable',
+      gateInstalled: 0,
+      gateTotal: 274720,
+      gatePct: 0.0,
+      earnedPctFirm: 1.3,
+      earnedPctWithSupports: 3.8,
+      components: [
+        { component: 'Homerun cable (inverter feeders)', scope: '229,435 lf', weight: 46, executedPct: 0, contribution: 0, note: 'Bulk of the pull. Nothing placed — the Jul 29 start produced no measured footage.' },
+        { component: 'Chemik trunk cable', scope: '40,313 lf', weight: 8, executedPct: 0, contribution: 0, note: 'Material-gated on the air shipments; Chemik still owes arrival dates.' },
+        { component: 'Harness (3/2/1-string)', scope: '4,972 lf', weight: 1, executedPct: 0, contribution: 0, note: 'Only 18% of the 3-string harness has shipped.' },
+        { component: 'LBD / box mounting', scope: '419 boxes', weight: 10, executedPct: 13.4, contribution: 1.34, note: '56 boxes mounted per the Jul 29 ECCS control sheet — Area A complete at 50/50, Area C 6/41. The only LV component with real progress.' },
+        { component: 'Aerial supports and messenger wire', scope: 'QUANTITY NOT YET IN THE TAKE-OFF', weight: 10, executedPct: null, contribution: null, note: 'Area A1/A2/A4 supports 100%, A5 90%, E-W supports 100%, messenger wire A3 70% — real completed work that currently earns NOTHING because the take-off carries no unit quantity for it. Owed by Luis Romero / Clara Lopez. At a rough 25% of the full-field support scope this component would add ~2.5 points.' },
+        { component: 'Box connections / terminations', scope: '1,676 connections', weight: 12, executedPct: 0, contribution: 0, note: 'Follows the pull.' },
+        { component: 'Inverter connections', scope: '838 connections', weight: 8, executedPct: 0, contribution: 0, note: 'Follows station setting and the pull.' },
+        { component: 'Megger LV and MV connections', scope: '1,676 + 138', weight: 5, executedPct: 0, contribution: 0, note: 'Test and terminate before energization.' }
+      ],
+      note: 'The LV gate is denominated purely in linear feet of cable, so every box mounted, every support set and every foot of messenger wire installed to date reports as ZERO progress. That is wrong as a measure of work done, and the composite fixes it by weighting the control-line components by labour content. But the honest result is uncomfortable and worth stating plainly: the composite lifts LV from 0.0% only to 1.3% — or about 3.8% once the support work is quantified. Giving this scope an equivalent progress does not improve the picture, it confirms it. With 6,243 lf/day required from Jul 30 to hold Sep 18 and not one measured foot of cable placed, LV/DC is the largest single exposure on the energization path, ahead of trackers and modules.',
+      weightNote: 'Weights sum to 100 and are apportioned by labour content, not by quantity — 274,720 lf of cable pull carries far more man-hours than 419 box mountings. They need Jose sign-off before the composite goes into any certification, and should be frozen for the project once agreed.'
+    },
     trackerWip: {
       asOf: 'Jul 29, 2026',
       basis: 'STEP LADDER (adopted Jul 30, 2026 by Jose Romero)',
