@@ -316,13 +316,13 @@ window.MURCH_DATA = {
       { contractor: 'SWCA', equipment: 'No crew or equipment on site today.', output: 'Not applicable.' }
     ],
     resourcePlan: [
-      { label: 'Total site resources', actual: 191, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Includes field labor plus management/QC/HSE; actual is the Jul 13 on-site field snapshot (191) tracking current crew allocation.' },
-      { label: 'Tracker / piling crew', actual: 85, target: 85, targetLabel: 'ECCS (50) + United (35, incl. ex-Latnovva scope)', note: 'Tracker (50) and piling (35) combined: 85 personnel dedicated to structural and piling scope.' },
-      { label: 'Module crew Phase 1', actual: 26, committed: 26, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce is producing at 26 with the rolling start; primary module crew on site.' },
-      { label: 'Module full-field crew', actual: 41, committed: 41, target: 40, targetLabel: '40 by Jul 13+', note: 'Workforce (26) + Brumont (15) = 41 installers on site — full-field module gate achieved.' },
-      { label: 'Electrical & SET crew', actual: 27, committed: 27, target: 25, targetLabel: '25 electrical + SET', note: 'ITS (14) + ABPOWER (5) + DIG IT (4) + HI-TECH (4) = 27 electrical and SET-related personnel.' },
-      { label: 'Greensol site team', actual: 20, target: 20, targetLabel: '13 staff + 7 labor', note: 'GREENSOL (13) + GREENSOL CONSTRUCTION (7) = 20 EPC team members on site.' },
-      { label: 'Civil & environmental crew', actual: 18, committed: 18, target: 15, targetLabel: '15 civil/environmental', note: 'HURRICANE (3) + TOPLAND (7) + LOUNSBURY (3) + WESTWOOD (1) + ECS (2) + SWCA (2) = 18 civil and environmental support.' }
+      { label: 'Total site resources', actual: 248, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Jul 29 on-site headcount board: 248 people including field labor plus management, QC and HSE — up 56 on the Jul 20 board (192) and 2.4x the acceleration-plan peak.' },
+      { label: 'Tracker / piling crew', actual: 133, target: 85, targetLabel: 'ECCS (50) + United (35)', note: 'ECCS trackers (53) + United (55, split G piling / F racking) + Latnovva (10, Zone B) + Workforce racking (15) = 133. Three separate crews are now producing tracker rows.' },
+      { label: 'Module crew Phase 1', actual: 33, committed: 33, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce module crew — board carries 48 across both Workforce crews, 15 of which are racking. Manuel reported 29 on modules; 4-person variance open.' },
+      { label: 'Module full-field crew', actual: 48, committed: 48, target: 40, targetLabel: '40 by Jul 13+', note: 'Workforce modules (33) + Brumont (15) = 48 installers — above the full-field gate, yet output is 3,109/day against 4,075 required. Productivity, not headcount, is the gap.' },
+      { label: 'Electrical & SET crew', actual: 41, committed: 41, target: 25, targetLabel: '25 electrical + SET', note: 'ECCS electrical (12) + ITS (13) + ABPOWER (8) + DIG IT (5) + HI TECH (3) = 41 — the LV crew standing up is most of the +56 jump in total site headcount.' },
+      { label: 'Greensol site team', actual: 20, target: 20, targetLabel: '13 staff + 7 labor', note: 'The board braces GREENSOL and GREENSOL CONSTRUCTION into a single count of 20 EPC team members — management, QA/QC, safety and self-perform supervision.' },
+      { label: 'Civil & environmental crew', actual: 6, committed: 6, target: 15, targetLabel: '15 civil/environmental', note: 'TOPLAND (4, internal roads) + KALAMAZOO (2) = 6. HURRICANE, LOUNSBURY, ECS, WESTWOOD and SWCA all show zero on the Jul 29 board as the civil scope closes out.' }
     ],
     mechanicalManpowerLoad: [
       { week: 'Jun 22', pile: 9, tracker: 16, module: 0, management: 13, total: 38 },
