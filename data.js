@@ -413,7 +413,7 @@ window.MURCH_DATA = {
         { contractor: 'WESTWOOD', people: 0, category: 'support', note: 'No crew on site.' },
         { contractor: 'SWCA', people: 0, category: 'support', note: 'No crew on site (board line left blank).' }
       ],
-      note: 'Source: the on-site headcount board photographed Jul 29. The board header still carries 7/23, but every value matches the Jul 29 subcontractor reports — treat it as the Jul 29 record. Two variances against Manuel Ramirez\'s WhatsApp blocks: Workforce 48 on the board vs 44 reported (29 modules + 15 racking), and Latnovva 10 vs 11 reported. Board total 248 people, up 56 on the Jul 20 board (192) — the biggest single jump of the project, driven by United +11 and the ECCS LV crew standing up.'
+      note: 'Source: the on-site headcount board photographed Jul 29. The board header still carries 7/23, but every value matches the Jul 29 subcontractor reports — treat it as the Jul 29 record. Two variances against Manuel Ramirez\'s WhatsApp blocks: Workforce 48 on the board vs 43 reported (29 panels + 14 racking), and Brumont 19 vs 14 reported. Board total 253 people, up 5 on Jul 29. THE Jul 30 GAP THAT MATTERS: production was filed for only about 135 of the 253 on site — United (55) and Latnovva (9) were both present and filed nothing, and ABPower, Dig It, Topland, Hi Tech, Kalamazoo and SWCA reported no output at all. Crane 2 is equipment, not headcount. The ECCS LV crew standing up.'
     },
     equipmentNotes: [
       { contractor: 'GreenSol', equipment: 'Site trucks and laptops for management/QC field use; no heavy equipment assigned.', output: 'Daily site walk, safety audits, and progress verification.' },
@@ -435,7 +435,7 @@ window.MURCH_DATA = {
       { contractor: 'SWCA', equipment: 'No crew or equipment on site today.', output: 'Not applicable.' }
     ],
     resourcePlan: [
-      { label: 'Total site resources', actual: 248, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Jul 29 on-site headcount board: 248 people including field labor plus management, QC and HSE — up 56 on the Jul 20 board (192) and 2.4x the acceleration-plan peak.' },
+      { label: 'Total site resources', actual: 253, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Jul 30 on-site headcount board: 253 people including field labor plus management, QC and HSE — up 5 on Jul 29 and 2.4x the acceleration-plan peak.' },
       { label: 'Tracker / piling crew', actual: 133, target: 85, targetLabel: 'ECCS (50) + United (35)', note: 'ECCS trackers (53) + United (55, split G piling / F racking) + Latnovva (10, Zone B) + Workforce racking (15) = 133. Three separate crews are now producing tracker rows.' },
       { label: 'Module crew Phase 1', actual: 33, committed: 33, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce module crew — board carries 48 across both Workforce crews, 15 of which are racking. Manuel reported 29 on modules; 4-person variance open.' },
       { label: 'Module full-field crew', actual: 48, committed: 48, target: 40, targetLabel: '40 by Jul 13+', note: 'Workforce modules (33) + Brumont (15) = 48 installers — above the full-field gate, yet output is 3,158/day against 4,104 required. The 43 installers who filed output did 73.4 modules each — up from 70.7 — so the crew is too small, not slow: about 56 installers are needed at the current measured rate.' },
