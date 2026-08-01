@@ -1,1 +1,1 @@
-Jul 23 civil update (Rosario Ruiz): Earthworks cut/fill 100% COMPLETE, Sediment basins 83%, Internal roads 72%, G-SET fence 95%, PS foundations 86%. Prior: SET 16.7% (2/17 piers), DC bore started, Gantt bars synced to gates. Production basis unchanged (piles 25,675 / trackers 793 / modules 24,190, through Jul 22).
+Jul 31, 2026 EOD - v20260731a
