@@ -749,9 +749,12 @@ small {
   box-shadow: 0 8px 24px rgba(20, 33, 29, 0.06);
 }
 
-.scope-card,
-.risk-card {
+.scope-card {
   padding: 18px;
+}
+
+.risk-card {
+  padding: 14px 16px;
 }
 
 .scope-card .metric {
@@ -1233,9 +1236,27 @@ dd {
 }
 
 .risk-card h3 {
-  margin-bottom: 12px;
-  font-size: 1.16rem;
-  line-height: 1.2;
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.28;
+}
+
+.risk-card p {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.risk-card p strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.risk-card small {
+  font-size: 0.74rem;
+  letter-spacing: .2px;
+  color: var(--muted);
 }
 
 footer {
@@ -2111,7 +2132,7 @@ footer p {
       <section class="section risks" id="risks">
         <div class="section-heading">
           <p class="eyebrow">Schedule risks and actions</p>
-          <h2>Only schedule-fulfillment items requiring immediate action</h2>
+          <h2>Open items requiring action</h2>
         </div>
         <div class="risk-grid" id="riskGrid"></div>
       </section>
@@ -2121,12 +2142,12 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 28 DELIVERY AND MECHANICAL workbook used as the Construction Manager production report &mdash; roll-up 26,736 installed piles (block map reconciled), against the 31,352 pile scope; the workbook re-export received Jul 31 carries the SAME 26,736 roll-up and no zone sheet dated later than Jul 25, so it adds nothing and the executed basis stays field-led; Jul 28-31 WhatsApp field logs (Manuel Ramirez daily subcontractor blocks, Axel Cano SET/inverter reports and Angel Urbina LV/ITS reports) for the 1,942 field-reported piles, 105 completed tracker rows, 10,403 modules and the WIP step counts, including Manuel's Jul 31 confirmation that United's 68 Zone F rows are a CUMULATIVE open figure; the Jul 30 on-site headcount board (253 people, carried forward &mdash; no board was filed for Jul 31); MURCH_Plowing_Boring_MT_DC_Tracking dated Jul 31 with ITS control &mdash; 36/46 plow segments (120,738 ft), 17/20 MV bores (5,462 ft), 3/14 DC bores (647 ft), and 0 ft recorded for both the day and the week; SE_Construction_Tracker_Murch_Solar (SET 24.7%: civil 76.8%, structural 10.8%, electrical 6.0%) and Axel Cano's Jul 31 field reports (piers 14/17, last 3 drilled Monday and poured Tuesday); the AB Powers inverter matrix dated Jul 31 (18 of 23 set and welded, all of Zone F closed on the day, last 5 due Monday, ZERO terminated); Daniel Morilla's Jul 30 QA sheets carried forward (piles 24,751 Greensol-approved / 6,836 client-approved; trackers 492 Greensol-approved / 296 client-accepted) &mdash; NO QA SHEET WAS FILED ON Jul 31; the Shreeya Devkota / GameChange thread through Jul 29, including the NEW request for the exact quantity and colour breakdown of piles the site team reported SHORT SHIPPED, with a several-week replacement lead time; Chemik 'Seguimiento envios' thread (air confirmed Jul 28); Rosario Ruiz civil updates (Jul 23); mechanical acceleration resource analysis; current schedule and contract references. Dashboard updated July 31, 2026 on the July 31 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260731b-overview-trim"></script>
+    <script src="data.js?v=20260731c-risk-trim"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260731b-overview-trim';
+  const assetVersion = '20260731c-risk-trim';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
