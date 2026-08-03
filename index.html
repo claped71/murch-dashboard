@@ -2089,11 +2089,11 @@ footer p {
           <canvas id="personnelChart" width="1120" height="520" aria-label="Mechanical acceleration manpower load required to protect project milestones"></canvas>
         </div>
         <div class="section-heading compact" style="margin-top:26px">
-          <p class="eyebrow">Field snapshot | On-site headcount board, Jul 30, 2026 — 253 people</p>
+          <p class="eyebrow">Field snapshot | On-site headcount board, Aug 3, 2026 — 243 people</p>
           <h2>Subcontractor resources reported on site</h2>
         </div>
         <div class="chart-panel">
-          <p class="chart-context"><strong>NO HEADCOUNT BOARD FOR Aug 1</strong> &mdash; the histogram below is the <strong>Jul 30 board (253 people)</strong> carried forward. Saturday Aug 1 reported <strong>132 people across five crews</strong>: ECCS trackers 53, Workforce modules 29, Brumont 19, Workforce racking 19 (up from 14), ECCS electrical 12 &mdash; the ECCS and Brumont blocks both arrived two days late. <strong>United and Latnovva filed nothing, and AB Power was confirmed absent from the substation</strong> &mdash; Luis Romero raised that directly at 08:49. A missing report is not a zero-production day, but on a mandatory Saturday with five crews unaccounted for, the distinction stops being useful. Machine and output detail is shown directly below the histogram.</p>
+          <p class="chart-context">The <strong>Aug 3 site board</strong> totals 245; Crane 2 is equipment, not headcount, so the people figure is <strong>243</strong> &mdash; down 10 on the Jul 30 board of 253. <strong>The signal is not the total, it is the mix.</strong> <strong>LATNOVVA HAS GONE FROM 9-11 TO 2</strong> with Zone B still 36 piles from close and no pile quantity filed since Jul 29. <strong>Brumont is down to 15</strong> from the 19 it actually worked on Saturday, at the moment the module rate needs both crews at strength. Topland has halved to 2 with internal roads still at 72%, and Kalamazoo is off site. Against that, GreenSol is up 5 to 25 &mdash; consistent with putting GreenSol labour onto the LV cable pull &mdash; and the electrical group holds at 42. Eight new contractor lines (Bierlein, Hoffman, MTC, Storm Water, AES, SII, Brightfield, TVANT) appear on the board blank; mobilisation is unconfirmed. Machine and output detail is shown directly below the histogram.</p>
           <div class="trend-card" style="margin-bottom:14px"><h3 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 2px">Manpower story — total on site by report date</h3><div id="manpowerStory"></div><p class="trend-key">Green area = total headcount per complete report (partial-report days excluded) · right bar = Jul 29 trade mix</p></div>
           <canvas id="resourceChart" width="1120" height="300" aria-label="Current subcontractor field resources by headcount"></canvas>
         </div>
@@ -2142,12 +2142,12 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's Jul 28 DELIVERY AND MECHANICAL workbook as the Construction Manager production report &mdash; roll-up 26,736 installed piles, against the 31,352 pile scope; no newer workbook cut has been issued, so the executed basis stays field-led; Jul 28 - Aug 1 WhatsApp field logs (Manuel Ramirez daily subcontractor blocks, Angel Urbina LV/ITS reports and Axel Cano SET/inverter reports) for the 1,942 field-reported piles, 105 completed tracker rows, 11,183 modules, the WIP step counts and the first 478 lf of DC cable; Manuel's Aug 1 confirmations that the 11 Zone B rows are at level 2 of the step table and that the Zone EW rows are in torque and QA and cannot yet be counted complete; the Jul 30 on-site headcount board (253 people, carried forward &mdash; no board filed since); MURCH_Plowing_Boring_MT_DC_Tracking dated Jul 31 with ITS control &mdash; 36/46 plow segments (120,738 ft), 17/20 MV bores (5,462 ft), 3/14 DC bores (647 ft); SE_Construction_Tracker_Murch_Solar (SET 24.7%: civil 76.8%, structural 10.8%, electrical 6.0%) and Axel Cano's Jul 31 field reports (piers 14/17); the AB Powers inverter matrix dated Jul 31 (18 of 23 set and welded, ZERO terminated); Daniel Morilla's Jul 30 QA sheets carried forward (piles 24,751 Greensol-approved / 6,836 client-approved; trackers 492 Greensol-approved / 296 client-accepted) &mdash; NO QA SHEET HAS BEEN FILED SINCE Jul 30; the Shreeya Devkota / GameChange thread through Jul 29, including the request for the exact quantity and colour breakdown of piles reported short shipped; Chemik 'Seguimiento envios' thread (air confirmed Jul 28); Rosario Ruiz civil updates (Jul 23); mechanical acceleration resource analysis; current schedule and contract references. Dashboard updated August 1, 2026 on the August 1 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260803c-brumont-late"></script>
+    <script src="data.js?v=20260803d-board"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260803c-brumont-late';
+  const assetVersion = '20260803d-board';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
