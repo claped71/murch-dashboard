@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Aug 4, 2026 - Aug 4 site board loaded: 247 people, up 4 on Aug 3. ECCS 69, United 53, Workforce 48, GreenSol 28, Brumont 15, Latnovva STILL 2 (third day), SSI newly mobilised at 3. Production basis unchanged at Aug 3 EOD: 86 tracker rows completed (first day ever above rate), 4,279 modules, 205 piles, 881 lf of cable, all 23 inverters set. Trackers 1,112 (44.7%), modules 50,342 (29.4%), piles 28,883 (92.1%). Project total 54.4/55.8. Partial-row credit remains suspended.
+// CACHE BUSTER: Aug 4, 2026 - H&S REBUILT on Bethany Valdez's June monthly report and the Aug 4 first-aid notification, replacing a May basis: 321 days with no recordable, 0 LTI, 76,131 man-hours to the June close, June 28,904 across 127 people, 5 property-damage events and 1,179 weather lost hours. Aug 4 first aid - Workforce ankle sprain in Area EW, tall grass over uneven ground, no lost time. July KPIs still being compiled. Production basis unchanged at Aug 3 EOD: trackers 1,112 (44.7%), modules 50,342 (29.4%), piles 28,883 (92.1%), project total 54.4/55.8. Board Aug 4: 247 people.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
