@@ -802,6 +802,37 @@ small {
   align-items: start;
 }
 
+.progress-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.progress-table table {
+  table-layout: auto;
+  font-size: 0.82rem;
+}
+
+.progress-table th,
+.progress-table td {
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+.progress-table td[data-label="Note"],
+.progress-table th:last-child {
+  white-space: normal;
+  min-width: 260px;
+  color: var(--muted);
+}
+
+.progress-table td[data-label="Zone"] { font-weight: 700; }
+
+@media (max-width: 900px) {
+  .progress-table th,
+  .progress-table td { white-space: normal; }
+}
+
 .civil-kpis {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-bottom: 18px;
@@ -1885,11 +1916,11 @@ footer p {
             <button data-progress-view="modules" type="button">Modules by zone</button>
           </div>
         </div>
-        <div class="chart-layout">
+        <div class="progress-layout">
           <div class="chart-panel">
-            <canvas id="progressChart" width="920" height="420" aria-label="Progress chart"></canvas>
+            <canvas id="progressChart" width="1120" height="300" aria-label="Progress chart"></canvas>
           </div>
-          <div class="table-wrap">
+          <div class="table-wrap progress-table">
             <table>
               <thead id="progressHead"></thead>
               <tbody id="progressBody"></tbody>
@@ -2165,12 +2196,12 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's DELIVERY AND MECHANICAL workbook &mdash; the Aug 4 re-export still carries the Jul 28 roll-up of 26,736 installed piles and no zone sheet later than Jul 25, so it adds nothing and the executed basis stays field-led; Aug 1 and Aug 3 WhatsApp field logs (Manuel Ramirez subcontractor blocks, Angel Urbina LV/ITS/All State reports, Audelio Zuniga golden-row note) for the 205 piles, 86 completed tracker rows, 4,279 modules, 403 lf of DC cable and 2,814 lf of CAB messenger wire; Manuel's Aug 3 confirmations that Zone EW closed at 45 rows and that dampers were corrected on 11 lines; the Aug 3 on-site headcount board (243 people, 245 less Crane 2); MURCH_Plowing_Boring_MT_DC_Tracking &mdash; the Aug 4 re-export is unchanged from Jul 31 (36/46 plow segments, 17/20 MV bores, 3/14 DC bores) and no ITS block was filed on Aug 3; the AB Powers inverter matrix (ALL 23 stations set and welded, ZERO terminated); Daniel Morilla's Aug 3 pile and tracker QA update, including his note that release now reads 102% of production in Area E and that Quality begins the module release process this week; the GameChange thread through Jul 29 including the reported pile short shipment; Chemik 'Seguimiento envios' thread; Rosario Ruiz civil updates (Aug 3: the drain-commissioning signature from Heelstone is still outstanding and is holding the fence); current schedule and contract references. Partial tracker rows are reported but NOT credited (Jose, Aug 4) pending reliable step-level reporting. Dashboard updated August 4, 2026 on the August 3 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260804d"></script>
+    <script src="data.js?v=20260804e-table"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260804d';
+  const assetVersion = '20260804e-table';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
@@ -2520,34 +2551,29 @@ footer p {
     const rows = progressView === 'piles' ? data.pilesByZone : progressView === 'modules' ? data.modulesByZone : data.zones;
 
     if (progressView === 'zones') {
-      head.innerHTML = '<tr><th>Zone</th><th>Tracker contractor</th><th>Rows in scope</th><th>Built (100%)</th><th>QA-released</th><th>In progress</th><th>Row-equiv.</th><th>% Built<br><small>gate</small></th><th>% Earned<br><small>incl. WIP</small></th><th>Status</th><th>Note</th></tr>';
-      body.innerHTML = rows.map((row) => {
-        const wip = row.wipRows ? (row.wipStep ? `${fmt(row.wipRows)} <small>@ step ${row.wipStep}/5</small>` : `${fmt(row.wipRows)} <small>across 3 zones</small>`) : '&mdash;';
-        const eq = row.wipEquiv ? row.wipEquiv.toFixed(1) : '&mdash;';
-        const earned = (row.earnedPct === undefined || row.earnedPct === null) ? '&mdash;' : row.earnedPct.toFixed(1) + '%';
-        const lift = (row.earnedPct != null && row.earnedPct > row.done) ? ' style="font-weight:800;color:#0c5f43"' : '';
-        return `
+      const anyWip = rows.some((r) => r.wipRows);
+      head.innerHTML = '<tr><th>Zone</th><th>Contractor</th><th>Scope</th><th>Built</th><th>Released</th>' +
+        (anyWip ? '<th>In prog.</th>' : '') + '<th>% Built</th><th>Status</th><th>Note</th></tr>';
+      body.innerHTML = rows.map((row) => `
         <tr>
-          <td data-label="Zone"><strong>${row.zone}</strong></td>
-          <td data-label="Tracker contractor">${row.contractor}</td>
-          <td data-label="Rows in scope">${fmt(row.scope)}</td>
-          <td data-label="Built (100%)">${fmt(row.installed)}</td>
-          <td data-label="QA-released">${fmt(row.released)}</td>
-          <td data-label="In progress">${wip}</td>
-          <td data-label="Row-equiv.">${eq}</td>
-          <td data-label="% Built (gate)">${row.done.toFixed(1)}%</td>
-          <td data-label="% Earned (incl. WIP)"${lift}>${earned}</td>
+          <td data-label="Zone">${row.zone}</td>
+          <td data-label="Contractor">${row.contractor}</td>
+          <td data-label="Scope">${fmt(row.scope)}</td>
+          <td data-label="Built">${fmt(row.installed)}</td>
+          <td data-label="Released">${fmt(row.released)}</td>
+          ${anyWip ? `<td data-label="In prog.">${row.wipRows ? fmt(row.wipRows) + (row.wipStep ? ` <small>@${row.wipStep}/5</small>` : '') : '&mdash;'}</td>` : ''}
+          <td data-label="% Built">${row.done.toFixed(1)}%</td>
           <td data-label="Status">${badge(row.status)}</td>
           <td data-label="Note">${row.note}</td>
         </tr>
-      `;}).join('');
+      `).join('');
     } else {
       const unit = progressView === 'piles' ? 'Piles' : 'Modules';
-      head.innerHTML = `<tr><th>Zone</th><th>Contractor / sequence</th><th>${unit} in scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>`;
+      head.innerHTML = `<tr><th>Zone</th><th>Contractor</th><th>${unit} scope</th><th>Installed</th><th>Remaining</th><th>% Done</th><th>Status</th><th>Note</th></tr>`;
       body.innerHTML = rows.map((row) => `
         <tr>
-          <td data-label="Zone"><strong>${row.zone}</strong></td>
-          <td data-label="Contractor / sequence">${row.contractor}</td>
+          <td data-label="Zone">${row.zone}</td>
+          <td data-label="Contractor">${row.contractor}</td>
           <td data-label="Scope">${fmt(row.scope)}</td>
           <td data-label="Installed">${fmt(row.installed)}</td>
           <td data-label="Remaining">${fmt(row.remaining)}</td>
