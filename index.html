@@ -460,6 +460,7 @@ small {
 .risk-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
   gap: 14px;
 }
 
@@ -475,12 +476,13 @@ small {
 .quality-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
   gap: 14px;
 }
 
 .safety-grid article,
 .quality-grid article {
-  padding: 17px;
+  padding: 14px 15px;
   background: var(--white);
   border: 1px solid var(--line);
   border-top: 5px solid var(--green);
@@ -500,14 +502,34 @@ small {
 .safety-grid strong,
 .quality-grid strong {
   display: block;
-  margin: 10px 0 7px;
-  font-size: 2rem;
+  margin: 8px 0 6px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.15;
 }
 
 .safety-grid small,
 .quality-grid small {
+  display: block;
   color: var(--muted);
-  line-height: 1.45;
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+.safety-grid small strong,
+.quality-grid small strong,
+.scope-card p strong,
+.risk-card p strong {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.quality-note {
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 .safety-trend {
@@ -759,15 +781,16 @@ small {
 
 .scope-card .metric {
   display: block;
-  margin: 12px 0 8px;
-  font-size: 2rem;
-  font-weight: 850;
+  margin: 8px 0 6px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .scope-card p,
-.risk-card p,
 .insight-panel p {
   color: var(--muted);
+  font-size: 0.85rem;
   line-height: 1.55;
 }
 
@@ -2142,12 +2165,12 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's DELIVERY AND MECHANICAL workbook &mdash; the Aug 4 re-export still carries the Jul 28 roll-up of 26,736 installed piles and no zone sheet later than Jul 25, so it adds nothing and the executed basis stays field-led; Aug 1 and Aug 3 WhatsApp field logs (Manuel Ramirez subcontractor blocks, Angel Urbina LV/ITS/All State reports, Audelio Zuniga golden-row note) for the 205 piles, 86 completed tracker rows, 4,279 modules, 403 lf of DC cable and 2,814 lf of CAB messenger wire; Manuel's Aug 3 confirmations that Zone EW closed at 45 rows and that dampers were corrected on 11 lines; the Aug 3 on-site headcount board (243 people, 245 less Crane 2); MURCH_Plowing_Boring_MT_DC_Tracking &mdash; the Aug 4 re-export is unchanged from Jul 31 (36/46 plow segments, 17/20 MV bores, 3/14 DC bores) and no ITS block was filed on Aug 3; the AB Powers inverter matrix (ALL 23 stations set and welded, ZERO terminated); Daniel Morilla's Aug 3 pile and tracker QA update, including his note that release now reads 102% of production in Area E and that Quality begins the module release process this week; the GameChange thread through Jul 29 including the reported pile short shipment; Chemik 'Seguimiento envios' thread; Rosario Ruiz civil updates (Aug 3: the drain-commissioning signature from Heelstone is still outstanding and is holding the fence); current schedule and contract references. Partial tracker rows are reported but NOT credited (Jose, Aug 4) pending reliable step-level reporting. Dashboard updated August 4, 2026 on the August 3 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260804a-aug3"></script>
+    <script src="data.js?v=20260804b-tidy"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260804a-aug3';
+  const assetVersion = '20260804b-tidy';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
