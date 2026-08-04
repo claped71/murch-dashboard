@@ -889,10 +889,6 @@ canvas {
   height: auto;
 }
 
-#personnelChart {
-  height: auto;
-  min-width: 920px;
-}
 
 #resourceChart {
   height: 300px;
@@ -1239,12 +1235,6 @@ dd {
   gap: 12px;
 }
 
-.personnel-note {
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.5;
-}
 
 .resource-table {
   margin-top: 14px;
@@ -2151,14 +2141,6 @@ footer p {
 
       <section class="section resource-section" id="field-resources">
         <div class="section-heading compact">
-          <p class="eyebrow">Field resources</p>
-          <h2>Mechanical acceleration manpower load required to protect milestones</h2>
-        </div>
-        <div class="chart-panel">
-          <p class="chart-context">Weekly mechanical plan by trade. Values are planned resource loads, not total site headcount; LV electrical personnel are excluded.</p>
-          <canvas id="personnelChart" width="1120" height="520" aria-label="Mechanical acceleration manpower load required to protect project milestones"></canvas>
-        </div>
-        <div class="section-heading compact" style="margin-top:26px">
           <p class="eyebrow">Field snapshot | On-site headcount board, Aug 4, 2026 — 247 people</p>
           <h2>Subcontractor resources reported on site</h2>
         </div>
@@ -2196,7 +2178,6 @@ footer p {
             <div class="milestone-list" id="milestones"></div>
           </div>
         </div>
-        <p class="personnel-note">The stacked histogram is the mechanical acceleration manpower load from the resource analysis document, corrected to align pile resources with the dashboard acceleration schedule through July 28. It includes piling, tracker/purlin installation, and module erection only; LV electrical manpower is not included in this chart and must be controlled separately once Chemik cable installation starts. It shows the trade mix needed to hit the mechanical milestone sequence: piles complete July 28, tracker completion including purlins by August 30 (purlin delivery is no longer a restriction), and modules complete by September 6 — one week after the trackers. The June 30 official manpower total of 148 people (Jul 1 Delivery/Mechanical workbook) includes broader site resources and is therefore shown only in the separate field snapshot, not as a benchmark against the mechanical-only plan.</p>
       </section>
 
       <section class="section risks" id="risks">
@@ -2212,12 +2193,12 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; Audelio's DELIVERY AND MECHANICAL workbook &mdash; the Aug 4 re-export still carries the Jul 28 roll-up of 26,736 installed piles and no zone sheet later than Jul 25, so it adds nothing and the executed basis stays field-led; Aug 1 and Aug 3 WhatsApp field logs (Manuel Ramirez subcontractor blocks, Angel Urbina LV/ITS/All State reports, Audelio Zuniga golden-row note) for the 205 piles, 86 completed tracker rows, 4,279 modules, 403 lf of DC cable and 2,814 lf of CAB messenger wire; Manuel's Aug 3 confirmations that Zone EW closed at 45 rows and that dampers were corrected on 11 lines; the Aug 3 on-site headcount board (243 people, 245 less Crane 2); MURCH_Plowing_Boring_MT_DC_Tracking &mdash; the Aug 4 re-export is unchanged from Jul 31 (36/46 plow segments, 17/20 MV bores, 3/14 DC bores) and no ITS block was filed on Aug 3; the AB Powers inverter matrix (ALL 23 stations set and welded, ZERO terminated); Daniel Morilla's Aug 3 pile and tracker QA update, including his note that release now reads 102% of production in Area E and that Quality begins the module release process this week; the GameChange thread through Jul 29 including the reported pile short shipment; Chemik 'Seguimiento envios' thread; Rosario Ruiz civil updates (Aug 3: the drain-commissioning signature from Heelstone is still outstanding and is holding the fence); current schedule and contract references. Partial tracker rows are reported but NOT credited (Jose, Aug 4) pending reliable step-level reporting. Dashboard updated August 4, 2026 on the August 3 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260804f-hs"></script>
+    <script src="data.js?v=20260804g"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260804f-hs';
+  const assetVersion = '20260804g';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
@@ -2818,120 +2799,6 @@ footer p {
     `;}).join('');
   }
 
-  function drawPersonnelChart() {
-    const canvas = document.getElementById('personnelChart');
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-    const pad = { left: 66, top: 126, right: 28, bottom: 62 };
-    const chartW = width - pad.left - pad.right;
-    const chartH = height - pad.top - pad.bottom;
-    const rows = data.mechanicalManpowerLoad;
-    const max = 150;
-    const groupW = chartW / rows.length;
-    const barW = Math.min(42, groupW * 0.62);
-    const yFor = (value) => pad.top + chartH - (value / max) * chartH;
-    const categoryColors = {
-      pile: '#6b7d94',
-      tracker: '#168a5b',
-      module: '#2f66dc',
-      management: '#d97706'
-    };
-    const drawLabel = (text, x, y, color, align = 'center') => {
-      ctx.font = '800 11px system-ui';
-      const labelW = ctx.measureText(text).width + 18;
-      const boxX = Math.max(4, Math.min(width - labelW - 4, align === 'center' ? x - labelW / 2 : x));
-      ctx.fillStyle = 'rgba(255,255,255,0.96)';
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1;
-      ctx.fillRect(boxX, y - 14, labelW, 22);
-      ctx.strokeRect(boxX, y - 14, labelW, 22);
-      ctx.fillStyle = color;
-      ctx.textAlign = 'left';
-      ctx.fillText(text, boxX + 9, y + 1);
-    };
-
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#fbfcf8';
-    ctx.fillRect(0, 0, width, height);
-
-    const legend = [
-      ['Pile operators', categoryColors.pile],
-      ['Tracker / purlin crew', categoryColors.tracker],
-      ['Module crew', categoryColors.module],
-      ['Mgmt / QC / HSE', categoryColors.management]
-    ];
-    legend.forEach(([label, color], index) => {
-      const x = 28 + index * 255;
-      ctx.fillStyle = color;
-      ctx.fillRect(x, 20, 14, 14);
-      ctx.fillStyle = colors.ink;
-      ctx.font = '700 12px system-ui';
-      ctx.textAlign = 'left';
-      ctx.fillText(label, x + 22, 32);
-    });
-
-    ctx.strokeStyle = colors.line;
-    ctx.lineWidth = 1;
-    [0, 30, 60, 90, 120, 150].forEach((value) => {
-      const y = yFor(value);
-      ctx.beginPath();
-      ctx.moveTo(pad.left, y);
-      ctx.lineTo(width - pad.right, y);
-      ctx.stroke();
-      ctx.fillStyle = colors.muted;
-      ctx.font = '11px system-ui';
-      ctx.textAlign = 'right';
-      ctx.fillText(String(value), pad.left - 10, y + 4);
-    });
-
-    rows.forEach((row, index) => {
-      const center = pad.left + groupW * index + groupW / 2;
-      let running = 0;
-      ['pile', 'tracker', 'module', 'management'].forEach((key) => {
-        const value = row[key];
-        if (!value) return;
-        const yTop = yFor(running + value);
-        const yBottom = yFor(running);
-        ctx.fillStyle = categoryColors[key];
-        ctx.fillRect(center - barW / 2, yTop, barW, yBottom - yTop);
-        running += value;
-      });
-      ctx.fillStyle = colors.ink;
-      ctx.font = '800 11px system-ui';
-      ctx.textAlign = 'center';
-      ctx.fillText(String(row.total), center, yFor(row.total) - 8);
-
-      ctx.fillStyle = colors.ink;
-      ctx.font = '800 11px system-ui';
-      ctx.textAlign = 'center';
-      ctx.fillText(row.week, center, height - 28);
-    });
-
-    data.mechanicalManpowerMilestones.forEach((milestone) => {
-      const index = rows.findIndex((row) => row.week === milestone.week);
-      if (index < 0) return;
-      const x = pad.left + groupW * index + groupW / 2;
-      ctx.strokeStyle = milestone.color;
-      ctx.setLineDash([4, 4]);
-      ctx.beginPath();
-      ctx.moveTo(x, pad.top);
-      ctx.lineTo(x, pad.top + chartH);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      drawLabel(milestone.label, x, 69 + milestone.row * 27, milestone.color);
-    });
-
-    const baselineY = yFor(66);
-    ctx.strokeStyle = 'rgba(12, 95, 67, 0.58)';
-    ctx.setLineDash([2, 5]);
-    ctx.beginPath();
-    ctx.moveTo(pad.left, baselineY);
-    ctx.lineTo(width - pad.right, baselineY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    drawLabel('Original baseline peak · 66', width - pad.right - 92, baselineY - 8, '#0c5f43');
-  }
 
   function drawResourceChart() {
     const canvas = document.getElementById('resourceChart');
@@ -3011,7 +2878,6 @@ footer p {
     document.getElementById('scheduleFilter').addEventListener('change', renderSchedule);
     window.addEventListener('resize', () => {
       drawProgressChart(progressView === 'piles' ? data.pilesByZone : progressView === 'modules' ? data.modulesByZone : data.zones);
-      drawPersonnelChart();
       drawResourceChart();
     });
   }
@@ -3026,7 +2892,6 @@ footer p {
   renderSuccessors();
   renderTimeline();
   renderSchedule();
-  drawPersonnelChart();
   drawResourceChart();
   renderMilestones();
   renderRisks();

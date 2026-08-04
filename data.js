@@ -449,29 +449,6 @@ window.MURCH_DATA = {
  { label: 'Greensol site team', actual: 28, target: 20, targetLabel: '13 staff + 7 labor', note: 'Aug 3: 25, up 5 on Jul 30 — management, QA/QC, safety and self-perform supervision. The increase is consistent with the request to put GreenSol people onto the LV cable pull.' },
  { label: 'Civil & environmental crew', actual: 3, committed: 3, target: 15, targetLabel: '15 civil/environmental', note: 'Aug 4: Topland (3, internal roads) only. Kalamazoo, Hurricane, Lounsbury, ECS, Westwood and SWCA all at zero. Internal roads are still open at 72% with a three-person crew.' }
  ],
- mechanicalManpowerLoad: [
- { week: 'Jun 22', pile: 9, tracker: 16, module: 0, management: 13, total: 38 },
- { week: 'Jun 29', pile: 10, tracker: 28, module: 0, management: 13, total: 51 },
- { week: 'Jul 6', pile: 10, tracker: 35, module: 0, management: 13, total: 58 },
- { week: 'Jul 13', pile: 35, tracker: 50, module: 41, management: 20, total: 146 },
- { week: 'Jul 20', pile: 10, tracker: 50, module: 37, management: 13, total: 110 },
- { week: 'Jul 27', pile: 10, tracker: 42, module: 40, management: 13, total: 105 },
- { week: 'Aug 3', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
- { week: 'Aug 10', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
- { week: 'Aug 17', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
- { week: 'Aug 24', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
- { week: 'Sep 7', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
- { week: 'Sep 14', pile: 0, tracker: 42, module: 40, management: 13, total: 95 },
- { week: 'Sep 21', pile: 0, tracker: 0, module: 40, management: 10, total: 50 },
- { week: 'Sep 28', pile: 0, tracker: 0, module: 40, management: 10, total: 50 },
- { week: 'Oct 5', pile: 0, tracker: 0, module: 0, management: 5, total: 5 }
- ],
- mechanicalManpowerMilestones: [
- { week: 'Jun 22', label: 'Acceleration plan starts', color: '#b53030', row: 0 },
- { week: 'Jul 27', label: 'Piles complete · Jul 28', color: '#66716d', row: 1 },
- { week: 'Aug 24', label: 'Trackers incl. purlins · Aug 30', color: '#168a5b', row: 0 },
- { week: 'Sep 7', label: 'Modules · Sep 6', color: '#2769a8', row: 1 }
- ],
  personnelOutlook: [
  { week: 'W22', date: 'May 25', people: 135 },
  { week: 'W23', date: 'Jun 1', people: 281 },
