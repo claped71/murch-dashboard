@@ -84,17 +84,26 @@
             <div style="font-size:30px; font-weight:700;">Production by Sub — last reported day</div>
             <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.08em; color:#6B7269;">{{ todayCaption }}</div>
           </div>
-          <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 190px 1.1fr; align-items:center; gap:20px; padding:0 24px 16px; font-family:'IBM Plex Mono',monospace; font-size:19px; letter-spacing:.08em; color:#6B7269; border-bottom:2px solid #1A1F1C;">
-            <div></div><div>SUB</div><div>SCOPE OF WORK</div><div style="text-align:right;">{{ todayLabel }}</div><div style="text-align:right;">STATUS</div>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:16px; margin-top:18px; flex:1;">
-            <sc-for list="{{ today }}" as="row" hint-placeholder-count="5">
-              <div style="display:grid; grid-template-columns:24px 1.3fr 1.4fr 190px 1.1fr; align-items:center; gap:20px; background:#F5F6F4; border:1px solid #E3E5E1; border-radius:14px; padding:22px 24px; flex:1;">
-                <div style="width:8px; align-self:stretch; border-radius:4px; background:{{ row.accent }};"></div>
-                <div style="display:flex; align-items:center; min-width:0; overflow:hidden;"><div role="img" aria-label="{{ row.sub }}" style="{{ row.logoStyle }}"></div><span class="subname" style="{{ row.nameStyle }}">{{ row.sub }}</span></div>
-                <div style="font-size:26px; color:#6B7269;">{{ row.scope }}</div>
-                <div style="font-family:'Barlow Semi Condensed',sans-serif; font-size:60px; font-weight:700; text-align:right; color:{{ row.qtyColor }}; line-height:.9;">{{ row.qty }}</div>
-                <div style="font-size:24px; font-weight:600; text-align:right; color:{{ row.noteColor }};">{{ row.note }}</div>
+          <div style="display:grid; grid-template-columns:repeat({{ todayCols }}, 1fr); grid-auto-rows:1fr; gap:16px; flex:1; min-height:0;">
+            <sc-for list="{{ today }}" as="row" hint-placeholder-count="10">
+              <div style="position:relative; background:#F5F6F4; border:1px solid #E3E5E1; border-top:6px solid {{ row.accent }}; border-radius:16px; padding:18px 20px 16px; box-sizing:border-box; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+                <div style="display:flex; align-items:center; gap:12px; min-height:56px;">
+                  <div role="img" aria-label="{{ row.sub }}" style="{{ row.logoStyle }}"></div>
+                  <div style="{{ row.badgeStyle }}">{{ row.initials }}</div>
+                  <div style="min-width:0; font-size:25px; font-weight:700; line-height:1.02;">{{ row.sub }}</div>
+                </div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:15px; letter-spacing:.06em; color:#6B7269; margin-top:8px; text-transform:uppercase;">{{ row.scope }}</div>
+                <div style="margin-top:auto; padding-top:8px; display:flex; align-items:baseline; gap:9px;">
+                  <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:72px; font-weight:700; line-height:.82; color:{{ row.qtyColor }};">{{ row.qty }}</span>
+                  <span style="font-size:20px; color:#6B7269;">{{ row.unit }}</span>
+                </div>
+                <div style="margin-top:10px; height:10px; background:#E3E5E1; border-radius:5px; overflow:hidden;">
+                  <div style="width:{{ row.barStr }}; height:100%; background:{{ row.accent }};"></div>
+                </div>
+                <div style="display:flex; justify-content:flex-end; margin-top:6px;">
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; white-space:nowrap; color:{{ row.noteColor }};">{{ row.vsLabel }}</span>
+                </div>
+                <div style="margin-top:4px; font-size:19px; font-weight:600; color:#3A443E; line-height:1.18;">{{ row.short }}</div>
               </div>
             </sc-for>
           </div>
@@ -228,7 +237,7 @@
 </template></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:540}}">
 class Component extends DCLogic {
-  dataUrl = "https://claped71.github.io/murch-dashboard/data.js";
+  dataUrl = "../data.js"; // same deployment as this page — the display can never be fresher or staler than the dashboard it sits inside
   rotateMs = 12000;
 
   fallback = {
@@ -350,14 +359,18 @@ class Component extends DCLogic {
     };
     const latestT = score.reduce((mx, r) => Math.max(mx, parseD(r.date)), 0);
     const latestDate = (score.find(r => parseD(r.date) === latestT) || {}).date;
-    const dayRows = latestDate ? score.filter(r => r.date === latestDate) : score.slice(0, 6);
+    const dayRows = latestDate ? score.filter(r => r.date === latestDate) : score.slice(0, 12);
     const todayLabel = latestDate || "";
-    const today = dayRows.slice(0, 6).map(r => {
+    const today = dayRows.slice(0, 12).map(r => {
       const val = (r.perUnit != null ? r.perUnit : r.output);
-      const ratio = r.criterion ? val / r.criterion : 1;
-      const status = ratio >= 0.9 ? "good" : ratio >= 0.5 ? "neutral" : "bad";
+      const hasTarget = !!r.criterion;
+      const ratio = hasTarget ? val / r.criterion : 1;
+      const status = !hasTarget ? "neutral" : ratio >= 0.9 ? "good" : ratio >= 0.5 ? "neutral" : "bad";
+      const short = r.short || String(r.resource || "").split(/[.;]/)[0].trim().slice(0, 46);
       return { sub: r.contractor, scope: r.trade, qty: this.commas(r.output),
-               status, note: r.resource || (Math.round(ratio * 100) + "% of criterion") };
+               unit: r.unit || "", status, hasTarget, ratio, short,
+               vsLabel: hasTarget ? (Math.round(ratio * 100) + "% of target") : "no daily target",
+               note: short };
     });
 
     const pileTask = (D.dailyProductionHistory || []).find(t => /pile/i.test(t.task));
@@ -462,26 +475,43 @@ class Component extends DCLogic {
     if (d.set) kpis.push({ label: "SUBSTATION (SET)", pctLabel: String(this.pctLabel(d.set.pct)),
       pctStr: Math.max(2, Math.round(d.set.pct)) + "%", detail: "AB Power \u00b7 MC Sep 25" });
 
+    // Latnovva was removed Aug 6, 2026 — contract terminated; never re-add it here.
     const LOGOS = {
       united:   "https://www.unitedservices.work/wp-content/uploads/2022/08/a.png",
       eccs:     "https://eccssolargroup.com/wp-content/uploads/2026/05/image-removebg-preview.png",
       its:      "https://itsenergy.ca/wp-content/uploads/2023/12/its_logo_new1-colour-on-transparent-background.png",
-      latnovva: "https://www.latnovva.com/wp-content/uploads/2023/11/latnovva-logo.svg",
-      brumont:  "https://brumont.cl/brand/brumont-logo-dark.png"
+      brumont:  "https://brumont.cl/brand/brumont-logo-dark.png",
+      greensol: "../assets/greensol_logo_green_transparent.png"
+      // abpower: no public logo found — drop a file in assets/ and add its path here
     };
-    const LOGO_BOX = "flex:0 0 auto; height:58px; width:220px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
-    const NAME_ST = "font-size:34px; font-weight:700;";
+    const BRAND = {
+      united: { c: "#2769A8", i: "US" }, workforce: { c: "#168A5B", i: "WF" },
+      brumont: { c: "#0C5F43", i: "BR" }, eccs: { c: "#8A4DBF", i: "EC" },
+      its: { c: "#B96F18", i: "IT" }, abpower: { c: "#B53030", i: "AB" },
+      digit: { c: "#4A5B53", i: "DI" }, topland: { c: "#7A6A3A", i: "TP" },
+      hitech: { c: "#2A7D8C", i: "HT" }, ssi: { c: "#C08A2E", i: "SS" },
+      allstate: { c: "#3E6C9B", i: "AS" }, greensol: { c: "#0C5F43", i: "GS" }
+    };
+    const LOGO_BOX = "flex:0 0 auto; height:52px; width:120px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
+    const BADGE_BOX = "flex:0 0 auto; width:52px; height:52px; border-radius:13px; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Barlow Semi Condensed',sans-serif; font-size:24px; font-weight:700; background:";
     const today = (d.today || []).map(r => {
-      const key = String(r.sub || "").toLowerCase().replace(/[^a-z]/g, "");
+      // "ECCS (electrical)" and "Workforce (racking)" share their parent brand
+      const base = String(r.sub || "").split("\u2014")[0].replace(/\(.*?\)/g, "").trim();
+      const key = base.toLowerCase().replace(/[^a-z]/g, "");
+      const crew = (String(r.sub || "").match(/\((.*?)\)/) || [])[1] || "";
       const logo = LOGOS[key] || null;
-      const logoFix = { latnovva: " filter:brightness(0) saturate(100%);" }[key] || "";
+      const b = BRAND[key] || { c: "#6B7269", i: (key.slice(0, 2) || "--").toUpperCase() };
+      const barPct = r.hasTarget ? Math.max(2, Math.min(100, Math.round((r.ratio || 0) * 100))) : 0;
       return {
-        sub: r.sub, scope: r.scope, qty: r.qty, note: r.note,
-        accent: r.status === "bad" ? "#D24B3E" : "#1F8A4C",
+        sub: base, scope: crew ? (r.scope + " \u00b7 " + crew) : r.scope,
+        qty: r.qty, unit: r.unit || "", short: r.short || "", vsLabel: r.vsLabel || "",
+        barStr: barPct + "%",
+        initials: b.i,
+        logoStyle: logo ? (LOGO_BOX + " background-image:url('" + logo + "');") : "display:none;",
+        badgeStyle: logo ? "display:none;" : (BADGE_BOX + b.c + ";"),
+        accent: r.status === "bad" ? "#D24B3E" : r.status === "neutral" ? "#6B7269" : "#1F8A4C",
         qtyColor: r.status === "bad" ? "#D24B3E" : "#14603A",
-        noteColor: CMAP[r.status] || "#6B7269",
-        logoStyle: logo ? (LOGO_BOX + " background-image:url('" + logo + "');" + logoFix) : "display:none;",
-        nameStyle: logo ? (NAME_ST + " display:none;") : NAME_ST
+        noteColor: CMAP[r.status] || "#6B7269"
       };
     });
 
@@ -556,7 +586,8 @@ class Component extends DCLogic {
       timeStr,
       showOverview: cur === 0, showToday: cur === 1, showScope: cur === 2, showDeadlines: cur === 3, showManpower: cur === 4,
       kpis, kpiCols: String(kpis.length), today, todayLabel: (d.todayLabel || "").toUpperCase(),
-      todayCaption: d.todayLabel ? ("LAST REPORTED DAY  ·  " + d.todayLabel) : "",
+      todayCols: String(today.length <= 4 ? Math.max(1, today.length) : today.length <= 8 ? 4 : 5),
+      todayCaption: (d.todayLabel ? ("LAST REPORTED DAY  \u00b7  " + d.todayLabel) : "") + "  \u00b7  " + today.length + " REPORTING",
       scopes, deadlines, manpower, manpowerCats, manpowerTotal: String(mpTotal), manpowerDate: mp.date || "",
       deadlineCols: Math.max(1, deadlines.length),
       safetyDays: String((d.safety && d.safety.daysLtiFree) ?? 0),
