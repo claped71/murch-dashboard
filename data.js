@@ -14,6 +14,8 @@ window.MURCH_DATA = {
  set: { pct: 24.7, gate: '2026-09-25', gateLabel: 'Sep 25', name: 'Substation (SET)', unit: '%', earnedPct: 24.7, planToDate: 45, basis: 'AB Powers tracker Jul 31: civil 76.8%, structural 10.8%, electrical 6.0%. PIERS NOW 17 OF 17 - Dig It poured the last pending pier on Aug 5, so every substation foundation is complete; the composite moves when AB Power files the next tracker cut' },
  mc: { target: 'Sep 25', forecast: 'Sep 20-25', name: 'Mechanical Completion' }
  },
+ safetyDaysLtiFree: 323,
+ safetyBasis: '286 recordable-free days at the June close (Bethany Valdez, EHS Site Manager) plus 37 days to Aug 6. The Aug 4 first aid (ankle sprain, tall grass) is not a recordable. July KPIs still being compiled.',
  wipReportingRule: {
  adopted: 'Jul 30, 2026 (Jose Romero)',
  rule: 'A <strong>Reported count of unfinished trackers is</strong> A <strong>Snapshot, never an increment</strong>. When a subcontractor reports partial rows, that number is a photograph of the total partial rows standing in the project for that crew at that moment. It REPLACES the previous open-row figure for that crew; it is never added to the rows they reported open on earlier days.',
