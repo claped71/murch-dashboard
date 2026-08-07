@@ -443,17 +443,38 @@ class Component extends DCLogic {
      .concat((D.civilActivities || []).slice(0, 3).map(a => ({ label: a.activity, pct: a.done })))
      .map(sc => ({ ...sc, target: schedPct(sc.label) }));
 
-    const gateStatus = (g) => (g.capacity && g.required && g.capacity < g.required) ? "at-risk" : "ok";
-    const gateNote = (g) => (g.capacity && g.required)
-      ? (this.commas(g.capacity) + "/day capacity vs " + this.commas(g.required) + " needed") : "";
+        // Milestone health = DEMONSTRATED recent rate vs REQUIRED rate — never a default green.
+    // A gate whose date has passed with quantity remaining is at-risk, full stop.
+    const histRate = (re2) => {
+      const t = (D.dailyProductionHistory || []).find(x => re2.test(x.task));
+      const a = ((t && t.daily) || []).slice(-5).map(x => Number(x.value) || 0);
+      return a.length ? a.reduce((p, c) => p + c, 0) / a.length : null;
+    };
+    const lvOutputs = score.filter(r => /LV/i.test(r.trade || "")).slice(0, 3).map(r => Number(r.output) || 0);
+    const lvRate = lvOutputs.length ? lvOutputs.reduce((a, b) => a + b, 0) / lvOutputs.length : null;
+    const gateHealth = (g, rate) => {
+      const rem = (g.total || 0) - (g.installed || 0);
+      if (rem <= 0) return { status: "ok", note: "Complete" };
+      if (g.gate && Date.parse(g.gate) < Date.now())
+        return { status: "at-risk", note: this.commas(rem) + " remaining \u2014 gate date passed, revised date owed" };
+      const req = Number(g.required) || 0;
+      if (!req || rate == null) return { status: "warn", note: this.commas(rem) + " remaining" };
+      const ratio = rate / req;
+      const note = this.commas(Math.round(rate)) + "/day recent vs " + this.commas(req) + "/day needed";
+      return { status: ratio >= 0.95 ? "ok" : ratio >= 0.6 ? "warn" : "at-risk", note };
+    };
+    const hPiles = gateHealth(C.piles, histRate(/pile/i));
+    const hTrk = gateHealth(C.trackers, histRate(/tracker/i));
+    const hMod = gateHealth(C.modules, histRate(/module/i));
+    const hLV = C.electrical ? gateHealth(C.electrical, lvRate) : null;
     const deadlines = [
-      { label: "Piles complete", date: C.piles.gateLabel, status: gateStatus({ ...C.piles, capacity: pilesCap }), note: gateNote({ ...C.piles, capacity: pilesCap }) },
-      { label: C.trackers.name || "Trackers complete", date: C.trackers.gateLabel, status: gateStatus(C.trackers), note: gateNote(C.trackers) },
-      { label: "Modules complete", date: C.modules.gateLabel, status: gateStatus(C.modules), note: gateNote(C.modules) },
-      ...(C.electrical ? [{ label: (C.electrical.name || "LV Electrical") + " complete", date: C.electrical.gateLabel,
-          status: (C.electrical.installed > 0 ? gateStatus(C.electrical) : "warn"),
-          note: C.electrical.required ? (this.commas(C.electrical.required) + " lf/day needed to hold gate") : "" }] : []),
-      { label: (C.mc && C.mc.name) || "Mechanical Completion", date: (C.mc && C.mc.target) || "—", status: "warn", note: (C.mc && C.mc.forecast) ? ("Forecast " + C.mc.forecast) : "" }
+      { label: "Piles complete", date: C.piles.gateLabel, status: hPiles.status, note: hPiles.note },
+      { label: C.trackers.name || "Trackers complete", date: C.trackers.gateLabel, status: hTrk.status, note: hTrk.note },
+      { label: "Modules complete", date: C.modules.gateLabel, status: hMod.status, note: hMod.note },
+      ...(hLV ? [{ label: (C.electrical.name || "LV Electrical") + " complete", date: C.electrical.gateLabel, status: hLV.status, note: hLV.note }] : []),
+      { label: (C.mc && C.mc.name) || "Mechanical Completion", date: (C.mc && C.mc.target) || "\u2014",
+        status: (hPiles.status === "at-risk" || hLV && hLV.status === "at-risk") ? "at-risk" : "warn",
+        note: ((C.mc && C.mc.forecast) ? ("Forecast " + C.mc.forecast + " \u2014 ") : "") + "carried by the pile re-forecast and the LV ramp" }
     ];
 
     const CATLABEL = { pile: "Pile / structural", module: "Module install", electrical: "Electrical / SET",
@@ -548,7 +569,7 @@ class Component extends DCLogic {
       const hasT = (s.target !== null && s.target !== undefined);
       const LGST = "flex:0 0 auto; width:66px; height:32px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
       const gap = hasT ? (s.target - s.pct) : 0;
-      const critColor = (s.critical && gap >= 8) ? "#D24B3E" : (s.critical && gap > 0) ? "#E0902A" : null;
+      const critColor = (hasT && gap >= 8) ? "#D24B3E" : (hasT && gap > 0) ? "#E0902A" : null;
       return {
         label: s.label,
         pctLabel: String(this.pctLabel(s.pct, s.override)),
