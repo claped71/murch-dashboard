@@ -400,13 +400,6 @@ window.MURCH_DATA = {
  { contractor: 'TOPLAND', people: 2, label: '2 · roads COMPLETE - drawing down' },
  { contractor: 'HI TECH', people: 2, label: '2 · substation & QI' },
  { contractor: 'ROVERI SEC.', people: 1, label: '1 · site security' },
- { contractor: 'SSI', people: 0, label: '0 · SURVEY AT ZERO - was 4' },
- { contractor: 'KALAMAZOO', people: 0, label: '0 · excavation support (off site)' },
- { contractor: 'ECS', people: 0, label: '0 · environmental (off site)' },
- { contractor: 'HURRICANE', people: 0, label: '0 · fencing (off site)' },
- { contractor: 'LOUNSBURY', people: 0, label: '0 · earthworks (off site)' },
- { contractor: 'WESTWOOD', people: 0, label: '0 · civil consulting (off site)' },
- { contractor: 'SWCA', people: 0, label: '0 · environmental' }
  ],
  todayFieldSnapshot: {
  date: 'Aug 6, 2026',
@@ -423,18 +416,8 @@ window.MURCH_DATA = {
  { contractor: 'TOPLAND', people: 2, category: 'civil', note: 'Flat at 2 on a finished scope — <strong>internal roads closed Aug 4 at 100%</strong>. Drawing down.' },
  { contractor: 'HI TECH', people: 2, category: 'electrical', note: 'Flat. Substation grounding, commissioning support and Quality Inspector coordination.' },
  { contractor: 'ROVERI SEC.', people: 1, category: 'support', note: 'Site security.' },
- { contractor: 'SSI', people: 0, category: 'pile', note: '<strong>SURVEY AT ZERO — down from 4.</strong> Set-out and pile-position verification are what feed a driving crew, and this drops to nothing the day after United opened Area D with 1,420 piles to place. <strong>This is the flag of the day</strong>: get the survey crew back before the new front stalls on set-out.' },
- { contractor: 'KALAMAZOO', people: 0, category: 'support', note: 'No crew on site.' },
- { contractor: 'HURRICANE', people: 0, category: 'civil', note: 'No fencing crew. Fence 95%; the drain-commissioning signature from Heelstone is still outstanding and is holding the remainder.' },
- { contractor: 'LOUNSBURY', people: 0, category: 'civil', note: 'No crew — cut/fill complete Jul 17; sediment basins 95% with the Area G and F tail outstanding.' },
- { contractor: 'ECS', people: 0, category: 'civil', note: 'No crew on site.' },
- { contractor: 'WESTWOOD', people: 0, category: 'support', note: 'No crew on site.' },
- { contractor: 'SWCA', people: 0, category: 'support', note: 'No crew on site.' },
- { contractor: 'BRIGHTFIELD', people: 0, category: 'support', note: 'On the board, no crew — mobilisation still unconfirmed.' },
- { contractor: 'TVANT', people: 0, category: 'support', note: 'On the board, no crew — mobilisation still unconfirmed.' },
- { contractor: 'CRANE', people: 0, category: 'support', note: 'No crew on site.' }
  ],
- note: 'Source: the on-site headcount board photographed Aug 6, reconciled against the Aug 5 subcontractor reports. Total <strong>238</strong>, down 10 from Aug 5, and for the first time the named companies sum EXACTLY to the board total - no blank rows. <strong>Latnovva is off the board entirely</strong>: the Aug 6 termination is executed in the field. <strong>United is up 4 to 59</strong>, its highest on this project, which is the crew beginning to answer the second pile front it opened in Area D and the scope it inherited. The item to act on is <strong>SSI survey at ZERO, down from 4</strong> - set-out and pile-position verification feed the driving crew, and it goes to nothing the day after a front with 1,420 piles opened. Dig It is confirmed at 3, settling the Aug 5 discrepancy: they poured the last substation pier and piers stand at 17 of 17. The 10-person drawdown falls on GreenSol, ECCS, Workforce and survey - none of it comes off the fronts that must accelerate, and none of it adds to them either.'
+ note: 'Crews at zero are not listed - the board names them (Latnovva terminated; SSI survey at ZERO, the flag of the day; Hurricane, Lounsbury, Kalamazoo, ECS, Westwood, SWCA, Brightfield, TVANT off site). Source: the on-site headcount board photographed Aug 6, reconciled against the Aug 5 subcontractor reports. Total <strong>238</strong>, down 10 from Aug 5, and for the first time the named companies sum EXACTLY to the board total - no blank rows. <strong>Latnovva is off the board entirely</strong>: the Aug 6 termination is executed in the field. <strong>United is up 4 to 59</strong>, its highest on this project, which is the crew beginning to answer the second pile front it opened in Area D and the scope it inherited. The item to act on is <strong>SSI survey at ZERO, down from 4</strong> - set-out and pile-position verification feed the driving crew, and it goes to nothing the day after a front with 1,420 piles opened. Dig It is confirmed at 3, settling the Aug 5 discrepancy: they poured the last substation pier and piers stand at 17 of 17. The 10-person drawdown falls on GreenSol, ECCS, Workforce and survey - none of it comes off the fronts that must accelerate, and none of it adds to them either.'
  },
  equipmentNotes: [
  { contractor: 'GreenSol', equipment: 'Site trucks and laptops for management/QC field use; no heavy equipment assigned.', output: 'Daily site walk, safety audits, and progress verification.' },
@@ -560,7 +543,7 @@ window.MURCH_DATA = {
  var canvas = document.getElementById('resourceChart');
  if (!canvas) return;
  var snapshot = d.todayFieldSnapshot;
- var rows = snapshot.rows.slice().sort(function (a, b) { return b.people - a.people; });
+ var rows = snapshot.rows.filter(function (r) { return r.people > 0; }).sort(function (a, b) { return b.people - a.people; });
  var catColors = { epc: '#0c5f43', tracker: '#0a3d2a', pile: '#2769a8', module: '#168a5b', electrical: '#8a4dbf', civil: '#b96f18', set: '#b53030', support: '#9aa39d' };
  var catLabels = { epc: 'GreenSol EPC team', tracker: 'Tracker installation', pile: 'Pile driving', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / fencing', set: 'Substation', support: 'Support / no crew' };
  var rowH = 30;
