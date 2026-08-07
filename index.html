@@ -2223,7 +2223,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; the Aug 7 DELIVERY AND MECHANICAL workbook &mdash; its block-map roll-up caught up to 28,713 with Zone G at 2,854, reconciled per zone against the field ledger (B, D and E still lead the workbook) for the 29,308 executed basis; the Aug 6 WhatsApp field logs (Manuel Ramirez subcontractor blocks, Angel Urbina LV / ITS / AB Power reports) for the 149 Zone D piles, 29 completed tracker rows, 3,848 modules and 2,560 lf of DC cable across 7 LBDs; Manuel&rsquo;s Zone F racking snapshot (881 row tubes, 67 racks tubed, 68 racks aligned) and Workforce&rsquo;s 18 level-2 rows in Zone B; Axel Cano&rsquo;s report from the steel fabricator in Le&oacute;n &mdash; 34.5kV structure galvanized, balance shipping Monday Aug 10 for site delivery Saturday Aug 15, Polesa poles quoted Sep 4 (rejected) with the Houston quote due Aug 7; Angel&rsquo;s ITS report (ninth day on the wetland bores; megger FAILURE on phase 1 of MVJB-12B-02 to 12B-01); the Aug 6 on-site headcount board (238); Daniel Morilla&rsquo;s QA position (controlling cut still Jul 30); the GameChange thread through Jul 29; Chemik &lsquo;Seguimiento env&iacute;os&rsquo; thread; Bethany Valdez H&amp;S reports; current schedule and contract references. Ladder credit on partial tracker rows RESUMED Aug 7 (Jose) after two clean days of step-level reporting; the completion gate still counts finished rows only. Dashboard updated August 7, 2026 on the August 6 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260807d"></script>
+    <script src="data.js?v=20260807e"></script>
     <script>
 'use strict';
 
@@ -2981,34 +2981,49 @@ footer p {
           '</div></article>');
       });
       (function(){ var e = C.electrical; if(e){ var pct=(e.installed/e.total*100).toFixed(1);
+        // LV finish at current rate — demonstrated rate from the last three reported LV days
+        var lvVals = (D.contractorScore || []).filter(function(r){ return /LV/i.test(r.trade || ''); }).slice(0, 3).map(function(r){ return Number(r.output) || 0; });
+        var lvRate = lvVals.length ? lvVals.reduce(function(a,b){ return a+b; }, 0) / lvVals.length : 0;
+        var lvRem = e.total - e.installed;
+        var lvProj = lvRate > 0 ? addWd(today, Math.ceil(lvRem / lvRate)) : null;
         strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile rag-red"><h3>' + e.name + ' · gate ' + e.gateLabel + '</h3>' +
           '<div class="gate-big">' + e.installed.toLocaleString() + ' <em>/ ' + e.total.toLocaleString() + ' lf (' + pct + '%)</em></div>' +
           '<div class="gate-rows">' +
-          'Required rate: <b>' + e.required.toLocaleString() + ' ' + e.unit + ' to ' + e.gateLabel + '</b><br>' +
-          'Pulled to date: <b>' + e.installed.toLocaleString() + ' lf (0.0%)</b><br>' +
-          'Binding gate: <b>Chemik material by AIR before end Aug</b><br>' +
-          '<span class="gate-pill">MATERIAL-GATED · kick-off Jul 21</span>' +
+          'Required now: <b>' + e.required.toLocaleString() + ' ' + e.unit + '</b><br>' +
+          'Actual (last 3 pull days): <b>' + Math.round(lvRate).toLocaleString() + ' lf/day</b><br>' +
+          'Projected finish at current rate: <b>' + (lvProj ? fmtD(lvProj) : 'n/a — no measured rate') + '</b><br>' +
+          '<span class="gate-pill">SECOND CABLE GANG REQUIRED</span>' +
           '</div></article>'); } })();
       (function(){ var M = C.mv, S = C.set;
-        if (M) strip.insertAdjacentHTML('beforeend',
-          '<article class="gate-tile rag-amber"><h3>' + M.name + ' \u00b7 gate ' + M.gateLabel + '</h3>' +
+        // Both tiles derive their lines from the progress blocks so they can no longer go stale,
+        // and each states its finish position at the current rate like every other gate card.
+        if (M) { var mp = D.mvProgress || {}; var comp = mp.components || [];
+          var find = function(re){ return comp.filter(function(c){ return re.test(c.component || ''); })[0] || {}; };
+          var plow = find(/plowing/i), bore = find(/HDD|bores/i), duct = find(/duct/i), term = find(/termination/i);
+          var idleWd = function(re){ var d = series(re); var n = 0; for (var k = d.length - 1; k >= 0 && !(Number(d[k].value) > 0); k--) n++; return n; };
+          var plowIdle = idleWd(/plowing/i), boreIdle = idleWd(/boring/i);
+          var stopped = plowIdle >= 3 && boreIdle >= 3;
+          strip.insertAdjacentHTML('beforeend',
+          '<article class="gate-tile rag-red"><h3>' + M.name + ' \u00b7 gate ' + M.gateLabel + '</h3>' +
           '<div class="gate-big">' + M.pct.toFixed(1) + '% <em>weighted composite</em></div>' +
           '<div class="gate-rows">' +
-          'Plowing: <b>36 / 46 segments (120,738 ft)</b><br>' +
-          'MV bores: <b>17 / 20</b> \u00b7 DC ducts: <b>2 / 14</b><br>' +
-          'MV terminations: <b>0 / 138</b><br>' +
-          '<span class="gate-pill">MOST ADVANCED ELECTRICAL FRONT</span>' +
-          '</div></article>');
-        if (S) strip.insertAdjacentHTML('beforeend',
+          'Plowing: <b>' + (plow.done != null ? plow.done : '?') + ' / ' + String(plow.scope || '').replace(/[^0-9]/g,'') + ' segments</b> \u00b7 bores: <b>' + (bore.done != null ? bore.done : '?') + ' / ' + String(bore.scope || '').replace(/[^0-9]/g,'') + '</b><br>' +
+          'DC ducts: <b>' + (duct.done != null ? duct.done : '?') + ' / 14</b> \u00b7 terminations: <b>' + (term.done != null ? term.done : '?') + ' / 138</b><br>' +
+          'Projected finish at current rate: <b>' + (stopped ? ('none \u2014 plough idle ' + plowIdle + ' wd, last bore ' + boreIdle + ' wd ago') : 'recomputes when a segment closes') + '</b><br>' +
+          '<span class="gate-pill">' + (stopped ? 'FRONT STOPPED \u2014 SPLIT THE CREW' : 'IN PROGRESS') + '</span>' +
+          '</div></article>'); }
+        if (S) { var sp = D.setProgress || {}; var sc = sp.components || [];
+          var g2 = function(re){ var c = sc.filter(function(x){ return re.test(x.component || ''); })[0]; return c ? c.pct.toFixed(1) : '?'; };
+          strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile rag-red"><h3>' + S.name + ' \u00b7 gate ' + S.gateLabel + '</h3>' +
           '<div class="gate-big">' + S.pct.toFixed(1) + '% <em>vs ~' + S.planToDate + '% plan-to-date</em></div>' +
           '<div class="gate-rows">' +
-          'Civil <b>65.6%</b> \u00b7 structural <b>10.8%</b> \u00b7 electrical <b>5.7%</b><br>' +
-          'Piers: <b>7 / 17</b> \u00b7 transformer <b>SET Jul 24</b><br>' +
-          'Binding: <b>structural steel + breakers in fabrication</b><br>' +
-          '<span class="gate-pill">WORST VARIANCE ON THE PROJECT</span>' +
-          '</div></article>'); })();
+          'Civil <b>' + g2(/civil/i) + '%</b> \u00b7 structural <b>' + g2(/structural/i) + '%</b> \u00b7 electrical <b>' + g2(/electrical/i) + '%</b> \u00b7 piers <b>17/17</b><br>' +
+          'Binding: <b>structural steel \u2014 partial delivery verified for Aug 15; poles are the gap</b><br>' +
+          'Projected finish at current rate: <b>not rate-driven \u2014 erection can start from the Aug 15 steel</b><br>' +
+          '<span class="gate-pill">STEEL LANDS AUG 15 \u00b7 POLES UNRESOLVED</span>' +
+          '</div></article>'); } })();
       strip.insertAdjacentHTML('beforeend',
         '<article class="gate-tile rag-' + worst + '"><h3>' + C.mc.name + ' · target ' + C.mc.target + '</h3>' +
         '<div class="gate-big">' + C.mc.forecast + ' <em>forecast</em></div>' +
