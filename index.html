@@ -1533,6 +1533,10 @@ footer p {
 .gate-tile.rag-green .gate-big em { color: var(--green); }
 .gate-tile .gate-rows { margin-top: 8px; font-size: 12.5px; line-height: 1.55; color: var(--ink); }
 .gate-tile .gate-rows b { font-variant-numeric: tabular-nums; }
+.sub-id { display:flex; align-items:center; gap:8px; min-width:120px; }
+.sub-logo { height:26px; max-width:112px; object-fit:contain; display:block; }
+.sub-badge { display:inline-flex; width:26px; height:26px; border-radius:7px; color:#fff; font-weight:800; font-size:12px; align-items:center; justify-content:center; flex:0 0 auto; }
+.sub-crew { display:block; font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
 .gate-pill { display:inline-block; padding:2px 9px; border-radius:10px; color:#fff; font-size:11px; font-weight:700; }
 .rag-red .gate-pill { background: var(--red); } .rag-amber .gate-pill { background: var(--amber); } .rag-green .gate-pill { background: var(--green); }
 .trend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-top: 14px; }
@@ -2219,7 +2223,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; the Aug 7 DELIVERY AND MECHANICAL workbook &mdash; its block-map roll-up caught up to 28,713 with Zone G at 2,854, reconciled per zone against the field ledger (B, D and E still lead the workbook) for the 29,308 executed basis; the Aug 6 WhatsApp field logs (Manuel Ramirez subcontractor blocks, Angel Urbina LV / ITS / AB Power reports) for the 149 Zone D piles, 29 completed tracker rows, 3,848 modules and 2,560 lf of DC cable across 7 LBDs; Manuel&rsquo;s Zone F racking snapshot (881 row tubes, 67 racks tubed, 68 racks aligned) and Workforce&rsquo;s 18 level-2 rows in Zone B; Axel Cano&rsquo;s report from the steel fabricator in Le&oacute;n &mdash; 34.5kV structure galvanized, balance shipping Monday Aug 10 for site delivery Saturday Aug 15, Polesa poles quoted Sep 4 (rejected) with the Houston quote due Aug 7; Angel&rsquo;s ITS report (ninth day on the wetland bores; megger FAILURE on phase 1 of MVJB-12B-02 to 12B-01); the Aug 6 on-site headcount board (238); Daniel Morilla&rsquo;s QA position (controlling cut still Jul 30); the GameChange thread through Jul 29; Chemik &lsquo;Seguimiento env&iacute;os&rsquo; thread; Bethany Valdez H&amp;S reports; current schedule and contract references. Ladder credit on partial tracker rows RESUMED Aug 7 (Jose) after two clean days of step-level reporting; the completion gate still counts finished rows only. Dashboard updated August 7, 2026 on the August 6 EOD production basis.</p>
     </footer>
 
-    <script src="data.js?v=20260807b"></script>
+    <script src="data.js?v=20260807c"></script>
     <script>
 'use strict';
 
@@ -3050,11 +3054,40 @@ footer p {
 
       // ---- contractor scoreboard ----
       var sb = document.getElementById('scoreBody');
+      // Sub identity: logo where one exists (same set as the site display), coloured monogram + name otherwise.
+      // A failed logo load reveals the name — identity is never blank.
+      var SUB_LOGOS = {
+        united:   'https://www.unitedservices.work/wp-content/uploads/2022/08/a.png',
+        eccs:     'https://eccssolargroup.com/wp-content/uploads/2026/05/image-removebg-preview.png',
+        its:      'https://itsenergy.ca/wp-content/uploads/2023/12/its_logo_new1-colour-on-transparent-background.png',
+        brumont:  'https://brumont.cl/brand/brumont-logo-dark.png',
+        greensol: 'assets/greensol_logo_green_transparent.png'
+      };
+      var SUB_BRAND = { united:['#2769A8','US'], workforce:['#168A5B','WF'], brumont:['#0C5F43','BR'], eccs:['#8A4DBF','EC'],
+                        its:['#B96F18','IT'], abpower:['#B53030','AB'], digit:['#4A5B53','DI'], allstate:['#3E6C9B','AS'],
+                        topland:['#7A6A3A','TP'], hitech:['#2A7D8C','HT'], ssi:['#C08A2E','SS'], greensol:['#0C5F43','GS'] };
+      var SUB_ALIAS = { unitedservices:'united', abpowers:'abpower', eccselectrical:'eccs', workforceracking:'workforce' };
+      function subCell(name) {
+        var base = String(name || '').split('\u2014')[0].replace(/\(.*?\)/g, '').trim();
+        var crew = (String(name || '').match(/\((.*?)\)/) || [])[1] || '';
+        var key = base.toLowerCase().replace(/[^a-z]/g, '');
+        key = SUB_ALIAS[key] || key;
+        var logo = SUB_LOGOS[key], b = SUB_BRAND[key] || ['#6B7269', (key.slice(0,2) || '--').toUpperCase()];
+        var id;
+        if (logo) {
+          id = '<span class="sub-id"><img class="sub-logo" src="' + logo + '" alt="' + base + '" title="' + base + '"' +
+               ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\'">' +
+               '<strong style="display:none">' + base + '</strong></span>';
+        } else {
+          id = '<span class="sub-id"><span class="sub-badge" style="background:' + b[0] + '">' + b[1] + '</span><strong>' + base + '</strong></span>';
+        }
+        return id + (crew ? '<span class="sub-crew">' + crew + '</span>' : '');
+      }
       (D.contractorScore || []).forEach(function (r) {
         var pc = Math.min(100, Math.round(r.perUnit / r.criterion * 100));
         var col = pc >= 90 ? 'var(--green)' : pc >= 55 ? 'var(--amber)' : 'var(--red)';
         sb.insertAdjacentHTML('beforeend', '<tr>' +
-          '<td>' + r.date + '</td><td><strong>' + r.contractor + '</strong></td><td>' + r.trade + '</td>' +
+          '<td>' + r.date + '</td><td>' + subCell(r.contractor) + '</td><td>' + r.trade + '</td>' +
           '<td>' + r.output.toLocaleString() + '</td><td>' + r.resource + '</td>' +
           '<td>' + r.perUnit.toLocaleString() + ' vs ' + r.critLabel + '</td>' +
           '<td><div class="score-bar" title="' + pc + '%"><i style="width:' + pc + '%;background:' + col + '"></i></div> <small>' + pc + '%</small></td></tr>');
