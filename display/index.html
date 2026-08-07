@@ -93,10 +93,10 @@
               <span style="font-size:32px; font-weight:600; max-width:360px; line-height:1.15;">days without a lost-time incident</span>
             </div>
             <div style="text-align:right;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.08em; color:#8fd6a8;">PILES / DAY VS TARGET</div>
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.08em; color:#8fd6a8;">TRACKER ROWS / DAY VS TARGET</div>
               <div style="display:flex; align-items:baseline; gap:12px; justify-content:flex-end; margin-top:6px;">
-                <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:76px; font-weight:700; color:{{ paceColor }}; line-height:.85;">{{ paceActual }}</span>
-                <span style="font-size:28px; color:#a9d8bd;">/ {{ paceRequired }} needed</span>
+                <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:76px; font-weight:700; color:{{ trkColor }}; line-height:.85;">{{ trkActual }}</span>
+                <span style="font-size:28px; color:#a9d8bd;">/ {{ trkRequired }} needed</span>
               </div>
             </div>
           </div>
@@ -413,6 +413,10 @@ class Component extends DCLogic {
     const gateSlip = proj ? proj.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—";
     const vsTarget = { actual: pileActual || (C.piles.latest || 0), required: C.piles.required || 0,
                        capacity: pilesCap, gateSlip };
+    const trkTask = (D.dailyProductionHistory || []).find(t => /tracker/i.test(t.task));
+    const trkDailyArr = (trkTask && trkTask.daily) || [];
+    const trkPace = { actual: trkDailyArr.length ? Number(trkDailyArr[trkDailyArr.length - 1].value) || 0 : 0,
+                      required: C.trackers.required || 0 };
 
     const SCHED = {
       "Piles": "Overall pile installation acceleration",
@@ -497,7 +501,7 @@ class Component extends DCLogic {
       reportDate: C.asOf || "", updated: C.asOf || "",
       project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
       kpis, safety: { daysLtiFree: D.safetyDaysLtiFree || 204 },
-      today, todayLabel, vsTarget, scopes, deadlines, manpower,
+      today, todayLabel, vsTarget, trkPace, scopes, deadlines, manpower,
       set: (function () { const a = (D.civilActivities || []).find(x => /Foundation SET|Substation/i.test(x.activity)); return a ? { pct: a.done } : null; })()
     };
   }
@@ -641,6 +645,9 @@ class Component extends DCLogic {
       scopes, deadlines, manpower, manpowerCats, manpowerTotal: String(mpTotal), manpowerDate: mp.date || "",
       deadlineCols: Math.max(1, deadlines.length),
       safetyDays: String((d.safety && d.safety.daysLtiFree) ?? 0),
+      trkActual: String((d.trkPace && d.trkPace.actual) ?? 0),
+      trkRequired: String((d.trkPace && d.trkPace.required) ?? 0),
+      trkColor: (d.trkPace && d.trkPace.actual >= d.trkPace.required) ? "#35D07F" : "#FF8A7A",
       paceActual: String(vt.actual ?? 0),
       paceRequired: String(vt.required ?? 0),
       paceCapacity: String(vt.capacity ?? 0),
