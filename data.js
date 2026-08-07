@@ -40,17 +40,18 @@ window.MURCH_DATA = {
  { day: 'Aug 3', total: 243, src: 'site board' },
  { day: 'Aug 4', total: 247, src: 'site board' },
  { day: 'Aug 5', total: 248, src: 'site board' },
- { day: 'Aug 6', total: 238, src: 'site board' }
+ { day: 'Aug 6', total: 238, src: 'site board' },
+ { day: 'Aug 7', total: 238, src: 'site board' }
  ],
- manpowerMixToday: { day: 'Aug 6, 2026', total: 238, mix: [
- { trade: 'Trackers & Piling', people: 125, color: '#0c5f43' },
- { trade: 'Module Installation', people: 46, color: '#168a5b' },
- { trade: 'Electrical & SET', people: 39, color: '#2769a8' },
+ manpowerMixToday: { day: 'Aug 7, 2026', total: 238, mix: [
+ { trade: 'Trackers & Piling', people: 130, color: '#0c5f43' },
+ { trade: 'Module Installation', people: 60, color: '#168a5b' },
+ { trade: 'Electrical & SET', people: 21, color: '#2769a8' },
  { trade: 'Civil & Fencing', people: 2, color: '#b96f18' },
- { trade: 'GreenSol EPC', people: 25, color: '#66716d' },
+ { trade: 'GreenSol EPC', people: 24, color: '#66716d' },
  { trade: 'Support / security', people: 1, color: '#9aa3a0' }
  ] },
- manpowerNote: 'Aug 6 site board: <strong>238 people</strong>, down 10 from Aug 5. ECCS 66 - United 59 - Workforce 46 - GreenSol 25 - Brumont 16 - ITS 13 - AB Power 5 - Dig It 3 - Topland 2 - Hi Tech 2 - Roveri 1. Latnovva, Kalamazoo, Crane, Hurricane, Lounsbury, ECS, Westwood, Brightfield, SWCA, SII, TVANT, AES, MTC, Storm Water, Hoffman and Bierlein all at zero, and for the first time the named companies sum EXACTLY to the board total of 238 - no blank rows. Three movements matter. <strong>Latnovva is off the board entirely</strong> - the Aug 6 contract termination is executed in the field, not just on paper. <strong>United is up 4 to 59</strong>, its highest count on this project, which is the crew starting to answer the second pile front it opened in Area D. And the one to act on: <strong>SSI survey went from 4 to ZERO</strong> the day after a new pile front opened. Set-out and pile-position verification are what feed a driving crew; with 1,420 piles to place in Area D and United now the sole pile contractor, a survey crew at zero is the constraint nobody has flagged. Dig It is confirmed at 3, which settles the Aug 5 board discrepancy - they were on site and poured the last substation pier. The 10-person drawdown falls on GreenSol (-3), ECCS (-2), Workforce (-2) and survey (-4); none of it comes off the fronts that have to accelerate, but none of it adds to them either.',
+ manpowerNote: 'Aug 7 site board (Bethany Valdez): <strong>238 people, flat on Aug 6</strong> - but the composition moved the right way. ECCS 67 - United 63 - Workforce 44 - GreenSol 24 - Brumont 16 - ITS 13 - AB Power 5 - Hi Tech 3 - Topland 2 - Roveri 1; the named companies again sum exactly to the board total. <strong>The two controlling crews took the day\'s entire net gain</strong>: United +4 to 63, a new project high and its second straight build-up as sole pile contractor, and ECCS +1 to 67 carrying the tracker rate alone. The offset came from Workforce (-2), GreenSol (-1) and <strong>Dig It, off the board at zero after pouring the last substation pier</strong> - a clean demobilisation of a finished scope, piers 17 of 17. Hi Tech is up 1 to 3 on substation grounding and QI support. The unresolved item is unchanged: <strong>SSI survey remains at ZERO for a second consecutive day</strong> while Area D has 1,271 piles still to set out - the driving crew United just reinforced has no survey feed. Crane at zero for a second day.',
 
  contractorScore: [
  { date: 'Aug 6 Thu', contractor: 'ECCS (electrical)', trade: 'LV', output: 2560, resource: '15 people (3 administrative, 6 electricians, 5 labour, 1 operator) - 2,330 lf of homerun plus 230 lf of DC trunk across 7 LBDs of INV-1: LBD-12/13/14 in Area A4 (500 kcmil) and LBD-05/06/07/08 in Area A2 (mixed 500/750 kcmil)', short: 'Best day yet — 2,560 lf, cum 7,312', unit: 'lf', perUnit: 2560, criterion: 7227, critLabel: '<strong>The best cable day of the project, for the third day running</strong>: 2,560 lf after 1,915 and 1,956. Three days have produced 6,431 lf against 881 lf for everything before them; cumulative 7,312 lf. Still 35% of the 7,227 lf/day required for Sep 18, and the crew has now held at 15 people for three consecutive ~2,000 lf days - the second cable gang is the multiplier waiting to be hired.' },
@@ -386,38 +387,36 @@ window.MURCH_DATA = {
  { label: 'Jul 9 board', week: 'W28', people: 191, color: '#b96f18', offset: 108 },
  { label: 'Jul 16', week: 'W29', people: 198, color: '#66716d', offset: 138 },
  { label: 'Jul 20', week: 'W30', people: 192, color: '#66716d', offset: 168 },
- { label: 'Aug 6 current', week: 'W32', people: 238, color: '#0c5f43', offset: 198 }
+ { label: 'Aug 7 current', week: 'W32', people: 238, color: '#0c5f43', offset: 198 }
  ],
  actualResources: [
- { contractor: 'UNITED', people: 59, label: '59 · D + G piling + B closeout + F racking' },
- { contractor: 'ECCS', people: 66, label: '66 · 51 trackers + 15 LV' },
- { contractor: 'WORKFORCE', people: 46, label: '46 · modules + racking' },
- { contractor: 'GREENSOL', people: 25, label: '25 · EPC + self-perform' },
+ { contractor: 'ECCS', people: 67, label: '67 · trackers + LV crew' },
+ { contractor: 'UNITED', people: 63, label: '63 · sole pile contractor, 4 fronts + F racking' },
+ { contractor: 'WORKFORCE', people: 44, label: '44 · modules + racking' },
+ { contractor: 'GREENSOL', people: 24, label: '24 · EPC + self-perform' },
  { contractor: 'BRUMONT', people: 16, label: '16 · module installation' },
  { contractor: 'ITS', people: 13, label: '13 · MV plowing / HDD' },
  { contractor: 'ABPOWER', people: 5, label: '5 · substation (SET)' },
- { contractor: 'DIG IT', people: 3, label: '3 · SET piers - COMPLETE 17/17' },
+ { contractor: 'HI TECH', people: 3, label: '3 · substation & QI' },
  { contractor: 'TOPLAND', people: 2, label: '2 · roads COMPLETE - drawing down' },
- { contractor: 'HI TECH', people: 2, label: '2 · substation & QI' },
  { contractor: 'ROVERI SEC.', people: 1, label: '1 · site security' },
  ],
  todayFieldSnapshot: {
- date: 'Aug 6, 2026',
+ date: 'Aug 7, 2026',
  total: 238,
  rows: [
- { contractor: 'UNITED', people: 59, category: 'pile', note: '<strong>Up 4 to 59 — the highest United has been on this project</strong>, and the right direction on the day it became the sole pile contractor. It now runs four fronts: Zone D piling (1,420 left), Zone G piling (568), the Zone B closeout (36) inherited from Latnovva, and the Zone F racking ramp. Four more people do not carry four fronts — agree the build-up before the revised pile date is issued.' },
- { contractor: 'ECCS', people: 66, category: 'tracker', note: 'Down 2. Aug 5 split was 53 on tracker assembly and 15 on LV. Zone E is 71 rows from completion and ECCS is carrying the whole tracker rate alone — this is not the crew to draw down.' },
- { contractor: 'WORKFORCE', people: 46, category: 'module', note: 'Down 2. Two crews: modules in Zone EW (2,106 on Aug 5, 73 per person) and racking, which left Zone EW two rows short and moved to Zone B.' },
- { contractor: 'GREENSOL', people: 25, category: 'epc', note: 'Down 3. EPC management, QA/QC, safety and self-perform supervision.' },
- { contractor: 'BRUMONT', people: 16, category: 'module', note: 'Flat. 2,028 modules in Zone E on Aug 5, 135 per person, a third straight day above 2,000.' },
- { contractor: 'ITS', people: 13, category: 'electrical', note: 'Flat. Eighth working day with no bore and no plow segment closed — the MVHB-12 drill faulted on Aug 5 and the pipe pull moved to Aug 6. Ten plow segments open with the plough parked.' },
- { contractor: 'AB POWER', people: 5, category: 'electrical', note: 'Flat. Inverter scope closed at 23 set, welded and repaired; the crew is on grounding trenches around the substation fence.' },
- { contractor: 'DIG IT', people: 3, category: 'electrical', note: '<strong>Confirmed at 3, which settles the Aug 5 board discrepancy</strong> — they were on site and poured the last substation pier. <strong>Piers complete 17 of 17.</strong>' },
- { contractor: 'TOPLAND', people: 2, category: 'civil', note: 'Flat at 2 on a finished scope — <strong>internal roads closed Aug 4 at 100%</strong>. Drawing down.' },
- { contractor: 'HI TECH', people: 2, category: 'electrical', note: 'Flat. Substation grounding, commissioning support and Quality Inspector coordination.' },
+ { contractor: 'ECCS', people: 67, category: 'tracker', note: 'Up 1 to 67 — the largest crew on site. Carrying the whole tracker rate alone (29 rows Aug 6 against 63 required) plus the 15-person LV cable gang that has set three consecutive project records. Zone E is 42 rows from closing; then Zone F is the tracker programme.' },
+ { contractor: 'UNITED', people: 63, category: 'pile', note: '<strong>Up 4 to 63 — a new project high and the second consecutive build-up</strong> since becoming the sole pile contractor. Four fronts: Zone D piling (1,271 left after tripling to 149/day), Zone G (502), the Zone B closeout (36), and the Zone F racking ramp (881 tubes up, zero closed rows). The build-up is the right direction — reconcile it against the 20 people the pile crew itself reported Aug 6.' },
+ { contractor: 'WORKFORCE', people: 44, category: 'module', note: 'Down 2. Two crews: modules (Zone EW closed at full scope Aug 6) and the racking crew now in Zone B, 18 level-2 rows.' },
+ { contractor: 'GREENSOL', people: 24, category: 'epc', note: 'Down 1. EPC management, QA/QC, safety and self-perform supervision.' },
+ { contractor: 'BRUMONT', people: 16, category: 'module', note: 'Flat. The most productive module crew per person — over 2,000/day three days running in Zone E.' },
+ { contractor: 'ITS', people: 13, category: 'electrical', note: 'Flat, ninth day with no bore and no plow segment closed; the 12B megger failure is now a suspect cable. Thirteen people producing zero closed units is the worst ratio on the board.' },
+ { contractor: 'AB POWER', people: 5, category: 'electrical', note: 'Flat. Inverter scope closed at 23 set and welded; crew on grounding trenches at the substation fence.' },
+ { contractor: 'HI TECH', people: 3, category: 'electrical', note: 'Up 1. Substation grounding, commissioning support and Quality Inspector coordination — consistent with steel landing Aug 15.' },
+ { contractor: 'TOPLAND', people: 2, category: 'civil', note: 'Flat at 2 on a finished scope — internal roads closed Aug 4 at 100%. Drawing down.' },
  { contractor: 'ROVERI SEC.', people: 1, category: 'support', note: 'Site security.' },
  ],
- note: 'Crews at zero are not listed - the board names them (Latnovva terminated; SSI survey at ZERO, the flag of the day; Hurricane, Lounsbury, Kalamazoo, ECS, Westwood, SWCA, Brightfield, TVANT off site). Source: the on-site headcount board photographed Aug 6, reconciled against the Aug 5 subcontractor reports. Total <strong>238</strong>, down 10 from Aug 5, and for the first time the named companies sum EXACTLY to the board total - no blank rows. <strong>Latnovva is off the board entirely</strong>: the Aug 6 termination is executed in the field. <strong>United is up 4 to 59</strong>, its highest on this project, which is the crew beginning to answer the second pile front it opened in Area D and the scope it inherited. The item to act on is <strong>SSI survey at ZERO, down from 4</strong> - set-out and pile-position verification feed the driving crew, and it goes to nothing the day after a front with 1,420 piles opened. Dig It is confirmed at 3, settling the Aug 5 discrepancy: they poured the last substation pier and piers stand at 17 of 17. The 10-person drawdown falls on GreenSol, ECCS, Workforce and survey - none of it comes off the fronts that must accelerate, and none of it adds to them either.'
+ note: 'Crews at zero are not listed - the board names them (Latnovva terminated; SSI survey at ZERO for a second day; Dig It, Crane, Hurricane, Kalamazoo, Lounsbury, ECS, Westwood, SWCA, Brightfield, SII, TVANT off site). Source: the on-site headcount board of Aug 7 (Bethany Valdez), total <strong>238, flat on Aug 6</strong>, with the named companies again summing exactly to the board total. The day\'s net movement all goes to the controlling fronts: <strong>United +4 to 63</strong> (project high, sole pile contractor, four fronts) and <strong>ECCS +1 to 67</strong> (trackers alone plus the record LV gang), funded by Workforce -2, GreenSol -1 and <strong>Dig It demobilising at zero after closing the substation piers 17 of 17</strong> - a scope finished, not a crew lost. Hi Tech +1 to 3 ahead of the Aug 15 steel. The unresolved flag is unchanged: <strong>SSI survey at ZERO for a second consecutive day</strong> against 1,271 Area D piles still to set out - the crew United just reinforced has no survey feed.'
  },
  equipmentNotes: [
  { contractor: 'GreenSol', equipment: 'Site trucks and laptops for management/QC field use; no heavy equipment assigned.', output: 'Daily site walk, safety audits, and progress verification.' },
@@ -440,13 +439,13 @@ window.MURCH_DATA = {
  { contractor: 'SWCA', equipment: 'No crew or equipment on site today.', output: 'Not applicable.' }
  ],
  resourcePlan: [
- { label: 'Total site resources', actual: 247, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Aug 4 on-site headcount board: 247 people, up 4 on Aug 3 and 2.4x the acceleration-plan peak. No crane on the board today.' },
- { label: 'Tracker / piling crew', actual: 125, target: 85, targetLabel: 'ECCS (50) + United (35)', note: 'Aug 6 board: ECCS trackers (51) + United (59) + Workforce racking (15) = 125, with <strong>Latnovva off the board</strong> and <strong>SSI survey at ZERO, down from 4</strong>. United is up 4 to its highest count on the project, but it now carries four fronts and every outstanding pile, and it has lost its survey support the day after opening Area D.' },
+ { label: 'Total site resources', actual: 238, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Aug 7 on-site headcount board: 238 people, flat on Aug 6 and 2.3x the acceleration-plan peak. No crane on the board for a second day.' },
+ { label: 'Tracker / piling crew', actual: 130, target: 85, targetLabel: 'ECCS (50) + United (35)', note: 'Aug 7 board: ECCS (67, including the 15-person LV gang) + United (63) = 130 on the two controlling crews — they took the day\'s entire net gain (+5) while support shed the same. <strong>SSI survey remains at ZERO for a second day</strong>: United carries every outstanding pile and four fronts with no survey feed for the 1,271 Area D set-outs.' },
  { label: 'Module crew Phase 1', actual: 33, committed: 33, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce module crew — board carries 48 across both Workforce crews, 15 of which are racking. Manuel reported 29 on modules; 4-person variance open.' },
  { label: 'Module full-field crew', actual: 48, committed: 48, target: 40, targetLabel: '40 by Jul 13+', note: 'Aug 4: 45 installers (Workforce 29 + Brumont 16) delivered 3,168 — Brumont 133 each, a per-person best, Workforce 36 each while opening a new front in Zone EW. <strong>Per-person productivity is not the constraint; the number of released fronts is.</strong> The recent run reads 1,780 (Aug 1) / 4,279 (Aug 3) / 3,168 (Aug 4) / 4,134 (Aug 5) against 4,216 required. The crew has been flat at 43-49 installers for a week while the required rate climbs — a third front, or a third crew, is the structural fix.' },
- { label: 'Electrical & SET crew', actual: 39, committed: 39, target: 25, targetLabel: '25 electrical + SET', note: 'Aug 3: ECCS electrical (13) + ITS (13) + AB POWER (8) + DIG IT (5) + HI TECH (3) = 42 — unchanged, and the only trade group that has not shrunk. AB Power is back on the board after working nobody on Saturday.' },
- { label: 'Greensol site team', actual: 28, target: 20, targetLabel: '13 staff + 7 labor', note: 'Aug 3: 25, up 5 on Jul 30 — management, QA/QC, safety and self-perform supervision. The increase is consistent with the request to put GreenSol people onto the LV cable pull.' },
- { label: 'Civil & environmental crew', actual: 2, committed: 2, target: 15, targetLabel: '15 civil/environmental', note: 'Aug 6: Topland (2) only; Kalamazoo, Hurricane, Lounsbury, ECS, Westwood and SWCA all at zero. The low headcount is no longer a shortfall - <strong>internal roads closed Aug 4 and PS foundations Jul 24</strong>, so the civil scope that needed crews is finished. What remains is the basin tail (95%) and a fence held by a client signature, not by manpower.' }
+ { label: 'Electrical & SET crew', actual: 36, committed: 36, target: 25, targetLabel: '25 electrical + SET', note: 'Aug 7: ECCS LV gang (15, three consecutive record days) + ITS (13, ninth day at zero closed units) + AB POWER (5, grounding) + HI TECH (3, up 1 ahead of the Aug 15 steel) = 36. <strong>Dig It is off the board at zero</strong> after pouring the last substation pier — piers 17 of 17, a completed scope demobilised.' },
+ { label: 'Greensol site team', actual: 24, target: 20, targetLabel: '13 staff + 7 labor', note: 'Aug 7: 24, down 1 — management, QA/QC, safety and self-perform supervision, still above the 20-person plan while GreenSol people support the LV cable pull.' },
+ { label: 'Civil & environmental crew', actual: 2, committed: 2, target: 15, targetLabel: '15 civil/environmental', note: 'Aug 7: Topland (2) only; Kalamazoo, Hurricane, Lounsbury, ECS, Westwood and SWCA all at zero. The low headcount is no longer a shortfall - <strong>internal roads closed Aug 4 and PS foundations Jul 24</strong>, so the civil scope that needed crews is finished. What remains is the basin tail (95%) and a fence held by a client signature, not by manpower.' }
  ],
  personnelOutlook: [
  { week: 'W22', date: 'May 25', people: 135 },
