@@ -140,17 +140,17 @@
       <sc-if value="{{ showScope }}" hint-placeholder-val="{{ false }}">
         <div style="position:absolute; inset:0; padding:44px 64px; box-sizing:border-box; display:grid; grid-template-columns:560px 1fr; gap:40px;">
           <div style="background:#FBF1EF; border:1px solid #F0D5D0; border-radius:18px; padding:44px; box-sizing:border-box; display:flex; flex-direction:column;">
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.1em; color:#D24B3E;">CRITICAL PATH · PILE PACE</div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:.1em; color:#D24B3E;">CRITICAL PATH · TRACKER PACE — controls Aug 30 and the module front</div>
             <div style="display:flex; align-items:baseline; gap:14px; margin-top:20px;">
               <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:150px; font-weight:700; color:{{ paceColor }}; line-height:.8;">{{ paceActual }}</span>
             </div>
-            <div style="font-size:30px; color:#6B7269; margin-top:6px;">piles yesterday · <strong style="color:#1A1F1C;">{{ paceRequired }}</strong> needed to hold gate</div>
+            <div style="font-size:30px; color:#6B7269; margin-top:6px;">rows completed yesterday · <strong style="color:#1A1F1C;">{{ paceRequired }}</strong>/day needed for Aug 30</div>
             <div style="height:22px; background:#F0D5D0; border-radius:11px; margin-top:28px; overflow:hidden;">
               <div style="width:{{ pacePctStr }}; height:100%; background:#D24B3E;"></div>
             </div>
             <div style="margin-top:auto; padding-top:32px; display:flex; flex-direction:column; gap:16px;">
-              <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid #F0D5D0; padding-top:16px;"><span style="font-size:24px; color:#6B7269;">Current capacity</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:34px; font-weight:700;">{{ paceCapacity }}/day</span></div>
-              <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid #F0D5D0; padding-top:16px;"><span style="font-size:24px; color:#6B7269;">Gate slips to</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:34px; font-weight:700; color:#D24B3E;">{{ paceGateSlip }}</span></div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid #F0D5D0; padding-top:16px;"><span style="font-size:24px; color:#6B7269;">5-day average</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:34px; font-weight:700;">{{ paceCapacity }}/day</span></div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid #F0D5D0; padding-top:16px;"><span style="font-size:24px; color:#6B7269;">Finish at current rate</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:34px; font-weight:700; color:#D24B3E;">{{ paceGateSlip }}</span></div>
             </div>
           </div>
 
@@ -411,10 +411,16 @@ class Component extends DCLogic {
     const pilesCap = C.piles.capacity || derivedCap;
     const proj = pilesCap ? addWd(base, Math.ceil(remaining / pilesCap)) : null;
     const gateSlip = proj ? proj.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—";
-    const vsTarget = { actual: pileActual || (C.piles.latest || 0), required: C.piles.required || 0,
-                       capacity: pilesCap, gateSlip };
     const trkTask = (D.dailyProductionHistory || []).find(t => /tracker/i.test(t.task));
     const trkDailyArr = (trkTask && trkTask.daily) || [];
+    const trkVals5 = trkDailyArr.slice(-5).map(function(x){ return Number(x.value) || 0; });
+    const trkAvg5 = trkVals5.length ? trkVals5.reduce(function(a,b){ return a+b; }, 0) / trkVals5.length : 0;
+    const trkRem = C.trackers.total - C.trackers.installed;
+    const trkProj = trkAvg5 > 0 ? addWd(base, Math.ceil(trkRem / trkAvg5)) : null;
+    const vsTarget = { actual: trkDailyArr.length ? Number(trkDailyArr[trkDailyArr.length - 1].value) || 0 : 0,
+                       required: C.trackers.required || 0,
+                       capacity: Math.round(trkAvg5),
+                       gateSlip: trkProj ? trkProj.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "\u2014" };
     const trkPace = { actual: trkDailyArr.length ? Number(trkDailyArr[trkDailyArr.length - 1].value) || 0 : 0,
                       required: C.trackers.required || 0 };
 
