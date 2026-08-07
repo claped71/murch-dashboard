@@ -81,8 +81,10 @@
                   <span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:92px; font-weight:700; line-height:.85; color:#14603A;">{{ k.pctLabel }}<span style="font-size:40px;">%</span></span>
                 </div>
                 <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; color:#6B7269; margin-top:8px;">{{ k.detail }}</div>
-                <div style="margin-top:auto; height:20px; background:#E3E5E1; border-radius:10px; overflow:hidden;">
-                  <div style="width:{{ k.pctStr }}; height:100%; background:#1F8A4C;"></div>
+                <div style="font-size:18px; font-weight:600; color:#1F8A4C; margin-top:6px; min-height:22px;">{{ k.earnedNote }}</div>
+                <div style="margin-top:auto; position:relative; height:20px; background:#E3E5E1; border-radius:10px; overflow:hidden;">
+                  <div style="position:absolute; inset:0 auto 0 0; width:{{ k.earnedStr }}; height:100%; background:#9fd6b4;"></div>
+                  <div style="position:absolute; inset:0 auto 0 0; width:{{ k.pctStr }}; height:100%; background:#1F8A4C;"></div>
                 </div>
               </div>
             </sc-for>
@@ -148,6 +150,7 @@
             <div style="height:22px; background:#F0D5D0; border-radius:11px; margin-top:28px; overflow:hidden;">
               <div style="width:{{ pacePctStr }}; height:100%; background:#D24B3E;"></div>
             </div>
+            <div style="font-size:24px; color:#6B7269; margin-top:14px;">In build (ladder credit): <strong style="color:#1A1F1C;">{{ paceWip }}</strong></div>
             <div style="margin-top:auto; padding-top:32px; display:flex; flex-direction:column; gap:16px;">
               <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid #F0D5D0; padding-top:16px;"><span style="font-size:24px; color:#6B7269;">5-day average</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:34px; font-weight:700;">{{ paceCapacity }}/day</span></div>
               <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid #F0D5D0; padding-top:16px;"><span style="font-size:24px; color:#6B7269;">Finish at current rate</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:34px; font-weight:700; color:#D24B3E;">{{ paceGateSlip }}</span></div>
@@ -162,10 +165,11 @@
                 <div style="display:flex; flex-direction:column; gap:6px; flex:1; justify-content:center;">
                   <div style="display:flex; justify-content:space-between; align-items:baseline;">
                     <span style="display:flex; align-items:center; gap:14px; min-width:0;"><span role="img" aria-label="{{ s.label }}" style="{{ s.labelLogoStyle }}"></span><span style="font-size:27px; font-weight:600;">{{ s.label }}</span></span>
-                    <span style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:19px; color:#8A9490;">{{ s.targetLabel }}</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:32px; font-weight:700; color:#14603A;">{{ s.pctLabel }}%</span></span>
+                    <span style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:19px; color:#1F8A4C;">{{ s.earnedTag }}</span><span style="font-family:'IBM Plex Mono',monospace; font-size:19px; color:#8A9490;">{{ s.targetLabel }}</span><span style="font-family:'Barlow Semi Condensed',sans-serif; font-size:32px; font-weight:700; color:#14603A;">{{ s.pctLabel }}%</span></span>
                   </div>
                   <div style="position:relative; height:18px; background:#E3E5E1; border-radius:9px; overflow:hidden;">
-                    <div style="width:{{ s.pctStr }}; height:100%; background:{{ s.barColor }};"></div>
+                    <div style="position:absolute; inset:0 auto 0 0; width:{{ s.earnedStr }}; height:100%; background:#9fd6b4;"></div>
+                    <div style="position:absolute; inset:0 auto 0 0; width:{{ s.pctStr }}; height:100%; background:{{ s.barColor }};"></div>
                     <div style="{{ s.markerStyle }}"></div>
                   </div>
                   <div style="{{ s.noteStyle }}">{{ s.noteText }}</div>
@@ -421,6 +425,8 @@ class Component extends DCLogic {
                        required: C.trackers.required || 0,
                        capacity: Math.round(trkAvg5),
                        gateSlip: trkProj ? trkProj.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "\u2014" };
+    const trkEarned = { pct: Number(C.trackers.earnedPct) || 0, wipRows: Number(C.trackers.wipRows) || 0,
+                        wipEquiv: Number(C.trackers.wipEquivalent) || 0 };
     const trkPace = { actual: trkDailyArr.length ? Number(trkDailyArr[trkDailyArr.length - 1].value) || 0 : 0,
                       required: C.trackers.required || 0 };
 
@@ -507,7 +513,7 @@ class Component extends DCLogic {
       reportDate: C.asOf || "", updated: C.asOf || "",
       project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
       kpis, safety: { daysLtiFree: D.safetyDaysLtiFree || 204 },
-      today, todayLabel, vsTarget, trkPace, scopes, deadlines, manpower,
+      today, todayLabel, vsTarget, trkPace, trkEarned, scopes, deadlines, manpower,
       set: (function () { const a = (D.civilActivities || []).find(x => /Foundation SET|Substation/i.test(x.activity)); return a ? { pct: a.done } : null; })()
     };
   }
@@ -528,6 +534,14 @@ class Component extends DCLogic {
                detail: this.commas(o && o.done) + " / " + this.commas(o && o.total) };
     };
     const kpis = [ mk("PILES", k.piles), mk("TRACKER ROWS", k.trackers), mk("MODULES", k.modules) ];
+    const te = d.trkEarned || null;
+    kpis.forEach(function (card) {
+      card.earnedStr = card.pctStr; card.earnedNote = "";
+      if (te && te.pct && /TRACKER/.test(card.label)) {
+        card.earnedStr = Math.max(2, Math.round(te.pct)) + "%";
+        card.earnedNote = "+ " + te.wipRows + " rows in build \u2192 " + te.pct.toFixed(1) + "% incl. WIP";
+      }
+    });
     if (k.electrical) kpis.push(mk("LV ELECTRICAL", k.electrical));
     if (d.set) kpis.push({ label: "SUBSTATION (SET)", pctLabel: String(this.pctLabel(d.set.pct)),
       pctStr: Math.max(2, Math.round(d.set.pct)) + "%", detail: "AB Power \u00b7 MC Sep 25" });
@@ -575,6 +589,7 @@ class Component extends DCLogic {
       };
     });
 
+    const te2 = d.trkEarned || null;
     const scopes = (d.scopes || []).map(s => {
       const hasT = (s.target !== null && s.target !== undefined);
       const LGST = "flex:0 0 auto; width:66px; height:32px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
@@ -584,6 +599,8 @@ class Component extends DCLogic {
         label: s.label,
         pctLabel: String(this.pctLabel(s.pct, s.override)),
         pctStr: Math.max(2, Math.round(s.pct)) + "%",
+        earnedStr: (te2 && te2.pct && /tracker/i.test(s.label)) ? (Math.max(2, Math.round(te2.pct)) + "%") : (Math.max(2, Math.round(s.pct)) + "%"),
+        earnedTag: (te2 && te2.pct && /tracker/i.test(s.label)) ? ("+WIP " + te2.pct.toFixed(1) + "%") : "",
         targetLabel: hasT ? ("plan " + s.target + "%") : "",
         barColor: critColor || "#1F8A4C",
         markerStyle: hasT
@@ -659,6 +676,7 @@ class Component extends DCLogic {
       paceCapacity: String(vt.capacity ?? 0),
       paceGateSlip: vt.gateSlip || "—",
       pacePctStr: pacePct + "%",
+      paceWip: te ? (te.wipRows + " open rows \u00b7 " + te.wipEquiv.toFixed(1) + " row-equivalents \u2192 " + te.pct.toFixed(1) + "% incl. WIP") : "\u2014",
       paceColor: paceOk ? "#1F8A4C" : "#D24B3E",
       footerMid: "Report " + (d.reportDate || "") + "  ·  updated " + (d.updated || ""),
       sourceNote: "Auto-pulled from Murch dashboard"
