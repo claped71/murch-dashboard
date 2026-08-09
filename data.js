@@ -5,7 +5,7 @@
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
  control: {
- asOf: 'Aug 6, 2026',
+ asOf: 'Aug 8, 2026',
  piles: { installed: 29586, total: 31352, gate: '2026-07-28', gateLabel: 'Jul 28', required: 1766, capacity: null, name: 'Piles', unit: 'piles/day' },
  trackers: { installed: 1276, released: 296, releasedGS: 492, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 67, capacity: 48, name: 'Trackers incl. purlins', unit: 'rows/day', wipRows: 62, wipEquivalent: 46.8, earnedEquivalent: 1322.8, earnedPct: 53.2, earnedBasis: '<strong>Ladder credit continues</strong> - earned = completed rows + step-weighted open rows. The open register fell to 62 rows (46.8 equivalents) because <strong>Zone E closed and United\u2019s Zone F snapshot dropped 116 to 40 with no completion filed</strong>. The GATE remains completed rows only and never moves a date.', releaseBasis: 'RELEASED = CLIENT-approved (Heelstone) per the Jul 30 QA sheet. No QA figures have been filed since - Daniel Morilla posted an updated pile and tracker cut on Aug 3 as images only, and he was away from site Aug 7-8. The released and Greensol-approved columns still carry the Jul 30 values and are now <strong>six working days stale</strong> against 1,276 built rows.' },
  modules: { installed: 66849, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 4359, capacity: null, name: 'Modules', unit: 'mod/day' },
@@ -263,7 +263,7 @@ window.MURCH_DATA = {
  ]
  },
  inverterProgress: {
- asOf: 'Aug 5, 2026 (unchanged from Aug 4)',
+ asOf: 'Aug 8, 2026 (setting scope unchanged since Aug 4)',
  basis: 'AB Powers inverter matrix (authoritative) mapped onto the 5-step weighted ladder',
  totalStations: 23,
  stationsSet: 23,
