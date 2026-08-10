@@ -591,7 +591,7 @@ window.MURCH_DATA = {
  var catColors = { epc: '#0c5f43', tracker: '#0a3d2a', pile: '#2769a8', module: '#168a5b', electrical: '#8a4dbf', civil: '#b96f18', set: '#b53030', support: '#9aa39d' };
  var catLabels = { epc: 'GreenSol EPC team', tracker: 'Tracker installation', pile: 'Pile driving', module: 'Module installation', electrical: 'Electrical / SET', civil: 'Civil / fencing', set: 'Substation', support: 'Support / no crew' };
  var rowH = 30;
- var pad = { left: 190, top: 64, right: 70, bottom: 40 };
+ var pad = { left: 190, top: 64, right: 70, bottom: 64 }; // bottom fits a legend that wraps to two lines
  var width = 1120;
  canvas.width = width;
  canvas.height = pad.top + rows.length * rowH + pad.bottom;
@@ -628,7 +628,7 @@ window.MURCH_DATA = {
  ctx.fillText(String(row.people), pad.left + Math.max(barW, 3) + 8, y + rowH / 2 + 4);
  });
  var legendCats = ['epc', 'tracker', 'pile', 'module', 'electrical', 'civil', 'set', 'support'];
- var legendY = canvas.height - 12;
+ var legendY = canvas.height - 34; // start high enough that a wrapped second row is not clipped
  var legendX = pad.left;
  ctx.font = '700 11px system-ui';
  legendCats.forEach(function (cat) {

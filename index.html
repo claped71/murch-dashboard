@@ -917,7 +917,8 @@ canvas {
 
 
 #resourceChart {
-  height: 300px;
+  height: auto;
+  aspect-ratio: 1120 / 300;
 }
 
 .resource-section > .chart-panel {
@@ -982,6 +983,16 @@ td {
   font-weight: 850;
   text-transform: uppercase;
   white-space: nowrap;
+  /* Default background so an unmapped status (Pending, Closed) is never
+     rendered white-on-white and invisible. */
+  background: #6b7570;
+  border-radius: 4px;
+}
+
+.badge.pending,
+.badge.closed,
+.badge.sequenced {
+  background: #8a938e;
 }
 
 .badge.critical,
@@ -1549,6 +1560,96 @@ footer p {
 .score-bar i { position:absolute; left:0; top:0; bottom:0; border-radius:6px; }
 @media (max-width: 640px) { .gate-tile .gate-big { font-size: 20px; } }
 
+
+/* ============================================================
+   RESPONSIVE LAYER — proportional and readable on desktop,
+   laptop, tablet and phone. Added Aug 10, 2026.
+   ============================================================ */
+
+/* Grid children must be allowed to shrink or they force overflow. */
+.quality-grid > *, .scope-grid > *, .risk-grid > *, .status-strip > *,
+.civil-kpis > *, .safety-grid > *, .recovery-grid > * { min-width: 0; }
+.quality-grid strong, .gate-tile .gate-big { overflow-wrap: anywhere; }
+
+/* Big numbers scale with the viewport instead of overflowing their card. */
+.quality-grid strong { font-size: clamp(1.05rem, 2.4vw, 1.6rem); line-height: 1.15; }
+.gate-tile .gate-big { font-size: clamp(1.15rem, 2.8vw, 1.75rem); }
+
+/* Laptop / small desktop: 4-up grids step to 3, not straight to 1. */
+@media (max-width: 1200px) {
+  .quality-grid, .scope-grid, .civil-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  th, td { padding: 12px 12px; }
+}
+
+/* Tablet: 3-up steps to 2. Charts get their own row. */
+@media (max-width: 1024px) {
+  .quality-grid, .scope-grid, .civil-kpis, .safety-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chart-layout, .civil-layout, .impact-layout, .resource-lower, .split { grid-template-columns: minmax(0, 1fr); }
+  td { font-size: 0.9rem; }
+}
+
+/* ---- Phone / small tablet: TABLES BECOME CARDS ----
+   Every table row already carries data-label on its cells, so the header
+   can be dropped and each cell labelled inline. This removes the 620px
+   horizontal scroll that made every table unreadable on a phone. */
+@media (max-width: 760px) {
+  .table-wrap { overflow: visible; }
+  .table-wrap table, table, .progress-table table, .resource-table table { min-width: 0; width: 100%; display: block; }
+  table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  table tbody { display: block; }
+  table tbody tr {
+    display: block;
+    margin: 0 0 12px;
+    padding: 10px 14px;
+    background: var(--white, #fff);
+    border: 1px solid var(--line, #dfe6e1);
+    border-left: 4px solid var(--green, #168a5b);
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(16, 32, 26, 0.05);
+  }
+  table tbody td {
+    display: grid;
+    grid-template-columns: minmax(88px, 34%) minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eef2ef;
+    font-size: 0.9rem;
+  }
+  table tbody td:last-child { border-bottom: 0; }
+  table tbody td::before {
+    content: attr(data-label);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #64706b;
+  }
+  /* Cells with no label render full width rather than leaving a blank column. */
+  table tbody td:not([data-label]) { grid-template-columns: minmax(0, 1fr); }
+  table tbody td:not([data-label])::before { content: none; }
+
+  .quality-grid, .scope-grid, .civil-kpis, .safety-grid, .status-strip { grid-template-columns: minmax(0, 1fr); }
+  .section { padding-left: 14px; padding-right: 14px; }
+  .chart-panel { padding: 12px; }
+  .chart-context { font-size: 0.8rem; }
+}
+
+/* Phone: keep headings and cards proportional rather than shrinking text alone. */
+@media (max-width: 560px) {
+  .quality-grid article { padding: 12px 14px; }
+  .quality-grid small, .gate-tile .gate-rows { font-size: 0.82rem; line-height: 1.5; }
+  h2 { font-size: clamp(1.05rem, 4.6vw, 1.35rem); line-height: 1.25; }
+  .eyebrow { font-size: 0.72rem; line-height: 1.5; }
+  .badge { font-size: 0.68rem; min-height: 24px; padding: 3px 7px; }
+  table tbody td { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  table tbody td::before { margin-bottom: 2px; }
+}
+
+/* Charts never overflow their panel on any device. */
+canvas { max-width: 100%; }
+.chart-panel, .resource-section > .chart-panel { overflow-x: hidden; }
+@media (max-width: 760px) { .resource-section > .chart-panel { overflow-x: auto; } #resourceChart { min-width: 520px; } }
     </style>
   </head>
   <body>
@@ -2223,7 +2324,7 @@ footer p {
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 10 on-site headcount board</strong> (Bethany Valdez, 244); the <strong>Week 31 civil report</strong> (Rosario Ruiz, issued Aug 10 on the Aug 7 basis) for the basin, fence and the four substation civil lines; the <strong>GameChange thread of Aug 10</strong> (Shreeya Devkota) for the purlin jig purchase order, the POD backlog and the outstanding pile count; the <strong>Inverter Foundations thread</strong> (Audelio Zuniga Aug 7, Michael Bogie of Heelstone Aug 8) for the Sungrow confirmation the Owner requires; the <strong>Chemik shipment thread of Aug 10</strong>; the racking area division issued by Manuel Ramirez to ECCS on Aug 8, which is the authority for the contractor row split and the module zone scopes (a LARGE row is 14 piles and 78 modules, MEDIUM 10 and 52, SMALL 6 and 26, reconciling to 171,470 modules exactly); the module WEST/EAST division from Manuel and Luis Romero; the Aug 8 DELIVERY AND MECHANICAL workbook, whose roll-up stands at 28,713 and still lags the field in Zones B, D and E, so the 29,586 executed basis is the per-zone reconciliation; and the Aug 7 and Aug 8 WhatsApp field logs for the last reported production. <strong>No field production was reported for Aug 10 at the time of this cut</strong> &mdash; the production basis remains Aug 8 EOD. WhatsApp timestamps are Michigan Eastern time. No economic values are published on this dashboard.</p>
     </footer>
 
-    <script src="data.js?v=20260810e"></script>
+    <script src="data.js?v=20260810g"></script>
     <script>
 'use strict';
 
@@ -3101,13 +3202,26 @@ footer p {
         return id + (crew ? '<span class="sub-crew">' + crew + '</span>' : '');
       }
       (D.contractorScore || []).forEach(function (r) {
-        var pc = Math.min(100, Math.round(r.perUnit / r.criterion * 100));
+        // Compare LIKE WITH LIKE: r.output and r.criterion are both crew-level daily
+        // figures. r.perUnit is per-person for module rows, so using it here made
+        // Brumont's 1,248 modules read as 2% of the 4,238/day requirement.
+        var pc = Math.min(100, Math.round(r.output / r.criterion * 100));
         var col = pc >= 90 ? 'var(--green)' : pc >= 55 ? 'var(--amber)' : 'var(--red)';
+        // Table cells stay SHORT (Jose, Aug 10). The long resource and criterion
+        // prose moves to a title tooltip so the row stays one line per cell.
+        var strip = function (t) { return String(t || '').replace(/<[^>]+>/g, ''); };
+        var crew = strip(r.resource).split(/\s+[-\u2013\u2014]\s+/)[0];
+        if (crew.length > 34) crew = crew.slice(0, 32).replace(/[ ,;]+$/, '') + '\u2026';
+        var assess = strip(r.short || '');
+        if (assess.length > 46) assess = assess.slice(0, 44).replace(/[ ,;]+$/, '') + '\u2026';
         sb.insertAdjacentHTML('beforeend', '<tr>' +
-          '<td>' + r.date + '</td><td>' + subCell(r.contractor) + '</td><td>' + r.trade + '</td>' +
-          '<td>' + r.output.toLocaleString() + '</td><td>' + r.resource + '</td>' +
-          '<td>' + r.perUnit.toLocaleString() + ' vs ' + r.critLabel + '</td>' +
-          '<td><div class="score-bar" title="' + pc + '%"><i style="width:' + pc + '%;background:' + col + '"></i></div> <small>' + pc + '%</small></td></tr>');
+          '<td data-label="Date">' + r.date + '</td>' +
+          '<td data-label="Subcontractor">' + subCell(r.contractor) + '</td>' +
+          '<td data-label="Trade">' + r.trade + '</td>' +
+          '<td data-label="Output">' + r.output.toLocaleString() + ' <small>' + (r.unit || '') + '</small></td>' +
+          '<td data-label="Crew" title="' + strip(r.resource).replace(/"/g, '&quot;') + '">' + crew + '</td>' +
+          '<td data-label="Assessment" title="' + strip(r.critLabel).replace(/"/g, '&quot;') + '">' + assess + '</td>' +
+          '<td data-label="vs required"><div class="score-bar" title="' + pc + '% of ' + r.criterion.toLocaleString() + '"><i style="width:' + pc + '%;background:' + col + '"></i></div> <small>' + pc + '%</small></td></tr>');
       });
 
       // ---- manpower story ----
