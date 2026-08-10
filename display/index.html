@@ -267,7 +267,7 @@
 </template></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:540}}">
 class Component extends DCLogic {
-  dataUrl = "../data.js"; // same deployment as this page — the display can never be fresher or staler than the dashboard it sits inside
+  dataUrl = "../data.js?t=" + Math.floor(Date.now() / 300000); // self-busting every 5 min - the display is a kiosk that may never reload this page, // so a bare ../data.js can serve a cached copy indefinitely (Aug 10: a stale 3-day scoreboard survived a fix for exactly this reason) // same deployment as this page — the display can never be fresher or staler than the dashboard it sits inside
   rotateMs = 12000;
 
   fallback = {
