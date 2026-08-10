@@ -1532,13 +1532,19 @@ footer p {
 /* ---- Project Pulse (gate strip / trends / scoreboard) ---- */
 .pulse { margin: 18px 0 6px; }
 .gate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 14px; margin-top: 12px; }
-.gate-tile { background: var(--white); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow); border-top: 5px solid var(--muted); }
+.gate-strip, #gateStrip { align-items: stretch; }
+.gate-tile { background: var(--white); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow);
+  border-top: 5px solid var(--muted); display: flex; flex-direction: column; height: 100%; min-width: 0; }
+.gate-tile h3 { min-height: 2.6em; }
+.gate-tile .gate-pill { align-self: flex-start; margin-top: auto; }
+.gate-tile .gate-rows + .gate-pill { margin-top: auto; }
 .gate-tile.rag-red { border-top-color: var(--red); }
 .gate-tile.rag-amber { border-top-color: var(--amber); }
 .gate-tile.rag-green { border-top-color: var(--green); }
 .gate-tile h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 0 0 4px; }
-.gate-tile .gate-big { font-size: 24px; font-weight: 800; color: var(--ink); }
-.gate-tile .gate-big em { font-style: normal; font-size: 13px; font-weight: 700; }
+.gate-tile .gate-big { font-size: clamp(19px, 1.7vw, 24px); font-weight: 800; color: var(--ink);
+  line-height: 1.15; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.gate-tile .gate-big em { font-style: normal; font-size: 12.5px; font-weight: 700; line-height: 1.3; }
 .gate-tile.rag-red .gate-big em { color: var(--red); }
 .gate-tile.rag-amber .gate-big em { color: var(--amber); }
 .gate-tile.rag-green .gate-big em { color: var(--green); }
@@ -2366,7 +2372,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 10 on-site headcount board</strong> (Bethany Valdez, 244); the <strong>Week 31 civil report</strong> (Rosario Ruiz, issued Aug 10 on the Aug 7 basis) for the basin, fence and the four substation civil lines; the <strong>GameChange thread of Aug 10</strong> (Shreeya Devkota) for the purlin jig purchase order, the POD backlog and the outstanding pile count; the <strong>Inverter Foundations thread</strong> (Audelio Zuniga Aug 7, Michael Bogie of Heelstone Aug 8) for the Sungrow confirmation the Owner requires; the <strong>Chemik shipment thread of Aug 10</strong>; the racking area division issued by Manuel Ramirez to ECCS on Aug 8, which is the authority for the contractor row split and the module zone scopes (a LARGE row is 14 piles and 78 modules, MEDIUM 10 and 52, SMALL 6 and 26, reconciling to 171,470 modules exactly); the module WEST/EAST division from Manuel and Luis Romero; the Aug 8 DELIVERY AND MECHANICAL workbook, whose roll-up stands at 28,713 and still lags the field in Zones B, D and E, so the 29,586 executed basis is the per-zone reconciliation; and the Aug 7 and Aug 8 WhatsApp field logs for the last reported production. <strong>No field production was reported for Aug 10 at the time of this cut</strong> &mdash; the production basis remains Aug 8 EOD. WhatsApp timestamps are Michigan Eastern time. No economic values are published on this dashboard.</p>
     </footer>
 
-    <script src="data.js?v=20260810j"></script>
+    <script src="data.js?v=20260810k"></script>
     <script>
 'use strict';
 
@@ -3082,7 +3088,13 @@ canvas { max-width: 100%; }
       var C = D.control;
       function wdBetween(a, b) { var n = 0, d = new Date(a); while (d <= b) { if (d.getDay() !== 0) n++; d.setDate(d.getDate() + 1); } return n; }
       function addWd(a, n) { var d = new Date(a); while (n > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0) n--; } return d; }
-      function fmtD(d) { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); }
+      function fmtD(d) {
+        // Show the year whenever the projection lands outside the current one -
+        // "Jun 19" for a Jun 2027 finish read as a date already in the past.
+        var opts = { month: 'short', day: 'numeric' };
+        if (d.getFullYear() !== today.getFullYear()) opts.year = 'numeric';
+        return d.toLocaleDateString('en-US', opts);
+      }
       function series(rx) { var t = (D.dailyProductionHistory || []).filter(function (x) { return rx.test(x.task); })[0]; return t ? t.daily : []; }
       function rate5(daily) { var v = daily.slice(-5).map(function (x) { return x.value; }); if (!v.length) return 0; return v.reduce(function (a, b) { return a + b; }, 0) / v.length; }
       var today = C.asOf ? new Date(C.asOf) : new Date(2026, 6, 8);
