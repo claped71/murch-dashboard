@@ -111,7 +111,7 @@ window.MURCH_DATA = {
  { title: 'EPC Management', metric: 'Turnkey', note: 'Management, safety, QC, owner reporting, trade coordination.' },
  { title: 'Civil', metric: '98.0% \u00b7 3 of 5 closed', note: 'Cut/fill, internal roads and PS foundations COMPLETE; basins 95%, fence 95%.' },
  { title: 'Mechanical BOS', metric: '31,352 piles \u00b7 2,486 trackers', note: 'Piles 94.4% \u00b7 trackers 54.5% \u00b7 modules 40.3%.' },
- { title: 'Electrical BOS', metric: 'MV 61.8% \u00b7 LV 9,281 lf', note: 'MV collection, LV/DC pull, 23 inverters, SET, SCADA.' },
+ { title: 'Electrical BOS', metric: 'MV 66.7% \u00b7 LV 12,412 lf', note: 'MV collection, LV/DC pull, 23 inverters, SET, SCADA.' },
  { title: 'Procurement', metric: 'Pile shortfall OPEN', note: 'Modules complete. Open: pile short shipment, 16 tubes, Chemik, SET steel.' },
  { title: 'Commissioning', metric: 'MC Sep 25 \u00b7 PIS Oct 16', note: 'Energization, start-up, PR test, punch, COD.' }
  ],
@@ -461,7 +461,7 @@ window.MURCH_DATA = {
  { contractor: 'Hurricane', equipment: 'Standard fencing install tools (post drivers, hand tools).', output: 'Fence 95%. Held by the Heelstone permit and ITS, not by the crew.' },
  { contractor: 'Topland', equipment: 'Grading/road equipment (grader, roller) — drawing down.', output: 'Internal roads COMPLETE Aug 4. Off the board at zero.' },
  { contractor: 'Lounsbury', equipment: 'Earthwork equipment (excavator, dozer) for cut/fill and basin work.', output: 'Cut/fill complete Jul 17. Basin construction finished; seeding in Zone F remains.' },
- { contractor: 'ECCS', equipment: 'Tracker crew (53) + LV electrical crew (12) — two separate fronts.', output: 'Zone E tracker assembly CLOSED Aug 7 at 674/674. LV crew: 9,281 lf cumulative, 1,969 lf on Aug 7.' },
+ { contractor: 'ECCS', equipment: 'Tracker crew (51) + LV electrical crew (20) — two separate fronts.', output: 'Aug 10: 38 rows closed + LV RECORD 3,131 lf (cum 12,412).' },
  { contractor: 'United \u2014 piling', equipment: 'PD-10 pile drivers (3 moved to Area D) + support plant.', output: 'Aug 8: 215 piles in Zone D, the zone\u2019s best day. 993 left there.' },
  { contractor: 'United \u2014 racking', equipment: 'Tracker assembly crew, Zone F.', output: 'Aug 8: 40 rows at step 4 in Zone F. <strong>Zero completed rows in 10 working days.</strong>' },
  { contractor: 'Latnovva', equipment: 'DEMOBILISING — contract terminated Aug 6, 2026.', output: 'Demobilised. Contract terminated Aug 6.' },
