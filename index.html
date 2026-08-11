@@ -2372,7 +2372,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 10 WhatsApp field logs</strong> (Manuel Ramirez blocks: United 40 completed Zone F rows and the pile stop for red piles, ECCS 38 rows, Brumont 2,106, Workforce 148; Axel Cano’s ITS control cut and steel status; Angel Urbina’s LV/ITS/substation reports filed the morning of Aug 11 — the normal cadence) &mdash; the production basis is <strong>Aug 10 EOD; Aug 9 was Sunday</strong>; the <strong>Aug 11 MURCH_Plowing_Boring_MT_DC_Tracking workbook</strong> (MV bores 18/20 with 7,096 ft, plow 36/46 with 120,738 ft, DC bores 5 of 10 with 4 of 14 cancelled); the Aug 11 DELIVERY AND MECHANICAL workbook, whose roll-up holds 28,713 and still lags the field in B, D and E, so the 29,586 executed basis is the per-zone reconciliation; the racking area division of Aug 8 (ECCS 1,738 · United 497 · Workforce 250; L=14 piles/78 modules, M=10/52, S=6/26) and the WEST/EAST module division. <strong>WhatsApp timestamps are Michigan Eastern time</strong> and each block carries its own production date. No economic values are published on this dashboard.</p>
     </footer>
 
-    <script src="data.js?v=20260811b"></script>
+    <script src="data.js?v=20260811c"></script>
     <script>
 'use strict';
 
@@ -3138,9 +3138,13 @@ canvas { max-width: 100%; }
           '</div></article>');
       });
       (function(){ var e = C.electrical; if(e){ var pct=(e.installed/e.total*100).toFixed(1);
-        // LV finish at current rate — demonstrated rate from the last three reported LV days
-        var lvVals = (D.contractorScore || []).filter(function(r){ return /LV/i.test(r.trade || ''); }).slice(0, 3).map(function(r){ return Number(r.output) || 0; });
-        var lvRate = lvVals.length ? lvVals.reduce(function(a,b){ return a+b; }, 0) / lvVals.length : 0;
+        // LV rate from its own daily pull series (control.electrical.lvDaily), averaged
+        // over the last 5 working days - the SAME method as the piles/trackers/modules
+        // tiles. The old computation read the contractor scoreboard, which by standing
+        // rule holds only the last TWO production days: after a zero-cable Saturday it
+        // averaged to 0 lf/day and printed "no measured rate" while cable was being
+        // pulled all week. The daily series is the honest basis.
+        var lvRate = rate5(e.lvDaily || []);
         var lvRem = e.total - e.installed;
         var lvProj = lvRate > 0 ? addWd(today, Math.ceil(lvRem / lvRate)) : null;
         strip.insertAdjacentHTML('beforeend',
@@ -3148,7 +3152,7 @@ canvas { max-width: 100%; }
           '<div class="gate-big">' + e.installed.toLocaleString() + ' <em>/ ' + e.total.toLocaleString() + ' lf (' + pct + '%)</em></div>' +
           '<div class="gate-rows">' +
           'Required now: <b>' + e.required.toLocaleString() + ' ' + e.unit + '</b><br>' +
-          'Actual (last 3 pull days): <b>' + Math.round(lvRate).toLocaleString() + ' lf/day</b><br>' +
+          'Actual (5-day avg): <b>' + Math.round(lvRate).toLocaleString() + ' lf/day</b><br>' +
           'Projected finish at current rate: <b>' + (lvProj ? fmtD(lvProj) : 'n/a — no measured rate') + '</b><br>' +
           '<span class="gate-pill">SECOND CABLE GANG REQUIRED</span>' +
           '</div></article>'); } })();
