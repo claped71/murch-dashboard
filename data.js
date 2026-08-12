@@ -208,7 +208,7 @@ window.MURCH_DATA = {
  { activity: 'Main Foundation SET', company: 'AB Power', done: 100, remaining: 0, status: 'Complete', note: '100% (to Jul 10). Substation scope \u2014 excluded from the roll-up.' },
  { activity: 'Small Foundation SET', company: 'AB Power', done: 100, remaining: 0, status: 'Complete', note: '100% Aug 6 \u2014 the last foundation line to close. Substation scope.' },
  { activity: 'O&M Building', company: 'AB Power', done: 100, remaining: 0, status: 'Complete', note: '100% (Jul 10 \u2013 11). Substation scope.' },
- { activity: 'Foundation SET (composite)', company: 'AB Power', done: 24.7, remaining: 75.3, status: 'Active', note: '24.7% \u2014 <strong>the 76.8% civil component is STALE</strong>; substation civil is finished. Structural 10.8% is the blocker.' }
+ { activity: 'Foundation SET (composite)', company: 'AB Power', done: 25.9, remaining: 74.1, status: 'Active', note: '25.9% (Aug 11 cut) \u2014 civil 81.6%, structural 10.8%. Field civil is complete; <strong>structural is the blocker</strong>.' }
  ],
  contractors: [
  { name: 'Latnovva — CONTRACT TERMINATED', scope: 14132, installed: 14132, remaining: 0, done: 100.0, zones: 'A, C, EW complete (+ B/E shares) — final position', status: 'Closed', note: 'Terminated Aug 6 for low performance. Final position 14,132 piles; Zone B remainder went to United.' },
