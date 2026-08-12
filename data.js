@@ -191,7 +191,7 @@ window.MURCH_DATA = {
  target: 'Civil 98.0%. Cut/fill, roads, PS foundations CLOSED. Basins 95%, fence 95%.',
  minimum: 'Close the Area G/F basin tail. Week 32 civil cut owed.',
  gate: 'Fence 5% held by the Heelstone drain-commissioning signature, not production.',
- owners: 'Topland \u00b7 Lounsbury | Rosario Ruiz' }
+ owners: 'Rosario Ruiz | Hurricane (returns on front release)' }
  ],
  civilKpis: [
  { title: 'Civil field progress', metric: '98.0% \u00b7 Week 31 (Aug 7)', note: 'Week 31 civil report (Rosario Ruiz, issued Aug 10 on the Aug 7 basis): three of the five civil lines are CLOSED — earthworks cut/fill (Jul 17), internal roads (Aug 4) and PS foundations (Jul 24). Only sediment basins (95%) and the perimeter fence (95%) remain open, and the fence is held by a client signature rather than by production.' },
