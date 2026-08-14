@@ -89,17 +89,18 @@ window.MURCH_DATA = {
  { day: 'Aug 8', total: 130, src: 'field reported (Sat)' },
  { day: 'Aug 10', total: 244, src: 'site board' },
  { day: 'Aug 11', total: 258, src: 'site board' },
- { day: 'Aug 12', total: 257, src: 'site board' }
+ { day: 'Aug 12', total: 257, src: 'site board' },
+ { day: 'Aug 13', total: 247, src: 'site board' }
  ],
- manpowerMixToday: { day: 'Aug 12, 2026', total: 257, mix: [
- { trade: 'Trackers & Piling', people: 144, color: '#0c5f43' },
- { trade: 'Module Installation', people: 57, color: '#168a5b' },
+ manpowerMixToday: { day: 'Aug 13, 2026', total: 247, mix: [
+ { trade: 'Trackers & Piling', people: 135, color: '#0c5f43' },
+ { trade: 'Module Installation', people: 61, color: '#168a5b' },
  { trade: 'Electrical & SET', people: 25, color: '#2769a8' },
- { trade: 'Survey & Crane', people: 9, color: '#b96f18' },
- { trade: 'GreenSol EPC', people: 21, color: '#66716d' },
- { trade: 'Support / security', people: 1, color: '#9aa3a0' }
+ { trade: 'Survey & Crane', people: 0, color: '#b96f18' },
+ { trade: 'GreenSol EPC', people: 24, color: '#66716d' },
+ { trade: 'Support / environmental', people: 2, color: '#9aa3a0' }
  ] },
- manpowerNote: '<strong>Aug 12 site board: 257 people</strong> - one below yesterday\u2019s project peak of 258, and the composition keeps moving the right way. <strong>UNITED +6 TO 73 - ANOTHER NEW HIGH</strong>, its second consecutive build, landing the day after its first modules: the ramp demanded is materialising in headcount, and today\u2019s module count is where it must show. ECCS 71 (up 1: ~51 on trackers plus the ~20-person LV gang). <strong>Workforce down 5 to 39</strong> - the expected drawdown with its 20 MW module scope complete; its forward assignment (remediation, Zone B racking, or release) needs defining before the number keeps falling on its own. GreenSol 21 (down 4). Hi Tech +1 to 3 ahead of Saturday\u2019s steel. Survey (SII 3) and the crane crew (6) hold. Brumont 18 - ITS 15 - AB Power 7 - Roveri 1; the named companies sum exactly to the board total.',
+ manpowerNote: '<strong>Aug 13 site board: 247 people, down 10</strong> - and the one move that matters is the wrong one: <strong>UNITED DOWN 8 TO 65</strong> the day after Jose put its 50 MW module scope on the table. Two builds, then a retreat, in the week its ramp is being judged - ask for the explanation with the daily numbers. <strong>Workforce UP 4 to 43</strong>, consistent with its retention. GreenSol +3 to 24. Two readiness signals went dark: <strong>survey (SII) back to ZERO</strong> - acceptable only while piling is stopped, but set-out must restart the day red piles land - and <strong>the crane crew is off</strong>, consistent with the steel now arriving early-to-mid next week. <strong>SWCA is back on the board at 1</strong> - environmental/SWPPP presence, useful with the erosion-control query awaiting the Owner\u2019s markup. ECCS 70 - Brumont 18 - ITS 15 - AB Power 7 - Hi Tech 3 - Roveri 1; the named companies sum exactly to the board total.',
 
  contractorScore: [
  { date: 'Aug 12 Wed', contractor: 'ECCS', trade: 'Trackers', output: 49, resource: '51 people - Zone B', short: '49 rows Zone B - <strong>cumulative credit 112 vs 62-row share</strong>', unit: 'rows', perUnit: 49, criterion: 28, critLabel: '175% of its required rate - but ECCS has now been credited 112 rows in Zone B against a 62-row drawn share. The crew is clearly racking beyond its share, likely into Workforce\u2019s block: a re-cut of the racking division is owed from Manuel.' },
@@ -439,35 +440,33 @@ window.MURCH_DATA = {
  { label: 'Aug 7 current', week: 'W32', people: 238, color: '#0c5f43', offset: 198 }
  ],
  actualResources: [
- { contractor: 'ECCS', people: 71, label: '71 \u00b7 trackers + LV gang' },
- { contractor: 'UNITED', people: 73, label: '73 \u00b7 UP 6 \u2014 ANOTHER NEW HIGH' },
- { contractor: 'WORKFORCE', people: 39, label: '39 \u00b7 down 5 \u2014 20 MW complete, drawdown' },
- { contractor: 'GREENSOL', people: 21, label: '21 \u00b7 EPC + self-perform' },
- { contractor: 'BRUMONT', people: 18, label: '18 \u00b7 modules \u2014 the West alone' },
- { contractor: 'ITS', people: 15, label: '15 \u00b7 MV plowing / HDD' },
- { contractor: 'AB POWER', people: 7, label: '7 \u00b7 substation \u2014 steel due Sat' },
- { contractor: 'CRANE', people: 6, label: '6 \u00b7 crane crew, second day' },
- { contractor: 'SII', people: 3, label: '3 \u00b7 survey, holding' },
- { contractor: 'HI TECH', people: 3, label: '3 \u00b7 substation & QI, +1' },
+ { contractor: 'ECCS', people: 70, label: '70 \u00b7 trackers + LV gang' },
+ { contractor: 'UNITED', people: 65, label: '65 \u00b7 DOWN 8 \u2014 in the decisive week' },
+ { contractor: 'WORKFORCE', people: 43, label: '43 \u00b7 up 4 \u2014 retained' },
+ { contractor: 'GREENSOL', people: 24, label: '24 \u00b7 EPC + self-perform' },
+ { contractor: 'BRUMONT', people: 18, label: '18 \u00b7 modules \u2014 STAYS on the project' },
+ { contractor: 'ITS', people: 15, label: '15 \u00b7 MV bores / plow plan owed' },
+ { contractor: 'AB POWER', people: 7, label: '7 \u00b7 substation \u2014 steel in transit' },
+ { contractor: 'HI TECH', people: 3, label: '3 \u00b7 substation & QI' },
  { contractor: 'ROVERI SEC.', people: 1, label: '1 \u00b7 site security' },
+ { contractor: 'SWCA', people: 1, label: '1 \u00b7 environmental / SWPPP \u2014 back on' },
  ],
  todayFieldSnapshot: {
- date: 'Aug 12, 2026',
- total: 257,
+ date: 'Aug 13, 2026',
+ total: 247,
  rows: [
- { contractor: 'ECCS', people: 71, category: 'tracker', note: 'Up 1. ~51 on trackers (F, B, G, D remaining) plus the ~20-person LV gang - the pull must restart today after the storm zero.' },
- { contractor: 'UNITED', people: 73, category: 'pile', note: '<strong>UP 6 TO ANOTHER NEW HIGH</strong>, the second consecutive build - the ramp in headcount is real. Today\u2019s test is output: modules toward the ~2,300/day floor, Zone F rows, and piling when red piles land.' },
- { contractor: 'WORKFORCE', people: 39, category: 'module', note: '<strong>Down 5 - the expected drawdown</strong> with its 20 MW complete. Forward assignment (remediation, Zone B racking, or release) needs defining.' },
- { contractor: 'GREENSOL', people: 21, category: 'epc', note: 'Down 4. EPC management, QA/QC, safety and self-perform supervision.' },
- { contractor: 'BRUMONT', people: 18, category: 'module', note: 'Flat - carrying the West alone, ~7 working days of scope left.' },
- { contractor: 'ITS', people: 15, category: 'electrical', note: 'Flat. MVHB-10 + MVHV-11 both open; the excavator plow plan still needs a start date and rate.' },
- { contractor: 'AB POWER', people: 7, category: 'electrical', note: 'Flat. Grounding trenches; the steel truck must confirm rolling TODAY for Saturday\u2019s site date.' },
- { contractor: 'CRANE', people: 6, category: 'support', note: 'Second day on the board - staged for steel and module logistics.' },
- { contractor: 'SII', people: 3, category: 'support', note: 'Survey holding at 3 - 993 Zone D set-outs ready to run when piling restarts.' },
- { contractor: 'HI TECH', people: 3, category: 'electrical', note: 'Up 1. Substation grounding and QI, ready for the steel.' },
+ { contractor: 'ECCS', people: 70, category: 'tracker', note: 'Down 1. ~51 on trackers (B, F, G, D) plus the LV gang after its 4,735 ft record - German\u2019s daily lf/harness/box count starts today.' },
+ { contractor: 'UNITED', people: 65, category: 'pile', note: '<strong>DOWN 8 the day after its module scope went on the table.</strong> Two builds, then a retreat, in the week the ramp is judged. Today\u2019s module count and Manuel\u2019s plan carry the decision.' },
+ { contractor: 'WORKFORCE', people: 43, category: 'module', note: '<strong>Up 4 - consistent with its retention.</strong> Racking on rate in B; module crew on the damper areas; forward assignment being set.' },
+ { contractor: 'GREENSOL', people: 24, category: 'epc', note: 'Up 3. EPC management, QA/QC, safety, self-perform supervision.' },
+ { contractor: 'BRUMONT', people: 18, category: 'module', note: 'Flat, after its 3,018 record. <strong>STAYS on the project (Jose)</strong> - East reinforcement when the West closes (~4 days).' },
+ { contractor: 'ITS', people: 15, category: 'electrical', note: 'Flat. MVHB-10 and 11 both in work; the excavator plow plan still owes a start date and rate.' },
+ { contractor: 'AB POWER', people: 7, category: 'electrical', note: 'Flat. Ground grid closing; steel in transit (AirTag), arrival early-to-mid next week.' },
+ { contractor: 'HI TECH', people: 3, category: 'electrical', note: 'Flat. Substation support and QI; receiving plan for the steel.' },
  { contractor: 'ROVERI SEC.', people: 1, category: 'support', note: 'Site security.' },
+ { contractor: 'SWCA', people: 1, category: 'support', note: '<strong>Back on the board</strong> - environmental/SWPPP presence, with the erosion-control item awaiting the Owner\u2019s markup.' },
  ],
- note: 'Contractors whose scopes are COMPLETE are no longer listed in this section: internal roads, pre-drilling, bulk earthworks, environmental controls and the substation civil works are all closed out, and the terminated pile contract was reassigned Aug 6. Every contractor with open scope appears above. The fencing crew (95%, end date pending release at the SET and Area G plus a Heelstone permit) returns when its fronts open. Source: on-site headcount board of Aug 12, 2026, total <strong>257</strong>.'
+ note: 'Contractors whose scopes are COMPLETE are no longer listed in this section. Two ACTIVE scopes stand at zero and both are readiness signals: <strong>survey (SII, 0)</strong> - must remobilise the day red piles land for the 993 Zone D set-outs - and <strong>the crane crew (0)</strong>, off until the steel arrives. The fencing crew returns when its fronts release. Source: on-site headcount board of Aug 13, 2026, total <strong>247</strong>.'
  },
  equipmentNotes: [
  { contractor: 'GreenSol', equipment: 'Site trucks and laptops for management/QC field use; no heavy equipment assigned.', output: 'Daily site walk, safety audits, progress verification.' },
@@ -483,12 +482,12 @@ window.MURCH_DATA = {
  { contractor: 'Hi Tech', equipment: 'Substation support; QI coordination; 3 people.', output: 'Grounding works with AB Power; receiving plan for the steel.' },
  ],
  resourcePlan: [
- { label: 'Total site resources', actual: 257, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Aug 12 board: <strong>257 people</strong>, one below the Aug 11 project peak of 258. United 73 (another high); Workforce drawing down at 39.' },
- { label: 'Tracker / piling crew', actual: 144, target: 85, targetLabel: 'ECCS (50) + United (35)', note: 'Aug 12: ECCS 71 (incl. the ~20-person LV gang) + United 73 = 144. <strong>United +6 to another project high</strong> - two consecutive builds through the ramp week.' },
+ { label: 'Total site resources', actual: 247, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Aug 13 board: 247, down 10 from Aug 12. United -8 in the decisive week; Workforce +4 (retained); survey and crane both off.' },
+ { label: 'Tracker / piling crew', actual: 135, target: 85, targetLabel: 'ECCS (50) + United (35)', note: 'Aug 13: ECCS 70 + United 65 = 135. <strong>United -8 the day after its scope went on the table</strong> - explanation owed with the daily numbers.' },
  { label: 'Module crew Phase 1', actual: 33, committed: 33, target: 22, targetLabel: '22 by Jul 7', note: 'Workforce module crew — board carries 48 across both Workforce crews, 15 of which are racking. Manuel reported 29 on modules; 4-person variance open.' },
- { label: 'Module full-field crew', actual: 57, committed: 57, target: 40, targetLabel: '40 by Jul 13+', note: 'Aug 12 board: Brumont 18 alone in the West; Workforce 39 on remediation and Zone B racking (20 MW complete, drawing down). <strong>United\u2019s module crew sits inside its 73</strong> - its daily count is the ramp watch.' },
- { label: 'Electrical & SET crew', actual: 45, committed: 45, target: 25, targetLabel: '25 electrical + SET', note: 'Aug 12: LV gang ~20 + ITS 15 + AB Power 7 + Hi Tech 3 = 45. The cable pull must restart today after the storm zero.' },
- { label: 'Greensol site team', actual: 21, target: 20, targetLabel: '13 staff + 7 labor', note: 'Aug 12: 21, down 4 - management, QA/QC, safety and self-perform supervision, on the 20-person plan.' },
+ { label: 'Module full-field crew', actual: 61, committed: 61, target: 40, targetLabel: '40 by Jul 13+', note: 'Aug 13: Brumont 18 (retained) + Workforce 43 across both crews. United\u2019s module gang sits inside its 65 - its daily count is the decision input.' },
+ { label: 'Electrical & SET crew', actual: 44, committed: 44, target: 25, targetLabel: '25 electrical + SET', note: 'Aug 13: LV gang ~19 (record 4,735 ft) + ITS 15 + AB Power 7 + Hi Tech 3 = 44. German\u2019s daily lf/harness/box metrics start today.' },
+ { label: 'Greensol site team', actual: 24, target: 20, targetLabel: '13 staff + 7 labor', note: 'Aug 13: 24, up 3 - management, QA/QC, safety and self-perform supervision.' },
  { label: 'Civil & environmental crew', actual: 0, committed: 0, target: 15, targetLabel: '15 civil/environmental', note: 'Aug 11: zero civil heads and no longer a shortfall - roads closed Aug 4, PS foundations Jul 24, basins built (Zone F seeding left). The fence waits on ITS at the SET / Zone G and a Heelstone permit, not on manpower.' }
  ],
  personnelOutlook: [
