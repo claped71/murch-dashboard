@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache, notranslate, max-snippet:0, max-image-preview:none">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="GPTBot" content="noindex, nofollow"><meta name="ClaudeBot" content="noindex, nofollow">
+<meta name="CCBot" content="noindex, nofollow"><meta name="PerplexityBot" content="noindex, nofollow">
+<meta name="Google-Extended" content="noindex, nofollow"><meta name="referrer" content="no-referrer">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Murch · Control eléctrico por línea MV</title>
+<style>
+:root{--ink:#18201f;--muted:#66716d;--line:#dbe3de;--paper:#f7f9f5;--white:#fff;
+--green:#168a5b;--green-dark:#0c5f43;--blue:#2769a8;--amber:#b96f18;--red:#b53030;--purple:#6b4c9a}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.45}
+.wrap{width:min(1240px,calc(100% - 28px));margin:0 auto}
+header.top{background:var(--green-dark);color:#eaf3ee;padding:24px 0 20px;margin-bottom:20px}
+header.top h1{margin:0 0 6px;font-size:1.65rem;letter-spacing:-.01em}
+header.top p{margin:0;color:#b9d3c6;font-size:.9rem;max-width:940px}
+section{margin:0 0 24px}
+h2{font-size:1.12rem;margin:0 0 6px}
+h2 .sub{display:block;font-size:.82rem;font-weight:400;color:var(--muted);margin-top:3px}
+h3{font-size:.95rem;margin:0 0 8px}
+.card{background:var(--white);border:1px solid var(--line);box-shadow:0 8px 24px rgba(20,33,29,.06);padding:18px 20px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+.tile{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--blue);padding:13px 15px}
+.tile.red{border-left-color:var(--red)}.tile.amber{border-left-color:var(--amber)}.tile.green{border-left-color:var(--green)}
+.tile .k{font-size:.71rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.tile .v{font-size:1.55rem;font-weight:650;letter-spacing:-.02em;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.tile .n{font-size:.8rem;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:.85rem;font-variant-numeric:tabular-nums}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-size:.69rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1.5px solid var(--ink);font-weight:600}
+tbody tr:hover{background:#f2f7f3}
+tr.tot td{font-weight:650;border-top:1.5px solid var(--ink);background:#f2f7f3}
+.pill{display:inline-block;font-size:.68rem;font-weight:650;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:2px;white-space:nowrap}
+.p-green{background:#e3f2ea;color:var(--green-dark)}.p-amber{background:#fbf0e0;color:#8a5210}
+.p-red{background:#fbe6e6;color:#8f2020}.p-grey{background:#eceeed;color:#5a625f}
+/* panel */
+.panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+fieldset{border:1px solid var(--line);background:#fbfcfa;padding:12px 14px 14px;margin:0}
+legend{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 6px;font-weight:600}
+.row{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:center;margin:7px 0;font-size:.82rem}
+.row input[type=range]{grid-column:1/3;width:100%;margin:0;accent-color:var(--blue)}
+.row .val{width:100%;text-align:right;font-weight:650;font-variant-numeric:tabular-nums;font:inherit;font-weight:650;font-size:.85rem;padding:4px 6px;border:1px solid var(--line);background:var(--white)}
+.row .val:focus{outline:2px solid var(--blue);outline-offset:-1px}
+.row input[type=number],.row input[type=date]{font:inherit;font-size:.82rem;padding:3px 5px;border:1px solid var(--line);text-align:right;width:100%}
+.seg{display:flex;gap:6px;margin:6px 0}
+.seg button{flex:1;border:1px solid var(--line);background:var(--white);padding:6px;font:inherit;font-size:.8rem;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
+button.reset{border:1px solid var(--ink);background:var(--white);padding:7px 14px;font:inherit;font-size:.82rem;cursor:pointer}
+.legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted);margin:8px 0 0;flex-wrap:wrap}
+.legend i{display:inline-block;width:11px;height:11px;margin-right:5px;vertical-align:-1px}
+.flag{border-left:4px solid var(--amber);background:#fdf7ee;padding:10px 14px;margin:10px 0;font-size:.85rem}
+.flag.red{border-left-color:var(--red);background:#fdf0f0}
+.flag.blue{border-left-color:var(--blue);background:#eef4fa}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.55}
+.linehead{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;padding-bottom:8px;margin:20px 0 8px;border-bottom:1.5px solid var(--ink)}
+.linehead h3{margin:0;font-size:1.02rem}.linehead .meta{font-size:.8rem;color:var(--muted)}
+svg{display:block;max-width:100%}
+dl.glo{display:grid;grid-template-columns:190px 1fr;gap:6px 16px;font-size:.86rem;margin:0}
+dl.glo dt{font-weight:650}dl.glo dd{margin:0;color:var(--muted)}
+footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px solid var(--line);margin-top:8px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1>Control eléctrico por línea MV</h1>
+  <p>Un solo motor de cálculo: mueves una palanca del escenario y cambia todo el informe — fechas, ritmos exigidos y personal.
+     Estructura de German (12 ago): fecha MC por línea, colchón de 15 días, y una semana hacia atrás por cada actividad.
+     Base de ejecutado: 12 de agosto de 2026, cierre de jornada.</p>
+</div></header>
+
+<div class="wrap">
+
+<section>
+  <h2>1 · Panel de escenario<span class="sub">Todo lo que hay debajo se recalcula al instante. Puedes arrastrar el dial o <strong>escribir el número directamente en la casilla</strong> (Intro para aplicarlo); la casilla admite valores fuera del recorrido del dial. Los valores de partida son los demostrados en obra.</span></h2>
+  <div class="card">
+    <div class="panel">
+      <fieldset><legend>Rendimiento eléctrico · por electricista y día</legend>
+        <div class="row"><span>Cable LV (ft)</span><input type="number" class="val" id="v-cable" min="0" step="any">
+          <input type="range" id="s-cable" min="100" max="800" step="10"></div>
+        <div class="row"><span>Harness (ud)</span><input type="number" class="val" id="v-harness" min="0" step="any">
+          <input type="range" id="s-harness" min="5" max="80" step="1"></div>
+        <div class="row"><span>Cajas / LBD (ud)</span><input type="number" class="val" id="v-boxes" min="0" step="any">
+          <input type="range" id="s-boxes" min="1" max="20" step="1"></div>
+        <div class="row"><span>Conexión LV inversor (ud)</span><input type="number" class="val" id="v-connInv" min="0" step="any">
+          <input type="range" id="s-connInv" min="1" max="20" step="1"></div>
+        <div class="row"><span>Conexión LV caja (ud)</span><input type="number" class="val" id="v-connBox" min="0" step="any">
+          <input type="range" id="s-connBox" min="2" max="40" step="1"></div>
+        <div class="row"><span>Conexión MV (ud)</span><input type="number" class="val" id="v-connMV" min="0" step="any">
+          <input type="range" id="s-connMV" min="0.5" max="4" step="0.5"></div>
+      </fieldset>
+
+      <fieldset><legend>Cuadrillas · composición</legend>
+        <div class="row"><span>Tiro de cable · electricistas</span><input type="number" class="val" id="v-ce" min="0" step="any">
+          <input type="range" id="s-ce" min="2" max="16" step="1"></div>
+        <div class="row"><span>Tiro de cable · ayudantes</span><input type="number" class="val" id="v-ch" min="0" step="any">
+          <input type="range" id="s-ch" min="0" max="16" step="1"></div>
+        <div class="row"><span>Cajas · personas por cuadrilla</span><input type="number" class="val" id="v-bx" min="0" step="any">
+          <input type="range" id="s-bx" min="2" max="6" step="1"></div>
+        <div class="row"><span>Harness · personas por pareja</span><input type="number" class="val" id="v-hn" min="0" step="any">
+          <input type="range" id="s-hn" min="2" max="4" step="1"></div>
+        <div class="row"><span>Terminaciones · personas por equipo</span><input type="number" class="val" id="v-tm" min="0" step="any">
+          <input type="range" id="s-tm" min="2" max="4" step="1"></div>
+        <p class="note" style="margin:6px 0 0">Hoy ECCS tiene <strong>1 cuadrilla</strong>: 19 personas, 9 electricistas.</p>
+      </fieldset>
+
+      <fieldset><legend>Calendario</legend>
+        <div class="seg"><button id="w5" aria-pressed="true">Lunes a viernes</button><button id="w6" aria-pressed="false">Lunes a sábado</button></div>
+        <div class="row"><span>Pérdida de días por clima y absentismo (%)</span><input type="number" class="val" id="v-loss" min="0" step="any">
+          <input type="range" id="s-loss" min="0" max="40" step="1"></div>
+        <div class="row"><span>Colchón antes del MC (días)</span><input type="number" class="val" id="v-cushion" min="0" step="any">
+          <input type="range" id="s-cushion" min="5" max="30" step="1"></div>
+        <p class="note" style="margin:6px 0 0">La pérdida <strong>descuenta días disponibles</strong>: el ritmo que sale es el que hay que hacer <strong>el día que se trabaja</strong>, no una media con los días perdidos dentro. También frena a módulos y estructura, así que retrasa las fechas de liberación. En agosto ya hubo dos días a cero.</p>
+      </fieldset>
+
+      <fieldset><legend>Ritmos de obra que abren el frente</legend>
+        <div class="row"><span>Módulos ESTE · United (ud/día)</span><input type="number" class="val" id="v-modE" min="0" step="any">
+          <input type="range" id="s-modE" min="300" max="4000" step="50"></div>
+        <div class="row"><span>Módulos OESTE · Brumont (ud/día)</span><input type="number" class="val" id="v-modW" min="0" step="any">
+          <input type="range" id="s-modW" min="500" max="4000" step="50"></div>
+        <div class="row"><span>Estructura · United en F (filas/día)</span><input type="number" class="val" id="v-rowU" min="0" step="any">
+          <input type="range" id="s-rowU" min="5" max="60" step="1"></div>
+        <div class="row"><span>Estructura · ECCS en B/G/D (filas/día)</span><input type="number" class="val" id="v-rowE" min="0" step="any">
+          <input type="range" id="s-rowE" min="10" max="80" step="1"></div>
+        <div class="row"><span>Hinca zona D (pilotes/día)</span><input type="number" class="val" id="v-pile" min="0" step="any">
+          <input type="range" id="s-pile" min="0" max="400" step="5"></div>
+      </fieldset>
+
+      <fieldset><legend>Fechas MC por línea</legend>
+        <div class="row"><span>Línea 1 · MV-11A</span><input type="date" id="d-L1"></div>
+        <div class="row"><span>Línea 2 · MV-11B</span><input type="date" id="d-L2"></div>
+        <div class="row"><span>Línea 3 · MV-12A</span><input type="date" id="d-L3"></div>
+        <div class="row"><span>Línea 4 · MV-12B</span><input type="date" id="d-L4"></div>
+        <p class="note" style="margin:6px 0 0">El MC contractual del proyecto es el <strong>25 de septiembre</strong>. Estas cuatro fechas son las de German.</p>
+      </fieldset>
+    </div>
+    <div style="margin-top:14px"><button class="reset" id="reset">Restablecer los valores demostrados en obra</button></div>
+  </div>
+</section>
+
+<section>
+  <h2>2 · Resultado del escenario<span class="sub">Lo que hace falta para sostener las fechas del panel.</span></h2>
+  <div class="tiles" id="kpis"></div>
+  <div id="verdict"></div>
+</section>
+
+<section>
+  <h2>3 · Histograma de personal<span class="sub">Cada barra es una semana. La altura es la gente que tiene que estar en obra esa semana. Sube cuando se abre una zona y baja cuando se cierra un alcance.</span></h2>
+  <div class="card">
+    <h3>Instalación eléctrica completa · las cuatro líneas</h3>
+    <div id="histAll"></div>
+    <div class="legend" id="histLeg"></div>
+    <h3 style="margin-top:22px">Línea por línea · misma escala</h3>
+    <div id="histLines"></div>
+    <div style="overflow-x:auto;margin-top:16px"><table id="histTab"></table></div>
+  </div>
+</section>
+
+<section>
+  <h2>4 · Qué cuadrilla entra, cuándo y a qué ritmo<span class="sub">Mismo cálculo que el histograma. El ritmo es el de un día productivo (ya descontada la pérdida). Los electricistas van con decimal a propósito: es carga de trabajo, no gente — el salto a personas se hace en la fila verde de cada oficio, sumando antes todos los decimales del mismo oficio.</span></h2>
+  <div class="flag blue"><strong>Un "electricista" de esta tabla no es una persona: es carga de trabajo.</strong>
+    La unidad es el <em>electricista-día</em> — lo que produce un electricista en un día. Que un alcance pida 8,4 significa que hay que
+    consumir 8,4 electricistas-día de capacidad cada día laborable para llegar a la fecha; no que existan 8,4 señores.
+    Se mide así porque varias tareas pequeñas comparten la misma persona (conexiones 1,2 + 1,5 + 1,2 = 3,9 de carga = 4 parejas que rotan)
+    y porque la carga la manda la fecha, no el tamaño del trabajo. <strong>Filas blancas con decimal = carga. Filas verdes enteras = gente.</strong></div>
+  <div class="card" id="mob"></div>
+  <p class="note" style="margin-top:10px"><strong>Las filas verdes son las órdenes de obra.</strong> Las filas blancas son carga de trabajo con decimal;
+  media cuadrilla no existe, así que la carga de todas las actividades de un mismo oficio se suma primero y se redondea una sola vez.
+  Comprobación rápida: suma las filas verdes de una línea y te da su pico; suma las cuatro líneas y te da la barra del histograma.</p>
+</section>
+
+<section>
+  <h2>5 · Cuándo se libera el terreno<span class="sub">La estructura manda sobre el cable y las cajas. Los módulos mandan sobre el harness y las conexiones de lado caja.</span></h2>
+  <div class="card">
+    <div id="gantt"></div>
+    <div class="legend"><span><i style="background:#8fb2d0"></i>Estructura pendiente</span>
+      <span><i style="background:#2769a8"></i>Frente de módulos</span>
+      <span><i style="background:#168a5b"></i>Ventana para el trabajo eléctrico</span>
+      <span><i style="background:#b53030;height:2px;margin-bottom:3px"></i>MC de la línea</span></div>
+    <div style="overflow-x:auto;margin-top:16px"><table id="zonetab"></table></div>
+  </div>
+</section>
+
+<section>
+  <h2>6 · Parte diario de cable LV<span class="sub">Lo tendido cada día contra lo exigido, y el desfase que se acumula.</span></h2>
+  <div class="card">
+    <div id="chart"></div>
+    <div style="overflow-x:auto;margin-top:14px"><table id="log"></table></div>
+    <p class="note">La columna <em>Exigido</em> es la exigencia del escenario actual aplicada hacia atrás. Aquellos días la exigencia vigente era 8.049 ft/día contra la puerta del 18 de septiembre.</p>
+  </div>
+</section>
+
+<section>
+  <h2>7 · Glosario y supuestos<span class="sub">Los términos que circulan en inglés en obra, y todo lo que este control da por hecho.</span></h2>
+  <div class="card">
+    <h3>Glosario</h3>
+    <dl class="glo">
+      <dt>Homerun</dt><dd>Cable de continua desde las cajas de agrupación hasta el inversor. 229.435 ft en total.</dd>
+      <dt>Trunk (Chemik)</dt><dd>Cable troncal del suministro Chemik. 40.313 ft.</dd>
+      <dt>Harness</dt><dd>Latiguillos de string (3/2/1) que recogen los módulos hasta la caja. 4.972 ud. Va detrás de los módulos.</dd>
+      <dt>LBD / caja</dt><dd>Caja de agrupación y seccionamiento montada sobre poste. 419 ud.</dd>
+      <dt>Conexión lado inversor / lado caja</dt><dd>Terminaciones LV en cada extremo del homerun. 838 + 1.676 ud.</dd>
+      <dt>Electricista-día</dt><dd>Unidad de rendimiento: lo que produce UN electricista en UN día. El récord del 12 de agosto (4.735 ft con 9 electricistas) son 526 ft por electricista-día.</dd>
+      <dt>Reparto de zona</dt><dd><em>share of the line</em>: qué parte del alcance de una línea está en cada zona. Se reparte en proporción a los módulos de la zona, porque el despiece de cable por zona todavía no existe. Sirve para saber cuánto alcance queda parado cuando una zona no está lista.</dd>
+      <dt>Frente abierto</dt><dd>Primer día en que ese alcance se puede tocar en esa zona.</dd>
+      <dt>Frente completo</dt><dd>Día en que se abre la última zona de la línea; a partir de ahí cabe la cuadrilla entera.</dd>
+      <dt>Ritmo de día productivo</dt><dd>Lo que hay que producir el día que se trabaja. La pérdida por clima y absentismo se descuenta de los días disponibles, no del rendimiento: un día de tormenta no rinde menos, rinde cero, y los demás lo compensan.</dd>
+      <dt>Electricistas (con decimal)</dt><dd>Carga de trabajo, no personas: ritmo exigido ÷ rendimiento por electricista-día. El paso a personas se hace por oficio, sumando primero los decimales de sus actividades y redondeando una sola vez a cuadrillas enteras.</dd>
+      <dt>BLOQUEADO</dt><dd><strong>El trabajo previo termina después de la fecha exigida.</strong> No se arregla con gente: hay que mover la fecha o acelerar el frente que va delante. Se excluye del cálculo de personal y se lista aparte.</dd>
+    </dl>
+    <h3 style="margin-top:20px">Supuestos</h3>
+    <div id="assump"></div>
+  </div>
+</section>
+
+</div>
+<footer><div class="wrap">Murch Solar · Van Buren County, MI · Control interno de construcción · Base 12 ago 2026 · Documento no distribuible</div></footer>
+
+<script>
+/* ============================ DATOS BASE ============================ */
+const HOY = '2026-08-13', INICIO = '2026-08-14';
+const ZONAS = {
+  A :{mod:20930, modLeft:843,   rows:0,   lado:'O'},
+  C :{mod:16198, modLeft:1158,  rows:0,   lado:'O'},
+  E :{mod:46202, modLeft:11610, rows:0,   lado:'O'},
+  EW:{mod:4628,  modLeft:206,   rows:2,   lado:'O'},
+  F :{mod:41990, modLeft:40852, rows:500, lado:'E', rackCrew:'U'},
+  B :{mod:15262, modLeft:15262, rows:88,  lado:'E', rackCrew:'E'},
+  G :{mod:18486, modLeft:18486, rows:256, lado:'E', rackCrew:'E'},
+  D :{mod:7774,  modLeft:7774,  rows:136, lado:'E', rackCrew:'E', piles:993}
+};
+const LINEAS = [
+  {id:'L1', mv:'MV-11A', zonas:['A','C'], inv:5, mc:'2026-10-02',
+   scope:{harness:1082,boxes:93, homerun:54644,trunk:8723, connInv:186,connBox:372,connMV:30},
+   hecho:{harness:0,   boxes:93, homerun:16546,trunk:601,  connInv:0,  connBox:0,  connMV:0}},
+  {id:'L2', mv:'MV-11B', zonas:['E'], inv:6, mc:'2026-10-09',
+   scope:{harness:1292,boxes:110,homerun:53456,trunk:10409,connInv:220,connBox:440,connMV:36},
+   hecho:{harness:0,   boxes:17, homerun:0,    trunk:0,    connInv:0,  connBox:0,  connMV:0}},
+  {id:'L3', mv:'MV-12A', zonas:['F'], inv:6, mc:'2026-10-16',
+   scope:{harness:1258,boxes:110,homerun:65846,trunk:10274,connInv:220,connBox:440,connMV:36},
+   hecho:{harness:0,   boxes:0,  homerun:0,    trunk:0,    connInv:0,  connBox:0,  connMV:0}},
+  {id:'L4', mv:'MV-12B', zonas:['B','D','EW','G'], inv:6, mc:'2026-10-25',
+   scope:{harness:1340,boxes:106,homerun:55488,trunk:10907,connInv:212,connBox:424,connMV:36},
+   hecho:{harness:0,   boxes:0,  homerun:0,    trunk:0,    connInv:0,  connBox:0,  connMV:0}}
+];
+const ACT = [
+  {k:'harness', lab:'Harness (3/2/1-string)',        u:'ud', pred:'mod',  prod:'harness', crew:'harness', off:28, g:'harness'},
+  {k:'boxes',   lab:'Montaje de cajas / LBD',        u:'ud', pred:'rack', prod:'boxes',   crew:'boxes',   off:21, g:'cajas'},
+  {k:'homerun', lab:'Cable LV homerun (a inversor)', u:'ft', pred:'rack', prod:'cable',   crew:'cable',   off:14, g:'cable'},
+  {k:'trunk',   lab:'Cable LV trunk (Chemik)',       u:'ft', pred:'rack', prod:'cable',   crew:'cable',   off:7,  g:'cable'},
+  {k:'connInv', lab:'Conexiones LV · lado inversor', u:'ud', pred:'rack', prod:'connInv', crew:'term',    off:0,  g:'term'},
+  {k:'connBox', lab:'Conexiones LV · lado caja',     u:'ud', pred:'mod',  prod:'connBox', crew:'term',    off:0,  g:'term'},
+  {k:'connMV',  lab:'Conexiones MV',                 u:'ud', pred:'mv',   prod:'connMV',  crew:'term',    off:0,  g:'term'}
+];
+const GRP=[{k:'cable',lab:'Cable (homerun + trunk)',c:'#2769a8'},
+           {k:'cajas',lab:'Cajas / LBD',c:'#b96f18'},
+           {k:'harness',lab:'Harness',c:'#6b4c9a'},
+           {k:'term',lab:'Conexiones LV + MV',c:'#168a5b'}];
+const DIARIO = [ {d:'4 ago',v:1956,hr:1956,tr:0},{d:'5 ago',v:1915,hr:1915,tr:0},{d:'6 ago',v:2560,hr:2560,tr:0},
+  {d:'7 ago',v:1969,hr:1969,tr:0},{d:'8 ago',v:0,hr:0,tr:0},{d:'10 ago',v:3131,hr:3131,tr:0},
+  {d:'11 ago',v:0,hr:0,tr:0},{d:'12 ago',v:4735,hr:4134,tr:601} ];
+const HOY_ELEC = 9, HOY_TOTAL = 19;
+
+/* ============================ ESTADO ============================ */
+const DEF = {
+  week:5, loss:0, cushion:15,
+  prod:{cable:301, harness:30, boxes:7, connInv:6, connBox:10, connMV:1},
+  crew:{cable:{e:9,h:9}, boxes:{e:1,h:2}, harness:{e:1,h:1}, term:{e:1,h:1}},
+  rates:{modE:2300, modW:3018, rowU:30, rowE:40, pile:215},
+  mc:{L1:'2026-10-02',L2:'2026-10-09',L3:'2026-10-16',L4:'2026-10-25'}
+};
+let S = JSON.parse(JSON.stringify(DEF));
+
+/* ============================ FECHAS ============================ */
+const D  = s => {const [y,m,d]=s.split('-').map(Number); return new Date(Date.UTC(y,m-1,d));};
+const iso= d => d.toISOString().slice(0,10);
+const MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const F  = n => Math.round(n).toLocaleString('es-ES');
+const F1 = n => n.toLocaleString('es-ES',{maximumFractionDigits:1});
+const MD = s => {const d=D(s); return d.getUTCDate()+' '+MES[d.getUTCMonth()]+(d.getUTCFullYear()!==2026?' '+d.getUTCFullYear():'');};
+const lab = () => S.week===6?6:5;
+function esLab(d){return d.getUTCDay()>=1 && d.getUTCDay()<=lab();}
+function sigLab(d){let x=new Date(+d); while(!esLab(x)) x=new Date(+x+864e5); return x;}
+function masDias(d,n){ // fecha de fin tras n días laborables desde d (incluido)
+  let x=sigLab(d), c=0;
+  while(true){ if(esLab(x)){c++; if(c>=Math.max(1,Math.ceil(n))) return x;} x=new Date(+x+864e5); }
+}
+function diasLab(a,b){ if(+b<+a) return 0; let n=0,x=new Date(+a); while(+x<=+b){ if(esLab(x))n++; x=new Date(+x+864e5);} return n; }
+function sig(d){ return sigLab(new Date(+d+864e5)); }
+
+/* ============================ MOTOR ============================ */
+function motor(){
+  const k = 1 - S.loss/100;                       // factor de pérdida
+  const r = {modE:S.rates.modE*k, modW:S.rates.modW*k, rowU:S.rates.rowU*k, rowE:S.rates.rowE*k, pile:S.rates.pile*k};
+  const prod = {}; for(const p in S.prod) prod[p]=S.prod[p];   // el rendimiento NO se toca: la pérdida se descuenta de los días
+  const ini = D(INICIO), hoy = D(HOY);
+
+  /* --- estructura por zona --- */
+  const rack={}, rackOpen={};
+  ['A','C','E'].forEach(z=>{rack[z]=hoy; rackOpen[z]=hoy;});
+  rack.EW = masDias(ini, ZONAS.EW.rows/ (r.rowE||1)); rackOpen.EW=hoy;
+  rack.F  = masDias(ini, ZONAS.F.rows / (r.rowU||1)); rackOpen.F =hoy;
+  rack.B  = masDias(ini, ZONAS.B.rows / (r.rowE||1)); rackOpen.B =hoy;
+  rackOpen.G = sig(rack.B);
+  rack.G  = masDias(rackOpen.G, ZONAS.G.rows/(r.rowE||1));
+  const hincaD = r.pile>0 ? masDias(ini, ZONAS.D.piles/r.pile) : D('2027-12-31');
+  rackOpen.D = sig(hincaD);
+  rack.D  = r.pile>0 ? masDias(rackOpen.D, ZONAS.D.rows/(r.rowE||1)) : D('2027-12-31');
+
+  /* --- módulos por zona --- */
+  const mod={}, modOpen={};
+  ['A','C','E','EW','F'].forEach(z=>modOpen[z]=hoy);
+  mod.EW = masDias(ini, ZONAS.EW.modLeft/(r.modW||1));
+  mod.E  = masDias(ini, ZONAS.E.modLeft /(r.modW||1));
+  const oesteResto = ZONAS.A.modLeft + ZONAS.C.modLeft;
+  // A y C ya están al 96% y 93%: el frente está ABIERTO hoy; la cuadrilla vuelve a rematarlas tras la E
+  mod.A = mod.C = masDias(sig(mod.E), oesteResto/(r.modW||1));
+  mod.F = masDias(ini, ZONAS.F.modLeft/(r.modE||1));
+  if(+mod.F < +rack.F) mod.F = rack.F;                       // no puede acabar antes que su estructura
+  modOpen.B = sig(mod.F);  mod.B = masDias(modOpen.B, ZONAS.B.modLeft/(r.modE||1));
+  if(+mod.B < +rack.B) mod.B = rack.B;
+  modOpen.G = sig(mod.B);  mod.G = masDias(modOpen.G, ZONAS.G.modLeft/(r.modE||1));
+  if(+mod.G < +rack.G) mod.G = rack.G;
+  modOpen.D = sig(mod.G);
+  if(+modOpen.D < +sig(rack.D)) modOpen.D = sig(rack.D);
+  mod.D = masDias(modOpen.D, ZONAS.D.modLeft/(r.modE||1));
+
+  /* --- líneas, actividades, zonas --- */
+  const lineas = LINEAS.map(L=>{
+    const mc = D(S.mc[L.id]);
+    const totMod = L.zonas.reduce((a,z)=>a+ZONAS[z].mod,0);
+    const items = ACT.map(a=>{
+      const due = new Date(+mc - (S.cushion + a.off)*864e5);
+      const rem = Math.max(L.scope[a.k]-L.hecho[a.k],0);
+      const zrows = L.zonas.map(z=>{
+        const share = ZONAS[z].mod/totMod, zrem = rem*share;
+        let ab, fin;
+        if(a.pred==='rack'){ ab=rackOpen[z]; fin=rack[z]; }
+        else if(a.pred==='mod'){ ab=modOpen[z]; fin=mod[z]; }
+        else { ab=ini; fin=hoy; }
+        const st = +ab>+ini?ab:ini;
+        const dias = diasLab(st,due);              // días de calendario laborable
+        const util = dias*k;                        // días realmente productivos tras clima/absentismo
+        const bloq = zrem>0 && (+fin>+due || util<=0);
+        return {z:z, rem:zrem, share:share, abre:iso(st), fin:iso(fin), dias:dias, util:util,
+                bloq:bloq, req: (zrem>0 && !bloq) ? zrem/util : 0, due:iso(due)};
+      });
+      const req = zrows.reduce((s,z)=>s+z.req,0);
+      const bloqRem = zrows.filter(z=>z.bloq).reduce((s,z)=>s+z.rem,0);
+      const bloqZ = zrows.filter(z=>z.bloq).map(z=>z.z);
+      const finBloq = zrows.filter(z=>z.bloq).map(z=>z.fin).sort().pop();
+      const act = zrows.filter(z=>z.rem>0 && !z.bloq);
+      return {...a, rem:rem, due:iso(due), zrows:zrows, req:req, bloqRem:bloqRem, bloqZ:bloqZ, finBloq:finBloq,
+              abre: act.length? act.map(z=>z.abre).sort()[0] : null,
+              full: act.length? act.map(z=>z.abre).sort().pop() : null,
+              elec: req>0 ? req/prod[a.prod] : 0};
+    });
+    return {...L, mcDate:iso(mc), rackFin:iso(L.zonas.map(z=>rack[z]).sort((x,y)=>y-x)[0]),
+            modFin:iso(L.zonas.map(z=>mod[z]).sort((x,y)=>y-x)[0]),
+            items:items, limite:iso(new Date(+mc - S.cushion*864e5))};
+  });
+
+  /* --- demanda semanal (LA REFERENCIA ÚNICA) --- */
+  let ult = D(INICIO);
+  lineas.forEach(L=>L.items.forEach(i=>{ if(+D(i.due)>+ult) ult=D(i.due); }));
+  const semanas=[]; let w=D('2026-08-10');
+  while(+w<=+ult){ semanas.push(new Date(+w)); w=new Date(+w+7*864e5); }
+  // dem[linea][semana][actividad] = personas
+  // electricistas necesarios por actividad y semana -> se agrupan por oficio y SE REDONDEA UNA SOLA VEZ por oficio
+  const CG = {cable:'cable', cajas:'boxes', harness:'harness', term:'term'};   // grupo -> plantilla de cuadrilla
+  const dem = lineas.map(L=>semanas.map(sem=>{
+    const ws=+sem, we=+sem+6*864e5, o={g:{},e:{},crew:{}};
+    GRP.forEach(g=>{o.g[g.k]=0;o.e[g.k]=0;o.crew[g.k]=0;});
+    L.items.forEach(it=>{
+      let e=0;
+      it.zrows.forEach(z=>{ if(z.bloq||!z.req) return;
+        if(+D(z.abre)<=we && +D(it.due)>=ws) e+=z.req/prod[it.prod]; });
+      o[it.k]=e;                       // electricistas fraccionados de esa actividad
+      o.e[it.g]+=e;
+    });
+    GRP.forEach(g=>{ const c=S.crew[CG[g.k]], n=o.e[g.k];
+      o.crew[g.k] = n>0?Math.ceil(n/c.e-1e-9):0;
+      o.g[g.k]    = o.crew[g.k]*(c.e+c.h); });
+    return o;
+  }));
+  const pers = a => GRP.reduce((s,g)=>s+a.g[g.k],0);
+  const elec = a => GRP.reduce((s,g)=>s+a.crew[g.k]*S.crew[{cable:'cable',cajas:'boxes',harness:'harness',term:'term'}[g.k]].e,0);
+  const totSem = semanas.map((_,wi)=>dem.reduce((s,l)=>s+pers(l[wi]),0));
+  const eleSem = semanas.map((_,wi)=>dem.reduce((s,l)=>s+elec(l[wi]),0));
+
+  return {prod:prod, r:r, rack:rack, rackOpen:rackOpen, mod:mod, modOpen:modOpen,
+          lineas:lineas, semanas:semanas, dem:dem, pers:pers, elec:elec, totSem:totSem, eleSem:eleSem};
+}
+
+/* ============================ VISTAS ============================ */
+let M;
+function kpis(){
+  const pico = Math.max(...M.totSem), picoE = Math.max(...M.eleSem);
+  const wi = M.totSem.indexOf(pico);
+  const ahora = M.totSem[1]||M.totSem[0];
+  let bloq=0, bloqL=[];
+  M.lineas.forEach(L=>L.items.forEach(i=>{ if(i.bloqRem>0){bloq++; bloqL.push(L.id);} }));
+  // cable pendiente y fecha con la cuadrilla de hoy
+  let cableRem=0; M.lineas.forEach(L=>{cableRem+=Math.max(L.scope.homerun-L.hecho.homerun,0)+Math.max(L.scope.trunk-L.hecho.trunk,0);});
+  const diasHoy = cableRem/(HOY_ELEC*M.prod.cable*(1-S.loss/100));
+  const finHoy = masDias(D(INICIO), diasHoy);
+  const ultDue = M.lineas.map(L=>L.limite).sort().pop();
+  const t=[
+    {k:'Personal la próxima semana', v:F(ahora), n:'ECCS tiene <strong>'+HOY_TOTAL+'</strong> hoy', c: ahora>HOY_TOTAL?'red':'green'},
+    {k:'Pico de personal', v:F(pico), n:'semana del '+MD(iso(M.semanas[wi]))+' · '+F(picoE)+' electricistas', c:'red'},
+    {k:'Electricistas en el pico', v:F(picoE), n:'hoy hay '+HOY_ELEC+' · faltan '+F(Math.max(0,picoE-HOY_ELEC)), c:'red'},
+    {k:'Cable pendiente', v:F(cableRem)+' ft', n:'de 269.748 ft · '+F1(cableRem/1000)+' mil ft', c:'amber'},
+    {k:'Fin del cable con la cuadrilla de hoy', v:MD(iso(finHoy)), n:'9 electricistas a '+F(M.prod.cable)+' ft/día · la última fecha exigida es '+MD(ultDue),
+     c: +finHoy>+D(ultDue)?'red':'green'},
+    {k:'Alcances bloqueados', v:bloq, n: bloq? 'en '+[...new Set(bloqL)].join(', ')+' · no se arregla con gente' : 'ninguno en este escenario', c: bloq?'red':'green'}
+  ];
+  document.getElementById('kpis').innerHTML=t.map(x=>
+    `<div class="tile ${x.c}"><div class="k">${x.k}</div><div class="v">${x.v}</div><div class="n">${x.n}</div></div>`).join('');
+
+  let v='';
+  M.lineas.forEach(L=>{
+    const bl=L.items.filter(i=>i.bloqRem>0);
+    if(bl.length) v+=`<div class="flag red"><strong>Línea ${L.id[1]} · ${L.mv} — ${bl.length} alcance(s) BLOQUEADO(S).</strong> ${
+      bl.map(i=>`${i.lab}: ${F(i.bloqRem)} ${i.u} en zona ${i.bloqZ.join('/')} — el frente previo termina el <strong>${MD(i.finBloq)}</strong> y la fecha exigida es el ${MD(i.due)}`).join('. ')}.
+      Con más gente no se arregla: o se mueve la fecha MC de la línea, o se acelera ${bl[0].pred==='mod'?'el frente de módulos':'la estructura'}.</div>`;
+  });
+  if(!v) v='<div class="flag blue"><strong>Ningún alcance bloqueado en este escenario.</strong> Todas las fechas son alcanzables si se pone el personal del histograma.</div>';
+  document.getElementById('verdict').innerHTML=v;
+}
+
+function barras(el,W,serie,maxV,w,h,ejeY,titulo){
+  const PL=ejeY?44:14, PR=10, PT=titulo?20:8, PB=36;
+  const iw=w-PL-PR, ih=h-PT-PB, bw=Math.min(46, iw/W.length*0.66);
+  const Y=v=>PT+ih-(v/(maxV||1))*ih;
+  let s=`<svg viewBox="0 0 ${w} ${h}" width="${w}" style="max-width:100%" role="img" aria-label="${titulo||'personal semanal'}">`;
+  if(titulo) s+=`<text x="${PL}" y="12" font-size="11.5" font-weight="650" fill="#18201f">${titulo}</text>`;
+  [0,.5,1].forEach(f=>{const v=maxV*f;
+    s+=`<line x1="${PL}" x2="${w-PR}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e8ede9"/>`;
+    if(ejeY)s+=`<text x="${PL-7}" y="${Y(v)+4}" text-anchor="end" font-size="10" fill="#66716d">${F(v)}</text>`;});
+  W.forEach((wk,i)=>{
+    const cx=PL+iw*(i+0.5)/W.length; let acc=0;
+    const tot=GRP.reduce((s2,g)=>s2+serie[i][g.k],0);
+    GRP.forEach(g=>{const v=serie[i][g.k]; if(v<=0)return;
+      const y1=Y(acc+v), y2=Y(acc);
+      s+=`<rect x="${cx-bw/2}" y="${y1}" width="${bw}" height="${Math.max(0,y2-y1-2)}" rx="3" fill="${g.c}"><title>${g.lab}: ${v} personas</title></rect>`;
+      acc+=v;});
+    if(tot>0)s+=`<text x="${cx}" y="${Y(tot)-5}" text-anchor="middle" font-size="10.5" font-weight="650" fill="#18201f">${tot}</text>`;
+    s+=`<text x="${cx}" y="${h-PB+15}" text-anchor="middle" font-size="9.5" fill="#66716d" transform="rotate(-40 ${cx} ${h-PB+15})">${wk.getUTCDate()+' '+MES[wk.getUTCMonth()]}</text>`;});
+  if(HOY_TOTAL<=maxV){const y=Y(HOY_TOTAL);
+    s+=`<line x1="${PL}" x2="${w-PR}" y1="${y}" y2="${y}" stroke="#b53030" stroke-width="2" stroke-dasharray="5 3"/>`;
+    if(ejeY)s+=`<text x="${w-PR}" y="${y-5}" text-anchor="end" font-size="10" fill="#b53030" font-weight="600">hoy en obra: ${HOY_TOTAL}</text>`;}
+  s+=`<line x1="${PL}" x2="${w-PR}" y1="${PT+ih}" y2="${PT+ih}" stroke="#18201f"/></svg>`;
+  document.getElementById(el).innerHTML=s;
+}
+function porGrupo(a){return a.g;}
+function hist(){
+  const W=M.semanas;
+  const proj=W.map((_,wi)=>{const o={};GRP.forEach(g=>o[g.k]=0);
+    M.dem.forEach(l=>{const g=porGrupo(l[wi]); GRP.forEach(x=>o[x.k]+=g[x.k]);}); return o;});
+  const maxP=Math.max(...M.totSem)*1.15||10;
+  barras('histAll',W,proj,maxP,1120,300,true,'');
+  document.getElementById('histLeg').innerHTML=GRP.map(g=>`<span><i style="background:${g.c}"></i>${g.lab}</span>`).join('')+
+    `<span><i style="background:#b53030;height:2px;margin-bottom:3px"></i>cuadrilla de ECCS hoy (19)</span>`;
+  const porLinea=M.dem.map(l=>l.map(porGrupo));
+  const maxL=Math.max(...M.dem.map(l=>Math.max(...l.map(M.pers))))*1.2||10;
+  let html='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:12px">';
+  M.lineas.forEach((x,i)=>html+=`<div id="hl${i}"></div>`); html+='</div>';
+  document.getElementById('histLines').innerHTML=html;
+  M.lineas.forEach((x,i)=>barras('hl'+i,W,porLinea[i],maxL,275,215,i===0,`Línea ${x.id[1]} · ${x.mv}`));
+
+  let t='<thead><tr><th>Semana del</th>';
+  M.lineas.forEach(x=>t+=`<th>Línea ${x.id[1]}</th>`);
+  t+='<th>Proyecto</th><th>Electricistas</th><th>Oficio con más gente</th></tr></thead><tbody>';
+  W.forEach((wk,wi)=>{
+    let row=`<tr><td>${wk.getUTCDate()+' '+MES[wk.getUTCMonth()]}</td>`;
+    M.lineas.forEach((x,li)=>{const v=M.pers(M.dem[li][wi]); row+=`<td>${v||'-'}</td>`;});
+    let top='-',tv=0;
+    GRP.forEach(x=>{const v=M.dem.reduce((s2,l)=>s2+l[wi].g[x.k],0); if(v>tv){tv=v;top=x.lab+' ('+v+')';}});
+    row+=`<td><strong>${M.totSem[wi]||'-'}</strong></td><td>${M.eleSem[wi]||'-'}</td><td style="text-align:left">${M.totSem[wi]?top:'-'}</td></tr>`;
+    t+=row;});
+  t+='<tr class="tot"><td>PICO</td>';
+  M.lineas.forEach((x,li)=>t+=`<td>${Math.max(...M.dem[li].map(M.pers))}</td>`);
+  t+=`<td>${Math.max(...M.totSem)}</td><td>${Math.max(...M.eleSem)}</td>
+      <td style="text-align:left">+ ${Math.ceil(Math.max(...M.totSem)/20)} encargados en el pico</td></tr></tbody>`;
+  document.getElementById('histTab').innerHTML=t;
+}
+
+function mob(){
+  document.getElementById('mob').innerHTML = M.lineas.map((L,li)=>{
+    const CG={cable:'cable',cajas:'boxes',harness:'harness',term:'term'};
+    let filas='';
+    GRP.forEach(g=>{
+      const acts=L.items.filter(i=>i.g===g.k);
+      acts.forEach(it=>{
+        const picoE=Math.max(...M.dem[li].map(s=>s[it.k]||0));
+        const estado = it.rem===0 ? '<span class="pill p-green">HECHO</span>'
+          : (it.bloqRem>0 && it.req<=0 ? '<span class="pill p-red">BLOQUEADO</span>'
+          : (it.bloqRem>0 ? '<span class="pill p-amber">PARTE BLOQUEADA</span>' : '<span class="pill p-green">ABIERTO</span>'));
+        filas+=`<tr><td><strong>${it.lab}</strong><br><span style="font-size:.72rem;color:var(--muted)">va detrás de ${
+            it.pred==='mod'?'los módulos':(it.pred==='rack'?'la estructura':'la red MV')}</span></td>
+          <td>${it.rem===0?'-':F(it.rem)+' '+it.u}</td>
+          <td>${it.abre?MD(it.abre):'-'}</td><td>${it.full?MD(it.full):'-'}</td><td>${MD(it.due)}</td>
+          <td>${it.req>0?F1(it.req)+' '+it.u:'-'}</td>
+          <td>${picoE>0?F1(picoE):'-'}</td>
+          <td>${it.bloqRem>0?F(it.bloqRem)+' '+it.u:'-'}</td><td>${estado}</td></tr>`;});
+      const picoP=Math.max(...M.dem[li].map(s=>s.g[g.k])), picoC=Math.max(...M.dem[li].map(s=>s.crew[g.k]));
+      const carga=Math.max(...M.dem[li].map(s=>s.e[g.k]));
+      const c=S.crew[CG[g.k]];
+      if(picoP>0) filas+=`<tr style="background:#e8f1ea"><td colspan="4" style="font-weight:650">
+        &#9654; ${g.lab} — <span style="font-weight:400">esto es lo que se manda a obra</span></td>
+        <td colspan="5" style="text-align:left;font-weight:650">
+        ${F1(carga)} electricistas de carga &divide; ${c.e} por cuadrilla &rarr; <strong>${picoC} cuadrilla${picoC===1?'':'s'}</strong>
+        &times; ${c.e+c.h} personas = <strong>${picoP} personas</strong>
+        <span style="font-weight:400;color:var(--muted)">(${picoC*c.e} electricistas + ${picoC*c.h} ayudantes) · máximo simultáneo</span></td></tr>`;
+    });
+    return `<div class="linehead"><h3>Línea ${L.id[1]} · ${L.mv}</h3>
+        <div class="meta">zonas ${L.zonas.join(' + ')} · estructura ${MD(L.rackFin)} · módulos ${MD(L.modFin)} · fin de trabajos ${MD(L.limite)} · MC ${MD(L.mcDate)} · <strong>pico ${Math.max(...M.dem[li].map(M.pers))} personas</strong></div></div>
+      <div style="overflow-x:auto"><table><thead><tr><th>Alcance</th><th>Pendiente</th><th>Entra</th><th>Frente completo</th>
+        <th>Fecha exigida</th><th>Ritmo/día</th><th>Electricistas</th><th>Bloqueado</th><th>Estado</th></tr></thead><tbody>${filas}</tbody></table></div>`;
+  }).join('');
+}
+
+function gantt(){
+  const L=M.lineas, all=[];
+  L.forEach(x=>{all.push(D(x.rackFin),D(x.modFin),D(x.mcDate));});
+  const t0=D(HOY), t1=new Date(Math.max(...all.map(d=>+d))+6*864e5);
+  const W=1120,PL=118,PR=30,PT=34,rowH=74,H=PT+L.length*rowH+30, iw=W-PL-PR, span=Math.max(1,+t1-+t0);
+  const X=d=>PL+iw*((+D(d)-+t0)/span);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="height:auto" role="img" aria-label="cuándo se libera cada línea">`;
+  let m=new Date(Date.UTC(2026,7,1));
+  while(+m<+t1){ if(+m>=+t0){const x=PL+iw*((+m-+t0)/span);
+      s+=`<line x1="${x}" x2="${x}" y1="${PT-10}" y2="${H-26}" stroke="#e8ede9"/>`+
+         `<text x="${x+4}" y="${PT-16}" font-size="10.5" fill="#66716d">${MES[m.getUTCMonth()]}${m.getUTCFullYear()!==2026?' '+String(m.getUTCFullYear()).slice(2):''}</text>`;}
+    m=new Date(Date.UTC(m.getUTCFullYear(),m.getUTCMonth()+1,1)); }
+  L.forEach((x,i)=>{const y=PT+i*rowH;
+    s+=`<text x="6" y="${y+16}" font-size="12.5" font-weight="650" fill="#18201f">Línea ${x.id[1]} ${x.mv}</text>`;
+    s+=`<text x="6" y="${y+31}" font-size="10" fill="#66716d">${x.zonas.join(' + ')}</text>`;
+    [{a:HOY,b:x.rackFin,c:'#8fb2d0',t:'estructura al '+MD(x.rackFin)},
+     {a:HOY,b:x.modFin, c:'#2769a8',t:'módulos al '+MD(x.modFin)},
+     {a:x.rackFin,b:x.limite,c:'#168a5b',t:'ventana eléctrica'}].forEach((b,j)=>{
+      const x1=X(b.a), x2=Math.max(X(b.b),X(b.a)+3), far=x2>W-PR-130;
+      s+=`<rect x="${x1}" y="${y+4+j*15}" width="${x2-x1}" height="11" rx="4" fill="${b.c}"/>`;
+      s+=`<text x="${far?x2-6:x2+6}" y="${y+13+j*15}" text-anchor="${far?'end':'start'}" font-size="9.5" fill="${far?'#fff':'#66716d'}">${b.t}</text>`;});
+    const xm=X(x.mcDate);
+    s+=`<line x1="${xm}" x2="${xm}" y1="${y}" y2="${y+52}" stroke="#b53030" stroke-width="2" stroke-dasharray="5 3"/>`;
+    s+=`<text x="${xm+4}" y="${y+62}" font-size="10" fill="#b53030" font-weight="600">MC ${MD(x.mcDate)}</text>`;});
+  s+='</svg>';
+  document.getElementById('gantt').innerHTML=s;
+
+  let z='<thead><tr><th>Línea</th><th>Zona</th><th>Reparto de zona</th><th>Estructura lista</th><th>Entran módulos</th><th>Módulos listos</th><th>Módulos pendientes</th></tr></thead><tbody>';
+  M.lineas.forEach(x=>{const tot=x.zonas.reduce((a,zz)=>a+ZONAS[zz].mod,0);
+    x.zonas.forEach((zz,i)=>{
+      z+=`<tr><td style="white-space:nowrap">${i===0?'<strong>L'+x.id[1]+' · '+x.mv+'</strong>':''}</td><td>Zona ${zz}</td>
+        <td>${F1(100*ZONAS[zz].mod/tot)}%</td><td>${MD(iso(M.rack[zz]))}</td><td>${MD(iso(M.modOpen[zz]))}</td>
+        <td>${MD(iso(M.mod[zz]))}</td><td>${F(ZONAS[zz].modLeft)}</td></tr>`;});});
+  z+='</tbody>';
+  document.getElementById('zonetab').innerHTML=z;
+}
+
+function parte(){
+  let req=0; M.lineas.forEach(L=>L.items.forEach(i=>{ if(i.k==='homerun'||i.k==='trunk') req+=i.req; }));
+  const W=Math.max(1120,DIARIO.length*90),H=250,PL=58,PR=14,PT=16,PB=34;
+  const max=Math.max(req*1.1,...DIARIO.map(d=>d.v))*1.05, iw=W-PL-PR, ih=H-PT-PB;
+  const bw=Math.min(46,iw/DIARIO.length*0.6), Y=v=>PT+ih-(v/max)*ih;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="height:auto" role="img" aria-label="parte diario de cable">`;
+  [0,.25,.5,.75,1].forEach(f=>{const v=max*f;
+    s+=`<line x1="${PL}" x2="${W-PR}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e8ede9"/>`+
+       `<text x="${PL-8}" y="${Y(v)+4}" text-anchor="end" font-size="10" fill="#66716d">${F(v)}</text>`;});
+  DIARIO.forEach((d,i)=>{const cx=PL+iw*(i+0.5)/DIARIO.length;
+    s+=`<rect x="${cx-bw/2}" y="${Y(d.v)}" width="${bw}" height="${Math.max(0,PT+ih-Y(d.v))}" rx="4" fill="#2769a8"><title>${d.d}: ${F(d.v)} ft</title></rect>`;
+    s+=`<text x="${cx}" y="${H-PB+16}" text-anchor="middle" font-size="10.5" fill="#66716d">${d.d}</text>`;
+    if(d.v>0)s+=`<text x="${cx}" y="${Y(d.v)-6}" text-anchor="middle" font-size="10.5" font-weight="600" fill="#18201f">${F(d.v)}</text>`;});
+  s+=`<line x1="${PL}" x2="${W-PR}" y1="${Y(req)}" y2="${Y(req)}" stroke="#b53030" stroke-width="2" stroke-dasharray="6 4"/>`;
+  s+=`<text x="${W-PR}" y="${Y(req)-7}" text-anchor="end" font-size="10.5" fill="#b53030" font-weight="600">exigido ${F1(req)} ft/día</text>`;
+  s+=`<line x1="${PL}" x2="${W-PR}" y1="${PT+ih}" y2="${PT+ih}" stroke="#18201f"/></svg>`;
+  document.getElementById('chart').innerHTML=s;
+
+  let cum=0, acc=881;
+  let h='<thead><tr><th>Día</th><th>Homerun ft</th><th>Trunk ft</th><th>Tendido</th><th>Exigido</th><th>Diferencia</th><th>Desfase acumulado</th><th>Acumulado instalado</th></tr></thead><tbody>';
+  DIARIO.forEach(d=>{const g=d.v-req; cum+=g; acc+=d.v;
+    h+=`<tr><td>${d.d}</td><td>${F(d.hr)}</td><td>${F(d.tr)}</td><td><strong>${F(d.v)}</strong></td><td>${F1(req)}</td>
+      <td style="color:${g<0?'#b53030':'#0c5f43'}">${g>0?'+':''}${F1(g)}</td>
+      <td style="color:#b53030">${F1(cum)}</td><td>${F(acc)}</td></tr>`;});
+  h+=`<tr class="tot"><td>Desde el 4 de agosto</td><td colspan="2"></td><td>${F(DIARIO.reduce((a,b)=>a+b.v,0))}</td>
+      <td>${F1(req*DIARIO.length)}</td><td colspan="2" style="color:#b53030">${F1(cum)} ft de desfase</td><td>${F(acc)}</td></tr></tbody>`;
+  document.getElementById('log').innerHTML=h;
+}
+
+function supuestos(){
+  document.getElementById('assump').innerHTML=`
+   <div class="flag red"><strong>Las fechas MC por línea (2 a 25 de octubre) son las de German, no las del contrato.</strong>
+     El MC garantizado del proyecto es el 25 de septiembre. Son objetivos internos que ya se sitúan por detrás de la fecha garantizada.</div>
+   <div class="flag"><strong>Todo el cable ejecutado se imputa a la Línea 1</strong> — los 17.147 ft son trabajo del Inv-01 en las zonas A y C, repartidos como homerun 16.546 + trunk 601.
+     Las cajas: 93 a la Línea 1 y 17 a la Línea 2 (los montajes de E1/E2 del 1 de agosto). Deducido; se sustituye con el desglose por línea de Ángel.</div>
+   <div class="flag"><strong>Solo el cable y las cajas tienen rendimiento medido en obra.</strong> Cable: 9 electricistas de una cuadrilla de 19, récord 4.735 ft (526 ft por electricista-día),
+     media de los días con producción 301, media contando los dos días a cero 219. Cajas: cuadrilla de 3, +22 y +25 en un día.
+     Harness, conexiones LV y conexiones MV llevan <em>norma de planificación</em>: el primer día medido de cada uno las sustituye.</div>
+   <div class="flag"><strong>Zona D depende de la hinca.</strong> El frente se paró el 10 de agosto por falta de pilote rojo; el panel lo modela reanudando ya.
+     Si pones la hinca a 0 pilotes/día, la Línea 4 se queda sin ventana.</div>
+   <div class="flag"><strong>El reparto por zona es proporcional a los módulos de cada zona</strong>, porque no existe despiece de cable por zona. Es el mejor sustituto disponible.</div>
+   <p class="note"><strong>Origen del alcance:</strong> toma de datos de German Domínguez del 12 de agosto de 2026 — 269.748 ft de cable (homerun 229.435 + trunk Chemik 40.313),
+     4.972 harness, 419 cajas, 2.514 conexiones LV y 138 conexiones MV en 23 inversores.
+     <strong>Corrección pendiente en el dashboard:</strong> el denominador de LV (274.720 ft) suma los 4.972 harness como si fueran pies. El cable son 269.748 ft.</p>`;
+}
+
+/* ============================ CONTROLES ============================ */
+const SL=[['cable','prod'],['harness','prod'],['boxes','prod'],['connInv','prod'],['connBox','prod'],['connMV','prod'],
+          ['modE','rates'],['modW','rates'],['rowU','rates'],['rowE','rates'],['pile','rates']];
+function pintaValores(){
+  SL.forEach(([k,grp])=>{const el=document.getElementById('v-'+k); if(el) el.value=S[grp][k];
+    const sl=document.getElementById('s-'+k); if(sl) sl.value=S[grp][k];});
+  const set=(id,val)=>{const e=document.getElementById('v-'+id); if(e)e.value=val;
+    const s2=document.getElementById('s-'+id); if(s2)s2.value=parseFloat(val);};
+  set('ce',S.crew.cable.e); set('ch',S.crew.cable.h);
+  set('bx',S.crew.boxes.e+S.crew.boxes.h); set('hn',S.crew.harness.e+S.crew.harness.h); set('tm',S.crew.term.e+S.crew.term.h);
+  document.getElementById('v-loss').value=S.loss;
+  document.getElementById('s-loss').value=S.loss;
+  document.getElementById('v-cushion').value=S.cushion;
+  document.getElementById('s-cushion').value=S.cushion;
+  document.getElementById('w5').setAttribute('aria-pressed',S.week===5);
+  document.getElementById('w6').setAttribute('aria-pressed',S.week===6);
+  ['L1','L2','L3','L4'].forEach(id=>document.getElementById('d-'+id).value=S.mc[id]);
+}
+function render(){ M=motor(); kpis(); hist(); mob(); gantt(); parte(); supuestos(); }
+function num(id,fn){const el=document.getElementById('v-'+id); if(!el)return;
+  const go=e=>{const v=parseFloat(e.target.value); if(!(v>=0)||isNaN(v))return; fn(v); pintaValores(); render();};
+  el.addEventListener('change',go);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.target.blur(); go(e);}});}
+function bind(){
+  SL.forEach(([k,grp])=>{const sl=document.getElementById('s-'+k); if(!sl)return;
+    sl.addEventListener('input',e=>{S[grp][k]=parseFloat(e.target.value); pintaValores(); render();});
+    num(k, v=>{S[grp][k]=v;});});
+  num('ce', v=>{S.crew.cable.e=Math.max(1,Math.round(v));});
+  num('ch', v=>{S.crew.cable.h=Math.round(v);});
+  num('bx', v=>{S.crew.boxes={e:1,h:Math.max(0,Math.round(v)-1)};});
+  num('hn', v=>{S.crew.harness={e:1,h:Math.max(0,Math.round(v)-1)};});
+  num('tm', v=>{S.crew.term={e:1,h:Math.max(0,Math.round(v)-1)};});
+  num('loss', v=>{S.loss=Math.min(95,v);});
+  num('cushion', v=>{S.cushion=Math.round(v);});
+  document.getElementById('s-ce').addEventListener('input',e=>{S.crew.cable.e=+e.target.value; pintaValores(); render();});
+  document.getElementById('s-ch').addEventListener('input',e=>{S.crew.cable.h=+e.target.value; pintaValores(); render();});
+  document.getElementById('s-bx').addEventListener('input',e=>{S.crew.boxes={e:1,h:+e.target.value-1}; pintaValores(); render();});
+  document.getElementById('s-hn').addEventListener('input',e=>{S.crew.harness={e:1,h:+e.target.value-1}; pintaValores(); render();});
+  document.getElementById('s-tm').addEventListener('input',e=>{S.crew.term={e:1,h:+e.target.value-1}; pintaValores(); render();});
+  document.getElementById('s-loss').addEventListener('input',e=>{S.loss=+e.target.value; pintaValores(); render();});
+  document.getElementById('s-cushion').addEventListener('input',e=>{S.cushion=+e.target.value; pintaValores(); render();});
+  document.getElementById('w5').onclick=()=>{S.week=5;pintaValores();render();};
+  document.getElementById('w6').onclick=()=>{S.week=6;pintaValores();render();};
+  ['L1','L2','L3','L4'].forEach(id=>document.getElementById('d-'+id).addEventListener('change',e=>{
+    if(e.target.value){S.mc[id]=e.target.value; render();}}));
+  document.getElementById('reset').onclick=()=>{S=JSON.parse(JSON.stringify(DEF)); pintaValores(); render();};
+}
+pintaValores(); bind(); render();
+</script>
+</body></html>
