@@ -1728,7 +1728,7 @@ canvas { max-width: 100%; }
       </nav>
 
       <section class="hero-content">
-        <p class="eyebrow">Van Buren County, MI | Field production through August 12, 2026 EOD | Piles 29,586 (94.4%) &middot; trackers 1,503 built (60.5%), 296 client-released &middot; modules 75,279 (43.9%) &mdash; <strong>THE BIGGEST TRACKER DAY OF THE PROJECT: 89 rows vs 66 required &middot; a NEW LV RECORD, 4,735 ft &middot; Brumont&rsquo;s best day ever, 3,018 &mdash; and Jose&rsquo;s decision: BRUMONT STAYS.</strong> United&rsquo;s module ramp read 820 (day 2); piles stopped a third day with the delivery basis re-cut to 28,343; the substation steel finally departed Aug 12 evening.</p>
+        <p class="eyebrow">Van Buren County, MI | Field production through August 12, 2026 EOD (Aug 13 field blocks pending &mdash; normal cadence) | Piles 29,586 (94.4%) &middot; trackers 1,503 built (60.5%), 296 client-released &middot; modules 75,279 (43.9%) &mdash; <strong>THE BIGGEST TRACKER DAY OF THE PROJECT: 89 rows vs 66 required &middot; a NEW LV RECORD, 4,735 ft &middot; Brumont&rsquo;s best day ever, 3,018 &mdash; and Jose&rsquo;s decision: BRUMONT STAYS.</strong> United&rsquo;s module ramp read 820 (day 2); piles stopped a third day with the delivery basis re-cut to 28,343; the substation steel finally departed Aug 12 evening.</p>
         <h1>Murch Solar Project Control Dashboard</h1>
         <p class="lede">102 MWp utility-scale PV project with turnkey EPC scope, GameChange single-axis trackers, 31,352 piles, 2,486 tracker rows, and 171,470 modules.</p>
         <div class="hero-actions" aria-label="Dashboard quick links">
@@ -2377,7 +2377,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 12 WhatsApp field logs</strong> (Manuel Ramirez blocks: ECCS 49 rows + 45 tension piles, United 30 rows + 820 modules, Workforce 10 rows + 40 modules, Brumont 3,018; Angel Urbina&rsquo;s electrical report: LV record 4,735 ft across five Inv-01 LBD lines, DC-12 completed, substation grounding; Axel Cano&rsquo;s steel-departure record) &mdash; the production basis is <strong>Aug 12 EOD</strong>; the <strong>Aug 12 DELIVERY AND MECHANICAL workbook</strong> (installation roll-up 28,713, still behind the field ledger; pile delivery RE-CUT to 28,343 of 31,352); the Aug 11 MURCH_Plowing_Boring workbook and SE tracker cut (25.9% / civil 81.6%); the racking area division of Aug 8 (ECCS 1,738 &middot; United 497 &middot; Workforce 250 &mdash; ECCS&rsquo;s Zone B credit now exceeds its share, re-cut pending) and the WEST/EAST module division. <strong>WhatsApp timestamps are Michigan Eastern time</strong> and each block carries its own production date. No economic values are published on this dashboard.</p>
     </footer>
 
-    <script src="data.js?v=20260813b"></script>
+    <script src="data.js?v=20260814a"></script>
     <script>
 'use strict';
 
@@ -3102,19 +3102,39 @@ canvas { max-width: 100%; }
       }
       function series(rx) { var t = (D.dailyProductionHistory || []).filter(function (x) { return rx.test(x.task); })[0]; return t ? t.daily : []; }
       function rate5(daily) { var v = daily.slice(-5).map(function (x) { return x.value; }); if (!v.length) return 0; return v.reduce(function (a, b) { return a + b; }, 0) / v.length; }
+      // PLAN-TO-DATE (Jose, Aug 14): the schedule target each scope should carry today,
+      // on a Mon-Sat working-day line from its field start to its contractual gate.
+      // Gates that fall on a Sunday are read as the Saturday before. Passed gates plan at 100%.
+      function planPct(startISO, gateISO) {
+        var s = new Date(startISO + 'T12:00:00'), g = new Date(gateISO + 'T12:00:00');
+        if (g.getDay() === 0) g.setDate(g.getDate() - 1);
+        var tot = wdBetween(s, g); if (tot <= 0) return 100;
+        var el = wdBetween(s, today > g ? g : today);
+        return Math.min(100, el / tot * 100);
+      }
+      var STARTS = { piles: '2026-06-17', trackers: '2026-06-08', modules: '2026-07-03', lv: '2026-07-07', mv: '2026-06-12', inv: '2026-07-27' };
+      function planLine(planned, actual) {
+        var gap = actual - planned;
+        var cls = gap >= -2 ? 'style="color:#0c6b48;font-weight:700"' : 'style="color:#a12b2b;font-weight:700"';
+        return 'Plan today: <b>' + planned.toFixed(1) + '%</b> \u00b7 <span ' + cls + '>' + (gap >= 0 ? '+' : '') + gap.toFixed(1) + ' pts</span><br>';
+      }
       var today = C.asOf ? new Date(C.asOf) : new Date(2026, 6, 8);
 
       var defs = [
-        { c: C.piles, daily: series(/Pile installation/i), remaining: C.piles.total - C.piles.installed },
-        { c: C.trackers, daily: series(/Tracker/i), remaining: C.trackers.total - C.trackers.installed },
-        { c: C.modules, daily: series(/Module installation/i), remaining: C.modules.total - C.modules.installed }
+        { c: C.piles, start: STARTS.piles, daily: series(/Pile installation/i), remaining: C.piles.total - C.piles.installed },
+        { c: C.trackers, start: STARTS.trackers, daily: series(/Tracker/i), remaining: C.trackers.total - C.trackers.installed },
+        { c: C.modules, start: STARTS.modules, daily: series(/Module installation/i), remaining: C.modules.total - C.modules.installed }
       ];
       var strip = document.getElementById('gateStrip');
       (function(){ var T = D.projectTotal; if(!T) return;
+        // Global plan-to-date: each component's working-day schedule target, same weights.
+        var elecPlan = 0.45 * planPct(STARTS.lv, '2026-09-18') + 0.22 * planPct(STARTS.mv, '2026-09-14') + 0.18 * planPct(STARTS.inv, '2026-09-15') + 0.15 * ((C.set && C.set.planToDate) || 45);
+        var globalPlan = 0.28 * planPct(STARTS.piles, '2026-07-28') + 0.22 * planPct(STARTS.trackers, '2026-08-30') + 0.26 * planPct(STARTS.modules, '2026-09-06') + 0.14 * elecPlan + 0.10 * 100;
         strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile"><h3>PROJECT TOTAL \u00b7 weighted physical completion</h3>' +
           '<div class="gate-big">' + T.gatePct.toFixed(1) + '% <em>+ ' + (T.earnedPct - T.gatePct).toFixed(1) + ' earned = ' + T.earnedPct.toFixed(1) + '%</em></div>' +
           '<div class="gate-rows">' +
+          planLine(globalPlan, T.gatePct) +
           'Completed units only: <b>' + T.gatePct.toFixed(1) + '%</b><br>' +
           'Including work in progress: <b>' + T.earnedPct.toFixed(1) + '%</b><br>' +
           'Weighting: <b>piles 28 \u00b7 trackers 22 \u00b7 modules 26 \u00b7 electrical 14 \u00b7 civil 10</b><br>' +
@@ -3132,10 +3152,12 @@ canvas { max-width: 100%; }
         var rag = lateWd <= 0 ? 'green' : (lateWd <= 7 ? 'amber' : 'red');
         if (rank[rag] > rank[worst]) worst = rag;
         var pct = (g.c.installed / g.c.total * 100).toFixed(1);
+        var pln = planPct(g.start, g.c.gate);
         strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile rag-' + rag + '"><h3>' + g.c.name + ' · gate ' + g.c.gateLabel + '</h3>' +
           '<div class="gate-big">' + g.c.installed.toLocaleString() + ' <em>/ ' + g.c.total.toLocaleString() + ' (' + pct + '%)</em></div>' +
           '<div class="gate-rows">' +
+          planLine(pln, g.c.installed / g.c.total * 100) +
           'Required now: <b>' + g.c.required.toLocaleString() + ' ' + g.c.unit + '</b><br>' +
           'Actual (5-day avg): <b>' + Math.round(r5).toLocaleString() + ' ' + g.c.unit + '</b><br>' +
           'Projected finish at current rate: <b>' + (proj ? fmtD(proj) : 'n/a') + '</b><br>' +
@@ -3156,6 +3178,7 @@ canvas { max-width: 100%; }
           '<article class="gate-tile rag-red"><h3>' + e.name + ' · gate ' + e.gateLabel + '</h3>' +
           '<div class="gate-big">' + e.installed.toLocaleString() + ' <em>/ ' + e.total.toLocaleString() + ' lf (' + pct + '%)</em></div>' +
           '<div class="gate-rows">' +
+          planLine(planPct(STARTS.lv, e.gate), e.installed / e.total * 100) +
           'Required now: <b>' + e.required.toLocaleString() + ' ' + e.unit + '</b><br>' +
           'Actual (5-day avg): <b>' + Math.round(lvRate).toLocaleString() + ' lf/day</b><br>' +
           'Projected finish at current rate: <b>' + (lvProj ? fmtD(lvProj) : 'n/a — no measured rate') + '</b><br>' +
@@ -3174,6 +3197,7 @@ canvas { max-width: 100%; }
           '<article class="gate-tile rag-red"><h3>' + M.name + ' \u00b7 gate ' + M.gateLabel + '</h3>' +
           '<div class="gate-big">' + M.pct.toFixed(1) + '% <em>weighted composite</em></div>' +
           '<div class="gate-rows">' +
+          planLine(planPct(STARTS.mv, '2026-09-14'), M.pct) +
           'Plowing: <b>' + (plow.done != null ? plow.done : '?') + ' / ' + String(plow.scope || '').replace(/[^0-9]/g,'') + ' segments</b> \u00b7 bores: <b>' + (bore.done != null ? bore.done : '?') + ' / ' + String(bore.scope || '').replace(/[^0-9]/g,'') + '</b><br>' +
           'DC ducts: <b>' + (duct.done != null ? duct.done : '?') + ' / 14</b> \u00b7 terminations: <b>' + (term.done != null ? term.done : '?') + ' / 138</b><br>' +
           'Projected finish at current rate: <b>' + (stopped ? ('none \u2014 plough idle ' + plowIdle + ' wd, last bore ' + boreIdle + ' wd ago') : 'recomputes when a segment closes') + '</b><br>' +
@@ -3183,12 +3207,13 @@ canvas { max-width: 100%; }
           var g2 = function(re){ var c = sc.filter(function(x){ return re.test(x.component || ''); })[0]; return c ? c.pct.toFixed(1) : '?'; };
           strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile rag-red"><h3>' + S.name + ' \u00b7 gate ' + S.gateLabel + '</h3>' +
-          '<div class="gate-big">' + S.pct.toFixed(1) + '% <em>vs ~' + S.planToDate + '% plan-to-date</em></div>' +
+          '<div class="gate-big">' + S.pct.toFixed(1) + '% <em>weighted composite</em></div>' +
           '<div class="gate-rows">' +
+          planLine(S.planToDate || 45, S.pct) +
           'Civil <b>' + g2(/civil/i) + '%</b> \u00b7 structural <b>' + g2(/structural/i) + '%</b> \u00b7 electrical <b>' + g2(/electrical/i) + '%</b> \u00b7 piers <b>17/17</b><br>' +
-          'Binding: <b>structural steel \u2014 partial delivery verified for Aug 15; poles are the gap</b><br>' +
-          'Projected finish at current rate: <b>not rate-driven \u2014 erection can start from the Aug 15 steel</b><br>' +
-          '<span class="gate-pill">STEEL LANDS AUG 15 \u00b7 POLES UNRESOLVED</span>' +
+          'Binding: <b>structural steel \u2014 in transit, site arrival early-to-mid next week</b><br>' +
+          'Projected finish at current rate: <b>not rate-driven \u2014 erection starts on steel arrival</b><br>' +
+          '<span class="gate-pill">STEEL IN TRANSIT \u00b7 POLES UNRESOLVED</span>' +
           '</div></article>'); } })();
       strip.insertAdjacentHTML('beforeend',
         '<article class="gate-tile rag-' + worst + '"><h3>' + C.mc.name + ' · target ' + C.mc.target + '</h3>' +
