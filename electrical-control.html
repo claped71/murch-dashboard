@@ -217,11 +217,12 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
 </section>
 
 </div>
-<footer><div class="wrap">Murch Solar · Van Buren County, MI · Control interno de construcción · Base 12 ago 2026 · Documento no distribuible</div></footer>
+<footer><div class="wrap">Murch Solar · Van Buren County, MI · Control interno de construcción · Base: data.js del panel (actualizacion diaria) · Documento no distribuible</div></footer>
 
+<script src="data.js?v=20260815b"></script>
 <script>
 /* ============================ DATOS BASE ============================ */
-const HOY = '2026-08-13', INICIO = '2026-08-14';
+let HOY = '2026-08-13', INICIO = '2026-08-14';
 const ZONAS = {
   A :{mod:20930, modLeft:843,   rows:0,   lado:'O'},
   C :{mod:16198, modLeft:1158,  rows:0,   lado:'O'},
@@ -259,10 +260,35 @@ const GRP=[{k:'cable',lab:'Cable (homerun + trunk)',c:'#2769a8'},
            {k:'cajas',lab:'Cajas / LBD',c:'#b96f18'},
            {k:'harness',lab:'Harness',c:'#6b4c9a'},
            {k:'term',lab:'Conexiones LV + MV',c:'#168a5b'}];
-const DIARIO = [ {d:'4 ago',v:1956,hr:1956,tr:0},{d:'5 ago',v:1915,hr:1915,tr:0},{d:'6 ago',v:2560,hr:2560,tr:0},
+let DIARIO = [ {d:'4 ago',v:1956,hr:1956,tr:0},{d:'5 ago',v:1915,hr:1915,tr:0},{d:'6 ago',v:2560,hr:2560,tr:0},
   {d:'7 ago',v:1969,hr:1969,tr:0},{d:'8 ago',v:0,hr:0,tr:0},{d:'10 ago',v:3131,hr:3131,tr:0},
   {d:'11 ago',v:0,hr:0,tr:0},{d:'12 ago',v:4735,hr:4134,tr:601} ];
-const HOY_ELEC = 9, HOY_TOTAL = 19;
+let HOY_ELEC = 9, HOY_TOTAL = 19;
+
+/* ============== AUTO-SYNC ==============
+   La produccion diaria vive en data.js (bloque electricalByLine), que el
+   panel principal actualiza cada dia. Este documento se hidrata de ahi al
+   cargar: HOY, el diario de cable, el hecho por linea, las zonas y la
+   cuadrilla. Si data.js no carga, quedan los valores embebidos como respaldo. */
+(function(){
+  try{
+    var X = window.MURCH_DATA && window.MURCH_DATA.electricalByLine;
+    if(!X) return;
+    if(X.hoy) HOY = X.hoy;
+    if(X.inicio) INICIO = X.inicio;
+    if(X.hoyElec != null) HOY_ELEC = X.hoyElec;
+    if(X.hoyTotal != null) HOY_TOTAL = X.hoyTotal;
+    if(X.diario && X.diario.length) DIARIO = X.diario;
+    if(X.lineas) LINEAS.forEach(function(L){
+      var h = X.lineas[L.id]; if(!h) return;
+      for(var k in h) if(k in L.hecho) L.hecho[k] = h[k];
+    });
+    if(X.zonas) for(var z in X.zonas){
+      if(!ZONAS[z]) continue;
+      for(var k2 in X.zonas[z]) ZONAS[z][k2] = X.zonas[z][k2];
+    }
+  }catch(e){ /* respaldo: valores embebidos */ }
+})();
 
 /* ============================ ESTADO ============================ */
 const DEF = {

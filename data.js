@@ -363,6 +363,33 @@ window.MURCH_DATA = {
  note: 'The LV gate is denominated purely in linear feet of cable, so every box mounted, every support set and every foot of messenger wire installed to date reports as zero progress. That is wrong as a measure of work done, and the composite fixes it by weighting the control-line components by labour content. The gate is no longer zero: 4,752 lf placed, 3,871 of it in the last two days. The composite reads 3.6% — or about 6.1% once the support work is quantified. Giving this scope an equivalent progress does not improve the picture, it confirms it. With 7,104 lf/day required from Aug 6 to hold Sep 18 and 4,752 lf placed so far, LV/DC is the largest single exposure on the energization path, ahead of trackers and modules. The crew has held at 15 people for two days and delivered ~1,900 lf on each — the arithmetic says a second cable gang, not a longer day.',
  weightNote: 'Weights sum to 100 and are apportioned by labour content, not by quantity — 274,720 lf of cable pull carries far more man-hours than 419 box mountings. They need Jose sign-off before the composite goes into any certification, and should be frozen for the project once agreed.'
  },
+ // Feeds electrical-control.html (the interactive by-line study) - the page hydrates
+ // from this block on load, so the DAILY UPDATE OF THIS BLOCK is what keeps the study
+ // current. Update every run: hoy/inicio, hecho per line (cumulative), diario (cable
+ // series, same values as lvDaily but split HR/trunk), zonas (modLeft / racking rows
+ // remaining), crew counts.
+ electricalByLine: {
+ hoy: '2026-08-14', inicio: '2026-08-15',
+ hoyElec: 9, hoyTotal: 19,
+ lineas: {
+ L1: { harness: 0, boxes: 93, homerun: 20969, trunk: 601, connInv: 0, connBox: 0, connMV: 0 },
+ L2: { harness: 0, boxes: 27, homerun: 0, trunk: 0, connInv: 0, connBox: 0, connMV: 0 },
+ L3: { harness: 0, boxes: 0, homerun: 0, trunk: 0, connInv: 0, connBox: 0, connMV: 0 },
+ L4: { harness: 0, boxes: 0, homerun: 0, trunk: 0, connInv: 0, connBox: 0, connMV: 0 }
+ },
+ zonas: {
+ A: { modLeft: 843, rows: 0 }, C: { modLeft: 1158, rows: 0 }, E: { modLeft: 6658, rows: 0 },
+ EW: { modLeft: 206, rows: 2 }, F: { modLeft: 39108, rows: 373 }, B: { modLeft: 15262, rows: 53 },
+ G: { modLeft: 18486, rows: 256 }, D: { modLeft: 7774, rows: 136, piles: 993 }
+ },
+ diario: [
+ { d: '4 ago', v: 1956, hr: 1956, tr: 0 }, { d: '5 ago', v: 1915, hr: 1915, tr: 0 },
+ { d: '6 ago', v: 2560, hr: 2560, tr: 0 }, { d: '7 ago', v: 1969, hr: 1969, tr: 0 },
+ { d: '8 ago', v: 0, hr: 0, tr: 0 }, { d: '10 ago', v: 3131, hr: 3131, tr: 0 },
+ { d: '11 ago', v: 0, hr: 0, tr: 0 }, { d: '12 ago', v: 4735, hr: 4134, tr: 601 },
+ { d: '13 ago', v: 2550, hr: 2550, tr: 0 }, { d: '14 ago', v: 1873, hr: 1873, tr: 0 }
+ ]
+ },
  trackerWip: {
  asOf: 'Aug 14, 2026',
  basis: 'STEP LADDER (adopted Jul 30, 2026 by Jose Romero)',
