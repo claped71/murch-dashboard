@@ -366,7 +366,9 @@ window.MURCH_DATA = {
  // remaining), crew counts.
  electricalByLine: {
  hoy: '2026-08-17', inicio: '2026-08-18',
+ cableHasta: '2026-08-15',
  hoyElec: 9, hoyTotal: 19,
+ manpowerSite: 225, manpowerFecha: 'board 14 ago',
  lineas: {
  L1: { harness: 13, boxes: 93, homerun: 23465, trunk: 910, connInv: 0, connBox: 0, connMV: 0 },
  L2: { harness: 0, boxes: 27, homerun: 0, trunk: 0, connInv: 0, connBox: 0, connMV: 0 },

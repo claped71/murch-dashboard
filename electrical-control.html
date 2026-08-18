@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache, notranslate, max-snippet:0, max-image-preview:none">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="expires" content="0">
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="GPTBot" content="noindex, nofollow"><meta name="ClaudeBot" content="noindex, nofollow">
 <meta name="CCBot" content="noindex, nofollow"><meta name="PerplexityBot" content="noindex, nofollow">
@@ -69,7 +70,8 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
   <h1>Control eléctrico por línea MV</h1>
   <p>Un solo motor de cálculo: mueves una palanca del escenario y cambia todo el informe — fechas, ritmos exigidos y personal.
      Estructura de German (12 ago): fecha MC por línea, colchón de 15 días, y una semana hacia atrás por cada actividad.
-     Base de ejecutado: 12 de agosto de 2026, cierre de jornada.</p>
+     <span id="ecBase">Base de ejecutado: 12 de agosto de 2026, cierre de jornada.</span></p>
+  <p id="ecStatus" style="margin:8px 0 0;padding:7px 12px;background:rgba(255,255,255,.12);border-radius:8px;font-size:.85rem;font-weight:600"></p>
 </div></header>
 
 <div class="wrap">
@@ -219,7 +221,7 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
 </div>
 <footer><div class="wrap">Murch Solar · Van Buren County, MI · Control interno de construcción · Base: data.js del panel (actualizacion diaria) · Documento no distribuible</div></footer>
 
-<script src="data.js?v=20260818a"></script>
+<script src="data.js?v=20260818b"></script>
 <script>
 /* ============================ DATOS BASE ============================ */
 let HOY = '2026-08-13', INICIO = '2026-08-14';
@@ -287,6 +289,14 @@ let HOY_ELEC = 9, HOY_TOTAL = 19;
       if(!ZONAS[z]) continue;
       for(var k2 in X.zonas[z]) ZONAS[z][k2] = X.zonas[z][k2];
     }
+    /* cabecera visible: base de ejecutado + dotacion, desde los datos */
+    var MESL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    var fL=function(iso){var p=iso.split('-');return parseInt(p[2],10)+' de '+MESL[parseInt(p[1],10)-1]+' de '+p[0];};
+    var eb=document.getElementById('ecBase');
+    if(eb) eb.innerHTML='<strong>Base de ejecutado: '+fL(HOY)+', cierre de jornada</strong>'+(X.cableHasta&&X.cableHasta!==HOY?' (cable hasta el '+fL(X.cableHasta)+' \u2014 parte el\u00e9ctrico posterior pendiente)':'')+'.';
+    var st=document.getElementById('ecStatus');
+    if(st){var ult=DIARIO.length?DIARIO[DIARIO.length-1]:null;
+      st.innerHTML='\ud83d\udd04 Sincronizado con el panel (data.js) \u00b7 Dotaci\u00f3n el\u00e9ctrica hoy: <strong>'+HOY_ELEC+' electricistas / '+HOY_TOTAL+' ECCS</strong>'+(X.manpowerSite?' \u00b7 Personal total en obra: <strong>'+X.manpowerSite+'</strong> ('+(X.manpowerFecha||'')+')':'')+(ult?' \u00b7 \u00daltimo parte de cable: <strong>'+ult.d+' \u2014 '+ult.v.toLocaleString('es-ES')+' ft</strong>':'');}
   }catch(e){ /* respaldo: valores embebidos */ }
 })();
 
