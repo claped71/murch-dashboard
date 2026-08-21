@@ -2328,11 +2328,11 @@ canvas { max-width: 100%; }
 
       <section class="section resource-section" id="field-resources">
         <div class="section-heading compact">
-          <p class="eyebrow">Field snapshot | EHS headcount, Aug 20, 2026 &mdash; 239 people (sums exactly; United +10 &mdash; restart signal; AB Power +5 as erection scales; survey and crane still ZERO)</p>
+          <p class="eyebrow">Field snapshot | EHS headcount, Aug 21, 2026 &mdash; 228 people, down 11 (sums exactly; <strong>substation erection cut 14 &rarr; 6</strong>; United &minus;3 on pile-stop day 11; survey and crane still zero). Production figures on this page remain the Aug 20 EOD basis.</p>
           <h2>Subcontractor resources reported on site</h2>
         </div>
         <div class="chart-panel">
-          <p class="chart-context">The <strong>Aug 20 EHS headcount (Bethany Valdez)</strong> carries <strong>239 people</strong>, names summing exactly &mdash; no Friday board was issued, so this remains the current count. <strong>United holds 74 for a second day on day 10 of the pile stop: the crew is present, the rig is not driving.</strong> AB Power holds 11 as erection scales and is now producing standing steel. ECCS 71, GreenSol 26, Workforce 21, Brumont 18, ITS 12, Hi Tech 3, Latnovva 2, Roveri 1. <strong>Survey (SII) and the crane still read zero</strong> &mdash; both have to remobilise the day the piles restart &mdash; and the 20-electrician GreenSol electrical crew is still not in the count, though the ECCS gang inside ECCS&rsquo;s 71 has at least rebuilt from 4 to 8.</p>
+          <p class="chart-context">The <strong>Aug 21 EHS headcount (Bethany Valdez)</strong> carries <strong>228 people, down 11</strong>, names summing exactly. <strong>One move dominates the board and it is the wrong one: substation erection has been cut from 14 people to 6 in a single day &mdash; AB Power 11 &rarr; 6 and Hi Tech 3 &rarr; 0</strong> &mdash; the morning after the 34.5 kV stands were erected and on the day the SE cut posted the first structural jump of the project (18.4 &rarr; 24.1%). SET is the widest variance on the job and the crew that had finally started closing it is now less than half the size. Second: <strong>United &minus;3 to 71 on day 11 of the pile stop</strong> &mdash; Thursday&rsquo;s +10 never became a driven pile and the build-up is unwinding. Where people did move, they moved to the right places: <strong>ECCS +2 to 73</strong> behind the rebuilt LV gang and the new Zone G front, and <strong>ITS +2 to 14</strong> across the bore and the wetland cleanup. Workforce 20, GreenSol 25, Brumont 18 flat; Hi Tech and Latnovva both off the board. <strong>Survey (SII) and the crane read zero for an eleventh day</strong> and both must remobilise the day piling restarts.</p>
           <div class="trend-card" style="margin-bottom:14px"><h3 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 2px">Manpower story — total on site by report date</h3><div id="manpowerStory"></div><p class="trend-key">Green area = total headcount per complete report (partial-report days excluded) &middot; right bar = the LATEST board&rsquo;s trade mix (date shown above the bar)</p></div>
           <canvas id="resourceChart" width="1120" height="300" aria-label="Current subcontractor field resources by headcount"></canvas>
         </div>
@@ -2377,15 +2377,15 @@ canvas { max-width: 100%; }
     </main>
 
     <footer>
-      <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 20 EOD field reports</strong> (Manuel Ramirez: United 30 rows + <strong>3,510 modules</strong>, ECCS <strong>30 rows opening Zone G</strong> + 21 TP + 9 LBD; Brumont 700 on the A/C/E West closeout; Workforce purlins and control boxes on the tubed B5 rows; Angel Urbina&rsquo;s Aug 20 electrical report &mdash; 2,766 lf and 22 harness lines / 38 strings, MVHB-11 drilling resumed; Nolberi&rsquo;s civil report &mdash; Bore #6 both ends, MV pulled into Inverters 1, 2 and 3, G-5 closed); <strong>Bethany Valdez&rsquo;s Aug 20 EHS headcount (239)</strong>; the <strong>Aug 21 SE tracker cut (34.3% &mdash; civil 89.6, structural 24.1, electrical 11.6)</strong>; the <strong>Aug 21 DELIVERY AND MECHANICAL workbook</strong> (piles 28,343/31,352 delivered, panels 157,240/171,470); the <strong>Aug 21 MURCH_Plowing_Boring_MT_DC tracking</strong> (bores 18/20, plow 38/46, 121,632 ft, DC bores 10/10); and the project WhatsApp photo record (substation structure installation, Aug 20&ndash;21).</p>
+      <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 20 EOD field reports</strong> (Manuel Ramirez: United 30 rows + <strong>3,510 modules</strong>, ECCS <strong>30 rows opening Zone G</strong> + 21 TP + 9 LBD; Brumont 700 on the A/C/E West closeout; Workforce purlins and control boxes on the tubed B5 rows; Angel Urbina&rsquo;s Aug 20 electrical report &mdash; 2,766 lf and 22 harness lines / 38 strings, MVHB-11 drilling resumed; Nolberi&rsquo;s civil report &mdash; Bore #6 both ends, MV pulled into Inverters 1, 2 and 3, G-5 closed); <strong>Bethany Valdez&rsquo;s Aug 21 EHS headcount (228 &mdash; substation erection cut 14 &rarr; 6)</strong>; the <strong>Aug 21 SE tracker cut (34.3% &mdash; civil 89.6, structural 24.1, electrical 11.6)</strong>; the <strong>Aug 21 DELIVERY AND MECHANICAL workbook</strong> (piles 28,343/31,352 delivered, panels 157,240/171,470); the <strong>Aug 21 MURCH_Plowing_Boring_MT_DC tracking</strong> (bores 18/20, plow 38/46, 121,632 ft, DC bores 10/10); and the project WhatsApp photo record (substation structure installation, Aug 20&ndash;21).</p>
     </footer>
 
-    <script src="data.js?v=20260821a"></script>
+    <script src="data.js?v=20260821b"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260821a';
+  const assetVersion = '20260821b';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
