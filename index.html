@@ -1720,7 +1720,6 @@ canvas { max-width: 100%; }
           <a href="#production">Production</a>
           <a href="#electrical">LV Electrical</a>
           <a href="#delivery-control">Delivery</a>
-          <a href="#weekly-plan">Weekly Plan</a>
           <a href="#schedule">Schedule</a>
           <a href="#field-resources">Resources</a>
           <a href="#risks">Risks</a>
@@ -1992,25 +1991,7 @@ canvas { max-width: 100%; }
                 <p class="quality-note"><strong>Delivery action:</strong> Module delivery is closed. PILE DELIVERY IS NOT — the reported short shipment must be quantified Monday, because a real shortfall lands as a multi-week hole at the very end of the pile programme, in the zones that finish last. The remaining delivery control is that count, the 16 outstanding torque tubes, the Chemik LV hardware and the substation structural steel. The next daily control should show scheduled loads, material type, received/POD-confirmed quantities, piles installed, and ending pile stock by subcontractor or laydown location.</p>
       </section>
 
-      <section class="section" id="weekly-plan">
-        <div class="section-heading">
-          <p class="eyebrow">Weekly plan by area | Week of August 17–22, 2026 — rewritten Tue Aug 18 (Sunday review)</p>
-          <h2>Production targets, release gates, and named owners</h2>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Area / Workfront</th>
-                <th>This week target</th>
-                <th>Minimum target / control unit</th>
-                <th>Primary gate</th>
-                <th>Owners</th>
-              </tr>
-            </thead>
-            <tbody id="weeklyPlanBody"></tbody>
-          </table>
-        </div>
+      <section class="section" id="tracker-earned">
         <p class="quality-note"><strong>Management focus (Sat Aug 22, on the Aug 21 EOD basis):</strong> The two documents chased for weeks both arrived on Friday evening. <strong>Manuel put the pile restart in writing &mdash; Monday Aug 24, ground ready</strong> (it could have been Saturday, but United does not work Saturdays), and <strong>United has signed the electrical amendment with Luis putting its LV mobilisation at one week</strong> &mdash; the first date ever given for the second electrical crew. Production followed: <strong>5,694 modules, the second-best day of the project</strong>, though Manuel&rsquo;s 18:29 split shows <strong>5,460 of it went into Zone B alone</strong> (United 3,406 + Brumont 2,054) &mdash; so Zone F, the largest balance at 27,018, had a zero module day and the West tail only moved 2,645 &rarr; 2,411. <strong>LV posted its best day of the restart: 3,610 ft and 24 harness lines / 72 strings</strong> &mdash; but all 24 were run out of Golden Row pattern and are being re-run Saturday. <strong>The front that is now losing ground is trackers: 46 against 78/day required, with 7 working days to Aug 30</strong> &mdash; ECCS halved in Zone G, and Workforce has spent four days on the same 16 B5 rows without closing one.</p>
         <div class="section-heading">
           <p class="eyebrow">Tracker earned progress | 5-step ladder, adopted July 30</p>
@@ -2380,12 +2361,12 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 21 EOD field reports</strong> (Manuel Ramirez: United 60 people, 30 rows Zone F + <strong>3,406 modules Zone B</strong>; ECCS 50 people, <strong>16 rows Zone G</strong> + 12 TP + 9 LBD; Brumont <strong>2,288 modules &mdash; 2,054 Zone B and 234 Zone A per Manuel&rsquo;s 18:29 split</strong>; Workforce jig setting on the tubed B5 rows, no completions; <strong>Manuel&rsquo;s written pile restart: Monday Aug 24, ground ready</strong>; Luis Romero on Saturday coverage and on United&rsquo;s LV mobilisation in one week); <strong>Fernando Souza&rsquo;s ECCS afternoon field report (Relatorio Diario Tarde) &mdash; 3,610 ft on PB03&rarr;LBD18 and PB03&rarr;LBD17, 24 harness lines / 72 strings, and the Golden Row non-conformity</strong>; Nolberi&rsquo;s Aug 21 civil report (Inverter-5 trenches closed, Inverter 6 excavated, PVC and cabinet penetrations at both, C-5 crossings, <strong>Zone D laydown yard opened</strong>); <strong>Bethany Valdez&rsquo;s Aug 21 EHS headcount (228)</strong>; the <strong>Aug 21 SE tracker cut (34.3% &mdash; civil 89.6, structural 24.1, electrical 11.6)</strong>, no new cut issued Aug 21 EOD; the <strong>Aug 21 DELIVERY AND MECHANICAL workbook</strong> (piles 28,343/31,352 delivered, panels 157,240/171,470 &mdash; its block-map roll-up lags the field and is not the executed basis); and the project WhatsApp record. No ITS production report was issued for Aug 21.</p>
     </footer>
 
-    <script src="data.js?v=20260822c"></script>
+    <script src="data.js?v=20260822d"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260822c';
+  const assetVersion = '20260822d';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
@@ -2455,19 +2436,6 @@ canvas { max-width: 100%; }
     `).join('');
   }
 
-  function renderWeeklyPlan() {
-    const body = byId('weeklyPlanBody');
-    if (!body) return;
-    body.innerHTML = data.weeklyPlan.map((row) => `
-      <tr>
-        <td data-label="Area / Workfront"><strong>${row.area}</strong></td>
-        <td data-label="This week target">${row.target}</td>
-        <td data-label="Minimum target / control unit">${row.minimum}</td>
-        <td data-label="Primary gate">${row.gate}</td>
-        <td data-label="Owners">${row.owners}</td>
-      </tr>
-    `).join('');
-  }
 
   const weatherCodes = {
     0: ['Clear', '☀'],
@@ -3074,7 +3042,6 @@ canvas { max-width: 100%; }
   renderScope();
   renderWeather();
   renderCivil();
-  renderWeeklyPlan();
   renderPhotos();
   renderProgressTable();
   renderProduction();
