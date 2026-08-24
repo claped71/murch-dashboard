@@ -207,6 +207,21 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
 </section>
 
 <section>
+  <h2>6c · Cable LV por tipo<span class="sub">El tendido diario repartido entre los dos cables: homerun de inversor y trunk Chemik. Suman el hito de cable; los arneses no entran aquí.</span></h2>
+  <div class="card">
+    <p class="note" id="cableSplitHead" style="margin-top:0"></p>
+    <div id="chartC"></div>
+    <div class="legend" style="margin-top:10px">
+      <span><i style="background:#2769a8"></i>Homerun (alimentadores de inversor) — 229.435 ft</span>
+      <span><i style="background:#168a5b"></i>Trunk Chemik — 40.313 ft</span>
+      <span><i style="background:#b53030;height:2px;margin-bottom:3px"></i>exigido total de cable</span>
+    </div>
+    <div style="overflow-x:auto;margin-top:14px"><table id="logC"></table></div>
+    <p class="note"><strong>Los dos cables tienen ritmos exigidos distintos y conviene mirarlos por separado.</strong> El homerun es el 85% del alcance de cable y practicamente todo el trabajo de tiro; el trunk es corto pero es el que cierra cada tramo contra la LBD. Un dia como el 20 de agosto (2.766 ft, todo trunk) o el 21 (3.610 ft, todo homerun) no dicen lo mismo aunque el total se parezca. <strong>El denominador de cable es 269.748 ft — solo cable. Los 4.972 conjuntos de arneses se controlan en la seccion 6b, en unidades.</strong></p>
+  </div>
+</section>
+
+<section>
   <h2>7 · Glosario y supuestos<span class="sub">Los términos que circulan en inglés en obra, y todo lo que este control da por hecho.</span></h2>
   <div class="card">
     <h3>Glosario</h3>
@@ -276,6 +291,7 @@ const GRP=[{k:'cable',lab:'Cable (homerun + trunk)',c:'#2769a8'},
 let DIARIO = [ {d:'4 ago',v:1956,hr:1956,tr:0},{d:'5 ago',v:1915,hr:1915,tr:0},{d:'6 ago',v:2560,hr:2560,tr:0},
   {d:'7 ago',v:1969,hr:1969,tr:0},{d:'8 ago',v:0,hr:0,tr:0},{d:'10 ago',v:3131,hr:3131,tr:0},
   {d:'11 ago',v:0,hr:0,tr:0},{d:'12 ago',v:4735,hr:4134,tr:601} ];
+let HR_SCOPE = 229435, TR_SCOPE = 40313;   /* homerun / trunk Chemik - toma de datos de German */
 let HARNESS_SCOPE = 4972;
 let HARNESS = [ {d:'15 ago',l:13,s:null,conf:'soft'},{d:'17 ago',l:0,s:0},{d:'18 ago',l:0,s:0},
   {d:'19 ago',l:11,s:29},{d:'20 ago',l:22,s:38},{d:'21 ago',l:24,s:72},{d:'22 ago',l:25,s:75} ];
@@ -731,7 +747,57 @@ function parteArneses(){
   if(nt && HARNESS_NOTA) nt.innerHTML = HARNESS_NOTA;
 }
 
-function render(){ M=motor(); kpis(); hist(); mob(); gantt(); parte(); parteArneses(); supuestos(); }
+function cableSplit(){
+  /* Reparto real del tendido: cada dia del parte trae homerun (hr) y trunk (tr).
+     No se estima nada - es el mismo dato que alimenta la seccion 6.
+     Los acumulados salen del control por linea para que cuadren con el hito. */
+  const L1 = (M && M.lineas && M.lineas[0] && M.lineas[0].hecho) ? M.lineas[0].hecho : {};
+  const hrCum = L1.homerun != null ? L1.homerun : DIARIO.reduce((a,d)=>a+(d.hr||0),0);
+  const trCum = L1.trunk   != null ? L1.trunk   : DIARIO.reduce((a,d)=>a+(d.tr||0),0);
+  const WD = 22;   /* dias laborables al 18 sep desde la base vigente, domingos fuera */
+  const hrReq = (HR_SCOPE - hrCum)/WD, trReq = (TR_SCOPE - trCum)/WD, req = hrReq + trReq;
+
+  const hd=document.getElementById('cableSplitHead');
+  if(hd) hd.innerHTML =
+    '<strong>Homerun '+F(hrCum)+' de '+F(HR_SCOPE)+' ('+F1(hrCum/HR_SCOPE*100)+'%) \u00b7 exigido '+F1(hrReq)+' ft/dia</strong> &nbsp;\u2014&nbsp; '+
+    '<strong>Trunk Chemik '+F(trCum)+' de '+F(TR_SCOPE)+' ('+F1(trCum/TR_SCOPE*100)+'%) \u00b7 exigido '+F1(trReq)+' ft/dia</strong>. '+
+    'Total de cable '+F(hrCum+trCum)+' de '+F(HR_SCOPE+TR_SCOPE)+' ('+F1((hrCum+trCum)/(HR_SCOPE+TR_SCOPE)*100)+'%), exigido '+F1(req)+' ft/dia.';
+
+  const W=Math.max(1120,DIARIO.length*90),H=250,PL=58,PR=14,PT=16,PB=34;
+  const max=Math.max(req*1.1,...DIARIO.map(d=>d.v))*1.05, iw=W-PL-PR, ih=H-PT-PB;
+  const bw=Math.min(46,iw/DIARIO.length*0.6), Y=v=>PT+ih-(v/max)*ih;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="height:auto" role="img" aria-label="cable LV por tipo">`;
+  [0,.25,.5,.75,1].forEach(f=>{const v=max*f;
+    s+=`<line x1="${PL}" x2="${W-PR}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e8ede9"/>`+
+       `<text x="${PL-8}" y="${Y(v)+4}" text-anchor="end" font-size="10" fill="#66716d">${F(v)}</text>`;});
+  DIARIO.forEach((d,i)=>{const cx=PL+iw*(i+0.5)/DIARIO.length;
+    const hr=d.hr||0, tr=d.tr||0, base=PT+ih;
+    /* apilado: homerun abajo, trunk encima - juntos son el total del dia */
+    if(hr>0) s+=`<rect x="${cx-bw/2}" y="${Y(hr)}" width="${bw}" height="${Math.max(0,base-Y(hr))}" rx="3" fill="#2769a8"><title>${d.d}: homerun ${F(hr)} ft</title></rect>`;
+    if(tr>0) s+=`<rect x="${cx-bw/2}" y="${Y(hr+tr)}" width="${bw}" height="${Math.max(0,Y(hr)-Y(hr+tr))}" rx="3" fill="#168a5b"><title>${d.d}: trunk ${F(tr)} ft</title></rect>`;
+    s+=`<text x="${cx}" y="${H-PB+16}" text-anchor="middle" font-size="10.5" fill="#66716d">${d.d}</text>`;
+    if(d.v>0)s+=`<text x="${cx}" y="${Y(d.v)-6}" text-anchor="middle" font-size="10.5" font-weight="600" fill="#18201f">${F(d.v)}</text>`;});
+  s+=`<line x1="${PL}" x2="${W-PR}" y1="${Y(req)}" y2="${Y(req)}" stroke="#b53030" stroke-width="2" stroke-dasharray="6 4"/>`;
+  s+=`<text x="${W-PR}" y="${Y(req)-7}" text-anchor="end" font-size="10.5" fill="#b53030" font-weight="600">exigido ${F1(req)} ft/dia</text>`;
+  s+=`<line x1="${PL}" x2="${W-PR}" y1="${PT+ih}" y2="${PT+ih}" stroke="#18201f"/></svg>`;
+  document.getElementById('chartC').innerHTML=s;
+
+  /* acumulados hacia atras desde el cierre, para que la ultima fila cuadre con el hito */
+  const hrTot=DIARIO.reduce((a,d)=>a+(d.hr||0),0), trTot=DIARIO.reduce((a,d)=>a+(d.tr||0),0);
+  let hrAcc=hrCum-hrTot, trAcc=trCum-trTot;
+  let h='<thead><tr><th>Dia</th><th>Homerun ft</th><th>Trunk ft</th><th>Total dia</th><th>% homerun del dia</th><th>Acum. homerun</th><th>Acum. trunk</th><th>Acum. cable</th></tr></thead><tbody>';
+  DIARIO.forEach(d=>{const hr=d.hr||0, tr=d.tr||0; hrAcc+=hr; trAcc+=tr;
+    const sh = d.v>0 ? F1(hr/d.v*100)+'%' : '\u2014';
+    h+=`<tr><td>${d.d}</td><td>${F(hr)}</td><td>${F(tr)}</td><td><strong>${F(d.v)}</strong></td><td>${sh}</td>
+        <td>${F(hrAcc)}</td><td>${F(trAcc)}</td><td>${F(hrAcc+trAcc)}</td></tr>`;});
+  h+=`<tr class="tot"><td>Acumulado del proyecto</td><td><strong>${F(hrCum)}</strong><br><small>${F1(hrCum/HR_SCOPE*100)}% de ${F(HR_SCOPE)}</small></td>
+      <td><strong>${F(trCum)}</strong><br><small>${F1(trCum/TR_SCOPE*100)}% de ${F(TR_SCOPE)}</small></td>
+      <td><strong>${F(hrCum+trCum)}</strong></td><td>${F1(hrCum/(hrCum+trCum)*100)}%</td>
+      <td colspan="3">${F(hrCum+trCum)} de ${F(HR_SCOPE+TR_SCOPE)} ft de cable \u2014 <strong>${F1((hrCum+trCum)/(HR_SCOPE+TR_SCOPE)*100)}%</strong></td></tr></tbody>`;
+  document.getElementById('logC').innerHTML=h;
+}
+
+function render(){ M=motor(); kpis(); hist(); mob(); gantt(); parte(); parteArneses(); cableSplit(); supuestos(); }
 function num(id,fn){const el=document.getElementById('v-'+id); if(!el)return;
   const go=e=>{const v=parseFloat(e.target.value); if(!(v>=0)||isNaN(v))return; fn(v); pintaValores(); render();};
   el.addEventListener('change',go);
