@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Aug 24, 2026 (rev b) - harness component reconciled 25 -> 95 units against the by-line control (it had been stale since Aug 19 and missed Aug 20/21/22). Cable gate UNCHANGED at 38,124 lf / 13.9%: harness enters the 274,720 denominator as 4,972 ASSEMBLIES, not linear feet, so the 10,826.8 ft of harness cable in Fernando's Aug 22 report is consumption inside those assemblies and is not gate footage. Basis remains Sat Aug 22 EOD.
+// CACHE BUSTER: Aug 24, 2026 (rev c) - HARNESS DAILY SERIES ADDED (electricalByLine.harnessDiario + harnessScope + harnessNota) at Jose's request, with a LIVE RECONCILIATION against lineas.L1.harness on electrical-control.html section 6b. Harness is counted in CONJUNTOS/assemblies, never in linear feet. Basis remains Sat Aug 22 EOD; cable gate unchanged at 38,124 lf / 13.9%.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html's inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
@@ -355,7 +355,24 @@ window.MURCH_DATA = {
  { d: '20 ago', v: 2766, hr: 0, tr: 2766 },
  { d: '21 ago', v: 3610, hr: 3610, tr: 0 },
  { d: '22 ago', v: 0, hr: 0, tr: 0 }
- ]
+ ],
+ // ---- HARNESS DAILY SERIES (added Aug 24, 2026 at Jose's request) ----
+ // Harness is counted in UNITS (assemblies), NEVER in linear feet. The 274,720 lf gate
+ // denominator = homerun 229,435 + trunk 40,313 + harness 4,972, where the harness term is
+ // ASSEMBLIES. Cable feet reported inside a harness row (e.g. Fernando's 10,826.8 ft on
+ // Aug 22) are consumption within those assemblies and must NOT enter the cable numerator.
+ // sum(harnessDiario.l) MUST equal lineas.L1.harness - the control page checks this live.
+ harnessScope: 4972,
+ harnessDiario: [
+ { d: '15 ago', l: 13, s: null, conf: 'soft' },
+ { d: '17 ago', l: 0, s: 0 },
+ { d: '18 ago', l: 0, s: 0 },
+ { d: '19 ago', l: 11, s: 29 },
+ { d: '20 ago', l: 22, s: 38 },
+ { d: '21 ago', l: 24, s: 72 },
+ { d: '22 ago', l: 25, s: 75 }
+ ],
+ harnessNota: 'Acumulado 95 de 4.972 conjuntos (1,9%). Serie reconstruida de los partes diarios de Fernando Souza. <strong>El 15 de agosto (13) es el unico dato blando</strong> - el registro original lo anota como \u201c13 trackers\u201d, de modo que podria tratarse de arneses montados sobre trackers y no de 13 conjuntos; pendiente de confirmar con ECCS. Del 19 de agosto en adelante los datos salen directos del parte. <strong>21 y 22 de agosto fueron conjuntos de 3 strings integros</strong> (24x3 y 25x3). <strong>El 22 de agosto se corrigieron en campo todas las lineas no conformes: la instalacion queda 100% conforme con la Golden Rule del proyecto.</strong> El ritmo esta limitado por consumibles: los 4.000 zip ties se agotaron, llegan 1.000 clips el lunes y 24.000 zip ties el martes.'
  },
  trackerWip: {
  asOf: 'Aug 20, 2026',

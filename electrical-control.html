@@ -196,6 +196,17 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
 </section>
 
 <section>
+  <h2>6b · Parte diario de arneses<span class="sub">Los arneses se cuentan por CONJUNTOS, nunca en pies de cable. Serie añadida el 24 de agosto para que el acumulado no vuelva a quedarse atrás.</span></h2>
+  <div class="card">
+    <p class="note" id="harnessRecon" style="margin-top:0"></p>
+    <div id="chartH"></div>
+    <div style="overflow-x:auto;margin-top:14px"><table id="logH"></table></div>
+    <p class="note" id="harnessNota"></p>
+    <p class="note"><strong>Por qué esta serie va aparte del cable.</strong> El denominador de 274.720 del hito LV se compone de homerun 229.435 + trunk 40.313 + <strong>arneses 4.972 CONJUNTOS</strong>. Los pies de cable que aparecen dentro de una fila de arneses en el parte diario — por ejemplo los 10.826,8 ft del 22 de agosto — son <strong>consumo dentro de esos conjuntos</strong> y no entran en el numerador de cable: sumarlos habría publicado un 17,8% en lugar del 13,9% real. Regla práctica para leer el parte: <strong>un día de cable nombra sus tiradas</strong> (PB03–LBD18 1.760 ft, PB03–LBD17 1.850 ft el 21 de agosto); un día solo de arneses no nombra ninguna LBD.</p>
+  </div>
+</section>
+
+<section>
   <h2>7 · Glosario y supuestos<span class="sub">Los términos que circulan en inglés en obra, y todo lo que este control da por hecho.</span></h2>
   <div class="card">
     <h3>Glosario</h3>
@@ -265,6 +276,10 @@ const GRP=[{k:'cable',lab:'Cable (homerun + trunk)',c:'#2769a8'},
 let DIARIO = [ {d:'4 ago',v:1956,hr:1956,tr:0},{d:'5 ago',v:1915,hr:1915,tr:0},{d:'6 ago',v:2560,hr:2560,tr:0},
   {d:'7 ago',v:1969,hr:1969,tr:0},{d:'8 ago',v:0,hr:0,tr:0},{d:'10 ago',v:3131,hr:3131,tr:0},
   {d:'11 ago',v:0,hr:0,tr:0},{d:'12 ago',v:4735,hr:4134,tr:601} ];
+let HARNESS_SCOPE = 4972;
+let HARNESS = [ {d:'15 ago',l:13,s:null,conf:'soft'},{d:'17 ago',l:0,s:0},{d:'18 ago',l:0,s:0},
+  {d:'19 ago',l:11,s:29},{d:'20 ago',l:22,s:38},{d:'21 ago',l:24,s:72},{d:'22 ago',l:25,s:75} ];
+let HARNESS_NOTA = '';
 let HOY_ELEC = 9, HOY_TOTAL = 19;
 
 /* ============== AUTO-SYNC ==============
@@ -281,6 +296,9 @@ let HOY_ELEC = 9, HOY_TOTAL = 19;
     if(X.hoyElec != null) HOY_ELEC = X.hoyElec;
     if(X.hoyTotal != null) HOY_TOTAL = X.hoyTotal;
     if(X.diario && X.diario.length) DIARIO = X.diario;
+    if(X.harnessDiario && X.harnessDiario.length) HARNESS = X.harnessDiario;
+    if(X.harnessScope) HARNESS_SCOPE = X.harnessScope;
+    if(X.harnessNota) HARNESS_NOTA = X.harnessNota;
     if(X.lineas) LINEAS.forEach(function(L){
       var h = X.lineas[L.id]; if(!h) return;
       for(var k in h) if(k in L.hecho) L.hecho[k] = h[k];
@@ -660,7 +678,60 @@ function pintaValores(){
   document.getElementById('w6').setAttribute('aria-pressed',S.week===6);
   ['L1','L2','L3','L4'].forEach(id=>document.getElementById('d-'+id).value=S.mc[id]);
 }
-function render(){ M=motor(); kpis(); hist(); mob(); gantt(); parte(); supuestos(); }
+function parteArneses(){
+  const done = HARNESS.reduce((a,d)=>a+d.l,0);
+  const rem  = HARNESS_SCOPE - done;
+  /* exigido: mismo criterio que el resto del panel - restante / dias laborables
+     (lunes a sabado, domingos excluidos) hasta la puerta LV del 18 de septiembre.
+     Base 22 de agosto -> 23 dias laborables. */
+  const WD = 23, req = rem / WD;
+
+  /* reconciliacion viva contra el control por linea: si dejan de cuadrar, se ve aqui */
+  const L1 = (M && M.lineas && M.lineas[0] && M.lineas[0].hecho) ? M.lineas[0].hecho.harness : null;
+  const rec = document.getElementById('harnessRecon');
+  if(rec){
+    const ok = (L1==null) || (L1===done);
+    rec.innerHTML = ok
+      ? '<strong>Acumulado '+F(done)+' conjuntos de '+F(HARNESS_SCOPE)+' ('+F1(done/HARNESS_SCOPE*100)+'%).</strong> '+
+        'La suma del parte diario cuadra con el control por l\u00ednea'+(L1!=null?' ('+F(L1)+')':'')+' \u2713'
+      : '<strong style="color:#b53030">DESCUADRE: el parte diario suma '+F(done)+' conjuntos y el control por l\u00ednea marca '+F(L1)+'.</strong> '+
+        'Reconciliar antes de publicar \u2014 esta discrepancia mantuvo el acumulado en 25 durante cinco d\u00edas hasta el 24 de agosto.';
+    rec.style.background = ok ? '' : '#fdeaea';
+  }
+
+  const W=Math.max(1120,HARNESS.length*90),H=250,PL=58,PR=14,PT=16,PB=34;
+  const max=Math.max(req*1.1,...HARNESS.map(d=>d.l))*1.05, iw=W-PL-PR, ih=H-PT-PB;
+  const bw=Math.min(46,iw/HARNESS.length*0.6), Y=v=>PT+ih-(v/max)*ih;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="height:auto" role="img" aria-label="parte diario de arneses">`;
+  [0,.25,.5,.75,1].forEach(f=>{const v=max*f;
+    s+=`<line x1="${PL}" x2="${W-PR}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e8ede9"/>`+
+       `<text x="${PL-8}" y="${Y(v)+4}" text-anchor="end" font-size="10" fill="#66716d">${F(v)}</text>`;});
+  HARNESS.forEach((d,i)=>{const cx=PL+iw*(i+0.5)/HARNESS.length;
+    const fill = d.conf==='soft' ? '#a894c4' : '#6b4c9a';
+    s+=`<rect x="${cx-bw/2}" y="${Y(d.l)}" width="${bw}" height="${Math.max(0,PT+ih-Y(d.l))}" rx="4" fill="${fill}"><title>${d.d}: ${d.l} conjuntos${d.s!=null?' / '+d.s+' strings':''}${d.conf==='soft'?' (dato por confirmar)':''}</title></rect>`;
+    s+=`<text x="${cx}" y="${H-PB+16}" text-anchor="middle" font-size="10.5" fill="#66716d">${d.d}</text>`;
+    if(d.l>0)s+=`<text x="${cx}" y="${Y(d.l)-6}" text-anchor="middle" font-size="10.5" font-weight="600" fill="#18201f">${d.l}</text>`;});
+  s+=`<line x1="${PL}" x2="${W-PR}" y1="${Y(req)}" y2="${Y(req)}" stroke="#b53030" stroke-width="2" stroke-dasharray="6 4"/>`;
+  s+=`<text x="${W-PR}" y="${Y(req)-7}" text-anchor="end" font-size="10.5" fill="#b53030" font-weight="600">exigido ${F1(req)} conjuntos/d\u00eda</text>`;
+  s+=`<line x1="${PL}" x2="${W-PR}" y1="${PT+ih}" y2="${PT+ih}" stroke="#18201f"/></svg>`;
+  document.getElementById('chartH').innerHTML=s;
+
+  let cum=0, acc=0;
+  let h='<thead><tr><th>D\u00eda</th><th>Conjuntos</th><th>Strings</th><th>Exigido</th><th>Diferencia</th><th>Desfase acumulado</th><th>Acumulado</th><th>% del alcance</th></tr></thead><tbody>';
+  HARNESS.forEach(d=>{const g=d.l-req; cum+=g; acc+=d.l;
+    h+=`<tr><td>${d.d}${d.conf==='soft'?' <span title="dato por confirmar con ECCS" style="color:#b57a30">\u26a0</span>':''}</td>
+      <td><strong>${d.l}</strong></td><td>${d.s!=null?d.s:'\u2014'}</td><td>${F1(req)}</td>
+      <td style="color:${g<0?'#b53030':'#0c5f43'}">${g>0?'+':''}${F1(g)}</td>
+      <td style="color:#b53030">${F1(cum)}</td><td>${F(acc)}</td><td>${F1(acc/HARNESS_SCOPE*100)}%</td></tr>`;});
+  h+=`<tr class="tot"><td>Acumulado</td><td><strong>${F(acc)}</strong></td><td></td><td>${F1(req*HARNESS.length)}</td>
+      <td colspan="2" style="color:#b53030">${F1(cum)} conjuntos de desfase</td><td>${F(acc)} / ${F(HARNESS_SCOPE)}</td><td>${F1(acc/HARNESS_SCOPE*100)}%</td></tr></tbody>`;
+  document.getElementById('logH').innerHTML=h;
+
+  const nt=document.getElementById('harnessNota');
+  if(nt && HARNESS_NOTA) nt.innerHTML = HARNESS_NOTA;
+}
+
+function render(){ M=motor(); kpis(); hist(); mob(); gantt(); parte(); parteArneses(); supuestos(); }
 function num(id,fn){const el=document.getElementById('v-'+id); if(!el)return;
   const go=e=>{const v=parseFloat(e.target.value); if(!(v>=0)||isNaN(v))return; fn(v); pintaValores(); render();};
   el.addEventListener('change',go);
