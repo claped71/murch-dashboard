@@ -127,7 +127,7 @@ window.MURCH_DATA = {
  { title: 'Civil', metric: '98.0% \u00b7 3 of 5 closed', note: 'Cut/fill, internal roads and PS foundations COMPLETE; basins 95%, fence 95%.' },
  { title: 'Mechanical BOS', metric: '31,352 piles \u00b7 2,486 trackers', note: 'Piles 94.4% \u00b7 trackers 80.5% \u00b7 modules 66.2%.' },
  { title: 'Electrical BOS', metric: 'MV 74.7% \u00b7 LV 38,309 lf', note: 'MV collection, LV/DC pull, 23 inverters, SET, SCADA.' },
- { title: 'Procurement', metric: 'Pile AND panel delivery re-cut', note: 'Workbook now restates BOTH deliveries: piles 28,343/31,352 and <strong>panels 157,240/171,470 (14,230 short)</strong> - reconcile both. Plus SET steel receipt and the LV material shipments.' },
+ { title: 'Procurement', metric: 'LIVE: tracker contingency \u00b7 MV terminations \u00b7 SET equipment', note: '<strong>Three live material decisions: the tracker-material contingency buy (GameChange leads 3-4 wk, 4-6 for TT, vs ECCS surplus - decide this week), the 138 MV terminations (~40-wk coupling leads - kits on site ~mid-Sep or nothing energizes), and the SET equipment window (Aug 30 GreenSol equipment \u00b7 Partalum + cable dates owed \u00b7 poles Sep 11 \u00b7 8" PVC/Sch 80 for the Rev.4 conduit change).</strong> Panel reconciliation 157,240/171,470 still open.' },
  { title: 'Commissioning', metric: 'MC Sep 25 \u00b7 PIS Oct 16', note: 'Energization, start-up, PR test, punch, COD.' }
  ],
  photos: [
