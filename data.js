@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Aug 25, 2026 (rev a) - ELECTRICAL BY SCOPE NOW ON THE DASHBOARD ITSELF (Jose): the LV gate tile states 269,748 lf CABLE ONLY and carries homerun/trunk plus the harness line in assemblies beside it; a THIRD trend card 'LV cable by type - homerun vs trunk' sits with the other daily-output cards; the harness card's required rate now reads from lvComposite.harnessRequiredPerDay instead of a hardcoded 150.
+// CACHE BUSTER: Aug 25, 2026 (rev b) - CABLE CHARTS FIXED (Jose): the stacked 'by type' card re-drew the SAME bar heights as the combined cable card - it was the same chart in two colours. Replaced by TWO separate cards on their own scales and their own required rates: HOMERUN (required 8,905 lf/day) and TRUNK CHEMIK (required 1,615 lf/day). They show an inverse pattern - Aug 20 was all trunk, Aug 21 all homerun - which the stacked view hid. Harness card kept. Combined cable total lives on the LV gate tile.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
