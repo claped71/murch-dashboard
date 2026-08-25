@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Aug 24, 2026 (rev d) - CABLE DENOMINATOR RE-BASED TO CABLE ONLY (Jose): 274,720 -> 269,748 lf = homerun 229,435 + trunk 40,313. The 4,972 harness ASSEMBLIES are out of the linear-foot total and tracked on their own unit line (134/4,972, 2.7%, 220/day). LV gate 13.9 -> 14.2%, required 10,746 -> 10,520 lf/day. Closes German's take-off flag open since Aug 12. Scoreboard electrical rows now render BY SCOPE - cable lf and harness assemblies on separate lines with a bar each, never summed.
+// CACHE BUSTER: Aug 25, 2026 (rev a) - ELECTRICAL BY SCOPE NOW ON THE DASHBOARD ITSELF (Jose): the LV gate tile states 269,748 lf CABLE ONLY and carries homerun/trunk plus the harness line in assemblies beside it; a THIRD trend card 'LV cable by type - homerun vs trunk' sits with the other daily-output cards; the harness card's required rate now reads from lvComposite.harnessRequiredPerDay instead of a hardcoded 150.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {

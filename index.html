@@ -2317,12 +2317,12 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Saturday Aug 22 EOD field reports</strong> (Manuel Ramirez: United grading F3 only, ECCS cleanup in F and E; Brumont <strong>768 modules in Area E</strong> plus tracker closeout in Zone C; <strong>Fernando Souza&rsquo;s ECCS daily report &mdash; 25 harness lines / 75 strings in A1&ndash;A2, zero cable feet, and every non-conforming harness corrected in field to 100% Golden Rule conformity</strong>; Angel Urbina and Nolberi&rsquo;s civil report &mdash; Inverter-6 MV road crossing trenched, ducted and backfilled, MV cable landed in the Inverter-6 cabinet, grounding ring at Inverters 5 and 6, Inverter-4 penetrations, Zone D laydown staking; ITS 15 people in the Wetland on Bore #11); <strong>Vern Ray&rsquo;s Aug 22 letter for United Services</strong> (red piles arrived Aug 21&ndash;22, <strong>4 rigs turned in</strong>, Area G grading out of tolerance ~3 weeks, Area D still ungraded, <strong>F1/F2 racking out of tolerance on the bearings</strong>, most Zone G racking not installed, Area B confirmed as United contract scope, 3,500/day rising to 4,000); <strong>Bethany Valdez&rsquo;s Monday Aug 24 EHS headcount (218)</strong>; the <strong>Aug 24 SE Construction Tracker cut (38.9% &mdash; civil 89.6, structural 36.6, electrical 13.8; 61 of 187 activities; 54 days to the Oct 17 energization date)</strong>; the <strong>Aug 24 MURCH_Plowing_Boring_MT_DC tracking</strong> (bores 18/20 with <strong>MVHB-10 and MVHB-11 both at ZERO recorded feet</strong>, plow 38/46 at 121,632 ft, DC bores 10/10); and the <strong>Aug 24 DELIVERY AND MECHANICAL workbook</strong> (piles 28,343/31,352 delivered, panels 157,240/171,470 &mdash; its block-map roll-up lags the field by several days and is not the executed basis). Updated Aug 24 with the <strong>Monday Aug 24 field cut (WhatsApp export 15:48)</strong>: Manuel Ramirez (ECCS 30 trackers Zone G + TP 21 + LBD 21; United 30 trackers and 4,095 modules Area F; piles “será mínimo el avance” in D), <strong>Fernando Souza’s ICSS V2 report (39 harness lines / 117 strings in A2; 185 ft of trunk; Inv 03-412 homerun 900 ft in process; 5,000 zip ties delivered)</strong>, Nolberi’s civil report (Inv 1-3 backfill, C road crossing at Inv 6 ducted and backfilled, Zone D parking pad, Inv 9/11 penetrations), and Maurin’s confirmation that <strong>the F1/F2 bearing remediation is executed with the correction report pending</strong>.</p>
     </footer>
 
-    <script src="data.js?v=20260824d"></script>
+    <script src="data.js?v=20260825a"></script>
     <script>
 'use strict';
 
 (function () {
-  const assetVersion = '20260824d';
+  const assetVersion = '20260825a';
   const assetBase = 'https://claped71.github.io/murch-dashboard/';
 
   function asset(path) {
@@ -3102,12 +3102,30 @@ canvas { max-width: 100%; }
         var lvProj = lvRate > 0 ? addWd(today, Math.ceil(lvRem / lvRate)) : null;
         strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile rag-red"><h3>' + e.name + ' · gate ' + e.gateLabel + '</h3>' +
-          '<div class="gate-big">' + e.installed.toLocaleString() + ' <em>/ ' + e.total.toLocaleString() + ' lf (' + pct + '%)</em></div>' +
+          '<div class="gate-big">' + e.installed.toLocaleString() + ' <em>/ ' + e.total.toLocaleString() + ' lf CABLE ONLY (' + pct + '%)</em></div>' +
           '<div class="gate-rows">' +
           planLine(planPct(STARTS.lv, e.gate), e.installed / e.total * 100) +
           'Required now: <b>' + e.required.toLocaleString() + ' ' + e.unit + '</b><br>' +
           'Actual (5-day avg): <b>' + Math.round(lvRate).toLocaleString() + ' lf/day</b><br>' +
           'Projected finish at current rate: <b>' + (lvProj ? fmtD(lvProj) : 'n/a — no measured rate') + '</b><br>' +
+          // Cable and harness are DIFFERENT UNITS and are never summed (Jose, Aug 24). The
+          // figure above is cable only - homerun + trunk. Harness rides alongside in assemblies.
+          (function () {
+            var lc = D.lvComposite || {}, eb = D.electricalByLine || {}, L1 = (eb.lineas || {}).L1 || {};
+            var out = '';
+            if (L1.homerun != null || L1.trunk != null) {
+              out += '<span style="display:block;margin-top:6px;padding-top:6px;border-top:1px dotted var(--rule,#d8ded9)">' +
+                     'Homerun <b>' + (L1.homerun || 0).toLocaleString() + '</b> / 229,435 &middot; ' +
+                     'Trunk <b>' + (L1.trunk || 0).toLocaleString() + '</b> / 40,313</span>';
+            }
+            if (lc.harnessGateInstalled != null) {
+              out += '<span style="display:block;margin-top:4px">Harness (separate unit): <b>' +
+                     lc.harnessGateInstalled.toLocaleString() + ' / ' + lc.harnessGateTotal.toLocaleString() +
+                     ' assemblies</b> (' + lc.harnessGatePct + '%) &middot; required <b>' +
+                     lc.harnessRequiredPerDay + '/day</b></span>';
+            }
+            return out;
+          })() +
           '<span class="gate-pill">SECOND CABLE GANG REQUIRED</span>' +
           '</div></article>'); } })();
       (function(){ var M = C.mv, S = C.set;
@@ -3156,7 +3174,11 @@ canvas { max-width: 100%; }
       var _hDaily = (_eb.harnessDiario || []).map(function (x) { var n = String(x.d).split(' ')[0]; return { day: 'Aug ' + n, value: x.l }; });
       var trendDefs = defs.concat([
         { c: { name: 'LV / DC cable pull', required: C.electrical.required, capacity: C.electrical.capacity, unit: 'lf' }, daily: (C.electrical.lvDaily || []) },
-        { c: { name: 'Harness assemblies', required: 150, capacity: 39, unit: 'assemblies' }, daily: _hDaily }
+        // required comes from lvComposite.harnessRequiredPerDay (remaining / working days to
+        // the Sep 18 gate) - never hardcoded, or it drifts from the gate the way the cumulative did.
+        { c: { name: 'Harness assemblies', unit: 'assemblies',
+               required: ((D.lvComposite || {}).harnessRequiredPerDay) || 220,
+               capacity: Math.max.apply(null, _hDaily.map(function (x) { return x.value; }).concat([0])) }, daily: _hDaily }
       ]);
       trendDefs.forEach(function (g) {
         var dAll = g.daily; if (!dAll.length) return;
@@ -3191,6 +3213,49 @@ canvas { max-width: 100%; }
           '<polyline points="' + avgPts + '" fill="none" stroke="#168a5b" stroke-width="2.4"/>' +
           '</svg><p class="trend-key">Blue bars = last 7 measured days · green line = 7-day rolling average (computed over the full history) · red dashes = required rate for the gate</p></article>');
       });
+
+      // ---- LV cable BY TYPE (Jose, Aug 25): the third electrical graphic on the dashboard.
+      //      Stacked daily split between the two LV cables - homerun feeders and Chemik trunk.
+      //      Real data from electricalByLine.diario (.hr / .tr); cumulatives come off the
+      //      by-line control so the card ties to the cable gate exactly. Harness is NOT here -
+      //      it is a different unit and has its own card.
+      (function () {
+        var eb = D.electricalByLine || {}, di = eb.diario || [];
+        if (!tg || !di.length) return;
+        var L1 = (eb.lineas || {}).L1 || {};
+        var HR_SCOPE = 229435, TR_SCOPE = 40313;
+        var hrCum = L1.homerun || 0, trCum = L1.trunk || 0;
+        var wd = 22;
+        var hrReq = (HR_SCOPE - hrCum) / wd, trReq = (TR_SCOPE - trCum) / wd, req = hrReq + trReq;
+        var d = di.slice(-7);
+        var W = 560, H = 190, L = 46, B = 24, T = 12;
+        var ymax = Math.max(req, Math.max.apply(null, d.map(function (x) { return x.v; }))) * 1.12;
+        var bw = (W - L - 8) / d.length;
+        var y = function (v) { return T + (H - T - B) * (1 - v / ymax); };
+        var base = H - B;
+        var bars = d.map(function (x, i) {
+          var hr = x.hr || 0, tr = x.tr || 0, xx = L + i * bw + 2, w = Math.max(bw - 4, 3), o = '';
+          if (hr > 0) o += '<rect x="' + xx + '" y="' + y(hr) + '" width="' + w + '" height="' + Math.max(base - y(hr), 1) + '" fill="#2769a8" opacity="0.88"><title>' + x.d + ': homerun ' + hr.toLocaleString() + ' lf</title></rect>';
+          if (tr > 0) o += '<rect x="' + xx + '" y="' + y(hr + tr) + '" width="' + w + '" height="' + Math.max(y(hr) - y(hr + tr), 1) + '" fill="#168a5b" opacity="0.9"><title>' + x.d + ': trunk ' + tr.toLocaleString() + ' lf</title></rect>';
+          o += '<text x="' + (L + i * bw + bw / 2) + '" y="' + (H - 8) + '" font-size="9" text-anchor="middle" fill="#66716d">Aug' + String(x.d).split(' ')[0] + '</text>';
+          return o;
+        }).join('');
+        var reqLine = '<line x1="' + L + '" x2="' + W + '" y1="' + y(req) + '" y2="' + y(req) + '" stroke="#b53030" stroke-width="1.6" stroke-dasharray="6 4"/>' +
+          '<text x="' + (W - 4) + '" y="' + (y(req) - 4) + '" font-size="10" text-anchor="end" fill="#b53030" font-weight="700">required ' + Math.round(req).toLocaleString() + '</text>';
+        tg.insertAdjacentHTML('beforeend',
+          '<article class="trend-card"><h3>LV cable by type — homerun vs trunk</h3>' +
+          '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="LV cable split by type">' +
+          '<line x1="' + L + '" x2="' + W + '" y1="' + base + '" y2="' + base + '" stroke="#dbe3de"/>' +
+          '<text x="' + (L - 6) + '" y="' + (y(ymax / 1.12) + 3) + '" font-size="9" text-anchor="end" fill="#66716d">' + Math.round(ymax / 1.12).toLocaleString() + '</text>' +
+          '<text x="' + (L - 6) + '" y="' + (base + 3) + '" font-size="9" text-anchor="end" fill="#66716d">0</text>' +
+          bars + reqLine + '</svg>' +
+          '<p class="trend-key"><b style="color:#2769a8">&#9632; Homerun</b> ' + hrCum.toLocaleString() + ' / ' + HR_SCOPE.toLocaleString() +
+          ' (' + (hrCum / HR_SCOPE * 100).toFixed(1) + '%), required ' + Math.round(hrReq).toLocaleString() + '/day &nbsp;&middot;&nbsp; ' +
+          '<b style="color:#168a5b">&#9632; Trunk Chemik</b> ' + trCum.toLocaleString() + ' / ' + TR_SCOPE.toLocaleString() +
+          ' (' + (trCum / TR_SCOPE * 100).toFixed(1) + '%), required ' + Math.round(trReq).toLocaleString() + '/day. ' +
+          'Together they are the whole cable gate — <b>' + (hrCum + trCum).toLocaleString() + ' / ' + (HR_SCOPE + TR_SCOPE).toLocaleString() + ' lf</b>. ' +
+          'Aug 20 was 2,766 ft all trunk; Aug 21 was 3,610 ft all homerun — similar totals, different work.</p></article>');
+      })();
 
       // ---- contractor scoreboard ----
       var sb = document.getElementById('scoreBody');
