@@ -2317,7 +2317,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>Aug 25 executive production report (Luis Romero, 16:13)</strong> &mdash; 5,593 modules (United 3,393 Area F, Brumont 2,200 Zone B), 67 tracker rows at 100% (United 30, ECCS 37) plus 20 TP and 20 LBD in Zone E, <strong>ECCS electrical 2,744 ft of HR 500 kcmil at Inverter 6 and 90 strings (A2 63 + A4 27)</strong>, Workforce &ldquo;sin avance reportado&rdquo;, GreenSol 2 people on rejection piles in Zone E; <strong>Axel Cano&rsquo;s Aug 25 05:49 field note</strong> (&ldquo;se tiene ya montada toda la estructura&rdquo; &mdash; substation steel erection complete, yard equipment starting); <strong>Nolberi&rsquo;s Aug 25 civil report</strong> (Inverter-6 south crossing trenched, ducted and backfilled; north side ducted, backfill pending; Inverter-4 MV trench opened; Zone D gravel); <strong>Manuel Ramirez&rsquo;s Aug 25 Labor Day note</strong> (ECCS off Sep 4&ndash;8, Workforce not on site); <strong>Axel Cano&rsquo;s Aug 26 letter to ITS</strong> (MV programmed to complete Aug 21 and not complete; updated schedule and completion date required; mat rental extending; substation fence to be closed by the week of Sep 7); the <strong>Aug 25 SE Construction Tracker cut</strong> (41.7% overall &mdash; civil 92.2, structural 44.6, electrical 13.7; 66 of 187 activities); the <strong>Aug 25 ITS Plowing &amp; Boring tracker</strong> (MVHB-10 complete at 1,794 ft &mdash; bores 19/20 at 9,050 ft; plow unchanged at 38/46 and 121,632 ft); and the <strong>Tuesday Aug 25 EHS headcount (239)</strong>. <strong>Cable is reported in linear feet and harness in assemblies; the two are never summed and never share a denominator.</strong></p>
     </footer>
 
-    <script src="data.js?v=20260826a"></script>
+    <script src="data.js?v=20260826b"></script>
     <script>
 'use strict';
 
@@ -3031,7 +3031,10 @@ canvas { max-width: 100%; }
       // PLAN-TO-DATE (Jose, Aug 14): the schedule target each scope should carry today,
       // on a Mon-Sat working-day line from its field start to its contractual gate.
       // Gates that fall on a Sunday are read as the Saturday before. Passed gates plan at 100%.
+      // Returns null - never 0 - when the reporting date is unusable, so a broken date
+      // shows as "unavailable" instead of masquerading as "0% planned, we are ahead".
       function planPct(startISO, gateISO) {
+        if (!today) return null;
         var s = new Date(startISO + 'T12:00:00'), g = new Date(gateISO + 'T12:00:00');
         if (g.getDay() === 0) g.setDate(g.getDate() - 1);
         var tot = wdBetween(s, g); if (tot <= 0) return 100;
@@ -3040,11 +3043,28 @@ canvas { max-width: 100%; }
       }
       var STARTS = { piles: '2026-06-17', trackers: '2026-06-08', modules: '2026-07-03', lv: '2026-07-07', mv: '2026-06-12', inv: '2026-07-27' };
       function planLine(planned, actual) {
+        if (planned === null || planned === undefined || isNaN(planned)) {
+          return 'Plan today: <b style="color:#a12b2b">unavailable</b> <small>&mdash; reporting date not set (control.asOfISO)</small><br>';
+        }
         var gap = actual - planned;
         var cls = gap >= -2 ? 'style="color:#0c6b48;font-weight:700"' : 'style="color:#a12b2b;font-weight:700"';
         return 'Plan today: <b>' + planned.toFixed(1) + '%</b> \u00b7 <span ' + cls + '>' + (gap >= 0 ? '+' : '') + gap.toFixed(1) + ' pts</span><br>';
       }
-      var today = C.asOf ? new Date(C.asOf) : new Date(2026, 6, 8);
+      // The reporting date drives EVERY plan-to-date curve on the gate cards. It must come
+      // from a machine field, never from prose: an em-dash in control.asOf made
+      // new Date(asOf) return Invalid Date, wdBetween() then returned 0 for every span,
+      // and every "Plan today" silently read 0% while the project total fell to 10.9%
+      // (= the civil 10 weight + a fragment of the SET constant). Caught Aug 26.
+      var today = (function () {
+        var d;
+        if (C.asOfISO) { d = new Date(C.asOfISO + 'T12:00:00'); if (!isNaN(d)) return d; }
+        // fallback: pull a "Mon D, YYYY" out of the prose before giving up
+        var m = String(C.asOf || '').match(/([A-Z][a-z]{2})\s+(\d{1,2}),\s*(\d{4})/);
+        if (m) { d = new Date(m[1] + ' ' + m[2] + ', ' + m[3] + ' 12:00:00'); if (!isNaN(d)) return d; }
+        window.__MURCH_DATE_BROKEN__ = true;
+        if (window.console) console.error('MURCH: control.asOfISO is missing or unparseable - plan-to-date suppressed. asOf was: ' + C.asOf);
+        return null;
+      })();
 
       var defs = [
         { c: C.piles, start: STARTS.piles, daily: series(/Pile installation/i), remaining: C.piles.total - C.piles.installed },
@@ -3054,8 +3074,14 @@ canvas { max-width: 100%; }
       var strip = document.getElementById('gateStrip');
       (function(){ var T = D.projectTotal; if(!T) return;
         // Global plan-to-date: each component's working-day schedule target, same weights.
-        var elecPlan = 0.45 * planPct(STARTS.lv, '2026-09-18') + 0.22 * planPct(STARTS.mv, '2026-09-14') + 0.18 * planPct(STARTS.inv, '2026-09-15') + 0.15 * ((C.set && C.set.planToDate) || 45);
-        var globalPlan = 0.28 * planPct(STARTS.piles, '2026-07-28') + 0.22 * planPct(STARTS.trackers, '2026-08-30') + 0.26 * planPct(STARTS.modules, '2026-09-06') + 0.14 * elecPlan + 0.10 * 100;
+        // If any component plan is unusable the whole composite is unusable - it must NOT
+        // be computed with the missing terms silently treated as zero.
+        var _pLv = planPct(STARTS.lv, '2026-09-18'), _pMv = planPct(STARTS.mv, '2026-09-14'),
+            _pInv = planPct(STARTS.inv, '2026-09-15'), _pPil = planPct(STARTS.piles, '2026-07-28'),
+            _pTrk = planPct(STARTS.trackers, '2026-08-30'), _pMod = planPct(STARTS.modules, '2026-09-06');
+        var _bad = [_pLv, _pMv, _pInv, _pPil, _pTrk, _pMod].some(function (x) { return x === null || isNaN(x); });
+        var elecPlan = _bad ? null : (0.45 * _pLv + 0.22 * _pMv + 0.18 * _pInv + 0.15 * ((C.set && C.set.planToDate) || 45));
+        var globalPlan = _bad ? null : (0.28 * _pPil + 0.22 * _pTrk + 0.26 * _pMod + 0.14 * elecPlan + 0.10 * 100);
         strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile"><h3>PROJECT TOTAL \u00b7 weighted physical completion</h3>' +
           '<div class="gate-big">' + T.gatePct.toFixed(1) + '% <em>+ ' + (T.earnedPct - T.gatePct).toFixed(1) + ' earned = ' + T.earnedPct.toFixed(1) + '%</em></div>' +
