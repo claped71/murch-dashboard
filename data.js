@@ -248,6 +248,55 @@ window.MURCH_DATA = {
  // tools/sync.js must never carry this block across. It is deliberately not one of
  // the blocks sync reads, and the Owner report has been swept clean of every
  // messenger-wire and cable-quantity reference.
+ // ===================== BOP CIVIL / ELECTRICAL INTERFACE =====================
+ // Section 4 of the daily executive report ("Obra civil - avance general") was being
+ // read but never PUBLISHED as tracked progress - it only reached prose notes.
+ // Jose, Aug 28: "I don't see these progress in the dashboard." Fixed: it is now a
+ // first-class block with its own section, updated every run from the daily report
+ // and cross-checked against the MV Termination Production Control workbook.
+ bopInterface: {
+ asOf: 'Aug 27, 2026',
+ source: 'Daily executive report \u00a74 (27 Aug) cross-checked against the MV Termination Production Control workbook',
+ overallPct: 10.7,
+ overallPctReported: 10.4,
+ items: [
+ { activity: 'Trenches (MV\u2013LV) \u2014 OPEN', done: 58, total: 181, unit: 'trenches', status: 'Active',
+ note: 'Excavated and available. <strong>Opening is a third of the way through; closing is not.</strong>' },
+ { activity: 'Trenches (MV\u2013LV) \u2014 CLOSED', done: 10, total: 181, unit: 'trenches', status: 'Critical',
+ note: '<strong>Only 10 of the 58 opened trenches have been closed. 48 trenches stand open across the site</strong> \u2014 an open-excavation exposure as well as a production one, and each one blocks the area above it.' },
+ { activity: 'Trenches (MV\u2013LV) \u2014 COMPACTED', done: 10, total: 181, unit: 'trenches', status: 'Critical',
+ note: 'Compaction tracks closure exactly. <strong>171 of 181 still to compact.</strong>' },
+ { activity: 'Cable pull-in \u2014 inverter MV', done: 7, total: 46, unit: 'units', status: 'Critical',
+ note: '<strong>7 of 46 units have their MV cable pulled in.</strong> Pull-in has to precede termination, so this is the true leading indicator for the 264 terminations behind it.' },
+ { activity: 'MV terminations', done: 6, total: 264, unit: 'terminations', status: 'Critical',
+ note: '<strong>The daily report of 27 Aug states 4; the MV Termination Production Control states 6. The workbook is the newer control and is published here \u2014 the divergence is to be settled at source.</strong> All at Inverters 01 and 02 in Area A.' }
+ ],
+ note: '<strong>This is the front that turns installed cable into an energisable plant, and until now it has only appeared on this dashboard inside prose.</strong> '
+ + '<strong>Read the shape of it: 58 trenches opened, 10 closed, 10 compacted, 7 of 46 pull-ins done and 6 of 264 terminations. Every step is narrower than the one before it, so the tail is entirely in front of us.</strong> '
+ + 'The daily report puts overall interface completion at 10.4% and the workbook at 10.7%; the workbook figure is published. '
+ + '<strong>No unit is fully closed on any line or in any area \u2014 a unit closes only when its trenches, pull-in and terminations are all complete.</strong>'
+ },
+
+ // ===================== TRACKER COMPONENT INSTALLS =====================
+ // ECCS files these as discrete daily quantities. They are NOT tracker rows and must
+ // never be added to the row count - but they were being dropped entirely, which hid
+ // real production. Scope denominators have NOT been provided by the field, so no
+ // percentage is shown: quantities only until the take-off arrives.
+ trackerComponents: {
+ asOf: 'Aug 27, 2026',
+ source: 'ECCS, daily executive report \u00a71 (27 Aug)',
+ scopeKnown: false,
+ items: [
+ { component: 'Tracker motors', day: 27, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' },
+ { component: 'Dampers', day: 28, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' },
+ { component: 'Load panels', day: 21, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' },
+ { component: 'Control boxes', day: 21, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' }
+ ],
+ note: '<strong>97 tracker components were fitted on 27 Aug and none of it appeared anywhere on this dashboard until now.</strong> '
+ + '<strong>It is real work on the critical path \u2014 a row cannot be released without its motor, damper, load panel and control box \u2014 but it is NOT a completed row, so it stays out of the 2,069 and out of the Aug 30 gate.</strong> '
+ + '<strong>ACTION: the scope denominators for motors, dampers, load panels and control boxes have never been filed. Until they are, this block can only show daily quantities, and the component front cannot be forecast or gated.</strong> Ask ECCS for the four take-off totals and a cumulative to date.'
+ },
+
  materialPosition: {
  asOf: 'Aug 27, 2026',
  headline: '<strong>Two quantity exposures are confirmed and quantified on the same day. Neither is a rate problem \u2014 both stop work that no crew size can restart.</strong>',
@@ -409,8 +458,8 @@ window.MURCH_DATA = {
  ]
  },
  inverterProgress: {
- asOf: 'Aug 8, 2026 (setting scope unchanged since Aug 4)',
- basis: 'AB Powers inverter matrix (authoritative) mapped onto the 5-step weighted ladder',
+ asOf: 'Aug 27, 2026 (step 5 opened \u2014 first MV terminations and grounding)',
+ basis: 'AB Powers inverter matrix mapped onto the 5-step weighted ladder, now cross-checked against the MV Termination Production Control. <strong>Step 5 has finally opened: 6 MV terminations complete at Inverters 01 and 02, grounding ring INSTALLED at Inverter 4 and IN PROGRESS at Inverter 9, and MV cables brought into the MV cabinets at Inverters 4 and 9 (GreenSol, Aug 27). Cable pull-in is complete at 7 of 46 units.</strong> All 23 stations remain set and welded; the gate stays at 0% because no station has its full step-5 set closed.',
  totalStations: 23,
  stationsSet: 23,
  gatePct: 0.0,
@@ -525,14 +574,14 @@ window.MURCH_DATA = {
  harnessNota: 'Acumulado 134 de 4.972 conjuntos (2,7%). <strong>24 ago: RECORD - 39 lineas / 117 strings en A2 (16.890 ft de cable de harness - consumo, nunca pies de puerta); 5.000 zip ties entregados en campo.</strong> Serie reconstruida de los partes diarios de Fernando Souza. <strong>El 15 de agosto (13) es el unico dato blando</strong> - el registro original lo anota como \u201c13 trackers\u201d, de modo que podria tratarse de arneses montados sobre trackers y no de 13 conjuntos; pendiente de confirmar con ECCS. Del 19 de agosto en adelante los datos salen directos del parte. <strong>21 y 22 de agosto fueron conjuntos de 3 strings integros</strong> (24x3 y 25x3). <strong>El 22 de agosto se corrigieron en campo todas las lineas no conformes: la instalacion queda 100% conforme con la Golden Rule del proyecto.</strong> El ritmo esta limitado por consumibles: los 4.000 zip ties se agotaron, llegan 1.000 clips el lunes y 24.000 zip ties el martes.'
  },
  trackerWip: {
- asOf: 'Aug 20, 2026',
+ asOf: 'Aug 27, 2026',
  basis: 'STEP LADDER (adopted Jul 30, 2026 by Jose Romero)',
- completedRows: 1896,
- openRows: 16,
- equivalents: 7.2,
- equivalentsAsReported: 7.2,
- earnedPct: 76.6,
- gatePct: 76.3,
+ completedRows: 2069,
+ openRows: 66,
+ equivalents: 29.7,
+ equivalentsAsReported: 29.7,
+ earnedPct: 84.4,
+ gatePct: 83.2,
  suspended: 'Open register is one line: <strong>Workforce B - 16 rows tubed in B5, now receiving purlins and control boxes (Aug 20)</strong>. Credit is held at the step-2 snapshot (7.2 equivalents) until Workforce reports the purlin step by row count. ECCS and United carry no open rows - both closed everything they started.',
  items: [
   { zone: 'Zone B', crew: 'Workforce (racking)', rows: 16, step: 2, stepName: 'Torque tube installed and spliced', weight: 0.45, equiv: 7.2, note: 'Aug 19 snapshot - 16 rows tubed in B5 (10 people). Replaces the 10-row figure per the rule.' }
