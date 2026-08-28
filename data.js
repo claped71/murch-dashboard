@@ -353,7 +353,7 @@ window.MURCH_DATA = {
 
  materialPosition: {
  asOf: 'Aug 27, 2026',
- headline: '<strong>Two quantity exposures are confirmed and quantified on the same day. Neither is a rate problem \u2014 both stop work that no crew size can restart.</strong>',
+ headline: '<strong>This is the match ball. Without this material the project cannot be finished, whatever personnel or machinery is brought to site \u2014 which is why it sits directly below the gates and stays there until it is closed.</strong> <strong>Two quantity exposures are confirmed and quantified, and a third verification is owed. None of them is a rate problem: no crew size and no additional plant restarts a run that has no wire.</strong>',
  items: [
  {
  id: 'messenger-wire',
@@ -372,7 +372,7 @@ window.MURCH_DATA = {
  { label: 'Procured (25 km)', runs: null, lf: 82000 },
  { label: 'GAP', runs: null, lf: 19091.11 }
  ],
- note: '<strong>The whole aerial LV system hangs from this wire.</strong> Harness, homerun and trunk all ride the messenger; with the wire short, crew count and cable stock are irrelevant on the runs that have none. '
+ note: '<strong>PINNED. This section holds its position immediately below the gates until the messenger wire is sourced, the MV cable is ordered and the LV cable sufficiency is confirmed. It comes down when all three are closed, not before.</strong> <strong>Why it is not in the Owner report: the quantities are unverified, the take-off is being re-cut, and a procurement position stated to the Owner before it is settled cannot be withdrawn.</strong> It is published here in full so the whole team works from one set of numbers.'
  + '<strong>Bonilla states the 25 km (82,000 lf) purchased is insufficient to conclude construction</strong>, and that his measurements are already "generous" \u2014 they carry roughly 1,400 lf of extra allowance on the East\u2013West runs \u2014 so the true gap is not smaller than 19,091 lf. '
  + '<strong>TWO THINGS MAKE THE REAL GAP LARGER.</strong> First, <strong>the messenger wire has been used inappropriately as a pulling rope to draw conductors through conduit</strong>, consuming wire that was never in the take-off. Second, <strong>no offcut-optimisation plan was ever produced</strong>, so the remaining reels are being cut without a run-allocation strategy and the scrap percentage may be "notably higher" than assumed. '
  + '<strong>Luis Romero confirmed the same evening: "el Messenger no llega, vamos a buscar opciones en USA" \u2014 the wire does not reach and alternative supply is being sought in the United States.</strong> '
