@@ -241,6 +241,89 @@ window.MURCH_DATA = {
  // contract had LV cable lay FINISHING on 14 August. Plan-to-date is now
  // measured against the contract; the internal recovery date is still shown
  // beside it, labelled, so both are visible and neither is disguised.
+ // ===================== MATERIAL POSITION - LV AND MV CABLE =====================
+ // INTERNAL ONLY. Jose, Aug 28: "show it with the highest level of details in our
+ // internal Murch dashboard" and "ensure you don't show any comment about the
+ // shortage of cables in the owner project report."
+ // tools/sync.js must never carry this block across. It is deliberately not one of
+ // the blocks sync reads, and the Owner report has been swept clean of every
+ // messenger-wire and cable-quantity reference.
+ materialPosition: {
+ asOf: 'Aug 27, 2026',
+ headline: '<strong>Two quantity exposures are confirmed and quantified on the same day. Neither is a rate problem \u2014 both stop work that no crew size can restart.</strong>',
+ items: [
+ {
+ id: 'messenger-wire',
+ title: 'MESSENGER WIRE \u2014 short by ~19,000 lf against the completed take-off',
+ severity: 'Critical',
+ source: 'Jose Luis Bonilla (Construction & Technical Manager), Aug 27 19:08 \u00b7 confirmed by Luis Romero Montero (Construction Director), Aug 27 23:11',
+ unit: 'linear feet',
+ required: 101091,
+ procured: 82000,
+ gap: 19091,
+ runs: 284,
+ detail: [
+ { label: 'East\u2013West', runs: 72, lf: 43399.26 },
+ { label: 'North\u2013South', runs: 212, lf: 57691.85 },
+ { label: 'TOTAL REQUIRED', runs: 284, lf: 101091.11 },
+ { label: 'Procured (25 km)', runs: null, lf: 82000 },
+ { label: 'GAP', runs: null, lf: 19091.11 }
+ ],
+ note: '<strong>The whole aerial LV system hangs from this wire.</strong> Harness, homerun and trunk all ride the messenger; with the wire short, crew count and cable stock are irrelevant on the runs that have none. '
+ + '<strong>Bonilla states the 25 km (82,000 lf) purchased is insufficient to conclude construction</strong>, and that his measurements are already "generous" \u2014 they carry roughly 1,400 lf of extra allowance on the East\u2013West runs \u2014 so the true gap is not smaller than 19,091 lf. '
+ + '<strong>TWO THINGS MAKE THE REAL GAP LARGER.</strong> First, <strong>the messenger wire has been used inappropriately as a pulling rope to draw conductors through conduit</strong>, consuming wire that was never in the take-off. Second, <strong>no offcut-optimisation plan was ever produced</strong>, so the remaining reels are being cut without a run-allocation strategy and the scrap percentage may be "notably higher" than assumed. '
+ + '<strong>Luis Romero confirmed the same evening: "el Messenger no llega, vamos a buscar opciones en USA" \u2014 the wire does not reach and alternative supply is being sought in the United States.</strong> '
+ + 'Bonilla proposes measuring the remaining reel lengths and issuing a cable-allocation proposal so the outstanding runs are optimised.',
+ actions: [
+ 'Measure every remaining messenger-wire reel and issue the run-allocation proposal (Bonilla, offered for Aug 28).',
+ 'Source the balance in the US \u2014 quantity, type, price and lead time (Luis Romero, in hand).',
+ 'STOP the use of messenger wire as a pulling rope and issue the instruction to the crews in writing.',
+ 'Re-cut the take-off with a realistic scrap allowance once the misuse quantity is known.'
+ ]
+ },
+ {
+ id: 'mv-cable',
+ title: 'MV CABLE \u2014 8,750 ft to buy for a no-splice run; decision TAKEN',
+ severity: 'Critical',
+ source: 'Jose Luis Bonilla, Aug 27 18:51 (options) \u00b7 Luis Romero Montero, Aug 27 23:17 (decision)',
+ unit: 'feet',
+ decided: 8750,
+ note: '<strong>The exposure is on lines 12A and 12B. Line 11A is 750 kcmil and has no stock issue; line 11B can be run splice-free from the existing reels. 12A and 12B either wait for cable or take splices.</strong> '
+ + '<strong>DECISION (Luis Romero, Aug 27): buy 8,750 ft and run with ZERO splices.</strong> His reasoning is recorded and is a durability argument, not a cost one: <strong>the splices would sit inside conduit that will be full of water for the life of the plant, and no ground conductor is being installed on the MV \u2014 "por mucho que lo sellemos la vamos a liar"</strong>. '
+ + '<strong>Cable is located with the supplier (Wtec); price and lead time were due the following day.</strong> '
+ + 'Separately the Aug 27 daily report raises a purchase of <strong>6,000 ft of 1000 kcmil MV cable</strong> to field specification \u2014 confirm whether that is the same requirement counted differently or an additional one. '
+ + '<strong>ITS states independently that it lacks material to complete roughly 6,000-7,000 LF of remaining MV runs across HB-10, HB-11 and the third crossing; the specific item and quantity were formally requested on Aug 27 evening and are still owed.</strong>',
+ options: [
+ { scenario: 'Minimum theoretical purchase', buy: 1754, existing: 19936, remainder: 0, splices: 19, verdict: 'Not recommended without express acceptance of many splices' },
+ { scenario: 'Balanced', buy: 3500, existing: 18190, remainder: 1746, splices: 8, verdict: 'Best balance of purchase against splice count' },
+ { scenario: 'Fewer splices', buy: 5250, existing: 16440, remainder: 3496, splices: 5, verdict: 'Conservative if splices are to be limited' },
+ { scenario: 'Very few splices', buy: 7000, existing: 14690, remainder: 5246, splices: 2, verdict: 'For a restrictive splice criterion' },
+ { scenario: 'NO SPLICES \u2014 SELECTED', buy: 8750, existing: 12940, remainder: 6996, splices: 0, verdict: '<strong>CHOSEN. Splices would sit in permanently wet conduit with no MV ground conductor installed.</strong>' }
+ ],
+ actions: [
+ 'Close the Wtec price and lead time and place the 8,750 ft order.',
+ 'Reconcile the 6,000 ft of 1000 kcmil raised in the Aug 27 daily report against the 8,750 ft decision \u2014 same requirement or additional?',
+ 'Obtain from ITS the specific item and quantity it says it lacks for the last 6,000-7,000 LF of MV runs (requested Aug 27, still owed).'
+ ]
+ },
+ {
+ id: 'lv-cable-verification',
+ title: 'LV CABLE SUFFICIENCY \u2014 verification demanded for Friday morning',
+ severity: 'Critical',
+ source: 'Jose Romero (VP of Construction), Aug 27 17:30 \u00b7 German Dominguez, Aug 27 13:20 and 14:53',
+ note: '<strong>The instruction is on the record and it is dated: by Friday morning \u2014 "ma\u00f1ana en la ma\u00f1ana, no el lunes, no cuando se pueda" \u2014 it must be established that the LV cable purchased is the measured quantity needed to finish the works, and if it is short, what type and how much has to be bought.</strong> '
+ + '<strong>The underlying concern is that quantities were ordered without being measured against the take-off. Until the verification lands, the 269,748 lf cable denominator on this dashboard is a DESIGN quantity, not a confirmed procured quantity, and the two may not match.</strong> '
+ + 'German Dominguez has additionally asked for confirmation that sufficient MV cable exists, and has directed that the problem be owned internally rather than attributed to suppliers.',
+ actions: [
+ 'Produce the LV cable take-off against the purchase record and state the gap by cable type \u2014 due Friday morning.',
+ 'If short: type, quantity, supplier, price and lead time in the same submission.',
+ 'Report the result against the 269,748 lf denominator so the gate figure on this dashboard can be confirmed or re-cut.'
+ ]
+ }
+ ],
+ note: '<strong>Why this sits on the dashboard and not in the Owner report: the quantities are unverified, the take-off is being re-cut, and a procurement position stated to the Owner before it is settled cannot be withdrawn.</strong> It is published here in full so the team works from one set of numbers.'
+ },
+
  contractBaseline: {
  source: 'EPCA Attachment U \u2014 Murch Construction Schedule (project 250310_Murch Planning, dated 17 Jul 2025)',
  crossCheck: 'LV cable-lay window confirmed identical in the 17 Jul 2026 planning revision (13-advanced PIS).',

@@ -1701,7 +1701,24 @@ canvas { max-width: 100%; }
     
       /* by-scope scoreboard rows (Jose, Aug 24): electrical carries two units -
          cable in lf and harness in assemblies - shown on separate lines, never summed */
-       .scope-line { display:block; line-height:1.4; }
+       .mat-card { border:1px solid var(--rule,#d8ded9); border-left:4px solid #a12b2b; border-radius:8px; background:#fff; padding:16px 18px; margin:0 0 16px; }
+      .mat-card h3 { margin:0 0 4px; font-size:1.02rem; line-height:1.35; }
+      .mat-src { font-size:.78rem; color:var(--muted,#66716d); margin:0 0 10px; }
+      .mat-nums { display:flex; flex-wrap:wrap; gap:18px; margin:10px 0 12px; }
+      .mat-num { min-width:120px; }
+      .mat-num b { display:block; font-size:1.5rem; line-height:1.15; }
+      .mat-num small { display:block; color:var(--muted,#66716d); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+      .mat-gap b { color:#a12b2b; }
+      .mat-table { width:100%; border-collapse:collapse; font-size:.82rem; margin:8px 0 12px; }
+      .mat-table th, .mat-table td { padding:6px 9px; border-bottom:1px solid var(--rule,#e6eae7); text-align:right; }
+      .mat-table th:first-child, .mat-table td:first-child { text-align:left; }
+      .mat-table thead th { background:#f3f6f4; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+      .mat-table tr.chosen td { background:#eef6f1; font-weight:600; }
+      .mat-table tr.gap td { color:#a12b2b; font-weight:700; }
+      .mat-actions { margin:6px 0 0; padding-left:20px; font-size:.86rem; }
+      .mat-actions li { margin:3px 0; }
+      .mat-scroll { overflow-x:auto; }
+      .scope-line { display:block; line-height:1.4; }
       .scope-val { white-space:nowrap; display:block; }
       .scope-lab { display:block; color:var(--muted, #66716d); font-size:.75em; }
       .scope-line + .scope-line { margin-top:3px; padding-top:3px; border-top:1px dotted var(--rule, #d8ded9); }
@@ -1728,7 +1745,7 @@ canvas { max-width: 100%; }
           <a href="#civil">Civil</a>
           <a href="#production">Production</a>
           <a href="#electrical">LV Electrical</a>
-          <a href="#delivery-control">Delivery</a>
+          <a href="#material">Material</a><a href="#delivery-control">Delivery</a>
           <a href="#schedule">Schedule</a>
           <a href="#field-resources">Resources</a>
           <a href="#risks">Risks</a>
@@ -2304,6 +2321,16 @@ canvas { max-width: 100%; }
         </div>
       </section>
 
+      <section class="section" id="material">
+        <div class="section-heading">
+          <p class="eyebrow">Material position | LV and MV cable &mdash; <strong>INTERNAL. This section is deliberately absent from the Owner report.</strong></p>
+          <h2 id="matHead">Cable and messenger-wire quantities</h2>
+          <p class="quality-note" id="matLead"></p>
+        </div>
+        <div id="matGrid"></div>
+        <p class="chart-context" id="matFoot"></p>
+      </section>
+
       <section class="section risks" id="risks">
         <div class="section-heading">
           <p class="eyebrow">Schedule risks and actions</p>
@@ -2317,7 +2344,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily executive production reports of Aug 26 and Aug 27</strong> (Aug 26, storm-affected: United 3,094 modules Area F + <strong>211 piles Area D with 2 rigs</strong>, Brumont 312 closing Area E, ECCS 1,359 ft trunk in E4 + 18 harness lines + 6 LBD boxes, ITS Wetland and Bore 10, <strong>AB Power MV termination crew on site but unable to start for want of tools</strong>; Aug 27: United <strong>4,316 modules opening ZONE G</strong> + 89 piles G + 20 rows to TT stage in F2 + <strong>41 LBD boxes in F13/F17/F16</strong>, Brumont 338, ECCS <strong>30 rows to TT stage in Area B</strong> + 27 motors + 28 dampers + 21 load panels + 21 control boxes + 9 piles B9, and on LV <strong>1,425 ft of homerun at PB06 + 31 harness lines / 90 strings</strong>, ITS Bore #11 fusion and inspection with a <strong>frac-out at about 17:00</strong>, GreenSol grounding rings at Inverters 4 and 9); the <strong>Aug 27 SE Construction Tracker cut</strong> (47.8% overall &mdash; civil 93.9, structural 61.0, electrical 15.7; 77 of 187 activities; 51 days to the Oct 17 energization date); the <strong>new MV Termination Production Control</strong> (scope 264 terminations across 46 units, 6 complete; trenches 58 open / 10 closed / 10 compacted of 181; cable pull-in 7 of 46); the <strong>Thursday Aug 27 EHS headcount (241; 315 days without an accident; 165,986.8 hours worked)</strong>; <strong>ITS&rsquo;s Aug 27 reply on the MV game plan</strong> (third and final bore, complete next week; fluid-loss / fracking ground conditions plus added DC bore scope; 6,000&ndash;7,000 LF of MV cable still to install and material lacking); <strong>the Aug 27 messenger-wire take-off</strong> (284 runs, 101,091 lf required against 82,000 lf purchased) and <strong>the MV cable purchase options</strong> (8,750 ft for a no-splice run, decision taken); and the <strong>weekend working plan</strong> (Workforce 9 Sat, ECCS electrical 25 Sat, AB Power 6 Sat / 7 Sun, ITS 13 both days, Brumont both days, United to be confirmed). <strong>Cable is reported in linear feet and harness in assemblies; the two are never summed and never share a denominator.</strong></p>
     </footer>
 
-    <script src="data.js?v=20260828a"></script>
+    <script src="data.js?v=20260828b"></script>
     <script>
 'use strict';
 
@@ -3006,6 +3033,51 @@ canvas { max-width: 100%; }
   renderSchedule();
   drawResourceChart();
   renderMilestones();
+  function renderMaterial() {
+    var D = window.MURCH_DATA, M = D && D.materialPosition;
+    var sec = document.getElementById('material');
+    if (!M || !sec) { if (sec) sec.style.display = 'none'; return; }
+    var fmt = function (v) { return v == null ? '&mdash;' : Number(v).toLocaleString(undefined, { maximumFractionDigits: 2 }); };
+    document.getElementById('matHead').textContent = 'Cable and messenger-wire quantities \u00b7 ' + M.asOf;
+    document.getElementById('matLead').innerHTML = M.headline;
+    document.getElementById('matFoot').innerHTML = M.note;
+    document.getElementById('matGrid').innerHTML = M.items.map(function (it) {
+      var h = '<article class="mat-card"><h3>' + it.title + '</h3>' +
+              '<p class="mat-src">' + it.severity + ' \u00b7 source: ' + it.source + '</p>';
+      if (it.required != null) {
+        h += '<div class="mat-nums">' +
+             '<div class="mat-num"><b>' + fmt(it.required) + '</b><small>required (' + it.unit + ')</small></div>' +
+             '<div class="mat-num"><b>' + fmt(it.procured) + '</b><small>procured</small></div>' +
+             '<div class="mat-num mat-gap"><b>&minus;' + fmt(it.gap) + '</b><small>gap</small></div>' +
+             '<div class="mat-num"><b>' + fmt(it.runs) + '</b><small>runs in take-off</small></div></div>';
+      }
+      if (it.decided != null) {
+        h += '<div class="mat-nums"><div class="mat-num"><b>' + fmt(it.decided) + '</b><small>ft to buy (decided)</small></div>' +
+             '<div class="mat-num"><b>0</b><small>splices</small></div></div>';
+      }
+      if (it.detail && it.detail.length) {
+        h += '<div class="mat-scroll"><table class="mat-table"><thead><tr><th>Direction</th><th>Runs</th><th>Linear feet</th></tr></thead><tbody>' +
+             it.detail.map(function (d) {
+               var cls = /GAP/.test(d.label) ? ' class="gap"' : '';
+               return '<tr' + cls + '><td>' + d.label + '</td><td>' + fmt(d.runs) + '</td><td>' + fmt(d.lf) + '</td></tr>';
+             }).join('') + '</tbody></table></div>';
+      }
+      if (it.options && it.options.length) {
+        h += '<div class="mat-scroll"><table class="mat-table"><thead><tr><th>Scenario</th><th>Buy (ft)</th><th>Existing used</th><th>Remainder</th><th>Splices</th><th style="text-align:left">Assessment</th></tr></thead><tbody>' +
+             it.options.map(function (o) {
+               var cls = /SELECTED/.test(o.scenario) ? ' class="chosen"' : '';
+               return '<tr' + cls + '><td>' + o.scenario + '</td><td>' + fmt(o.buy) + '</td><td>' + fmt(o.existing) + '</td><td>' + fmt(o.remainder) + '</td><td>' + o.splices + '</td><td style="text-align:left">' + o.verdict + '</td></tr>';
+             }).join('') + '</tbody></table></div>';
+      }
+      h += '<p style="margin:8px 0 0">' + it.note + '</p>';
+      if (it.actions && it.actions.length) {
+        h += '<p style="margin:12px 0 0;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted,#66716d)">Actions</p>' +
+             '<ol class="mat-actions">' + it.actions.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ol>';
+      }
+      return h + '</article>';
+    }).join('');
+  }
+  renderMaterial();
   renderRisks();
   bindEvents();
 }());
