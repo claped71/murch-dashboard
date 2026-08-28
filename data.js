@@ -12,7 +12,7 @@ window.MURCH_DATA = {
  // Always bump this with asOf. Format: YYYY-MM-DD, nothing else.
  asOfISO: '2026-08-27',
  piles: { installed: 29895, total: 31352, gate: '2026-07-28', gateLabel: 'Jul 28', required: 1457, capacity: null, name: 'Piles', unit: 'piles/day' },
- trackers: { installed: 2069, released: 296, releasedGS: 730, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 209, capacity: 97, name: 'Trackers incl. purlins', unit: 'rows/day', byCrew: '<strong>ZERO completed rows on Aug 26 and Aug 27. Both days were torque-tube stage only</strong> \u2014 United reports <strong>20 trackers with TT mounting only in F2</strong> and ECCS <strong>30 trackers raised with TT in Area B</strong>, neither of which is a completed row under the project rule (a row counts only with purlins in). ECCS also set 27 motors, 28 dampers, 21 load panels and 21 control boxes on Aug 27 \u2014 components, not rows. ECCS <strong>214 left</strong> of 1,811 \u00b7 United <strong>120</strong> of 497 \u00b7 Workforce <strong>83</strong> of 177 (marking and torquing in EW and B, still nothing filed since Aug 18 \u2014 an eighth working day). <strong>417 rows over the 2 working days left to Aug 30 is 209/day against a best-ever 97. The gate is arithmetically dead and can only be replaced, not met.</strong>', wipRows: 66, wipEquivalent: 29.7, earnedEquivalent: 2098.7, earnedPct: 84.4, earnedBasis: 'Ladder credit \u2014 earned = completed rows + step-weighted open rows. <strong>The open register grew sharply: 50 rows now stand at torque-tube stage (United 20 in F2, ECCS 30 in Area B) on top of Workforce\u2019s 16 tubed B5 rows</strong>, so 66 rows are open at step 2 = 29.7 equivalents. <strong>Per the snapshot rule these are a photograph of open rows, never an increment</strong> \u2014 they replace the previous open figure and convert to completed rows only when purlins go in. United\u2019s F1/F2 bearing remediation is executed and its correction report and QA release are still owed on rows already counted complete.', releaseBasis: '<strong>NEW GREENSOL QA RELEASE Aug 24 (Maurin): 171 rows released for module installation - F 90, G 81 - taking the GreenSol line 559 \u2192 730.</strong> CLIENT (Heelstone) release still 296 per the Jul 30 sheet. <strong>The GREENSOL release line finally MOVED Aug 17</strong>: Maurin released 67 EW trackers, 2,540 Zone G piles and 4,446 Zone E modules - the first release cut in twelve working days. ~100+ Zone F rows now await formal release; modules are mounted on pre-inspected unreleased rows (the E/EW practice). Daniel: Greensol QA runs AHEAD of the subs - their documentation delivery is the release blocker.' },
+ trackers: { installed: 2069, released: 296, releasedGS: 730, total: 2486, gate: '2026-08-30', gateLabel: 'Aug 30', required: 209, capacity: 97, name: 'Trackers incl. purlins', unit: 'rows/day', byCrew: '<strong>ZERO completed rows on Aug 26 and Aug 27. Both days were torque-tube stage only</strong> \u2014 United reports <strong>20 trackers with TT mounting only in F2</strong> and ECCS <strong>30 trackers raised with TT in Area B</strong>, neither of which is a completed row under the project rule (a row counts only with purlins in). ECCS also set 27 motors, 28 dampers, 21 load panels and 21 control boxes on Aug 27 \u2014 components, not rows. ECCS <strong>214 left</strong> of 1,811 \u00b7 United <strong>120</strong> of 497 \u00b7 Workforce <strong>83</strong> of 177 (marking and torquing in EW and B, still nothing filed since Aug 18 \u2014 an eighth working day). <strong>417 rows over the 2 working days left to Aug 30 is 209/day against a best-ever 97. The gate is arithmetically dead and can only be replaced, not met.</strong>', wipRows: 66, wipEquivalent: 29.7, earnedEquivalent: 2098.7, earnedPct: 84.4, earnedBasis: '<strong>5-STEP LADDER APPLIED. 66 rows stand at step 2 \u2014 \u201ctorque tube installed and spliced\u201d, cumulative weight 45% \u2014 so they carry 29.7 row-equivalents, and earned progress is 84.4% against a gate of 83.2%.</strong> The 66 are United 20 in F2, ECCS 30 in Area B and Workforce 16 tubed in B5. <strong>The gate figure stays on completed rows only (2,069): that is what every Client submission uses, and a row is complete only with purlins in \u2014 step 3.</strong> <strong>NOT YET CREDITED, and it should be: on Aug 27 ECCS also fitted 27 motors, 28 dampers, 21 load panels and 21 control boxes. Damper, actuator and drive line is STEP 4 (cumulative 90%), so those components sit on rows that are already past purlins and are worth far more than step 2 \u2014 but the field reported components, not row counts, so no ladder credit can be taken without inventing the denominator.</strong> <strong>ACTION: ask ECCS how many ROWS those 27-28 damper/motor sets belong to. On the ladder that is the difference between 45% and 90% per row, and on ~27 rows it is worth roughly 12 further equivalents \u2014 about half a point of earned progress that is currently invisible.</strong> Per the snapshot rule the 66 is a photograph per crew, never an increment. United\u2019s F1/F2 bearing correction report and QA release are still owed on rows already counted complete.', releaseBasis: '<strong>NEW GREENSOL QA RELEASE Aug 24 (Maurin): 171 rows released for module installation - F 90, G 81 - taking the GreenSol line 559 \u2192 730.</strong> CLIENT (Heelstone) release still 296 per the Jul 30 sheet. <strong>The GREENSOL release line finally MOVED Aug 17</strong>: Maurin released 67 EW trackers, 2,540 Zone G piles and 4,446 Zone E modules - the first release cut in twelve working days. ~100+ Zone F rows now await formal release; modules are mounted on pre-inspected unreleased rows (the E/EW practice). Daniel: Greensol QA runs AHEAD of the subs - their documentation delivery is the release blocker.' },
  modules: { installed: 127098, total: 171470, gate: '2026-09-06', gateLabel: 'Sep 6', required: 5547, capacity: null, name: 'Modules', unit: 'mod/day' },
  electrical: { installed: 43837, total: 269748, gate: '2026-09-18', gateLabel: 'Sep 18', required: 11890, capacity: 4735, name: 'LV Electrical', unit: 'lf/day', earnedPct: 14.2, earnedBasis: 'weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)',
  // Daily LV pull footage from Angel Urbina\u2019s electrical reports - feeds the gate tile\u2019s
@@ -27,7 +27,7 @@ window.MURCH_DATA = {
  mc: { target: 'Sep 25', forecast: 'Sep 25 \u2014 AT RISK', name: 'Mechanical Completion' }
  },
  safetyDaysLtiFree: 328,
- safetyBasis: '<strong>HSE PUBLICATION SUSPENDED ON THIS DASHBOARD (Jose Romero, VP of Construction, Aug 24): no HSE KPI pack has been issued since the JUNE close.</strong> No safety figure will be published here until the reporting duty is met - see the warning panel in the Health & Safety section.',
+ safetyBasis: '<strong>CORRECTED Aug 28. The JULY KPI pack WAS delivered \u2014 Bethany Valdez issued it on Aug 25 at 18:15 with the monthly dashboard workbook and the July monthly report, and the man-hour record followed at 21:06.</strong> The suspension of Aug 24 was called on the state of the record as it then stood; that reason has been substantially discharged and the July figures are published below. <strong>What has NOT been remedied: no establishment OSHA 300 log, Safety Observation Rounds with Project Management standing at ZERO for every month of 2026, and the August pack not yet in preparation.</strong> Formal reinstatement of routine HSE publication is the VP of Construction\u2019s call.',
  wipReportingRule: {
  adopted: 'Jul 30, 2026 (Jose Romero)',
  rule: 'A <strong>Reported count of unfinished trackers is</strong> A <strong>Snapshot, never an increment</strong>. When a subcontractor reports partial rows, that number is a photograph of the total partial rows standing in the project for that crew at that moment. It REPLACES the previous open-row figure for that crew; it is never added to the rows they reported open on earlier days.',
@@ -254,6 +254,60 @@ window.MURCH_DATA = {
  // Jose, Aug 28: "I don't see these progress in the dashboard." Fixed: it is now a
  // first-class block with its own section, updated every run from the daily report
  // and cross-checked against the MV Termination Production Control workbook.
+ // ===================== HSE KPIs \u2014 JULY 2026 =====================
+ // DELIVERED Aug 25 18:15 by Bethany Valdez (EHS Site Manager): the monthly dashboard
+ // workbook and the July monthly report. Man-hour record followed at 21:06.
+ // This dashboard had been stating the July pack was undelivered - it was not, and
+ // that statement is corrected here. Two sources are carried because they diverge on
+ // two lines; both figures are shown rather than one being silently chosen.
+ hseKpis: {
+ asOf: 'July 2026 close \u00b7 delivered Aug 25, 2026',
+ source: 'Bethany Valdez (EHS Site Manager) \u2014 "2026-05 DASHBOARD MURCH PROJECT_JULY.xlsx" and "Monthly Report Murch_JULY", both Aug 25 18:15; man-hour record Aug 25 21:06',
+ manhours: { july: 52464, greensolJuly: 5026, subsJuly: 47438, toAug24: 163438, toAug27: 165986.8,
+ note: '<strong>THE DENOMINATOR EXISTS. 52,464 man-hours in July alone (GreenSol 5,026 + subcontractors 47,438), 163,438 to Aug 24 and 165,986.8 to Aug 27.</strong> '
+ + 'Bethany states plainly that this total is <strong>her own record, built from the daily reports she has required from every subcontractor since the project began</strong> \u2014 so it is a maintained register, not a reconstruction. '
+ + '<strong>The absence of a man-hour denominator was the stated reason TRIR and DART could not be computed on this project. That reason is gone.</strong>' },
+ rates: [
+ { name: 'TRIR (recordables per 200,000 h)', value: 0.00, basis: '0 recordables \u00d7 200,000 / 165,986.8 h' },
+ { name: 'DART', value: 0.00, basis: '0 days-away/restricted/transfer cases' },
+ { name: 'LTIFR (per 200,000 h)', value: 0.00, basis: '0 lost-time injuries' }
+ ],
+ july: [
+ { metric: 'Total manpower', greensol: 18, subs: 206, total: 224 },
+ { metric: 'Man-hours worked', greensol: 5026, subs: 47438, total: 52464 },
+ { metric: 'OSHA recordable', greensol: 0, subs: 0, total: 0 },
+ { metric: 'Lost-time injuries', greensol: 0, subs: 0, total: 0 },
+ { metric: 'Restricted work', greensol: 0, subs: 0, total: 0 },
+ { metric: 'Fatality', greensol: 0, subs: 0, total: 0 },
+ { metric: 'First aid cases', greensol: 1, subs: 1, total: 2 },
+ { metric: 'Near miss', greensol: 0, subs: 1, total: 1 },
+ { metric: 'Property damage', greensol: 1, subs: 3, total: 4 },
+ { metric: 'Lost hours \u2014 bad weather', greensol: 0, subs: 1604.25, total: 1604.25 }
+ ],
+ leading: [
+ { metric: 'Unsafe conditions', july: 24, ytd: 96 },
+ { metric: 'Unsafe acts / behaviours', july: 14, ytd: 46 },
+ { metric: 'Toolbox talks (sessions)', july: 32, ytd: 64 },
+ { metric: 'People trained', july: 148, ytd: 426 },
+ { metric: 'Coordination meetings', july: 2, ytd: 7 },
+ { metric: 'Safety client advisor visits', july: 0, ytd: 4 },
+ { metric: 'Safety observation rounds with project management', july: 0, ytd: 0 },
+ { metric: 'External requirements (OSHA inspections)', july: 0, ytd: 0 }
+ ],
+ eventsByMonth: [ { m: 'Jan', v: 0 }, { m: 'Feb', v: 1 }, { m: 'Mar', v: 17 }, { m: 'Apr', v: 13 },
+ { m: 'May', v: 45 }, { m: 'Jun', v: 31 }, { m: 'Jul', v: 39 } ],
+ divergence: '<strong>The two July sources do not agree on two lines and neither is silently preferred: the dashboard workbook records 1 first aid and 0 near misses for July, the monthly report records 2 first aids and 1 near miss. Both are published; the difference is to be settled at source.</strong>',
+ environmental: [
+ { date: '2026-07-15', type: 'FRAC-OUT', company: 'ITS',
+ note: '<strong>A SECOND frac-out during HDD in the wetland. Drilling fluid migrated and spread across an extensive area before it was identified and contained.</strong> '
+ + '<strong>It happened DESPITE the bore depth having been increased from the original design specifically to reduce surface migration, and GreenSol\u2019s own July record concludes that increasing drilling depth alone is not sufficient under the subsurface conditions encountered.</strong> The exact migration pathway could not be confirmed.' }
+ ],
+ read: '<strong>The safety performance itself is strong and has been going unpublished: zero OSHA recordables, zero lost-time injuries, zero restricted-work cases and zero fatalities across roughly 166,000 man-hours, giving TRIR, DART and LTIFR all at 0.00.</strong> '
+ + '<strong>The exposure is in the leading indicators, not the lagging ones. July logged 39 safety events \u2014 the second-highest month of the year \u2014 and 38 of the 39 are violations: 24 unsafe conditions and 14 unsafe behaviours. The trend runs 0, 1, 17, 13, 45, 31, 39.</strong> '
+ + '<strong>Two governance lines read ZERO and matter more than any of the above: Safety Observation Rounds with Project Management have been ZERO in every month of 2026, and the safety client advisor visit dropped to zero in July after one in each of March, April, May and June.</strong> '
+ + '<strong>The July environmental record is the item that reaches furthest: the 15 July frac-out was already the second, and GreenSol concluded then that greater bore depth alone would not stop it. Further events followed on 19 August and 27 August. ITS\u2019s position of 27 August \u2014 that these conditions cannot be eliminated by its means and methods \u2014 is therefore consistent with our own July finding, which strengthens ITS\u2019s schedule argument and should be weighed before the MV overrun is pressed as a performance failure.</strong>'
+ },
+
  bopInterface: {
  asOf: 'Aug 27, 2026',
  source: 'Daily executive report \u00a74 (27 Aug) cross-checked against the MV Termination Production Control workbook',
