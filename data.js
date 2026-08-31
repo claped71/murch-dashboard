@@ -1,11 +1,11 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Aug 31, 2026 (c: email batch folded in - PV Wire 500/750 verified sufficient, GameChange SHIPMENT PAUSE on pending payment, ECCS Area A demand SENT with 0/76 + 0/38 terminations, SCADA recovery dates, fence week of Sep 21, +1,500 module follow-up) - THREE DAYS APPLIED (Aug 28 + Aug 29 Sat + Aug 30 Sun field notes). PILES 30,230 / 96.4% (+233 field Aug 28: United 168 G + ECCS 65 B/E, +102 workbook reconciliation - F and B CLOSED, D 782 the tail). TRACKERS: 65 completed rows Aug 28 (United 30 F + ECCS 35 G/B) -> 2,134 / 85.8% - THE AUG 30 GATE PASSED WITH 352 ROWS OPEN; 42 rows reached TT+purlins (step 3) in G on Aug 29. MODULES +2,847 (F) -> 129,945 / 75.8%; required 6,921/day over 6 wd to Sep 6. CABLE 2,633 + 1,464 homerun -> 47,934 / 17.8%; harness 30+25 lines -> 268; LBD +40 United -> 207/419; MESSENGER first production 2,761 ft. SET 47.8 -> 48.9% (struct 62.4). MV terminations 6 -> 15/264 (deficit 18 vs plan); WETLAND BORE CONDUIT COMPLETE Aug 30 - frac-out/EGLE risk retired. BRUMONT CONCLUDED ITS SCOPE Aug 28 with the 1,527-module West tail unassigned. Project 79.9 gate / 81.4 earned.
+// CACHE BUSTER: Aug 31, 2026 (d: Aug 28 EHS board applied - 228, sums exactly; SII survey BACK at 2; Latnovva 0) (c: email batch folded in - PV Wire 500/750 verified sufficient, GameChange SHIPMENT PAUSE on pending payment, ECCS Area A demand SENT with 0/76 + 0/38 terminations, SCADA recovery dates, fence week of Sep 21, +1,500 module follow-up) - THREE DAYS APPLIED (Aug 28 + Aug 29 Sat + Aug 30 Sun field notes). PILES 30,230 / 96.4% (+233 field Aug 28: United 168 G + ECCS 65 B/E, +102 workbook reconciliation - F and B CLOSED, D 782 the tail). TRACKERS: 65 completed rows Aug 28 (United 30 F + ECCS 35 G/B) -> 2,134 / 85.8% - THE AUG 30 GATE PASSED WITH 352 ROWS OPEN; 42 rows reached TT+purlins (step 3) in G on Aug 29. MODULES +2,847 (F) -> 129,945 / 75.8%; required 6,921/day over 6 wd to Sep 6. CABLE 2,633 + 1,464 homerun -> 47,934 / 17.8%; harness 30+25 lines -> 268; LBD +40 United -> 207/419; MESSENGER first production 2,761 ft. SET 47.8 -> 48.9% (struct 62.4). MV terminations 6 -> 15/264 (deficit 18 vs plan); WETLAND BORE CONDUIT COMPLETE Aug 30 - frac-out/EGLE risk retired. BRUMONT CONCLUDED ITS SCOPE Aug 28 with the 1,527-module West tail unassigned. Project 79.9 gate / 81.4 earned.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
  control: {
- asOf: 'Aug 30, 2026 \u2014 daily executive reports of Aug 28 and Aug 29, field notes Aug 30 \u00b7 board Aug 27 (no newer headcount filed)',
+ asOf: 'Aug 30, 2026 \u2014 daily executive reports of Aug 28 and Aug 29, field notes Aug 30 \u00b7 EHS board Aug 28 (228)',
  // MACHINE DATE. index.html derives every plan-to-date curve from this, NOT from the
  // prose above. An em-dash in asOf made new Date(asOf) return Invalid Date on Aug 25,
  // which silently collapsed every 'Plan today' to 0% and the project total to 10.9%.
@@ -103,17 +103,18 @@ window.MURCH_DATA = {
  { day: 'Aug 21', total: 228, src: 'EHS headcount (Bethany)' },
  { day: 'Aug 24', total: 218, src: 'EHS headcount (Bethany)' },
  { day: 'Aug 25', total: 239, src: 'EHS headcount (Bethany)' },
- { day: 'Aug 27', total: 241, src: 'EHS headcount (Bethany)' }
+ { day: 'Aug 27', total: 241, src: 'EHS headcount (Bethany)' },
+ { day: 'Aug 28', total: 228, src: 'EHS headcount (Bethany)' }
  ],
- manpowerMixToday: { day: 'Aug 27, 2026', total: 241, mix: [
- { trade: 'Trackers & Piling', people: 166, color: '#0c5f43' },
+ manpowerMixToday: { day: 'Aug 28, 2026', total: 228, mix: [
+ { trade: 'Trackers & Piling', people: 159, color: '#0c5f43' },
  { trade: 'Module Installation', people: 16, color: '#168a5b' },
- { trade: 'Electrical & SET', people: 30, color: '#2769a8' },
- { trade: 'Survey & Crane', people: 0, color: '#b96f18' },
+ { trade: 'Electrical & SET', people: 26, color: '#2769a8' },
+ { trade: 'Survey & Crane', people: 2, color: '#b96f18' },
  { trade: 'GreenSol EPC', people: 24, color: '#66716d' },
- { trade: 'Support / environmental', people: 5, color: '#9aa3a0' }
+ { trade: 'Support / environmental', people: 1, color: '#9aa3a0' }
  ] },
- manpowerNote: '<strong>Aug 27 headcount: 241, up 2 \u2014 flat at the top line, but the mix moved and one move undoes the previous board.</strong> <strong>UNITED is 83 \u2192 89, the highest any contractor has stood on this project</strong>, and it earned it: 4,316 modules opening Zone G, 89 piles there and 41 LBD boxes in Area F. <strong>AB POWER 10 \u2192 14</strong> with Hi Tech holding 3 \u2014 the substation crew is now well above the level it was cut from, and it produced the +16.4 structural cut. ECCS +3 to 77. <strong>Against that: BRUMONT IS CUT BACK 18 \u2192 7, two days after being restored</strong>, and its output followed exactly \u2014 2,200 then 312 then 338. It owns the 1,527-module West tail. <strong>SII survey and the crane both read ZERO</strong>, and the crane has never once appeared while the pile restart has been running. GreenSol \u2212 1 to 24, ITS \u2212 1 to 13, Workforce flat at 9, Latnovva 2, Roveri 1, Extras 2. GreenSol 24 + ECCS 77 + United 89 + AB Power 14 + ITS 13 + Workforce 9 + Brumont 7 + Hi Tech 3 + Latnovva 2 + Extras 2 + Roveri 1 = 241.<strong>Aug 25 headcount: 239, UP 21 \u2014 the largest single-day rebuild of the month, and it sums exactly.</strong> Three moves carry it and all three land on fronts that needed people. <strong>Brumont is RESTORED 7 \u2192 18</strong>, reversing the 61% cut of the day before with 1,643 West modules still open. <strong>United +6 to 83</strong>, the second consecutive rise for the pile restart and the highest United has stood on this project. <strong>AB Power 7 \u2192 10 with Hi Tech holding 3</strong> \u2014 substation erection is now back above the pre-cut level, and the SE cut it produced (+8.0 structural points, after +12.5) says the resource is converting. GreenSol +4 to 25 and ITS +1 to 14. Against that: <strong>SII survey is BACK TO ZERO after a single day on site</strong>, and <strong>the crane still reads ZERO</strong> \u2014 the two readiness items for piling were never both met at once. ECCS \u2212 1 to 74, Workforce flat at 9, Latnovva 2, Roveri 1. GreenSol 25 + ECCS 74 + United 83 + Brumont 18 + ITS 14 + AB Power 10 + Workforce 9 + Hi Tech 3 + Latnovva 2 + Roveri 1 + SII 0 + crane 0 = 239.',
+ manpowerNote: '<strong>Aug 28 headcount: 228, down 13 from Aug 27 \u2014 and it sums exactly.</strong> <strong>The board finally answers the survey zero: SII IS BACK AT 2</strong>, on the day the pile ledger closed Zones F and B \u2014 the readiness item missing through the whole restart is on site again. <strong>The crane is equipment, not headcount, and still has never appeared on any board.</strong> The reductions are where the work ended: <strong>United 89 \u2192 82</strong> (still the largest crew, and it converted on four fronts), <strong>AB Power 14 \u2192 10</strong> with Hi Tech holding 3 (the 2-person MV termination crew works inside that 10 until the second crew lands Monday evening), <strong>Latnovva 2 \u2192 0 \u2014 off the board entirely for the first time since its termination</strong>, Extras 2 \u2192 0. <strong>Flat: ECCS 77, Workforce 9, ITS 13, GreenSol 24, Roveri 1 \u2014 and Brumont 7, its last board: the daily report records its scope CONCLUDED the same day.</strong> GreenSol 24 + ECCS 77 + United 82 + AB Power 10 + ITS 13 + Workforce 9 + Brumont 7 + Hi Tech 3 + SII 2 + Roveri 1 + Hurricane 0 + ECS 0 + SWCA 0 + Latnovva 0 + Extras 0 = 228.',
 
  contractorScore: [
  { date: 'Aug 29 Sat', contractor: 'ECCS', trade: 'Trackers', output: 0, resource: '20 people - Area G', short: '<strong>42 rows raised to torque tube + PURLINS (step 3) in Area G \u2014 held out of the count by the field itself: load panels and dampers still missing</strong>', unit: 'rows', perUnit: 0, criterion: 352, critLabel: '<strong>The most honest tracker report of the month: 42 rows carry TT and purlins and ECCS did NOT claim them complete.</strong> On the ladder they sit at step 3 (cumulative 70%) \u2014 29.4 row-equivalents, one crew-pass from converting. <strong>The Aug 30 gate has now passed with 352 rows open on this basis; Luis counts 449 remaining \u2014 a 97-row divergence that must be reconciled before the replacement date is committed.</strong> ECCS is off site Sep 4-8.' },
@@ -557,7 +558,7 @@ window.MURCH_DATA = {
  hoy: '2026-08-31', inicio: '2026-08-31',
  cableHasta: '2026-08-29',
  hoyElec: 8, hoyTotal: 19,
- manpowerSite: 241, manpowerFecha: 'headcount EHS 27 ago',
+ manpowerSite: 228, manpowerFecha: 'headcount EHS 28 ago',
  lineas: {
  L1: { harness: 268, boxes: 140, homerun: 41789, trunk: 6145, connInv: 0, connBox: 0, connMV: 0 },
  L2: { harness: 0, boxes: 67, homerun: 0, trunk: 0, connInv: 0, connBox: 0, connMV: 0 },
@@ -711,23 +712,23 @@ window.MURCH_DATA = {
  { contractor: 'ROVERI SEC.', people: 1, label: '1 \u00b7 site security' },
 ],
  todayFieldSnapshot: {
- date: 'Aug 28, 2026',
- total: 217,
+ date: 'Aug 28, 2026 (EHS board)',
+ total: 228,
  rows: [
  { contractor: 'UNITED', people: 82, category: 'pile', note: '<strong>72 mechanical + 10 electrical. Converted on four fronts on Aug 28: 2,847 modules F, 30 completed tracker rows F, 168 piles G, 40 LBD boxes.</strong> Aug 29: panel distribution only \u2014 modules and the NEW HARNESS FRONT both start Monday Aug 31 (held on the 11A/11B inventory confirmation).' },
  { contractor: 'ECCS', people: 77, category: 'tracker', note: '50 mechanical + 27 electrical. <strong>Aug 28: 35 completed rows G/B + 65 piles B/E + 2,633 ft homerun + 90 strings + 2,761 ft of messenger wire. Aug 29 (20 people): 42 G rows to TT + purlins, 25 harness lines, 1,464 ft homerun.</strong> Off site Sep 4-8 for Labor Day \u2014 and now facing a recovery-plan demand on the inverter LV scope (11A).' },
- { contractor: 'GREENSOL', people: 24, category: 'epc', note: 'Carried from the Aug 27 board (no newer count filed). Zone E self-perform: INV-18 DC cabinet base plates drilled, grounding ring in progress (1 person, Aug 29); trenches at Inverters 11-12 opened Aug 28.' },
+ { contractor: 'GREENSOL', people: 24, category: 'epc', note: 'Confirmed at 24 on the Aug 28 board. Zone E self-perform: INV-18 DC cabinet base plates drilled, grounding ring in progress (1 person, Aug 29); trenches at Inverters 11-12 opened Aug 28.' },
  { contractor: 'ITS', people: 13, category: 'electrical', note: '<strong>Frac-outs Aug 27 AND Aug 28 on the wetland crossing \u2014 then the conduit COMPLETED Sunday Aug 30, retiring the EGLE exposure.</strong> Cable pull pending; plowing untouched at 38/46 for a twenty-third day.' },
- { contractor: 'AB POWER', people: 12, category: 'electrical', note: '10 substation + 2 MV terminations. <strong>SET 48.9%; terminations 15 of 264 vs 33 expected \u2014 the second crew lands Monday evening (Aug 31), 12-15/day committed from Tuesday.</strong> Feeder 11A rework running; no SE progress expected Aug 30-31.' },
+ { contractor: 'AB POWER', people: 10, category: 'electrical', note: '10 on the board \u2014 the 2-person MV termination crew works inside it; Hi Tech holds 3 beside it. <strong>SET 48.9%; terminations 15 of 264 vs 33 expected \u2014 the second crew lands Monday evening (Aug 31), 12-15/day committed from Tuesday.</strong> Feeder 11A rework running; no SE progress expected Aug 30-31.' },
  { contractor: 'WORKFORCE', people: 9, category: 'module', note: 'Quality work in Zone EW on Aug 28-29. <strong>Nothing filed on its 83-row tracker balance since Aug 18. Candidate crew for the unassigned 1,527-module West tail.</strong>' },
  { contractor: 'BRUMONT', people: 7, category: 'module', note: '<strong>SCOPE CONCLUDED Aug 28 \u2014 housekeeping in B and E and demobilisation. Leaves the register on the active-subs rule at the next update.</strong> The West tail it owned (1,527 modules) must be reassigned explicitly.' },
- { contractor: 'LATNOVVA', people: 2, category: 'support', note: 'Field inspections against a terminated contract.' },
+ { contractor: 'HI TECH', people: 3, category: 'electrical', note: 'Holding at 3 \u2014 substation support and grounding alongside AB Power.' },
+ { contractor: 'SII (survey)', people: 2, category: 'support', note: '<strong>BACK ON THE BOARD AT 2</strong> after reading zero since Aug 24 \u2014 the pile-restart readiness item is finally staffed again.' },
+ { contractor: 'LATNOVVA', people: 0, category: 'support', note: '<strong>0 \u2014 off the board for the first time since the Aug 6 termination.</strong> Leaves the register at the next update.' },
  { contractor: 'ROVERI SEC.', people: 1, category: 'support', note: 'Site security.' },
- { contractor: 'SII (survey)', people: 0, category: 'support', note: '<strong>ZERO since Aug 24.</strong>' },
  { contractor: 'CRANE', people: 0, category: 'support', note: '<strong>ZERO \u2014 has never appeared during the pile restart.</strong>' },
  ],
- note: 'Contractors whose scopes are COMPLETE are no longer listed; <strong>Brumont concluded its scope Aug 28 and is carried one last time.</strong> Source: per-contractor personnel in the Aug 28-29 daily executive reports; <strong>no EHS headcount board has been filed since Aug 27 (241)</strong>, so GreenSol is carried at its Aug 27 strength and the 217 total is the report-basis sum, not a board. '
- + '<strong>Weekend working: Aug 29 ran ECCS 20 + ITS 13 + AB Power 2 + GreenSol 1; Aug 30 was ITS\u2019s wetland conduit completion.</strong> Ask Bethany for a fresh board Monday.'
+ note: 'Contractors whose scopes are COMPLETE are no longer listed; <strong>Brumont concluded its scope Aug 28 and is carried one last time, and Latnovva reads 0 for the first time since its termination.</strong> Source: <strong>the Friday Aug 28 EHS headcount board \u2014 228 people, names summing exactly</strong> (GreenSol 24, ECCS 77, United 82, AB Power 10, ITS 13, Workforce 9, Brumont 7, Hi Tech 3, SII 2, Roveri 1; Hurricane, ECS, SWCA, Extras and Latnovva at 0). <strong>The board\u2019s one recovery: SII survey is BACK at 2 after four boards at zero. The crane \u2014 equipment, never headcount \u2014 has still never appeared.</strong> <strong>Weekend working (Bethany\u2019s Aug 28 schedule vs what the reports show): Sat planned Brumont 7, ITS 13, ECCS electrical 25, AB Power 6, United 15, GreenSol 11 \u2014 the Aug 29 report shows ECCS 20, ITS 13, AB Power 2, GreenSol 1; Sun planned Brumont 4, ITS 13, AB Power 7, GreenSol 5 \u2014 the day produced the wetland conduit completion.</strong>'
  },
  equipmentNotes: [
  { contractor: 'GreenSol', equipment: 'Site trucks and laptops for management/QC field use; no heavy equipment assigned.', output: 'Daily site walk, safety audits, progress verification.' },
