@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER: Sep 1, 2026 - MONDAY AUG 31 APPLIED. TRACKERS +65 completed (ECCS 42 G - the step-3 rows CONVERTED - + United 23 F) -> 2,199 / 88.5%; UNITED REPORTS ITS 20 MW RACKING CONTRACT COMPLETE - ECCS is now the SOLE racking contractor; 4 E15 rows held out (E reads complete - reconcile). MODULES +5,566 (United 4,966 F, still mounting at cutoff + Brumont 600 filed vs Area E, carried to B) -> 135,511 / 79.0%; required 7,192/day over 5 wd. PILES +31 (E20) -> 30,261 / 96.5%. LV CABLE ZERO new feet (rework day: INV-02/03 homerun reconfiguration, 500->750 MCM replacement in Trunk 3); HARNESS +65 lines (GS self-perform 45 / 17,121 ft in 4.5h + ECCS 20) -> 333; UNITED HARNESS START MISSED (4 of 40 electricians) - required now 50 lines/day. LBD +10 -> 217/419. MV terms 18/264 - DEFICIT 37, still 2 people. SET 50.0% (79/187). Bore-09 STUCK PIPE - ITS 6 mobilizing. MV CABLE PO ERROR: 750 on the order, must be 1000 (Luis). EHS board 230; 320 days no accident, 173,278 h.
+// CACHE BUSTER: Sep 1, 2026 (b: BOP "Interface progress" section REMOVED at Jose's instruction - not decision-useful; its live facts (terminations deficit, pull-in, trench counts, Topland assignment) stay in the MV and SET sections)  Sep 1, 2026 - MONDAY AUG 31 APPLIED. TRACKERS +65 completed (ECCS 42 G - the step-3 rows CONVERTED - + United 23 F) -> 2,199 / 88.5%; UNITED REPORTS ITS 20 MW RACKING CONTRACT COMPLETE - ECCS is now the SOLE racking contractor; 4 E15 rows held out (E reads complete - reconcile). MODULES +5,566 (United 4,966 F, still mounting at cutoff + Brumont 600 filed vs Area E, carried to B) -> 135,511 / 79.0%; required 7,192/day over 5 wd. PILES +31 (E20) -> 30,261 / 96.5%. LV CABLE ZERO new feet (rework day: INV-02/03 homerun reconfiguration, 500->750 MCM replacement in Trunk 3); HARNESS +65 lines (GS self-perform 45 / 17,121 ft in 4.5h + ECCS 20) -> 333; UNITED HARNESS START MISSED (4 of 40 electricians) - required now 50 lines/day. LBD +10 -> 217/419. MV terms 18/264 - DEFICIT 37, still 2 people. SET 50.0% (79/187). Bore-09 STUCK PIPE - ITS 6 mobilizing. MV CABLE PO ERROR: 750 on the order, must be 1000 (Luis). EHS board 230; 320 days no accident, 173,278 h.
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
@@ -244,12 +244,6 @@ window.MURCH_DATA = {
  // tools/sync.js must never carry this block across. It is deliberately not one of
  // the blocks sync reads. Owner-report content is curated separately in that repo, and
  // messenger-wire and cable-quantity reference.
- // ===================== BOP CIVIL / ELECTRICAL INTERFACE =====================
- // Section 4 of the daily executive report ("Obra civil - avance general") was being
- // read but never PUBLISHED as tracked progress - it only reached prose notes.
- // Jose, Aug 28: "I don't see these progress in the dashboard." Fixed: it is now a
- // first-class block with its own section, updated every run from the daily report
- // and cross-checked against the MV Termination Production Control workbook.
  // ===================== HSE KPIs \u2014 JULY 2026 =====================
  // DELIVERED Aug 25 18:15 by Bethany Valdez (EHS Site Manager): the monthly dashboard
  // workbook and the July monthly report. Man-hour record followed at 21:06.
@@ -302,46 +296,6 @@ window.MURCH_DATA = {
  + '<strong>The exposure is in the leading indicators, not the lagging ones. July logged 39 safety events \u2014 the second-highest month of the year \u2014 and 38 of the 39 are violations: 24 unsafe conditions and 14 unsafe behaviours. The trend runs 0, 1, 17, 13, 45, 31, 39.</strong> '
  + '<strong>Two governance lines read ZERO and matter more than any of the above: Safety Observation Rounds with Project Management have been ZERO in every month of 2026, and the safety client advisor visit dropped to zero in July after one in each of March, April, May and June.</strong> '
  + '<strong>The July environmental record is the item that reaches furthest: the 15 July frac-out was already the second, and GreenSol concluded then that greater bore depth alone would not stop it. Further events followed on 19 August and 27 August. ITS\u2019s position of 27 August \u2014 that these conditions cannot be eliminated by its means and methods \u2014 is therefore consistent with our own July finding, which strengthens ITS\u2019s schedule argument and should be weighed before the MV overrun is pressed as a performance failure.</strong>'
- },
-
- bopInterface: {
- asOf: 'Aug 31, 2026',
- source: 'Daily executive report \u00a74 (31 Aug) + MV Termination Production Control workbook (Aug 31)',
- overallPct: 15.5,
- overallPctReported: 15.5,
- items: [
- { activity: 'Trenches (MV\u2013LV) \u2014 OPEN', done: 67, total: 181, unit: 'trenches', status: 'Active',
- note: 'Excavated and available \u2014 58 \u2192 67 in one day. <strong>47 trenches stand open against 20 closed.</strong>' },
- { activity: 'Trenches (MV\u2013LV) \u2014 CLOSED', done: 20, total: 181, unit: 'trenches', status: 'Critical',
- note: '<strong>Closing DOUBLED, 10 \u2192 20 \u2014 but 47 trenches still stand open across the site</strong>, an open-excavation exposure as well as a production one. Audelio\u2019s Aug 29 flag is the extreme case: the Inverter 1 (11A) excavation has been open a MONTH.' },
- { activity: 'Trenches (MV\u2013LV) \u2014 COMPACTED', done: 20, total: 181, unit: 'trenches', status: 'Critical',
- note: 'Compaction tracks closure exactly. <strong>161 of 181 still to compact.</strong>' },
- { activity: 'Cable pull-in \u2014 inverter MV / MVJB', done: 7, total: 46, unit: 'units', status: 'Critical',
- note: '<strong>7 of 46 \u2014 UNCHANGED across the whole week.</strong> Pull-in precedes termination, so this flat line is what eventually starves the termination crews that are being doubled.' },
- { activity: 'MV terminations', done: 18, total: 264, unit: 'terminations', status: 'Critical',
- note: '<strong>+3 on Aug 31 with only 2 people \u2014 cumulative 18 against the 55 the 11/day control expected: the deficit has WIDENED to 37.</strong> <strong>The second crew promised for Monday evening must show at 12-15/day in Tuesday\u2019s report.</strong> Junction-box installation is assigned to TOPLAND.' }
- ],
- note: '<strong>This is the front that turns installed cable into an energisable plant.</strong> <strong>The shape at Aug 31: 67 trenches opened, 20 closed, 20 compacted, 7 of 46 pull-ins and 18 of 264 terminations \u2014 every step narrower than the one before, and pull-in has not moved in a week.</strong> Overall interface completion 14.8 \u2192 15.5%. <strong>Two ownership changes: junction-box installation and the laydown cleanup are assigned to TOPLAND \u2014 the zero-installed junction-box alarm finally has an owner \u2014 and 2 inverters have been removed from ECCS\u2019s electrical scope (the Inverter 11-12 change order).</strong></strong>'
- },
-
- // ===================== TRACKER COMPONENT INSTALLS =====================
- // ECCS files these as discrete daily quantities. They are NOT tracker rows and must
- // never be added to the row count - but they were being dropped entirely, which hid
- // real production. Scope denominators have NOT been provided by the field, so no
- // percentage is shown: quantities only until the take-off arrives.
- trackerComponents: {
- asOf: 'Aug 27, 2026',
- source: 'ECCS, daily executive report \u00a71 (27 Aug)',
- scopeKnown: false,
- items: [
- { component: 'Tracker motors', day: 27, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' },
- { component: 'Dampers', day: 28, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' },
- { component: 'Load panels', day: 21, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' },
- { component: 'Control boxes', day: 21, cum: null, scope: null, crew: 'ECCS \u00b7 Area B' }
- ],
- note: '<strong>97 tracker components were fitted on 27 Aug and none of it appeared anywhere on this dashboard until now.</strong> '
- + '<strong>It is real work on the critical path \u2014 a row cannot be released without its motor, damper, load panel and control box \u2014 but it is NOT a completed row, so it stays out of the 2,134 completion basis.</strong> '
- + '<strong>ACTION: the scope denominators for motors, dampers, load panels and control boxes have never been filed. Until they are, this block can only show daily quantities, and the component front cannot be forecast or gated.</strong> Ask ECCS for the four take-off totals and a cumulative to date.'
  },
 
  materialPosition: {
