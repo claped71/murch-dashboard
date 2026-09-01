@@ -186,6 +186,14 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
   </div>
 </section>
 
+<section id="cierre-inv">
+  <h2>5b · Cadena de cierre de cada inversor<span class="sub">Los cinco pasos que convierten zanja y cable en un inversor listo para energizar — en orden, sin saltarse ninguno. Antes estaba en el panel principal como “Interface progress”; aquí queda contado en llano.</span></h2>
+  <div class="card">
+    <div id="cierrePasos"></div>
+    <p id="cierreLee" style="margin:14px 0 0;padding:10px 14px;background:#f2f6f3;border-left:4px solid #0c5f43;border-radius:6px;font-size:.9rem"></p>
+  </div>
+</section>
+
 <section>
   <h2>6 · Parte diario de cable LV<span class="sub">Lo tendido cada día contra lo exigido, y el desfase que se acumula.</span></h2>
   <div class="card">
@@ -247,7 +255,7 @@ footer{color:var(--muted);font-size:.8rem;padding:18px 0 40px;border-top:1px sol
 </div>
 <footer><div class="wrap">Murch Solar · Van Buren County, MI · Control interno de construcción · Base: data.js del panel (actualizacion diaria) · Documento no distribuible</div></footer>
 
-<script src="data.js?v=20260820a"></script>
+<script src="data.js?v=20260901b"></script>
 <script>
 /* ============================ DATOS BASE ============================ */
 let HOY = '2026-08-13', INICIO = '2026-08-14';
@@ -322,6 +330,27 @@ let HOY_ELEC = 9, HOY_TOTAL = 19;
     if(X.zonas) for(var z in X.zonas){
       if(!ZONAS[z]) continue;
       for(var k2 in X.zonas[z]) ZONAS[z][k2] = X.zonas[z][k2];
+    }
+    /* 5b - cadena de cierre de inversores */
+    if(X.cierre && document.getElementById('cierrePasos')){
+      var C=X.cierre;
+      document.getElementById('cierrePasos').innerHTML = C.pasos.map(function(p){
+        var pct = p.total ? Math.round(p.hecho/p.total*100) : 0;
+        var col = pct>=60 ? '#168a5b' : pct>=25 ? '#b96f18' : '#b53030';
+        return '<div style="display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #e4e9e6">'+
+          '<div style="flex:0 0 34px;height:34px;border-radius:50%;background:#0c5f43;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800">'+p.paso+'</div>'+
+          '<div style="flex:1;min-width:0">'+
+            '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline">'+
+              '<strong style="font-size:.98rem">'+p.nombre+'</strong>'+
+              '<span style="font-weight:800;color:'+col+'">'+p.hecho.toLocaleString()+' de '+p.total.toLocaleString()+' '+p.unidad+' ('+pct+'%)</span>'+
+            '</div>'+
+            '<div style="height:8px;background:#e8edea;border-radius:4px;margin:6px 0 6px;max-width:520px">'+
+              '<div style="height:8px;border-radius:4px;width:'+Math.max(pct,1)+'%;background:'+col+'"></div></div>'+
+            '<div style="font-size:.86rem;color:#3d4744">'+p.explica+'</div>'+
+          '</div></div>';
+      }).join('');
+      var lee=document.getElementById('cierreLee');
+      if(lee) lee.innerHTML='<strong>Léelo así ('+C.fecha+'):</strong> '+C.lee;
     }
     /* cabecera visible: base de ejecutado + dotacion, desde los datos */
     var MESL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];

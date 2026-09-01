@@ -516,6 +516,19 @@ window.MURCH_DATA = {
  cableHasta: '2026-08-31',
  hoyElec: 8, hoyTotal: 19,
  manpowerSite: 230, manpowerFecha: 'headcount EHS 31 ago',
+ // Cadena de cierre por inversor (antes seccion "Interface progress" del panel principal;
+ // retirada de alli el 1 sep a peticion de Jose y publicada aqui en forma simple).
+ cierre: {
+ fecha: '31 ago 2026',
+ pasos: [
+ { paso: 1, nombre: 'Abrir la zanja', hecho: 67, total: 181, unidad: 'zanjas', explica: 'Se excava la zanja MV\u2013LV del inversor. Hasta aqui solo hay un hueco en el suelo.' },
+ { paso: 2, nombre: 'Meter el cable al inversor (pull-in)', hecho: 7, total: 46, unidad: 'unidades', explica: 'El cable MV entra fisicamente en el gabinete del inversor o MVJB. <strong>Parado en 7 de 46 desde hace mas de una semana \u2014 es el paso que se esta quedando atras.</strong>' },
+ { paso: 3, nombre: 'Cerrar y compactar la zanja', hecho: 20, total: 181, unidad: 'zanjas', explica: 'Con el cable dentro se rellena y compacta. <strong>47 zanjas siguen abiertas</strong> \u2014 el caso extremo es el Inversor 1 (11A), un mes abierto; Audelio exige drenar el agua antes de compactar.' },
+ { paso: 4, nombre: 'Terminaciones MV', hecho: 18, total: 264, unidad: 'terminaciones', explica: 'La conexion que deja el inversor listo para energizar. <strong>18 de 264 \u2014 el control pide 11/dia y el deficit es de 37</strong>; la segunda cuadrilla debe rendir 12-15/dia desde el 1 sep.' },
+ { paso: 5, nombre: 'Inversor CERRADO', hecho: 0, total: 46, unidad: 'unidades', explica: '<strong>Un inversor solo cuenta cuando tiene TODO lo anterior. Hoy: CERO de 46.</strong> Este es el numero que la energizacion mira.' }
+ ],
+ lee: 'Cada inversor tiene que pasar por estos pasos EN ORDEN para poder energizarse. La forma de embudo es el aviso: cada paso va mas atrasado que el anterior, y el paso 2 (meter el cable) lleva mas de una semana sin moverse \u2014 da igual cuantas cuadrillas de terminacion lleguen si no hay cable dentro de los gabinetes. Las junction boxes las instalara TOPLAND.'
+ },
  lineas: {
  L1: { harness: 333, boxes: 140, homerun: 41789, trunk: 6145, connInv: 0, connBox: 0, connMV: 0 },
  L2: { harness: 0, boxes: 77, homerun: 0, trunk: 0, connInv: 0, connBox: 0, connMV: 0 },
