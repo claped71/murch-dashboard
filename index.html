@@ -2415,7 +2415,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily executive production report of Monday Aug 31</strong> (ECCS 42 completed rows Zone G + 27 to TT + 31 piles E20 + 4 E15 rows held for reconciliation, electrical rework at INV-02/03 with Trunk 3 recabled 500&rarr;750 MCM + 20 one-string harnesses; United 4,966 modules Zone F + <strong>23 rows closing its 20 MW racking contract</strong> + 10 LBD boxes, harness start missed with 4 of 40 electricians; GreenSol self-perform <strong>45 harness lines / 17,121 ft in 4.5 h + 44 supports + 1,024 ft messenger</strong>; Brumont 600 modules (E&rarr;B carry); AB Power +3 MV terminations &rarr; 18 of 264; ITS 6 mobilised to the Bore-09 stuck pipe); the <strong>Aug 31 SE Construction Tracker cut</strong> (50.0% &mdash; civil 95.0, structural 65.2, electrical 17.3; 79 of 187; 47 days to energization); the <strong>Aug 31 MV Termination Production Control</strong> (18/264; trenches 67/20/20 of 181; pull-in 7/46; interface 15.5%); the <strong>MURCH Plowing/Boring tracker</strong> (bores 19/20 at 9,049.6 ft; plow 38/46 at 121,632 ft); the <strong>Monday Aug 31 EHS headcount board (230; 320 days without accident; 173,278 hours worked)</strong>; and the day&rsquo;s correspondence (Angel&rsquo;s harness rate-and-material letters to United &mdash; 47&rarr;50 lines/day, 580 lines + 198 LBDs delivered, 1 messenger reel to return; Luis&rsquo;s MV-cable PO correction &mdash; 1000 kcmil, not 750 &mdash; and his instruction that the cable land before ITS demobilises; German&rsquo;s Heelstone action list &mdash; easement letter, redlines from next week, torque-tube slope answer due Thursday, commissioning in the weekly from Tuesday). <strong>Cable is reported in linear feet and harness in assemblies; the two are never summed and never share a denominator.</strong></p></p></p>
     </footer>
 
-    <script src="data.js?v=20260901c"></script>
+    <script src="data.js?v=20260901e"></script>
     <script>
 'use strict';
 
@@ -3346,8 +3346,12 @@ window.stampTableLabels = stampTableLabels;
             _pInv = planPct(STARTS.inv, '2026-09-15'), _pPil = planPct(STARTS.piles, '2026-07-28'),
             _pTrk = planPct(STARTS.trackers, '2026-08-30'), _pMod = planPct(STARTS.modules, '2026-09-06');
         var _bad = [_pLv, _pMv, _pInv, _pPil, _pTrk, _pMod].some(function (x) { return x === null || isNaN(x); });
-        var elecPlan = _bad ? null : (0.45 * _pLv + 0.22 * _pMv + 0.18 * _pInv + 0.15 * ((C.set && C.set.planToDate) || 45));
-        var globalPlan = _bad ? null : (0.28 * _pPil + 0.22 * _pTrk + 0.26 * _pMod + 0.14 * elecPlan + 0.10 * 100);
+        var _setPlan = (function(){ var S2 = C.set || {}; var pa = S2.planAnchor;
+          if (pa && C.asOfISO && S2.gate) { var f = Math.min(1, Math.max(0, (Date.parse(C.asOfISO) - Date.parse(pa.iso)) / (Date.parse(S2.gate) - Date.parse(pa.iso)))); return pa.pct + (100 - pa.pct) * f; }
+          return S2.planToDate || 45; })();
+        var elecPlan = _bad ? null : (0.45 * _pLv + 0.22 * _pMv + 0.18 * _pInv + 0.15 * _setPlan);
+        var _w = T.weights || { piles: 28, trackers: 22, modules: 26, electrical: 14, civil: 10 };
+        var globalPlan = _bad ? null : ((_w.piles * _pPil + _w.trackers * _pTrk + _w.modules * _pMod + _w.electrical * elecPlan + _w.civil * 100) / 100);
         strip.insertAdjacentHTML('beforeend',
           '<article class="gate-tile"><h3>PROJECT TOTAL \u00b7 weighted physical completion</h3>' +
           '<div class="gate-big">' + T.gatePct.toFixed(1) + '% <em>+ ' + (T.earnedPct - T.gatePct).toFixed(1) + ' earned = ' + T.earnedPct.toFixed(1) + '%</em></div>' +
@@ -3450,17 +3454,27 @@ window.stampTableLabels = stampTableLabels;
           '<div class="gate-big">' + S.pct.toFixed(1) + '% <em>weighted composite</em></div>' +
           '<div class="gate-rows">' +
           (function () {
-            // SET's plan-to-date is the SE Construction Tracker's own contractual figure,
-            // not a ramp to a recovery date - label it for what it is.
-            var pd = S.planToDate || 45, gap = S.pct - pd;
+            // PLAN-TO-DATE IS DERIVED, NEVER FROZEN (Jose, Sep 1): a static planToDate=45
+            // sat unchanged from ~Aug 24 and made SET read "+5 ahead" while its own log
+            // showed late activities. The plan now advances linearly from the anchor
+            // (the tracker's plan figure on its anchor date) to 100% at the gate date.
+            var pd;
+            var pa = S.planAnchor;
+            if (pa && C.asOfISO) {
+              var d0 = Date.parse(pa.iso), d1 = Date.parse(S.gate), dn = Date.parse(C.asOfISO);
+              var f = Math.min(1, Math.max(0, (dn - d0) / (d1 - d0)));
+              pd = pa.pct + (100 - pa.pct) * f;
+            } else { pd = S.planToDate || 45; }
+            var gap = S.pct - pd;
             var cls = gap >= -2 ? 'style="color:#0c6b48;font-weight:700"' : 'style="color:#a12b2b;font-weight:700"';
-            return 'Plan today <small>(SE Construction Tracker)</small>: <b>' + pd.toFixed(1) + '%</b> \u00b7 <span ' + cls + '>' +
+            return 'Plan today <small>(SE tracker plan, advanced to 100% at ' + S.gateLabel + ')</small>: <b>' + pd.toFixed(1) + '%</b> \u00b7 <span ' + cls + '>' +
                    (gap >= 0 ? '+' : '') + gap.toFixed(1) + ' pts</span><br>';
           })() +
           'Civil <b>' + g2(/civil/i) + '%</b> \u00b7 structural <b>' + g2(/structural/i) + '%</b> \u00b7 electrical <b>' + g2(/electrical/i) + '%</b> \u00b7 piers <b>17/17</b><br>' +
-          'Binding: <b>hold the erection rhythm \u2014 remaining equipment due Aug 30</b><br>' +
-          'Projected finish at current rate: <b>not rate-driven \u2014 erection running, equipment due Aug 30</b><br>' +
-          '<span class="gate-pill">ERECTION SCALING \u00b7 AB POWER 11 (+5)</span>' +
+          (S.laborPct ? 'Labour-weighted <small>(C' + S.laborWeights.civil + '/S' + S.laborWeights.structural + '/E' + S.laborWeights.electrical + ' \u2014 electrical carries the substation)</small>: <b style="color:#a12b2b">' + S.laborPct.toFixed(1) + '%</b><br>' : '') +
+          'Binding: <b>' + (S.binding || 'see the substation section') + '</b><br>' +
+          'Projected finish at current rate: <b>' + (S.projected || 'not rate-driven') + '</b><br>' +
+          '<span class="gate-pill">' + (S.pill || 'IN PROGRESS') + '</span>' +
           '</div></article>'); } })();
       strip.insertAdjacentHTML('beforeend',
         '<article class="gate-tile rag-' + worst + '"><h3>' + C.mc.name + ' · target ' + C.mc.target + '</h3>' +
