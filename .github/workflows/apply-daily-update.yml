@@ -1,0 +1,58 @@
+name: Apply daily update
+# Applies the day's dashboard update from scripts in daily-update/, verifying
+# output hashes before anything is committed. Pushed by the Claude session when
+# the usual credentialed push path is unavailable.
+
+on:
+  push:
+    branches: [main]
+    paths: ['daily-update/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-daily-update
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Bail if no pending update
+        id: gate
+        run: |
+          if [ ! -f daily-update/expected.sha256 ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"; echo "No pending daily update."; exit 0
+          fi
+          echo "run=true" >> "$GITHUB_OUTPUT"
+
+      - name: Apply scripts in order
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          set -e
+          for f in $(ls daily-update/*.py | sort); do
+            echo "== $f"; python3 "$f"
+          done
+
+      - name: Verify output hashes
+        if: steps.gate.outputs.run == 'true'
+        run: sha256sum -c daily-update/expected.sha256
+
+      - name: Commit and push
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name  "murch-daily-bot"
+          git config user.email "murch-daily-bot@users.noreply.github.com"
+          MSG_FILE=$(mktemp)
+          if [ -f daily-update/commit-message.txt ]; then cp daily-update/commit-message.txt "$MSG_FILE"; else echo "Apply daily update" > "$MSG_FILE"; fi
+          git rm -rq daily-update
+          git add -A
+          git commit -F "$MSG_FILE"
+          git push origin main
