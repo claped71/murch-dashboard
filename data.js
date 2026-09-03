@@ -171,7 +171,7 @@ window.MURCH_DATA = {
  civilKpis: [
  { title: 'Civil field progress', metric: '98.0% \u00b7 Week 31 (Aug 7)', note: 'Week 31 civil report (Rosario Ruiz, issued Aug 10 on the Aug 7 basis): three of the five civil lines are CLOSED — earthworks cut/fill (Jul 17), internal roads (Aug 4) and PS foundations (Jul 24). Only sediment basins (95%) and the perimeter fence (95%) remain open, and the fence is held by a client signature rather than by production.' },
  { title: 'Area G release', metric: 'Released', note: 'Area G is released for pile driving and material distribution. With cut/fill closed at 100% and internal roads complete, the Area G civil tail is the basin remainder (5%) and the fence remainder (5%).' },
- { title: 'SET tracker', metric: '51.6% \u00b7 structural 66.1%', note: '<strong>Sep 1 cut: overall 51.6% \u2014 civil 95.0%, structural 66.1%, electrical 20.2% (its largest single-day move, +2.9), 46 days to energization.</strong> Seventh consecutive rise \u2014 <strong>but ~7.2 pts BEHIND the tracker\u2019s own plan advanced to 100% at Sep 25 (plan-today ~58.8%)</strong>. <strong>The MV termination deficit is 42: the second crew showed Sep 1 but produced at half its 12-15/day commitment.</strong>' },
+ { title: 'SET tracker', metric: '52.5% \u00b7 structural 66.5%', note: '<strong>Sep 2 cut: overall 52.5% \u2014 civil 95.4%, structural 66.5%, electrical 21.6% \u00b7 45 days to energization; ~8.0 pts behind the advanced plan.</strong>' },
  ],
  civilActivities: [
  { activity: 'Earthworks cut / fill', company: 'Lounsbury', done: 100, remaining: 0, status: 'Complete', note: 'COMPLETE Jul 17. Zone G cuts closed Week 29.' },
@@ -183,7 +183,7 @@ window.MURCH_DATA = {
  { activity: 'Main Foundation SET', company: 'AB Power', done: 100, remaining: 0, status: 'Complete', note: '100% (to Jul 10). Substation scope \u2014 excluded from the roll-up.' },
  { activity: 'Small Foundation SET', company: 'AB Power', done: 100, remaining: 0, status: 'Complete', note: '100% Aug 6 \u2014 the last foundation line to close. Substation scope.' },
  { activity: 'O&M Building', company: 'AB Power', done: 100, remaining: 0, status: 'Complete', note: '100% (Jul 10 \u2013 11). Substation scope.' },
- { activity: 'Foundation SET (composite)', company: 'AB Power', done: 51.6, remaining: 48.4, status: 'Active', note: '<strong>51.6% (Sep 1 cut)</strong> \u2014 civil 95.0%, structural 66.1%, electrical 20.2%. AB Power fielded 18: 14 on the SE + 4 on MV terminations (at half the committed rate). Lightning stand-down at 13:27.' }
+ { activity: 'Foundation SET (composite)', company: 'AB Power', done: 52.5, remaining: 47.5, status: 'Active', note: '<strong>52.5% (Sep 2 cut)</strong> \u2014 civil 95.4%, structural 66.5%, electrical 21.6%; 45 days to energization. MV terminations 33 of 264 (deficit 44).' },
  ],
  contractors: [
  { name: 'Latnovva — CONTRACT TERMINATED', scope: 14132, installed: 14132, remaining: 0, done: 100.0, zones: 'A, C, EW complete (+ B/E shares) — final position', status: 'Closed', note: 'Terminated Aug 6 for low performance. Final position 14,132 piles; Zone B remainder went to United.' },
