@@ -382,6 +382,7 @@ class Component extends DCLogic {
 
     const score = D.contractorScore || [];
     const yr = (String(C.asOf).match(/\d{4}/) || ["2026"])[0];
+    const stripTags = (t) => String(t == null ? "" : t).replace(/<[^>]*>/g, "");
     const parseD = (s) => {
       const m = String(s).match(/^\s*([A-Za-z]{3,})\s+(\d{1,2})/);
       const t = m ? Date.parse(m[1] + " " + m[2] + ", " + yr) : Date.parse(String(s) + ", " + yr);
@@ -396,7 +397,7 @@ class Component extends DCLogic {
       const hasTarget = !!r.criterion;
       const ratio = hasTarget ? val / r.criterion : 1;
       const status = !hasTarget ? "neutral" : ratio >= 0.9 ? "good" : ratio >= 0.5 ? "neutral" : "bad";
-      const short = r.short || String(r.resource || "").split(/[.;]/)[0].trim().slice(0, 46);
+      const short = stripTags(r.short) || String(r.resource || "").split(/[.;]/)[0].trim().slice(0, 46);
       return { sub: r.contractor, scope: r.trade, qty: this.commas(r.output),
                unit: r.unit || "", status, hasTarget, ratio, short,
                vsLabel: hasTarget ? (Math.round(ratio * 100) + "% of target") : "no daily target",
@@ -566,6 +567,7 @@ class Component extends DCLogic {
     };
     const LOGO_BOX = "flex:0 0 auto; height:52px; width:120px; background-repeat:no-repeat; background-position:left center; background-size:contain;";
     const BADGE_BOX = "flex:0 0 auto; width:52px; height:52px; border-radius:13px; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Barlow Semi Condensed',sans-serif; font-size:24px; font-weight:700; background:";
+    const stripTags = (t) => String(t == null ? "" : t).replace(/<[^>]*>/g, "");
     const today = (d.today || []).map(r => {
       // "ECCS (electrical)" and "Workforce (racking)" share their parent brand
       const base = String(r.sub || "").split("\u2014")[0].replace(/\(.*?\)/g, "").trim();
@@ -608,7 +610,7 @@ class Component extends DCLogic {
           ? ("position:absolute; top:0; bottom:0; left:" + s.target + "%; width:3px; background:#1A1F1C;")
           : "display:none;",
         labelLogoStyle: s.logo ? (LGST + " background-image:url('" + s.logo + "');") : "display:none;",
-        noteText: s.note || "",
+        noteText: stripTags(s.note) || "",
         noteStyle: s.note ? ("font-family:'IBM Plex Mono',monospace; font-size:18px; letter-spacing:.03em; margin-top:2px; color:" + (critColor || "#6B7269") + ";") : "display:none;"
       };
     });
