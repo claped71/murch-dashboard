@@ -1729,6 +1729,14 @@ canvas { max-width: 100%; }
       .scope-lab { display:block; color:var(--muted, #66716d); font-size:.75em; }
       .scope-line + .scope-line { margin-top:3px; padding-top:3px; border-top:1px dotted var(--rule, #d8ded9); }
       .scope-line .score-bar { flex:1 1 auto; min-width:52px; }
+      .scope-notarget { color:var(--muted, #66716d); font-size:.75em; line-height:1.9; display:block; }
+      details.assess summary { cursor:pointer; list-style:none; position:relative; padding-right:14px; }
+      details.assess summary::-webkit-details-marker { display:none; }
+      details.assess summary::after { content:'\25BE'; position:absolute; right:0; color:var(--muted, #66716d); }
+      details.assess[open] summary::after { content:'\25B4'; }
+      details.assess[open] summary { font-weight:700; white-space:normal; }
+      .assess-full { margin-top:6px; white-space:normal; font-size:.92em; line-height:1.45; max-width:420px; }
+      .assess-crit { margin-top:6px; padding-top:6px; border-top:1px dotted var(--rule, #d8ded9); color:var(--muted, #4a5550); }
       .scope-lab { color:var(--muted, #66716d); font-size:.78em; }
     
 .gate-chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px}
@@ -2248,7 +2256,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily executive production report of Thursday Sep 3</strong> (ECCS 30 completed rows &ldquo;Zonas G y E&rdquo; + 19 harness lines / 57 strings + 1,692 ft of cable; United 1,014 modules Zone G + 96 harness lines + 174 supports with 33 electricians; GreenSol self-perform 2,590 ft HR at INV-11 + 6 boxes + 450 hangers + 620 ft messenger; Brumont 546 modules (E&rarr;B carry, now 2,290); AB Power +9 MV terminations &rarr; 42 of 264; SET 56.95% &mdash; civil 96.2, structural 66.9, electrical 30.5; trenches closed/compacted 26 of 181; localized safety stand-down at INV-1 09:50); and the open harness-basis divergence (executive-report reconciliation vs dashboard ledger 606 &mdash; ruling pending).</p>
     </footer>
 
-    <script src="data.js?v=20260904a"></script>
+    <script src="data.js?v=20260904b"></script>
     <script>
 'use strict';
 
@@ -3474,6 +3482,12 @@ window.stampTableLabels = stampTableLabels;
         if (crew.length > 34) crew = crew.slice(0, 32).replace(/[ ,;]+$/, '') + '\u2026';
         var assess = strip(r.short || '');
         if (assess.length > 46) assess = assess.slice(0, 44).replace(/[ ,;]+$/, '') + '\u2026';
+        // FULL COMMENT ON CLICK (Jose, Sep 3): the criterion comment must be fully
+        // readable without a hover tooltip - the cell expands to the complete text.
+        var fullComment = '<details class="assess"><summary title="Click to read the full comment">' + assess + '</summary>' +
+                          '<div class="assess-full">' + (r.short || '') +
+                          (r.critLabel ? '<div class="assess-crit">' + r.critLabel + '</div>' : '') +
+                          '</div></details>';
         sb.insertAdjacentHTML('beforeend', '<tr>' +
           '<td data-label="Date">' + r.date + '</td>' +
           '<td data-label="Subcontractor">' + subCell(r.contractor) + '</td>' +
@@ -3493,7 +3507,7 @@ window.stampTableLabels = stampTableLabels;
             }).join('');
           })() + '</td>' +
           '<td data-label="Crew" title="' + strip(r.resource).replace(/"/g, '&quot;') + '">' + crew + '</td>' +
-          '<td data-label="Assessment" title="' + strip(r.critLabel).replace(/"/g, '&quot;') + '">' + assess + '</td>' +
+          '<td data-label="Assessment">' + fullComment + '</td>' +
           '<td data-label="vs required">' + (function () {
             if (!r.scopes || !r.scopes.length) {
               return '<div class="score-bar" title="' + pc + '% of ' + r.criterion.toLocaleString() +
@@ -3502,7 +3516,10 @@ window.stampTableLabels = stampTableLabels;
             // one bar per scope - a cable bar and a harness bar, each against its own
             // required rate. Never a blended number across two different units.
             return r.scopes.map(function (x) {
-              var p2 = x.criterion ? Math.min(100, Math.round(x.value / x.criterion * 100)) : 0;
+              if (!x.criterion) {
+                return '<div class="scope-line"><small class="scope-notarget">no daily target</small></div>';
+              }
+              var p2 = Math.min(100, Math.round(x.value / x.criterion * 100));
               var c2 = p2 >= 90 ? 'var(--green)' : p2 >= 55 ? 'var(--amber)' : 'var(--red)';
               var t2 = p2 + '% of ' + x.criterion.toLocaleString() + ' ' + x.unit + '/day' +
                        (x.basis ? ' \u2014 ' + x.basis : '');
