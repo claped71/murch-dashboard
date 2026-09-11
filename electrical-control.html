@@ -305,6 +305,7 @@ let HARNESS_SCOPE = 4972;
 let HARNESS = [ {d:'15 ago',l:13,s:null,conf:'soft'},{d:'17 ago',l:0,s:0},{d:'18 ago',l:0,s:0},
   {d:'19 ago',l:11,s:29},{d:'20 ago',l:22,s:38},{d:'21 ago',l:24,s:72},{d:'22 ago',l:25,s:75} ];
 let HARNESS_NOTA = '';
+let HARNESS_ADJ = 0; // correcciones de campo (ajuste:true): cuentan en el acumulado, nunca en barras ni ritmos
 let HOY_ELEC = 9, HOY_TOTAL = 19;
 
 /* ============== AUTO-SYNC ==============
@@ -321,7 +322,7 @@ let HOY_ELEC = 9, HOY_TOTAL = 19;
     if(X.hoyElec != null) HOY_ELEC = X.hoyElec;
     if(X.hoyTotal != null) HOY_TOTAL = X.hoyTotal;
     if(X.diario && X.diario.length) DIARIO = X.diario;
-    if(X.harnessDiario && X.harnessDiario.length) HARNESS = X.harnessDiario;
+    if(X.harnessDiario && X.harnessDiario.length){ HARNESS = X.harnessDiario.filter(function(r){return !r.ajuste;}); HARNESS_ADJ = X.harnessDiario.filter(function(r){return r.ajuste;}).reduce(function(a,r){return a+(r.l||0);},0); }
     if(X.harnessScope) HARNESS_SCOPE = X.harnessScope;
     if(X.harnessNota) HARNESS_NOTA = X.harnessNota;
     /* Totales de PROYECTO. Hasta el 9 sep 2026 todo el tendido se imputaba a la L1,
@@ -729,7 +730,7 @@ function pintaValores(){
   ['L1','L2','L3','L4'].forEach(id=>document.getElementById('d-'+id).value=S.mc[id]);
 }
 function parteArneses(){
-  const done = HARNESS.reduce((a,d)=>a+d.l,0);
+  const done = HARNESS.reduce((a,d)=>a+d.l,0) + HARNESS_ADJ;
   const rem  = HARNESS_SCOPE - done;
   /* exigido: mismo criterio que el resto del panel - restante / dias laborables
      (lunes a sabado, domingos excluidos) hasta la puerta LV del 18 de septiembre.
@@ -773,8 +774,8 @@ function parteArneses(){
       <td><strong>${d.l}</strong></td><td>${d.s!=null?d.s:'\u2014'}</td><td>${F1(req)}</td>
       <td style="color:${g<0?'#b53030':'#0c5f43'}">${g>0?'+':''}${F1(g)}</td>
       <td style="color:#b53030">${F1(cum)}</td><td>${F(acc)}</td><td>${F1(acc/HARNESS_SCOPE*100)}%</td></tr>`;});
-  h+=`<tr class="tot"><td>Acumulado</td><td><strong>${F(acc)}</strong></td><td></td><td>${F1(req*HARNESS.length)}</td>
-      <td colspan="2" style="color:#b53030">${F1(cum)} conjuntos de desfase</td><td>${F(acc)} / ${F(HARNESS_SCOPE)}</td><td>${F1(acc/HARNESS_SCOPE*100)}%</td></tr></tbody>`;
+  h+=`<tr class="tot"><td>Acumulado${HARNESS_ADJ?' (incl. ajuste de campo +'+F(HARNESS_ADJ)+')':''}</td><td><strong>${F(acc+HARNESS_ADJ)}</strong></td><td></td><td>${F1(req*HARNESS.length)}</td>
+      <td colspan="2" style="color:#b53030">${F1(cum)} conjuntos de desfase</td><td>${F(acc+HARNESS_ADJ)} / ${F(HARNESS_SCOPE)}</td><td>${F1((acc+HARNESS_ADJ)/HARNESS_SCOPE*100)}%</td></tr></tbody>`;
   document.getElementById('logH').innerHTML=h;
 
   const nt=document.getElementById('harnessNota');
