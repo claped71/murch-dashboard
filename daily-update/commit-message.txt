@@ -1,4 +1,0 @@
-Sep 11 update — Thursday Sep 10 production: MV terminations +12 to 57 (11A/11B inverter-side complete), 40 LBD connections at INV-1 (52), 175 harness (United 124 at INV-16/17 = first 12B production; ECCS 51 by inverter), 4,076 lf cable, 35 LBD boxes in E, first 8 tracker repairs (E9), United 1,170 modules filed in G (G ledger over scope — flagged), Brumont 520 in E held out, D rows to 75%, SET 62.5, 198 on site
-
-Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_017zmQV6AHAi7UGNSSKdWtcb
