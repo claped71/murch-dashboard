@@ -2211,7 +2211,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily executive production report of Thursday Sep 10 (FINAL v3: United 35 D rows to 75% + 1,170 modules filed in G + 124 harness at INV-16/17; Brumont 520 in E; ECCS 8 trackers repaired in E9, 51 harness by inverter, 3 homeruns 2,356 ft, 35 LBD boxes in E17&ndash;E20, 40 LBD connections at INV-1; GreenSol self-perform 1,720 ft DC, 17 combiner boxes, 1,171 ft messenger, 64 supports at INV-12; AB Power +12 MV terminations to 57 with 11A/11B inverter-side complete, SET 62.54%; trenches closed 46 of 181, pull-in 15 of 46; harness control 2,185; LBD connections 52; electrical permit / licence responsibility with HITECH; 198 on site)</strong>; the <strong>daily executive production report of Wednesday Sep 9 (FINAL: ECCS 41 rows to 100% in Zone G, 59 harness, 3 LBD boxes terminated, 9 cables tensioned, 86 brackets; United 35 D rows at 50%, 201 harness, 139 supports, no modules; GreenSol self-perform 37 harness; AB Power 0 terminations with 4 on the front; ITS 8 on cleanup/maintenance; trenches closed 44 of 181; harness control 2,010 all-in; 190 on site)</strong>, Bethany Valdez&rsquo;s Sep 9 headcount (219; 329 days; 189,206.1 h; zero weather hours lost Sep 8), the site WhatsApp group through Sep 9 16:34 (INV-2 trench closed and INV-3 closing; Line 1 inverters complete on MV; the three electrical ledger flags raised Sep 8), the Sep 9 fence thread (fence contractor returns Sep 21); the <strong>daily executive production report of Tuesday Sep 8 (FINAL v3: United 3,120 modules in B + 27 rows at 50% in D, 44 harness, 280 supports, 1,611 ft messenger; Brumont 546 modules in E; ECCS 10 refusal piles, dampers G/E, 5,043 ft cable, 40 harness, 7 LBD, 65 brackets; GreenSol self-perform 68 harness + 490 ft BLA; AB Power SET 61.44%; MV pull-in 13 of 46, trenches closed 38 of 181, terminations 45; 181 on site)</strong> and the field photographs of the INV-1 trench backfill (Sep 8, 20:24); the <strong>daily executive production report of Monday Sep 7 (corrected self-performance version, confirmed by the project director on Sep 8: United 3,607 modules in Zone G, 42 harness lines, 202 supports and 1,069 ft of messenger wire; Brumont 597 modules; GreenSol self-perform INV-11 closed, 7 LBD boxes, INV-1 circuit 19, 890 ft of trunk DC; self-perform harness confirmed at 87 = 45 Aug 31 + 29 Sep 1 + 13 Sep 5; the racking contractor and ITS off site; no AB Power production received)</strong>, the Friday Sep 4 (v5 HARNESS) and Saturday Sep 5 (v3 self-performance version) reports; the <strong>Sep 8 immediate incident notification 20260908_ACC_001</strong> (EHS Site Manager); the Sep 8 fiber-optic thread (splicing crew from the week of Sep 14); the Sep 8 completion proposal for the Area EW / Area D leftovers (3 EW racks, 67 + 136 node controllers &mdash; quantities only); the <strong>Sep 8 DELIVERY AND MECHANICAL workbook re-cut</strong> (trackers 2,182 with Zone G 177; modules 148,529 &mdash; neither adopted over the field basis) and its <strong>&ldquo;Resumen&rdquo; per-line sheet</strong> (scope and required daily rates per MV line); the <strong>Sep 8 MV Termination Production Control</strong> (45 of 264; trenches 84 open, 36 closed and compacted of 181; pull-in 7 of 46; 11A inverter-side 24 of 24, boxes 0 of 30); the <strong>Sep 8 SE Construction Tracker</strong> (60.1% &mdash; civil 97.6, structural 65.5, electrical 37.4); the <strong>Sep 8 ITS plowing/boring tracker</strong> (no work filed); Bethany Valdez&rsquo;s Sep 8 headcount (214; 328 days; 186,351.6 h; 601.8 weather hours lost Sep 4) and her Sep 8 safety-management pack; <strong>Juan de la Chica&rsquo;s Sep 8 updated project schedule (Acceleration schedule, commissioning detailed, revised after the Owner&rsquo;s Week 34 comments)</strong>; the CM&rsquo;s Sep 8 follow-up to ECCS on Area A; Manuel Ramirez&rsquo;s Sep 8 note to ECCS on Zones G and E; United Services&rsquo; Sep 7 letter on Area G readiness; the QA/QC manager&rsquo;s Sep 7&ndash;8 deflection measurement; the Sep 7 LV cable sufficiency thread; and the site WhatsApp group through Sep 8 10:15. <strong>Open divergences carried, not resolved: the Zone G tracker basis (published 256, workbook 177), the workbook&rsquo;s Zone F panel cell (42,042 vs the published 33,367), the plowing cut (published 38, ITS 37), the harness basis (executive report 1,474/1,561 vs dashboard ledger 812 + 87 self-perform) and the deflection count (QA/QC 256 vs the Sep 4 field revision 395) &mdash; all pending rulings.</strong></p>
     </footer>
 
-    <script src="data.js?v=20260911h"></script>
+    <script src="data.js?v=20260911i"></script>
     <script>
 'use strict';
 
@@ -3510,27 +3510,42 @@ window.stampTableLabels = stampTableLabels;
       // measuring stick for the electrical cards (Jose, Sep 9). The contract Sep 18 gate stays on the gate tile.
       var PLAN_WD = ((_eb.planBasis || {}).wd) || LV_WD, PLAN_FIN = ((_eb.planBasis || {}).fin) || 'plan';
       var _hrCum = _PT.homerun || 0, _trCum = _PT.trunk || 0;
+      // REQUIRED = SUM OF EACH LINE'S OWN NEED (Jose, Sep 11). Spreading the project remainder evenly to the
+      // last line's date (Oct 10) understated the rate: the Sep 8 plan is front-loaded (L1 Sep 17, L2 Sep 24,
+      // L3 Oct 1, L4 Oct 10), so what the site must produce NOW is remaining_i / wd_i summed over the lines.
+      var _LN = _eb.lineas || {}, _AL = _eb.alcance || {}, _LP = _eb.lineaPlan || {};
+      var _needNow = function (key) {
+        var tot = 0, parts = [];
+        ['L1', 'L2', 'L3', 'L4'].forEach(function (id) {
+          var l = _LN[id] || {}, a = _AL[id] || {}, wd = (_LP[id] || {}).wd || PLAN_WD;
+          var rem = Math.max((a[key] || 0) - (l[key] || 0), 0), need = rem ? Math.round(rem / wd) : 0;
+          tot += need; if (rem) parts.push(id + ' ' + need.toLocaleString() + '/d (' + rem.toLocaleString() + ' in ' + wd + ' wd)');
+        });
+        return { total: tot, text: parts.length ? parts.join(' · ') : 'every line complete' };
+      };
+      var _hrNeed = _needNow('homerun'), _trNeed = _needNow('trunk'), _hNeed = _needNow('harness');
+      var _uniform = function (scope, cum) { return Math.round(Math.max(scope - cum, 0) / PLAN_WD).toLocaleString(); };
       var _hrDaily = _di.map(function (x) { return { day: _mkDay(x), value: x.hr || 0 }; });
       var _trDaily = _di.map(function (x) { return { day: _mkDay(x), value: x.tr || 0 }; });
       var _best = function (a) { return Math.max.apply(null, a.map(function (x) { return x.value; }).concat([0])); };
       var trendDefs = defs.concat([
         { c: { name: 'Homerun cable — inverter feeders', unit: 'lf',
-               required: Math.round((HR_SCOPE - _hrCum) / PLAN_WD), capacity: _best(_hrDaily),
+               required: _hrNeed.total, capacity: _best(_hrDaily),
                foot: 'Cumulative <b>' + _hrCum.toLocaleString() + ' / ' + HR_SCOPE.toLocaleString() + ' lf (' +
-                     (_hrCum / HR_SCOPE * 100).toFixed(1) + '%)</b> — 85% of the whole cable scope and effectively all of the pulling labour. Required = remaining over the ' + PLAN_WD + ' working days to ' + PLAN_FIN + ' (Sr. Controller plan); the contract Sep 18 gate would ask ' + Math.round((HR_SCOPE - _hrCum) / LV_WD).toLocaleString() + ' lf/day.' },
+                     (_hrCum / HR_SCOPE * 100).toFixed(1) + '%)</b> — 85% of the whole cable scope and effectively all of the pulling labour. Required = the sum of each line’s own need to its LV works date on the Sr. Controller’s Sep 8 plan: ' + _hrNeed.text + ' (an even spread of the remainder to ' + PLAN_FIN + ' would say only ' + _uniform(HR_SCOPE, _hrCum) + '/day); the contract Sep 18 gate would ask ' + Math.round((HR_SCOPE - _hrCum) / LV_WD).toLocaleString() + ' lf/day.' },
           daily: _hrDaily },
         { c: { name: 'Trunk cable — Chemik', unit: 'lf',
-               required: Math.round((TR_SCOPE - _trCum) / PLAN_WD), capacity: _best(_trDaily),
+               required: _trNeed.total, capacity: _best(_trDaily),
                foot: 'Cumulative <b>' + _trCum.toLocaleString() + ' / ' + TR_SCOPE.toLocaleString() + ' lf (' +
-                     (_trCum / TR_SCOPE * 100).toFixed(1) + '%)</b> — short runs, but this is the cable that closes each section against its LBD. Required = remaining over the ' + PLAN_WD + ' working days to ' + PLAN_FIN + '.' },
+                     (_trCum / TR_SCOPE * 100).toFixed(1) + '%)</b> — short runs, but this is the cable that closes each section against its LBD. Required = the sum of each line’s own need to its Sep 8-plan date: ' + _trNeed.text + ' (an even spread to ' + PLAN_FIN + ' would say ' + _uniform(TR_SCOPE, _trCum) + '/day).' },
           daily: _trDaily },
         // required comes from lvComposite.harnessRequiredPerDay (remaining / working days to
         // the Sep 18 gate) - never hardcoded, or it drifts from the gate the way the cumulative did.
         { c: { name: 'Harness assemblies', unit: 'assemblies',
-               required: Math.round((((_eb.harnessScope) || 5007) - (_PT.harness || 0)) / PLAN_WD),
+               required: _hNeed.total,
                capacity: _best(_hDaily),
                foot: 'Cumulative <b>' + (((D.lvComposite || {}).harnessGateInstalled) || 0).toLocaleString() + ' / ' + ((_eb.harnessScope || 5007).toLocaleString()) + ' assemblies (' +
-                     (((D.lvComposite || {}).harnessGatePct) || 0) + '%)</b>' + (_PT.harnessSP ? ' plus ' + _PT.harnessSP + ' self-perform held outside the ledger' : '') + ' — counted in ASSEMBLIES, never in feet, never added to the cable total. Required = remaining over the ' + PLAN_WD + ' working days to ' + PLAN_FIN + '; the contract Sep 18 gate would ask ' + ((((D.lvComposite || {}).harnessRequiredPerDay) || 0).toLocaleString()) + '/day.' },
+                     (((D.lvComposite || {}).harnessGatePct) || 0) + '%)</b>' + (_PT.harnessSP ? ' plus ' + _PT.harnessSP + ' self-perform held outside the ledger' : '') + ' — counted in ASSEMBLIES, never in feet, never added to the cable total. Required = the sum of each line’s own need to its Sep 8-plan date: ' + _hNeed.text + ' (an even spread to ' + PLAN_FIN + ' would say ' + _uniform((_eb.harnessScope || 5007), (_PT.harness || 0)) + '/day); the contract Sep 18 gate would ask ' + ((((D.lvComposite || {}).harnessRequiredPerDay) || 0).toLocaleString()) + '/day.' },
           daily: _hDaily }
       ]);
       trendDefs.forEach(function (g) {
