@@ -1750,6 +1750,9 @@ canvas { max-width: 100%; }
 .gate-chip.cap{color:#b96f18;border-color:#b96f18;background:#fdf7ee}
 .gate-chip.gap{color:#fff;border-color:#b53030;background:#b53030}
 .gate-chip.ok{color:#fff;border-color:#0c5f43;background:#0c5f43}
+    .eb-summary td { vertical-align: top; }
+    .eb-bar { display:block; height:4px; background:#e6ebe8; border-radius:2px; margin-top:5px; overflow:hidden; }
+    .eb-bar span { display:block; height:100%; border-radius:2px; }
 </style>
   </head>
   <body>
@@ -2059,6 +2062,17 @@ canvas { max-width: 100%; }
         </div>
         <p class="quality-note"><strong>The model:</strong> the electrical scope is controlled <strong>line by line, not as one pool</strong>. Each MV line carries its zones, its inverters and its own completion date, cascaded back from Mechanical Completion &mdash; <strong>Line 1 (11A) closes its LV works on Sep 17 and the lines follow at one-week steps to Oct 10</strong> on the Sr. Controller&rsquo;s Sep 8 plan. The daily report states, per line: feet of cable hung, harnesses installed, boxes mounted, and the gap against what the date requires. <a href="electrical-control.html?v=20260910b" style="display:inline-block;margin-top:8px;padding:8px 14px;background:#0c5f43;color:#fff;border-radius:8px;font-weight:800;text-decoration:none">Open the full interactive study &rarr;</a></p>
 
+        <h3 style="margin:14px 0 6px" id="ebSummaryTitle">Electrical installation summary &mdash; progress vs scope, line by line</h3>
+        <p class="quality-note" id="ebSummaryNote"></p>
+        <div class="table-wrap">
+          <table class="eb-summary">
+            <thead>
+              <tr><th>Line</th><th>Harness<br><small>assemblies</small></th><th>Homerun cable<br><small>lf</small></th><th>Trunk cable<br><small>lf</small></th><th>LBD boxes<br><small>units</small></th><th>MV junction boxes<br><small>units</small></th><th>MV terminations<br><small>inverter side</small></th><th>LV terminations<br><small>inverter side</small></th><th>LV terminations<br><small>boxes</small></th></tr>
+            </thead>
+            <tbody id="ebSummary"></tbody>
+          </table>
+        </div>
+
         <p class="quality-note" id="ebAlert"></p>
 
         <div class="table-wrap">
@@ -2215,7 +2229,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily executive production report of Thursday Sep 10 (FINAL v3: United 35 D rows to 75% + 1,170 modules filed in G + 124 harness at INV-16/17; Brumont 520 in E; ECCS 8 trackers repaired in E9, 51 harness by inverter, 3 homeruns 2,356 ft, 35 LBD boxes in E17&ndash;E20, 40 LBD connections at INV-1; GreenSol self-perform 1,720 ft DC, 17 combiner boxes, 1,171 ft messenger, 64 supports at INV-12; AB Power +12 MV terminations to 57 with 11A/11B inverter-side complete, SET 62.54%; trenches closed 46 of 181, pull-in 15 of 46; harness control 2,185; LBD connections 52; electrical permit / licence responsibility with HITECH; 198 on site)</strong>; the <strong>daily executive production report of Wednesday Sep 9 (FINAL: ECCS 41 rows to 100% in Zone G, 59 harness, 3 LBD boxes terminated, 9 cables tensioned, 86 brackets; United 35 D rows at 50%, 201 harness, 139 supports, no modules; GreenSol self-perform 37 harness; AB Power 0 terminations with 4 on the front; ITS 8 on cleanup/maintenance; trenches closed 44 of 181; harness control 2,010 all-in; 190 on site)</strong>, Bethany Valdez&rsquo;s Sep 9 headcount (219; 329 days; 189,206.1 h; zero weather hours lost Sep 8), the site WhatsApp group through Sep 9 16:34 (INV-2 trench closed and INV-3 closing; Line 1 inverters complete on MV; the three electrical ledger flags raised Sep 8), the Sep 9 fence thread (fence contractor returns Sep 21); the <strong>daily executive production report of Tuesday Sep 8 (FINAL v3: United 3,120 modules in B + 27 rows at 50% in D, 44 harness, 280 supports, 1,611 ft messenger; Brumont 546 modules in E; ECCS 10 refusal piles, dampers G/E, 5,043 ft cable, 40 harness, 7 LBD, 65 brackets; GreenSol self-perform 68 harness + 490 ft BLA; AB Power SET 61.44%; MV pull-in 13 of 46, trenches closed 38 of 181, terminations 45; 181 on site)</strong> and the field photographs of the INV-1 trench backfill (Sep 8, 20:24); the <strong>daily executive production report of Monday Sep 7 (corrected self-performance version, confirmed by the project director on Sep 8: United 3,607 modules in Zone G, 42 harness lines, 202 supports and 1,069 ft of messenger wire; Brumont 597 modules; GreenSol self-perform INV-11 closed, 7 LBD boxes, INV-1 circuit 19, 890 ft of trunk DC; self-perform harness confirmed at 87 = 45 Aug 31 + 29 Sep 1 + 13 Sep 5; the racking contractor and ITS off site; no AB Power production received)</strong>, the Friday Sep 4 (v5 HARNESS) and Saturday Sep 5 (v3 self-performance version) reports; the <strong>Sep 8 immediate incident notification 20260908_ACC_001</strong> (EHS Site Manager); the Sep 8 fiber-optic thread (splicing crew from the week of Sep 14); the Sep 8 completion proposal for the Area EW / Area D leftovers (3 EW racks, 67 + 136 node controllers &mdash; quantities only); the <strong>Sep 8 DELIVERY AND MECHANICAL workbook re-cut</strong> (trackers 2,182 with Zone G 177; modules 148,529 &mdash; neither adopted over the field basis) and its <strong>&ldquo;Resumen&rdquo; per-line sheet</strong> (scope and required daily rates per MV line); the <strong>Sep 8 MV Termination Production Control</strong> (45 of 264; trenches 84 open, 36 closed and compacted of 181; pull-in 7 of 46; 11A inverter-side 24 of 24, boxes 0 of 30); the <strong>Sep 8 SE Construction Tracker</strong> (60.1% &mdash; civil 97.6, structural 65.5, electrical 37.4); the <strong>Sep 8 ITS plowing/boring tracker</strong> (no work filed); Bethany Valdez&rsquo;s Sep 8 headcount (214; 328 days; 186,351.6 h; 601.8 weather hours lost Sep 4) and her Sep 8 safety-management pack; <strong>Juan de la Chica&rsquo;s Sep 8 updated project schedule (Acceleration schedule, commissioning detailed, revised after the Owner&rsquo;s Week 34 comments)</strong>; the CM&rsquo;s Sep 8 follow-up to ECCS on Area A; Manuel Ramirez&rsquo;s Sep 8 note to ECCS on Zones G and E; United Services&rsquo; Sep 7 letter on Area G readiness; the QA/QC manager&rsquo;s Sep 7&ndash;8 deflection measurement; the Sep 7 LV cable sufficiency thread; and the site WhatsApp group through Sep 8 10:15. <strong>Open divergences carried, not resolved: the Zone G tracker basis (published 256, workbook 177), the workbook&rsquo;s Zone F panel cell (42,042 vs the published 33,367), the plowing cut (published 38, ITS 37), the harness basis (executive report 1,474/1,561 vs dashboard ledger 812 + 87 self-perform) and the deflection count (QA/QC 256 vs the Sep 4 field revision 395) &mdash; all pending rulings.</strong></p>
     </footer>
 
-    <script src="data.js?v=20260911a"></script>
+    <script src="data.js?v=20260911b"></script>
     <script>
 'use strict';
 
@@ -2893,6 +2907,64 @@ canvas { max-width: 100%; }
       if (done > scope) return t + ' <small style="color:#b96f18">over take-off</small>';
       return t;
     };
+
+    // ---- Summary table: progress vs scope per activity and per line (Jose, Sep 11). One ledger: lineas / alcance / proyecto / mvPorLinea.
+    (function () {
+      var host = document.getElementById('ebSummary'); if (!host) return;
+      var M = eb.mvPorLinea || {};
+      var pct = function (a, b) { return b ? Math.round(1000 * a / b) / 10 : null; };
+      var sc = function (done, scope, opts) {
+        opts = opts || {};
+        var p = pct(done, scope), col = '#1f3a2c';
+        if (!done && scope) col = '#a12b2b'; else if (p != null && p >= 100) col = '#2e7d4f'; else if (p != null && p < 50) col = '#b96f18';
+        var bar = p == null ? '' : '<span class="eb-bar"><span style="width:' + Math.min(100, p) + '%;background:' + col + '"></span></span>';
+        return '<td data-label="' + (opts.label || '') + '"><strong style="color:' + col + '">' + n(done) + '</strong> <small>/ ' + n(scope) + '</small>' +
+          (p == null ? '' : '<br><small>' + p.toFixed(1) + '% &middot; ' + n(Math.max(scope - done, 0)) + ' pending</small>') + bar + '</td>';
+      };
+      var keys = [['harness', 'Harness'], ['homerun', 'Homerun'], ['trunk', 'Trunk'], ['boxes', 'LBD boxes']];
+      var tot = { harness: 0, homerun: 0, trunk: 0, boxes: 0, jb: 0, jbScope: 0, inv: 0, invScope: 0, connInv: 0, connBox: 0 };
+      var scopeTot = { harness: 0, homerun: 0, trunk: 0, boxes: 0, connInv: 0, connBox: 0 };
+      var out = ids.map(function (id) {
+        var l = L[id], a = A[id], p = P[id], m = M[id] || {};
+        keys.forEach(function (k) { tot[k[0]] += l[k[0]] || 0; scopeTot[k[0]] += a[k[0]] || 0; });
+        tot.connInv += l.connInv || 0; tot.connBox += l.connBox || 0; scopeTot.connInv += a.connInv || 0; scopeTot.connBox += a.connBox || 0;
+        tot.jb += m.jb || 0; tot.jbScope += m.jbScope || 0; tot.inv += m.inv || 0; tot.invScope += m.invScope || 0;
+        return '<tr>' +
+          '<td data-label="Line" style="white-space:nowrap"><strong>' + id + ' &middot; ' + p.mv + '</strong><br><small>' + p.zonas + ' &middot; LV works ' + p.lvFin + '</small></td>' +
+          sc(l.harness, a.harness, { label: 'Harness' }) +
+          sc(l.homerun, a.homerun, { label: 'Homerun' }) +
+          sc(l.trunk, a.trunk, { label: 'Trunk' }) +
+          sc(l.boxes, a.boxes, { label: 'LBD boxes' }) +
+          sc(m.jb || 0, m.jbScope || 0, { label: 'MV junction boxes' }).replace('</td>', (m.jbTermScope ? '<br><small>terminations ' + n(m.jbTerm || 0) + ' / ' + n(m.jbTermScope) + '</small>' : '') + '</td>') +
+          sc(m.inv || 0, m.invScope || 0, { label: 'MV terminations' }) +
+          sc(l.connInv || 0, a.connInv, { label: 'LV terminations inverter' }) +
+          sc(l.connBox || 0, a.connBox, { label: 'LV terminations boxes' }) +
+          '</tr>';
+      });
+      var u = L.unstated || {};
+      out.push('<tr style="background:rgba(185,111,24,.07)"><td data-label="Line"><strong>NOT STATED BY LINE</strong><br><small>real production the daily reports do not place on a line — held out, never pushed onto a line</small></td>' +
+        '<td data-label="Harness"><strong>' + n(u.harness) + '</strong></td><td data-label="Homerun"><strong>' + n(u.homerun) + '</strong></td><td data-label="Trunk"><strong>' + n(u.trunk) + '</strong></td><td data-label="LBD boxes"><strong>' + n(u.boxes) + '</strong></td>' +
+        '<td data-label="MV junction boxes">&mdash;</td><td data-label="MV terminations">&mdash;</td><td data-label="LV terminations inverter">&mdash;</td><td data-label="LV terminations boxes">&mdash;</td></tr>');
+      // Project row reads the project ledger (proyecto), which is the published cumulative; the by-line sum is shown when it differs.
+      var projHR = T.homerun != null ? T.homerun : tot.homerun + (u.homerun || 0);
+      var lineHR = tot.homerun + (u.homerun || 0);
+      out.push('<tr style="background:rgba(31,58,44,.08);font-weight:800"><td data-label="Line"><strong>PROJECT</strong><br><small>lines + not stated = published cumulative</small></td>' +
+        sc(T.harness != null ? T.harness : tot.harness + (u.harness || 0), scopeTot.harness, { label: 'Harness' }).replace('</td>', (T.harnessSP ? '<br><small>+ ' + n(T.harnessSP) + ' self-perform outside the ledger</small>' : '') + '</td>') +
+        sc(projHR, scopeTot.homerun, { label: 'Homerun' }).replace('</td>', (projHR !== lineHR ? '<br><small>by line ' + n(lineHR) + ' &middot; ' + n(projHR - lineHR) + ' lf without a daily report behind it (open flag)</small>' : '') + '</td>') +
+        sc(T.trunk != null ? T.trunk : tot.trunk + (u.trunk || 0), scopeTot.trunk, { label: 'Trunk' }) +
+        sc(T.boxes != null ? T.boxes : tot.boxes + (u.boxes || 0), scopeTot.boxes, { label: 'LBD boxes' }) +
+        sc(tot.jb, tot.jbScope, { label: 'MV junction boxes' }).replace('</td>', '<br><small>terminations ' + n(ids.reduce(function (s, id) { return s + ((M[id] || {}).jbTerm || 0); }, 0)) + ' / ' + n(ids.reduce(function (s, id) { return s + ((M[id] || {}).jbTermScope || 0); }, 0)) + '</small></td>') +
+        sc(tot.inv, tot.invScope, { label: 'MV terminations' }).replace('</td>', '<br><small>all MV terminations ' + n(tot.inv + ids.reduce(function (s, id) { return s + ((M[id] || {}).jbTerm || 0); }, 0)) + ' / ' + n(tot.invScope + ids.reduce(function (s, id) { return s + ((M[id] || {}).jbTermScope || 0); }, 0)) + '</small></td>') +
+        sc(tot.connInv, scopeTot.connInv, { label: 'LV terminations inverter' }) +
+        sc(tot.connBox, scopeTot.connBox, { label: 'LV terminations boxes' }) +
+        '</tr>');
+      host.innerHTML = out.join('');
+      var sn = document.getElementById('ebSummaryNote');
+      if (sn) sn.innerHTML = '<strong>Executed through ' + (eb.hoyElec || eb.hoy || '') + '.</strong> Done / scope per activity and per line; the bar is the percentage of the line’s take-off. ' +
+        'Harness in assemblies, cable in feet (homerun and trunk are different cables and are never summed here), LBD boxes and MV junction boxes in units, terminations in count. ' +
+        'MV figures come from the MV Termination Production Control (inverter side and junction boxes per line; junction-box units are installed when their terminations can start — none is installed yet, excavation is under way). ' +
+        'Red = nothing done on a scope the line’s date needs; amber = under half; green = complete.';
+    })();
 
     var alertHost = document.getElementById('ebAlert');
     if (alertHost) {

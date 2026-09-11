@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20260911a - Thursday Sep 10 production (Reporte Diario Ejecutivo 2026-09-10 FINAL v3): United 1,170 modules in G + 35 D rows to 75%, Brumont 520 in E (held out), ECCS 8 trackers repaired (remediation control opened), 175 harness (ECCS 51 by inverter, United 124 at INV-16/17 = 12B), 3 homeruns 2,356 ft + SP 1,720 ft, 35 LBD set in E, 40 LBD connections at INV-1 (52 cum), MV terminations +12 = 57 (11A and 11B inverter-side complete), SET 62.5, trenches closed 46, 198 on site
+// CACHE BUSTER 20260911b - electrical summary by line (harness, homerun, trunk, JB, boxes, MV/LV terminations) added on the Sep 10 basis; MV per line from the MV Termination Production Control. 20260911a - Thursday Sep 10 production (Reporte Diario Ejecutivo 2026-09-10 FINAL v3): United 1,170 modules in G + 35 D rows to 75%, Brumont 520 in E (held out), ECCS 8 trackers repaired (remediation control opened), 175 harness (ECCS 51 by inverter, United 124 at INV-16/17 = 12B), 3 homeruns 2,356 ft + SP 1,720 ft, 35 LBD set in E, 40 LBD connections at INV-1 (52 cum), MV terminations +12 = 57 (11A and 11B inverter-side complete), SET 62.5, trenches closed 46, 198 on site
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -582,10 +582,10 @@ window.MURCH_DATA = {
  proyecto: { harness: 1331, harnessSP: 105, boxes: 293, homerun: 61962, trunk: 17394, cable: 79356, cableSerie: 78475 },
  // Per-line scope - German Dominguez's Aug 12 take-off, the authorised split.
  alcance: {
- L1: { harness: 1082, boxes: 92, homerun: 54644, trunk: 8723, connInv: 186, connBox: 372, connMV: 30 },
- L2: { harness: 1292, boxes: 110, homerun: 53456, trunk: 10409, connInv: 220, connBox: 440, connMV: 36 },
- L3: { harness: 1258, boxes: 110, homerun: 65846, trunk: 10274, connInv: 220, connBox: 440, connMV: 36 },
- L4: { harness: 1340, boxes: 107, homerun: 55488, trunk: 10907, connInv: 212, connBox: 424, connMV: 36 }
+ L1: { harness: 1082, boxes: 92, homerun: 54644, trunk: 8723, connInv: 186, connBox: 372, connMV: 24 },
+ L2: { harness: 1292, boxes: 110, homerun: 53456, trunk: 10409, connInv: 220, connBox: 440, connMV: 30 },
+ L3: { harness: 1258, boxes: 110, homerun: 65846, trunk: 10274, connInv: 220, connBox: 440, connMV: 30 },
+ L4: { harness: 1340, boxes: 107, homerun: 55488, trunk: 10907, connInv: 212, connBox: 424, connMV: 30 }
  },
  // LV works finish per line on Juan de la Chica's Sep 8 plan, and the working days
  // left to it from `hoy`: working days from TOMORROW to the finish, Mon-Sat (the dashboard's
@@ -595,6 +595,15 @@ window.MURCH_DATA = {
  // in the electrical section is derived from the plan date the work actually has to
  // meet: each line against its own LV works finish, and the project against Oct 10,
  // the last line's LV works finish. Recompute `wd` on every run; never hardcode a rate.
+ // MV chain per line — MV Termination Production Control (Breakdown tab, cut of Sep 10: 57 of 264).
+ // inv = terminations at the inverter cabinets; jb = MV junction boxes (23 units on the project) and their terminations.
+ // The control's split is 114 inverter-side + 150 junction-box terminations; the Aug take-off carried 126 + 138 (same 264 total).
+ mvPorLinea: {
+ L1: { inv: 24, invScope: 24, jb: 0, jbScope: 5, jbTerm: 0, jbTermScope: 30, jbIds: 'MVJB-01,02,03,05,06', pullIn: 5, pullInScope: 10, note: 'Inverter side COMPLETE (INV-01/02/03/05/06). Junction boxes: excavation only (Topland, 3 people).' },
+ L2: { inv: 30, invScope: 30, jb: 0, jbScope: 6, jbTerm: 0, jbTermScope: 42, jbIds: 'MVJB-04,09,11,12,13,14', pullIn: 6, pullInScope: 12, note: 'Inverter side COMPLETE (INV-04/09/11/12/13/14, +12 on Sep 10). Junction boxes at zero.' },
+ L3: { inv: 0, invScope: 30, jb: 0, jbScope: 6, jbTerm: 0, jbTermScope: 39, jbIds: 'MVJB-18,19,20,21,22,23', pullIn: 3, pullInScope: 12, note: 'No terminations. Cable pulled in at INV-18/22/23; junction boxes at zero.' },
+ L4: { inv: 3, invScope: 30, jb: 0, jbScope: 6, jbTerm: 0, jbTermScope: 39, jbIds: 'MVJB-07,08,10,15,16,17', pullIn: 1, pullInScope: 12, note: 'INV-15 complete (3 of 3); the other five inverters and all junction boxes at zero.' }
+ },
  planBasis: { fin: 'Oct 10, 2026', wd: 25, gate: 'LV works complete on the last circuit (12B)', fuente: 'Sr. Controller’s end-of-project plan, revised Sep 8, 2026' },
  lineaPlan: {
  L1: { mv: 'MV-11A', zonas: 'A + C', inv: '5 inv · PB-01,02,03 (A) · PB-05,06 (C)', lvFin: 'Sep 17', mc: 'Oct 2', wd: 5 },
