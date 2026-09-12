@@ -1339,6 +1339,12 @@ dd {
   font-weight: 700;
 }
 
+.card-breakdown { margin-top: 8px; font-size: 12.5px; }
+.card-breakdown summary { cursor: pointer; font-weight: 700; color: var(--green); list-style: none; }
+.card-breakdown summary::before { content: '\25B8  '; }
+.card-breakdown[open] summary::before { content: '\25BE  '; }
+.card-breakdown p { margin: 8px 0 0; line-height: 1.5; }
+.risk-card h3 { font-size: 14px; line-height: 1.3; }
 .risk-card small {
   font-size: 0.74rem;
   letter-spacing: .2px;
@@ -2183,7 +2189,7 @@ canvas { max-width: 100%; }
 
       <section class="section resource-section" id="field-resources">
         <div class="section-heading compact">
-          <p class="eyebrow">Field snapshot | <strong>Friday Sep 11, 2026 &mdash; 137 on the daily report&rsquo;s itemised lines (its total line reads 147; EHS board not received)</strong> &mdash; <strong>United 65 mech + 13 elec (2,426 modules: D 67, G 2,359; 87 harness booked to Line 4 by rule; 5,300 ft messenger at PS21/PS22), ECCS 31 elec (51 harness at PB-05 and 600 ft on LBD 316/317 &mdash; Line 1, above the count; 1,360 ft on LBD 414/415/418; 580 hook extensions; LBD 309 megger fail), GreenSol self-perform 14 (1,340 ft DC, 8 circuits landed at INV-12, 450 hangers, 1,515 ft messenger, 79 supports), Brumont 7 (702 modules + 9 trackers at E19/E20, held out), ITS 7 (Badger/hydrovac); AB Power and Topland not itemised (+9 MV terminations, SET 62.9%).</strong></p>
+          <p class="eyebrow">Field snapshot | <strong>Friday Sep 11, 2026 &mdash; 137 on the daily report&rsquo;s itemised lines</strong> (its total line reads 147; EHS board not received) &mdash; crew detail in the rows below</p>
           <h2>Subcontractor resources reported on site</h2>
         </div>
         <div class="chart-panel">
@@ -2235,7 +2241,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily production report of Friday Sep 11 (COMPLETO: ECCS 51 harness at PB-05, 5 homeruns 1,960 ft on LBD 316/317/414/415/418, 580 hook extensions, 9 load panels / 9 boxes / 11 remediation lines / 17 dampers, LBD 309 megger fail; GreenSol self-perform 1,340 ft DC, 8 circuits landed, 450 hangers, 180 ft ground, 1,515 ft messenger, 79 supports at INV-12; United 87 harness, 5,300 ft messenger at PS21/PS22, 2,426 modules D + G; Brumont 9 trackers / 702 modules E19/E20; MV terminations 66, trenches 88/46/46, pull-in 15; SET 62.89%; harness control 2,323, homerun DC 60,625, LBD connections 52, tracker repairs 8; Chemik material shortage for United; electrical permit / licence with HITECH; fiber fusions to start; 147 on the total line, 137 itemised)</strong>; the <strong>Sep 11 field counts by circuit (site superintendent)</strong>; the <strong>daily executive production report of Wednesday Sep 9 (FINAL: ECCS 41 rows to 100% in Zone G, 59 harness, 3 LBD boxes terminated, 9 cables tensioned, 86 brackets; United 35 D rows at 50%, 201 harness, 139 supports, no modules; GreenSol self-perform 37 harness; AB Power 0 terminations with 4 on the front; ITS 8 on cleanup/maintenance; trenches closed 44 of 181; harness control 2,010 all-in; 190 on site)</strong>, Bethany Valdez&rsquo;s Sep 9 headcount (219; 329 days; 189,206.1 h; zero weather hours lost Sep 8), the site WhatsApp group through Sep 9 16:34 (INV-2 trench closed and INV-3 closing; Line 1 inverters complete on MV; the three electrical ledger flags raised Sep 8), the Sep 9 fence thread (fence contractor returns Sep 21); the <strong>daily executive production report of Tuesday Sep 8 (FINAL v3: United 3,120 modules in B + 27 rows at 50% in D, 44 harness, 280 supports, 1,611 ft messenger; Brumont 546 modules in E; ECCS 10 refusal piles, dampers G/E, 5,043 ft cable, 40 harness, 7 LBD, 65 brackets; GreenSol self-perform 68 harness + 490 ft BLA; AB Power SET 61.44%; MV pull-in 13 of 46, trenches closed 38 of 181, terminations 45; 181 on site)</strong> and the field photographs of the INV-1 trench backfill (Sep 8, 20:24); the <strong>daily executive production report of Monday Sep 7 (corrected self-performance version, confirmed by the project director on Sep 8: United 3,607 modules in Zone G, 42 harness lines, 202 supports and 1,069 ft of messenger wire; Brumont 597 modules; GreenSol self-perform INV-11 closed, 7 LBD boxes, INV-1 circuit 19, 890 ft of trunk DC; self-perform harness confirmed at 87 = 45 Aug 31 + 29 Sep 1 + 13 Sep 5; the racking contractor and ITS off site; no AB Power production received)</strong>, the Friday Sep 4 (v5 HARNESS) and Saturday Sep 5 (v3 self-performance version) reports; the <strong>Sep 8 immediate incident notification 20260908_ACC_001</strong> (EHS Site Manager); the Sep 8 fiber-optic thread (splicing crew from the week of Sep 14); the Sep 8 completion proposal for the Area EW / Area D leftovers (3 EW racks, 67 + 136 node controllers &mdash; quantities only); the <strong>Sep 8 DELIVERY AND MECHANICAL workbook re-cut</strong> (trackers 2,182 with Zone G 177; modules 148,529 &mdash; neither adopted over the field basis) and its <strong>&ldquo;Resumen&rdquo; per-line sheet</strong> (scope and required daily rates per MV line); the <strong>Sep 8 MV Termination Production Control</strong> (45 of 264; trenches 84 open, 36 closed and compacted of 181; pull-in 7 of 46; 11A inverter-side 24 of 24, boxes 0 of 30); the <strong>Sep 8 SE Construction Tracker</strong> (60.1% &mdash; civil 97.6, structural 65.5, electrical 37.4); the <strong>Sep 8 ITS plowing/boring tracker</strong> (no work filed); Bethany Valdez&rsquo;s Sep 8 headcount (214; 328 days; 186,351.6 h; 601.8 weather hours lost Sep 4) and her Sep 8 safety-management pack; <strong>Juan de la Chica&rsquo;s Sep 8 updated project schedule (Acceleration schedule, commissioning detailed, revised after the Owner&rsquo;s Week 34 comments)</strong>; the CM&rsquo;s Sep 8 follow-up to ECCS on Area A; Manuel Ramirez&rsquo;s Sep 8 note to ECCS on Zones G and E; United Services&rsquo; Sep 7 letter on Area G readiness; the QA/QC manager&rsquo;s Sep 7&ndash;8 deflection measurement; the Sep 7 LV cable sufficiency thread; and the site WhatsApp group through Sep 8 10:15. <strong>Open divergences carried, not resolved: the Zone G tracker basis (published 256, workbook 177), the workbook&rsquo;s Zone F panel cell (42,042 vs the published 33,367), the plowing cut (published 38, ITS 37), the harness basis (executive report 1,474/1,561 vs dashboard ledger 812 + 87 self-perform) and the deflection count (QA/QC 256 vs the Sep 4 field revision 395) &mdash; all pending rulings.</strong></p>
     </footer>
 
-    <script src="data.js?v=20260912g"></script>
+    <script src="data.js?v=20260912h"></script>
     <script>
 'use strict';
 
@@ -3107,20 +3113,28 @@ canvas { max-width: 100%; }
           ${badge(row.status)}
         </div>
         <p><strong>Target:</strong> ${row.target} | <strong>Forecast:</strong> ${row.forecast}</p>
-        <p>${row.note}</p>
+        <details class="card-breakdown"><summary>Breakdown</summary><p>${row.note}</p></details>
       </article>
     `).join('');
   }
 
+  // CARD RULE (Jose, Sep 12): a card is ONE headline line + badge + owner. Everything else sits
+  // behind a "Breakdown" toggle. Never render the long title/note in the open.
+  function shortLine(text, max) {
+    var t = String(text || '').replace(/<[^>]+>/g, '');
+    if (t.length <= max) return t;
+    var cut = t.slice(0, max); var k = Math.max(cut.lastIndexOf(' — '), cut.lastIndexOf('. '), cut.lastIndexOf('; '));
+    return (k > max * 0.45 ? cut.slice(0, k) : cut.replace(/\s+\S*$/, '')) + '…';
+  }
   function renderRisks() {
-    document.getElementById('riskGrid').innerHTML = data.risks.map((row) => `
+    document.getElementById('riskGrid').innerHTML = data.risks.map((row, i) => `
       <article class="risk-card ${statusClass(row.level)}">
         <div class="milestone-header">
-          <h3>${row.title}</h3>
+          <h3>${i + 1}. ${row.headline || shortLine(row.title, 120)}</h3>
           ${badge(row.level)}
         </div>
-        <p>${row.note}</p>
         <small><strong>Owner:</strong> ${row.owner}</small>
+        <details class="card-breakdown"><summary>Breakdown</summary><p><strong>${row.title}</strong></p><p>${row.note}</p></details>
       </article>
     `).join('');
   }
