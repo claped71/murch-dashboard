@@ -1,0 +1,8 @@
+H&S rates re-based on the August 2026 corporate pack (Sep 12)
+
+hsRates block for the three USA companies and a rebuilt HSE summary index: stat
+cards, a rates table against the KPI limits, a severity-rate chart with the 0.30
+limit line, the August activity table, the site-register note and four
+reconciliation checks. Severity 4.98 is flagged as the one rate outside its
+limit and the severity-vs-frequency contradiction is added to the still-pending
+table. Sentence case throughout (cache 20260912i).
