@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20260912d - allocation rule (Jose): United electrical = Zones F and G → unlocated United electrical production books to Line 4 (Line 3 only when a 12A station is named); the 87 harness of Sep 11 moved from not-stated to Line 4 (211 of 1,340). 20260912c - mechanical punch-list of Zone E + EW (field review Sep 12: 42 rows open, 42 awaiting modules, 16 awaiting torque tube, 2 awaiting piles) published as a flagged divergence; Zone E tracker row At Risk, ledger held. 20260912b - control.asOf made name-free for the report sync. 20260912a - Friday Sep 11 production (Reporte Diario 2026-09-11 COMPLETO): harness +138 (ECCS 51 at PB-05 = L1, now ABOVE the Sep 11 count; United 87 unlocated), homerun +3,300 (ECCS 1,960: LBD 316/317 L1 +600 above the count, LBD 414/415/418 L2 +1,360; SP 1,340 DC at INV-12), SP 8 circuits landed in the INV-12 cabinet, MV terminations +9 = 66 (not located), United 2,426 modules (D 67 + G 2,359 — G further over scope), Brumont 702 in E held out, SET 62.9, LBD 309 megger fail, United short of Chemik cable, 137 itemised on site (report total line 147)
+// CACHE BUSTER 20260912e - punch-list block: zone subtotals (EW 3 / E 39) and grouping by outstanding task (modules only 26 · tube + modules 16 · piles 2). 20260912d - allocation rule (Jose): United electrical = Zones F and G → unlocated United electrical production books to Line 4 (Line 3 only when a 12A station is named); the 87 harness of Sep 11 moved from not-stated to Line 4 (211 of 1,340). 20260912c - mechanical punch-list of Zone E + EW (field review Sep 12: 42 rows open, 42 awaiting modules, 16 awaiting torque tube, 2 awaiting piles) published as a flagged divergence; Zone E tracker row At Risk, ledger held. 20260912b - control.asOf made name-free for the report sync. 20260912a - Friday Sep 11 production (Reporte Diario 2026-09-11 COMPLETO): harness +138 (ECCS 51 at PB-05 = L1, now ABOVE the Sep 11 count; United 87 unlocated), homerun +3,300 (ECCS 1,960: LBD 316/317 L1 +600 above the count, LBD 414/415/418 L2 +1,360; SP 1,340 DC at INV-12), SP 8 circuits landed in the INV-12 cabinet, MV terminations +9 = 66 (not located), United 2,426 modules (D 67 + G 2,359 — G further over scope), Brumont 702 in E held out, SET 62.9, LBD 309 megger fail, United short of Chemik cable, 137 itemised on site (report total line 147)
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -907,6 +907,12 @@ window.MURCH_DATA = {
  source: 'Field review of the areas considered mechanically finished (Zone E and EW) — received Sep 12, 2026',
  zones: 'E + EW',
  totals: { trackers: 42, modules: 42, tube: 16, piles: 2 },
+ byZone: [ { zone: 'EW', trackers: 3, modules: 3, tube: 0, piles: 0 }, { zone: 'E', trackers: 39, modules: 39, tube: 16, piles: 2 } ],
+ byType: [
+ { type: 'Modules only', rows: 26, what: 'row racked and tubed — waiting for panels', where: 'EW 3 · E2 3 · E6 1 · E7 2 · E8 1 · E9 4 · E12 3 · E13 1 · E14 2 · E19 6', crew: 'module crew' },
+ { type: 'Torque tube + modules', rows: 16, what: 'NOT a complete tracker — these overstate the tracker ledger', where: 'E19 12 · E7 1 · E11 1 · E12 1 (15 itemised, 16 stated)', crew: 'racking crew, then modules' },
+ { type: 'Piles + tracker + modules', rows: 2, what: 'nothing built yet — still to be piled', where: 'E9 1 · E13 1', crew: 'piling, racking, modules' }
+ ],
  items: [
  { area: 'EW3', trackers: 2, modules: 2, tube: 0, piles: 0, note: '2 trackers open' },
  { area: 'EW1', trackers: 1, modules: 1, tube: 0, piles: 0, note: '1 tracker open' },
