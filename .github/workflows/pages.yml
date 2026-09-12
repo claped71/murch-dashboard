@@ -4,10 +4,17 @@ name: Deploy to GitHub Pages
 # 11:28 sat in "building" or errored, so the live site silently served an old
 # commit while the repo moved on. This deploys the repo as a static artifact
 # through Actions instead, which reports success or failure explicitly.
+#
+# A push made by apply-daily-update uses the Actions token, and GitHub does not
+# trigger workflows from those pushes - the site would keep serving the previous
+# commit. The workflow_run trigger below closes that gap.
 
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Apply daily update"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -27,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
