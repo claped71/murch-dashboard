@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20260912h - card rule: risks and milestones render a one-line headline with a Breakdown toggle (risks[].headline added); field-snapshot eyebrow one line. 20260912g - Jose's ruling: Zone E/EW punch-list APPLIED — trackers 2,293 (92.2%, earned 93.8), modules 153,771 (89.7%), project 86.6 / 88.0. 20260912f - pulse section: short basis eyebrow (control.asOfShort), day narrative collapsed, gate cards compacted to a uniform 4-column grid (SET card derived lines instead of prose). 20260912e - punch-list block: zone subtotals (EW 3 / E 39) and grouping by outstanding task (modules only 26 · tube + modules 16 · piles 2). 20260912d - allocation rule (Jose): United electrical = Zones F and G → unlocated United electrical production books to Line 4 (Line 3 only when a 12A station is named); the 87 harness of Sep 11 moved from not-stated to Line 4 (211 of 1,340). 20260912c - mechanical punch-list of Zone E + EW (field review Sep 12: 42 rows open, 42 awaiting modules, 16 awaiting torque tube, 2 awaiting piles) published as a flagged divergence; Zone E tracker row At Risk, ledger held. 20260912b - control.asOf made name-free for the report sync. 20260912a - Friday Sep 11 production (Reporte Diario 2026-09-11 COMPLETO): harness +138 (ECCS 51 at PB-05 = L1, now ABOVE the Sep 11 count; United 87 unlocated), homerun +3,300 (ECCS 1,960: LBD 316/317 L1 +600 above the count, LBD 414/415/418 L2 +1,360; SP 1,340 DC at INV-12), SP 8 circuits landed in the INV-12 cabinet, MV terminations +9 = 66 (not located), United 2,426 modules (D 67 + G 2,359 — G further over scope), Brumont 702 in E held out, SET 62.9, LBD 309 megger fail, United short of Chemik cable, 137 itemised on site (report total line 147)
+// CACHE BUSTER 20260912i - H&S rates re-based on the AUGUST 2026 corporate pack (Ivan Alicea, Sep 12): hsRates block (three USA companies, severity trend, August activity, four reconciliation checks) and a rebuilt HSE summary index - cards, rates table, severity chart, activity table, checks. 20260912h - card rule: risks and milestones render a one-line headline with a Breakdown toggle (risks[].headline added); field-snapshot eyebrow one line. 20260912g - Jose's ruling: Zone E/EW punch-list APPLIED — trackers 2,293 (92.2%, earned 93.8), modules 153,771 (89.7%), project 86.6 / 88.0. 20260912f - pulse section: short basis eyebrow (control.asOfShort), day narrative collapsed, gate cards compacted to a uniform 4-column grid (SET card derived lines instead of prose). 20260912e - punch-list block: zone subtotals (EW 3 / E 39) and grouping by outstanding task (modules only 26 · tube + modules 16 · piles 2). 20260912d - allocation rule (Jose): United electrical = Zones F and G → unlocated United electrical production books to Line 4 (Line 3 only when a 12A station is named); the 87 harness of Sep 11 moved from not-stated to Line 4 (211 of 1,340). 20260912c - mechanical punch-list of Zone E + EW (field review Sep 12: 42 rows open, 42 awaiting modules, 16 awaiting torque tube, 2 awaiting piles) published as a flagged divergence; Zone E tracker row At Risk, ledger held. 20260912b - control.asOf made name-free for the report sync. 20260912a - Friday Sep 11 production (Reporte Diario 2026-09-11 COMPLETO): harness +138 (ECCS 51 at PB-05 = L1, now ABOVE the Sep 11 count; United 87 unlocated), homerun +3,300 (ECCS 1,960: LBD 316/317 L1 +600 above the count, LBD 414/415/418 L2 +1,360; SP 1,340 DC at INV-12), SP 8 circuits landed in the INV-12 cabinet, MV terminations +9 = 66 (not located), United 2,426 modules (D 67 + G 2,359 — G further over scope), Brumont 702 in E held out, SET 62.9, LBD 309 megger fail, United short of Chemik cable, 137 itemised on site (report total line 147)
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -257,6 +257,46 @@ window.MURCH_DATA = {
  // tools/sync.js must never carry this block across. It is deliberately not one of
  // the blocks sync reads. Owner-report content is curated separately in that repo, and
  // messenger-wire and cable-quantity reference.
+ // ===================== H&S RATES — AUGUST 2026 (corporate USA pack) =====================
+ // Ivan J. Alicea, Country EHS Manager USA — "AUGUST 2026 // H&S RATES // GREENING GROUP USA",
+ // forwarded Sep 12 2026. Three panels: Green-Sol USA, Greening USA Corp and the consolidated
+ // Greening Group USA sheet. These are COMPANY rates, not the Murch site register (329 d /
+ // 189,206 h on Bethany's site register) — both are published side by side, never merged.
+ hsRates: {
+ asOf: 'August 2026 close',
+ issued: 'Sep 12, 2026',
+ source: 'Iv\u00e1n J. Alicea, Country EHS Manager USA \u2014 general health & safety rates, Greening Group USA',
+ kpi: { incidence: 100, frequency: 4.0, severity: 0.30 },
+ companies: [
+ { name: 'Green-Sol USA', days: 252, firstAid: 2, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 4.98, site: true },
+ { name: 'Greening USA Corp', days: 677, firstAid: 0, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 0 },
+ { name: 'Greening Group USA, consolidated', days: 252, firstAid: 2, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 3.09 }
+ ],
+ severityTrend: [
+ { m: 'jan', v: 9.99 }, { m: 'feb', v: 9.10 }, { m: 'mar', v: 9.36 }, { m: 'apr', v: 8.89 },
+ { m: 'may', v: 8.35 }, { m: 'jun', v: 7.51 }, { m: 'jul', v: 6.21 }, { m: 'aug', v: 4.98 }
+ ],
+ groupTrend: [
+ { m: 'jan', v: 6.73 }, { m: 'feb', v: 5.23 }, { m: 'mar', v: 5.25 }, { m: 'apr', v: 5.01 },
+ { m: 'may', v: 4.82 }, { m: 'jun', v: 4.22 }, { m: 'jul', v: 3.72 }, { m: 'aug', v: 3.09 }
+ ],
+ activities: [
+ { metric: 'induction trainings', v: 55 },
+ { metric: 'workers trained', v: 5 },
+ { metric: 'operational control on site', v: 1 },
+ { metric: 'h&s committee meetings', v: 0 },
+ { metric: 'unsafe behaviours recorded', v: 0 },
+ { metric: 'non-conformities', v: 0 }
+ ],
+ checks: [
+ 'Severity is the only rate outside its limit: 4.98 against a 0.30 target, sixteen times over, and it carries lost workdays from the injury that set the 252-day counter (early January). The same pack reports zero lost-time injuries and a 0.00 frequency rate for every month of 2026 \u2014 the two sheets have to be reconciled at source before either figure is quoted to the Owner.',
+ 'September to December read the August value on all three panels. Those are carried forward, not forecast \u2014 the series ends at August.',
+ 'The consolidated panel is plotted on a 2025 month axis inside an August 2026 pack; the same template defects flagged on the July and August site decks are still open.',
+ 'The company counters and the Murch site counters are different denominators and are not comparable: 252 days at company level against 329 days and 189,206 man-hours on the site register, which is held at the Sep 9 cut because the Sep 10 and Sep 11 boards have not been received.'
+ ],
+ read: 'Zero lost-time injuries, zero recordables and zero fatalities across the USA companies in August, with two first-aid cases in the Green-Sol perimeter. Incidence and frequency sit at 0.00 against limits of 100 and 4.0. The single exception is the severity rate, 4.98 against a 0.30 target, falling month on month from 9.99 in January as exposure hours accumulate \u2014 it is a legacy of lost workdays already booked, not of a new event, but it is the one rate this pack publishes outside its limit.'
+ },
+
  // ===================== HSE KPIs \u2014 JULY 2026 =====================
  // DELIVERED Aug 25 18:15 by Bethany Valdez (EHS Site Manager): the monthly dashboard
  // workbook and the July monthly report. Man-hour record followed at 21:06.
