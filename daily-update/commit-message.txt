@@ -1,7 +1,0 @@
-H&S section shortened to the key data (Jose, Sep 12)
-
-Own H&S entry in the nav. Four cards (252 / 677 days without a lost-time injury,
-0.00 incidence and frequency, 4.98 severity against the 0.30 limit), the rates
-table and the severity chart side by side, August activity as one chip line, and
-the site register, the pack checks and the Sep 8 case collapsed into a single
-toggle. The narrative paragraph and the activity table are gone (cache 20260912j).

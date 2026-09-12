@@ -1791,6 +1791,11 @@ canvas { max-width: 100%; }
 .hs-checks li { margin:4px 0; line-height:1.45; }
 .hs-checks p { margin:6px 0 0; line-height:1.5; }
 #hsChart svg { width:100%; height:auto; display:block; }
+.hs-chips { margin:0 0 10px; font-size:.8rem; line-height:2; }
+.hs-chips-lead { font-weight:700; margin-right:8px; }
+.hs-chip { display:inline-block; padding:2px 9px; margin:0 6px 4px 0; border:1px solid var(--rule,#d8ded9); border-radius:999px; background:#fff; color:var(--muted,#4a5550); }
+.hs-chip b { color:var(--ink,#1f3a2c); margin-left:3px; }
+.hs-section .hs-grid { margin-bottom:10px; }
 .gate-chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px}
 .gate-chip{font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:20px;border:1.5px solid}
 .gate-chip.req{color:#b53030;border-color:#b53030;background:#fdf1ef}
@@ -1839,7 +1844,8 @@ canvas { max-width: 100%; }
           <span class="brand-title">Murch Solar</span>
         </a>
         <div class="navlinks">
-          <a href="#pulse">Pulse</a><a href="#material" style="color:#a12b2b;font-weight:800">MATERIAL</a>          <a href="#safety">Safety</a>
+          <a href="#pulse">Pulse</a><a href="#material" style="color:#a12b2b;font-weight:800">MATERIAL</a>          <a href="#hse-brief">H&amp;S</a>
+          <a href="#safety">Safety</a>
           <a href="#quality">QA/QC</a>
           <a href="#progress">Progress</a>
           <a href="#civil">Civil</a>
@@ -1951,37 +1957,25 @@ canvas { max-width: 100%; }
         </article>
       </section>
 
-      <section class="section" id="hse-brief">
+      <section class="section hs-section" id="hse-brief">
         <div class="section-heading compact">
-          <p class="eyebrow" id="hsEyebrow">Health, safety &amp; environment | summary index</p>
+          <p class="eyebrow" id="hsEyebrow"></p>
           <h2 id="hsHead"></h2>
         </div>
         <div class="hs-nums" id="hsCards"></div>
-        <p class="hs-read" id="hsRead"></p>
         <div class="hs-grid">
           <div class="hs-panel">
-            <h3 class="hs-h3">August 2026 rates by company</h3>
             <div class="table-wrap"><table class="hs-table" id="hsTable"></table></div>
-            <p class="hs-foot">Incidence = accidents per 1,000 employees (limit 100) &middot; frequency = lost-time injuries per million exposure hours (limit 4.0) &middot; severity = lost workdays per thousand exposure hours (limit 0.30).</p>
+            <p class="hs-foot">Incidence per 1,000 employees (limit 100) &middot; frequency per million exposure hours (limit 4.0) &middot; severity per thousand exposure hours (limit 0.30).</p>
           </div>
           <div class="hs-panel">
-            <h3 class="hs-h3">Severity rate through August <span class="hs-legend"><i class="k1"></i>Green-Sol USA <i class="k2"></i>group <i class="k3"></i>limit 0.30</span></h3>
+            <h3 class="hs-h3">Severity rate 2026 <span class="hs-legend"><i class="k1"></i>Green-Sol <i class="k2"></i>group <i class="k3"></i>limit</span></h3>
             <div id="hsChart"></div>
-            <p class="hs-foot" id="hsChartFoot"></p>
+            <p class="hs-foot">Lost workdays per thousand exposure hours. The pack repeats the August value to December &mdash; carried forward, not forecast.</p>
           </div>
         </div>
-        <div class="hs-grid">
-          <div class="hs-panel">
-            <h3 class="hs-h3">August activity, Green-Sol USA</h3>
-            <div class="table-wrap"><table class="hs-table" id="hsAct"></table></div>
-          </div>
-          <div class="hs-panel">
-            <h3 class="hs-h3">Open on the site register</h3>
-            <p class="hs-foot" id="hsSite"></p>
-            <details class="hs-checks"><summary>Checks on this pack before any figure is quoted</summary><ol id="hsChecks"></ol></details>
-            <details class="hs-checks"><summary>Sep 8 substation first-aid case &mdash; classification still open</summary><p>Event 20260908_ACC_001, 13:15 on Sep 8: a worker of the substation support crew, hand-digging a trench on his second day under the sun, fainted and fell, then vomited and went into shaking. 911 was called, the crew gave first aid and the ambulance took him to hospital on intravenous fluids. Intravenous treatment and ambulance transport are beyond first aid, so the recordable determination is open and the lost-time counter stays conditional until the site EHS manager confirms the classification, the hospital outcome and the return-to-work status. Expected with it: heat-stress controls on the substation front (work and rest cycles, shade, hydration, buddy checks on new starters), re-issued pre-task briefings, the investigation report and a review of hand excavation in this weather. The two Sep 4 cases remain first aid only. Weather-lost hours: 697.5 on Sep 3, 601.8 on Sep 4, none on Sep 8. Environmental: two wetland frac-out records (Jul 15, Aug 19, Aug 27) are still to be filed.</p></details>
-          </div>
-        </div>
+        <p class="hs-chips" id="hsAct"></p>
+        <details class="hs-checks"><summary>Site register, checks on the pack and the Sep 8 case</summary><div id="hsMore"></div></details>
         <p class="hs-src" id="hsSrc"></p>
       </section>
 
@@ -2310,7 +2304,7 @@ canvas { max-width: 100%; }
       <p>Sources: Live NWS weather for Lawrence, Michigan; the <strong>daily production report of Friday Sep 11 (COMPLETO: ECCS 51 harness at PB-05, 5 homeruns 1,960 ft on LBD 316/317/414/415/418, 580 hook extensions, 9 load panels / 9 boxes / 11 remediation lines / 17 dampers, LBD 309 megger fail; GreenSol self-perform 1,340 ft DC, 8 circuits landed, 450 hangers, 180 ft ground, 1,515 ft messenger, 79 supports at INV-12; United 87 harness, 5,300 ft messenger at PS21/PS22, 2,426 modules D + G; Brumont 9 trackers / 702 modules E19/E20; MV terminations 66, trenches 88/46/46, pull-in 15; SET 62.89%; harness control 2,323, homerun DC 60,625, LBD connections 52, tracker repairs 8; Chemik material shortage for United; electrical permit / licence with HITECH; fiber fusions to start; 147 on the total line, 137 itemised)</strong>; the <strong>Sep 11 field counts by circuit (site superintendent)</strong>; the <strong>daily executive production report of Wednesday Sep 9 (FINAL: ECCS 41 rows to 100% in Zone G, 59 harness, 3 LBD boxes terminated, 9 cables tensioned, 86 brackets; United 35 D rows at 50%, 201 harness, 139 supports, no modules; GreenSol self-perform 37 harness; AB Power 0 terminations with 4 on the front; ITS 8 on cleanup/maintenance; trenches closed 44 of 181; harness control 2,010 all-in; 190 on site)</strong>, Bethany Valdez&rsquo;s Sep 9 headcount (219; 329 days; 189,206.1 h; zero weather hours lost Sep 8), the site WhatsApp group through Sep 9 16:34 (INV-2 trench closed and INV-3 closing; Line 1 inverters complete on MV; the three electrical ledger flags raised Sep 8), the Sep 9 fence thread (fence contractor returns Sep 21); the <strong>daily executive production report of Tuesday Sep 8 (FINAL v3: United 3,120 modules in B + 27 rows at 50% in D, 44 harness, 280 supports, 1,611 ft messenger; Brumont 546 modules in E; ECCS 10 refusal piles, dampers G/E, 5,043 ft cable, 40 harness, 7 LBD, 65 brackets; GreenSol self-perform 68 harness + 490 ft BLA; AB Power SET 61.44%; MV pull-in 13 of 46, trenches closed 38 of 181, terminations 45; 181 on site)</strong> and the field photographs of the INV-1 trench backfill (Sep 8, 20:24); the <strong>daily executive production report of Monday Sep 7 (corrected self-performance version, confirmed by the project director on Sep 8: United 3,607 modules in Zone G, 42 harness lines, 202 supports and 1,069 ft of messenger wire; Brumont 597 modules; GreenSol self-perform INV-11 closed, 7 LBD boxes, INV-1 circuit 19, 890 ft of trunk DC; self-perform harness confirmed at 87 = 45 Aug 31 + 29 Sep 1 + 13 Sep 5; the racking contractor and ITS off site; no AB Power production received)</strong>, the Friday Sep 4 (v5 HARNESS) and Saturday Sep 5 (v3 self-performance version) reports; the <strong>Sep 8 immediate incident notification 20260908_ACC_001</strong> (EHS Site Manager); the Sep 8 fiber-optic thread (splicing crew from the week of Sep 14); the Sep 8 completion proposal for the Area EW / Area D leftovers (3 EW racks, 67 + 136 node controllers &mdash; quantities only); the <strong>Sep 8 DELIVERY AND MECHANICAL workbook re-cut</strong> (trackers 2,182 with Zone G 177; modules 148,529 &mdash; neither adopted over the field basis) and its <strong>&ldquo;Resumen&rdquo; per-line sheet</strong> (scope and required daily rates per MV line); the <strong>Sep 8 MV Termination Production Control</strong> (45 of 264; trenches 84 open, 36 closed and compacted of 181; pull-in 7 of 46; 11A inverter-side 24 of 24, boxes 0 of 30); the <strong>Sep 8 SE Construction Tracker</strong> (60.1% &mdash; civil 97.6, structural 65.5, electrical 37.4); the <strong>Sep 8 ITS plowing/boring tracker</strong> (no work filed); Bethany Valdez&rsquo;s Sep 8 headcount (214; 328 days; 186,351.6 h; 601.8 weather hours lost Sep 4) and her Sep 8 safety-management pack; <strong>Juan de la Chica&rsquo;s Sep 8 updated project schedule (Acceleration schedule, commissioning detailed, revised after the Owner&rsquo;s Week 34 comments)</strong>; the CM&rsquo;s Sep 8 follow-up to ECCS on Area A; Manuel Ramirez&rsquo;s Sep 8 note to ECCS on Zones G and E; United Services&rsquo; Sep 7 letter on Area G readiness; the QA/QC manager&rsquo;s Sep 7&ndash;8 deflection measurement; the Sep 7 LV cable sufficiency thread; and the site WhatsApp group through Sep 8 10:15. <strong>Open divergences carried, not resolved: the Zone G tracker basis (published 256, workbook 177), the workbook&rsquo;s Zone F panel cell (42,042 vs the published 33,367), the plowing cut (published 38, ITS 37), the harness basis (executive report 1,474/1,561 vs dashboard ledger 812 + 87 self-perform) and the deflection count (QA/QC 256 vs the Sep 4 field revision 395) &mdash; all pending rulings.</strong></p>
     </footer>
 
-    <script src="data.js?v=20260912i"></script>
+    <script src="data.js?v=20260912j"></script>
     <script>
 'use strict';
 
@@ -3284,28 +3278,23 @@ canvas { max-width: 100%; }
   }
   function renderHsRates() {
     var D = window.MURCH_DATA, K = D && D.hsRates;
-    var sec = document.getElementById('hse-brief');
-    if (!K || !sec) { return; }
+    if (!K || !document.getElementById('hse-brief')) { return; }
     var n = function (v, d) { return Number(v).toFixed(d == null ? 2 : d); };
     var gs = K.companies[0];
 
     document.getElementById('hsEyebrow').textContent =
-      'Health, safety & environment | summary index \u2014 corporate rates, ' + K.asOf + ' (issued ' + K.issued + ')';
+      'Health & safety | corporate rates, ' + K.asOf + ' (issued ' + K.issued + ') \u2014 the Murch site register is reported separately';
     document.getElementById('hsHead').textContent =
-      'No lost-time injury and no recordable in August \u2014 severity 4.98 is the one rate outside its limit';
+      'Zero injuries in August \u2014 severity 4.98 is the one rate outside its limit';
 
-    var cards = [
+    document.getElementById('hsCards').innerHTML = [
       { v: gs.days, l: 'days without a lost-time injury, Green-Sol USA' },
       { v: K.companies[1].days, l: 'days without a lost-time injury, Greening USA Corp' },
-      { v: '0.00', l: 'incidence and frequency rates, both companies' },
-      { v: n(gs.severity), l: 'severity rate against a 0.30 limit', warn: true },
-      { v: '329', l: 'days on the Murch site register, held at the Sep 9 cut' },
-      { v: '189,206', l: 'man-hours on site through Sep 9' }
-    ];
-    document.getElementById('hsCards').innerHTML = cards.map(function (c) {
+      { v: '0.00', l: 'incidence and frequency, both companies' },
+      { v: n(gs.severity), l: 'severity against a 0.30 limit', warn: true }
+    ].map(function (c) {
       return '<div class="hs-num' + (c.warn ? ' warn' : '') + '"><b>' + c.v + '</b><small>' + c.l + '</small></div>';
     }).join('');
-    document.getElementById('hsRead').innerHTML = K.read;
 
     document.getElementById('hsTable').innerHTML =
       '<thead><tr><th>Company</th><th>Days<br>without LTI</th><th>First<br>aid</th><th class="hs-hide">Recordable<br>and LTI</th><th class="hs-hide">Incidence /<br>frequency</th><th>Severity</th></tr></thead><tbody>' +
@@ -3317,46 +3306,40 @@ canvas { max-width: 100%; }
           '</td><td data-label="Incidence / frequency" class="hs-ok hs-hide">' + n(c.incidence) + ' / ' + n(c.frequency) +
           '</td><td data-label="Severity" class="' + (bad ? 'hs-bad' : 'hs-ok') + '">' + n(c.severity) + '</td></tr>';
       }).join('') +
-      '<tr class="hs-limit"><td data-label="Company">Limit</td><td data-label="Days without LTI">&mdash;</td><td data-label="First aid">&mdash;</td><td data-label="Recordable / LTI" class="hs-hide">0 / 0</td><td data-label="Incidence / frequency" class="hs-hide">&lt; ' + K.kpi.incidence + ' / &lt; ' +
-      n(K.kpi.frequency, 1) + '</td><td data-label="Severity">&lt; ' + n(K.kpi.severity) + '</td></tr></tbody>';
+      '<tr class="hs-limit"><td data-label="Company">Limit</td><td data-label="Days without LTI">&mdash;</td><td data-label="First aid">&mdash;</td><td data-label="Recordable / LTI" class="hs-hide">0 / 0</td><td data-label="Incidence / frequency" class="hs-hide">&lt; ' +
+      K.kpi.incidence + ' / &lt; ' + n(K.kpi.frequency, 1) + '</td><td data-label="Severity">&lt; ' + n(K.kpi.severity) + '</td></tr></tbody>';
 
-    // severity chart
-    var W = 520, H = 200, L = 34, R = 10, T = 12, B = 26;
+    var W = 520, H = 170, L = 30, R = 24, T = 10, B = 22;
     var series = K.severityTrend, g2 = K.groupTrend;
     var max = 10.5, iw = W - L - R, ih = H - T - B;
     var x = function (i) { return L + (iw * i) / (series.length - 1); };
     var y = function (v) { return T + ih - (ih * v) / max; };
     var pts = function (arr) { return arr.map(function (d, i) { return x(i).toFixed(1) + ',' + y(d.v).toFixed(1); }).join(' '); };
     var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Severity rate by month">';
-    [0, 2.5, 5, 7.5, 10].forEach(function (g) {
+    [0, 5, 10].forEach(function (g) {
       svg += '<line x1="' + L + '" y1="' + y(g).toFixed(1) + '" x2="' + (W - R) + '" y2="' + y(g).toFixed(1) +
-             '" stroke="#e6eae7"/><text x="' + (L - 6) + '" y="' + (y(g) + 3.5).toFixed(1) +
-             '" font-size="9" fill="#66716d" text-anchor="end">' + g.toFixed(1) + '</text>';
+             '" stroke="#e6eae7"/><text x="' + (L - 5) + '" y="' + (y(g) + 3.5).toFixed(1) +
+             '" font-size="9" fill="#66716d" text-anchor="end">' + g + '</text>';
     });
     svg += '<line x1="' + L + '" y1="' + y(K.kpi.severity).toFixed(1) + '" x2="' + (W - R) + '" y2="' + y(K.kpi.severity).toFixed(1) +
-           '" stroke="#a12b2b" stroke-width="1.4" stroke-dasharray="4 3"/>';
-    svg += '<polyline points="' + pts(g2) + '" fill="none" stroke="#b96f18" stroke-width="2"/>';
-    svg += '<polyline points="' + pts(series) + '" fill="none" stroke="#0c6b48" stroke-width="2.6"/>';
+           '" stroke="#a12b2b" stroke-width="1.4" stroke-dasharray="4 3"/>' +
+           '<polyline points="' + pts(g2) + '" fill="none" stroke="#b96f18" stroke-width="2"/>' +
+           '<polyline points="' + pts(series) + '" fill="none" stroke="#0c6b48" stroke-width="2.6"/>';
     series.forEach(function (d, i) {
-      svg += '<circle cx="' + x(i).toFixed(1) + '" cy="' + y(d.v).toFixed(1) + '" r="2.6" fill="#0c6b48"/>' +
-             '<text x="' + x(i).toFixed(1) + '" y="' + (H - 8) + '" font-size="9" fill="#66716d" text-anchor="middle">' + d.m + '</text>';
+      svg += '<text x="' + x(i).toFixed(1) + '" y="' + (H - 6) + '" font-size="9" fill="#66716d" text-anchor="middle">' + d.m + '</text>';
     });
-    svg += '<text x="' + x(series.length - 1).toFixed(1) + '" y="' + (y(series[series.length - 1].v) - 7).toFixed(1) +
+    svg += '<circle cx="' + x(series.length - 1).toFixed(1) + '" cy="' + y(series[series.length - 1].v).toFixed(1) + '" r="3" fill="#0c6b48"/>' +
+           '<text x="' + (x(series.length - 1) + 4).toFixed(1) + '" y="' + (y(series[series.length - 1].v) - 5).toFixed(1) +
            '" font-size="10" font-weight="700" fill="#0c6b48" text-anchor="end">' + n(series[series.length - 1].v) + '</text></svg>';
     document.getElementById('hsChart').innerHTML = svg;
-    document.getElementById('hsChartFoot').textContent =
-      'Lost workdays per thousand exposure hours. The curve falls as exposure hours accumulate against lost days already booked, not because days are being recovered; it stays above the 0.30 limit all year. The pack repeats the August value for September to December \u2014 carried forward, not forecast.';
 
-    document.getElementById('hsAct').innerHTML =
-      '<thead><tr><th>Activity</th><th>August</th></tr></thead><tbody>' +
-      K.activities.map(function (a) {
-        return '<tr><td data-label="Activity">' + a.metric + '</td><td data-label="August">' + a.v + '</td></tr>';
-      }).join('') + '</tbody>';
+    document.getElementById('hsAct').innerHTML = '<span class="hs-chips-lead">August activity</span>' +
+      K.activities.map(function (a) { return '<span class="hs-chip">' + a.metric + ' <b>' + a.v + '</b></span>'; }).join('');
 
-    document.getElementById('hsSite').innerHTML =
-      'The Murch site register is reported separately by the site EHS manager and is not the same denominator as the company pack: 329 days without a lost-time accident across 189,206 man-hours, held at the Sep 9 cut because the Sep 10 and Sep 11 headcount boards have not been received, and conditional on the classification of the Sep 8 substation case. Also open: the establishment OSHA 300 log and 300A for MIOSHA, subcontractor 300 logs, safety observation rounds with project management (zero in every month of 2026) and two wetland frac-out records.';
+    document.getElementById('hsMore').innerHTML =
+      '<p><strong>Site register (separate denominator):</strong> 329 days without a lost-time accident across 189,206 man-hours, held at the Sep 9 cut because the Sep 10 and Sep 11 headcount boards have not been received, and conditional on the classification of the Sep 8 substation case (20260908_ACC_001, worker taken to hospital after collapsing while hand-digging \u2014 intravenous treatment and ambulance transport put the recordable determination in question). Also open: establishment OSHA 300 log and 300A for MIOSHA, subcontractor 300 logs, safety observation rounds with project management (zero in every month of 2026) and two wetland frac-out records.</p>' +
+      '<ol>' + K.checks.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ol>';
 
-    document.getElementById('hsChecks').innerHTML = K.checks.map(function (c) { return '<li>' + c + '</li>'; }).join('');
     document.getElementById('hsSrc').textContent = 'Source: ' + K.source + ', ' + K.issued + '. Site figures: site EHS register, Sep 9 cut.';
   }
   renderHsRates();
