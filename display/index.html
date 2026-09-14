@@ -203,6 +203,53 @@
         </div>
       </sc-if>
 
+      <!-- ===== SCREEN 6: ELECTRICAL WORKS BY CIRCUIT (Jose, Sep 14) ===== -->
+      <sc-if value="{{ showElectrical }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute; inset:0; z-index:1; padding:34px 64px 26px; box-sizing:border-box; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:16px;"><span style="width:6px; height:38px; background:#338860; border-radius:3px;"></span><span style="font-size:32px; font-weight:800; color:#192a3d; letter-spacing:-.01em;">Electrical Works by Circuit — progress vs scope · plan dates</span></div>
+            <div style="font-family:'Inter',sans-serif; font-weight:600; text-transform:uppercase; font-size:19px; letter-spacing:.08em; color:#5b6d84;">{{ elecCaption }}</div>
+          </div>
+          <div style="flex:1; display:flex; flex-direction:column; gap:14px; min-height:0;">
+            <sc-for list="{{ elecRows }}" as="L" hint-placeholder-count="4">
+              <div style="flex:1; background:#ffffff; border:1px solid #e1e8ed; border-radius:12px; box-shadow:0 8px 24px rgba(25,42,61,.06); display:grid; grid-template-columns:250px 1fr 500px; overflow:hidden; min-height:0;">
+                <div style="padding:18px 26px; border-right:1px solid #e1e8ed; border-left:10px solid {{ L.accent }}; display:flex; flex-direction:column; justify-content:center; gap:6px; min-width:0;">
+                  <div style="font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:54px; font-weight:800; line-height:.9; color:#192a3d;">{{ L.id }}</div>
+                  <div style="font-size:19px; color:#5b6d84; font-weight:600;">{{ L.sub }}</div>
+                  <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 12px; border-radius:999px; font-size:14px; white-space:nowrap; font-weight:700; text-transform:uppercase; letter-spacing:.05em; align-self:flex-start; margin-top:4px; background:{{ L.chipBg }}; color:{{ L.accent }};"><span style="width:11px; height:11px; border-radius:50%; display:inline-block; background:{{ L.accent }};"></span>{{ L.statusLabel }}</div>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(7,1fr); align-items:stretch; min-width:0;">
+                  <sc-for list="{{ L.meters }}" as="m" hint-placeholder-count="7">
+                    <div style="padding:16px 16px 12px; border-right:1px solid #eef1f4; display:flex; flex-direction:column; justify-content:center; min-width:0;">
+                      <div style="font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#5b6d84; white-space:nowrap;">{{ m.label }}<span style="display:block; font-size:12.5px; font-weight:600; letter-spacing:.04em; color:#8a99ab; text-transform:none;">{{ m.unit }}</span></div>
+                      <div style="margin-top:8px; font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:32px; font-weight:800; line-height:1; white-space:nowrap; color:{{ m.valColor }};">{{ m.done }}<span style="display:block; font-size:16px; font-weight:600; color:#5b6d84; margin-top:4px;">/ {{ m.scope }} <span style="color:#b96f18;">{{ m.over }}</span></span></div>
+                      <div style="margin-top:9px; height:12px; background:#e1e8ed; border-radius:6px; overflow:hidden;"><div style="width:{{ m.barStr }}; height:100%; background:{{ m.barColor }};"></div></div>
+                      <div style="margin-top:5px; font-size:13px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:{{ m.barColor }};">{{ m.note }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(5,1fr); border-left:1px solid #e1e8ed; background:#f6f8f9;">
+                  <sc-for list="{{ L.dates }}" as="dt" hint-placeholder-count="5">
+                    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; padding:8px 4px; border-right:1px solid #e9edf0;">
+                      <div style="white-space:nowrap; font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#5b6d84;">{{ dt.k }}</div>
+                      <div style="font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:27px; font-weight:800; margin-top:6px; line-height:1; white-space:nowrap; color:#192a3d;">{{ dt.v }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#192a3d; border-radius:12px; height:112px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; color:#fff; flex:0 0 auto;">
+            <sc-for list="{{ elecTotals }}" as="t" hint-placeholder-count="6">
+              <div>
+                <div style="font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#b7c4d2;">{{ t.k }}</div>
+                <div style="font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:38px; font-weight:800; line-height:1; margin-top:4px; color:{{ t.color }};">{{ t.v }}<span style="font-size:18px; font-weight:600; color:#b7c4d2;"> {{ t.s }}</span></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
       <!-- ===== SCREEN 5: MANPOWER ON SITE ===== -->
       <sc-if value="{{ showManpower }}" hint-placeholder-val="{{ false }}">
         <div style="position:absolute; inset:0; z-index:1; padding:44px 64px; box-sizing:border-box; display:grid; grid-template-columns:520px minmax(0,1fr); gap:40px;">
@@ -247,7 +294,7 @@
     <!-- FOOTER -->
     <div style="height:44px; background:#ffffff; border-top:1px solid #e1e8ed; display:flex; align-items:center; justify-content:center; box-sizing:border-box; flex:0 0 auto; position:relative; z-index:2;">
       <div style="display:flex; align-items:center; gap:12px;">
-        <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="5">
+        <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="6">
           <span style="{{ dot.style }}"></span>
         </sc-for>
       </div>
@@ -344,15 +391,23 @@ class Component extends DCLogic {
     window.addEventListener("resize", this._onResize);
     this.fetchData();
     this._poll = setInterval(() => this.fetchData(), 300000);
-    this._rot  = setInterval(() => this.setState(s => ({ current: (s.current + 1) % 5 })), this.rotateMs);
+    this._rot  = null; this.scheduleRot();
     this._clk  = setInterval(() => this.forceUpdate(), 1000);
     // Auto-reload the whole page every 30 min so a remote screen picks up new
     // deployments (design/code changes) with no manual refresh.
     this._reload = setInterval(() => location.reload(), 1800000);
   }
+  // Per-slide dwell: 12 s for the five original screens, 18 s for the electrical-by-circuit screen (more figures to read).
+  slideCount = 6;
+  slideMs(i) { return i === 5 ? 18000 : this.rotateMs; }
+  scheduleRot() {
+    this._rot = setTimeout(() => {
+      this.setState(s => ({ current: (s.current + 1) % this.slideCount }), () => this.scheduleRot());
+    }, this.slideMs(this.state.current));
+  }
   componentWillUnmount() {
     window.removeEventListener("resize", this._onResize);
-    clearInterval(this._poll); clearInterval(this._rot); clearInterval(this._clk); clearInterval(this._reload);
+    clearInterval(this._poll); clearTimeout(this._rot); clearInterval(this._clk); clearInterval(this._reload);
   }
   applyScale() {
     const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
@@ -515,8 +570,48 @@ class Component extends DCLogic {
       manpower = { date: snap.date || "", total, crews, categories };
     }
 
+    // Electrical works by circuit — the dashboard's one electrical ledger (electricalByLine: lineas / alcance /
+    // mvPorLinea / proyecto / perLine) plus the per-circuit plan dates (planTracker.milestones, Sep 8 plan).
+    const elec = (function () {
+      const eb = D.electricalByLine; if (!eb || !eb.lineas || !eb.alcance) return null;
+      const L = eb.lineas, A = eb.alcance, M = eb.mvPorLinea || {}, T = eb.proyecto || {}, PL = eb.lineaPlan || {};
+      const ms = ((D.planTracker || {}).milestones || []);
+      const ids = ["L1", "L2", "L3", "L4"], code = { L1: "11A", L2: "11B", L3: "12A", L4: "12B" };
+      const rows = ids.map(id => {
+        const l = L[id] || {}, a = A[id] || {}, m = M[id] || {}, p = PL[id] || {};
+        const mil = ms.find(x => (x.circuit || "").indexOf("MV-" + code[id]) === 0) || {};
+        return {
+          id: code[id], mv: p.mv || ("MV-" + code[id]), zones: p.zonas || "", status: mil.status || "", slack: mil.slack || "",
+          lvFin: p.lvFin || mil.worksDue || "", mc: mil.mc || p.mc || "", pis: mil.pis || "", cod: mil.cod || "", sc: mil.sc || "",
+          meters: {
+            harness: [l.harness || 0, a.harness || 0], homerun: [l.homerun || 0, a.homerun || 0], trunk: [l.trunk || 0, a.trunk || 0],
+            boxes: [l.boxes || 0, a.boxes || 0], mv: [m.inv || 0, m.invScope || 0], lvInv: [l.connInv || 0, a.connInv || 0], lvBox: [l.connBox || 0, a.connBox || 0]
+          }
+        };
+      });
+      const u = L.unstated || {}, um = M.unstated || {};
+      const sum = k => rows.reduce((x, r) => x + r.meters[k][0], 0), sumS = k => rows.reduce((x, r) => x + r.meters[k][1], 0);
+      const mvAll = sum("mv") + (um.inv || 0) + ids.reduce((x, id) => x + ((M[id] || {}).jbTerm || 0), 0);
+      const mvAllScope = sumS("mv") + ids.reduce((x, id) => x + ((M[id] || {}).jbTermScope || 0), 0);
+      const cableDone = T.cable != null ? T.cable : (T.homerun || 0) + (T.trunk || 0);
+      const cableScope = (T.homerunScope || sumS("homerun")) + (T.trunkScope || sumS("trunk"));
+      const gates = (D.milestones || []);
+      const findGate = re => (gates.find(g => re.test(g.name || "")) || {});
+      const rte = (function () { const g = findGate(/Interconnection|Energiz/i); const m = String(g.forecast || "").match(/Ready to Energize\s+([A-Z][a-z]{2}\s+\d{1,2})/); return m ? m[1] : ""; })();
+      const scF = String(findGate(/Substantial/i).forecast || "").replace(/,?\s*\d{4}.*$/, "");
+      return {
+        asOfISO: eb.cableHasta || C.asOfISO || "", planSource: "Sep 8 plan",
+        rows,
+        totals: {
+          cable: [cableDone, cableScope], harness: [T.harness != null ? T.harness : sum("harness") + (u.harness || 0), eb.harnessScope || sumS("harness")],
+          boxes: [T.boxes != null ? T.boxes : sum("boxes") + (u.boxes || 0), sumS("boxes")],
+          mv: [mvAll, mvAllScope], mvUnlocated: um.inv || 0, readyToEnergize: rte, sc: scF
+        }
+      };
+    })();
+
     return {
-      reportDate: C.asOf || "", updated: C.asOf || "",
+      reportDate: C.asOf || "", updated: C.asOf || "", elec,
       project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
       kpis, safety: { daysLtiFree: D.safetyDaysLtiFree || 204 },
       today, todayLabel, vsTarget, trkPace, trkEarned, scopes, deadlines, manpower,
@@ -650,11 +745,46 @@ class Component extends DCLogic {
       color: CATC[c.key] || "#5b6d84"
     }));
 
-    const titles = ["Site Progress", "Daily Production — by Sub", "Production vs Target", "Milestones & Lookahead", "Manpower On Site"];
-    const dots = [0,1,2,3,4].map(i => ({
+    const titles = ["Site Progress", "Daily Production — by Sub", "Production vs Target", "Milestones & Lookahead", "Manpower On Site", "Electrical Works by Circuit"];
+    const dots = [0,1,2,3,4,5].map(i => ({
       style: { display:"inline-block", width: i===cur ? "44px" : "14px", height:"14px",
                borderRadius:"7px", background: i===cur ? "#338860" : "#d5dde5", transition:"all .4s ease" }
     }));
+
+    // ---- screen 6: electrical works by circuit
+    const E = d.elec || null;
+    const GREEN = "#338860", NAVY = "#192a3d", AMBER = "#f9b233", RED = "#d1433a";
+    const METER_KEYS = [["harness", "Harness", "assemblies"], ["homerun", "Homerun", "lf"], ["trunk", "Trunk", "lf"], ["boxes", "LBD boxes", "units"],
+                        ["mv", "MV term.", "inverter side"], ["lvInv", "LV conn.", "inverters"], ["lvBox", "LV conn.", "boxes"]];
+    const elecRows = E ? E.rows.map(r => {
+      const crit = /critical/i.test(r.status), risk = /risk|late/i.test(r.status);
+      const accent = crit ? RED : risk ? AMBER : GREEN;
+      return {
+        id: r.id, sub: [r.mv, r.zones ? ("Areas " + r.zones) : ""].filter(Boolean).join(" \u00b7 "),
+        accent, chipBg: crit ? "#fdf1ef" : risk ? "#fff7e6" : "#e9f5ee",
+        statusLabel: (r.status || "On plan") + (r.slack ? " \u00b7 slack " + r.slack : ""),
+        meters: METER_KEYS.map(k => {
+          const done = r.meters[k[0]][0], scope = r.meters[k[0]][1];
+          const p = scope ? Math.round(1000 * done / scope) / 10 : 0;
+          const col = p >= 100 ? GREEN : (p === 0 ? RED : NAVY);
+          return { label: k[1], unit: k[2], done: this.commas(done), scope: this.commas(scope),
+                   over: done > scope ? "(+" + this.commas(done - scope) + ")" : "",
+                   valColor: p >= 100 ? GREEN : NAVY, barStr: Math.min(100, p) + "%", barColor: col,
+                   note: p >= 100 ? "COMPLETE" : (p.toFixed(1) + "% \u00b7 " + this.commas(scope - done) + " left") };
+        }),
+        dates: [["LV works", r.lvFin], ["MC", r.mc], ["PIS", r.pis], ["COD", r.cod], ["SC", r.sc]].map(x => ({ k: x[0], v: x[1] || "\u2014" }))
+      };
+    }) : [];
+    const pctOf = c => (c && c[1]) ? (Math.round(1000 * c[0] / c[1]) / 10).toFixed(1) + "%" : "";
+    const elecTotals = E ? [
+      { k: "LV cable \u00b7 project", v: this.commas(E.totals.cable[0]), s: "/ " + this.commas(E.totals.cable[1]) + " lf \u00b7 " + pctOf(E.totals.cable), color: "#ffffff" },
+      { k: "Harness \u00b7 project", v: this.commas(E.totals.harness[0]), s: "/ " + this.commas(E.totals.harness[1]) + " \u00b7 " + pctOf(E.totals.harness), color: "#ffffff" },
+      { k: "LBD boxes", v: this.commas(E.totals.boxes[0]), s: "/ " + this.commas(E.totals.boxes[1]), color: "#ffffff" },
+      { k: "MV terminations", v: this.commas(E.totals.mv[0]), s: "/ " + this.commas(E.totals.mv[1]) + (E.totals.mvUnlocated ? " \u00b7 +" + E.totals.mvUnlocated + " not located" : ""), color: "#ffffff" },
+      { k: "Ready to Energize", v: E.totals.readyToEnergize || "\u2014", s: "", color: AMBER },
+      { k: "Substantial completion", v: E.totals.sc || "\u2014", s: "", color: AMBER }
+    ] : [];
+    const elecCaption = E ? ("EXECUTED THROUGH " + (function (iso) { const t = iso ? new Date(iso + "T12:00:00") : null; return t && !isNaN(t) ? t.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }).toUpperCase() : ""; })(E.asOfISO) + "  \u00b7  DATES FROM THE " + E.planSource.toUpperCase()) : "";
 
     const now = new Date();
     const timeStr = now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }).toUpperCase()
@@ -669,7 +799,8 @@ class Component extends DCLogic {
       projectMeta: [proj.capacity, proj.location].filter(Boolean).join(" · "),
       screenTitle: titles[cur],
       timeStr,
-      showOverview: cur === 0, showToday: cur === 1, showScope: cur === 2, showDeadlines: cur === 3, showManpower: cur === 4,
+      showOverview: cur === 0, showToday: cur === 1, showScope: cur === 2, showDeadlines: cur === 3, showManpower: cur === 4, showElectrical: cur === 5 && !!E,
+      elecRows, elecTotals, elecCaption,
       kpis, kpiCols: String(kpis.length), today, todayLabel: (d.todayLabel || "").toUpperCase(),
       todayCols: String(today.length <= 4 ? Math.max(1, today.length) : today.length <= 8 ? 4 : 5),
       todayCaption: (d.todayLabel ? ("LAST REPORTED DAY  \u00b7  " + d.todayLabel) : "") + "  \u00b7  " + today.length + " REPORTING",
