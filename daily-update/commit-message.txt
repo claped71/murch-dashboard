@@ -1,4 +1,0 @@
-Remove 'Plan activities due through September' table and its note from the plan tracker (Jose, Sep 22)
-
-Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01SN2sc98VaYiQgLDpXhdNR4

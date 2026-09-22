@@ -2322,14 +2322,6 @@ canvas { max-width: 100%; }
           </table>
         </div>
         <details class="card-breakdown"><summary>Breakdown</summary><p class="chart-context" id="planFcNote"></p></details>
-        <h3 style="margin:18px 0 6px">Plan activities due through September &mdash; status on the executed basis</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Circuit</th><th>Plan activity</th><th>Plan window</th><th>Status</th><th>Evidence (dashboard basis)</th></tr></thead>
-            <tbody id="planNearTerm"></tbody>
-          </table>
-        </div>
-        <p class="chart-context" id="planTrackerNote"></p>
       </section>
 
       <section class="section resource-section" id="field-resources">
@@ -3067,9 +3059,9 @@ canvas { max-width: 100%; }
     document.getElementById('planTrackerRule').innerHTML = '<strong>Source:</strong> ' + esc(P.source) + '<br><strong>How to read it:</strong> ' + esc(P.rule);
     document.getElementById('planMilestones').innerHTML = (P.milestones || []).map((r) => `
       <tr><td data-label="Circuit"><strong>${esc(r.circuit)}</strong></td><td data-label="MC">${esc(r.mc)}</td><td data-label="PIS">${esc(r.pis)}</td><td data-label="COD">${esc(r.cod)}</td><td data-label="SC">${esc(r.sc)}</td><td data-label="Float">${esc(r.slack)}</td><td data-label="Status">${badge(r.status)}</td><td data-label="Where it stands">${esc(r.note)}</td></tr>`).join('');
-    document.getElementById('planNearTerm').innerHTML = (P.nearTerm || []).map((r) => `
+    if (document.getElementById('planNearTerm')) document.getElementById('planNearTerm').innerHTML = (P.nearTerm || []).map((r) => `
       <tr><td data-label="Circuit"><strong>${esc(r.circuit)}</strong></td><td data-label="Plan activity">${esc(r.activity)}</td><td data-label="Plan window">${esc(r.start)} &rarr; <strong>${esc(r.finish)}</strong></td><td data-label="Status">${badge(r.status)} <small>${esc(r.label)}</small></td><td data-label="Evidence">${esc(r.evidence)}</td></tr>`).join('');
-    document.getElementById('planTrackerNote').innerHTML = esc(P.note);
+    if (document.getElementById('planTrackerNote')) document.getElementById('planTrackerNote').innerHTML = esc(P.note);
     (function () {
       var F = P.forecast, tb = document.getElementById('planForecast'); if (!F || !tb) return;
       var cell = function (p, lb) {
