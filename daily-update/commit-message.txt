@@ -1,0 +1,4 @@
+Tracker gate card: earned measure closed to 100% (2,486 row-equivalents) to match the completed ledger (cache 20260928c)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01LZ3zLUKnx35u1DaGRr88Et
