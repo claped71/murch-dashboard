@@ -1,0 +1,4 @@
+Activity status and milestone risk (Jose, Sep 28): Gantt/table rows closed to COMPLETE - trackers, piles, MV plowing, GameChange tracker material, inverter foundations; SET 78.6, modules 94.3, LV 59.4; plan-tracker activities closed (MV cable pulls, 11B homerun, 12A trackers, 12B Zone D piles + trackers); forecast-logic percentages, pile summary row, scope card, production-history minimums and Zone G / SET risk headlines re-stated (cache 20260928f)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01LZ3zLUKnx35u1DaGRr88Et
