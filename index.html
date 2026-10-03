@@ -1837,6 +1837,23 @@ canvas { max-width: 100%; }
   .hs-table tbody td { font-size: .82rem; text-align: left !important; padding: 5px 0; }
   #hse-brief table tbody tr { margin-bottom: 8px; padding: 8px 12px; }
 }
+/* ---- BRIEF LAYOUT (Jose, Oct 3, 2026): open prose is collapsed; new sections reuse the compact table rules ---- */
+.hero-day ul, .pulse-day ul { margin: 8px 0 0 18px; padding: 0; } .hero-day li, .pulse-day li { margin: 3px 0; }
+.brief-note { margin: 6px 0 10px; font-size: 12.5px; } .brief-note summary { cursor: pointer; font-weight: 700; color: var(--green); }
+.brief-note p, .brief-note .quality-note, .brief-note .chart-context, .brief-note .trend-key { margin: 6px 0 0; }
+.lede { font-size: .95rem; }
+.sub-table, .cx-table { width: 100%; min-width: 0; table-layout: fixed; }
+.sub-table td, .sub-table th, .cx-table td, .cx-table th { padding: 6px 8px; vertical-align: top; overflow-wrap: anywhere; font-size: 12.5px; }
+.sub-table .pl-num, .cx-table .pl-num { text-align: center; white-space: nowrap; }
+.sub-table details.assess summary, .cx-table details.assess summary { font-size: 12.5px; }
+.cx-tiles .mat-num b { font-size: 1.35rem; }
+.cx-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 1100px) { .cx-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+.cx-table tr.cx-tot td { background: rgba(31,58,44,.10); font-weight: 800; }
+.pill-ok, .pill-watch, .pill-bad { display:inline-block; padding:2px 8px; border-radius:10px; font-size:.72rem; font-weight:700; color:#fff; white-space:nowrap; }
+.sub-table .pill-ok, .sub-table .pill-watch, .sub-table .pill-bad, .cx-table .pl-num { white-space: normal; }
+.pill-ok { background:#0c6b48; } .pill-watch { background:#b96f18; } .pill-bad { background:#a12b2b; }
+.pend-table td { font-size: 12.5px; } .pend-table td small { color: var(--muted); }
 </style>
   </head>
   <body>
@@ -1854,21 +1871,29 @@ canvas { max-width: 100%; }
           <a href="#pulse">Pulse</a><a href="#material" style="color:#a12b2b;font-weight:800">PROCUREMENT</a>          <a href="#hse-brief">H&amp;S</a>
           <a href="#safety">Safety</a>
           <a href="#quality">QA/QC</a>
+          <a href="#submittals">Submittals</a>
           <a href="#progress">Progress</a>
           <a href="#civil">Civil</a>
           <a href="#electrical">LV Electrical</a>
           <a href="#schedule">Schedule</a>
           <a href="#plan-tracker">Plan</a>
+          <a href="#commissioning" style="color:#a12b2b;font-weight:800">COMMISSIONING</a>
           <a href="#field-resources">Resources</a>
           <a href="#risks">Risks</a>
         </div>
       </nav>
 
       <section class="hero-content">
-        <p class="eyebrow"><strong style="color:#a12b2b">Sep 8 case open &middot; 337 d</strong> | <strong style="color:#0c6b48">SERIES CONNECTION RUNNING &middot; 172 rows</strong> | Thru <strong>Mon Sep 28</strong> | Piles <strong>100%</strong> &middot; trackers <strong>100%</strong> &middot; modules <strong>95.0%</strong> &middot; LV <strong>61.4%</strong> &middot; MV <strong>90.5%</strong> &middot; SET <strong>78.6%</strong></p>
-        <details class="hero-day"><summary>Sep 26&ndash;28 in one paragraph &middot; open flags</summary><p><strong style="color:#0c6b48">Sep 28 (Monday) &mdash; MODULE SERIES CONNECTION STARTED.</strong> The scope withheld on 24 September pending safety documentation cleared and went to the field: <strong>172 tracker rows seriados in one day with a thirteen-person crew</strong> &mdash; 92 on the first circuit (PB-06, blocks C3 25, C5 10, C6 42, C7 15) and 80 on the second (PB-04, blocks E1 28, E2 44, E3 8). The daily report files all 172 under the second circuit; the circuit map places the PB-06 blocks on the first, so they are booked there. Self-perform filed a further 67 PV/PV at INV-3 whose unit is not stated &mdash; held out, not added. Cable added <strong>5,547 ft</strong>: 3,266 ft of homerun and 535 ft of trunk on Line 3 at PS-21 (blocks F6 and F10, taking that station to 12 of 19 boxes complete), 1,696 ft of trunk at INV-14 on Line 2 across fifteen boxes, and 50 ft of self-perform trunk at INV-3 &rarr; <strong>165,754 lf (61.4%)</strong>. Modules: <strong>1,222 in the last area</strong> with a thirteen-person crew &rarr; 162,964 of 171,470 (95.0%), that area now at 3,292. <strong>No piles and no racking</strong> &mdash; both scopes are closed. Also filed: 87 node controllers (41 on contract, 46 on time and materials), 114 rows story-lined, 22 boxes of modules recovered. Junction-box work ran on six boxes across three circuits but <strong>no new box was confirmed complete</strong>, so that count holds at 8 of 23. No trench, termination or earned-value tables were filed, so all three hold. <strong>Sep 27 (Sunday):</strong> not a working day. <strong>Open flags:</strong> series connection has no engineering take-off, so nothing can be measured against it &mdash; one day is not a rate, and the first circuit still needs series plus piercing connectors before its 2 October mechanical completion; the 67 PV/PV unit; Line 3 needs about 16,200 lf a day over three working days to hold its 1 October LV date, well above anything demonstrated; the junction-box side of the MV terminations is still 0 of 150; <strong style="color:#a12b2b">the 3.0 / 1.7 bearings for 60 trackers are still not procured</strong> &mdash; those rows are finished and parked in fixed defensive position until the bearings land.</p></details>
+        <p class="eyebrow"><strong style="color:#a12b2b">EHS board pending since Sep 17 &middot; 337 d held</strong> | Thru <strong>Fri Oct 2</strong> | Modules <strong>95.1%</strong> &middot; LV <strong>71.6%</strong> &middot; series <strong>737 rows</strong> &middot; MV <strong>92.4%</strong> &middot; SET <strong>89.6%</strong> &middot; project <strong>93.8%</strong></p>
+        <details class="hero-day"><summary>Sep 29 &ndash; Oct 2 in five lines &middot; open flags</summary><ul>
+          <li><strong>Cable +27,436 lf</strong> in four days (Oct 2: 10,245, best United day) &rarr; 193,190 lf (71.6%); Line 3 LV date passed with 30,275 lf open; Line 4 started (INV-15, filed under 11B, 12B by the map).</li>
+          <li><strong>Series connection 737 rows</strong> (+565) and 746 lines jumpered; harness +153 &rarr; 3,296. No take-off yet &rarr; no % earned.</li>
+          <li><strong>MV</strong> terminations 131 / 264 (JB side started 35 / 150), 13 / 23 junction boxes installed, 11 / 46 units closed. <strong>SET</strong> 89.6% EV; tests 0 / 74, 12 overdue; RTE moved to Oct 26.</li>
+          <li><strong>Modules +178</strong> &rarr; 163,142 (95.1%); Area D inventory exhausted; CM told the Owner 988 modules remain vs 8,328 open on the ledger &mdash; ruling.</li>
+          <li><strong>Flags:</strong> commissioning subcontract approvals pending (on site Oct 8); Owner rejected the cable-hanger product and questioned the A3 feeder terminations; MC permit list and tag lists owed; no EHS board since Sep 17.</li>
+        </ul></details>
         <h1>Murch Solar Project Control Dashboard</h1>
-        <p class="lede">102 MWp utility-scale PV project with turnkey EPC scope, GameChange single-axis trackers, 31,352 piles, 2,486 tracker rows, and 171,470 modules.</p>
+        <p class="lede">102 MWp &middot; 31,352 piles &middot; 2,486 tracker rows &middot; 171,470 modules &middot; 23 inverter stations &middot; 69/34.5 kV substation.</p>
         <div class="hero-actions" aria-label="Dashboard quick links">
           <a class="button primary" href="#safety">Safety KPIs</a>
           <a class="button primary" href="#progress">View progress</a>
@@ -1920,6 +1945,7 @@ canvas { max-width: 100%; }
         <div class="weather-week" id="weatherWeek" aria-label="Seven-day daytime forecast, no night shifts">
           <article><span>Loading</span><strong>--&deg; / --&deg;</strong><small>Fetching current forecast...</small></article>
         </div>
+        <details class="brief-note"><summary>Field recommendation for today</summary>
         <div class="weather-recommendation" id="weatherRecommendation">
           <p class="eyebrow" id="weatherRecoEyebrow">Today's field recommendation | Based on live conditions and the time this was opened</p>
           <div class="weather-reco-grid" id="weatherRecoGrid">
@@ -1927,16 +1953,16 @@ canvas { max-width: 100%; }
           </div>
         </div>
         <p class="weather-note" id="weatherNote"><strong>Weather acceptable.</strong> Document actual lost hours in the daily report — forecast conditions alone don't count as a recorded production impact.</p>
+        </details>
       </section>
 
       <section class="section" id="material">
         <div class="section-heading">
-          <p class="eyebrow" style="color:#a12b2b;font-weight:800">Procurement status | update Sep 22 &middot; material on site</p>
+          <p class="eyebrow" style="color:#a12b2b;font-weight:800">Procurement status | Oct 3 &middot; 9 open buys &middot; 6 received</p>
           <h2 id="matHead">Procurement status</h2>
-          <p class="quality-note" id="matLead"></p>
         </div>
         <div id="matGrid"></div>
-        <p class="chart-context" id="matFoot"></p>
+        <details class="brief-note"><summary>Breakdown &mdash; position and sources</summary><p class="quality-note" id="matLead"></p><p class="chart-context" id="matFoot"></p></details>
       </section>
 
       
@@ -1947,18 +1973,19 @@ canvas { max-width: 100%; }
           <p class="eyebrow" id="hsEyebrow"></p>
           <h2 id="hsHead"></h2>
         </div>
-        <h3 class="hs-h3" style="margin:14px 0 4px">Murch site register &mdash; through Sep 17</h3>
+        <h3 class="hs-h3" style="margin:14px 0 4px">Murch site register &mdash; HELD at Sep 17 (no board received since)</h3>
         <div class="hs-nums">
-          <div class="hs-num"><b>337</b><small>days without a lost-time injury &middot; conditional on the Sep 8 case</small></div>
+          <div class="hs-num"><b>337</b><small>days without a lost-time injury &middot; held, Sep 17 register</small></div>
           <div class="hs-num"><b>0 &middot; 0 &middot; 0</b><small>recordable &middot; lost-time &middot; fatality, project to date</small></div>
-          <div class="hs-num watch"><b>1 open</b><small>Sep 8 first aid (serious) &middot; OSHA classification pending</small></div>
-          <div class="hs-num"><b>203,863</b><small>man-hours &middot; zero weather-lost hours</small></div>
+          <div class="hs-num watch"><b>1 open</b><small>Sep 8 first aid &middot; classification pending</small></div>
+          <div class="hs-num watch"><b>16 d</b><small>without an EHS headcount board &middot; requested Sep 28</small></div>
         </div>
         <details class="hs-checks" style="margin:0 0 14px"><summary>Sep 8 case &mdash; what is open</summary><div>
           <p><strong>Event 20260908_ACC_001, 13:15, substation:</strong> a worker hand-digging a trench (second day on site, in the sun) fainted, fell, vomited and was shaking; EMS gave IV fluids and took him to hospital. Cause not confirmed.</p>
           <p><strong>Open:</strong> the EHS manager is waiting on the subcontractor&rsquo;s report to decide whether the case is recordable. If it becomes lost-time, the counter stops at 328 days.</p>
           <p><strong>Basis:</strong> site EHS register, Sep 17 (203,862.6 h). The EHS safety-management pack was issued Sep 8.</p>
         </div></details>
+        <details class="brief-note"><summary>Breakdown &mdash; corporate rates (August close), checks and sources</summary>
         <h3 class="hs-h3" style="margin:6px 0 4px">Corporate rates &mdash; August close</h3>
         <div class="hs-nums" id="hsCards"></div>
         <div class="hs-grid">
@@ -1975,6 +2002,7 @@ canvas { max-width: 100%; }
         <p class="hs-chips" id="hsAct"></p>
         <details class="hs-checks"><summary>Site register, checks on the pack and the Sep 8 case</summary><div id="hsMore"></div></details>
         <p class="hs-src" id="hsSrc"></p>
+        </details>
       </section>
 
       <section class="section safety-summary" id="safety">
@@ -1983,59 +2011,19 @@ canvas { max-width: 100%; }
           <h2>Still pending</h2>
         </div>
         <div class="table-wrap">
-          <table>
+          <table class="pl-table pend-table">
+            <colgroup><col style="width:34%"><col style="width:40%"><col style="width:26%"></colgroup>
             <thead><tr><th>Item</th><th>Status</th><th>Owner</th></tr></thead>
             <tbody>
-              <tr>
-                <td><strong>August KPI pack</strong></td>
-                <td><strong>RECEIVED Sep 3</strong> &mdash; under review; the audited basis moves to August once reconciled.</td>
-                <td>EHS Site Manager</td>
-              </tr>
-              <tr>
-                <td><strong>Establishment OSHA 300 log and 300A summary</strong></td>
-                <td>Not maintained for the establishment; no 300A posted or filed. AHJ is <strong>MIOSHA</strong>, not federal &mdash; the position needs formalising in writing against the Michigan requirement.</td>
-                <td>EHS Site Manager / Corporate QHSE</td>
-              </tr>
-              <tr>
-                <td><strong>Subcontractor OSHA 300 logs</strong></td>
-                <td>Not held on site for the active subcontractors.</td>
-                <td>EHS Site Manager</td>
-              </tr>
-              <tr class="quality-alert">
-                <td><strong>Safety observation rounds with project management</strong></td>
-                <td><strong>ZERO recorded in every month of 2026.</strong> This is the one leading indicator that is entirely absent.</td>
-                <td>Project management / EHS</td>
-              </tr>
-              <tr>
-                <td><strong>Safety client advisor visit</strong></td>
-                <td>Ran at one per month March&ndash;June; <strong>none in July</strong>. Reinstate the cadence.</td>
-                <td>EHS Site Manager / Owner</td>
-              </tr>
-              <tr class="quality-alert">
-                <td><strong>August corporate H&amp;S rates &mdash; severity vs frequency</strong></td>
-                <td>The Sep 12 pack publishes a severity rate of <strong>4.98</strong> against a 0.30 limit for Green-Sol USA while reporting zero lost-time injuries and a 0.00 frequency rate in every month of 2026. The lost workdays behind the severity figure and the injury that set the 252-day counter have to be reconciled before either number is quoted.</td>
-                <td>Country EHS Manager USA / EHS Site Manager</td>
-              </tr>
-              <tr>
-                <td><strong>July source reconciliation</strong></td>
-                <td>The dashboard workbook and the monthly report disagree on two lines &mdash; first aids (1 vs 2) and near misses (0 vs 1). One figure needs to stand.</td>
-                <td>EHS Site Manager</td>
-              </tr>
-              <tr class="quality-alert">
-                <td><strong>Incident 20260908_ACC_001 &mdash; substation, Sep 8 13:15</strong></td>
-                <td><strong>OPEN &mdash; day 2.</strong> Worker collapsed while hand-digging a trench (second day under the sun); EMS, IV fluids, ambulance to hospital. Cause not confirmed. The EHS register advanced the counter (329) with the case as first aid. <strong>Still owed: OSHA classification (first aid vs recordable vs lost-time), hospital outcome and return-to-work status, investigation report, heat-stress controls on the SE front, and the position for today&rsquo;s Owner meeting.</strong></td>
-                <td>EHS Site Manager / Construction Manager / AB Power</td>
-              </tr>
-              <tr>
-                <td><strong>Incident 20260807_ACC_001</strong></td>
-                <td><strong>CLOSED Sep 1</strong> &mdash; investigation concluded; tube-handling corrective actions remain in the daily briefings.</td>
-                <td>EHS / Helena Suarez</td>
-              </tr>
-              <tr>
-                <td><strong>Wetland frac-out environmental records</strong></td>
-                <td>Events of <strong>15 July, 19 August and 27 August</strong>. Two records still to be completed and filed.</td>
-                <td>EHS / Environmental</td>
-              </tr>
+              <tr class="quality-alert"><td><strong>Daily EHS headcount board</strong></td><td><span class="pill-bad">NOT RECEIVED</span> <small>since Sep 17 &middot; chased Sep 28</small></td><td>Country EHS Manager</td></tr>
+              <tr class="quality-alert"><td><strong>Incident 20260908_ACC_001 (substation)</strong></td><td><span class="pill-watch">OPEN</span> <small>first aid &middot; classification pending the subcontractor report</small></td><td>EHS Site Manager / AB Power</td></tr>
+              <tr class="quality-alert"><td><strong>Safety observation rounds with PM</strong></td><td><span class="pill-bad">ZERO</span> <small>every month of 2026</small></td><td>Project management / EHS</td></tr>
+              <tr class="quality-alert"><td><strong>August rates &mdash; severity 4.98 vs 0.30 limit</strong></td><td><span class="pill-watch">RECONCILE</span> <small>zero LTIs reported all year</small></td><td>Country EHS Manager</td></tr>
+              <tr><td><strong>OSHA 300 / 300A (establishment + subs)</strong></td><td><span class="pill-watch">NOT HELD</span> <small>MIOSHA position to formalise</small></td><td>EHS / Corporate QHSE</td></tr>
+              <tr><td><strong>Safety client advisor visit</strong></td><td><span class="pill-watch">NONE SINCE JUNE</span></td><td>EHS Site Manager / Owner</td></tr>
+              <tr><td><strong>July source reconciliation</strong></td><td><span class="pill-watch">OPEN</span> <small>first aids 1 vs 2 &middot; near misses 0 vs 1</small></td><td>EHS Site Manager</td></tr>
+              <tr><td><strong>Wetland frac-out records</strong></td><td><span class="pill-watch">2 OF 3 TO FILE</span> <small>Jul 15 &middot; Aug 19 &middot; Aug 27</small></td><td>EHS / Environmental</td></tr>
+              <tr><td><strong>Incident 20260807_ACC_001</strong></td><td><span class="pill-ok">CLOSED Sep 1</span></td><td>EHS</td></tr>
             </tbody>
           </table>
         </div>
@@ -2086,7 +2074,7 @@ canvas { max-width: 100%; }
             </tbody>
           </table>
         </div>
-        <p class="chart-context" style="margin-top:6px"><small><strong>Class 1</strong> = adjustment (bearing / saddle bracket) &middot; <strong>Class 2</strong> = repair. <strong>* QA to confirm:</strong> Zone A lists 19 fixed against 16 affected and Zone D 19 fixed with no affected rows &mdash; 22 fixes may sit in the wrong zone, so zone “Open” for A and D is not stated; the total (390 &minus; 53 = 337) holds. Row counts are the QA sheet’s (Zone E 674 vs 656 on the ledger).</small></p>
+        <details class="brief-note"><summary>Notes &mdash; classes and QA checks</summary>        <p class="chart-context" style="margin-top:6px"><small><strong>Class 1</strong> = adjustment (bearing / saddle bracket) &middot; <strong>Class 2</strong> = repair. <strong>* QA to confirm:</strong> Zone A lists 19 fixed against 16 affected and Zone D 19 fixed with no affected rows &mdash; 22 fixes may sit in the wrong zone, so zone “Open” for A and D is not stated; the total (390 &minus; 53 = 337) holds. Row counts are the QA sheet’s (Zone E 674 vs 656 on the ledger).</small></p></details>
         <style>
           .qa-table th small { display:block; font-weight:600; text-transform:none; letter-spacing:0; }
           @media (max-width: 760px) {
@@ -2133,13 +2121,28 @@ canvas { max-width: 100%; }
             </tbody>
           </table>
           </div>
-          <p class="chart-context"><small>Built / installed = current ledger (through Sep 19); approvals = QA cut Sep 15. <strong>* QA to confirm:</strong> approvals above rows built in B (220 vs 214) and F (573 vs 562); the QA sheet still uses Zone E at 674 rows (ledger 656 after the Sep 12 punch-list) and has broken module % cells (F 347%, #DIV/0!).</small></p>
+          <details class="brief-note"><summary>Basis</summary>          <p class="chart-context"><small>Built / installed = current ledger (through Sep 19); approvals = QA cut Sep 15. <strong>* QA to confirm:</strong> approvals above rows built in B (220 vs 214) and F (573 vs 562); the QA sheet still uses Zone E at 674 rows (ledger 656 after the Sep 12 punch-list) and has broken module % cells (F 347%, #DIV/0!).</small></p></details>
         </details>
       </section>
 
       
 
       
+
+      <section class="section" id="submittals">
+        <div class="section-heading compact">
+          <p class="eyebrow" id="subEyebrow">Document submittals | Oct 3</p>
+          <h2>Transmittals, Owner requests and what is owed</h2>
+        </div>
+        <div class="mat-nums cx-tiles" id="subNums"></div>
+        <div class="table-wrap">
+          <table class="sub-table">
+            <colgroup><col style="width:24%"><col style="width:8%"><col style="width:11%"><col style="width:18%"><col style="width:39%"></colgroup>
+            <thead><tr><th>Document / request</th><th class="pl-num">Date</th><th>Direction</th><th>Status</th><th>Next step</th></tr></thead>
+            <tbody id="subBody"></tbody>
+          </table>
+        </div>
+      </section>
 
       <section class="section" id="civil">
         <div class="section-heading">
@@ -2161,19 +2164,6 @@ canvas { max-width: 100%; }
               <tbody id="civilBody"></tbody>
             </table>
           </div>
-          <aside class="insight-panel civil-insight">
-            <p class="eyebrow">Civil schedule read</p>
-            <h3>Civil is closing out &mdash; three of five lines finished, and the fence is held by a client signature.</h3>
-            <p>Aug 5 civil control sheet: <strong>three of the five civil lines are now closed</strong> &mdash; earthworks cut/fill 100% (Apr 1 &ndash; Jul 17, Lounsbury), <strong>PS foundations 100% (Jun 8 &ndash; Jul 24, United &mdash; all 23 inverter station foundations)</strong> and <strong>internal roads 100% (May 26 &ndash; Aug 4, Topland)</strong>, four days past their Jul 31 target. Civil excluding the substation now reads <strong>98.0%</strong>, up from 87.2%. Two lines remain open and neither is a production problem: sediment basins at 95% (Lounsbury; Area G and F tail, planned end Jul 24 already passed) and the G-SET perimeter fence at 95% with <strong>no end date</strong> &mdash; Areas A&ndash;F are complete and the last 5% is waiting on the drain-commissioning signature from Heelstone. Roads closing matters operationally: Zone D piling opened on Aug 5 and material has to reach that front.</p>
-            <dl>
-              <div><dt>Earthworks cut/fill</dt><dd>100%</dd></div>
-              <div><dt>Sediment basins</dt><dd>95%</dd></div>
-              <div><dt>Internal roads</dt><dd>100% &mdash; closed Aug 4</dd></div>
-              <div><dt>G-SET fence</dt><dd>95%</dd></div>
-              <div><dt>PS foundations</dt><dd>100% &mdash; closed Jul 24</dd></div>
-              <div><dt>Report cut-off</dt><dd>Aug 5 civil control sheet</dd></div>
-            </dl>
-          </aside>
         </div>
       </section>
 
@@ -2233,10 +2223,8 @@ canvas { max-width: 100%; }
           <p class="eyebrow">Electrical installation | Control by MV line &mdash; German&rsquo;s framework, adopted Aug 13</p>
           <h2>Four MV lines, each with its own date &mdash; the daily question is cable hung, harnesses, boxes, and the gap per line</h2>
         </div>
-        <p class="quality-note"><strong>The model:</strong> the electrical scope is controlled <strong>line by line, not as one pool</strong>. Each MV line carries its zones, its inverters and its own completion date, cascaded back from Mechanical Completion &mdash; <strong>Line 1 (11A) closes its LV works on Sep 17 and the lines follow at one-week steps to Oct 10</strong> on the Sr. Controller&rsquo;s Sep 8 plan. The daily report states, per line: feet of cable hung, harnesses installed, boxes mounted, and the gap against what the date requires. <a href="electrical-control.html?v=20260910b" style="display:inline-block;margin-top:8px;padding:8px 14px;background:#0c5f43;color:#fff;border-radius:8px;font-weight:800;text-decoration:none">Open the full interactive study &rarr;</a></p>
-
         <h3 style="margin:14px 0 6px" id="ebSummaryTitle">Electrical installation summary &mdash; progress vs scope, line by line</h3>
-        <p class="quality-note" id="ebSummaryNote"></p>
+        <details class="brief-note"><summary>Basis &mdash; how the table is built</summary><p class="quality-note" id="ebSummaryNote"></p></details>
         <div class="table-wrap">
           <table class="eb-summary">
             <thead>
@@ -2257,7 +2245,7 @@ canvas { max-width: 100%; }
             <tbody id="ebRates"></tbody>
           </table>
         </div>
-        <p class="quality-note" id="ebRateNote"></p>
+        <details class="brief-note"><summary>How to read the rates</summary><p class="quality-note" id="ebRateNote"></p></details>
 
         <h3 style="margin:18px 0 6px">Cable pull &mdash; the last ten reported days against the rate Juan de la Chica&rsquo;s plan needs</h3>
         <div class="table-wrap">
@@ -2268,9 +2256,8 @@ canvas { max-width: 100%; }
             <tbody id="ebDaily"></tbody>
           </table>
         </div>
-        <p class="quality-note" id="ebDailyNote"></p>
+        <details class="brief-note"><summary>Notes on the last ten days</summary><p class="quality-note" id="ebDailyNote"></p></details>
 
-<p class="quality-note"><strong>Daily report rule (German, Aug 12):</strong> every day states feet of LV cable hung, harnesses installed and boxes mounted, per line, against the requirement &mdash; nothing else. Harness and box daily counts join this table as they are reported; harness installation is material-gated until the 3-string harness shipments land. Production assumptions and the crew scenario &mdash; what gang enters, when, and at what rate per activity &mdash; live in the <a href="electrical-control.html?v=20260910b"><strong>full interactive study</strong></a>, which recalculates dates as the numbers move.</p>
       </section>
 
       <section class="section" id="schedule">
@@ -2282,14 +2269,14 @@ canvas { max-width: 100%; }
           <label class="filter">
             <span>Show</span>
             <select id="scheduleFilter" aria-label="Filter schedule activities">
+              <option value="critical" selected>Critical / at risk</option>
               <option value="all">All activities</option>
-              <option value="critical">Critical / at risk</option>
               <option value="active">Active / mobilizing</option>
               <option value="planned">Planned</option>
             </select>
           </label>
         </div>
-        <p class="schedule-logic"><strong>Forecast logic:</strong> Bar position and length represent each activity's full dated calendar window on a common May 6-November 15 scale; one-day activities are shown as milestone markers. <strong>Each bar is filled to its actual % complete</strong> &mdash; using the <strong>earned measure</strong> where one exists (trackers 100%, inverter stations 50.0%, LV/DC 50.0%) and the completed-unit measure elsewhere (piles 100%, modules 95.0%), so no activity reads 0% while physical work stands on site, and the dark tick inside the bar marks the <strong>plan-to-date %</strong> for today's date (linear from the activity's start position to 100% at its finish). Fill short of the tick means the activity is behind its own plan; the point variance is printed under each activity name and in the table. Activities with pending or dependency-based dates remain in the table but are excluded from the bar chart. Activities may overlap by released block, but project-level finishes must follow the physical installation sequence.</p>
+        <details class="brief-note"><summary>Forecast logic</summary>        <p class="schedule-logic"><strong>Forecast logic:</strong> Bar position and length represent each activity's full dated calendar window on a common May 6-November 15 scale; one-day activities are shown as milestone markers. <strong>Each bar is filled to its actual % complete</strong> &mdash; using the <strong>earned measure</strong> where one exists (trackers 100%, inverter stations 50.0%, LV/DC 50.0%) and the completed-unit measure elsewhere (piles 100%, modules 95.0%), so no activity reads 0% while physical work stands on site, and the dark tick inside the bar marks the <strong>plan-to-date %</strong> for today's date (linear from the activity's start position to 100% at its finish). Fill short of the tick means the activity is behind its own plan; the point variance is printed under each activity name and in the table. Activities with pending or dependency-based dates remain in the table but are excluded from the bar chart. Activities may overlap by released block, but project-level finishes must follow the physical installation sequence.</p></details>
         <div class="timeline" id="timeline"></div>
         <div class="table-wrap">
           <table>
@@ -2310,10 +2297,10 @@ canvas { max-width: 100%; }
 
       <section class="section" id="plan-tracker">
         <div class="section-heading compact">
-          <p class="eyebrow">End-of-project plan | weekly update Sep 15 (data date Sep 14) &mdash; plan dates held &middot; internal forecast SC Dec 12</p>
+          <p class="eyebrow">End-of-project plan | revision Oct 1 &mdash; SET MC Oct 5 &middot; RTE Oct 26 &middot; SC Nov 30 (7/7) &middot; internal forecast Sep 15: SC Dec 12</p>
           <h2 id="planTrackerHead"></h2>
         </div>
-        <p class="quality-note" id="planTrackerRule"></p>
+        <details class="brief-note"><summary>Source and how to read it</summary><p class="quality-note" id="planTrackerRule"></p></details>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Circuit</th><th>MC</th><th>PIS</th><th>COD</th><th>SC</th><th>Float</th><th>Status</th><th>Where it stands</th></tr></thead>
@@ -2331,14 +2318,44 @@ canvas { max-width: 100%; }
         <details class="card-breakdown"><summary>Breakdown</summary><p class="chart-context" id="planFcNote"></p></details>
       </section>
 
+      <section class="section" id="commissioning">
+        <div class="section-heading compact">
+          <p class="eyebrow" id="cxEyebrow" style="color:#a12b2b;font-weight:800">Commissioning | Oct 3</p>
+          <h2>Commissioning progress, resources and readiness</h2>
+        </div>
+        <div class="mat-nums cx-tiles" id="cxNums"></div>
+        <div class="cx-grid">
+          <div>
+            <h3 style="margin:6px 0 6px">Substation tests by equipment group</h3>
+            <div class="table-wrap"><table class="cx-table"><colgroup><col style="width:52%"><col style="width:14%"><col style="width:14%"><col style="width:20%"></colgroup><thead><tr><th>Group</th><th class="pl-num">Tests</th><th class="pl-num">Passed</th><th class="pl-num">Planned</th></tr></thead><tbody id="cxSet"></tbody></table></div>
+          </div>
+          <div>
+            <h3 style="margin:6px 0 6px">PV field commissioning windows</h3>
+            <div class="table-wrap"><table class="cx-table"><colgroup><col style="width:22%"><col style="width:22%"><col style="width:18%"><col style="width:18%"><col style="width:20%"></colgroup><thead><tr><th>Period</th><th>Polarity / IR</th><th>I-V</th><th>Grounds</th><th>Tests</th></tr></thead><tbody id="cxWin"></tbody></table></div>
+          </div>
+        </div>
+        <h3 style="margin:16px 0 6px">Circuit readiness for MC tests</h3>
+        <div class="table-wrap"><table class="cx-table"><colgroup><col style="width:9%"><col style="width:13%"><col style="width:10%"><col style="width:26%"><col style="width:11%"><col style="width:11%"><col style="width:9%"><col style="width:11%"></colgroup><thead><tr><th>Circuit</th><th>MC plan</th><th class="pl-num">Series rows</th><th>LV</th><th class="pl-num">MV units</th><th class="pl-num">JB terms</th><th class="pl-num">SCADA</th><th>Status</th></tr></thead><tbody id="cxReady"></tbody></table></div>
+        <div class="cx-grid" style="margin-top:14px">
+          <div>
+            <h3 style="margin:6px 0 6px">Resources &mdash; PV commissioning crew</h3>
+            <div class="table-wrap"><table class="cx-table"><colgroup><col style="width:38%"><col style="width:14%"><col style="width:48%"></colgroup><thead><tr><th>Crew</th><th class="pl-num">People</th><th>Equipment</th></tr></thead><tbody id="cxRes"></tbody></table></div>
+          </div>
+          <div>
+            <h3 style="margin:6px 0 6px">Milestones &mdash; plan vs now</h3>
+            <div class="table-wrap"><table class="cx-table"><colgroup><col style="width:40%"><col style="width:17%"><col style="width:20%"><col style="width:23%"></colgroup><thead><tr><th>Milestone</th><th class="pl-num">Plan</th><th class="pl-num">Now</th><th>Note</th></tr></thead><tbody id="cxMil"></tbody></table></div>
+          </div>
+        </div>
+        <details class="brief-note" id="cxMore"><summary>Breakdown &mdash; subcontract, test basis, blockers, contract provisions</summary><div id="cxMoreBody"></div></details>
+      </section>
+
       <section class="section resource-section" id="field-resources">
         <div class="section-heading compact">
-          <p class="eyebrow">Field snapshot | <strong>Thu Sep 17, 2026 &mdash; 202 on site</strong></p>
+          <p class="eyebrow">Field snapshot | <strong>Fri Oct 2 &mdash; crews stated: GreenSol 26 &middot; ITS 7</strong> &middot; EHS board pending since Sep 17 (202)</p>
           <h2>Subcontractor resources reported on site</h2>
         </div>
         <div class="chart-panel">
-          <p class="chart-context"><strong>The Sep 8 crew picture comes from the EHS headcount board</strong>: United 80, ECCS 62, GreenSol 34, AB Power 14, Brumont 7, Topland 6, Hi Tech 4, extras 3, ECS 2, Roveri 1, SWCA 1 &mdash; 214 in total, back to full strength after Saturday&rsquo;s 146. The board does not split ECCS between mechanical and electrical, so the trade mix allocates it to the racking line. <strong>Wednesday Sep 9 ran 190 on the daily-report crew basis (ECCS 64, United 83, AB Power 21, ITS 8, GreenSol 10, Topland 3, Brumont 1): 41 tracker rows in Zone G, 297 harness lines, 12 LBD terminations, zero modules, zero cable footage, zero MV terminations. Tuesday Sep 8 ran 181 and produced 3,666 modules, 152 harness lines and 5,533 ft of cable.</strong> Survey and crane remain absent.</p>
-          <div class="trend-card" style="margin-bottom:14px"><h3 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 2px">Manpower story — total on site by report date</h3><div id="manpowerStory"></div><p class="trend-key">Green area = total headcount per complete report (partial-report days excluded) &middot; right bar = the LATEST board&rsquo;s trade mix (date shown above the bar)</p></div>
+          <div class="trend-card" style="margin-bottom:14px"><h3 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 2px">Manpower story — total on site by report date</h3><div id="manpowerStory"></div><details class="brief-note"><summary>Legend</summary><p class="trend-key">Green area = total headcount per complete report (partial-report days excluded) &middot; right bar = the latest board&rsquo;s trade mix.</p></details></div>
           <canvas id="resourceChart" width="1120" height="300" aria-label="Current subcontractor field resources by headcount"></canvas>
         </div>
         <div class="resource-lower">
@@ -2353,11 +2370,11 @@ canvas { max-width: 100%; }
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td data-label="Subcontractor"><strong>ECCS</strong></td><td data-label="Machines / equipment">TWO fronts: 53 people tracker installation (Zone E) + 13 people LV electrical (plus 3 administrative).</td><td data-label="Latest reported output">Aug 1: <strong>40 tracker rows closed at 100%</strong> in Zone E, a second 40-row day; no open-row snapshot given. LV (12 people): <strong>478 lf of DC cable pulled in Area A1</strong> on LBDs 1-4 of INV-1, the first measured footage on the project; 1,083 lf messenger wire in A2 E-W; hangers in A1/A3; <strong>+7 LBDs &rarr; 110/419</strong>.</td></tr>
-                  <tr><td data-label="Subcontractor"><strong>United</strong></td><td data-label="Machines / equipment">55 people; 6 ramming rigs — split Zone G piling / Zone F racking.</td><td data-label="Latest reported output"><strong>Aug 1: NO REPORT FILED AT ALL</strong> — neither the Zone G pile front nor the 68 open Zone F racking rows. Fifth working day with no Zone F row completed. Jul 31: 337 piles all Zone G (zone now 2,421 / 72.1%) plus 7 inverter piles in Zone D.</td></tr>
-                  <tr><td data-label="Subcontractor"><strong>Latnovva</strong></td><td data-label="Machines / equipment">No crew reported Aug 1; 11 people and 1 ramming machine on Jul 31.</td><td data-label="Latest reported output"><strong>Aug 1: NO REPORT FILED.</strong> Fourth consecutive day without a pile quantity. Zone B remains 36 piles from close — under one shift — and the Workforce racking crew has now started assembling trackers in that same zone.</td></tr>
-                  <tr><td data-label="Subcontractor"><strong>Workforce</strong></td><td data-label="Machines / equipment">Aug 1: TWO crews — 29 on modules and <strong>19 on racking</strong> (up from 14). Brumont 19 on modules.</td><td data-label="Latest reported output">Aug 1: <strong>780 modules</strong> Zone E, a fifth of Friday's 2,036; Brumont added <strong>1,000</strong> with 19 people for a combined 1,780. Racking: no row closed, but the crew <strong>opened Zone B</strong> with 11 rows at step 2 of 5 and moved the 20 <strong>Zone EW</strong> rows into <strong>torque and QA</strong> — step 4 complete, the first movement there since Jul 28. Manuel confirmed the EW rows cannot yet be counted finished.</td></tr>
-                  <tr><td data-label="Subcontractor"><strong>ITS</strong></td><td data-label="Machines / equipment">TWO HDD drills + MV plow; <strong>crew cut 13 &rarr; 6</strong>.</td><td data-label="Latest reported output"><strong>Mobilised to BORE-09: the pipe left jammed there must be recovered before the run takes cable</strong> &mdash; the new physical problem on the drilling tail after the wetland conduit win of Aug 30. <strong>Plowing untouched: 38/46 (121,632 ft), a TWENTY-FOURTH working day; fence boundary week of Sep 7 stands, Hurricane booked for the week of Sep 21.</strong> DC ducts 10/10. Terminations (AB Power) 18/264. <strong>Luis: the MV cable reaches site BEFORE ITS demobilises.</strong></td></tr>
+                  <tr><td data-label="Company"><strong>GreenSol</strong></td><td data-label="Crew">26 (Oct 2)</td><td data-label="Latest reported output">Terminations INV-13/14 &middot; 129 heat shrinks &middot; 214 grounds &middot; 3 MV junction boxes installed</td></tr>
+                  <tr><td data-label="Company"><strong>United (electrical)</strong></td><td data-label="Crew">not stated</td><td data-label="Latest reported output">Oct 2: 8,650 ft cable INV-20 &middot; 110 racks series &middot; 441 jumpers &middot; PS-22 megger passed</td></tr>
+                  <tr><td data-label="Company"><strong>ECCS</strong></td><td data-label="Crew">16 in field (Oct 1, rain)</td><td data-label="Latest reported output">Oct 2: 1,595 ft INV-15 &middot; 146 rows series &middot; 115 jumpers</td></tr>
+                  <tr><td data-label="Company"><strong>United (mechanical)</strong></td><td data-label="Crew">6 (Oct 1)</td><td data-label="Latest reported output">5 trackers punch &middot; 10 lines story-lined &middot; Area D material exhausted</td></tr>
+                  <tr><td data-label="Company"><strong>ITS / Topland</strong></td><td data-label="Crew">7 / n.s.</td><td data-label="Latest reported output">Bore-11 EW completed &middot; 4 junction-box bases</td></tr>
                 </tbody>
               </table>
             </div>
@@ -2382,10 +2399,11 @@ canvas { max-width: 100%; }
     </main>
 
     <footer>
-      <p>Sources: Live NWS weather for Lawrence, Michigan; <strong>official daily production report of Monday Sep 28 (CORRECTED version: ECCS 11B trunk INV-14 and 172 tracker rows series-connected; United electrical 12A at PS-21; United mechanical modules, story-lining, node controllers; GreenSol self-perform SCADA, junction boxes, terminations and repairs)</strong>; <strong>official daily production report of Friday Sep 25 (ECCS 11B home run PB-14/INV-14; United electrical 12A; United mechanical; GreenSol self-perform; Topland wetland bases; terminations by line 96/264)</strong>; <strong>official daily production report of Thursday Sep 24 (ECCS 11B; United electrical 12A; United mechanical; GreenSol self-perform; trenches by line 81/181; terminations 90/264)</strong>; <strong>MV Termination Production Control workbook, cut of Sep 25 (terminations 96 of 264, inverter-side 11A 24 / 11B 30 / 12A 30 / 12B 12; junction-box side 0 of 150; SCADA boxes 13 of 23; trenches 81 of 181 closed and compacted, 113 open; pull-in 23 of 46; first 4 of 46 units fully closed)</strong>; <strong>SE Construction Tracker dated Sep 26 (earned value 78.6% on a new six-discipline model: civil 95.6, mechanical 61.2, electrical 79.6, bus and connectors 74.0, grounding 92.6, SCADA 44.4; 165 of 257 items closed)</strong>; <strong>ITS plowing / boring tracker, report date Sep 25 (HDD bores 20 of 20 at 10,823.6 ft; plowing 42 of 46 segments at 143,898 ft; DC ducts 10 of 14 at 1,851 ft)</strong>; <strong>site WhatsApp group through Saturday Sep 26 11:55 (interconnection poles delivered on site, erection planned Monday Sep 28; one station transformer due Monday, one received, two late but promised next week)</strong>; <strong>the EHS manager&rsquo;s Sep 24 conditional acceptance of the module series-connection package (field authorization on HOLD pending the Safety Action Plan revision, JSA personnel designations including a Second Verifier, the controlled training revision and the work permit)</strong>; <strong>the electrical engineer&rsquo;s Sep 23 messenger-wire take-off (1,529 support sets pending in B, D, F and G; 129 U-bolts, 135 angle pieces, 199 M14 nuts, 233 flat washers and 147 lock washers short; about 25,600 ft of messenger wire still to buy)</strong>; <strong>the electrical safety procedures submitted to the Owner on Sep 23 (lockout/tagout Rev. 01, energized work control, energized area access control Rev. 04, switching and energization draft, arc flash study) &mdash; receipt acknowledged, comments outstanding</strong>; <strong>the QA/QC manager&rsquo;s Sep 25 mechanical-completion documentation update (factory test records almost fully delivered, meters and arresters outstanding; field test records not yet being loaded; the control workbook is shared with the Owner and reviewed every two days)</strong>; <strong>daily production report of Wednesday Sep 23 (ECCS 11B, United electrical 12A, United mechanical, GreenSol self-perform, MVJB register)</strong>; <strong>official daily production report of Tuesday Sep 22 (ECCS 11B, United electrical 12A, United mechanical, AB Power, Topland)</strong>; <strong>Construction Manager&rsquo;s field note of Sep 22 (Line 1 LV terminations)</strong>; <strong>consolidated electrical / civil daily report of Monday Sep 21 (self-perform, United, ECCS electrical, ITS, civil board, Topland)</strong>; <strong>Jose, Sep 22: four SET poles due Sep 28&ndash;29</strong>; <strong>by-line daily report of Friday Sep 18 (corrected: Brumont 580 modules; eastern contractor mechanical figures withdrawn)</strong>; <strong>Jose, Sep 21: no production Saturday Sep 19 (rain)</strong>; <strong>QA tracker deflection register, update Sep 21 (390 affected, 53 fixed)</strong>; <strong>substation photo of Sep 21 (MV bus cable installation)</strong>; <strong>by-line daily production reports of Wednesday Sep 16 (corrected ECCS location) and Thursday Sep 17 (rain day)</strong>; <strong>Sep 16 mechanical production posted by logistics (United 1,092 modules / 205 piles; Brumont 780 modules in E; ECCS 25 dampers)</strong>; <strong>EHS headcount board of Sep 17 (202; 337 days; 203,862.6 h)</strong>; <strong>ITS plowing/boring tracker, report date Sep 21 (41 of 46 segments)</strong>; <strong>SE Construction Tracker received Sep 21 (66.3%)</strong>; <strong>site photos of Sep 19 (MV bus assembly; golden-row harness rings)</strong>; <strong>Jose Romero, Sep 16: Line 1 LV box terminations 264 of 372</strong>; the <strong>by-line daily production report of Tuesday Sep 15 (537 modules, 205 piles; harness United 44 + ECCS 40 pending; homerun 5,122 ft; trunk 467 ft; MV terminations 87/264; trenches 61/181; SET 63.34%)</strong>; <strong>Daniel Morilla&rsquo;s QA release sheets of Sep 15 (trackers GS 2,068 / client 886; modules GS 53,060 / client 15,434)</strong>; the <strong>by-line daily production report of Monday Sep 14 (harness ECCS 52 / United 62; self-perform 3,482 ft homerun at INV-12; Topland 2 MV junction boxes; 4 LBD connected on Line 1)</strong>; the <strong>procurement purchase list of Sep 15 (LV and solar cable, 35,000 nuts, 100 + 75 tensioners, LV terminals)</strong>; <strong>site photos of the substation deliveries, Sep 15</strong>; the <strong>Monday Sep 14 production filed by the project director (eastern contractor 950 modules — area not stated — and 180 piles in Zone D, with crews of 9 / 8 / 6 TEK bolts / 6 logistics / 4 repairs and QC / 7 assembly sequencing; western module crew 589 in Area E with 5 people; racking contractor no production — 13 dampers raised and torquing only)</strong>; the <strong>MV Termination Production Control workbook of Sep 15 (terminations 81 of 264, inverter-side 11A 24 / 11B 30 / 12A 21 / 12B 6; junction boxes 0 of 150; SCADA boxes 13 of 23; trenches 49 of 181 closed and compacted, 111 open; pull-in 18 of 46)</strong>; the <strong>ITS plowing / boring tracker of Sep 15 (HDD boring COMPLETE 20 of 20 at 10,823.6 ft; plowing 38 of 46 segments, 153,282 ft; DC ducts 10 of 14, 1,851 ft)</strong>; the <strong>SE Construction Tracker of Sep 15 (63.1% — civil 97.6, structural 67.6, electrical 42.4)</strong>; Bethany Valdez’s <strong>Sep 15 headcount board (216 on site; 335 days; 199,425.6 h; zero weather hours lost yesterday)</strong>; the <strong>daily production report of Saturday Sep 12 (the PM&rsquo;s new by-line format: ECCS 50 harness at blocks E4/E6, INV-05 15 of 16 circuits, LBD 107/206 re-test pass, LBD 309 fail; GreenSol self-perform LBD 4/5/6 terminated at INV-11; ITS bore 9 fusion + reels; United no work; control table: harness 2,473, homerun 67,783, MV terminations 72/114 by line, MVJB 0/150, SCADA boxes 10/23, SET 63.07%; 40 on site)</strong>; the <strong>daily production report of Friday Sep 11 (COMPLETO: ECCS 51 harness at PB-05, 5 homeruns 1,960 ft on LBD 316/317/414/415/418, 580 hook extensions, 9 load panels / 9 boxes / 11 remediation lines / 17 dampers, LBD 309 megger fail; GreenSol self-perform 1,340 ft DC, 8 circuits landed, 450 hangers, 180 ft ground, 1,515 ft messenger, 79 supports at INV-12; United 87 harness, 5,300 ft messenger at PS21/PS22, 2,426 modules D + G; Brumont 9 trackers / 702 modules E19/E20; MV terminations 66, trenches 88/46/46, pull-in 15; SET 62.89%; harness control 2,323, homerun DC 60,625, LBD connections 52, tracker repairs 8; Chemik material shortage for United; electrical permit / licence with HITECH; fiber fusions to start; 147 on the total line, 137 itemised)</strong>; the <strong>Sep 11 field counts by circuit (site superintendent)</strong>; the <strong>daily executive production report of Wednesday Sep 9 (FINAL: ECCS 41 rows to 100% in Zone G, 59 harness, 3 LBD boxes terminated, 9 cables tensioned, 86 brackets; United 35 D rows at 50%, 201 harness, 139 supports, no modules; GreenSol self-perform 37 harness; AB Power 0 terminations with 4 on the front; ITS 8 on cleanup/maintenance; trenches closed 44 of 181; harness control 2,010 all-in; 190 on site)</strong>, Bethany Valdez&rsquo;s Sep 9 headcount (219; 329 days; 189,206.1 h; zero weather hours lost Sep 8), the site WhatsApp group through Sep 9 16:34 (INV-2 trench closed and INV-3 closing; Line 1 inverters complete on MV; the three electrical ledger flags raised Sep 8), the Sep 9 fence thread (fence contractor returns Sep 21); the <strong>daily executive production report of Tuesday Sep 8 (FINAL v3: United 3,120 modules in B + 27 rows at 50% in D, 44 harness, 280 supports, 1,611 ft messenger; Brumont 546 modules in E; ECCS 10 refusal piles, dampers G/E, 5,043 ft cable, 40 harness, 7 LBD, 65 brackets; GreenSol self-perform 68 harness + 490 ft BLA; AB Power SET 61.44%; MV pull-in 13 of 46, trenches closed 38 of 181, terminations 45; 181 on site)</strong> and the field photographs of the INV-1 trench backfill (Sep 8, 20:24); the <strong>daily executive production report of Monday Sep 7 (corrected self-performance version, confirmed by the project director on Sep 8: United 3,607 modules in Zone G, 42 harness lines, 202 supports and 1,069 ft of messenger wire; Brumont 597 modules; GreenSol self-perform INV-11 closed, 7 LBD boxes, INV-1 circuit 19, 890 ft of trunk DC; self-perform harness confirmed at 87 = 45 Aug 31 + 29 Sep 1 + 13 Sep 5; the racking contractor and ITS off site; no AB Power production received)</strong>, the Friday Sep 4 (v5 HARNESS) and Saturday Sep 5 (v3 self-performance version) reports; the <strong>Sep 8 immediate incident notification 20260908_ACC_001</strong> (EHS Site Manager); the Sep 8 fiber-optic thread (splicing crew from the week of Sep 14); the Sep 8 completion proposal for the Area EW / Area D leftovers (3 EW racks, 67 + 136 node controllers &mdash; quantities only); the <strong>Sep 8 DELIVERY AND MECHANICAL workbook re-cut</strong> (trackers 2,182 with Zone G 177; modules 148,529 &mdash; neither adopted over the field basis) and its <strong>&ldquo;Resumen&rdquo; per-line sheet</strong> (scope and required daily rates per MV line); the <strong>Sep 8 MV Termination Production Control</strong> (45 of 264; trenches 84 open, 36 closed and compacted of 181; pull-in 7 of 46; 11A inverter-side 24 of 24, boxes 0 of 30); the <strong>Sep 8 SE Construction Tracker</strong> (60.1% &mdash; civil 97.6, structural 65.5, electrical 37.4); the <strong>Sep 8 ITS plowing/boring tracker</strong> (no work filed); Bethany Valdez&rsquo;s Sep 8 headcount (214; 328 days; 186,351.6 h; 601.8 weather hours lost Sep 4) and her Sep 8 safety-management pack; <strong>Juan de la Chica&rsquo;s Sep 8 updated project schedule (Acceleration schedule, commissioning detailed, revised after the Owner&rsquo;s Week 34 comments)</strong>; the CM&rsquo;s Sep 8 follow-up to ECCS on Area A; Manuel Ramirez&rsquo;s Sep 8 note to ECCS on Zones G and E; United Services&rsquo; Sep 7 letter on Area G readiness; the QA/QC manager&rsquo;s Sep 7&ndash;8 deflection measurement; the Sep 7 LV cable sufficiency thread; and the site WhatsApp group through Sep 8 10:15. <strong>Open divergences carried, not resolved: the Zone G tracker basis (published 256, workbook 177), the workbook&rsquo;s Zone F panel cell (42,042 vs the published 33,367), the plowing cut (published 38, ITS 37), the harness basis (executive report 1,474/1,561 vs dashboard ledger 812 + 87 self-perform) and the deflection count (QA/QC 256 vs the Sep 4 field revision 395) &mdash; all pending rulings.</strong></p>
+      <p>Sources: daily production reports Sep 29, Sep 30, Oct 1 and Oct 2 (PM); MV Termination Production Control cut Oct 1; SE construction tracker Oct 3 (incl. commissioning tab); schedule revision Oct 1 (planning); commissioning resource plan Oct 3; transmittal Q-0024 (Oct 2); Owner e-mails Sep 28 &ndash; Oct 3 (permits, punch list, modules, site visit); EHS register held at Sep 17. Executed through Fri Oct 2; cut Sat Oct 3, 2026.</p>
+      <details class="brief-note"><summary>Earlier source history</summary>      <p>Sources (through Sep 29): Live NWS weather for Lawrence, Michigan; <strong>official daily production report of Monday Sep 28 (CORRECTED version: ECCS 11B trunk INV-14 and 172 tracker rows series-connected; United electrical 12A at PS-21; United mechanical modules, story-lining, node controllers; GreenSol self-perform SCADA, junction boxes, terminations and repairs)</strong>; <strong>official daily production report of Friday Sep 25 (ECCS 11B home run PB-14/INV-14; United electrical 12A; United mechanical; GreenSol self-perform; Topland wetland bases; terminations by line 96/264)</strong>; <strong>official daily production report of Thursday Sep 24 (ECCS 11B; United electrical 12A; United mechanical; GreenSol self-perform; trenches by line 81/181; terminations 90/264)</strong>; <strong>MV Termination Production Control workbook, cut of Sep 25 (terminations 96 of 264, inverter-side 11A 24 / 11B 30 / 12A 30 / 12B 12; junction-box side 0 of 150; SCADA boxes 13 of 23; trenches 81 of 181 closed and compacted, 113 open; pull-in 23 of 46; first 4 of 46 units fully closed)</strong>; <strong>SE Construction Tracker dated Sep 26 (earned value 78.6% on a new six-discipline model: civil 95.6, mechanical 61.2, electrical 79.6, bus and connectors 74.0, grounding 92.6, SCADA 44.4; 165 of 257 items closed)</strong>; <strong>ITS plowing / boring tracker, report date Sep 25 (HDD bores 20 of 20 at 10,823.6 ft; plowing 42 of 46 segments at 143,898 ft; DC ducts 10 of 14 at 1,851 ft)</strong>; <strong>site WhatsApp group through Saturday Sep 26 11:55 (interconnection poles delivered on site, erection planned Monday Sep 28; one station transformer due Monday, one received, two late but promised next week)</strong>; <strong>the EHS manager&rsquo;s Sep 24 conditional acceptance of the module series-connection package (field authorization on HOLD pending the Safety Action Plan revision, JSA personnel designations including a Second Verifier, the controlled training revision and the work permit)</strong>; <strong>the electrical engineer&rsquo;s Sep 23 messenger-wire take-off (1,529 support sets pending in B, D, F and G; 129 U-bolts, 135 angle pieces, 199 M14 nuts, 233 flat washers and 147 lock washers short; about 25,600 ft of messenger wire still to buy)</strong>; <strong>the electrical safety procedures submitted to the Owner on Sep 23 (lockout/tagout Rev. 01, energized work control, energized area access control Rev. 04, switching and energization draft, arc flash study) &mdash; receipt acknowledged, comments outstanding</strong>; <strong>the QA/QC manager&rsquo;s Sep 25 mechanical-completion documentation update (factory test records almost fully delivered, meters and arresters outstanding; field test records not yet being loaded; the control workbook is shared with the Owner and reviewed every two days)</strong>; <strong>daily production report of Wednesday Sep 23 (ECCS 11B, United electrical 12A, United mechanical, GreenSol self-perform, MVJB register)</strong>; <strong>official daily production report of Tuesday Sep 22 (ECCS 11B, United electrical 12A, United mechanical, AB Power, Topland)</strong>; <strong>Construction Manager&rsquo;s field note of Sep 22 (Line 1 LV terminations)</strong>; <strong>consolidated electrical / civil daily report of Monday Sep 21 (self-perform, United, ECCS electrical, ITS, civil board, Topland)</strong>; <strong>Jose, Sep 22: four SET poles due Sep 28&ndash;29</strong>; <strong>by-line daily report of Friday Sep 18 (corrected: Brumont 580 modules; eastern contractor mechanical figures withdrawn)</strong>; <strong>Jose, Sep 21: no production Saturday Sep 19 (rain)</strong>; <strong>QA tracker deflection register, update Sep 21 (390 affected, 53 fixed)</strong>; <strong>substation photo of Sep 21 (MV bus cable installation)</strong>; <strong>by-line daily production reports of Wednesday Sep 16 (corrected ECCS location) and Thursday Sep 17 (rain day)</strong>; <strong>Sep 16 mechanical production posted by logistics (United 1,092 modules / 205 piles; Brumont 780 modules in E; ECCS 25 dampers)</strong>; <strong>EHS headcount board of Sep 17 (202; 337 days; 203,862.6 h)</strong>; <strong>ITS plowing/boring tracker, report date Sep 21 (41 of 46 segments)</strong>; <strong>SE Construction Tracker received Sep 21 (66.3%)</strong>; <strong>site photos of Sep 19 (MV bus assembly; golden-row harness rings)</strong>; <strong>Jose Romero, Sep 16: Line 1 LV box terminations 264 of 372</strong>; the <strong>by-line daily production report of Tuesday Sep 15 (537 modules, 205 piles; harness United 44 + ECCS 40 pending; homerun 5,122 ft; trunk 467 ft; MV terminations 87/264; trenches 61/181; SET 63.34%)</strong>; <strong>Daniel Morilla&rsquo;s QA release sheets of Sep 15 (trackers GS 2,068 / client 886; modules GS 53,060 / client 15,434)</strong>; the <strong>by-line daily production report of Monday Sep 14 (harness ECCS 52 / United 62; self-perform 3,482 ft homerun at INV-12; Topland 2 MV junction boxes; 4 LBD connected on Line 1)</strong>; the <strong>procurement purchase list of Sep 15 (LV and solar cable, 35,000 nuts, 100 + 75 tensioners, LV terminals)</strong>; <strong>site photos of the substation deliveries, Sep 15</strong>; the <strong>Monday Sep 14 production filed by the project director (eastern contractor 950 modules — area not stated — and 180 piles in Zone D, with crews of 9 / 8 / 6 TEK bolts / 6 logistics / 4 repairs and QC / 7 assembly sequencing; western module crew 589 in Area E with 5 people; racking contractor no production — 13 dampers raised and torquing only)</strong>; the <strong>MV Termination Production Control workbook of Sep 15 (terminations 81 of 264, inverter-side 11A 24 / 11B 30 / 12A 21 / 12B 6; junction boxes 0 of 150; SCADA boxes 13 of 23; trenches 49 of 181 closed and compacted, 111 open; pull-in 18 of 46)</strong>; the <strong>ITS plowing / boring tracker of Sep 15 (HDD boring COMPLETE 20 of 20 at 10,823.6 ft; plowing 38 of 46 segments, 153,282 ft; DC ducts 10 of 14, 1,851 ft)</strong>; the <strong>SE Construction Tracker of Sep 15 (63.1% — civil 97.6, structural 67.6, electrical 42.4)</strong>; Bethany Valdez’s <strong>Sep 15 headcount board (216 on site; 335 days; 199,425.6 h; zero weather hours lost yesterday)</strong>; the <strong>daily production report of Saturday Sep 12 (the PM&rsquo;s new by-line format: ECCS 50 harness at blocks E4/E6, INV-05 15 of 16 circuits, LBD 107/206 re-test pass, LBD 309 fail; GreenSol self-perform LBD 4/5/6 terminated at INV-11; ITS bore 9 fusion + reels; United no work; control table: harness 2,473, homerun 67,783, MV terminations 72/114 by line, MVJB 0/150, SCADA boxes 10/23, SET 63.07%; 40 on site)</strong>; the <strong>daily production report of Friday Sep 11 (COMPLETO: ECCS 51 harness at PB-05, 5 homeruns 1,960 ft on LBD 316/317/414/415/418, 580 hook extensions, 9 load panels / 9 boxes / 11 remediation lines / 17 dampers, LBD 309 megger fail; GreenSol self-perform 1,340 ft DC, 8 circuits landed, 450 hangers, 180 ft ground, 1,515 ft messenger, 79 supports at INV-12; United 87 harness, 5,300 ft messenger at PS21/PS22, 2,426 modules D + G; Brumont 9 trackers / 702 modules E19/E20; MV terminations 66, trenches 88/46/46, pull-in 15; SET 62.89%; harness control 2,323, homerun DC 60,625, LBD connections 52, tracker repairs 8; Chemik material shortage for United; electrical permit / licence with HITECH; fiber fusions to start; 147 on the total line, 137 itemised)</strong>; the <strong>Sep 11 field counts by circuit (site superintendent)</strong>; the <strong>daily executive production report of Wednesday Sep 9 (FINAL: ECCS 41 rows to 100% in Zone G, 59 harness, 3 LBD boxes terminated, 9 cables tensioned, 86 brackets; United 35 D rows at 50%, 201 harness, 139 supports, no modules; GreenSol self-perform 37 harness; AB Power 0 terminations with 4 on the front; ITS 8 on cleanup/maintenance; trenches closed 44 of 181; harness control 2,010 all-in; 190 on site)</strong>, Bethany Valdez&rsquo;s Sep 9 headcount (219; 329 days; 189,206.1 h; zero weather hours lost Sep 8), the site WhatsApp group through Sep 9 16:34 (INV-2 trench closed and INV-3 closing; Line 1 inverters complete on MV; the three electrical ledger flags raised Sep 8), the Sep 9 fence thread (fence contractor returns Sep 21); the <strong>daily executive production report of Tuesday Sep 8 (FINAL v3: United 3,120 modules in B + 27 rows at 50% in D, 44 harness, 280 supports, 1,611 ft messenger; Brumont 546 modules in E; ECCS 10 refusal piles, dampers G/E, 5,043 ft cable, 40 harness, 7 LBD, 65 brackets; GreenSol self-perform 68 harness + 490 ft BLA; AB Power SET 61.44%; MV pull-in 13 of 46, trenches closed 38 of 181, terminations 45; 181 on site)</strong> and the field photographs of the INV-1 trench backfill (Sep 8, 20:24); the <strong>daily executive production report of Monday Sep 7 (corrected self-performance version, confirmed by the project director on Sep 8: United 3,607 modules in Zone G, 42 harness lines, 202 supports and 1,069 ft of messenger wire; Brumont 597 modules; GreenSol self-perform INV-11 closed, 7 LBD boxes, INV-1 circuit 19, 890 ft of trunk DC; self-perform harness confirmed at 87 = 45 Aug 31 + 29 Sep 1 + 13 Sep 5; the racking contractor and ITS off site; no AB Power production received)</strong>, the Friday Sep 4 (v5 HARNESS) and Saturday Sep 5 (v3 self-performance version) reports; the <strong>Sep 8 immediate incident notification 20260908_ACC_001</strong> (EHS Site Manager); the Sep 8 fiber-optic thread (splicing crew from the week of Sep 14); the Sep 8 completion proposal for the Area EW / Area D leftovers (3 EW racks, 67 + 136 node controllers &mdash; quantities only); the <strong>Sep 8 DELIVERY AND MECHANICAL workbook re-cut</strong> (trackers 2,182 with Zone G 177; modules 148,529 &mdash; neither adopted over the field basis) and its <strong>&ldquo;Resumen&rdquo; per-line sheet</strong> (scope and required daily rates per MV line); the <strong>Sep 8 MV Termination Production Control</strong> (45 of 264; trenches 84 open, 36 closed and compacted of 181; pull-in 7 of 46; 11A inverter-side 24 of 24, boxes 0 of 30); the <strong>Sep 8 SE Construction Tracker</strong> (60.1% &mdash; civil 97.6, structural 65.5, electrical 37.4); the <strong>Sep 8 ITS plowing/boring tracker</strong> (no work filed); Bethany Valdez&rsquo;s Sep 8 headcount (214; 328 days; 186,351.6 h; 601.8 weather hours lost Sep 4) and her Sep 8 safety-management pack; <strong>Juan de la Chica&rsquo;s Sep 8 updated project schedule (Acceleration schedule, commissioning detailed, revised after the Owner&rsquo;s Week 34 comments)</strong>; the CM&rsquo;s Sep 8 follow-up to ECCS on Area A; Manuel Ramirez&rsquo;s Sep 8 note to ECCS on Zones G and E; United Services&rsquo; Sep 7 letter on Area G readiness; the QA/QC manager&rsquo;s Sep 7&ndash;8 deflection measurement; the Sep 7 LV cable sufficiency thread; and the site WhatsApp group through Sep 8 10:15. <strong>Open divergences carried, not resolved: the Zone G tracker basis (published 256, workbook 177), the workbook&rsquo;s Zone F panel cell (42,042 vs the published 33,367), the plowing cut (published 38, ITS 37), the harness basis (executive report 1,474/1,561 vs dashboard ledger 812 + 87 self-perform) and the deflection count (QA/QC 256 vs the Sep 4 field revision 395) &mdash; all pending rulings.</strong></p></details>
     </footer>
 
-    <script src="data.js?v=20260929a"></script>
+    <script src="data.js?v=20261003a"></script>
     <script>
 'use strict';
 
@@ -2437,7 +2455,7 @@ canvas { max-width: 100%; }
       <article class="scope-card">
         <span class="label">${item.title}</span>
         <strong class="metric">${item.metric}</strong>
-        <p>${item.note}</p>
+        <details class="card-breakdown"><summary>Breakdown</summary><p>${item.note}</p></details>
       </article>
     `).join('');
   }
@@ -2447,7 +2465,7 @@ canvas { max-width: 100%; }
       <article class="scope-card">
         <span class="label">${item.title}</span>
         <strong class="metric">${item.metric}</strong>
-        <p>${item.note}</p>
+        <details class="card-breakdown"><summary>Breakdown</summary><p>${item.note}</p></details>
       </article>
     `).join('');
     document.getElementById('civilBody').innerHTML = data.civilActivities.map((row) => `
@@ -3009,7 +3027,7 @@ canvas { max-width: 100%; }
         <td data-label="Window">${row.start} to ${row.end}</td>
         <td data-label="Progress vs plan">${cell}</td>
         <td data-label="Status">${badge(row.status)}</td>
-        <td data-label="Key note">${row.note}</td>
+        <td data-label="Key note"><details class="card-breakdown"><summary>Note</summary><p>${row.note}</p></details></td>
       </tr>
     `;}).join('');
   }
@@ -3062,10 +3080,10 @@ canvas { max-width: 100%; }
     if (!P || !host) return;
     const esc = (v) => String(v == null ? '' : v);
     const num = (v) => (typeof v === 'number' ? v.toLocaleString('en-US') : esc(v));
-    document.getElementById('planTrackerHead').innerHTML = esc(P.title) + ' &mdash; 11A MC Oct 2 &middot; 11B Oct 10 &middot; 12A Oct 17 &middot; 12B Oct 24 &middot; Ready to Energize Oct 14 &middot; SC Nov 30 (zero float)';
+    document.getElementById('planTrackerHead').innerHTML = esc(P.title) + ' &mdash; 11A MC Oct 2 (passed) &middot; 11B Oct 10 &middot; 12A Oct 17 &middot; 12B Oct 24 &middot; RTE Oct 26 (rev Oct 1) &middot; SC Nov 30 (zero float)';
     document.getElementById('planTrackerRule').innerHTML = '<strong>Source:</strong> ' + esc(P.source) + '<br><strong>How to read it:</strong> ' + esc(P.rule);
     document.getElementById('planMilestones').innerHTML = (P.milestones || []).map((r) => `
-      <tr><td data-label="Circuit"><strong>${esc(r.circuit)}</strong></td><td data-label="MC">${esc(r.mc)}</td><td data-label="PIS">${esc(r.pis)}</td><td data-label="COD">${esc(r.cod)}</td><td data-label="SC">${esc(r.sc)}</td><td data-label="Float">${esc(r.slack)}</td><td data-label="Status">${badge(r.status)}</td><td data-label="Where it stands">${esc(r.note)}</td></tr>`).join('');
+      <tr><td data-label="Circuit"><strong>${esc(r.circuit)}</strong></td><td data-label="MC">${esc(r.mc)}</td><td data-label="PIS">${esc(r.pis)}</td><td data-label="COD">${esc(r.cod)}</td><td data-label="SC">${esc(r.sc)}</td><td data-label="Float">${esc(r.slack)}</td><td data-label="Status">${badge(r.status)}</td><td data-label="Where it stands"><details class="card-breakdown"><summary>Breakdown</summary><p>${esc(r.note)}</p></details></td></tr>`).join('');
     if (document.getElementById('planNearTerm')) document.getElementById('planNearTerm').innerHTML = (P.nearTerm || []).map((r) => `
       <tr><td data-label="Circuit"><strong>${esc(r.circuit)}</strong></td><td data-label="Plan activity">${esc(r.activity)}</td><td data-label="Plan window">${esc(r.start)} &rarr; <strong>${esc(r.finish)}</strong></td><td data-label="Status">${badge(r.status)} <small>${esc(r.label)}</small></td><td data-label="Evidence">${esc(r.evidence)}</td></tr>`).join('');
     if (document.getElementById('planTrackerNote')) document.getElementById('planTrackerNote').innerHTML = esc(P.note);
@@ -3188,7 +3206,7 @@ canvas { max-width: 100%; }
     // and diario ends with Sep 3), so anything that means "the last five days" MUST sort
     // first - slicing the raw array gave a 28/day harness rate against a real 81/day.
     var byDate = function (arr) {
-      var mon = { ago: 8, sep: 9 };
+      var mon = { ago: 8, sep: 9, oct: 10, nov: 11 };
       return (arr || []).slice().sort(function (a, b) {
         var pa = String(a.d).split(' '), pb = String(b.d).split(' ');
         return ((mon[pa[1]] || 0) * 100 + (+pa[0] || 0)) - ((mon[pb[1]] || 0) * 100 + (+pb[0] || 0));
@@ -3337,6 +3355,67 @@ canvas { max-width: 100%; }
   renderMilestones();
   try { renderPlanTracker(); } catch (e) { if (window.console) console.error('MURCH: planTracker render failed', e); }
   try { renderElectricalByLine(); } catch (e) { if (window.console) console.error('MURCH: electricalByLine render failed', e); }
+  // ---- DOCUMENT SUBMITTALS + COMMISSIONING (added Oct 3, 2026 at Jose's request). Numbers + pill + short label in the open; prose behind toggles. ----
+  function renderSubmittals() {
+    var S = data.submittals, host = document.getElementById('submittals'); if (!S || !host) { if (host) host.style.display = 'none'; return; }
+    var pill = function (b, t) { return '<span class="pill-' + (b === 'ok' ? 'ok' : b === 'bad' ? 'bad' : 'watch') + '">' + t + '</span>'; };
+    var items = S.items || [];
+    var owed = items.filter(function (i) { return i.badge === 'bad'; }).length, watch = items.filter(function (i) { return i.badge === 'watch'; }).length, ok = items.filter(function (i) { return i.badge === 'ok'; }).length;
+    document.getElementById('subEyebrow').textContent = 'Document submittals | ' + S.asOf + ' \u00b7 ' + items.length + ' items \u00b7 ' + owed + ' owed';
+    document.getElementById('subNums').innerHTML =
+      '<div class="mat-num"><b>' + (S.counts && S.counts.sent != null ? S.counts.sent : ok) + '</b><small>documents sent on the latest transmittal</small></div>' +
+      '<div class="mat-num"><b style="color:#a12b2b">' + owed + '</b><small>owed to the Owner</small></div>' +
+      '<div class="mat-num"><b style="color:#b96f18">' + watch + '</b><small>awaiting Owner comments / internal action</small></div>' +
+      '<div class="mat-num"><b>' + ok + '</b><small>closed / received</small></div>';
+    var strip = function (t) { return String(t || '').replace(/<[^>]+>/g, ''); };
+    document.getElementById('subBody').innerHTML = items.map(function (i) {
+      var w = strip(i.what); var sh = w.length > 54 ? w.slice(0, 52).replace(/[ ,;]+$/, '') + '\u2026' : w;
+      return '<tr><td data-label="Document"><strong>' + i.ref + '</strong><details class="assess"><summary title="Click to read">' + sh + '</summary><div class="assess-full">' + i.what + '</div></details></td>' +
+        '<td class="pl-num" data-label="Date">' + i.date + '</td><td data-label="Direction">' + i.dir + '</td>' +
+        '<td data-label="Status">' + pill(i.badge, i.status) + '</td><td data-label="Next"><small>' + i.next + '</small></td></tr>';
+    }).join('');
+  }
+  function renderCommissioning() {
+    var C = data.commissioning, host = document.getElementById('commissioning'); if (!C || !host) { if (host) host.style.display = 'none'; return; }
+    var T = C.set || {}, V = C.pv || {};
+    var daysTo = function (iso) { var d = Date.parse(iso), n = Date.parse((data.control || {}).asOfISO || ''); return isNaN(d) || isNaN(n) ? '' : Math.round((d - n) / 864e5); };
+    document.getElementById('cxEyebrow').textContent = 'Commissioning | ' + C.asOf + ' \u00b7 SET tests ' + T.passed + ' / ' + T.tests + ' \u00b7 RTE Oct 26 \u00b7 PV field commissioning from Oct 4';
+    document.getElementById('cxNums').innerHTML =
+      '<div class="mat-num"><b style="color:#a12b2b">' + T.passed + ' / ' + T.tests + '</b><small>SET tests passed \u00b7 ' + T.overdue + ' overdue</small></div>' +
+      '<div class="mat-num"><b>' + T.deadline + '</b><small>test deadline \u00b7 ' + daysTo('2026-10-15') + ' days</small></div>' +
+      '<div class="mat-num"><b>' + T.energization.split(' (')[0] + '</b><small>energization (tracker) \u00b7 RTE Oct 26 (rev Oct 1)</small></div>' +
+      '<div class="mat-num"><b>' + T.openItems + '</b><small>SET construction items open \u00b7 ' + T.overdueItems + ' overdue</small></div>' +
+      '<div class="mat-num"><b>' + T.ev.toFixed(1) + '%</b><small>SET earned value</small></div>' +
+      '<div class="mat-num"><b>' + (V.tests ? V.tests.ivPlanned.toLocaleString() + ' / ' + V.tests.ivRequired.toLocaleString() : '\u2014') + '</b><small>I-V tests planned now / required</small></div>' +
+      '<div class="mat-num"><b>' + (V.resources || []).reduce(function (a, r) { return a + (r.people || 0); }, 0) + '</b><small>PV commissioning staff from Oct 4</small></div>';
+    var tot = (T.groups || []).reduce(function (a, g) { return a + g.tests; }, 0), totP = (T.groups || []).reduce(function (a, g) { return a + g.passed; }, 0);
+    document.getElementById('cxSet').innerHTML = (T.groups || []).map(function (g) {
+      return '<tr><td>' + g.tag + '</td><td class="pl-num">' + g.tests + '</td><td class="pl-num"' + (g.passed ? '' : ' style="color:#a12b2b;font-weight:700"') + '>' + g.passed + '</td><td class="pl-num"><small>' + g.planned + '</small></td></tr>';
+    }).join('') + '<tr class="cx-tot"><td>TOTAL</td><td class="pl-num">' + tot + '</td><td class="pl-num">' + totP + '</td><td class="pl-num"><small>' + (T.window || '') + '</small></td></tr>';
+    document.getElementById('cxWin').innerHTML = (V.windows || []).map(function (w) {
+      return '<tr><td><strong>' + w.period + '</strong></td><td>' + w.polarity + '</td><td>' + w.iv + '</td><td>' + w.ground + '</td><td>' + w.tests + '</td></tr>';
+    }).join('');
+    document.getElementById('cxReady').innerHTML = (V.readiness || []).map(function (r) {
+      return '<tr><td><strong>' + r.circuit + '</strong></td><td>' + r.mc + '</td><td class="pl-num">' + Number(r.series).toLocaleString() + '</td><td><small>' + r.lv + '</small></td><td class="pl-num">' + r.mvUnits + '</td><td class="pl-num">' + r.jbTerm + '</td><td class="pl-num">' + r.scada + '</td><td>' + badge(r.status) + '</td></tr>';
+    }).join('');
+    document.getElementById('cxRes').innerHTML = (V.resources || []).map(function (r) {
+      return '<tr><td>' + r.crew + '</td><td class="pl-num">' + r.people + '</td><td><small>' + r.equipment + '</small></td></tr>';
+    }).join('');
+    document.getElementById('cxMil').innerHTML = (V.milestones || []).map(function (m) {
+      var moved = m.plan !== m.now && m.plan !== '\u2014';
+      return '<tr><td>' + m.name + '</td><td class="pl-num">' + m.plan + '</td><td class="pl-num"' + (moved ? ' style="color:#a12b2b;font-weight:700"' : '') + '>' + m.now + '</td><td><small>' + m.note + '</small></td></tr>';
+    }).join('');
+    document.getElementById('cxMoreBody').innerHTML = [
+      V.subcontract ? '<p><strong>Subcontract:</strong> ' + V.subcontract + '</p>' : '',
+      V.scope ? '<p><strong>Scope:</strong> ' + V.scope + '</p>' : '',
+      V.tests && V.tests.basis ? '<p><strong>Test basis:</strong> ' + V.tests.basis + '</p>' : '',
+      T.blockers ? '<p><strong>SET blockers:</strong> ' + T.blockers + '</p>' : '',
+      V.stepTouch ? '<p><strong>Step and touch:</strong> ' + V.stepTouch + '</p>' : '',
+      C.contractProvisions ? '<p><strong>Contract provisions (control building):</strong> ' + C.contractProvisions + '</p>' : ''
+    ].join('');
+  }
+  try { renderSubmittals(); } catch (e) { if (window.console) console.error('MURCH: submittals render failed', e); }
+  try { renderCommissioning(); } catch (e) { if (window.console) console.error('MURCH: commissioning render failed', e); }
   function renderMaterial() {
     var D = window.MURCH_DATA, M = D && D.materialPosition;
     var sec = document.getElementById('material');
@@ -3935,8 +4014,8 @@ window.stampTableLabels = stampTableLabels;
           '<text x="' + (L - 6) + '" y="' + (H - B + 3) + '" font-size="9" text-anchor="end" fill="#66716d">0</text>' +
           bars + lines +
           '<polyline points="' + avgPts + '" fill="none" stroke="#168a5b" stroke-width="2.4"/>' +
-          '</svg><p class="trend-key">' + (g.c.foot ? g.c.foot + ' ' : '') +
-          'Blue bars = last 7 measured days (value on each bar) \u00b7 green line = 7-day rolling average \u00b7 <b style="color:#b53030">red dashes = required rate</b> \u00b7 <b style="color:#b96f18">amber dashes = proven best day</b>. When the required rate is far above anything ever produced, it is shown as the red OFF-THE-CHART band instead of squashing the bars.</p></article>');
+          '</svg><details class="brief-note"><summary>Legend</summary><p class="trend-key">' + (g.c.foot ? g.c.foot + ' ' : '') +
+          'Blue bars = last 7 measured days (value on each bar) \u00b7 green line = 7-day rolling average \u00b7 <b style="color:#b53030">red dashes = required rate</b> \u00b7 <b style="color:#b96f18">amber dashes = proven best day</b>. When the required rate is far above anything ever produced, it is shown as the red OFF-THE-CHART band instead of squashing the bars.</p></details></article>');
       });
 
       // ---- contractor scoreboard ----
