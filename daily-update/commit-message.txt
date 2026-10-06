@@ -1,4 +1,0 @@
-H&S section on the September 2026 rates pack (Green-Sol 282 d, Greening USA Corp 677 d not advanced, group 282 d; 4 first aid; all rates 0.00 - severity restated) + Murch site KPI workbook (Jan-Oct: 0 LTI / recordable / days away, 231,471 h; Sep 162 avg employees, 46,292 h); Sep 8 case recorded as first aid (cache 20261005b)
-
-Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01LZ3zLUKnx35u1DaGRr88Et

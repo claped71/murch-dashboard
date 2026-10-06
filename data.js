@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261005a - Sat Oct 3 report: cable +7,691 -> 200,881 lf (74.5%); INV-15 homerun finished (L4); SCADA boxes 22/23; first 55 string insulation tests on 11A OK; project 94.0/94.1. PRIOR 20261004b - 11A: only MC tests pending, series connection mostly complete (CM/Jose Oct 4, count pending). Oct 4 re-base - Oct 4 re-base on the CM's Oct 3 ruling (11A JB terminations complete; 11B LV terminations complete except INV-12 - COUNT PENDING, no figure published; 11B JB open only on the 4 easement boxes) -> MV terminations 144/264, LV firm 54.1 (11B terminations not counted), project 93.8/94.0. Oct 3 run, executed through Fri Oct 2 (reports Sep 29, Sep 30, Oct 1, Oct 2; MV control Oct 1; SE tracker Oct 3). Cable +27,436 lf in four days -> 193,190 (71.6%); series 737 rows; MV terminations 131/264; SET 89.6 EV; project 93.8/93.9. BRIEF LAYOUT + Document submittals + Commissioning sections (Jose, Oct 3).
+// CACHE BUSTER 20261005b - H&S section on the September 2026 rates pack (Green-Sol 282 d, Greening USA Corp 677 d not advanced, group 282 d; 4 first aid; all rates 0.00 - severity restated from 4.98) + Murch site KPI workbook (Jan-Oct: 0 LTI / recordable / days away, 231,471 h; Sep 162 avg employees, 46,292 h). PRIOR 20261005a - Sat Oct 3 report: cable +7,691 -> 200,881 lf (74.5%); INV-15 homerun finished (L4); SCADA boxes 22/23; first 55 string insulation tests on 11A OK; project 94.0/94.1. PRIOR 20261004b - 11A: only MC tests pending, series connection mostly complete (CM/Jose Oct 4, count pending). Oct 4 re-base - Oct 4 re-base on the CM's Oct 3 ruling (11A JB terminations complete; 11B LV terminations complete except INV-12 - COUNT PENDING, no figure published; 11B JB open only on the 4 easement boxes) -> MV terminations 144/264, LV firm 54.1 (11B terminations not counted), project 93.8/94.0. Oct 3 run, executed through Fri Oct 2 (reports Sep 29, Sep 30, Oct 1, Oct 2; MV control Oct 1; SE tracker Oct 3). Cable +27,436 lf in four days -> 193,190 (71.6%); series 737 rows; MV terminations 131/264; SET 89.6 EV; project 93.8/93.9. BRIEF LAYOUT + Document submittals + Commissioning sections (Jose, Oct 3).
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -25,7 +25,7 @@ window.MURCH_DATA = {
  mc: { target: 'Sep 25', forecast: 'Oct 24 (last circuit) \u2014 Sep 8 plan · SET MC Oct 5, RTE Oct 26 (rev Oct 1)', name: 'Mechanical Completion' }
  },
  safetyDaysLtiFree: 337,
- safetyBasis: 'HELD on the Sep 17 EHS register: <strong>337 days without a lost-time accident across 203,862.6 man-hours.</strong> No headcount board has been received since Sep 17 (requested again Sep 28); the counter is not advanced until the register resumes. The Sep 8 substation case is still carried as first aid, classification open.',
+ safetyBasis: '<strong>Oct 5: the Murch site KPI workbook records zero lost-time, recordable and days-away injuries for every month of 2026 across 231,471 hours (Jan 1 – Oct 5); Green-Sol corporate counter 282 days at the September close.</strong> PRIOR: HELD on the Sep 17 EHS register: <strong>337 days without a lost-time accident across 203,862.6 man-hours.</strong> No headcount board has been received since Sep 17 (requested again Sep 28); the counter is not advanced until the register resumes. The Sep 8 substation case is still carried as first aid, classification open.',
  wipReportingRule: {
  adopted: 'Jul 30, 2026 (Jose Romero)',
  rule: 'A <strong>Reported count of unfinished trackers is</strong> A <strong>Snapshot, never an increment</strong>. When a subcontractor reports partial rows, that number is a photograph of the total partial rows standing in the project for that crew at that moment. It REPLACES the previous open-row figure for that crew; it is never added to the rows they reported open on earlier days.',
@@ -261,38 +261,60 @@ window.MURCH_DATA = {
  // Greening Group USA sheet. These are COMPANY rates, not the Murch site register (329 d /
  // 189,206 h on Bethany's site register) — both are published side by side, never merged.
  hsRates: {
- asOf: 'August 2026 close',
- issued: 'Sep 12, 2026',
- source: 'Iv\u00e1n J. Alicea, Country EHS Manager USA \u2014 general health & safety rates, Greening Group USA',
+ asOf: 'September 2026 close',
+ issued: 'Oct 5, 2026',
+ source: 'Iván J. Alicea, Country EHS Manager USA — general health & safety rates, Greening Group USA (September 2026 pack)',
+ eyebrow: 'Health & safety | Murch site KPI workbook to Oct 5 · corporate rates, September close',
+ head: 'Zero lost-time, recordable and days-away injuries all year — every rate at 0.00',
  kpi: { incidence: 100, frequency: 4.0, severity: 0.30 },
+ chartMax: 1,
+ cards: [
+  { v: 282, l: 'days without a lost-time injury, Green-Sol USA' },
+  { v: 677, l: 'days without a lost-time injury, Greening USA Corp (not advanced since August)', watch: true },
+  { v: '0.00', l: 'incidence, frequency and severity, all three panels' },
+  { v: 4, l: 'first-aid cases, Green-Sol, September pack' }
+ ],
  companies: [
- { name: 'Green-Sol USA', days: 252, firstAid: 2, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 4.98, site: true },
+ { name: 'Green-Sol USA', days: 282, firstAid: 4, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 0, site: true },
  { name: 'Greening USA Corp', days: 677, firstAid: 0, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 0 },
- { name: 'Greening Group USA, consolidated', days: 252, firstAid: 2, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 3.09 }
+ { name: 'Greening Group USA, consolidated', days: 282, firstAid: 4, recordable: 0, lti: 0, incidence: 0, frequency: 0, severity: 0 }
  ],
  severityTrend: [
- { m: 'jan', v: 9.99 }, { m: 'feb', v: 9.10 }, { m: 'mar', v: 9.36 }, { m: 'apr', v: 8.89 },
- { m: 'may', v: 8.35 }, { m: 'jun', v: 7.51 }, { m: 'jul', v: 6.21 }, { m: 'aug', v: 4.98 }
+ { m: 'jan', v: 0 }, { m: 'feb', v: 0 }, { m: 'mar', v: 0 }, { m: 'apr', v: 0 }, { m: 'may', v: 0 },
+ { m: 'jun', v: 0 }, { m: 'jul', v: 0 }, { m: 'aug', v: 0 }, { m: 'sep', v: 0 }
  ],
  groupTrend: [
- { m: 'jan', v: 6.73 }, { m: 'feb', v: 5.23 }, { m: 'mar', v: 5.25 }, { m: 'apr', v: 5.01 },
- { m: 'may', v: 4.82 }, { m: 'jun', v: 4.22 }, { m: 'jul', v: 3.72 }, { m: 'aug', v: 3.09 }
+ { m: 'jan', v: 0 }, { m: 'feb', v: 0 }, { m: 'mar', v: 0 }, { m: 'apr', v: 0 }, { m: 'may', v: 0 },
+ { m: 'jun', v: 0 }, { m: 'jul', v: 0 }, { m: 'aug', v: 0 }, { m: 'sep', v: 0 }
  ],
+ actLabel: 'September activity',
  activities: [
- { metric: 'induction trainings', v: 55 },
- { metric: 'workers trained', v: 5 },
- { metric: 'operational control on site', v: 1 },
+ { metric: 'induction trainings', v: 57 },
+ { metric: 'workers trained', v: 52 },
+ { metric: 'operational control on site', v: 2 },
  { metric: 'h&s committee meetings', v: 0 },
  { metric: 'unsafe behaviours recorded', v: 0 },
  { metric: 'non-conformities', v: 0 }
  ],
- checks: [
- 'Severity is the only rate outside its limit: 4.98 against a 0.30 target, sixteen times over, and it carries lost workdays from the injury that set the 252-day counter (early January). The same pack reports zero lost-time injuries and a 0.00 frequency rate for every month of 2026 \u2014 the two sheets have to be reconciled at source before either figure is quoted to the Owner.',
- 'September to December read the August value on all three panels. Those are carried forward, not forecast \u2014 the series ends at August.',
- 'The consolidated panel is plotted on a 2025 month axis inside an August 2026 pack; the same template defects flagged on the July and August site decks are still open.',
- 'The company counters and the Murch site counters are different denominators and are not comparable: 252 days at company level against 335 days and 199,425.6 man-hours on the Sep 15 site register, which has resumed after the Sep 10–14 gap.'
+ // Murch site - Green-Sol Murch Project EHS Dashboard 2026, sheet "Murch KPI Monthly" (SharePoint, read Oct 5).
+ // Oct = month to date. Aug hours read as 50,231 (reconciles with the Sep 17 site register of 203,862.6 h).
+ site: [
+ { m: 'Jan', emp: 11, hrs: 1803, fa: 0, nm: 0 }, { m: 'Feb', emp: 23, hrs: 5014, fa: 0, nm: 1 },
+ { m: 'Mar', emp: 41, hrs: 8497, fa: 0, nm: 0 }, { m: 'Apr', emp: 67, hrs: 16936, fa: 0, nm: 0 },
+ { m: 'May', emp: 79, hrs: 19701, fa: 1, nm: 0 }, { m: 'Jun', emp: 91, hrs: 27722, fa: 0, nm: 1 },
+ { m: 'Jul', emp: 146, hrs: 52465, fa: 2, nm: 1 }, { m: 'Aug', emp: 167, hrs: 50231, fa: 2, nm: 0 },
+ { m: 'Sep', emp: 162, hrs: 46292, fa: 4, nm: 1 }, { m: 'Oct (to date)', emp: 138, hrs: 2810, fa: 0, nm: 0 }
  ],
- read: 'Zero lost-time injuries, zero recordables and zero fatalities across the USA companies in August, with two first-aid cases in the Green-Sol perimeter. Incidence and frequency sit at 0.00 against limits of 100 and 4.0. The single exception is the severity rate, 4.98 against a 0.30 target, falling month on month from 9.99 in January as exposure hours accumulate \u2014 it is a legacy of lost workdays already booked, not of a new event, but it is the one rate this pack publishes outside its limit.'
+ siteHours: 231471,
+ checks: [
+ 'Severity restated at source: the September pack reads 0.00 for every month of 2026 (the August pack showed 9.99 falling to 4.98 while reporting zero lost-time injuries). The contradiction flagged in August is closed.',
+ 'Greening USA Corp still reads 677 days without a lost-time injury, the same figure as the August pack — the counter was not advanced for September.',
+ 'The consolidated panel is still plotted on a 2025 month axis, and the site KPI workbook title still reads “EHS KPI Monthly Summary 2025” — template labels, the data are 2026.',
+ 'Company and site counters use different denominators: 282 days at company level; on site the KPI workbook records zero lost-time, recordable and days-away injuries for every month of 2026 across 231,471 hours.'
+ ],
+ siteNote: '<strong>Sep 8 substation case (20260908_ACC_001):</strong> the September site workbook records 4 first-aid cases and 0 recordable or days-away injuries, so the case is carried as first aid. <strong>Site counter:</strong> the 337-day count last published from the Sep 17 headcount register is superseded by the monthly KPI workbook; no headcount board has been received since Sep 17.',
+ srcLine: 'Source: Iván J. Alicea, Country EHS Manager USA — September 2026 H&S rates pack, Oct 5, 2026; Murch site figures from the Green-Sol Murch Project EHS Dashboard 2026 (Murch KPI Monthly), read Oct 5.',
+ read: 'Zero lost-time injuries, zero recordables and zero fatalities across the USA companies in September, with four first-aid cases in the Green-Sol perimeter. Incidence, frequency and severity all read 0.00 against limits of 100, 4.0 and 0.30.'
  },
 
  // ===================== HSE KPIs \u2014 JULY 2026 =====================
