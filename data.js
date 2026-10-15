@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261015b - SUBSTATION TESTS: commitment taken IN PERSON at the SET on Oct 15 (Jose, with AB Power on site) - their PM commits to submitting 90% of the test reports by the END OF TODAY, finalising the rest, and COMPLETING THE SUBSTATION MONDAY Oct 19. Published as a COMMITMENT, not execution: the register stays at 0 of 74 passed and moves only when reports land. Risk promoted to #1 with the verification test spelled out (reports in tonight, or escalate). Nothing else re-based. PRIOR 20261015a - DAILY REPORTS OCT 13 + OCT 14. MV TERMINATIONS 189 -> 198 of 264 (75.0%), the whole move on the 12B junction-box side (9 -> 18 of 33); 11A 57/57 and 11B 69/69 both COMPLETE; 12A alone the largest open MV scope at 33. SET SIX DISCIPLINES RE-BASED to the Oct 14 report: mechanical and bus/connectors CONFIRMED at 100.00, civil 97.87 and electrical 98.36 - both SHORT of the 100 published Oct 13 from the field position, so the reported figures are carried and the divergence is FLAGGED, not forced. Grounding 99.96 -> 99.56. SCADA held 61.11, the one open construction front. Composite held at the Oct 13 tracker 96.0 (needs the tracker activity weights to restate). FIFTH REPORTED DAY WITH NO CABLE FOOTAGE (Oct 9/10/12/13/14) - ledger holds 218,593 (81.0%), no zero appended. STRING MEGGERS ARE NOT DC CABLE MEGGERS: both reports say so explicitly, so the megger component stays at 0 - this closes the open megger question. Safety banner 239,337 safe man-hours (photo recent-84). mvProgress 96.25, electricalTotal 71.6, projectTotal 95.7 unchanged. PRIOR 20261013d - SET CONSTRUCTION SCOPE COMPLETE EXCEPT SCADA (Jose, Director of Construction, Oct 13). The last two construction activities are executed: the connection with the utility and the final rock layers, and closing the gravel is what released the grounding test. Civil, mechanical, electrical and bus/connectors moved to 100 on the field position; the Oct 13 register still shows 2, 3, 18 and 4 items open on those four and that is KEPT VISIBLE on each component as close-out, not deleted - the 18 electrical is the gap to watch if the Owner reads the register. SCADA/control held at 61.11 as the one open construction front. COMPOSITE HELD AT 96.0: that figure is the tracker's own activity-weighted EV (234 of 257) and restating it needs the next SE_Construction_Tracker cut - no derived figure published, per the Oct 4 rule. PRIOR 20261013c - Jose, Oct 13: THE POLARITY TEST ON CIRCUIT 11A IS COMPLETELY FINISHED - the first PV commissioning scope to close on any circuit, added to the 11A readiness row and to the commissioning section. PRIOR 20261013b - FIELD UPDATE (Luis Montero + Jose, Oct 13): VLF TESTING IS RUNNING AGAIN - 11A VLF COMPLETE, the GreenSol crew worked the end of the 11B VLF today, and the SET grounding test is under way this afternoon. SET GRAVEL AT 100%, which releases the blocker that was gating those grounding tests. SUBSTATION-TO-UTILITY INTERCONNECTION EXECUTED - H-frame up to the pole, phases A + B + C and OPGW installed (field photo recent-83, GPS/address/map overlay cropped off). Four of the six delay drivers the planner listed on Oct 13 are closed the same day; the substation test register is still 0 of 74 and is now the only live constraint there. MEGGERS: Luis reports them executed in one message and being done this afternoon in another, with no quantity in either - published as a stated position only, the megger component stays at 0 pending the scope and count. Risk #4 rewritten from 'suspension lift not stated' to testing resumed. PRIOR 20261013a - Fri Oct 9, Sat Oct 10 and Mon Oct 12 reports (WhatsApp export) + MV control cut Oct 12, substation tracker Oct 13 and the schedule update of data date Oct 12. NO CABLE FOOTAGE FILED ON ANY OF THE THREE DAYS - cable holds at 218,593 lf (81.0%) and BOTH remaining LV circuit dates have now passed with 62,223 ft open (12A 7,531 since Oct 1, 12B 54,692 since Oct 10). LBD-side terminations +36 on 12A (PS-19 17 on Oct 9, PS-18 19/19 on Oct 12) -> box connections 483 of 1,676. MV terminations 177 -> 189 of 264 (12A junction-box side 6 -> 12, 12B 3 -> 9); units closed 20 of 46. Substation 96.0% physical EV on the Oct 13 tracker (civil 97.45, mechanical 95.90, electrical 95.71, bus 96.05; 234 of 257 activities, 23 open); SCADA and comms moved 50.00 -> 61.11 on the Oct 12 report. TESTS STILL 0 OF 74 AND NOW 71 OVERDUE WITH TWO DAYS TO THE OCT 15 DEADLINE. Schedule update (data date Oct 12): every milestone slips again - overall MC Nov 10, PIS Nov 21, COD Dec 8, SC Dec 12 (12 days past the contract Nov 30); the planner names the VLF incident as the primary 11A and substation delay driver. Modules held 170,482. Project 95.7/95.7. PRIOR 20261009b - ELECTRICAL SHOCK INCIDENT Oct 8, 12:11 (EHS notification Oct 8, follow-up Oct 9): an AB Power employee contacted an MV cable during VLF testing at the substation without insulating gloves; the cable had not been discharged and grounded. Hospital evaluation; worker reported doing well Oct 9. VLF TESTING SUSPENDED pending evaluation of equipment, test configuration and controls; area secured; formal investigation and corrective actions required before the activity resumes; corporate QHSE classes it a serious incident with fatal potential. Classification and recordability are PENDING, so the LTI counter is neither advanced nor reset. New risk #1 - VLF suspension blocks MV cable testing on the energization path while the substation register still reads 0 of 74 tests passed. Topland has demobilised from site. PRIOR 20261009a - Wed Oct 7 report (ACTUALIZADO) + Oct 9 control cut from SharePoint (MV termination control, SE tracker, plowing/boring, DELIVERY workbook): cable +4,332 -> 218,593 lf (81.0%) all Line 3 at PS-18 (HR 3,828 + TR 504); 11 LBD terminated at PS-20 and 3 at PS-12 E19 -> box connections 447/1,676. MV CONTROL Oct 9: terminations 177/264 - 11A 57/57 and 11B 69/69 BOTH COMPLETE (11B junction-box side closed 39/39), 12A 36/75, 12B 15/63; trenches compacted 120/181; pull-in 43/46 (only 12B open); units closed 18/46; SCADA 23/23; MV composite 95.1. SE tracker Oct 9: 95.0% physical EV (civil 96.70, mechanical 92.62, electrical 95.30, bus 96.05), 231/257 activities, 26 open / 21 overdue, H-frame 18 of 48 open. COMMISSIONING ALARM: 0 of 74 substation tests passed and 62 NOW OVERDUE against the Oct 15 deadline (6 days). Line 4 needs 18,231 lf/day over 3 working days to hold Oct 10 - above the best day ever recorded. Modules held 170,482 (99.4%); the DELIVERY workbook confirms the 988 pending all sit in Area D. Project 95.7/95.6. PRIOR 20261008a - Jose Oct 8: modules re-based to the CM count - 988 pending delivery (Owner supply), installed 170,482 of 171,470 (99.4%); 8,328 ledger retired; project 95.5/95.5. PRIOR 20261007a - Tue Oct 6 report: cable +4,251 -> 214,261 lf (79.4%) on Line 3 PS-19 (homerun 17/17) / PS-18; PS-21 LBD side 19/19; MV terms 162/264 (11B JB 24, 12A JB 6 - divergence closed); DC boring 14/14 COMPLETE (3,728 LF); SCADA 23/23 (INV-12); series +16 rows (E8/E9); SET 94.8% EV; project 94.4/94.4. PRIOR 20261006c - Jose Oct 6: Owner-facing milestones LOCKED (no revised dates issued); Oct 5 update kept as internal gap. PRIOR 20261006b - Oct 6 e-mails: weekly schedule update (data date Oct 5) - circuit MC Oct 16/20/29/Nov 4, SET MC Oct 16 (achieved Oct 9), RTE Oct 30, PIS Nov 18, COD Dec 5, SC Dec 9 (9 d past contract); NERC energization package Oct 9; MC checklist awaiting Owner comments; Owner thanked GreenSol leadership for the Oct 6 all-hands. PRIOR 20261006a - Mon Oct 5 report: cable +9,129 -> 210,010 lf (77.9%) all Line 3 PS-19; 10 LBD + 38 inverter-side terminations (PS-21/22); MV terms 147/264 (PM table 146 - 11B 14 vs 15 held); MVJB bases 23/23, JB 17/23; SET 93.3% EV (report); 95 strings IR-tested; toolbox-talk photo recent-82; project 94.3/94.3. PRIOR 20261005b - H&S section on the September 2026 rates pack (Green-Sol 282 d, Greening USA Corp 677 d not advanced, group 282 d; 4 first aid; all rates 0.00 - severity restated from 4.98) + Murch site KPI workbook (Jan-Oct: 0 LTI / recordable / days away, 231,471 h; Sep 162 avg employees, 46,292 h). PRIOR 20261005a - Sat Oct 3 report: cable +7,691 -> 200,881 lf (74.5%); INV-15 homerun finished (L4); SCADA boxes 22/23; first 55 string insulation tests on 11A OK; project 94.0/94.1. PRIOR 20261004b - 11A: only MC tests pending, series connection mostly complete (CM/Jose Oct 4, count pending). Oct 4 re-base - Oct 4 re-base on the CM's Oct 3 ruling (11A JB terminations complete; 11B LV terminations complete except INV-12 - COUNT PENDING, no figure published; 11B JB open only on the 4 easement boxes) -> MV terminations 144/264, LV firm 54.1 (11B terminations not counted), project 93.8/94.0. Oct 3 run, executed through Fri Oct 2 (reports Sep 29, Sep 30, Oct 1, Oct 2; MV control Oct 1; SE tracker Oct 3). Cable +27,436 lf in four days -> 193,190 (71.6%); series 737 rows; MV terminations 131/264; SET 89.6 EV; project 93.8/93.9. BRIEF LAYOUT + Document submittals + Commissioning sections (Jose, Oct 3).
+// CACHE BUSTER 20261015c - THE COMMISSIONING MANAGER'S SUBSTATION TEST MATRIX (AB 205-227, cut Oct 14 18:50) IS NOW PUBLISHED as commissioning.set.abMatrix with a new table in the commissioning section. 23 activities: 12 WITH NO EVIDENCE AT ALL, 2 closed (circuit breakers 30/30, SST1/MV transformer 3/3). Transformer T1 0/1 UNTESTED and Protective Relay Tests NO EVIDENCE - each stops energization on its own. UPS battery + charger NOT IN AB POWER'S SCOPE and unowned, though predecessors of MC Achieved. Surge arresters 2/13. MV switchgear buses still open. SCOPE STILL MOVING: V&M 28->31, switches 56->57, outdoor bus 10->11. OPEN DIVERGENCE - RULING NEEDED: the matrix shows substantial testing executed while the tracker register still reads 0 of 74 passed; BOTH published, NEITHER re-based. Second contradiction: matrix shows grounding system tests with no evidence against the field report of the grounding test run Oct 13. The Oct 15 commitment (90% of reports that day, station complete Mon) is NOT supported by this matrix. PRIOR 20261015b - SUBSTATION TESTS: commitment taken IN PERSON at the SET on Oct 15 (Jose, with AB Power on site) - their PM commits to submitting 90% of the test reports by the END OF TODAY, finalising the rest, and COMPLETING THE SUBSTATION MONDAY Oct 19. Published as a COMMITMENT, not execution: the register stays at 0 of 74 passed and moves only when reports land. Risk promoted to #1 with the verification test spelled out (reports in tonight, or escalate). Nothing else re-based. PRIOR 20261015a - DAILY REPORTS OCT 13 + OCT 14. MV TERMINATIONS 189 -> 198 of 264 (75.0%), the whole move on the 12B junction-box side (9 -> 18 of 33); 11A 57/57 and 11B 69/69 both COMPLETE; 12A alone the largest open MV scope at 33. SET SIX DISCIPLINES RE-BASED to the Oct 14 report: mechanical and bus/connectors CONFIRMED at 100.00, civil 97.87 and electrical 98.36 - both SHORT of the 100 published Oct 13 from the field position, so the reported figures are carried and the divergence is FLAGGED, not forced. Grounding 99.96 -> 99.56. SCADA held 61.11, the one open construction front. Composite held at the Oct 13 tracker 96.0 (needs the tracker activity weights to restate). FIFTH REPORTED DAY WITH NO CABLE FOOTAGE (Oct 9/10/12/13/14) - ledger holds 218,593 (81.0%), no zero appended. STRING MEGGERS ARE NOT DC CABLE MEGGERS: both reports say so explicitly, so the megger component stays at 0 - this closes the open megger question. Safety banner 239,337 safe man-hours (photo recent-84). mvProgress 96.25, electricalTotal 71.6, projectTotal 95.7 unchanged. PRIOR 20261013d - SET CONSTRUCTION SCOPE COMPLETE EXCEPT SCADA (Jose, Director of Construction, Oct 13). The last two construction activities are executed: the connection with the utility and the final rock layers, and closing the gravel is what released the grounding test. Civil, mechanical, electrical and bus/connectors moved to 100 on the field position; the Oct 13 register still shows 2, 3, 18 and 4 items open on those four and that is KEPT VISIBLE on each component as close-out, not deleted - the 18 electrical is the gap to watch if the Owner reads the register. SCADA/control held at 61.11 as the one open construction front. COMPOSITE HELD AT 96.0: that figure is the tracker's own activity-weighted EV (234 of 257) and restating it needs the next SE_Construction_Tracker cut - no derived figure published, per the Oct 4 rule. PRIOR 20261013c - Jose, Oct 13: THE POLARITY TEST ON CIRCUIT 11A IS COMPLETELY FINISHED - the first PV commissioning scope to close on any circuit, added to the 11A readiness row and to the commissioning section. PRIOR 20261013b - FIELD UPDATE (Luis Montero + Jose, Oct 13): VLF TESTING IS RUNNING AGAIN - 11A VLF COMPLETE, the GreenSol crew worked the end of the 11B VLF today, and the SET grounding test is under way this afternoon. SET GRAVEL AT 100%, which releases the blocker that was gating those grounding tests. SUBSTATION-TO-UTILITY INTERCONNECTION EXECUTED - H-frame up to the pole, phases A + B + C and OPGW installed (field photo recent-83, GPS/address/map overlay cropped off). Four of the six delay drivers the planner listed on Oct 13 are closed the same day; the substation test register is still 0 of 74 and is now the only live constraint there. MEGGERS: Luis reports them executed in one message and being done this afternoon in another, with no quantity in either - published as a stated position only, the megger component stays at 0 pending the scope and count. Risk #4 rewritten from 'suspension lift not stated' to testing resumed. PRIOR 20261013a - Fri Oct 9, Sat Oct 10 and Mon Oct 12 reports (WhatsApp export) + MV control cut Oct 12, substation tracker Oct 13 and the schedule update of data date Oct 12. NO CABLE FOOTAGE FILED ON ANY OF THE THREE DAYS - cable holds at 218,593 lf (81.0%) and BOTH remaining LV circuit dates have now passed with 62,223 ft open (12A 7,531 since Oct 1, 12B 54,692 since Oct 10). LBD-side terminations +36 on 12A (PS-19 17 on Oct 9, PS-18 19/19 on Oct 12) -> box connections 483 of 1,676. MV terminations 177 -> 189 of 264 (12A junction-box side 6 -> 12, 12B 3 -> 9); units closed 20 of 46. Substation 96.0% physical EV on the Oct 13 tracker (civil 97.45, mechanical 95.90, electrical 95.71, bus 96.05; 234 of 257 activities, 23 open); SCADA and comms moved 50.00 -> 61.11 on the Oct 12 report. TESTS STILL 0 OF 74 AND NOW 71 OVERDUE WITH TWO DAYS TO THE OCT 15 DEADLINE. Schedule update (data date Oct 12): every milestone slips again - overall MC Nov 10, PIS Nov 21, COD Dec 8, SC Dec 12 (12 days past the contract Nov 30); the planner names the VLF incident as the primary 11A and substation delay driver. Modules held 170,482. Project 95.7/95.7. PRIOR 20261009b - ELECTRICAL SHOCK INCIDENT Oct 8, 12:11 (EHS notification Oct 8, follow-up Oct 9): an AB Power employee contacted an MV cable during VLF testing at the substation without insulating gloves; the cable had not been discharged and grounded. Hospital evaluation; worker reported doing well Oct 9. VLF TESTING SUSPENDED pending evaluation of equipment, test configuration and controls; area secured; formal investigation and corrective actions required before the activity resumes; corporate QHSE classes it a serious incident with fatal potential. Classification and recordability are PENDING, so the LTI counter is neither advanced nor reset. New risk #1 - VLF suspension blocks MV cable testing on the energization path while the substation register still reads 0 of 74 tests passed. Topland has demobilised from site. PRIOR 20261009a - Wed Oct 7 report (ACTUALIZADO) + Oct 9 control cut from SharePoint (MV termination control, SE tracker, plowing/boring, DELIVERY workbook): cable +4,332 -> 218,593 lf (81.0%) all Line 3 at PS-18 (HR 3,828 + TR 504); 11 LBD terminated at PS-20 and 3 at PS-12 E19 -> box connections 447/1,676. MV CONTROL Oct 9: terminations 177/264 - 11A 57/57 and 11B 69/69 BOTH COMPLETE (11B junction-box side closed 39/39), 12A 36/75, 12B 15/63; trenches compacted 120/181; pull-in 43/46 (only 12B open); units closed 18/46; SCADA 23/23; MV composite 95.1. SE tracker Oct 9: 95.0% physical EV (civil 96.70, mechanical 92.62, electrical 95.30, bus 96.05), 231/257 activities, 26 open / 21 overdue, H-frame 18 of 48 open. COMMISSIONING ALARM: 0 of 74 substation tests passed and 62 NOW OVERDUE against the Oct 15 deadline (6 days). Line 4 needs 18,231 lf/day over 3 working days to hold Oct 10 - above the best day ever recorded. Modules held 170,482 (99.4%); the DELIVERY workbook confirms the 988 pending all sit in Area D. Project 95.7/95.6. PRIOR 20261008a - Jose Oct 8: modules re-based to the CM count - 988 pending delivery (Owner supply), installed 170,482 of 171,470 (99.4%); 8,328 ledger retired; project 95.5/95.5. PRIOR 20261007a - Tue Oct 6 report: cable +4,251 -> 214,261 lf (79.4%) on Line 3 PS-19 (homerun 17/17) / PS-18; PS-21 LBD side 19/19; MV terms 162/264 (11B JB 24, 12A JB 6 - divergence closed); DC boring 14/14 COMPLETE (3,728 LF); SCADA 23/23 (INV-12); series +16 rows (E8/E9); SET 94.8% EV; project 94.4/94.4. PRIOR 20261006c - Jose Oct 6: Owner-facing milestones LOCKED (no revised dates issued); Oct 5 update kept as internal gap. PRIOR 20261006b - Oct 6 e-mails: weekly schedule update (data date Oct 5) - circuit MC Oct 16/20/29/Nov 4, SET MC Oct 16 (achieved Oct 9), RTE Oct 30, PIS Nov 18, COD Dec 5, SC Dec 9 (9 d past contract); NERC energization package Oct 9; MC checklist awaiting Owner comments; Owner thanked GreenSol leadership for the Oct 6 all-hands. PRIOR 20261006a - Mon Oct 5 report: cable +9,129 -> 210,010 lf (77.9%) all Line 3 PS-19; 10 LBD + 38 inverter-side terminations (PS-21/22); MV terms 147/264 (PM table 146 - 11B 14 vs 15 held); MVJB bases 23/23, JB 17/23; SET 93.3% EV (report); 95 strings IR-tested; toolbox-talk photo recent-82; project 94.3/94.3. PRIOR 20261005b - H&S section on the September 2026 rates pack (Green-Sol 282 d, Greening USA Corp 677 d not advanced, group 282 d; 4 first aid; all rates 0.00 - severity restated from 4.98) + Murch site KPI workbook (Jan-Oct: 0 LTI / recordable / days away, 231,471 h; Sep 162 avg employees, 46,292 h). PRIOR 20261005a - Sat Oct 3 report: cable +7,691 -> 200,881 lf (74.5%); INV-15 homerun finished (L4); SCADA boxes 22/23; first 55 string insulation tests on 11A OK; project 94.0/94.1. PRIOR 20261004b - 11A: only MC tests pending, series connection mostly complete (CM/Jose Oct 4, count pending). Oct 4 re-base - Oct 4 re-base on the CM's Oct 3 ruling (11A JB terminations complete; 11B LV terminations complete except INV-12 - COUNT PENDING, no figure published; 11B JB open only on the 4 easement boxes) -> MV terminations 144/264, LV firm 54.1 (11B terminations not counted), project 93.8/94.0. Oct 3 run, executed through Fri Oct 2 (reports Sep 29, Sep 30, Oct 1, Oct 2; MV control Oct 1; SE tracker Oct 3). Cable +27,436 lf in four days -> 193,190 (71.6%); series 737 rows; MV terminations 131/264; SET 89.6 EV; project 93.8/93.9. BRIEF LAYOUT + Document submittals + Commissioning sections (Jose, Oct 3).
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -2716,7 +2716,7 @@ window.MURCH_DATA = {
  },
  // ---- COMMISSIONING (added Oct 3, 2026 at Jose's request) — substation test window, PV field commissioning plan, resources, milestones.
  commissioning: {
- "asOf": "Oct 15, 2026",
+ "asOf": "Oct 15, 2026 (test matrix cut Oct 14 18:50)",
  "set": {
   "tests": 74,
   "passed": 0,
@@ -2785,7 +2785,226 @@ window.MURCH_DATA = {
     "planned": "Oct 5"
    }
   ],
-  "blockers": "<strong>COMMITMENT GIVEN IN PERSON AT THE SUBSTATION, Oct 15 (Jose, with AB Power on site): their project manager commits to SUBMITTING 90% OF THE TEST REPORTS BY THE END OF TODAY, to finalising the remaining tests, and to COMPLETING THE SUBSTATION THIS MONDAY, Oct 19. This is a commitment, not execution — the register stays at 0 of 74 passed and moves only when the reports actually land. If it holds, the Oct 15 deadline is missed by two working days and the station closes Monday; if the reports do not arrive tonight, nothing about the position has changed and that is the signal to escalate.</strong> <strong>Oct 15 IS THE DEADLINE AND THE REGISTER IS STILL AT ZERO OF 74, 71 OVERDUE.</strong> FIELD UPDATE Oct 13: the gravel is at 100% and the grounding test is under way this afternoon, so the blocker that was holding the window is released; VLF testing has resumed with the first circuit complete and the second finishing today. None of that is a passed test yet — the register is unchanged. TWO DAYS TO THE OCT 15 DEADLINE WITH 0 OF 74 PASSED AND 71 OVERDUE — on the current register the window closes having tested nothing. The planner names the VLF incident as the primary delay driver on the first circuit and the substation this week: the testing contractor’s own engineer has had to take over VLF field testing, which pushes the second circuit’s VLF as well; the Oct 13 site log shows VLF testing on the second circuit under way. Fibre fusions on the first circuit (three-way box) lost the weekend, the grounding test on the first circuit is outstanding, and the substation gravel is still gating the grounding tests. VLF TESTING WAS SUSPENDED after the Oct 8 electrical-shock incident and may not resume until the equipment, test configuration and controls are evaluated and a formal investigation closes with corrective actions — medium-voltage cable testing sits on the energization path, so this suspension and the untouched test register now compound. NOT ONE OF THE 74 TESTS HAS PASSED and 62 are now overdue with six days to the Oct 15 deadline — every equipment group reads 0 passed, including the 10 transformer tests planned Oct 1–5 and the 19 bus/instrument-transformer tests planned Oct 2–8. The register is an independent log and does not move construction earned value, so the 95.0% physical figure says nothing about test readiness. Yard rock second layer and the grounding tests still gate the window; 18 of the 48 activities that depend on the 69 kV H-frame sequence are open."
+  "blockers": "<strong>THE MATRIX IS THE ANSWER TO THE COMMITMENT: 12 of 23 activities carry no evidence at all, and reports cannot be produced for tests that were not run. Transformer T1 untested (0/1) and protective relays with no evidence are each enough to stop energization on their own.</strong> <strong>COMMITMENT GIVEN IN PERSON AT THE SUBSTATION, Oct 15 (Jose, with AB Power on site): their project manager commits to SUBMITTING 90% OF THE TEST REPORTS BY THE END OF TODAY, to finalising the remaining tests, and to COMPLETING THE SUBSTATION THIS MONDAY, Oct 19. This is a commitment, not execution — the register stays at 0 of 74 passed and moves only when the reports actually land. If it holds, the Oct 15 deadline is missed by two working days and the station closes Monday; if the reports do not arrive tonight, nothing about the position has changed and that is the signal to escalate.</strong> <strong>Oct 15 IS THE DEADLINE AND THE REGISTER IS STILL AT ZERO OF 74, 71 OVERDUE.</strong> FIELD UPDATE Oct 13: the gravel is at 100% and the grounding test is under way this afternoon, so the blocker that was holding the window is released; VLF testing has resumed with the first circuit complete and the second finishing today. None of that is a passed test yet — the register is unchanged. TWO DAYS TO THE OCT 15 DEADLINE WITH 0 OF 74 PASSED AND 71 OVERDUE — on the current register the window closes having tested nothing. The planner names the VLF incident as the primary delay driver on the first circuit and the substation this week: the testing contractor’s own engineer has had to take over VLF field testing, which pushes the second circuit’s VLF as well; the Oct 13 site log shows VLF testing on the second circuit under way. Fibre fusions on the first circuit (three-way box) lost the weekend, the grounding test on the first circuit is outstanding, and the substation gravel is still gating the grounding tests. VLF TESTING WAS SUSPENDED after the Oct 8 electrical-shock incident and may not resume until the equipment, test configuration and controls are evaluated and a formal investigation closes with corrective actions — medium-voltage cable testing sits on the energization path, so this suspension and the untouched test register now compound. NOT ONE OF THE 74 TESTS HAS PASSED and 62 are now overdue with six days to the Oct 15 deadline — every equipment group reads 0 passed, including the 10 transformer tests planned Oct 1–5 and the 19 bus/instrument-transformer tests planned Oct 2–8. The register is an independent log and does not move construction earned value, so the 95.0% physical figure says nothing about test readiness. Yard rock second layer and the grounding tests still gate the window; 18 of the 48 activities that depend on the 69 kV H-frame sequence are open.",
+  "abMatrix": {
+   "asOf": "Oct 14, 2026 18:50",
+   "source": "Commissioning Manager — substation test matrix, activities AB 205–227, 7 Oct against the latest report",
+   "counts": {
+    "activities": 23,
+    "noEvidence": 12,
+    "closed": 2
+   },
+   "note": "* marks an activity whose DENOMINATOR grew between the two cuts — the scope is still moving, so a percentage here is not measured against a fixed total.",
+   "rows": [
+    {
+     "id": 205,
+     "act": "Visual & Mechanical Inspections HV",
+     "prev": "10/28 · 35.7%",
+     "now": "18/31 · 58.1%",
+     "delta": "+22.4 pp*",
+     "verdict": "Strong advance — but the SCOPE GREW from 28 to 31 in the same period.",
+     "badge": "watch"
+    },
+    {
+     "id": 206,
+     "act": "UPS Battery Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "NOT INCLUDED IN AB POWER’S SCOPE — nobody owns it. Predecessor of MC Achieved.",
+     "badge": "bad"
+    },
+    {
+     "id": 207,
+     "act": "UPS Battery Charger Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "NOT INCLUDED — same ownership gap as 206.",
+     "badge": "bad"
+    },
+    {
+     "id": 208,
+     "act": "Transformer Tests — T1",
+     "prev": "0/1 · 0%",
+     "now": "0/1 · 0%",
+     "delta": "0.0 pp",
+     "verdict": "CRITICAL — the power transformer has not been tested at all. Nothing energizes without it.",
+     "badge": "bad"
+    },
+    {
+     "id": 209,
+     "act": "LV/MV/HV Cable Tests",
+     "prev": "no evidence",
+     "now": "2/2 · 100%*",
+     "delta": "—",
+     "verdict": "11A closed, but this does NOT represent all cables — partial scope.",
+     "badge": "watch"
+    },
+    {
+     "id": 210,
+     "act": "Switches LV/MV/HV",
+     "prev": "45/56 · 80.4%",
+     "now": "49/57 · 86.0%",
+     "delta": "+5.6 pp*",
+     "verdict": "Well advanced; denominator moved 56 → 57.",
+     "badge": "ok"
+    },
+    {
+     "id": 211,
+     "act": "Circuit Breaker Tests",
+     "prev": "29/30 · 96.7%",
+     "now": "30/30 · 100%",
+     "delta": "+3.3 pp",
+     "verdict": "CLOSED.",
+     "badge": "ok"
+    },
+    {
+     "id": 212,
+     "act": "Circuit Switcher Tests",
+     "prev": "not separable",
+     "now": "not separable",
+     "delta": "—",
+     "verdict": "Applicability and scope still to be confirmed.",
+     "badge": "watch"
+    },
+    {
+     "id": 213,
+     "act": "Protective Relay Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "CRITICAL — no evidence at all, and this is the MC gate. No movement since Jul 10 per the Oct 15 review.",
+     "badge": "bad"
+    },
+    {
+     "id": 214,
+     "act": "Instrument Transformers PT/CT",
+     "prev": "21/35 · 60.0%",
+     "now": "27/35 · 77.1%",
+     "delta": "+17.1 pp",
+     "verdict": "Important advance; CCVT injection still pending.",
+     "badge": "ok"
+    },
+    {
+     "id": 215,
+     "act": "Metering Device Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending. Utility metering equipment is also a third-party predecessor with no date.",
+     "badge": "bad"
+    },
+    {
+     "id": 216,
+     "act": "Load Tap Changer Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending.",
+     "badge": "bad"
+    },
+    {
+     "id": 217,
+     "act": "Ground-Fault Protection",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending — named in the Oct 15 review as a Control House test with no date since Jul 10.",
+     "badge": "bad"
+    },
+    {
+     "id": 218,
+     "act": "Grounding System Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending. CONTRADICTS the field report that the grounding test was run on the afternoon of Oct 13 — either it was run and not reported, or it was not run.",
+     "badge": "bad"
+    },
+    {
+     "id": 219,
+     "act": "Fall-of-Potential",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending.",
+     "badge": "bad"
+    },
+    {
+     "id": 220,
+     "act": "MV/HV Surge Arresters",
+     "prev": "1/13 · 7.7%",
+     "now": "2/13 · 15.4%",
+     "delta": "+7.7 pp",
+     "verdict": "BADLY BEHIND — 11 of 13 still untested.",
+     "badge": "bad"
+    },
+    {
+     "id": 221,
+     "act": "Capacitor / Reactor → NGR",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending; applicability to confirm. Predecessor of MC Achieved.",
+     "badge": "bad"
+    },
+    {
+     "id": 222,
+     "act": "Outdoor Bus Structure Tests",
+     "prev": "0/10 · 0%",
+     "now": "3/11 · 27.3%",
+     "delta": "+27.3 pp*",
+     "verdict": "Improved on F1, but the package stays critical and the denominator moved 10 → 11.",
+     "badge": "watch"
+    },
+    {
+     "id": 223,
+     "act": "Emergency Systems",
+     "prev": "no evidence",
+     "now": "no evidence · ATS 0 tests",
+     "delta": "—",
+     "verdict": "Pending — named in the Oct 15 review as a Control House test with no date.",
+     "badge": "bad"
+    },
+    {
+     "id": 224,
+     "act": "Fiber Optic Tests",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending.",
+     "badge": "bad"
+    },
+    {
+     "id": 225,
+     "act": "Phase Rotation HV",
+     "prev": "no evidence",
+     "now": "no evidence",
+     "delta": "—",
+     "verdict": "Pending.",
+     "badge": "bad"
+    },
+    {
+     "id": 226,
+     "act": "MV Switchgear / Switchboard",
+     "prev": "partial",
+     "now": "partial, advanced",
+     "delta": "—",
+     "verdict": "Breakers closed; THE BUSES ARE STILL OPEN.",
+     "badge": "watch"
+    },
+    {
+     "id": 227,
+     "act": "SST1 / MV Transformer",
+     "prev": "2/3 · 66.7%",
+     "now": "3/3 · 100%",
+     "delta": "+33.3 pp",
+     "verdict": "CLOSED.",
+     "badge": "ok"
+    }
+   ]
+  }
  },
  "pv": {
   "subcontract": "Commissioning / start-up subcontractor recommended Sep 30 (SCADA & comms package, QA/QC + commissioning supervision, thermography) — approvals pending; technician arrives US Oct 7, on site Oct 8 if confirmed now.",
@@ -2964,11 +3183,11 @@ window.MURCH_DATA = {
 },
  risks: [
  {
-  "headline": "Substation tests: AB Power commits to 90% of reports TONIGHT and the station complete Monday — register still 0 of 74",
-  "title": "The Oct 15 deadline falls today with zero of 74 tests passed. On site this morning the testing contractor’s project manager committed to submitting 90 per cent of the test reports by the end of today, finalising the remaining tests, and completing the substation on Monday Oct 19.",
-  "note": "<strong>COMMITMENT GIVEN IN PERSON AT THE SUBSTATION, Oct 15 (Jose, with AB Power on site): their project manager commits to SUBMITTING 90% OF THE TEST REPORTS BY THE END OF TODAY, to finalising the remaining tests, and to COMPLETING THE SUBSTATION THIS MONDAY, Oct 19. This is a commitment, not execution — the register stays at 0 of 74 passed and moves only when the reports actually land. If it holds, the Oct 15 deadline is missed by two working days and the station closes Monday; if the reports do not arrive tonight, nothing about the position has changed and that is the signal to escalate.</strong> What makes this credible: the construction constraints that were blamed for the delay are gone — gravel at 100%, the utility interconnection executed, VLF resumed, the grounding test run on Oct 13, and mechanical and bus/connectors confirmed at 100.00 on the Oct 14 report. What keeps it Critical: nothing has been submitted yet, the register has not moved in the whole period, and the Oct 15 internal review found the Control House relay, ground-fault and emergency-systems tests with no date since Jul 10 and the Visual and Mechanical denominator moving from 25 to 28 to 31 in two weeks — so the total scope these reports are meant to cover is not even fixed. Check tonight: reports in or not in. That is the whole test.",
+  "headline": "SET tests: the AB 205–227 matrix shows 12 of 23 activities with NO EVIDENCE — the transformer and the protective relays among them",
+  "title": "The Commissioning Manager’s matrix (Oct 14, 18:50) is the first real evidence of what has and has not been tested at the substation. Two activities are closed (circuit breakers 30/30, SST1/MV transformer 3/3). Twelve of twenty-three have no evidence at all.",
+  "note": "<strong>Measured against the Oct 15 commitment — 90% of the test reports by the end of that day and the station complete Monday Oct 19 — the matrix does not support it. Reports cannot be delivered for twelve activities that show no evidence of having been performed.</strong> <strong>The two that stop energization on their own: Transformer T1 is 0 of 1, untested; Protective Relay Tests show no evidence and are the MC gate, with no movement since Jul 10.</strong> Also with nothing at all: ground-fault protection, emergency systems (ATS 0 tests), metering, load tap changer, grounding system, fall-of-potential, capacitor/reactor to NGR, fibre optic and phase rotation. UPS battery and charger tests are NOT IN AB POWER’S SCOPE and have no owner, yet they are predecessors of MC Achieved. Surge arresters are 2 of 13. The MV switchgear has its breakers closed but THE BUSES ARE STILL OPEN. <strong>And the scope is still moving: visual and mechanical went 28 → 31, switches 56 → 57, outdoor bus 10 → 11 between the two cuts, so no percentage here is measured against a fixed total.</strong> <strong>OPEN DIVERGENCE — RULING NEEDED: this matrix shows substantial testing executed while the tracker commissioning register still reads 0 of 74 passed. Both figures are published and neither is re-based. They are either measuring different things (executed vs formally accepted) or the register is not being maintained.</strong> One more contradiction to settle: the matrix shows Grounding System Tests with no evidence, while the field reported the grounding test being run on the afternoon of Oct 13.",
   "level": "Critical",
-  "owner": "Substation testing contractor PM | Commissioning lead | Construction Manager"
+  "owner": "Commissioning Manager | Substation testing contractor PM | Construction Manager"
  },
  {
   "headline": "NO CABLE FILED ON A FIFTH REPORTED DAY — 51,155 lf open, both LV dates passed, no demonstrated rate",
