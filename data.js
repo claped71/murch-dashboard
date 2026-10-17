@@ -1,10 +1,32 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261018a - LIVE SHAREPOINT READ, Oct 16. (1) NEW SECTION: GreenSol self-perform. The GSol crew log in "DELIVERY AND MECHANICAL.xlsx" (read live from SharePoint today, not from the stale local export) carries 1,636.5 person-days and 17,724 person-hours across 121 days on site, 1 May to 8 Oct - 570 operator and 1,066.5 laborer days, 503 task entries, with buggy 473 / skid 161 / excavator 147 machine-days. September is the peak at 684 person-days. THE LOG STOPS 8 OCT, eight days behind the field, so it misses all self-perform work on 12A closeout, 11B, the NCU poles and the Oct 15 trench closures - every figure is a floor. (2) The live MV control still reads 198 of 264 MV terminations against the 231 published on Jose's ruling; the entire 33-termination difference is the 12A MVJB side (control 12 of 45), executed per Luis and Audelio and not recorded. Held, flagged, NOT regressed. (3) The live SE tracker still reads SCADA 61.1% and the test register 0 of 74 with 72 overdue - the same documentation lag. (4) Oct 15 daily report applied: GreenSol civil/NCU day, NO new quantities.
+// CACHE BUSTER 20261019a - PV FIELD-TEST REGISTER, first publication (supervisor daily report, Oct 17). NEW SECTION #pv-tests. Polarity and continuity 275 of 419 LBD (65.63%); grounding resistance 9 of 23; VLF 1 of 4; grounding continuity 5 of 23; IV CURVE 0 of 419 - the whole campaign has no reported start and it is a commissioning gate. By circuit 12A 109/110, 11A 90/92, 11B 70/110, 12B 6/107; 141 of the 144 open records (97.9%) sit on 11B and 12B. 11B's 40 are INV-12/13/14, the three Zone E stations that finished construction last - the circuit IS closed on construction, the field-test RECORD is what is missing. INV-07/08/10/16/17 carry zero records across 89 LBD, all 12B. THE REGISTER IS DOCUMENTARY COVERAGE, NOT ELECTRICAL ACCEPTANCE - the supervisor states twice that a missing record does not establish the test was not performed, so this is read the same way as the substation register, not as execution. Scope 419 and its split 92/110/110/107 reconcile exactly against this ledger's LBD take-off, and the register reconciles three ways (circuit, zone, inverter). VLF 1 of 4 diverges from the field position that 11A and 11B VLF are both done - flagged, not regressed.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
+ "pvFieldTests": {
+  "asOf": "Oct 17, 2026 — PV field-test supervision register, daily report issued by the field-test supervisor",
+  "basis": "The supervisor states it twice: a record exists or it does not, and a missing record does not establish that the contractor has not performed the test. Original OK/NOK values are unchanged and no acceptance is calculated.",
+  "scopeNote": "Denominator 419 LBD for the Vdc and IV-curve campaigns, 23 inverters for the grounding tests, 4 circuits for VLF. The 419 and its per-circuit split 92 / 110 / 110 / 107 match this ledger’s own LBD take-off exactly.",
+  "types": [
+   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 275, "open": 144, "pct": 65.63, "unit": "LBD" },
+   { "t": "Grounding resistance", "scope": 23, "done": 9, "open": 14, "pct": 39.13, "unit": "inverters" },
+   { "t": "VLF + battery bank", "scope": 4, "done": 1, "open": 3, "pct": 25.0, "unit": "circuits" },
+   { "t": "Grounding continuity", "scope": 23, "done": 5, "open": 18, "pct": 21.74, "unit": "inverters" },
+   { "t": "IV curve test", "scope": 419, "done": 0, "open": 419, "pct": 0.0, "unit": "LBD" }
+  ],
+  "byCircuit": [
+   { "c": "12A", "scope": 110, "done": 109, "open": 1, "pct": 99.09 },
+   { "c": "11A", "scope": 92, "done": 90, "open": 2, "pct": 97.83 },
+   { "c": "11B", "scope": 110, "done": 70, "open": 40, "pct": 63.64 },
+   { "c": "12B", "scope": 107, "done": 6, "open": 101, "pct": 5.61 }
+  ],
+  "zeroInverters": "INV-07, INV-08, INV-10, INV-16 and INV-17 carry ZERO polarity records — 89 LBD. All five are 12B stations.",
+  "elevenBGap": "11B’s 40 open records are INV-12 (15 of 19 open), INV-13 (12 of 18) and INV-14 (13 of 17) — the three Zone E stations that finished construction last. INV-04, INV-09 and INV-11 are at 19 / 18 / 19, complete.",
+  "concentration": "141 of the 144 open polarity records — 97.9% — sit on 11B and 12B. 12A and 11A are three records from closed.",
+  "headline": "IV curve: 0 of 419. Polarity 275 of 419 (65.6%). 11B carries 40 open records on INV-12/13/14 against a circuit this ledger publishes as closed on construction."
+ },
  "selfPerform": {
   "asOf": "Executed through Oct 8, 2026 — the GreenSol crew log, read live from SharePoint on Oct 16",
   "source": "SharePoint · 00 Production – Daily Report · \"DELIVERY AND MECHANICAL.xlsx\" → sheet GSol. Workbook last modified Oct 16; the log itself stops at Oct 8.",
@@ -3663,6 +3685,13 @@ window.MURCH_DATA = {
  "contractProvisions": "Control-building backup power: contract has no provision for a double backup — proposal is the 8 h DC battery for critical systems plus an auto-start diesel generator (good industry practice). Internet: contract requires ≥100 Mb/s with no connection type — 5G modem/antenna proposed; critical links (SCADA cellular backup, AEP via OPGW) are independent. Sent to the Owner Oct 2 to avoid a contractual dispute."
 },
  risks: [
+ {
+  "headline": "IV curve testing has not started \u2014 0 of 419 LBD \u2014 and 11B carries 40 open polarity records on INV-12/13/14",
+  "title": "PV field-test supervision register, daily report of Oct 17, 2026.",
+  "note": "<strong>The whole IV-curve campaign is untouched: 0 of 419 LBD. Polarity and continuity stands at 275 of 419 (65.6%), grounding continuity 5 of 23, grounding resistance 9 of 23, VLF 1 of 4.</strong> <strong>The number that matters for the programme is 11B: 40 open polarity records, and they are not spread \u2014 they are INV-12 (15 of 19 open), INV-13 (12 of 18) and INV-14 (13 of 17), the three Zone E stations that finished construction last. This ledger publishes 11B as closed on construction, and it is; what is missing is the field-test record behind it.</strong> <strong>141 of the 144 open records \u2014 97.9% \u2014 sit on 11B and 12B. 12A is one record from closed and 11A two. Five 12B stations (INV-07, 08, 10, 16, 17) carry zero records across 89 LBD.</strong> <strong>READ IT AS COVERAGE, NOT EXECUTION: the supervisor states twice that this is documentary coverage and that a missing record does not establish that the test was not performed. That is the same instrument as the substation register and the same trap \u2014 do not read 0 of 419 as nothing done until the field is asked.</strong> <strong>ACTION: confirm with the field-test contractor what has actually been executed on IV curves and on INV-12/13/14, and get the records filed. IV curve is a commissioning gate and currently has no reported start.</strong>",
+  "level": "Critical",
+  "owner": "Commissioning Manager | Construction Manager | Field-test supervision"
+ },
  {
   "headline": "Control sheets lag the site: MV control reads 198/264 and tracker SCADA 61%, against work confirmed done",
   "title": "Live read of the SharePoint control workbooks on Oct 16 against the published position.",
