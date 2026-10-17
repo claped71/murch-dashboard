@@ -399,7 +399,8 @@ window.MURCH_DATA = {
   "forecast": "Nov 4 (last circuit) — Oct 5 schedule update · SET MC Oct 16, RTE Oct 30",
   "name": "Mechanical Completion"
  },
- "safetyBasis": "Site safety banner photographed Oct 15, 2026: 239,337 safe man-work hours without recordable accidents (up from 231,471 at Oct 5). No headcount board has been received since Sep 17, so the days-LTI-free counter is still held on the last register and is not advanced on the calendar."
+ "safetyHours": { "value": 239337, "asOf": "Oct 15, 2026", "source": "site safety banner, EHS" },
+  "safetyBasis": "Site safety banner photographed Oct 15, 2026: 239,337 safe man-work hours without recordable accidents (up from 231,471 at Oct 5). No headcount board has been received since Sep 17, so the days-LTI-free counter is still held on the last register and is not advanced on the calendar."
 },
  safetyDaysLtiFree: 337,
  safetyBasis: '<strong>Oct 5: the Murch site KPI workbook records zero lost-time, recordable and days-away injuries for every month of 2026 across 231,471 hours (Jan 1 – Oct 5); Green-Sol corporate counter 282 days at the September close.</strong> PRIOR: HELD on the Sep 17 EHS register: <strong>337 days without a lost-time accident across 203,862.6 man-hours.</strong> No headcount board has been received since Sep 17 (requested again Sep 28); the counter is not advanced until the register resumes. The Sep 8 substation case is still carried as first aid, classification open.',
