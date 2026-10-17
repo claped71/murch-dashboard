@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261020a - OCT 16 DAILY REPORT + STALE-COMPOSITE CORRECTION. United at PS16 (12B): DC home run 5,420.5 lf and DC trunk 1,606.9 lf = 7,027.4 lf, the first cable filed since Oct 7. Cable 226,124 -> 233,151 lf (86.43%). Line 4 homerun 10,084 -> 15,504.5, trunk 1,619 -> 3,225.9. SEPARATELY the LV composite was found STALE: it still carried homerun 79.9 / trunk 87.7 / harness 65.8 off the pre-Oct-15 basis and had never picked up the 12A re-base of 7,531 lf or the harness correction to 4,379. Recomputed from the ledger: homerun 85.25, trunk 93.17, harness 87.46 -> LV firm 60.1 -> 63.21; about +1.7 of that move is the stale correction and +1.4 is Oct 16. Chain recomputed: LV earned 71.05 -> 72.48, electrical total 84.2 -> 84.86, PROJECT 97.6 -> 97.72. Megger PS16 4 of 18 reported IN PROGRESS with no PASS per LBD - NOT counted, note only. Jumpers 85 (PS07/PS08), messenger 450 ft, 349 hangers, 38 piercing-connector lines / 76 clamps: notes, no take-off, earn nothing. 780 hangers DRILLED by GreenSol are material prep, NOT the 349 INSTALLED by United - the report flags the trap and so does this ledger. Rain stopped civil work 10:40-10:50. New gallery photo: utility crews at the interconnection substation. The report repeats the PM lagging figure (98.58% global, MV 198/264 at 14/10) - NOT regressed; our MV ledger holds at 231/264.
+// CACHE BUSTER 20261021a - JOSE'S INV-12 RULING APPLIED TO THE FIGURES, not just noted. INV-12 on 11B is FULLY COMPLETE (Director of Construction, Oct 17), so the PV field-test register is published on that basis: INV-12 polarity 4 -> 19 of 19; circuit 11B 70 -> 85 of 110 (63.64 -> 77.27%); project polarity 275 -> 290 of 419 (65.63 -> 69.21%); open 144 -> 129; Zone E 76 -> 91 of 128. The previous push recorded the ruling only as a note on the gap text while the counts still read INV-12 at 4 of 19 - that was wrong and is corrected here. 11B now holds 25 open records, all on INV-13 (12 of 18) and INV-14 (13 of 17). 12B is the open scope on its own: 101 of the 129 remaining records, with INV-07/08/10/16/17 at ZERO across 89 LBD. IV curve still 0 of 419 with no reported start. Risk card re-headlined onto 12B.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -10,7 +10,7 @@ window.MURCH_DATA = {
   "basis": "The supervisor states it twice: a record exists or it does not, and a missing record does not establish that the contractor has not performed the test. Original OK/NOK values are unchanged and no acceptance is calculated.",
   "scopeNote": "Denominator 419 LBD for the Vdc and IV-curve campaigns, 23 inverters for the grounding tests, 4 circuits for VLF. The 419 and its per-circuit split 92 / 110 / 110 / 107 match this ledger’s own LBD take-off exactly.",
   "types": [
-   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 275, "open": 144, "pct": 65.63, "unit": "LBD" },
+   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 290, "open": 129, "pct": 69.21, "unit": "LBD" },
    { "t": "Grounding resistance", "scope": 23, "done": 9, "open": 14, "pct": 39.13, "unit": "inverters" },
    { "t": "VLF + battery bank", "scope": 4, "done": 1, "open": 3, "pct": 25.0, "unit": "circuits" },
    { "t": "Grounding continuity", "scope": 23, "done": 5, "open": 18, "pct": 21.74, "unit": "inverters" },
@@ -19,13 +19,13 @@ window.MURCH_DATA = {
   "byCircuit": [
    { "c": "12A", "scope": 110, "done": 109, "open": 1, "pct": 99.09 },
    { "c": "11A", "scope": 92, "done": 90, "open": 2, "pct": 97.83 },
-   { "c": "11B", "scope": 110, "done": 70, "open": 40, "pct": 63.64 },
+   { "c": "11B", "scope": 110, "done": 85, "open": 25, "pct": 77.27 },
    { "c": "12B", "scope": 107, "done": 6, "open": 101, "pct": 5.61 }
   ],
   "zeroInverters": "INV-07, INV-08, INV-10, INV-16 and INV-17 carry ZERO polarity records — 89 LBD. All five are 12B stations.",
-  "elevenBGap": "11B’s 40 open records are INV-12 (15 of 19 open), INV-13 (12 of 18) and INV-14 (13 of 17) — the three Zone E stations that finished construction last. INV-04, INV-09 and INV-11 are at 19 / 18 / 19, complete. <strong>RULING (Jose, Oct 17): INV-12 IS FULLY COMPLETE. Its 15 open records are a FILING gap, not untested work \u2014 a third of 11B\u2019s whole shortfall, and the clearest proof yet that this register measures paperwork and not the field.</strong>",
-  "concentration": "141 of the 144 open polarity records — 97.9% — sit on 11B and 12B. 12A and 11A are three records from closed.",
-  "headline": "IV curve: 0 of 419. Polarity 275 of 419 (65.6%). 11B carries 40 open records on INV-12/13/14 against a circuit this ledger publishes as closed on construction."
+  "elevenBGap": "<strong>INV-12 IS COMPLETE — 19 of 19 — on the Director of Construction’s ruling of Oct 17, and this register is published on that basis, not on the supervisor’s open count.</strong> 11B’s remaining 25 open records are INV-13 (12 of 18) and INV-14 (13 of 17). INV-04, INV-09, INV-11 and INV-12 are complete at 19 / 18 / 19 / 19. The 15 records applied on INV-12 were a filing gap, not untested work — a third of this circuit’s whole shortfall.",
+  "concentration": "126 of the 129 open polarity records — 97.7% — sit on 11B and 12B, and 101 of those are 12B alone. 12A and 11A are three records from closed.",
+  "headline": "IV curve: 0 of 419. Polarity 290 of 419 (69.2%) with INV-12 applied complete. 12B carries 101 of the 129 open records; 11B holds 25 on INV-13 and INV-14."
  },
  "selfPerform": {
   "asOf": "Executed through Oct 8, 2026 — the GreenSol crew log, read live from SharePoint on Oct 16",
@@ -3699,9 +3699,9 @@ window.MURCH_DATA = {
 },
  risks: [
  {
-  "headline": "IV curve testing has not started \u2014 0 of 419 LBD \u2014 and 11B carries 40 open polarity records on INV-12/13/14",
+  "headline": "IV curve testing has not started \u2014 0 of 419 LBD \u2014 and 12B carries 101 of the 129 open polarity records",
   "title": "PV field-test supervision register, daily report of Oct 17, 2026.",
-  "note": "<strong>The whole IV-curve campaign is untouched: 0 of 419 LBD. Polarity and continuity stands at 275 of 419 (65.6%), grounding continuity 5 of 23, grounding resistance 9 of 23, VLF 1 of 4.</strong> <strong>The number that matters for the programme is 11B: 40 open polarity records, and they are not spread \u2014 they are INV-12 (15 of 19 open), INV-13 (12 of 18) and INV-14 (13 of 17), the three Zone E stations that finished construction last. This ledger publishes 11B as closed on construction, and it is; what is missing is the field-test record behind it.</strong> <strong>141 of the 144 open records \u2014 97.9% \u2014 sit on 11B and 12B. 12A is one record from closed and 11A two. Five 12B stations (INV-07, 08, 10, 16, 17) carry zero records across 89 LBD.</strong> <strong>READ IT AS COVERAGE, NOT EXECUTION: the supervisor states twice that this is documentary coverage and that a missing record does not establish that the test was not performed. That is the same instrument as the substation register and the same trap \u2014 do not read 0 of 419 as nothing done until the field is asked.</strong> <strong>ACTION: confirm with the field-test contractor what has actually been executed on IV curves and on INV-12/13/14, and get the records filed. IV curve is a commissioning gate and currently has no reported start.</strong>",
+  "note": "<strong>The whole IV-curve campaign is untouched: 0 of 419 LBD. Polarity and continuity stands at 275 of 419 (65.6%), grounding continuity 5 of 23, grounding resistance 9 of 23, VLF 1 of 4.</strong> <strong>INV-12 IS APPLIED COMPLETE at 19 of 19 on the Director of Construction\u2019s ruling of Oct 17 \u2014 its 15 records were a filing gap, not untested work. Polarity therefore reads 290 of 419 (69.2%) and 11B 85 of 110, leaving 25 open on INV-13 (12 of 18) and INV-14 (13 of 17).</strong> <strong>12B is now the open scope on its own: 101 of the 129 remaining records, with five stations (INV-07, 08, 10, 16, 17) at ZERO across 89 LBD. 12A is one record from closed and 11A two.</strong> <strong>READ IT AS COVERAGE, NOT EXECUTION: the supervisor states twice that this is documentary coverage and that a missing record does not establish that the test was not performed. That is the same instrument as the substation register and the same trap \u2014 do not read 0 of 419 as nothing done until the field is asked.</strong> <strong>ACTION: INV-12 proves the point \u2014 ask the field what has actually been executed before reading any count here as work outstanding, starting with the IV curve at 0 of 419 and with INV-13 and INV-14. IV curve is a commissioning gate and has no reported start.</strong>",
   "level": "Critical",
   "owner": "Commissioning Manager | Construction Manager | Field-test supervision"
  },
