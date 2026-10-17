@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261022a - CIRCUIT 11B APPLIED CLOSED ON THE FIELD-TEST REGISTER. There is NO pending inverter on 11B (Director of Construction, Oct 17): INV-12, INV-13 and INV-14 are complete alongside INV-04, INV-09 and INV-11. 11B polarity 85 -> 110 of 110 (100%); project polarity 290 -> 315 of 419 (69.21 -> 75.18%); open 129 -> 104; Zone E 91 -> 116 of 128. All 40 records this register carried open on 11B were a filing gap, not untested work - 28% of the whole project shortfall, filed. 12B now carries 101 of the 104 remaining records on its own, with INV-07/08/10/16/17 at ZERO across 89 LBD; 12A is one record from closed and 11A two. IV curve still 0 of 419 with no reported start. Risk card re-headlined onto 12B.
+// CACHE BUSTER 20261023a - LV TERMINATIONS CORRECTED. The per-line ledger has carried 11A 372/372 + 186/186, 11B 440/440 + 220/220 and 12A 440/440 + 220/220 since those circuits closed, but lvComposite still earned the old counted-items figures of 483 of 1,676 (28.8%) and 234 of 838 (27.9%). The real position is 1,252 of 1,676 and 626 of 838 - BOTH 74.7%. Every open LV termination on the project is on 12B: 424 box-side, 212 inverter-side. 11B is complete with NO pending inverter (Director of Construction, Oct 17): the 'complete except INV-12, count pending (CM Oct 3)' caveat is retired from the line, from the circuit-table footnotes and from the readiness logic. CHAIN: LV firm 63.21 -> 72.46; LV earned 72.5 -> 81.72; electrical total 84.86 -> 89.01; PROJECT 97.72 -> 98.31. Same class of defect as the stale cable composite fixed yesterday - the per-line truth was right, the component earning off it was not.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -132,7 +132,7 @@ window.MURCH_DATA = {
   "capacity": 0,
   "name": "LV Electrical",
   "unit": "lf/day",
-  "earnedPct": 72.5,
+  "earnedPct": 81.72,
   "earnedBasis": "weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)",
   "lvDaily": [
    {
@@ -1596,13 +1596,13 @@ window.MURCH_DATA = {
  "asOf": "Oct 14, 2026 (executed through Wed Oct 14; MV terminations from the Oct 14 report, LV cable held, substation disciplines re-based)",
  "basis": "Weighted composite of the four electrical fronts by labour content",
  "gatePct": 71.9,
- "earnedPct": 84.86,
+ "earnedPct": 89.01,
  "components": [
   {
    "name": "LV / DC installation",
    "weight": 45,
    "gate": 81,
-   "earned": 72.48,
+   "earned": 81.72,
    "note": "<strong>Oct 9 / 10 / 12: NO cable footage filed on any of the three days — the ledger holds at 218,593 (81.0%) and both remaining circuit dates have passed with 62,223 ft open. +36 LBD-side terminations on Line 3 (PS-19 17, PS-18 19/19) → 483 of 1,676.</strong> <strong>Oct 7: +4,332 lf → 218,593 (81.0%), all Line 3 at PS-18 (homerun 17/19); 14 LBD-side terminations (PS-20 11, PS-12 3) → 447 of 1,676.</strong> <strong>Oct 6: +4,251 lf → 214,261 (79.4%), all Line 3 (PS-19 homerun 17/17, PS-18); PS-21 LBD side 19/19.</strong> <strong>Oct 5: +9,129 lf → 210,010 of 269,748 (77.9%), all Line 3 at PS-19; 10 LBD and 38 inverter-side terminations (PS-21/22).</strong> <strong>Oct 3: +7,691 lf → 200,881 of 269,748 (74.5%); INV-15 homerun finished; 9 LBD terminations on Line 3.</strong> <strong>Oct 4 (CM ruling): LV terminations complete on 11A and on 11B except INV-12 (cabinet terminations wait for the creek-crossing bore). The 11B count is owed by the field, so the composite still carries only counted items — box 411 of 1,676, inverter 196 of 838 — and understates 11B until the count arrives.</strong> <strong>Oct 2: +27,436 lf in four days → 193,190 of 269,748 (71.6%); series connection 737 rows; harness 3,296 (65.8%).</strong> <strong>Sep 28: +5,547 lf → 165,754 of 269,748 (61.4%). MODULE SERIES CONNECTION STARTED — 172 tracker rows seriados on the first reported day after the safety authorisation cleared, the scope that was blocking circuit 11A.</strong> <strong>Sep 26: +3,004 lf (ECCS, Line 2) → 160,207 of 269,748 (59.4%); Line 2 homerun pulled. Harness still unchanged at 3,143 — series connection not yet authorised.</strong> <strong>Sep 24–25: +17,740 lf in two days → 157,203 of 269,748 (58.3%). Harness unchanged at 3,143 (62.8%) for a fourth reported day — module series connection is on HOLD pending the safety-documentation close-out, so the crews are on plug-in, heat-shrink and grounding.</strong> <strong>Sep 23: +7,082 lf → 139,463 of 269,748 (51.7%) — past halfway. Harness unchanged at 3,143 (62.8%): no assemblies filed, the day was heat-shrink and terminations.</strong> <strong>Sep 22: +7,200 lf → 132,381 of 269,748 (49.1%); harness +72 → 3,143 (62.8%).</strong> <strong>Sep 22 (CM): Line 1 LV terminations complete — box connections 372 of 372 and inverter connections 186 of 186; project 372 of 1,676 and 194 of 838.</strong> <strong>Sep 21: +15,106 lf in one day (best day of the project) → 125,181 of 269,748 (46.4%); harness +74 → 3,071 (61.3%); Line 1 inverter terminals 70 of 186.</strong> <strong>Sep 18: +3,260 lf at INV-12 (Line 2) → 110,075 (40.8%); Sep 19 rain, nothing.</strong> <strong>Sep 16–17: +9,267 lf (homerun 7,762 on Line 2; trunk 1,505 without a line) → 106,815 of 269,748 (39.6%); harness +188 → 2,957 (59.1%); Line 4 boxes +17 → 418 of 419. The Sep 18 contract gate is MISSED with 162,933 lf open.</strong> <strong>Line 1 box terminations 264 of 372 (Jose, Sep 16).</strong> <strong>Sep 15: +5,589 lf (homerun 5,122, trunk 467) → 97,548 of 269,748 (36.2%); Sep 18 contract gate asks 86,100 lf/day over 2 wd. Harness +44 → 2,769 (55.3%).</strong> <strong>Sep 14 (Monday), per the by-line report: +3,482 ft homerun (self-perform, INV-12) → cable 91,959 of 269,748 lf (34.1%); the contract Sep 18 gate now asks 88,895 lf/day over 2 working days. Harness +114 → 2,725 of 5,007 (54.4%); required 1,141/day to the same gate.</strong> PRIOR (Sep 15 cut, superseded): <strong>Sep 14 (Monday): no electrical production filed at all — the day was mechanical. Cable holds at 88,477 of 269,748 lf (32.8%); the contract Sep 18 gate now asks 60,424 lf/day over 3 working days, which is not achievable and has not been achievable for two weeks.</strong> Harness holds at 2,611 of 5,007 (52.1%); the required rate to the same gate rises to 799/day. <strong>Against the Sep 8 end-of-project plan the binding dates are LV works 11A Sep 17 (2 working days), 11B Sep 24 (8), 12A Oct 1 (14), 12B Oct 10 (22).</strong> The PM’s cumulatives still sit exactly Friday Sep 11’s production below this ledger (harness 2,587 vs 2,725; homerun 71,265 vs 74,565) — ruling still needed on whether the Sep 11 field count was taken after that day’s work."
   },
   {
@@ -1632,7 +1632,7 @@ window.MURCH_DATA = {
  projectTotal: {
  "asOf": "Oct 13, 2026 (executed through Mon Oct 12; piles and trackers complete; modules held at the CM count — 988 pending delivery, all in Area D, re-confirmed on the Oct 13 delivery workbook)",
  "gatePct": 97.6,
- "earnedPct": 97.72,
+ "earnedPct": 98.31,
  "weights": {
   "piles": 28,
   "trackers": 22,
@@ -1663,7 +1663,7 @@ window.MURCH_DATA = {
    "name": "Electrical (LV + MV + inverters + SET)",
    "weight": 14,
    "gate": 71.9,
-   "earned": 84.86
+   "earned": 89.01
   },
   {
    "name": "Civil (excl. substation)",
@@ -1742,8 +1742,8 @@ window.MURCH_DATA = {
  "harnessGateTotal": 5007,
  "harnessGatePct": 87.46,
  "harnessRequiredPerDay": 1711,
- "earnedPctFirm": 63.21,
- "earnedPctWithSupports": 75.71,
+ "earnedPctFirm": 72.46,
+ "earnedPctWithSupports": 84.96,
  "components": [
   {
    "component": "Homerun cable (inverter feeders)",
@@ -1789,17 +1789,17 @@ window.MURCH_DATA = {
    "component": "Box connections / terminations",
    "scope": "1,676 connections",
    "weight": 12,
-   "executedPct": 28.8,
+   "executedPct": 74.7,
    "contribution": 8.96,
-   "note": "<strong>483 of 1,676 (28.8%) — Oct 12 +19 LBD-side at PS-18 on Line 3, the station complete at 19 of 19, and Oct 9 +17 at PS-19. Both are box-side terminations and are separate from the megger results filed the same days.</strong> <strong>447 of 1,676 (26.7%) — Oct 7 +14 LBD-side: 11 boxes terminated at PS-20 on Line 3 (LBD 101, 102, 103, 304, 305, 406, 407, 408, 409, 310, 311 → PS-20 reads 11 of 18) and 3 at PS-12 E19 on Line 2 (LBD 111, 112, 210).</strong> <strong>433 of 1,676 (25.8%) — Oct 6 +3 LBD-side at PS-21 (LBD 201, 102, 206) → PS-21 complete 19 of 19. Self-perform LBD terminations at PS-12 EW1/EW2 complete — inside the INV-12 exception, noted, no count.</strong> <strong>430 of 1,676 counted (25.7%) — Oct 5 +10 LBD-side on Line 3 at PS-21 (F10, F6). Self-perform terminations at PS-12 (boxes 16, 15, 14, 13, 7) are the INV-12 exception on 11B moving — noted, no count published.</strong> <strong>420 of 1,676 counted (25.1%) — Oct 3 +9 LBD-side on Line 3 (PS-21/22). Self-perform box terminations at INV-12/13/14 sit inside the 11B statement (complete except INV-12) and change no figure.</strong> <strong>411 of 1,676 counted (24.5%) — Oct 4 (CM, Oct 3): Line 2 box terminations are COMPLETE EXCEPT INV-12, but the count is owed by the field, so Line 2 still enters at its counted 9 until the number arrives (no estimate published). Line 1 372 of 372; Line 3 30.</strong> <strong>411 of 1,676 (24.5%) — Line 3 +30 LBD-side (INV-23 6 on Sep 30, PS-23 11 on Oct 1, INV-22 13 on Oct 2). Self-perform cabinet terminations at INV-9/13/14 carry no count — not added.</strong> <strong>Sep 24: +9 disconnect boxes terminated at INV-04 (Line 2) → 381 of 1,676. A further 7 closed at INV-06, on a circuit already carried complete, so they are punch work and are not added.</strong> <strong>372 of 1,676 (22.2%) — CM report Sep 22: Line 1 (11A) LV terminations CLOSED — 4 of the 5 inverters finished, the fifth and the last 23 boxes with terminals due Sep 23; series connection and piercing are the only LV work left on the line.</strong> <strong>264 of 1,676 (15.8%) — Jose, Sep 16: Line 1 box terminations stand at 264 of 372 (71.0%), 108 left; Lines 2–4 at 0.</strong> PRIOR: <strong>52 of 1,676 (3.1%) — Sep 10 +40 at INV-1: LBD 304, 218, 119, 417, 213, 412, 208, 207, 406, 103 connected (4 per box) after the first 12 on Sep 9 (LBD 101, 102, 105). The report now carries a running LBD-connection control.</strong> Line 1 box connections are due Sep 10-16 on the Sep 8 plan; 372 on 11A."
+   "note": "<strong>CORRECTED Oct 17 — 1,252 of 1,676 (74.7%). The per-line ledger has carried 11A 372 of 372, 11B 440 of 440 and 12A 440 of 440 since those circuits closed, but this component was never re-based off the old counted-items figure and was earning a quarter of a scope that is three quarters done. 11B is complete with NO pending inverter (Director of Construction, Oct 17). Every open box-side termination on the project is on 12B: 424. PRIOR — Oct 12 +19 LBD-side at PS-18 on Line 3, the station complete at 19 of 19, and Oct 9 +17 at PS-19. Both are box-side terminations and are separate from the megger results filed the same days.</strong> <strong>447 of 1,676 (26.7%) — Oct 7 +14 LBD-side: 11 boxes terminated at PS-20 on Line 3 (LBD 101, 102, 103, 304, 305, 406, 407, 408, 409, 310, 311 → PS-20 reads 11 of 18) and 3 at PS-12 E19 on Line 2 (LBD 111, 112, 210).</strong> <strong>433 of 1,676 (25.8%) — Oct 6 +3 LBD-side at PS-21 (LBD 201, 102, 206) → PS-21 complete 19 of 19. Self-perform LBD terminations at PS-12 EW1/EW2 complete — inside the INV-12 exception, noted, no count.</strong> <strong>430 of 1,676 counted (25.7%) — Oct 5 +10 LBD-side on Line 3 at PS-21 (F10, F6). Self-perform terminations at PS-12 (boxes 16, 15, 14, 13, 7) are the INV-12 exception on 11B moving — noted, no count published.</strong> <strong>420 of 1,676 counted (25.1%) — Oct 3 +9 LBD-side on Line 3 (PS-21/22). Self-perform box terminations at INV-12/13/14 sit inside the 11B statement (complete except INV-12) and change no figure.</strong> <strong>411 of 1,676 counted (24.5%) — Oct 4 (CM, Oct 3): Line 2 box terminations are COMPLETE EXCEPT INV-12, but the count is owed by the field, so Line 2 still enters at its counted 9 until the number arrives (no estimate published). Line 1 372 of 372; Line 3 30.</strong> <strong>411 of 1,676 (24.5%) — Line 3 +30 LBD-side (INV-23 6 on Sep 30, PS-23 11 on Oct 1, INV-22 13 on Oct 2). Self-perform cabinet terminations at INV-9/13/14 carry no count — not added.</strong> <strong>Sep 24: +9 disconnect boxes terminated at INV-04 (Line 2) → 381 of 1,676. A further 7 closed at INV-06, on a circuit already carried complete, so they are punch work and are not added.</strong> <strong>372 of 1,676 (22.2%) — CM report Sep 22: Line 1 (11A) LV terminations CLOSED — 4 of the 5 inverters finished, the fifth and the last 23 boxes with terminals due Sep 23; series connection and piercing are the only LV work left on the line.</strong> <strong>264 of 1,676 (15.8%) — Jose, Sep 16: Line 1 box terminations stand at 264 of 372 (71.0%), 108 left; Lines 2–4 at 0.</strong> PRIOR: <strong>52 of 1,676 (3.1%) — Sep 10 +40 at INV-1: LBD 304, 218, 119, 417, 213, 412, 208, 207, 406, 103 connected (4 per box) after the first 12 on Sep 9 (LBD 101, 102, 105). The report now carries a running LBD-connection control.</strong> Line 1 box connections are due Sep 10-16 on the Sep 8 plan; 372 on 11A."
   },
   {
    "component": "Inverter connections",
    "scope": "838 connections",
    "weight": 8,
-   "executedPct": 27.9,
+   "executedPct": 74.7,
    "contribution": 5.98,
-   "note": "<strong>234 of 838 (27.9%) — Oct 5: PS-22 inverter side COMPLETE (26 × 500 + 12 × 750 kcmil = 38) on Line 3; Oct 2’s 2 inverter-side terminations were filed at INV-22/23, so up to 2 may sit inside the 38 (flagged).</strong> <strong>196 of 838 counted (23.4%) — Oct 4 (CM, Oct 3): Line 2 inverter-cabinet terminations complete except INV-12 (its LV cable waits for the creek-crossing bore — Bore-11 in Area EW was reported complete Oct 2, to confirm); count owed, Line 2 enters at its counted 8. Line 1 186 of 186; Line 3 2.</strong> <strong>196 of 838 (23.4%) — Oct 2 +2 inverter-side at INV-23 (Line 3).</strong> <strong>194 of 838 (23.2%) — Line 1 complete at 186 of 186 on the CM’s Sep 22 report (4 inverters closed, the fifth due Sep 23).</strong> <strong>78 of 838 (9.3%) — Sep 21: ECCS crimped and torqued 70 LV terminals at INV-01 (38) and INV-02 (32, cabinets 1 and 3), Line 1; labels, tape and fuses still pending.</strong> <strong>8 of 838 (1.0%) — Sep 11: the self-perform crew landed circuits 1, 2, 5, 6, 10, 11, 12 and 19 in the INV-12 cabinet (Line 2), the first LV inverter connections on the project.</strong> Line 1 inverter connections (0 of 186) were due from Sep 11 on the plan."
+   "note": "<strong>CORRECTED Oct 17 — 626 of 838 (74.7%), the same defect as the box-side line: 11A 186 of 186, 11B 220 of 220 and 12A 220 of 220 have been in the per-line ledger since those circuits closed. All 212 open inverter-side terminations are on 12B. PRIOR — Oct 5: PS-22 inverter side COMPLETE (26 × 500 + 12 × 750 kcmil = 38) on Line 3; Oct 2’s 2 inverter-side terminations were filed at INV-22/23, so up to 2 may sit inside the 38 (flagged).</strong> <strong>196 of 838 counted (23.4%) — Oct 4 (CM, Oct 3): Line 2 inverter-cabinet terminations complete except INV-12 (its LV cable waits for the creek-crossing bore — Bore-11 in Area EW was reported complete Oct 2, to confirm); count owed, Line 2 enters at its counted 8. Line 1 186 of 186; Line 3 2.</strong> <strong>196 of 838 (23.4%) — Oct 2 +2 inverter-side at INV-23 (Line 3).</strong> <strong>194 of 838 (23.2%) — Line 1 complete at 186 of 186 on the CM’s Sep 22 report (4 inverters closed, the fifth due Sep 23).</strong> <strong>78 of 838 (9.3%) — Sep 21: ECCS crimped and torqued 70 LV terminals at INV-01 (38) and INV-02 (32, cabinets 1 and 3), Line 1; labels, tape and fuses still pending.</strong> <strong>8 of 838 (1.0%) — Sep 11: the self-perform crew landed circuits 1, 2, 5, 6, 10, 11, 12 and 19 in the INV-12 cabinet (Line 2), the first LV inverter connections on the project.</strong> Line 1 inverter connections (0 of 186) were due from Sep 11 on the plan."
   },
   {
    "component": "Megger LV and MV connections",
@@ -1812,7 +1812,7 @@ window.MURCH_DATA = {
  ],
  "note": "The LV gate is denominated purely in linear feet of cable, so every box mounted, every support set and every foot of messenger wire installed to date reports as zero progress. That is wrong as a measure of work done, and the composite fixes it by weighting the control-line components by labour content. The gate is no longer zero: 4,752 lf placed, 3,871 of it in the last two days. The composite reads 3.6% — or about 6.1% once the support work is quantified. Giving this scope an equivalent progress does not improve the picture, it confirms it. With 7,104 lf/day required from Aug 6 to hold Sep 18 and 4,752 lf placed so far, LV/DC is the largest single exposure on the energization path, ahead of trackers and modules. The crew has held at 15 people for two days and delivered ~1,900 lf on each — the arithmetic says a second cable gang, not a longer day.",
  "weightNote": "Weights sum to 100 and are apportioned by labour content, not by quantity — 269,748 lf of cable pull carries far more man-hours than 419 box mountings. They need Jose sign-off before the composite goes into any certification, and should be frozen for the project once agreed.",
- "earnedPct": 72.48
+ "earnedPct": 81.72
 },
  // Feeds electrical-control.html (the interactive by-line study) - the page hydrates
  // from this block on load, so the DAILY UPDATE OF THIS BLOCK is what keeps the study
@@ -1891,7 +1891,6 @@ window.MURCH_DATA = {
    "connInv": 220,
    "connBox": 440,
    "connMV": 30,
-   "connPending": "complete except INV-12 — count pending (CM, Oct 3)"
   },
   "L3": {
    "harness": 1258,
