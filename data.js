@@ -399,7 +399,7 @@ window.MURCH_DATA = {
   "forecast": "Nov 4 (last circuit) — Oct 5 schedule update · SET MC Oct 16, RTE Oct 30",
   "name": "Mechanical Completion"
  },
- "safetyHours": { "value": 239337, "asOf": "Oct 15, 2026", "source": "site safety banner, EHS" },
+ "safetyHours": { "value": 239337, "asOf": "Oct 15, 2026", "asOfISO": "2026-10-15", "source": "site safety banner, EHS", "prev": { "value": 231471, "asOf": "Oct 5, 2026", "asOfISO": "2026-10-05" }, "impliedHeadcount": 87, "impliedNote": "7,866 man-hours between the two reported readings over 9 working days (Mon-Sat) at 10 h/day = 87 people per day across Oct 6-15. The headcount board has not been issued since Sep 17, when it read 202; this is the site demobilising into close-out, and it is the only current headcount the reported data supports." },
   "safetyBasis": "Site safety banner photographed Oct 15, 2026: 239,337 safe man-work hours without recordable accidents (up from 231,471 at Oct 5). No headcount board has been received since Sep 17, so the days-LTI-free counter is still held on the last register and is not advanced on the calendar."
 },
  safetyDaysLtiFree: 337,

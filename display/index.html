@@ -93,16 +93,17 @@
               </div>
             </sc-for>
           </div>
+          <div style="font-family:'Inter',sans-serif; font-size:19px; font-weight:600; color:#5b6d84; letter-spacing:.02em; flex:0 0 auto; margin-top:-14px;">{{ closedStrip }}</div>
           <div style="background:#192a3d; border-radius:12px; padding:0 48px; height:180px; display:flex; align-items:center; justify-content:space-between; color:#fff; flex:0 0 auto;">
             <div style="display:flex; align-items:center; gap:28px;">
               <span style="font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:110px; font-weight:700; line-height:.8; color:#f9b233;">{{ safetyDays }}</span>
               <span style="font-size:32px; font-weight:600; max-width:360px; line-height:1.15;">days without a lost-time incident</span>
             </div>
             <div style="text-align:right;">
-              <div style="font-family:'Inter',sans-serif; font-weight:600; text-transform:uppercase; font-size:20px; letter-spacing:.08em; color:#f9b233;">TRACKER ROWS COMPLETED · LAST REPORTED DAY</div>
+              <div style="font-family:'Inter',sans-serif; font-weight:600; text-transform:uppercase; font-size:20px; letter-spacing:.08em; color:#f9b233;">{{ openLabel }}</div>
               <div style="display:flex; align-items:baseline; gap:12px; justify-content:flex-end; margin-top:6px;">
-                <span style="font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:76px; font-weight:700; color:{{ trkColor }}; line-height:.85;">{{ trkActual }}</span>
-                <span style="font-size:28px; color:#b7c4d2;">{{ trkReqLabel }}</span>
+                <span style="font-family:'Inter',sans-serif; letter-spacing:-.03em; font-variant-numeric:tabular-nums; font-size:76px; font-weight:700; color:#ff9b8f; line-height:.85;">{{ openValue }}</span>
+                <span style="font-size:28px; color:#b7c4d2;">{{ openUnit }}</span>
               </div>
             </div>
           </div>
@@ -614,6 +615,49 @@ class Component extends DCLogic {
       reportDate: C.asOf || "", updated: C.asOf || "", elec,
       project: { name: "Murch Solar Project", capacity: "102 MWp", location: "Van Buren County, MI" },
       kpis, safety: { daysLtiFree: D.safetyDaysLtiFree || 204 },
+      projectPct: (D.projectTotal && Number(D.projectTotal.earnedPct)) || 0,
+      safetyHours: (C.safetyHours && Number(C.safetyHours.value)) || 0,
+      closedStrip: (function () {
+        const f = (o) => o && o.total ? Math.round((o.done / o.total) * 1000) / 10 : 0;
+        return "Piles " + (C.piles.installed || 0).toLocaleString() + " \u00b7 tracker rows "
+             + (C.trackers.installed || 0).toLocaleString() + " \u00b7 modules "
+             + (C.modules.installed || 0).toLocaleString() + " (" + f(kpis.modules).toFixed(1) + "%) \u2014 closed";
+      })(),
+      lvTerm: (function () {
+        const L = D.lvComposite && D.lvComposite.components || [];
+        const bx = L.find(c => /^Box connections/.test(c.component));
+        const iv = L.find(c => /^Inverter connections/.test(c.component));
+        if (!bx || bx.executedPct == null) return null;
+        const E2 = D.electricalByLine && D.electricalByLine.lineas;
+        let done = 0, tot = 1676 + 838;
+        if (E2) ["L1","L2","L3","L4"].forEach(x => { done += (E2[x].connBox || 0) + (E2[x].connInv || 0); });
+        return { pct: bx.executedPct, detail: done.toLocaleString() + " / " + tot.toLocaleString() + " connections",
+                 note: "all open work on 12B" };
+      })(),
+      mvTerm: (function () {
+        const M = D.electricalByLine && D.electricalByLine.mvPorLinea;
+        if (!M) return null;
+        let done = 0, tot = 0;
+        ["L1","L2","L3","L4"].forEach(x => { done += (M[x].inv || 0) + (M[x].jbTerm || 0);
+                                             tot  += (M[x].invScope || 0) + (M[x].jbTermScope || 0); });
+        return tot ? { pct: (done / tot) * 100, detail: done + " / " + tot + " terminations" } : null;
+      })(),
+      pvTest: (function () {
+        const P = D.pvFieldTests;
+        if (!P || !P.types) return null;
+        const pol = P.types.find(t => /Polarity/.test(t.t));
+        if (!pol) return null;
+        const iv = P.types.find(t => /IV curve/.test(t.t));
+        return { pct: pol.pct, detail: pol.done + " / " + pol.scope + " LBD polarity",
+                 note: iv ? ("IV curve " + iv.done + " / " + iv.scope) : "" };
+      })(),
+      openCircuit: (function () {
+        const E2 = D.electricalByLine && D.electricalByLine.lineas;
+        const P = D.electricalByLine && D.electricalByLine.proyecto;
+        if (!E2 || !P) return null;
+        const open = Math.round((P.homerunScope - P.homerun) + (P.trunkScope - P.trunk));
+        return { label: "12B \u2014 THE ONLY OPEN CIRCUIT", value: open.toLocaleString(), unit: "lf of cable to pull" };
+      })(),
       today, todayLabel, vsTarget, trkPace, trkEarned, scopes, deadlines, manpower,
       set: (function () { if (D.control && D.control.set && typeof D.control.set.pct === "number") return { pct: D.control.set.pct }; const a = (D.civilActivities || []).find(x => /Foundation SET \(composite\)/i.test(x.activity)); return a ? { pct: a.done } : null; })()
     };
@@ -634,18 +678,26 @@ class Component extends DCLogic {
       return { label, pctLabel: String(this.pctLabel(p)), pctStr: Math.max(2, Math.round(p)) + "%",
                detail: this.commas(o && o.done) + " / " + this.commas(o && o.total) };
     };
-    const kpis = [ mk("PILES", k.piles), mk("TRACKER ROWS", k.trackers), mk("MODULES", k.modules) ];
-    const te = d.trkEarned || null;
-    kpis.forEach(function (card) {
-      card.earnedStr = card.pctStr; card.earnedNote = "";
-      if (te && te.pct && /TRACKER/.test(card.label)) {
-        card.earnedStr = Math.max(2, Math.round(te.pct)) + "%";
-        card.earnedNote = "+ " + te.wipRows + " rows in build \u2192 " + te.pct.toFixed(1) + "% incl. WIP";
-      }
-    });
-    if (k.electrical) kpis.push(mk("LV ELECTRICAL", k.electrical));
-    if (d.set) kpis.push({ label: "SUBSTATION (SET)", pctLabel: String(this.pctLabel(d.set.pct)),
-      pctStr: Math.max(2, Math.round(d.set.pct)) + "%", detail: "AB Power \u00b7 MC Sep 25" });
+    // SLIDE 1 SHOWS ONLY LIVE SCOPES (Jose, Oct 17): piles, tracker rows and modules
+    // closed in September and told the room nothing. They are a one-line strip below,
+    // not five-eighths of the screen. What is carried here has work left in it.
+    const kpis = [];
+    if (d.projectPct) kpis.push({ label: "PROJECT", pctLabel: String(this.pctLabel(d.projectPct)),
+      pctStr: Math.max(2, Math.round(d.projectPct)) + "%", detail: "weighted physical completion",
+      earnedStr: Math.max(2, Math.round(d.projectPct)) + "%", earnedNote: "" });
+    if (k.electrical) { const c = mk("LV CABLE", k.electrical); c.earnedStr = c.pctStr; c.earnedNote = ""; kpis.push(c); }
+    if (d.lvTerm) kpis.push({ label: "LV TERMINATIONS", pctLabel: String(this.pctLabel(d.lvTerm.pct)),
+      pctStr: Math.max(2, Math.round(d.lvTerm.pct)) + "%", detail: d.lvTerm.detail,
+      earnedStr: Math.max(2, Math.round(d.lvTerm.pct)) + "%", earnedNote: d.lvTerm.note || "" });
+    if (d.mvTerm) kpis.push({ label: "MV TERMINATIONS", pctLabel: String(this.pctLabel(d.mvTerm.pct)),
+      pctStr: Math.max(2, Math.round(d.mvTerm.pct)) + "%", detail: d.mvTerm.detail,
+      earnedStr: Math.max(2, Math.round(d.mvTerm.pct)) + "%", earnedNote: "" });
+    if (d.set) kpis.push({ label: "SUBSTATION", pctLabel: String(this.pctLabel(d.set.pct)),
+      pctStr: Math.max(2, Math.round(d.set.pct)) + "%", detail: "construction complete",
+      earnedStr: Math.max(2, Math.round(d.set.pct)) + "%", earnedNote: d.set.note || "" });
+    if (d.pvTest) kpis.push({ label: "PV FIELD TESTS", pctLabel: String(this.pctLabel(d.pvTest.pct)),
+      pctStr: Math.max(2, Math.round(d.pvTest.pct)) + "%", detail: d.pvTest.detail,
+      earnedStr: Math.max(2, Math.round(d.pvTest.pct)) + "%", earnedNote: d.pvTest.note || "" });
 
     // Latnovva was removed Aug 6, 2026 — contract terminated; never re-add it here.
     const LOGOS = {
@@ -807,6 +859,10 @@ class Component extends DCLogic {
       scopes, deadlines, manpower, manpowerCats, manpowerTotal: String(mpTotal), manpowerDate: mp.date || "",
       deadlineCols: Math.max(1, deadlines.length),
       safetyDays: String((d.safety && d.safety.daysLtiFree) ?? 0),
+      closedStrip: String(d.closedStrip || ""),
+      openLabel: String((d.openCircuit && d.openCircuit.label) || ""),
+      openValue: String((d.openCircuit && d.openCircuit.value) || ""),
+      openUnit: String((d.openCircuit && d.openCircuit.unit) || ""),
       trkActual: String((d.trkPace && d.trkPace.actual) ?? 0),
       trkRequired: String((d.trkPace && d.trkPace.required) ?? 0),
       trkReqLabel: (d.vsTarget && d.vsTarget.gatePassed) ? ('/ ' + String((d.trkPace && d.trkPace.required) ?? 0) + ' rows open') : ('/ ' + String((d.trkPace && d.trkPace.required) ?? 0) + ' needed'),
@@ -818,7 +874,7 @@ class Component extends DCLogic {
       paceCapacity: String(vt.capacity ?? 0),
       paceGateSlip: vt.gateSlip || "—",
       pacePctStr: pacePct + "%",
-      paceWip: te ? (te.wipRows + " open rows \u00b7 " + te.wipEquiv.toFixed(1) + " row-equivalents \u2192 " + te.pct.toFixed(1) + "% incl. WIP") : "\u2014",
+      paceWip: (function(){ var te = d.trkEarned; return te && te.pct ? (te.wipRows + " open rows \u00b7 " + te.wipEquiv.toFixed(1) + " row-equivalents \u2192 " + te.pct.toFixed(1) + "% incl. WIP") : "\u2014"; })(),
       paceColor: paceOk ? "#338860" : "#d1433a",
       footerMid: "Report " + (d.reportDate || "") + "  ·  updated " + (d.updated || ""),
       sourceNote: "Auto-pulled from Murch dashboard"
