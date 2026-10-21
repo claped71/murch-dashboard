@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261025a - PRODUCTION BASIS MOVES TO MON OCT 19 + MV CONTROL CUT OCT 20. (1) LV CABLE: United PS17 on 12B, home run 3,611 + trunk 623 = 4,234 lf. Cable 233,151 -> 237,385 lf (86.43 -> 88.00%). LV firm 72.46 -> 73.31, LV earned 81.72 -> 82.58. (2) MV TERMINATIONS 231 -> 252 of 264 (95.45%). 12B moves hard: inverter side 12 -> 18 of 30, junction-box side 18 -> 33 of 33 (CLOSED), pull-in 8 -> 11 of 11, boxes 4 -> 5 of 5, units 1 -> 6 of 11, trenches 12 -> 13 of 52. Project-wide pull-in is now 46 of 46 and SCADA boxes 23 of 23. MV earned 98.1 -> 99.32. (3) DIVERGENCE HELD, NOT REGRESSED: the Oct 20 MV control reads 242 of 264 because it carries 12A junction-box side at 35 of 45; this ledger carries 45 of 45 on the Oct 15 joint PM and CM position that 12A is closed. The Oct 19 daily report reads 33. The 10-termination gap is 12A alone and NEEDS A RULING. (4) SET: SE tracker data date Oct 20 puts earned value at 99.72% (252 of 257 items, 5 open, 4 overdue) - civil 100, mechanical 100, electrical 99.59, bus and connectors 100, grounding 99.96, SCADA and comms 95.0. TESTS RULED FULLY EXECUTED 74 of 74 (Director of Construction, Oct 21) - the register is published as executed; the evidence pack to the Owner is what remains. (5) ELECTRICAL PERMIT STILL NOT IN HAND as of Oct 21 - AB Power committed the substation licence for Oct 20 and has not sent it; ECCS and United have no news. It is a contractual requirement of MC. (6) CHAIN: electrical 89.01 -> 89.67, PROJECT 98.31 -> 98.40. (7) SCOPE NOTE from the Oct 21 Delivery workbook (Resumen tab, recalculated today): harness scope reads 4,972 by line (1,082/1,292/1,258/1,340) against the 5,007 carried here, and the box split reads 93/110/110/106 against 92/110/110/107 - same total. Flagged, not applied. Its PROGRESS tab is still dated MAY 02, 2026 and stays excluded.
+// CACHE BUSTER 20261025c - PRODUCTION BASIS MOVES TO MON OCT 19 + MV CONTROL CUT OCT 20. (1) LV CABLE: United PS17 on 12B, home run 3,611 + trunk 623 = 4,234 lf. Cable 233,151 -> 237,385 lf (86.43 -> 88.00%). LV firm 72.46 -> 73.31, LV earned 81.72 -> 82.58. (2) MV TERMINATIONS 231 -> 252 of 264 (95.45%). 12B moves hard: inverter side 12 -> 18 of 30, junction-box side 18 -> 33 of 33 (CLOSED), pull-in 8 -> 11 of 11, boxes 4 -> 5 of 5, units 1 -> 6 of 11, trenches 12 -> 13 of 52. Project-wide pull-in is now 46 of 46 and SCADA boxes 23 of 23. MV earned 98.1 -> 99.32. (3) DIVERGENCE HELD, NOT REGRESSED: the Oct 20 MV control reads 242 of 264 because it carries 12A junction-box side at 35 of 45; this ledger carries 45 of 45 on the Oct 15 joint PM and CM position that 12A is closed. The Oct 19 daily report reads 33. The 10-termination gap is 12A alone and NEEDS A RULING. (4) SET: SE tracker data date Oct 20 puts earned value at 99.72% (252 of 257 items, 5 open, 4 overdue) - civil 100, mechanical 100, electrical 99.59, bus and connectors 100, grounding 99.96, SCADA and comms 95.0. TESTS RULED FULLY EXECUTED 74 of 74 (Director of Construction, Oct 21) - the register is published as executed; the evidence pack to the Owner is what remains. (5) ELECTRICAL PERMIT STILL NOT IN HAND as of Oct 21 - AB Power committed the substation licence for Oct 20 and has not sent it; ECCS and United have no news. It is a contractual requirement of MC. (6) CHAIN: electrical 89.01 -> 89.67, PROJECT 98.31 -> 98.40. (7) SCOPE NOTE from the Oct 21 Delivery workbook (Resumen tab, recalculated today): harness scope reads 4,972 by line (1,082/1,292/1,258/1,340) against the 5,007 carried here, and the box split reads 93/110/110/106 against 92/110/110/107 - same total. Flagged, not applied. Its PROGRESS tab is still dated MAY 02, 2026 and stays excluded. (8) SELF-PERFORM RE-READ Oct 21: the GSol sheet has moved Oct 8 -> Oct 12. 1,636.5 -> 1,728.5 person-days, 17,724 -> 18,604 h, 121 -> 123 days. The earlier window was ALSO revised upward by the sheet owner (same method to Oct 8 now reads 1,647.5), so this is a re-stated register, not just an extension. Theme classifier re-run - the split is NOT comparable line-for-line with the Oct 16 one. Still 9 days behind the field. (9) SCOREBOARD rebuilt on the last TWO production days, Oct 19 and Oct 16 (was Oct 14 / Oct 13). (10) PROCUREMENT (Director of Construction, Oct 21): LV and solar cable and LV terminals RELEASED AND DELIVERED - both closed. Messenger wire released, due on site before the end of this week. Messenger support hardware is the ONLY LV line still pending payment confirmation. NEW LINE: 450 replacement fuses for the set mislaid by ECCS, ordered and paid Oct 20, in transit. (11) MAN-HOUR CURVE: control.safetyHours.series added - eight REPORTED EHS cumulative readings Aug 24 -> Oct 15, no interpolation. It feeds the Owner report's cumulative-manhours chart, which replaces the personnel-on-site chart there.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -28,57 +28,57 @@ window.MURCH_DATA = {
   "headline": "IV curve 0 of 419 — BLOCKED ON IRRADIANCE, not on crews. Polarity 315 of 419 (75.2%), 11B closed at 110 of 110; 12B holds 101 of the 104 open records."
  },
  "selfPerform": {
-  "asOf": "Executed through Oct 8, 2026 — the GreenSol crew log, read live from SharePoint on Oct 16",
+  "asOf": "Executed through Oct 12, 2026 — the GreenSol crew log, re-read from SharePoint on Oct 21",
   "source": "SharePoint · 00 Production – Daily Report · \"DELIVERY AND MECHANICAL.xlsx\" → sheet GSol. Workbook last modified Oct 16; the log itself stops at Oct 8.",
-  "staleDays": 8,
-  "staleNote": "<strong>The log is eight days behind the field.</strong> It carries nothing after Oct 8, so none of the self-perform effort on 12A closeout, 11B, the NCU poles or the Oct 15 trench closures is in these figures. Everything below is a FLOOR, not a final record.",
+  "staleDays": 9,
+  "staleNote": "<strong>Re-read Oct 21: the log has moved four days, Oct 8 \u2192 Oct 12, and is now NINE days behind the field.</strong> The Oct 9\u201312 entries that appeared are real self-perform work \u2014 EW cable pulling from Bores 10 and 11, Zone E backfill and trench closure at INV-12, INV-16/17 trenches in Area F, road-crossing conduit, string insulation-resistance testing and module replacement in C and E. <strong>Note also that the earlier period was revised upward by the sheet owner: the same method over the same window to Oct 8 now reads 1,647.5 person-days against the 1,636.5 published on Oct 16, so this is a re-stated register, not only an extension.</strong> It still carries nothing after Oct 12, so none of the self-perform effort on 12A closeout, 11B, the NCU poles or the Oct 15 trench closures is in these figures. Everything below is a FLOOR, not a final record.",
   "totals": {
-   "daysLogged": 121,
-   "entries": 503,
-   "personDays": 1636.5,
-   "operators": 570,
-   "laborers": 1066.5,
-   "personHours": 17724
+   "daysLogged": 123,
+   "entries": 529,
+   "personDays": 1728.5,
+   "operators": 587,
+   "laborers": 1141.5,
+   "personHours": 18604
   },
-  "hoursNote": "Person-hours = crew on the entry × the shift hours recorded against it. 13 entries (47 person-days) carry no shift hours, so 17,724 h is a floor.",
+  "hoursNote": "Person-hours = crew on the entry × the shift hours recorded against it. 11 entries (44 person-days) carry no shift hours — all six Oct 12 entries among them — so 18,604 h is a floor.",
   "monthly": [
-   { "m": "May", "pd": 47, "ph": 252, "d": 15 },
+   { "m": "May", "pd": 44, "ph": 252, "d": 14 },
    { "m": "Jun", "pd": 130, "ph": 1106, "d": 15 },
    { "m": "Jul", "pd": 218, "ph": 2509, "d": 29 },
-   { "m": "Aug", "pd": 357.5, "ph": 4916.5, "d": 28 },
+   { "m": "Aug", "pd": 356.5, "ph": 4902, "d": 28 },
    { "m": "Sep", "pd": 684, "ph": 7120, "d": 26 },
-   { "m": "Oct", "pd": 200, "ph": 1820.5, "d": 8 }
+   { "m": "Oct", "pd": 296, "ph": 2716, "d": 11 }
   ],
   "monthlyNote": "September is the peak of the self-perform curve at 684 person-days over 26 days on site — 42% of everything the crew has logged since May. October shows only the first 8 days.",
   "equipment": [
-   { "k": "Buggy", "d": 473 },
-   { "k": "Skid steer", "d": 161 },
-   { "k": "Excavator", "d": 147 },
-   { "k": "Land mower", "d": 66 },
+   { "k": "Buggy", "d": 494 },
+   { "k": "Skid steer", "d": 163 },
+   { "k": "Excavator", "d": 157 },
+   { "k": "Land mower", "d": 65 },
    { "k": "Water truck", "d": 50 },
    { "k": "Telehandler", "d": 47 },
    { "k": "Bulldozer", "d": 10 }
   ],
   "themes": [
-   { "t": "Trenches, transitions and bores", "n": 107, "pd": 296, "pct": 18.1 },
-   { "t": "Grounding and messenger wire", "n": 63, "pd": 281, "pct": 17.2 },
-   { "t": "Vegetation, QC support and spotting", "n": 90, "pd": 255.5, "pct": 15.6 },
-   { "t": "Modules, welding and mechanical", "n": 51, "pd": 210, "pct": 12.8 },
-   { "t": "LV / LBD / cabinet terminations", "n": 60, "pd": 186, "pct": 11.4 },
-   { "t": "PVC conduit", "n": 46, "pd": 125, "pct": 7.6 },
-   { "t": "Civil, erosion control and roads", "n": 22, "pd": 74, "pct": 4.5 },
-   { "t": "Fibre, SCADA and master control", "n": 14, "pd": 31, "pct": 1.9 },
-   { "t": "Commissioning and megger support", "n": 9, "pd": 21, "pct": 1.3 },
-   { "t": "Logistics and materials", "n": 8, "pd": 21, "pct": 1.3 },
-   { "t": "Other", "n": 33, "pd": 136, "pct": 8.3 }
+   { "t": "Trenches, transitions and bores", "n": 159, "pd": 484, "pct": 28.0 },
+   { "t": "Vegetation, QC support and spotting", "n": 63, "pd": 285.5, "pct": 16.5 },
+   { "t": "Other", "n": 97, "pd": 269, "pct": 15.6 },
+   { "t": "Grounding and messenger wire", "n": 48, "pd": 172, "pct": 10.0 },
+   { "t": "Modules, welding and mechanical", "n": 44, "pd": 157, "pct": 9.1 },
+   { "t": "LV / LBD / cabinet terminations", "n": 36, "pd": 102, "pct": 5.9 },
+   { "t": "PVC conduit", "n": 35, "pd": 95, "pct": 5.5 },
+   { "t": "Civil, erosion control and roads", "n": 22, "pd": 84, "pct": 4.9 },
+   { "t": "Logistics and materials", "n": 8, "pd": 40, "pct": 2.3 },
+   { "t": "Fibre, SCADA and master control", "n": 14, "pd": 37, "pct": 2.1 },
+   { "t": "Commissioning and megger support", "n": 3, "pd": 3, "pct": 0.2 }
   ],
-  "themeNote": "One theme per entry, first match wins, so the eleven rows sum exactly to the 1,636.5 person-days logged. The classification is read from the free-text TASK column — it is a reading of the log, not a measured take-off.",
+  "themeNote": "<strong>The classifier was re-run on the Oct 21 read, so this split is NOT comparable line-for-line with the Oct 16 one \u2014 the shift in trenching from 296 to 484 person-days is mostly reclassification, not new work.</strong> One theme per entry, first match wins, so the eleven rows sum exactly to the 1,728.5 person-days logged. The classification is read from the free-text TASK column — it is a reading of the log, not a measured take-off.",
   "excluded": {
    "rows": 7,
    "personDays": 13,
    "note": "Seven entries carry a mis-keyed date (six fall in 1900, one reads Oct 27) and are held out of the period figures; the work on them is real — 13 person-days of cabinet drilling, conduit and trenching. Twelve further rows carry pre-filled Nov–Dec dates with no content and are ignored."
   },
-  "headline": "1,636.5 person-days and 17,724 hours of GreenSol self-perform logged across 121 days on site — and the log stops eight days short of today."
+  "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
  "asOfShort": "Oct 19 — United PS17 +4,234 lf · MV 252/264 · SET EV 99.72% · proyecto 98.4%",
@@ -399,7 +399,18 @@ window.MURCH_DATA = {
   "forecast": "Nov 4 (last circuit) — SET MC ACHIEVED Oct 20 · RTE Nov 10 (Oct 21 position)",
   "name": "Mechanical Completion"
  },
- "safetyHours": { "value": 239337, "asOf": "Oct 15, 2026", "asOfISO": "2026-10-15", "source": "site safety banner, EHS", "prev": { "value": 231471, "asOf": "Oct 5, 2026", "asOfISO": "2026-10-05" }, "impliedHeadcount": 87, "impliedNote": "7,866 man-hours between the two reported readings over 9 working days (Mon-Sat) at 10 h/day = 87 people per day across Oct 6-15. The headcount board has not been issued since Sep 17, when it read 202; this is the site demobilising into close-out, and it is the only current headcount the reported data supports." },
+ "safetyHours": { "value": 239337, "asOf": "Oct 15, 2026", "asOfISO": "2026-10-15", "source": "site safety banner, EHS", "prev": { "value": 231471, "asOf": "Oct 5, 2026", "asOfISO": "2026-10-05" }, "series": [
+   { "d": "Aug 24", "c": 163438, "src": "EHS man-hour register" },
+   { "d": "Aug 27", "c": 165986.8, "src": "EHS man-hour register" },
+   { "d": "Sep 8", "c": 186351.6, "src": "EHS headcount board" },
+   { "d": "Sep 9", "c": 189206.1, "src": "EHS headcount board" },
+   { "d": "Sep 15", "c": 199425.6, "src": "EHS headcount board" },
+   { "d": "Sep 17", "c": 203862.6, "src": "EHS headcount board (last issued)" },
+   { "d": "Oct 5", "c": 231471, "src": "site KPI workbook" },
+   { "d": "Oct 15", "c": 239337, "src": "site safety banner" }
+  ],
+  "seriesNote": "Every point is a REPORTED cumulative reading from EHS \u2014 no interpolation and no modelled curve. The register only carries cumulative readings from Aug 24 onward, so the curve starts there rather than at the start of construction. Slope between two points is real man-hours worked, not an estimate: Aug 27 \u2192 Sep 17 ran at about 1,800 h per calendar day, Sep 17 \u2192 Oct 5 at about 1,534, and Oct 5 \u2192 Oct 15 at about 787 \u2014 the demobilisation into close-out, visible in the flattening tail.",
+  "impliedHeadcount": 87, "impliedNote": "7,866 man-hours between the two reported readings over 9 working days (Mon-Sat) at 10 h/day = 87 people per day across Oct 6-15. The headcount board has not been issued since Sep 17, when it read 202; this is the site demobilising into close-out, and it is the only current headcount the reported data supports." },
   "safetyBasis": "Site safety banner photographed Oct 15, 2026: 239,337 safe man-work hours without recordable accidents (up from 231,471 at Oct 5). No headcount board has been received since Sep 17, so the days-LTI-free counter is still held on the last register and is not advanced on the calendar."
 },
  safetyDaysLtiFree: 337,
@@ -638,147 +649,61 @@ window.MURCH_DATA = {
  manpowerNote: '<strong>Oct 12 crews stated: GreenSol 7 on the civil front (4 operators, 3 spotters) and 7 on the separate electrical report (2 PVC/communications/NCU, 5 guiding and landing the INV-12 LV circuits). The integrated report covers the same tasks, so the two are NOT summed without reconciliation. United and ECCS stated no crew. Oct 10: GreenSol 4 harness, 2 conduit, 7 trenches/cables/excavation, 7 electrical — the sections sum to 20 but the report states that is not a certified unique headcount.</strong> <strong>Oct 7 crews stated by front: GreenSol 23 — 4 terminations, 5 grounding, 5 commissioning, 1 megger, 6 excavation, 2 conduit. A second document reports 10 people on the INV-11/12 fronts; the two are NOT summed because they may count the same people. ECCS filed no quantified production and United stated no crew.</strong> <strong>Oct 6 crews stated: GreenSol 13 (support crews only), ITS 5; ECCS and United not stated.</strong> <strong>Oct 5 (Monday) crews stated: GreenSol 29, Topland 2, ITS 5; ECCS and United not stated. Oct 6: all-hands toolbox talk with every crew on site.</strong> <strong>No EHS headcount board since Sep 17 (202 on site) — requested again Sep 28, Excel promised, not received.</strong> Crews stated in the daily reports: Sep 29 United mechanical 25, GreenSol 35 assignments; Sep 30 United mechanical 27, GreenSol 23; Oct 1 ECCS 26 reported / 16 in the field after 8:00 rain, United mechanical 6; Oct 2 GreenSol 25 + 1 supervisor, ITS 7. United electrical and ECCS are not stated on most days, so no site total is published for these days.',
 
  contractorScore: [
- {
-  "date": "Oct 14 Wed",
-  "contractor": "GreenSol (self-perform)",
-  "trade": "MV terminations · Civil · NCU",
-  "output": 9,
-  "resource": "crew stated by front",
-  "short": "<strong>MV junction-box terminations on 12B 9 → 18 of 33 (+9) — the only MV move of the two days</strong> · INV-18 closing finished 7:00 pm · INV-19 MV-to-SCADA trench · INV-16 road crossing + PVC · INV-10 trench open · NCU-7 pole and anemometer, snow sensors on NCU-1/2/4 · <strong>no cable footage</strong> ",
-  "unit": "terminations",
-  "perUnit": 0,
-  "criterion": 0,
-  "critLabel": "Backfill at the Bores 3/9/10/11 arrivals into INV-12 was interrupted at 2:30 pm by VLF testing, so those arrivals stay open.",
-  "scopes": [
-   {
-    "label": "MVJB terminated",
-    "value": 9,
-    "unit": "terminations",
-    "criterion": 0
-   },
-   {
-    "label": "Trenches closed",
-    "value": 2,
-    "unit": "stations",
-    "criterion": 0
-   },
-   {
-    "label": "NCU installed",
-    "value": 4,
-    "unit": "units",
-    "criterion": 0
-   },
-   {
-    "label": "Cable",
-    "value": 0,
-    "unit": "lf",
-    "criterion": 0
-   }
-  ]
- },
- {
-  "date": "Oct 14 Wed",
-  "contractor": "United Services (LV)",
-  "trade": "Piercing connectors · String meggers · Grounding",
-  "output": 112,
-  "resource": "crew not stated",
-  "short": "<strong>112 piercing-connector lines / 224 clamps in Area G</strong> (G1 23, G2 37, G4 19, G5 33) + end caps G1/G2/G4/G5 · string meggers PS-18 18/19, PS-17 16/18, PS-08 3/18 all >100 MΩ · ground terminations PS-23/PS-22, fuses PS-23, conduit PS-20",
-  "unit": "lines",
-  "perUnit": 0,
-  "criterion": 0,
-  "critLabel": "The report states explicitly that the string tests are NOT megger tests of DC cable and do NOT certify LBD boxes — they do not move the megger component, which stays at zero.",
-  "scopes": [
-   {
-    "label": "Connector lines",
-    "value": 112,
-    "unit": "lines",
-    "criterion": 0
-   },
-   {
-    "label": "Clamps",
-    "value": 224,
-    "unit": "clamps",
-    "criterion": 0
-   },
-   {
-    "label": "String tests",
-    "value": 37,
-    "unit": "strings",
-    "criterion": 0
-   },
-   {
-    "label": "Cable",
-    "value": 0,
-    "unit": "lf",
-    "criterion": 0
-   }
-  ]
- },
- {
-  "date": "Oct 13 Tue",
-  "contractor": "GreenSol (self-perform)",
-  "trade": "DC home run · Civil · SCADA",
-  "output": 0,
-  "resource": "civil 9 · NCU electrical 2",
-  "short": "A3-A6 and C1 combing and DC home-run routing, piercing connectors, cable repair in A4 · PS-21/22/23 Master Control and SCADA trenches closed and levelled, SCADA terminations · INV-16 transition trench complete · INV-15 trench closed · NCU-1/2/4 poles and anemometers · <strong>no DC footage stated</strong> ",
-  "unit": "lf",
-  "perUnit": 0,
-  "criterion": 0,
-  "critLabel": "The three GreenSol documents of the day share activities; they are counted once. Crews are not summed into a single headcount without reconciling the overlaps.",
-  "scopes": [
-   {
-    "label": "Cable",
-    "value": 0,
-    "unit": "lf",
-    "criterion": 0
-   },
-   {
-    "label": "Trenches closed",
-    "value": 3,
-    "unit": "stations",
-    "criterion": 0
-   },
-   {
-    "label": "NCU poles",
-    "value": 3,
-    "unit": "units",
-    "criterion": 0
-   }
-  ]
- },
- {
-  "date": "Oct 13 Tue",
-  "contractor": "United Services (LV)",
-  "trade": "Piercing connectors · String meggers",
-  "output": 106,
-  "resource": "crew not stated",
-  "short": "<strong>106 piercing-connector lines / 212 clamps</strong> (G2 25, G3 44, G6 37) · PS-19 string meggers COMPLETE 17/17 >100 MΩ · PS-18 7/19 · PS-18 prepared for inspection",
-  "unit": "lines",
-  "perUnit": 0,
-  "criterion": 0,
-  "critLabel": "PS-18 carried 7 of 19 strings reported on Oct 13 with the remaining 12 not confirmed approved in the report; it reached 18 of 19 on Oct 14.",
-  "scopes": [
-   {
-    "label": "Connector lines",
-    "value": 106,
-    "unit": "lines",
-    "criterion": 0
-   },
-   {
-    "label": "Clamps",
-    "value": 212,
-    "unit": "clamps",
-    "criterion": 0
-   },
-   {
-    "label": "String tests",
-    "value": 24,
-    "unit": "strings",
-    "criterion": 0
-   }
-  ]
- }
-],
+  {
+   "date": "Oct 19 Mon",
+   "contractor": "United Services",
+   "trade": "LV / DC cable",
+   "output": 4234,
+   "resource": "crew stated by front",
+   "short": "<strong>PS17 on 12B \u2014 DC home run 3,611 lf over 5 LBD runs (826 + 666 + 666 + 680 + 773) and DC trunk 623 lf over 7 (92 + 96 + 100 + 66 + 102 + 100 + 67) = 4,234 lf.</strong> Cable 237,385 lf (88.0%). Also: LBD home-run terminations at PS23 and 1 ground at PS21 (no verifiable count); SCADA / Ethernet and AC connections at PS20, PS19 and PS18; 6 ground rods; foam in PS23/PS21 conduits; fuses PS21/PS20; SCADA conduit PS18. <strong>Megger strings PS07 3 of 17 \u2014 NOT counted: these are string tests, not DC cable or certified LBD tests.</strong>",
+   "unit": "lf",
+   "perUnit": 0,
+   "criterion": 0,
+   "critLabel": "The report itself warns against reading the PS07 string megger as cable or LBD certification \u2014 3 of 17 LBDs tested, nothing certified.",
+   "scopes": [
+    { "label": "DC home run", "value": 3611, "unit": "lf", "criterion": 0 },
+    { "label": "DC trunk", "value": 623, "unit": "lf", "criterion": 0 },
+    { "label": "Ground rods", "value": 6, "unit": "units", "criterion": 0 },
+    { "label": "Megger strings PS07", "value": 3, "unit": "of 17 (not certified)", "criterion": 0 }
+   ]
+  },
+  {
+   "date": "Oct 19 Mon",
+   "contractor": "GreenSol (self-perform)",
+   "trade": "Grounding \u00b7 trenching \u00b7 bore closure",
+   "output": 3,
+   "resource": "6 civil (3 operators + 3 laborers) \u00b7 2 grounding \u00b7 activity crews of 3 ground / 5 terminations / 12 excavation",
+   "short": "<strong>Bores 4, 7 and 8 on 12A CLOSED \u2014 water extracted, pipe repaired and realigned, backfilled and sealed.</strong> INV-10 on 12B: excavations, SCADA trench and MV stretch finished, ground ring and welds complete. INV-8: SCADA-to-auxiliary-cabinet trench cut. 11A: ground rods installed and buried at the INV-1 NCU and weather station and the INV-3 NCU; string testing with piercing connectors disconnected and reconnected across A1\u2013A7 (no count confirmed). 11B: ground at INV-11 poles E16\u2013E17, piercing connectors at INV-4 blocks E4\u2013E6, fuses, ground, cleaning and foam at INV-9/11. Areas F and G: ground jumpers bonded to the perimeter fence. <strong>CRITICAL: the INV-17 fibre-optic end could not be located in the orange conduit \u2014 the search excavation is inconclusive.</strong>",
+   "unit": "bores closed",
+   "perUnit": 0,
+   "criterion": 0,
+   "critLabel": "The report states the crew figures are per-activity allocations, not one verifiable site total \u2014 and that the electrical and integrated logs describe the same work, so they are not summed twice.",
+   "scopes": [
+    { "label": "Bores closed (12A)", "value": 3, "unit": "bores", "criterion": 0 },
+    { "label": "Ground rings / welds", "value": 1, "unit": "station (INV-10)", "criterion": 0 },
+    { "label": "SCADA trenches", "value": 2, "unit": "stations (INV-10, INV-8)", "criterion": 0 },
+    { "label": "Cable", "value": 0, "unit": "lf", "criterion": 0 }
+   ]
+  },
+  {
+   "date": "Oct 16 Thu",
+   "contractor": "United Services",
+   "trade": "LV / DC cable",
+   "output": 7027.4,
+   "resource": "crew stated by front",
+   "short": "<strong>PS16 on 12B \u2014 DC home run 5,420.5 lf + DC trunk 1,606.9 = 7,027.4 lf, the first cable filed since Oct 7.</strong> <strong>Megger PS16 4 of 18 IN PROGRESS, with no PASS recorded per LBD \u2014 not counted.</strong>",
+   "unit": "lf",
+   "perUnit": 0,
+   "criterion": 0,
+   "critLabel": "Nine working days passed between Oct 7 and Oct 16 with no cable filed on 12B, the only circuit still open.",
+   "scopes": [
+    { "label": "DC home run", "value": 5420.5, "unit": "lf", "criterion": 0 },
+    { "label": "DC trunk", "value": 1606.9, "unit": "lf", "criterion": 0 },
+    { "label": "Megger PS16", "value": 4, "unit": "of 18 (in progress)", "criterion": 0 },
+    { "label": "Terminations", "value": 0, "unit": "verifiable", "criterion": 0 }
+   ]
+  }
+ ],
  scope: [
  {
   "title": "EPC Management",
@@ -1393,7 +1318,7 @@ window.MURCH_DATA = {
  },
 
  materialPosition: {
- asOf: 'Oct 3, 2026 (Chemik shortfall purchase approved Sep 30, due on site Oct 2; seed-mix RFQ under SWPPP review; GameChange SO26610 PO approval still pending)',
+ asOf: 'Oct 21, 2026 — the LV procurement front has largely cleared: cable and terminals RELEASED AND DELIVERED on site, messenger wire due before the end of this week. Messenger support hardware is the only LV line still waiting on payment confirmation. New line: 450 replacement fuses for the set mislaid by ECCS, ordered and paid Oct 20, in transit.',
  headline: '<strong>Bearings no longer decide the deadline (Jose, Sep 28): the 60 trackers without 3.0 / 1.8 bearings are finished and run in fixed defensive position; the bearings go in as a punch-list item when they reach site. GameChange quote SO26610 received Sep 24 — PO approval requested Sep 25; bearings and saddle brackets ship 2 weeks after PO.</strong> (Jose, Sep 27: the pink torque tubes are NOT required.) <strong>LV and solar cable: PO issued Sep 17 and paid Sep 18 — delivery date from AWG still owed; it decides the 12A / 12B finish. LV terminals not yet bought.</strong> All 50,000 nuts and all tensioners on site. <strong>RECEIVED Sep 26: the four interconnection poles are on site — erection with equipment and cables is planned for Monday Sep 28.</strong> <strong>NEW (Sep 23 take-off): 1,529 messenger-wire support sets are still to install in areas B, D, F and G, and the site is short 129 U-bolts, 135 angle pieces, 199 M14 nuts, 233 flat washers and 147 lock washers; about 25,600 ft of messenger wire must still be bought.</strong>',
  buy: [
   { item: 'Tracker punch-list kit — GameChange SO26610', qty: '120 bearings 3.0 · 120 bearings 1.8 · 120 standard + 120 heavy saddle brackets · 54,000 1/4-20 panel nuts · 3,000 1/2-13 nuts', status: 'Quote received Sep 24 · PO approval requested Sep 25 · bearings / brackets 2 wk after PO, hardware ready to ship', level: 'At Risk', feeds: 'Punch list only — 60 trackers in fixed defensive position until bearings are fitted; panel nuts flagged most urgent by the CM' },
@@ -1401,10 +1326,11 @@ window.MURCH_DATA = {
   { item: 'Chemik packing-list shortfall (eastern zone LV items)', qty: 'Residual list after the site search', status: 'Purchase approved Sep 30 · due on site Fri Oct 2 — receipt to confirm', level: 'At Risk', feeds: 'LV completion in Zones F and G' },
   { item: 'Modules to finish installation', qty: '988 pending delivery (CM, Sep 30) — re-based Oct 8', status: 'Supply requested from the Owner; installation complete otherwise', level: 'Critical', feeds: 'Module completion (Area D) — 988 to install on arrival' },
   { item: 'Native / pollinator seed mix', qty: '302,523 sy', status: 'RFQ Sep 28 · SWPPP equivalence under review', level: 'At Risk', feeds: 'Final stabilization (SWPPP close-out)' },
-  { item: 'LV and solar cable', qty: 'Per the LV take-off', status: 'PO Sep 17 · paid Sep 18 · AWG delivery date owed', level: 'Critical', feeds: '12A / 12B homerun and trunk pulls (LV finish Oct 1 / Oct 10)' },
-  { item: 'LV terminals', qty: 'Being calculated', status: 'Not yet purchased — procurement (Raquel)', level: 'Critical', feeds: 'Box and inverter connections (381 of 1,676 · 194 of 838)' },
-  { item: 'Messenger wire', qty: '~25,600 ft net (30,891 ft required less ~5,249 ft left on the reel on site)', status: 'Take-off issued Sep 23 — not yet purchased', level: 'Critical', feeds: 'Aerial LV in areas B, D, F and G — 1,529 support sets still to install (B 642, D 113, F 557, G 217)' },
-  { item: 'Messenger support hardware', qty: '129 U-bolts (Light) · 135 angle pieces · 199 M14 nuts · 233 flat washers · 147 lock washers', status: 'Short after site inventory — buy now', level: 'Critical', feeds: 'The 129 U-bolts are for interior N–S lines; keep Heavy U-bolts for centre piles, tension piles and outer rows' }
+  { item: 'LV and solar cable', qty: 'Per the LV take-off', status: 'RELEASED and DELIVERED on site (Director of Construction, Oct 21)', level: 'Closed', feeds: '12A / 12B homerun and trunk pulls (LV finish Oct 1 / Oct 10)' },
+  { item: 'LV terminals', qty: 'Being calculated', status: 'RELEASED and DELIVERED on site (Director of Construction, Oct 21)', level: 'Closed', feeds: 'Box and inverter connections (381 of 1,676 · 194 of 838)' },
+  { item: 'Messenger wire', qty: '~25,600 ft net (30,891 ft required less ~5,249 ft left on the reel on site)', status: 'Released · due on site BEFORE THE END OF THIS WEEK (Director of Construction, Oct 21)', level: 'Watch', feeds: 'Aerial LV in areas B, D, F and G — 1,529 support sets still to install (B 642, D 113, F 557, G 217)' },
+  { item: 'Fuses — replacement for the set mislaid by ECCS', qty: '450 fuses', status: 'Ordered and PAID Oct 20 · awaiting arrival on site in the coming days', level: 'Watch', feeds: 'LV / LBD completion — a re-supply of material lost by the subcontractor, not a scope increase' },
+  { item: 'Messenger support hardware', qty: '129 U-bolts (Light) · 135 angle pieces · 199 M14 nuts · 233 flat washers · 147 lock washers', status: 'THE ONLY LV LINE STILL PENDING PAYMENT CONFIRMATION (Director of Construction, Oct 21)', level: 'Critical', feeds: 'The 129 U-bolts are for interior N–S lines; keep Heavy U-bolts for centre piles, tension piles and outer rows' }
  ],
  received: [
   { item: 'SET poles (4) — utility interconnection', date: 'Sep 26', releases: 'Erection with equipment and cables planned Mon Sep 28 → 69 kV / 34.5 kV bus and cable connections, the front that gates Ready to Energize (plan Oct 14)' },
