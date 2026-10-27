@@ -1,31 +1,52 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261029a - MV TERMINATIONS 100% COMPLETE (264 of 264) AND THE 12A JUNCTION-BOX DIVERGENCE IS CLOSED IN FAVOUR OF THE PUBLISHED POSITION. Sources this run: the Oct 23 and Oct 26 GreenSol daily reports, the Oct 26 MV termination control and SE construction tracker cuts from the project SharePoint, and both Outlook mailboxes. (1) MV TERMINATIONS CLOSED: 11A 57/57, 11B 69/69, 12A 75/75 including junction boxes 45/45, 12B 63/63. Inverter side 114/114, junction-box side 150/150. 12B inverter side 18 -> 30 of 30 was the last move. MV composite 95.7 -> 100, MV earned 99.32 -> 100. (2) THE 12A RULING IS NO LONGER OWED. Three successive cuts read 33 (Oct 19), 35 (Oct 20) and 39 (Oct 23) against the 45 of 45 published on the Oct 15 joint PM and CM statement. The Oct 24 report and the Oct 26 control both now read 45 of 45 - the ledger was never regressed and the control sheet was simply catching up. (3) CABLE MOVES AGAIN after Oct 20: United filed 4,750 ft of DC home run and 1,156 ft of DC trunk on Oct 26, all of it on PS07/PS08 = 12B / Line 4. Cable 244,760.4 -> 250,666.4 lf (92.93%); home run 210,216.5; TRUNK 40,449.9 AGAINST A 40,313 SCOPE - 137 ft ABOVE THE COUNT, flagged, not trimmed. LV earned 84.09 -> 85.29, electrical 90.35 -> 91.04, PROJECT 98.65 -> 98.75. (4) PS16 STRING MEGGER COMPLETE (polarity, Voc and insulation across 14 LBDs) and the PS19 retest on 11B was approved above 100 megohm. (5) NOT COMPLETE, recorded as a note only: 198 pile grounds were HUNG on Oct 26 but NOT crimped to the messenger - 20 man-hours of work still to do before any of it counts. (6) 12B TRENCHES ARE NOW THE CONTROLLING CONSTRAINT - 13 of 52 compacted, unchanged since Oct 20, with units closed 6 of 11. (7) MAIL: the SPCC plan is due to the Owner Thursday Oct 29 and engineering has it in revision; the EGLE excavation permit is confirmed for completion this week; and an Owner MC open item names an SSVT that does not exist on this substation - logged as a submittal, not a defect. (8) The SE tracker cut carries NO COMMISSIONING TAB and its pictogram testing row reads #REF!, so the commissioning test figures are HELD on the Oct 21 ruling rather than published as zero.
+// CACHE BUSTER 20261029b - COMMISSIONING STATUS NOW READ FROM THE TVANT PORTAL (https://tvantuasworks.github.io/Murch-Dashboard/, cut Mon Oct 26). It is from today the authority for every PV field test on this dashboard and on the Owner report, replacing the Oct 17 supervision register. (1) POLARITY AND CONTINUITY (Vdc) 315 -> 341 of 419. 11A closes at 92/92 (was 90), 11B holds 110/110, 12A 109/110, and 12B moves 6 -> 30 of 107. Open records fall from 104 to 78 and 77 of them are on 12B. By zone the holes are D 0/18, B 17/35, F 75/111. (2) IV CURVE IS RUNNING, NOT STOPPED. The portal's static banner still says NOT STARTED; its data says 131 of 752 string samples measured and ALL 131 VALIDATED - none rejected, none requiring review. The campaign began Oct 23 and is accelerating 33 -> 49 -> 91 -> 131, all of it on 11A across 71 LBDs. No LBD counts complete (0 of 419) because an LBD only closes when its whole sample closes, so BOTH bases are published. The risk card is re-stated accordingly: the constraint is the closing rule and the single circuit, not idle crews. (3) NEW METRICS CARRIED: grounding resistance 18/23 inverters, grounding continuity 18/23 blocks, inverter precommissioning inspection 2/4 circuits, OTDR 1/4, SCADA COMMUNICATIONS 5/23 inverters - which is a different scope from the 23/23 SCADA boxes installed in the MV control, and the readiness table now prints both. (4) OTDR ON 11A READS COMPLETE IN THE PORTAL AND THE RISK STAYS OPEN: the portal counts documentary coverage, not acceptance, so a filed record does not retire the unacceptable values. (5) The 12B readiness row is refreshed off its stale Oct 12 figures to cable 36,245 of 66,395 lf, MV complete 63/63, units 6/11, trenches 13/52.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
  "pvFieldTests": {
-  "asOf": "Register Oct 17, 2026 — plus the site coordination of Oct 24: energised testing is now running against it",
-  "basis": "The supervisor states it twice: a record exists or it does not, and a missing record does not establish that the contractor has not performed the test. Original OK/NOK values are unchanged and no acceptance is calculated.",
-  "scopeNote": "Denominator 419 LBD for the Vdc and IV-curve campaigns, 23 inverters for the grounding tests, 4 circuits for VLF. The 419 and its per-circuit split 92 / 110 / 110 / 107 match this ledger’s own LBD take-off exactly.",
+  "asOf": "TVANT commissioning portal, cut Mon Oct 26, 2026 (published 14:23 UTC)",
+  "source": "https://tvantuasworks.github.io/Murch-Dashboard/ \u2014 TVANT / GreenSol client portal, data/latest.json",
+  "basis": "The portal counts DOCUMENTARY COVERAGE, not electrical acceptance; Vdc may include legacy unclassified records. A test reading complete here does not retire a known field failure.",
+  "scopeNote": "Vdc 419 LBD (92 / 110 / 110 / 107, matching this ledger\u2019s own take-off) \u00b7 grounding resistance 23 inverters \u00b7 grounding continuity 23 blocks \u00b7 IV curve 752 STRING SAMPLES (396 sample LBDs + 23 full LBDs) \u00b7 VLF, OTDR and inverter precommissioning 4 circuits each \u00b7 SCADA communications 23 inverters.",
   "types": [
-   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 315, "open": 104, "pct": 75.18, "unit": "LBD" },
-   { "t": "Grounding resistance", "scope": 23, "done": 9, "open": 14, "pct": 39.13, "unit": "inverters" },
-   { "t": "VLF + battery bank — 11A delivered, 12A starts Oct 25", "scope": 4, "done": 1, "open": 3, "pct": 25.0, "unit": "circuits" },
-   { "t": "Grounding continuity", "scope": 23, "done": 5, "open": 18, "pct": 21.74, "unit": "inverters" },
-   { "t": "IV curve test (irradiance-blocked)", "scope": 419, "done": 0, "open": 419, "pct": 0.0, "unit": "LBD" }
+   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 341, "open": 78, "pct": 81.38, "unit": "LBD" },
+   { "t": "Grounding resistance", "scope": 23, "done": 18, "open": 5, "pct": 78.26, "unit": "inverters" },
+   { "t": "Grounding continuity", "scope": 23, "done": 18, "open": 5, "pct": 78.26, "unit": "blocks" },
+   { "t": "IV curve \u2014 string samples measured and validated", "scope": 752, "done": 131, "open": 621, "pct": 17.42, "unit": "samples" },
+   { "t": "IV curve \u2014 LBDs fully closed", "scope": 419, "done": 0, "open": 419, "pct": 0, "unit": "LBD" },
+   { "t": "Inverter precommissioning inspection", "scope": 4, "done": 2, "open": 2, "pct": 50, "unit": "circuits" },
+   { "t": "VLF", "scope": 4, "done": 1, "open": 3, "pct": 25, "unit": "circuits" },
+   { "t": "OTDR \u2014 fibre optic", "scope": 4, "done": 1, "open": 3, "pct": 25, "unit": "circuits" },
+   { "t": "SCADA communications", "scope": 23, "done": 5, "open": 18, "pct": 21.74, "unit": "inverters" }
   ],
   "byCircuit": [
+   { "c": "11B", "scope": 110, "done": 110, "open": 0, "pct": 100 },
    { "c": "12A", "scope": 110, "done": 109, "open": 1, "pct": 99.09 },
-   { "c": "11A", "scope": 92, "done": 90, "open": 2, "pct": 97.83 },
-   { "c": "11B", "scope": 110, "done": 110, "open": 0, "pct": 100.0 },
-   { "c": "12B", "scope": 107, "done": 6, "open": 101, "pct": 5.61 }
+   { "c": "11A", "scope": 92, "done": 92, "open": 0, "pct": 100 },
+   { "c": "12B", "scope": 107, "done": 30, "open": 77, "pct": 28.04 }
   ],
-  "zeroInverters": "INV-07, INV-08, INV-10, INV-16 and INV-17 carry ZERO polarity records — 89 LBD. All five are 12B stations.",
-  "elevenBGap": "<strong>11B IS CLOSED — 110 of 110. There is NO pending inverter on this circuit (Director of Construction, Oct 17), and the register is published on that basis, not on the supervisor’s open count.</strong> INV-12, INV-13 and INV-14 are applied complete at 19 / 18 / 17 alongside INV-04, INV-09 and INV-11. The 40 records this register carried open on 11B were a filing gap, not untested work — and they were 28% of the whole project shortfall.",
-  "concentration": "12B now carries 101 of the 104 open polarity records — 97.1% — on its own. 11B is closed, 12A is one record from closed and 11A two.",
-  "headline": "Testing is live: polarity moving onto 12B, VLF starts 12A then 12B, partial discharge closing on 11A. IV curve still 0 of 419, irradiance-blocked."
+  "byZone": [
+   { "z": "A", "scope": 54, "done": 54 },
+   { "z": "C", "scope": 38, "done": 38 },
+   { "z": "G", "scope": 35, "done": 34 },
+   { "z": "E", "scope": 128, "done": 123 },
+   { "z": "F", "scope": 111, "done": 75 },
+   { "z": "B", "scope": 35, "done": 17 },
+   { "z": "D", "scope": 18, "done": 0 }
+  ],
+  "circuitMatrix": [
+   { "c": "11A", "vdc": "92/92", "iv": "0/92 LBD \u00b7 71 samples", "ground": "5/5", "cont": "5/5", "vlf": "1/1", "otdr": "1/1", "precomm": "1/1", "scada": "5/5" },
+   { "c": "11B", "vdc": "110/110", "iv": "0/110 LBD \u00b7 0 samples", "ground": "6/6", "cont": "6/6", "vlf": "0/1", "otdr": "0/1", "precomm": "1/1", "scada": "0/6" },
+   { "c": "12A", "vdc": "109/110", "iv": "0/110 LBD \u00b7 0 samples", "ground": "6/6", "cont": "6/6", "vlf": "0/1", "otdr": "0/1", "precomm": "0/1", "scada": "0/6" },
+   { "c": "12B", "vdc": "30/107", "iv": "0/107 LBD \u00b7 0 samples", "ground": "1/6", "cont": "1/6", "vlf": "0/1", "otdr": "0/1", "precomm": "0/1", "scada": "0/6" }
+  ],
+  "trend": "<strong>Vdc over the portal\u2019s own history: Oct 11 74 \u2192 Oct 15 212 \u2192 Oct 20 277 \u2192 Oct 23 301 \u2192 Oct 24 313 \u2192 Oct 26 341 of 419.</strong> IV sampling started Oct 23 and is accelerating: 33 \u2192 49 \u2192 91 \u2192 131 of 752. Grounding continuity 8 \u2192 18 of 23 between Oct 20 and Oct 22.",
+  "ivNote": "<strong>IV IS RUNNING, NOT STOPPED \u2014 the \u201cnot started\u201d banner on the portal is stale HTML, not its data.</strong> 131 of 752 string samples are measured and ALL 131 are Validated: zero rejected, zero requiring review, zero pending. No LBD counts complete yet because an LBD only closes when its whole sample closes, and every sample so far is on 11A (71 LBDs touched). The LBD-basis zero and the sample-basis 131 are both true and both published.",
+  "concentration": "12B carries 77 of the 78 open Vdc records. 11A and 11B are closed, 12A is one record from closed. By zone the gaps are D 0 of 18, B 17 of 35 and F 75 of 111.",
+  "otdrCaveat": "<strong>OTDR reads 1 of 4 complete on 11A in the portal, which is documentary coverage. The 11A fibre OTDR result that returned unacceptable values is NOT retired by that record and stays on the risk register.</strong>",
+  "headline": "Vdc 341 of 419 and climbing; IV sampling under way at 131 of 752, all validated; VLF, OTDR and precommissioning open on three of four circuits."
  },
  "selfPerform": {
   "asOf": "Executed through Oct 12, 2026 — the GreenSol crew log, re-read from SharePoint on Oct 21",
@@ -81,8 +102,8 @@ window.MURCH_DATA = {
   "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
- "asOfShort": "Oct 26 — MV 264/264 COMPLETA · cable 250,666 lf (92.93%) · zanjas 12B 13/52 · proyecto 98.75%",
- "asOf": "<strong>Oct 26 \u2014 MV TERMINATIONS ARE COMPLETE: 264 of 264. 11A 57/57, 11B 69/69, 12A 75/75 with the junction-box side at 45/45, and 12B 63/63 after the last 12 inverter-side terminations closed. Inverter side 114/114, junction-box side 150/150. The Oct 24 daily report and the Oct 26 MV control agree, which closes the 12A junction-box divergence in favour of the position published here on Oct 15 \u2014 held through three cuts that read 33, 35 and 39, never regressed, and now vindicated.</strong> <strong>Cable moved again for the first time since Oct 20: 4,750 ft of DC home run and 1,156 ft of DC trunk on Oct 26, all on PS07/PS08, so all of it Line 4 (12B). The ledger stands at 250,666.4 lf of 269,748 \u2014 92.93%. Trunk is now 40,449.9 against a 40,313 scope: 137 ft ABOVE THE COUNT, flagged for a ruling rather than trimmed.</strong> <strong>Testing advanced: the PS16 string megger is complete across 14 LBDs on polarity, Voc and insulation, and the PS19 retest on 11B was approved above 100 M\u03a9. What is NOT complete: 198 pile grounds were hung on Oct 26 but not crimped to the messenger \u2014 about 20 man-hours outstanding, carried as a note and not counted.</strong> <strong>The controlling constraint is now 12B: trenches 13 of 52 compacted, unchanged for a week, and 6 of 11 units closed. Modules, piles, trackers, civil and the substation are all complete; PROJECT 98.75%.</strong>",
+ "asOfShort": "Oct 26 — MV 264/264 · Vdc 341/419 · IV 131/752 validadas · zanjas 12B 13/52 · proyecto 98.75%",
+ "asOf": "<strong>Oct 26 \u2014 MV TERMINATIONS ARE COMPLETE: 264 of 264. 11A 57/57, 11B 69/69, 12A 75/75 with the junction-box side at 45/45, and 12B 63/63 after the last 12 inverter-side terminations closed. Inverter side 114/114, junction-box side 150/150. The Oct 24 daily report and the Oct 26 MV control agree, which closes the 12A junction-box divergence in favour of the position published here on Oct 15 \u2014 held through three cuts that read 33, 35 and 39, never regressed, and now vindicated.</strong> <strong>Cable moved again for the first time since Oct 20: 4,750 ft of DC home run and 1,156 ft of DC trunk on Oct 26, all on PS07/PS08, so all of it Line 4 (12B). The ledger stands at 250,666.4 lf of 269,748 \u2014 92.93%. Trunk is now 40,449.9 against a 40,313 scope: 137 ft ABOVE THE COUNT, flagged for a ruling rather than trimmed.</strong> <strong>Testing advanced: the PS16 string megger is complete across 14 LBDs on polarity, Voc and insulation, and the PS19 retest on 11B was approved above 100 M\u03a9. What is NOT complete: 198 pile grounds were hung on Oct 26 but not crimped to the messenger \u2014 about 20 man-hours outstanding, carried as a note and not counted.</strong> <strong>The controlling constraint is now 12B: trenches 13 of 52 compacted, unchanged for a week, and 6 of 11 units closed. Modules, piles, trackers, civil and the substation are all complete; PROJECT 98.75%.</strong> <strong>COMMISSIONING, from the TVANT portal (cut Oct 26): polarity and continuity 341 of 419, up from 315 \u2014 11A and 11B closed, 12A one record short, and 12B 30 of 107 carrying 77 of the 78 open records. IV curve sampling is RUNNING, not stopped: 131 of 752 string samples measured and all 131 validated, all on 11A. No LBD closes yet, so the LBD basis stays 0 of 419 and both are published. Grounding resistance and continuity 18 of 23 each; VLF, OTDR and inverter precommissioning open on three of four circuits; SCADA communications 5 of 23 inverters.</strong>",
  "asOfISO": "2026-10-24",
  "piles": {
   "installed": 31352,
@@ -3282,7 +3303,7 @@ window.MURCH_DATA = {
 },
  // ---- COMMISSIONING (added Oct 3, 2026 at Jose's request) — substation test window, PV field commissioning plan, resources, milestones.
  commissioning: {
- "asOf": "Oct 26 — MV 264/264 · PS16 megger done · RTE Nov 10",
+ "asOf": "Oct 26 — Vdc 341/419 · IV 131/752 samples · MV 264/264",
  "set": {
   "tests": 74,
   "passed": 74,
@@ -3581,7 +3602,7 @@ window.MURCH_DATA = {
   "tests": {
    "ivRequired": 6600,
    "ivPlanned": 1500,
-   "basis": "Contract: 100% string sampling. Plan: ~20% now (autumn irradiance), balance proposed for spring 2027 with thermography — needs the Owner’s agreement."
+   "basis": "Contract: 100% string sampling. Plan: ~20% now (autumn irradiance), balance proposed for spring 2027 with thermography \u2014 needs the Owner\u2019s agreement. The commissioning portal runs its own sampling scope of 752 string samples (396 sample LBDs + 23 full LBDs); 131 are measured and validated, all on 11A."
   },
   "resources": [
    {
@@ -3655,10 +3676,10 @@ window.MURCH_DATA = {
    }
   ],
   "fieldTests": {
-   "asOf": "Oct 6",
-   "irStrings": 95,
-   "irScope": 6600,
-   "detail": "Insulation-resistance tests on circuit 11A: Oct 3 55 strings (PS-1 20, PS-2 20, PS-3 15) + Oct 5 40 strings (PS-1/PS-2, A2) = 95, all OK. Oct 6: PS-01 and PS-02 reported >100 MΩ with no string count (not added). Megger by United: PS-21 complete 19/19, PS-22 strings passed (17/19 LBDs), PS-23 129 of 132. I-V curves not started."
+   "asOf": "Oct 26 (TVANT commissioning portal)",
+   "irStrings": 131,
+   "irScope": 752,
+   "detail": "<strong>IV CURVE SAMPLING IS RUNNING: 131 of 752 string samples measured and ALL 131 VALIDATED \u2014 none rejected, none requiring review, none pending.</strong> Every sample so far is on 11A, across 71 LBDs. No LBD counts complete because an LBD only closes when its whole sample closes, so the LBD-basis figure is still 0 of 419 and both are published. The portal\u2019s own history shows the campaign starting Oct 23 and accelerating: 33 \u2192 49 \u2192 91 \u2192 131. <strong>Polarity and continuity (Vdc) 341 of 419</strong>, up from 277 on Oct 20. Grounding resistance 18 of 23 inverters and grounding continuity 18 of 23 blocks. VLF 1 of 4 circuits, OTDR 1 of 4, inverter precommissioning inspection 2 of 4, SCADA communications 5 of 23 inverters. Site megger records the same week: PS16 complete across 14 LBDs on polarity, Voc and insulation; PS19 on 11B approved above 100 M\u03a9."
   },
   "stepTouch": "Step-and-touch tests at the substation to be executed by the substation contractor (equipment cost).",
   "readiness": [
@@ -3669,7 +3690,7 @@ window.MURCH_DATA = {
     "lv": "complete · POLARITY TEST FINISHED · VLF complete · string insulation on A4/A6, no count",
     "mvUnits": "10 / 10",
     "jbTerm": "33 / 33 · MV COMPLETE 57/57",
-    "scada": "5 / 5",
+    "scada": "boxes 5/5 \u00b7 comms 5/5",
     "status": "At Risk"
    },
    {
@@ -3679,7 +3700,7 @@ window.MURCH_DATA = {
     "lv": "COMPLETE — INV-12 closed Oct 15; harness 1,292, LV terminations 220/220 and 440/440",
     "mvUnits": "12 / 12",
     "jbTerm": "39 / 39 · MV COMPLETE 69/69",
-    "scada": "6 / 6",
+    "scada": "boxes 6/6 \u00b7 comms 0/6",
     "status": "At Risk"
    },
    {
@@ -3689,17 +3710,17 @@ window.MURCH_DATA = {
     "lv": "COMPLETE — 76,120 lf, harness 1,258 (re-based Oct 15 on the PM + CM position)",
     "mvUnits": "13 / 13 · pull-in 13/13",
     "jbTerm": "45 / 45 · MV COMPLETE 75/75",
-    "scada": "6 / 6",
+    "scada": "boxes 6/6 \u00b7 comms 0/6",
     "status": "At Risk"
    },
    {
     "circuit": "12B",
-    "mc": "MC Nov 10 \u00b7 waiting on materials",
+    "mc": "MC Nov 10 \u00b7 trenches and testing",
     "series": 14,
-    "lv": "11,703 / 66,395 lf · 54,692 open · NO cable Oct 5–12 · date PASSED Oct 10",
-    "mvUnits": "1 / 11 · pull-in 8/11",
-    "jbTerm": "18 / 33 — the ONLY open MV scope left on the project",
-    "scada": "6 / 6",
+    "lv": "36,245 / 66,395 lf \u00b7 30,150 open \u00b7 +5,906 lf on Oct 26",
+    "mvUnits": "6 / 11 \u00b7 pull-in 11/11 \u00b7 trenches 13/52",
+    "jbTerm": "33 / 33 \u00b7 MV COMPLETE 63/63",
+    "scada": "boxes 6/6 \u00b7 comms 0/6",
     "status": "Critical"
    }
   ],
@@ -3741,6 +3762,13 @@ window.MURCH_DATA = {
   "owner": "Commissioning + EHS"
  },
  {
+  "headline": "Polarity records are 341 of 419 and 77 of the 78 still open are on 12B — the same circuit as the trenches",
+  "title": "Vdc polarity and continuity, TVANT commissioning portal, cut Oct 26, 2026.",
+  "note": "<strong>Vdc has moved hard: 74 on Oct 11, 212 on Oct 15, 277 on Oct 20, 341 on Oct 26 of 419.</strong> 11A and 11B are closed at 92/92 and 110/110 and 12A is one record short at 109/110. <strong>12B carries 30 of 107 — 77 open records, 98.7% of the whole project shortfall</strong>, and by zone the holes are D at 0 of 18, B at 17 of 35 and F at 75 of 111. Grounding resistance and continuity both read 18 of 23, with the five open on 12B. The same circuit holds the open trenches, the open VLF and the open SCADA communications: 12B is one queue, not four.",
+  "level": "critical",
+  "owner": "Commissioning"
+ },
+ {
   "headline": "MV cable fault between INV9 and INV11 — on 11B, the circuit whose tests are meant to close first",
   "title": "Daily report of Tuesday Oct 20, 2026 — fault point located, repair and re-test NOT confirmed.",
   "note": "<strong>The fault point has been FOUND. What has not been confirmed is the repair or the re-test.</strong> <strong>It sits on 11B, the circuit carrying the plan to close its outstanding tests first, and on the MV collection side — which is the side already published as complete at 69 of 69 for that circuit. A fault on cable already counted as terminated does not reduce the termination count, but it does mean 11B is not electrically clear, and no test programme closes over an unrepaired MV fault.</strong> <strong>WHAT TO ASK FOR TODAY: the repair method and date, and the re-test (VLF or equivalent) that proves the section good. Until that record exists, treat the 11B test-closure plan as unproven rather than on track.</strong>",
@@ -3762,11 +3790,11 @@ window.MURCH_DATA = {
   "owner": "QA/QC + racking"
  },
  {
-  "headline": "IV curve is blocked on IRRADIANCE, not on crews — 0 of 419, and the season is closing",
-  "title": "PV field-test supervision register, daily report of Oct 17, 2026.",
-  "note": "<strong>The whole IV-curve campaign is untouched: 0 of 419 LBD. Polarity and continuity stands at 275 of 419 (65.6%), grounding continuity 5 of 23, grounding resistance 9 of 23, VLF 1 of 4.</strong> <strong>11B IS APPLIED CLOSED at 110 of 110 — there is no pending inverter on that circuit (Director of Construction, Oct 17). All 40 records this register carried open there were a filing gap, not untested work. Polarity therefore reads 315 of 419 (75.2%).</strong> <strong>12B is now the open scope on its own: 101 of the 104 remaining records, with five stations (INV-07, 08, 10, 16, 17) at ZERO across 89 LBD. 12A is one record from closed and 11A two.</strong> <strong>READ IT AS COVERAGE, NOT EXECUTION: the supervisor states twice that this is documentary coverage and that a missing record does not establish that the test was not performed. That is the same instrument as the substation register and the same trap — do not read 0 of 419 as nothing done until the field is asked.</strong> <strong>CAUSE ESTABLISHED Oct 21 (field-test supervisor’s client portal): the IV curve campaign has not started because THE MINIMUM PROJECT-REQUIRED IRRADIANCE HAS NOT BEEN MET. Not crews, not contract, not filing — the season, in Michigan, in late October, and it does not improve before spring.</strong> <strong>It lines up with the planner’s position that capacity and availability tests will not complete in November for lack of irradiance, and with the standing proposal to run about 20 per cent of the IV tests now and the balance in spring 2027 with thermography — against a contract requiring 100 per cent string sampling. THAT GAP NEEDS AN OWNER AGREEMENT AND IT HAS NOT BEEN SOUGHT.</strong> <strong>ACTION: settle the sampling position with the Owner now, not in November. Separately, 11B proved an open count here can be pure paperwork — ask the field before reading 12B’s 101 as work outstanding.</strong>",
+  "headline": "IV curve sampling IS running — 131 of 752 string samples validated, but no LBD closes and all of it is on 11A",
+  "title": "PV field testing, TVANT commissioning portal, cut Oct 26, 2026.",
+  "note": "<strong>The portal’s own data retires the “not started” reading: 131 of 752 string samples are measured and ALL 131 are Validated — none rejected, none requiring review. The campaign began Oct 23 and is accelerating: 33 → 49 → 91 → 131.</strong> Two things still bite. <strong>First, no LBD counts complete (0 of 419)</strong> because an LBD only closes when its whole sample closes, so coverage earns nothing yet. <strong>Second, every sample so far is on 11A</strong> — 11B, 12A and 12B are at zero. The irradiance constraint is real and the season is closing, so the open position with the Owner is still the contract’s 100% sampling against ~20% now and the balance in spring 2027.",
   "level": "critical",
-  "owner": "Commissioning Manager | Construction Manager | Field-test supervision"
+  "owner": "Commissioning + QA/QC"
  },
  {
   "headline": "Trunk cable is 137 ft above its own take-off — 40,449.9 installed against a 40,313 scope",
@@ -3799,7 +3827,7 @@ window.MURCH_DATA = {
  {
   "headline": "11A FIBRE OTDR TEST RETURNED UNACCEPTABLE VALUES — started Oct 14, and it is a direct predecessor of 11A Mechanical Completion",
   "title": "The planning manager’s Oct 16 follow-up records item 5 / ID 75, the Communication Cable Test (OTDR, fibre optic) on 11A, as started on 14 October with values that are NOT acceptable. The same workbook had carried it with no status since 9 October.",
-  "note": "<strong>This is a FAILED TEST, not a missing report, and it is the first one today that cannot be explained by the reporting gap. It sits directly in front of 11A Mechanical Completion, the nearest milestone on the project, and 11A is otherwise closed on construction.</strong> <strong>What is not yet known and should be asked today: whether the unacceptable values are a splice problem, a connector problem or a test-setup problem; what the remediation is; and whether a re-test fits before the 11A MC date. Owner on the sheet is the Commissioning Manager.</strong> Related and still open on the same sheet: Fiber Optic Cable Tests (HV) at the substation, AB 224 / ID 404, which is only released when the 69 kV connection closes.",
+  "note": "<strong>Oct 26 — the commissioning portal reads OTDR 1 of 4 circuits COMPLETE, and the one complete is 11A. That is DOCUMENTARY COVERAGE, not acceptance: the portal states its own counting basis as coverage and the unacceptable values are not retired by a filed record. Held on the register until a passing retest is evidenced.</strong> <strong>This is a FAILED TEST, not a missing report, and it is the first one today that cannot be explained by the reporting gap. It sits directly in front of 11A Mechanical Completion, the nearest milestone on the project, and 11A is otherwise closed on construction.</strong> <strong>What is not yet known and should be asked today: whether the unacceptable values are a splice problem, a connector problem or a test-setup problem; what the remediation is; and whether a re-test fits before the 11A MC date. Owner on the sheet is the Commissioning Manager.</strong> Related and still open on the same sheet: Fiber Optic Cable Tests (HV) at the substation, AB 224 / ID 404, which is only released when the 69 kV connection closes.",
   "level": "critical",
   "owner": "Commissioning Manager | Substation testing contractor"
  },
