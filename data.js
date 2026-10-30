@@ -1,52 +1,52 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261029b - COMMISSIONING STATUS NOW READ FROM THE TVANT PORTAL (https://tvantuasworks.github.io/Murch-Dashboard/, cut Mon Oct 26). It is from today the authority for every PV field test on this dashboard and on the Owner report, replacing the Oct 17 supervision register. (1) POLARITY AND CONTINUITY (Vdc) 315 -> 341 of 419. 11A closes at 92/92 (was 90), 11B holds 110/110, 12A 109/110, and 12B moves 6 -> 30 of 107. Open records fall from 104 to 78 and 77 of them are on 12B. By zone the holes are D 0/18, B 17/35, F 75/111. (2) IV CURVE IS RUNNING, NOT STOPPED. The portal's static banner still says NOT STARTED; its data says 131 of 752 string samples measured and ALL 131 VALIDATED - none rejected, none requiring review. The campaign began Oct 23 and is accelerating 33 -> 49 -> 91 -> 131, all of it on 11A across 71 LBDs. No LBD counts complete (0 of 419) because an LBD only closes when its whole sample closes, so BOTH bases are published. The risk card is re-stated accordingly: the constraint is the closing rule and the single circuit, not idle crews. (3) NEW METRICS CARRIED: grounding resistance 18/23 inverters, grounding continuity 18/23 blocks, inverter precommissioning inspection 2/4 circuits, OTDR 1/4, SCADA COMMUNICATIONS 5/23 inverters - which is a different scope from the 23/23 SCADA boxes installed in the MV control, and the readiness table now prints both. (4) OTDR ON 11A READS COMPLETE IN THE PORTAL AND THE RISK STAYS OPEN: the portal counts documentary coverage, not acceptance, so a filed record does not retire the unacceptable values. (5) The 12B readiness row is refreshed off its stale Oct 12 figures to cable 36,245 of 66,395 lf, MV complete 63/63, units 6/11, trenches 13/52.
+// CACHE BUSTER 20261030a - THREE PRODUCTION DAYS (Tue 27, Wed 28, Thu 29 Oct) PLUS THE TVANT PORTAL CUT OF Oct 30 AND THE SE TRACKER CUT OF Oct 30. (1) CABLE MOVED ONCE: Tuesday Oct 27 only, 4,002 ft of DC home run and 3,096 ft of trunk = 7,098 lf, all on PS16/PS10/PS08 = 12B / Line 4. Wednesday and Thursday filed NO DC footage and the Wednesday part says so explicitly, so no zero is appended and the Tuesday figure is not carried forward. Cable 250,666.4 -> 257,764.4 lf (95.56%). LV earned 85.29 -> 86.74, electrical 91.04 -> 91.69, PROJECT 98.75 -> 98.84. (2) THE TRUNK OVERRUN HAS GONE FROM A ROUNDING NOTE TO A REAL DIVERGENCE: 43,545.9 ft installed against a 40,313 ft take-off - 3,232.9 ft ABOVE THE COUNT, up from 137 ft on Oct 26. Capped at 100% in the composite so it earns nothing. RULING OWED: either the take-off is short or home run is being booked as trunk. (3) TESTING MOVED HARD. Vdc 341 -> 381 of 419 (12B 30 -> 70, zone B closed 35/35, F 75 -> 93). IV samples 131 -> 205 of 752, ALL VALIDATED, and INTO A SECOND CIRCUIT: 11B opens at 56 of 200 beside 11A's 149 of 165. SCADA communications 5 -> 17 of 23 with 11B and 12A closing. VLF 1 -> 2.6 of 4 and OTDR 1 -> 2 of 4. (4) THE TESTING LAGGARD IS NOW 12A, NOT 12B: 12A reads VLF 0%, OTDR 0 of 1 and IV 0 of 188 although it closed construction first, while 12B - last in construction - already reads VLF 100%. (5) 12B TRENCHES HAVE NOT MOVED IN A WEEK: 13 of 52 compacted and 6 of 11 units on the Oct 27 MV control, identical to the Oct 26 cut. That is the controlling constraint against RTE on Nov 10. (6) MESSENGER AND SUPPORTS: +1,534 ft tensioned (750 Wed + 784 Thu) and +192 brackets (71 + 121) on Line 4. 3,655 ft PULLED on Wednesday is a different operation and is not counted as tensioned. (7) NOT COUNTED, recorded as notes: 124 pile grounds hung without crimping (Oct 27) and 83 piles in Area B drilled only (Oct 29); and prefabricated angles merely cut to length are not finished supports. (8) SE TRACKER Oct 30: global EV 99.85% (255/257), civil, mechanical, bus and grounding all 100%, electrical 147/149 and SCADA 8/9 with TWO OVERDUE ITEMS - the SCADA RTU configuration at 95% and AEP coordination for first energization at 50%. (9) THE COMMISSIONING TAB IS MISSING FROM THE TRACKER FOR THE SECOND RUN RUNNING and its testing row still reads #REF!, so the SET test figures stay HELD on the Oct 21 ruling of 74 of 74 executed. (10) No EHS board this week - the man-hour counter HOLDS at 246,745 (Oct 23 register); the tracker records the last site log as Thu Oct 29, sunny, zero incidents.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
  "pvFieldTests": {
-  "asOf": "TVANT commissioning portal, cut Mon Oct 26, 2026 (published 14:23 UTC)",
+  "asOf": "TVANT commissioning portal, cut Fri Oct 30, 2026 (published 11:04 UTC)",
   "source": "https://tvantuasworks.github.io/Murch-Dashboard/ \u2014 TVANT / GreenSol client portal, data/latest.json",
   "basis": "The portal counts DOCUMENTARY COVERAGE, not electrical acceptance; Vdc may include legacy unclassified records. A test reading complete here does not retire a known field failure.",
   "scopeNote": "Vdc 419 LBD (92 / 110 / 110 / 107, matching this ledger\u2019s own take-off) \u00b7 grounding resistance 23 inverters \u00b7 grounding continuity 23 blocks \u00b7 IV curve 752 STRING SAMPLES (396 sample LBDs + 23 full LBDs) \u00b7 VLF, OTDR and inverter precommissioning 4 circuits each \u00b7 SCADA communications 23 inverters.",
   "types": [
-   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 341, "open": 78, "pct": 81.38, "unit": "LBD" },
+   { "t": "Polarity & continuity (Vdc)", "scope": 419, "done": 381, "open": 38, "pct": 90.93, "unit": "LBD" },
    { "t": "Grounding resistance", "scope": 23, "done": 18, "open": 5, "pct": 78.26, "unit": "inverters" },
    { "t": "Grounding continuity", "scope": 23, "done": 18, "open": 5, "pct": 78.26, "unit": "blocks" },
-   { "t": "IV curve \u2014 string samples measured and validated", "scope": 752, "done": 131, "open": 621, "pct": 17.42, "unit": "samples" },
-   { "t": "IV curve \u2014 LBDs fully closed", "scope": 419, "done": 0, "open": 419, "pct": 0, "unit": "LBD" },
-   { "t": "Inverter precommissioning inspection", "scope": 4, "done": 2, "open": 2, "pct": 50, "unit": "circuits" },
-   { "t": "VLF", "scope": 4, "done": 1, "open": 3, "pct": 25, "unit": "circuits" },
-   { "t": "OTDR \u2014 fibre optic", "scope": 4, "done": 1, "open": 3, "pct": 25, "unit": "circuits" },
-   { "t": "SCADA communications", "scope": 23, "done": 5, "open": 18, "pct": 21.74, "unit": "inverters" }
+   { "t": "IV curve \u2014 string samples measured and validated", "scope": 752, "done": 205, "open": 547, "pct": 27.26, "unit": "samples" },
+   { "t": "Inverter precommissioning inspection", "scope": 4, "done": 3, "open": 1, "pct": 75, "unit": "circuits" },
+   { "t": "SCADA communications", "scope": 23, "done": 17, "open": 6, "pct": 73.91, "unit": "inverters" },
+   { "t": "VLF", "scope": 4, "done": 2.6, "open": 1.4, "pct": 65, "unit": "circuits" },
+   { "t": "OTDR \u2014 fibre optic", "scope": 4, "done": 2, "open": 2, "pct": 50, "unit": "circuits" }
   ],
   "byCircuit": [
+   { "c": "11A", "scope": 92, "done": 92, "open": 0, "pct": 100 },
    { "c": "11B", "scope": 110, "done": 110, "open": 0, "pct": 100 },
    { "c": "12A", "scope": 110, "done": 109, "open": 1, "pct": 99.09 },
-   { "c": "11A", "scope": 92, "done": 92, "open": 0, "pct": 100 },
-   { "c": "12B", "scope": 107, "done": 30, "open": 77, "pct": 28.04 }
+   { "c": "12B", "scope": 107, "done": 70, "open": 37, "pct": 65.42 }
   ],
   "byZone": [
    { "z": "A", "scope": 54, "done": 54 },
+   { "z": "B", "scope": 35, "done": 35 },
    { "z": "C", "scope": 38, "done": 38 },
+   { "z": "E", "scope": 128, "done": 127 },
    { "z": "G", "scope": 35, "done": 34 },
-   { "z": "E", "scope": 128, "done": 123 },
-   { "z": "F", "scope": 111, "done": 75 },
-   { "z": "B", "scope": 35, "done": 17 },
+   { "z": "F", "scope": 111, "done": 93 },
    { "z": "D", "scope": 18, "done": 0 }
   ],
   "circuitMatrix": [
-   { "c": "11A", "vdc": "92/92", "iv": "0/92 LBD \u00b7 71 samples", "ground": "5/5", "cont": "5/5", "vlf": "1/1", "otdr": "1/1", "precomm": "1/1", "scada": "5/5" },
-   { "c": "11B", "vdc": "110/110", "iv": "0/110 LBD \u00b7 0 samples", "ground": "6/6", "cont": "6/6", "vlf": "0/1", "otdr": "0/1", "precomm": "1/1", "scada": "0/6" },
-   { "c": "12A", "vdc": "109/110", "iv": "0/110 LBD \u00b7 0 samples", "ground": "6/6", "cont": "6/6", "vlf": "0/1", "otdr": "0/1", "precomm": "0/1", "scada": "0/6" },
-   { "c": "12B", "vdc": "30/107", "iv": "0/107 LBD \u00b7 0 samples", "ground": "1/6", "cont": "1/6", "vlf": "0/1", "otdr": "0/1", "precomm": "0/1", "scada": "0/6" }
+   { "c": "11A", "vdc": "92/92", "iv": "149/165 samples", "ground": "5/5", "cont": "5/5", "vlf": "100%", "otdr": "1/1", "precomm": "1/1", "scada": "5/5" },
+   { "c": "11B", "vdc": "110/110", "iv": "56/200 samples", "ground": "6/6", "cont": "6/6", "vlf": "60%", "otdr": "1/1", "precomm": "1/1", "scada": "6/6" },
+   { "c": "12A", "vdc": "109/110", "iv": "0/188 samples", "ground": "6/6", "cont": "6/6", "vlf": "0%", "otdr": "0/1", "precomm": "1/1", "scada": "6/6" },
+   { "c": "12B", "vdc": "70/107", "iv": "0/199 samples", "ground": "1/6", "cont": "1/6", "vlf": "100%", "otdr": "0/1", "precomm": "0/1", "scada": "0/6" }
   ],
-  "trend": "<strong>Vdc over the portal\u2019s own history: Oct 11 74 \u2192 Oct 15 212 \u2192 Oct 20 277 \u2192 Oct 23 301 \u2192 Oct 24 313 \u2192 Oct 26 341 of 419.</strong> IV sampling started Oct 23 and is accelerating: 33 \u2192 49 \u2192 91 \u2192 131 of 752. Grounding continuity 8 \u2192 18 of 23 between Oct 20 and Oct 22.",
-  "ivNote": "<strong>IV IS RUNNING, NOT STOPPED \u2014 the \u201cnot started\u201d banner on the portal is stale HTML, not its data.</strong> 131 of 752 string samples are measured and ALL 131 are Validated: zero rejected, zero requiring review, zero pending. No LBD counts complete yet because an LBD only closes when its whole sample closes, and every sample so far is on 11A (71 LBDs touched). The LBD-basis zero and the sample-basis 131 are both true and both published.",
-  "concentration": "12B carries 77 of the 78 open Vdc records. 11A and 11B are closed, 12A is one record from closed. By zone the gaps are D 0 of 18, B 17 of 35 and F 75 of 111.",
-  "otdrCaveat": "<strong>OTDR reads 1 of 4 complete on 11A in the portal, which is documentary coverage. The 11A fibre OTDR result that returned unacceptable values is NOT retired by that record and stays on the risk register.</strong>",
-  "headline": "Vdc 341 of 419 and climbing; IV sampling under way at 131 of 752, all validated; VLF, OTDR and precommissioning open on three of four circuits."
+  "trend": "<strong>Vdc: Oct 20 277 \u2192 Oct 26 341 \u2192 Oct 27 359 \u2192 Oct 28 363 \u2192 Oct 30 381 of 419.</strong> IV samples 131 \u2192 148 \u2192 205 of 752. SCADA communications 5 \u2192 11 \u2192 17 of 23 \u2014 11B and 12A both closed this week. VLF 1 \u2192 2.6 of 4 and OTDR 1 \u2192 2 of 4. Grounding resistance and continuity unchanged at 18 of 23 since Oct 20.",
+  "ivNote": "<strong>IV sampling has reached a SECOND circuit: 205 of 752 string samples measured and ALL 205 Validated \u2014 none rejected, none requiring review, none pending.</strong> 11A holds 149 of its 165 and 11B has opened at 56 of 200. 12A (188) and 12B (199) are still at zero. LBD coverage is 137 of 396 sample boxes plus 1 of 23 full boxes.",
+  "vlfNote": "<strong>VLF has gone out of construction order: 12B reads 100% and 11A 100%, 11B 60%, and 12A \u2014 the circuit that closed construction first \u2014 is still at ZERO.</strong> 12A also carries OTDR 0 of 1 and IV 0 of 188, so the testing laggard and the construction laggard are now different circuits.",
+  "concentration": "12B carries 37 of the 38 open Vdc records. 11A and 11B are closed and 12A is one record short. By zone the only real hole left is D at 0 of 18; B closed this week (17 \u2192 35) and F moved 75 \u2192 93 of 111.",
+  "otdrCaveat": "<strong>OTDR reads 2 of 4 complete (11A and 11B), which is documentary coverage. The 11A fibre OTDR result that returned unacceptable values is NOT retired by that record and stays on the risk register.</strong>",
+  "headline": "Vdc 381 of 419; IV sampling 205 of 752 and into a second circuit; SCADA communications 5 \u2192 17 of 23; 12A still untested on VLF, OTDR and IV."
  },
  "selfPerform": {
   "asOf": "Executed through Oct 12, 2026 — the GreenSol crew log, re-read from SharePoint on Oct 21",
@@ -102,9 +102,9 @@ window.MURCH_DATA = {
   "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
- "asOfShort": "Oct 26 — MV 264/264 · Vdc 341/419 · IV 131/752 validadas · zanjas 12B 13/52 · proyecto 98.75%",
- "asOf": "<strong>Oct 26 \u2014 MV TERMINATIONS ARE COMPLETE: 264 of 264. 11A 57/57, 11B 69/69, 12A 75/75 with the junction-box side at 45/45, and 12B 63/63 after the last 12 inverter-side terminations closed. Inverter side 114/114, junction-box side 150/150. The Oct 24 daily report and the Oct 26 MV control agree, which closes the 12A junction-box divergence in favour of the position published here on Oct 15 \u2014 held through three cuts that read 33, 35 and 39, never regressed, and now vindicated.</strong> <strong>Cable moved again for the first time since Oct 20: 4,750 ft of DC home run and 1,156 ft of DC trunk on Oct 26, all on PS07/PS08, so all of it Line 4 (12B). The ledger stands at 250,666.4 lf of 269,748 \u2014 92.93%. Trunk is now 40,449.9 against a 40,313 scope: 137 ft ABOVE THE COUNT, flagged for a ruling rather than trimmed.</strong> <strong>Testing advanced: the PS16 string megger is complete across 14 LBDs on polarity, Voc and insulation, and the PS19 retest on 11B was approved above 100 M\u03a9. What is NOT complete: 198 pile grounds were hung on Oct 26 but not crimped to the messenger \u2014 about 20 man-hours outstanding, carried as a note and not counted.</strong> <strong>The controlling constraint is now 12B: trenches 13 of 52 compacted, unchanged for a week, and 6 of 11 units closed. Modules, piles, trackers, civil and the substation are all complete; PROJECT 98.75%.</strong> <strong>COMMISSIONING, from the TVANT portal (cut Oct 26): polarity and continuity 341 of 419, up from 315 \u2014 11A and 11B closed, 12A one record short, and 12B 30 of 107 carrying 77 of the 78 open records. IV curve sampling is RUNNING, not stopped: 131 of 752 string samples measured and all 131 validated, all on 11A. No LBD closes yet, so the LBD basis stays 0 of 419 and both are published. Grounding resistance and continuity 18 of 23 each; VLF, OTDR and inverter precommissioning open on three of four circuits; SCADA communications 5 of 23 inverters.</strong>",
- "asOfISO": "2026-10-24",
+ "asOfShort": "Oct 29 — cable 257,764 lf (95.6%) · Vdc 381/419 · zanjas 12B 13/52 paradas · proyecto 98.84%",
+ "asOf": "<strong>Oct 29 \u2014 THREE REPORTED DAYS, ONE CABLE DAY. Tuesday Oct 27 filed 4,002 ft of DC home run and 3,096 ft of trunk \u2014 7,098 lf, all on PS16/PS10/PS08, so all of it 12B. Wednesday and Thursday filed no DC footage at all and the Wednesday part states it plainly, so nothing is carried forward and no zero is appended. The ledger stands at 250,666.4 \u2192 257,764.4 lf of 269,748, or 95.56%.</strong> <strong>THE TRUNK OVERRUN IS NOW MATERIAL: 43,545.9 ft against a 40,313 ft take-off \u2014 3,232.9 ft above the count, up from 137 ft three days ago. It is capped at 100% in the composite so it earns nothing, but a ruling is owed: either the take-off is short or home run is being booked as trunk.</strong> <strong>TESTING MOVED HARD ON THE PORTAL. Polarity and continuity 341 \u2192 381 of 419, with 12B 30 \u2192 70 and zone B closed at 35 of 35. IV sampling 131 \u2192 205 of 752, every one validated, and it has reached a second circuit \u2014 11B opens at 56 of 200. SCADA communications 5 \u2192 17 of 23 as 11B and 12A close.</strong> <strong>AND THE TESTING LAGGARD IS NO LONGER THE CONSTRUCTION LAGGARD: 12A, which closed construction first, still reads VLF 0%, OTDR 0 of 1 and IV 0 of 188, while 12B already reads VLF 100%.</strong> <strong>What has not moved at all is the 12B trench line: 13 of 52 compacted and 6 of 11 units on the Oct 27 control, identical to Oct 26. That is the constraint against Ready-to-Energize on Nov 10. PROJECT 98.84%.</strong>",
+ "asOfISO": "2026-10-29",
  "piles": {
   "installed": 31352,
   "total": 31352,
@@ -145,15 +145,15 @@ window.MURCH_DATA = {
   "unit": "mod/day"
  },
  "electrical": {
-  "installed": 250666,
+  "installed": 257764,
   "total": 269748,
   "gate": "2026-09-18",
   "gateLabel": "Sep 18 — MISSED",
-  "required": 2726,
-  "capacity": 5906,
+  "required": 2996,
+  "capacity": 7098,
   "name": "LV Electrical",
   "unit": "lf/day",
-  "earnedPct": 85.29,
+  "earnedPct": 86.74,
   "earnedBasis": "weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)",
   "lvDaily": [
    {
@@ -672,73 +672,74 @@ window.MURCH_DATA = {
 
  contractorScore: [
  {
-  "date": "Oct 26 Mon",
+  "date": "Oct 29 Thu",
   "contractor": "United Services",
-  "trade": "LV / DC cable",
-  "output": 5906,
-  "resource": "crew stated by front",
-  "short": "<strong>Cable moves again after five reported days with no footage \u2014 5,906 ft on 12B. Home run 4,750 ft and trunk 1,156 ft, all on PS07/PS08.</strong> Cable 250,666 lf (92.93%), and trunk passes its own take-off at 40,449.9 against 40,313. <strong>PS16 string megger COMPLETE across 14 LBDs on polarity, Voc and insulation.</strong> 198 pile grounds hung but NOT crimped \u2014 about 20 man-hours owed before any of it counts.",
-  "unit": "lf",
+  "trade": "Grounding \u00b7 messenger \u00b7 prefabrication",
+  "output": 164,
+  "resource": "crew not stated",
+  "short": "<strong>164 pile ground connections installed in Area B \u2014 and 83 piles there drilled ONLY, carried as pending.</strong> Grounding started in Area D with no quantity reported. Messenger 784 ft tensioned and 121 brackets. Prefabrication: 268 aluminium angles complete, 194 aluminium and 165 iron angles cut to length only. <strong>No DC cable footage filed.</strong> Cut pieces are not finished supports and are not counted.",
+  "unit": "ground connections",
   "perUnit": 0,
   "criterion": 0,
-  "critLabel": "The 198 pile grounds were hung, not crimped \u2014 they are a note, not a count.",
+  "critLabel": "Angles cut to length are not supports; 83 drilled-only piles are not grounds.",
   "scopes": [
-   { "label": "DC home run", "value": 4750, "unit": "lf (PS07/PS08 = 12B)", "criterion": 0 },
-   { "label": "DC trunk", "value": 1156, "unit": "lf (PS07/PS08 = 12B)", "criterion": 0 },
-   { "label": "PS16 string megger", "value": 14, "unit": "LBDs \u2014 polarity, Voc, insulation", "criterion": 0 },
-   { "label": "Pile grounds hung", "value": 198, "unit": "NOT crimped \u2014 20 man-hours owed", "criterion": 0 }
+   { "label": "Pile grounds (Area B)", "value": 164, "unit": "installed", "criterion": 0 },
+   { "label": "Messenger tensioned", "value": 784, "unit": "ft", "criterion": 0 },
+   { "label": "Brackets", "value": 121, "unit": "units", "criterion": 0 },
+   { "label": "DC cable", "value": 0, "unit": "lf, none reported", "criterion": 0 }
   ]
  },
  {
-  "date": "Oct 26 Mon",
+  "date": "Oct 29 Thu",
   "contractor": "GreenSol (self-perform)",
-  "trade": "Grounding \u00b7 civil \u00b7 SCADA \u00b7 fibre",
-  "output": 5,
-  "resource": "crew stated by front",
-  "short": "<strong>Backfill and compaction at five stations \u2014 F INV-16/17 and E INV-4/13/14.</strong> Centre-pole grounds at E20, EW2 and EW3; piercing connectors E7\u2013E11; SCADA conduit at PS10 and PS17; DC-run labels in the LBDs at PS21, PS22 and PS23. <strong>Fibre cable REPLACED at INV-16 and INV-17.</strong> No cable footage and no terminations filed on this front.",
-  "unit": "stations worked",
+  "trade": "MV cabinets \u00b7 Voc preparation \u00b7 civil",
+  "output": 8,
+  "resource": "5 electrical + 3 civil",
+  "short": "<strong>Piercing connectors REINSTALLED for Voc testing at INV3, INV5 (11A), INV4, INV11 (11B) and INV6 (12B) \u2014 preparation, with no connector count and no test result reported.</strong> MV cabinet dressing, cleaning and foam at INV12, INV14, INV18 and INV16. <strong>INV16 backfill and compaction CLOSED at 100%.</strong> Civil set out inverters for survey. The part carries a 2:00 a.m. start that is inconsistent, so no man-hours are derived from it.",
+  "unit": "inverters worked",
   "perUnit": 0,
   "criterion": 0,
-  "critLabel": "Crew figures are per-activity allocations, not one verifiable site total.",
+  "critLabel": "Voc connector reinstallation is preparation, not a test result.",
   "scopes": [
-   { "label": "Backfill / compaction", "value": 5, "unit": "stations (F INV-16/17 \u00b7 E INV-4/13/14)", "criterion": 0 },
-   { "label": "Centre-pole grounds", "value": 3, "unit": "E20, EW2, EW3", "criterion": 0 },
-   { "label": "Piercing connectors", "value": 5, "unit": "E7\u2013E11", "criterion": 0 },
-   { "label": "Fibre replacement", "value": 2, "unit": "INV-16 / INV-17", "criterion": 0 }
+   { "label": "MV cabinets dressed", "value": 4, "unit": "INV12/14/18/16", "criterion": 0 },
+   { "label": "Voc connector fronts", "value": 5, "unit": "INV3/5/4/11/6", "criterion": 0 },
+   { "label": "INV16 compaction", "value": 100, "unit": "% \u2014 closed", "criterion": 0 },
+   { "label": "Connectors counted", "value": 0, "unit": "none stated", "criterion": 0 }
   ]
  },
  {
-  "date": "Oct 23 Fri",
+  "date": "Oct 28 Wed",
   "contractor": "United Services",
-  "trade": "LV / DC cable",
-  "output": 0,
-  "resource": "crew stated by front",
-  "unit": "lf",
+  "trade": "DC-run megger \u00b7 messenger \u00b7 prefabrication",
+  "output": 11,
+  "resource": "crew not stated",
+  "short": "<strong>DC-run megger recorded at PS16 (LBD-16-201) and across ten PS07 LBDs \u2014 eleven boxes, with NO approval stated in the part.</strong> Messenger: 3,655 ft pulled and 750 ft tensioned, which are different operations and are not summed with DC cable. 71 brackets installed. Prefabrication: 30 iron and 137 aluminium angles complete; 26 iron and 140 aluminium cut only. <strong>No DC cable footage filed, and the part says the Tuesday 7,098 ft is not carried forward.</strong>",
+  "unit": "LBDs meggered",
   "perUnit": 0,
   "criterion": 0,
-  "short": "<strong>No DC footage filed \u2014 testing and grounding only, so no zero goes into the cable series.</strong> 234 piles grounded across zones F and G. PS16 reported ready for inspection. <strong>Still pending from this day: one messenger bond and two LBDs.</strong>",
-  "critLabel": "No DC footage filed on Oct 23 \u2014 testing and grounding only, so no zero is appended to the cable series.",
+  "critLabel": "DC-run megger is distinct from string tests and from the 419-LBD certification.",
   "scopes": [
-   { "label": "DC cable", "value": 0, "unit": "lf, none reported", "criterion": 0 },
-   { "label": "Piles grounded", "value": 234, "unit": "zones F and G", "criterion": 0 },
-   { "label": "PS16", "value": 1, "unit": "station ready for inspection", "criterion": 0 },
-   { "label": "Still pending", "value": 3, "unit": "1 messenger bond + 2 LBDs", "criterion": 0 }
+   { "label": "DC-run megger", "value": 11, "unit": "LBDs, no approval stated", "criterion": 0 },
+   { "label": "Messenger tensioned", "value": 750, "unit": "ft (3,655 pulled)", "criterion": 0 },
+   { "label": "Brackets", "value": 71, "unit": "units", "criterion": 0 },
+   { "label": "DC cable", "value": 0, "unit": "lf, none reported", "criterion": 0 }
   ]
  },
  {
-  "date": "Oct 23 Fri",
+  "date": "Oct 28 Wed",
   "contractor": "GreenSol (self-perform)",
-  "trade": "Testing \u00b7 grounding",
-  "output": 1,
-  "resource": "crew stated by front",
-  "short": "<strong>The PS19 string retest on 11B was APPROVED above 100 M\u03a9.</strong> The Oct 23 cut read MV terminations at 258 of 264 \u2014 the last six closed the following day. SE tracker EV 99.82% global, electrical 99.74% with four activities open, grounding 99.96%, SCADA 98.89%; civil, mechanical and bus all 100%.",
-  "unit": "retest approved",
+  "trade": "MV cabinets \u00b7 civil",
+  "output": 7,
+  "resource": "4 electrical + 3 civil",
+  "short": "<strong>MV cabinet dressing, cleaning and foam across INV1 to INV12 in areas A, C and E \u2014 the part groups the twelve inverters and gives no unit split, so nothing is assigned by line.</strong> Civil set out INV1, INV2 and INV3 and installed 30 ft of silt fence at the Area E pond. INV17 backfill and compaction reported 80% done, 20% pending.",
+  "unit": "people on site",
   "perUnit": 0,
   "criterion": 0,
+  "critLabel": "INV1\u2013INV12 grouped without a per-inverter split \u2014 not allocated to a line.",
   "scopes": [
-   { "label": "PS19 string retest", "value": 1, "unit": "11B \u2014 approved above 100 M\u03a9", "criterion": 0 },
-   { "label": "MV terminations", "value": 258, "unit": "of 264 on the Oct 23 cut", "criterion": 0 },
-   { "label": "Discipline EV", "value": 99.82, "unit": "% global on the SE tracker", "criterion": 0 },
+   { "label": "MV cabinet front", "value": 12, "unit": "INV1\u2013INV12, grouped", "criterion": 0 },
+   { "label": "Silt fence", "value": 30, "unit": "ft, Area E pond", "criterion": 0 },
+   { "label": "INV17 compaction", "value": 80, "unit": "%", "criterion": 0 },
    { "label": "Cable", "value": 0, "unit": "lf, none reported", "criterion": 0 }
   ]
  }
@@ -1357,7 +1358,7 @@ window.MURCH_DATA = {
  },
 
  materialPosition: {
- asOf: 'Oct 26, 2026 \u2014 cable and terminals delivered; the messenger wire was due on site before the end of last week and arrival is still to be confirmed. The 450 replacement fuses ordered Oct 20 are awaiting arrival. Messenger support hardware: the angle iron is on site, the bolts are pending, and the cutting and drilling is GreenSol scope.',
+ asOf: 'Oct 29, 2026 \u2014 messenger wire is on site and being installed: 1,534 ft tensioned and 192 brackets over Wednesday and Thursday, with 3,655 ft pulled ahead of tensioning. Support hardware is in prefabrication rather than short: aluminium 405 angles complete to date this week and iron 30, with a further 334 aluminium and 191 iron cut to length but not yet drilled. The 450 replacement fuses ordered Oct 20 are still awaiting arrival.',
  headline: '<strong>Bearings no longer decide the deadline (Jose, Sep 28): the 60 trackers without 3.0 / 1.8 bearings are finished and run in fixed defensive position; the bearings go in as a punch-list item when they reach site. GameChange quote SO26610 received Sep 24 — PO approval requested Sep 25; bearings and saddle brackets ship 2 weeks after PO.</strong> (Jose, Sep 27: the pink torque tubes are NOT required.) <strong>LV and solar cable: PO issued Sep 17 and paid Sep 18 — delivery date from AWG still owed; it decides the 12A / 12B finish. LV terminals not yet bought.</strong> All 50,000 nuts and all tensioners on site. <strong>RECEIVED Sep 26: the four interconnection poles are on site — erection with equipment and cables is planned for Monday Sep 28.</strong> <strong>NEW (Sep 23 take-off): 1,529 messenger-wire support sets are still to install in areas B, D, F and G, and the site is short 129 U-bolts, 135 angle pieces, 199 M14 nuts, 233 flat washers and 147 lock washers; about 25,600 ft of messenger wire must still be bought.</strong>',
  buy: [
   { item: 'Tracker punch-list kit — GameChange SO26610', qty: '120 bearings 3.0 · 120 bearings 1.8 · 120 standard + 120 heavy saddle brackets · 54,000 1/4-20 panel nuts · 3,000 1/2-13 nuts', status: 'Quote received Sep 24 · PO approval requested Sep 25 · bearings / brackets 2 wk after PO, hardware ready to ship', level: 'At Risk', feeds: 'Punch list only — 60 trackers in fixed defensive position until bearings are fitted; panel nuts flagged most urgent by the CM' },
@@ -1469,7 +1470,7 @@ window.MURCH_DATA = {
  },
 
  mvProgress: {
- "asOf": "Oct 26, 2026 (terminations COMPLETE 264 of 264 per the Oct 24 report and the Oct 26 MV control; plowing, bores and DC ducts complete)",
+ "asOf": "Oct 27, 2026 (terminations COMPLETE 264 of 264, re-confirmed on the Oct 27 MV control; plowing, bores and DC ducts complete)",
  "basis": "Weighted composite of the MV collection scope by labour content",
  "compositePct": 100,
  "gateLabel": "Sep 14 — pre-commissioning start",
@@ -1559,16 +1560,16 @@ window.MURCH_DATA = {
  "milestones": "Control building set Jul 7 · containment berm Jul 12 · <strong>Main power transformer</strong> set Jul 24 · <strong>Piers 17 of 17 COMPLETE Aug 5</strong> (Dig It) · grounding trenches around the fence started Aug 5 (AB Power).",
  "note": "<strong>Oct 15: the substation is CONSTRUCTION COMPLETE — all six disciplines at 100, with only the tramex grating in the transformer chamber outstanding as a punch item.</strong> The composite is carried at 100 because every component reads 100; the tramex is tracked as punch, following the same convention used when the pile and tracker scopes closed. Everything still open on this station is testing and paperwork. <strong>Oct 15: five of the six disciplines are at 100 and the only construction item outstanding is the tramex grating in the transformer chamber.</strong> The composite no longer sits at the Oct 13 tracker figure of 96.0: it is carried at 98.58, which is the substation global the Oct 14 daily report states for itself, and that figure predates the civil and electrical closures, so it understates rather than overstates. <strong>Oct 14 re-base.</strong> Grounding eased 99.96 → 99.56 on the report. SCADA and communications is unchanged at 61.11 and remains the one open construction front. <strong>CONSTRUCTION COMPLETE EXCEPT SCADA.</strong> The two activities that were still open on construction — the connection with the utility (H-frame up to the pole, phases A + B + C and OPGW installed) and the final rock layers in the yard — are executed as of Oct 13, and closing the gravel is what released the grounding test, which started the same afternoon. Civil, mechanical, electrical and bus/connectors are carried at 100 on the field position; the Oct 13 register still shows 2, 3, 18 and 4 items open on those four respectively, kept visible above as close-out rather than deleted. The composite stays at the register’s 96.0 until the next SE_Construction_Tracker cut restates it. <strong>SET 61.4% on the Sep 8 report — civil 97.6, structural 67.3, electrical 39.1; the Sep 9 report carries no SE percentage, 37 days to energization.</strong> <strong>Against the plan advanced from the Aug 24 anchor to 100% at the Sep 25 gate, plan-today is 74.2%: SET trails by 12.8 points, and the line moves 1.7 a day.</strong> On the Sep 8 plan the SE equipment installation closes Sep 18, MC tests Sep 11-26 (contractor) and Sep 14-24 (client), utility integration Sep 21-28, Ready to Energize Oct 14. MV terminations are frozen at 45 of 264 for a sixth day with 17 on the substation and 4 on terminations. <strong>The Sep 8 collapse of a support-crew worker happened on this front — heat-stress controls apply here first; the EHS counter advanced to 329 but the OSHA classification is still not reported.</strong>"
 }, electricalTotal: {
- "asOf": "Oct 26, 2026 (executed through Mon Oct 26; MV terminations complete at 264 of 264, LV cable 250,666.4 lf, substation disciplines complete)",
+ "asOf": "Oct 29, 2026 (executed through Thu Oct 29; MV terminations complete at 264 of 264, LV cable 257,764.4 lf after the single cable day of Tue Oct 27, substation disciplines complete)",
  "basis": "Weighted composite of the four electrical fronts by labour content",
- "gatePct": 78.22,
- "earnedPct": 91.04,
+ "gatePct": 79.4,
+ "earnedPct": 91.69,
  "components": [
   {
    "name": "LV / DC installation",
    "weight": 45,
-   "gate": 92.93,
-   "earned": 85.29,
+   "gate": 95.56,
+   "earned": 86.74,
    "note": "<strong>Oct 9 / 10 / 12: NO cable footage filed on any of the three days — the ledger holds at 218,593 (81.0%) and both remaining circuit dates have passed with 62,223 ft open. +36 LBD-side terminations on Line 3 (PS-19 17, PS-18 19/19) → 483 of 1,676.</strong> <strong>Oct 7: +4,332 lf → 218,593 (81.0%), all Line 3 at PS-18 (homerun 17/19); 14 LBD-side terminations (PS-20 11, PS-12 3) → 447 of 1,676.</strong> <strong>Oct 6: +4,251 lf → 214,261 (79.4%), all Line 3 (PS-19 homerun 17/17, PS-18); PS-21 LBD side 19/19.</strong> <strong>Oct 5: +9,129 lf → 210,010 of 269,748 (77.9%), all Line 3 at PS-19; 10 LBD and 38 inverter-side terminations (PS-21/22).</strong> <strong>Oct 3: +7,691 lf → 200,881 of 269,748 (74.5%); INV-15 homerun finished; 9 LBD terminations on Line 3.</strong> <strong>Oct 4 (CM ruling): LV terminations complete on 11A and on 11B except INV-12 (cabinet terminations wait for the creek-crossing bore). The 11B count is owed by the field, so the composite still carries only counted items — box 411 of 1,676, inverter 196 of 838 — and understates 11B until the count arrives.</strong> <strong>Oct 2: +27,436 lf in four days → 193,190 of 269,748 (71.6%); series connection 737 rows; harness 3,296 (65.8%).</strong> <strong>Sep 28: +5,547 lf → 165,754 of 269,748 (61.4%). MODULE SERIES CONNECTION STARTED — 172 tracker rows seriados on the first reported day after the safety authorisation cleared, the scope that was blocking circuit 11A.</strong> <strong>Sep 26: +3,004 lf (ECCS, Line 2) → 160,207 of 269,748 (59.4%); Line 2 homerun pulled. Harness still unchanged at 3,143 — series connection not yet authorised.</strong> <strong>Sep 24–25: +17,740 lf in two days → 157,203 of 269,748 (58.3%). Harness unchanged at 3,143 (62.8%) for a fourth reported day — module series connection is on HOLD pending the safety-documentation close-out, so the crews are on plug-in, heat-shrink and grounding.</strong> <strong>Sep 23: +7,082 lf → 139,463 of 269,748 (51.7%) — past halfway. Harness unchanged at 3,143 (62.8%): no assemblies filed, the day was heat-shrink and terminations.</strong> <strong>Sep 22: +7,200 lf → 132,381 of 269,748 (49.1%); harness +72 → 3,143 (62.8%).</strong> <strong>Sep 22 (CM): Line 1 LV terminations complete — box connections 372 of 372 and inverter connections 186 of 186; project 372 of 1,676 and 194 of 838.</strong> <strong>Sep 21: +15,106 lf in one day (best day of the project) → 125,181 of 269,748 (46.4%); harness +74 → 3,071 (61.3%); Line 1 inverter terminals 70 of 186.</strong> <strong>Sep 18: +3,260 lf at INV-12 (Line 2) → 110,075 (40.8%); Sep 19 rain, nothing.</strong> <strong>Sep 16–17: +9,267 lf (homerun 7,762 on Line 2; trunk 1,505 without a line) → 106,815 of 269,748 (39.6%); harness +188 → 2,957 (59.1%); Line 4 boxes +17 → 418 of 419. The Sep 18 contract gate is MISSED with 162,933 lf open.</strong> <strong>Line 1 box terminations 264 of 372 (Jose, Sep 16).</strong> <strong>Sep 15: +5,589 lf (homerun 5,122, trunk 467) → 97,548 of 269,748 (36.2%); Sep 18 contract gate asks 86,100 lf/day over 2 wd. Harness +44 → 2,769 (55.3%).</strong> <strong>Sep 14 (Monday), per the by-line report: +3,482 ft homerun (self-perform, INV-12) → cable 91,959 of 269,748 lf (34.1%); the contract Sep 18 gate now asks 88,895 lf/day over 2 working days. Harness +114 → 2,725 of 5,007 (54.4%); required 1,141/day to the same gate.</strong> PRIOR (Sep 15 cut, superseded): <strong>Sep 14 (Monday): no electrical production filed at all — the day was mechanical. Cable holds at 88,477 of 269,748 lf (32.8%); the contract Sep 18 gate now asks 60,424 lf/day over 3 working days, which is not achievable and has not been achievable for two weeks.</strong> Harness holds at 2,611 of 5,007 (52.1%); the required rate to the same gate rises to 799/day. <strong>Against the Sep 8 end-of-project plan the binding dates are LV works 11A Sep 17 (2 working days), 11B Sep 24 (8), 12A Oct 1 (14), 12B Oct 10 (22).</strong> The PM’s cumulatives still sit exactly Friday Sep 11’s production below this ledger (harness 2,587 vs 2,725; homerun 71,265 vs 74,565) — ruling still needed on whether the Sep 11 field count was taken after that day’s work."
   },
   {
@@ -1596,9 +1597,9 @@ window.MURCH_DATA = {
  "note": "Weights within electrical (LV 45 / MV 22 / inverters 18 / SET 15) are labour-content based — LV/DC is the largest block of hours on the project. One electrical total across all four fronts. <strong>Sep 1 is the first day every LV front produced at once — trunk moving again, three harness crews including United’s overdue start — yet the composite gains barely half a point: the denominators are that large.</strong> The 20-electrician GreenSol crew ordered twice remains unfielded; the Inverter 11-12 change order still requires ECCS’s targets re-based."
 },
  projectTotal: {
- "asOf": "Oct 26, 2026 (piles, trackers, modules, civil and the substation all complete; MV terminations complete at 264 of 264; cable executed through Mon Oct 26 at 250,666.4 lf. PRIOR basis: Oct 24, MV 252 of 264 and cable held at Tue Oct 20)",
- "gatePct": 96.75,
- "earnedPct": 98.75,
+ "asOf": "Oct 29, 2026 (piles, trackers, modules, civil and the substation all complete; MV terminations complete at 264 of 264; cable executed through Tue Oct 27 at 257,764.4 lf \u2014 Wed Oct 28 and Thu Oct 29 filed no DC footage. PRIOR basis: Oct 26, cable 250,666.4 lf)",
+ "gatePct": 96.92,
+ "earnedPct": 98.84,
  "weights": {
   "piles": 28,
   "trackers": 22,
@@ -1628,8 +1629,8 @@ window.MURCH_DATA = {
   {
    "name": "Electrical (LV + MV + inverters + SET)",
    "weight": 14,
-   "gate": 78.22,
-   "earned": 91.04
+   "gate": 79.4,
+   "earned": 91.69
   },
   {
    "name": "Civil (excl. substation)",
@@ -1698,25 +1699,25 @@ window.MURCH_DATA = {
  "dataToConfirm": "Setting is closed at 23 of 23, so the earlier 17-vs-18 discrepancy is resolved by completion. <strong>the next measure is terminations</strong> and no reporting line exists for it yet - agree with Axel how terminated stations will be counted and reported before the first one is done. Confirm with Axel Cano how many of them are physically on site: each one that is staged rather than merely founded adds 5 points of a station-equivalent. The Jul 12 count of 18 staged is stale and must not be reused."
 },
  lvComposite: {
- "asOf": "Oct 26, 2026 (cable executed through Mon Oct 26 — 5,906 lf filed on 12B; trunk now 137 ft above the 40,313 scope, flagged)",
+ "asOf": "Oct 29, 2026 (cable executed through Tue Oct 27 \u2014 7,098 lf filed on 12B; no footage Wed or Thu. Trunk now 3,232.9 ft above the 40,313 scope, flagged and capped)",
  "basis": "Weighted composite of the LV control line by labour content (adopted Jul 30, 2026)",
  "gateUnit": "lf of cable",
- "gateInstalled": 250666.4,
+ "gateInstalled": 257764.4,
  "gateTotal": 269748,
- "gatePct": 92.93,
+ "gatePct": 95.56,
  "harnessGateInstalled": 4379,
  "harnessGateTotal": 5007,
  "harnessGatePct": 87.46,
  "harnessRequiredPerDay": 1711,
- "earnedPctFirm": 75.94,
- "earnedPctWithSupports": 88.44,
+ "earnedPctFirm": 76.74,
+ "earnedPctWithSupports": 89.24,
  "components": [
   {
    "component": "Homerun cable (inverter feeders)",
    "scope": "229,435 lf",
    "weight": 46,
-   "executedPct": 91.62,
-   "contribution": 42.15,
+   "executedPct": 93.37,
+   "contribution": 42.95,
    "note": "<strong>Cum 183,220 lf (79.9%) — Oct 7 +3,828 on Line 3 at PS-18 (LBD 401 1,100.0, 302 946.1, 303 978.3, 204 804.2 ft); PS-18 homerun now 17 of 19.</strong> <strong>Cum 179,392 lf (78.2%) — Oct 6 +3,694 on Line 3 (PS-19 17/17 complete, PS-18 13/19).</strong> <strong>Cum 175,698 lf (76.6%) — Oct 5 +7,991 on Line 3 at PS-19 (12 runs, incl. LBD-19-306).</strong> <strong>Cum 167,707 lf (73.1%) — Oct 3 +6,922: Line 3 +4,263 (PS-20 closed 18/18, PS-19) and Line 4 +2,659 (INV-15 FINISHED, LBD 306/307).</strong> <strong>Cum 160,785 lf (70.1%) — Sep 29 – Oct 2 +22,759: Line 3 +15,334 (PS-21 closed 19/19, PS-18, INV-20 7,531 on Oct 2) and Line 4 +7,425 (INV-15, first homerun on 12B).</strong> <strong>Cum 138,026 lf (60.2%) — Sep 28 +3,266 on Line 3 at PS-21 (blocks F6 and F10, nine boxes); PS-21 now reads 12 of 19 boxes complete.</strong> <strong>Cum 134,760 lf (58.7%) — Sep 26 +3,004: ECCS at PB-14 / INV-14 (Line 2, eight boxes, 500 kcmil); Line 2 homerun 53,565 vs 53,456 take-off.</strong> <strong>Cum 131,756 lf (57.4%) — Sep 25 +8,426: Line 2 3,911 at PB-14/INV-14 (nine boxes, 500 kcmil), Line 3 4,515 at PS-21/PS-22.</strong> <strong>Cum 123,330 lf (53.8%) — Sep 24 +6,810: Line 2 1,554 at INV-13 (LBD 410/412/417/418, 750 kcmil), Line 3 5,255 at INV-22.</strong> <strong>Cum 116,521 lf (50.8%) — Sep 23 +6,799: Line 2 2,573 at INV-13 (750 kcmil, LBD 101–104 / 205–207), Line 3 4,226 at INV-22 and INV-23.</strong> <strong>Cum 109,722 lf (47.8%) — Sep 22 +6,729: Line 2 3,333 at INV-13, Line 3 3,396 at LBD 103/105/106/304.</strong> <strong>Cum 102,993 lf (44.9%) — Sep 21 +12,614: Line 2 9,486 (self-perform 1,340 at INV-12, ECCS 8,146 at INV-09), Line 3 3,128 at PS23 (first 12A cable).</strong> <strong>Cum 90,379 lf (39.4%) — Sep 18 +2,930 self-perform at INV-12 boxes 14/15 (Line 2).</strong> <strong>Cum 87,449 lf (38.1%) — Sep 16 +7,762 on Line 2 (ECCS 5,062 at INV-4, 13 LBD; self-perform 2,700 at INV-12 boxes 7 and 13); Sep 17 nothing.</strong> PRIOR: Cum HR <strong>79,687 lf (34.7%).</strong> <strong>Sep 15 +5,122: self-perform 3,855 at INV-12, ECCS 1,267 at INV-04 (both Line 2).</strong> <strong>Sep 14 +3,482: self-perform DC homerun at INV-12 (Line 2).</strong> <strong>Sep 11 +3,300: ECCS 1,960 ft of 500 kcmil on LBD 316/317 (INV-03 = Line 1, 600 ft — ABOVE the field count that had Line 1 complete; ruling needed) and LBD 414/415/418 (INV-04 = Line 2, 1,360 ft), plus self-perform 1,340 ft of DC at INV-12 (Line 2).</strong> <strong>Sep 11 field count (site superintendent): Line 1 homerun COMPLETE — 60,075 lf pulled (its total is 60,075, above the 54,644 take-off); the ledger carried 43,264, and the 10,109 lf of ECCS homerun previously held without a line are absorbed by the count. Project homerun 67,783 lf, cable 85,177 of 269,748 lf (31.6%).</strong> Sep 10 +4,076: ECCS 3 homeruns of 750 kcmil (INV-05 → LBD 209 835 ft, INV-05 → LBD 310 736 ft, INV-03 → LBD 412 785 ft = 2,356 ft, all Line 1) + self-perform 1,720 ft of DC at INV-12 (Line 2).</strong> The former 881 lf gap between the daily series and the cumulative is closed by the field count. Line 1 homerun was due Sep 8 and is complete on the Sep 11 count."
   },
   {
@@ -1778,7 +1779,7 @@ window.MURCH_DATA = {
  ],
  "note": "The LV gate is denominated purely in linear feet of cable, so every box mounted, every support set and every foot of messenger wire installed to date reports as zero progress. That is wrong as a measure of work done, and the composite fixes it by weighting the control-line components by labour content. The gate is no longer zero: 4,752 lf placed, 3,871 of it in the last two days. The composite reads 3.6% — or about 6.1% once the support work is quantified. Giving this scope an equivalent progress does not improve the picture, it confirms it. With 7,104 lf/day required from Aug 6 to hold Sep 18 and 4,752 lf placed so far, LV/DC is the largest single exposure on the energization path, ahead of trackers and modules. The crew has held at 15 people for two days and delivered ~1,900 lf on each — the arithmetic says a second cable gang, not a longer day.",
  "weightNote": "Weights sum to 100 and are apportioned by labour content, not by quantity — 269,748 lf of cable pull carries far more man-hours than 419 box mountings. They need Jose sign-off before the composite goes into any certification, and should be frozen for the project once agreed.",
- "earnedPct": 82.92
+ "earnedPct": 84.37
 },
  // Feeds electrical-control.html (the interactive by-line study) - the page hydrates
  // from this block on load, so the DAILY UPDATE OF THIS BLOCK is what keeps the study
@@ -1788,18 +1789,18 @@ window.MURCH_DATA = {
  electricalByLine: {
  "hoy": 0,
  "inicio": "2026-09-02",
- "cableHasta": "Oct 26, 2026",
+ "cableHasta": "Oct 27, 2026",
  "hoyElec": 20,
  "hoyTotal": 20,
  "manpowerSite": 202,
  "manpowerFecha": "Parte del 12 oct (lunes): GreenSol 7 en frente civil (4 operadores, 3 spotters) + 7 en el reporte electrico (2 PVC/comunicacion/NCU, 5 guiado e introduccion de circuitos LV INV-12) — el parte integrado incluye las mismas tareas, NO se suman sin reconciliacion. United y ECCS sin manpower declarado. Parte del 10 oct (sabado): GreenSol 4 harness, 2 tuberia, 7 zanjas/cables/excavacion, 7 electrico; la suma (20) no esta certificada como headcount unico. Parte del 7 oct (miercoles): GreenSol 23 por frentes (4 terminaciones, 5 tierras, 5 commissioning, 1 megger, 6 excavacion, 2 tuberia); un segundo documento indica 10 personas en INV-11/12 — no se suman por posible solapamiento. ECCS sin produccion cuantificada; United sin manpower declarado. Parte del 6 oct (martes): GreenSol 13 declarados (3 fibra, 2 zanjas/SCADA/PVC, 6 excavacion, 2 tuberia), ITS 5; ECCS y United sin manpower. Parte del 5 oct (lunes): GreenSol 29 (4 terminaciones, 3 commissioning, 6 tierras/messenger, 8 excavacion, 2 tuberia, 6 MVJB/fibra), Topland 2, ITS 5; ECCS y United sin manpower declarado. 6 oct: toolbox talk general con todos los subcontratistas. Parte del 3 oct (sabado): GreenSol 26 (4 terminaciones, 6 tierras/messenger, 4 commissioning, 6 excavacion, 2 soldadura, 2 tuberia, 2 adicionales); ECCS y United sin manpower declarado. Parte del 2 oct (viernes): GreenSol 25 + 1 supervisor SCADA, ITS 7; ECCS y United electrico sin manpower declarado. 1 oct: ECCS 26 reportados / 16 en campo (lluvia desde las 8:00), United mecanico 6. Sin tablero EHS desde el 17 sep (202).",
  "cierre": {
-  "fecha": "4 oct 2026 (CM 3 oct: JB 11A terminadas, 11B solo 4 cajas del easement; control MV del 1 oct: zanjas abiertas 123, compactadas 101, pull-in 35; terminaciones 144; unidades cerradas 13)",
+  "fecha": "27 oct 2026 (control MV del 27 oct: zanjas abiertas 156, compactadas 142, pull-in 46 de 46, terminaciones 264 de 264, unidades cerradas 41 de 46 \u2014 las 5 abiertas son todas del 12B)",
   "pasos": [
    {
     "paso": 1,
     "nombre": "Abrir la zanja",
-    "hecho": 123,
+    "hecho": 156,
     "total": 181,
     "unidad": "zanjas",
     "explica": "Se excava la zanja MV–LV del inversor. Hasta aqui solo hay un hueco en el suelo."
@@ -1807,7 +1808,7 @@ window.MURCH_DATA = {
    {
     "paso": 2,
     "nombre": "Meter el cable al inversor (pull-in)",
-    "hecho": 35,
+    "hecho": 46,
     "total": 46,
     "unidad": "unidades",
     "explica": "<strong>1 oct: 35 de 46 en el control MV (11A 10/10, 11B 9/12, 12A 10/13, 12B 6/11).</strong> El cable MV entra fisicamente en el gabinete del inversor o MVJB. <strong>25 sep: 23 de 46 en el control MV (antes 18).</strong> <strong>15 de 46 (parte del 10 sep; 13 el 8 sep, 7 hasta el 3 sep).</strong>"
@@ -1815,7 +1816,7 @@ window.MURCH_DATA = {
    {
     "paso": 3,
     "nombre": "Cerrar y compactar la zanja",
-    "hecho": 101,
+    "hecho": 142,
     "total": 181,
     "unidad": "zanjas",
     "explica": "<strong>1 oct: 101 de 181 compactadas (11A 46 de 46, 11B 40 de 45, 12A 9 de 38, 12B 6 de 52); 80 pendientes; abiertas 123.</strong> <strong>24 sep: 81 de 181 compactadas (11A 44 de 46, 11B 25 de 45, 12A 6 de 38, 12B 6 de 52); 100 pendientes. Abiertas 113 de 181 en el control MV.</strong> <strong>21 sep: 78 de 181 compactadas (11A 41, 11B 25, 12A 6, 12B 6); 103 pendientes.</strong> <strong>16 sep: 63 de 181 compactadas (11A 33, 11B 18, 12A 6, 12B 6); 17 sep sin cierres por lluvia.</strong> <strong>15 sep: 61 de 181 compactadas (11A 31, 11B 18, 12A 6, 12B 6).</strong> Con el cable dentro se rellena y compacta. <strong>46 cerradas y compactadas de 181 (parte del 10 sep; 44 el 9 sep), 88 zanjas abiertas.</strong> INV-1, INV-2 e INV-3 (Linea 1) cerradas."
@@ -1823,7 +1824,7 @@ window.MURCH_DATA = {
    {
     "paso": 4,
     "nombre": "Terminaciones MV",
-    "hecho": 162,
+    "hecho": 264,
     "total": 264,
     "unidad": "terminaciones",
     "explica": "<strong>6 oct: 162 de 264 (61,4%) — 11B lado caja 24 de 39, 12A 6 de 45, 12B 3 de 33; cierra la divergencia 146/147.</strong> <strong>5 oct: 147 de 264 en el libro (la tabla del PM suma 146: lee 11B lado caja 14 de 39 contra los 15 del CM del 3 oct — bandera); 12B lado caja 3 de 33, primera cifra.</strong> <strong>4 oct (CM, 3 oct): JB de 11A TERMINADAS (33 de 33); en 11B solo faltan las 4 JB del easement hacia la subestacion (01/02/03/04, 24 terminaciones) → lado caja 48 de 150; total 144 de 264 (54,5%).</strong> <strong>1 oct: 131 de 264 (49,6%) — lado inversor 96 de 114 (12B 12 de 30 abierta), lado caja 35 de 150 (11A 29 de 33, 11B 6 de 39): primeras terminaciones de caja. Cajas MV instaladas 13 de 23 (29 sep: 12B-03, 11A-02; 2 oct: 11B-02, 12A-02, 12B-02; base de 12A-01).</strong> <strong>25 sep: lado inversor COMPLETO en la linea 12A (21 → 30): 96 de 114 lado inversor y 96 de 264 en total (36.4%); lado caja sigue en 0 de 150. Solo la 12B queda abierta en el lado inversor (12 de 30).</strong> <strong>24–25 sep: Topland ejecuta las bases de wetland de MVJB-11B-04, 12A-04 y 12B-04; el parte aclara que NO se contabilizan como cajas completadas, asi que las cajas MV siguen en 8 de 23.</strong> <strong>23 sep: cajas MV por linea — 8 de 23 completadas (11A 2, 11B 2, 12A 3, 12B 1), 3 en proceso, 12 pendientes; sin terminaciones MV nuevas.</strong> <strong>21 sep: cajas MV 5 de 23 montadas (+1, sin linea); sin terminaciones MV nuevas reportadas.</strong> <strong>16–17 sep: sin terminaciones nuevas; cajas MV 4 de 23 montadas (+2 el 16 sep, sin linea confirmada).</strong> La conexion que deja el inversor listo para energizar. <strong>87 de 264 (parte del 15 sep): lado inversor 87 de 114 (11A 24/24, 11B 30/30, 12A 21/30, 12B 12/30); cajas MV 2 de 23 montadas, 0 de 150 terminaciones (MUY CRITICO); SCADA 13 de 23.</strong>"
@@ -1831,7 +1832,7 @@ window.MURCH_DATA = {
    {
     "paso": 5,
     "nombre": "Inversor CERRADO",
-    "hecho": 13,
+    "hecho": 41,
     "total": 46,
     "unidad": "unidades",
     "explica": "<strong>4 oct: 13 de 46 — 11A 10 de 10 (JB terminadas, CM), 11B 3 de 12 (INV-11, 11B-05, 11B-06).</strong> <strong>1 oct: 11 unidades cerradas de 46 — 11A 9 de 10, 11B 2 de 12, 12A y 12B en cero.</strong> <strong>25 sep: PRIMERAS 4 unidades cerradas de 46 — 3 en la linea 11A (area A) y 1 en la 11B (area E), segun el control MV. Un inversor solo cuenta cuando tiene zanja abierta, cerrada y compactada, cable metido y todas sus terminaciones.</strong> Este es el numero que la energizacion mira: por area, A 3 de 6, E 1 de 12, y B, C, D, E/EW, F y G en cero."
@@ -1870,8 +1871,8 @@ window.MURCH_DATA = {
   "L4": {
    "harness": 621,
    "boxes": 128,
-   "homerun": 30130.5,
-   "trunk": 6114.9,
+   "homerun": 34132.5,
+   "trunk": 9210.9,
    "connInv": 0,
    "connBox": 0,
    "connMV": 30
@@ -1947,8 +1948,8 @@ window.MURCH_DATA = {
    "det": "Oct 7 388 hangers + 691 fuses + 80 lines of piercing connectors and 23 pairs of shrink caps (PS-18/20/21/22/23) · Sep 29 79 brackets PS-18/F4 · Sep 30 53 brackets G5 + 1,504 ft messenger INV-18/F4 · Oct 1 1,749 hangers (F4 448, G3 346, G6 296, G2 428, G4 231) + 3,930 ft CAB line (G5/G7/G4/G1) · Oct 2 2,970 ft messenger tensioned (G1 585, G5 2,006, G7 379) · PS19 139 (Sep 9) · F17 / PS18 / PS20 317 hangers + 3,845 ft messenger (Sep 15) · F7/F8/F9/F12/F16 1,401 hangers (Sep 16; 2,100 ft tensioned) · F7/F11/F14/F15 702 hangers + 1,927 ft messenger (Sep 24, areas F17/F18/F10/GA/G5) · F5/F6/F10 / area F / INV-22 554 hangers + 1,927 ft messenger (Sep 25, F17 417 / F18 108 / F10 53 / GA 1,040 / G5 309)"
   },
   "L4": {
-   "soportes": 680,
-   "messenger": 5955,
+   "soportes": 872,
+   "messenger": 7489,
    "det": "Oct 12 F5 2,100 ft messenger tensioned + 400 hangers, no line stated (Line 4 by rule) · United 280 supports + 1,611 ft messenger, no area (Sep 8, Line 4 by rule) · 12B 2,244 ft messenger laid (Sep 16)"
   }
  },
@@ -1957,12 +1958,12 @@ window.MURCH_DATA = {
   "harnessSP": 0,
   "harnessSPIncluded": 105,
   "boxes": 475,
-  "homerun": 210216.5,
+  "homerun": 214218.5,
   "homerunScope": 229435,
   "trunkScope": 40313,
-  "trunk": 40449.9,
-  "cable": 250666.4,
-  "cableSerie": 243964.4,
+  "trunk": 43545.9,
+  "cable": 257764.4,
+  "cableSerie": 251062.4,
   "cableCountNote": "Sep 11 field count: Line 1 homerun complete at 60,075 lf (+16,811 over the daily reports); the 10,109 lf of ECCS homerun previously held without a line are absorbed by it — net +6,702 over the daily series"
  },
  "alcance": {
@@ -2126,7 +2127,7 @@ window.MURCH_DATA = {
   "L1": "<strong>Oct 13-14: A3-A6 and C combing and DC home-run routing, piercing connectors, cable repair in A4; DC trunk terminations replaced at INV-1 (A5) and INV-5 (C5). NCU-1, NCU-2 and NCU-4 poles, anemometers and snow sensors installed. NO DC FOOTAGE STATED on either day.</strong> <strong>Oct 12: piercing connectors at INV-03 (A4); fuses and torque at INV-04 and INV-06. Oct 9: feeder and communications cabling at INV-04; PS-05 strings 18/18 PASS, PS-06 3/20 (LBD-06-101/103/104). The planner names this circuit as the week’s main delay front — the VLF incident, fibre fusions on a three-way box over a lost weekend, the grounding test, and cabling problems holding up the piercing connections.</strong> <strong>Oct 9: MV TERMINATIONS COMPLETE — 57 of 57 on the control (inverter 24/24, junction-box 33/33); 10 of 10 units closed. Oct 7: termination and fine-tuning complete at PS-03 and PS-05, partial work at PS-01/PS-02; string-insulation commissioning started on blocks A4/A6 with no quantity filed.</strong> <strong>Oct 4 (CM, Oct 3): 11A junction boxes TERMINATED — MV chain 10 of 10 units closed; LV terminations complete.</strong> <strong>Sep 23: punch list at INV-01 (A4–A6) and INV-02 (A7) — circuits found in panels 27–29 and several boxes with short trunk cable; 20 disconnect-box terminations closed at INV-06 (C4 8, C5 7, C3 5) on a line already carried complete; heat-shrink on A1/A2/A4/A6; welding finished at INV-18; MV junction boxes 04 and 05 complete (2 of 5).</strong> <strong>Sep 22: INV-02 32 terminals (750 kcmil) finished; INV-03 in progress with cabinets 2 and 3 done and 1 and 4 open; INV-06 ready; C2 7 and C3 3 disconnect boxes terminated, ground at the transitions. Plug-and-play A1 complete (Zone A punch list).</strong> <strong>Sep 22 (Construction Manager): LINE 1 (11A) LV TERMINATIONS COMPLETE — box connections 372 of 372 and inverter connections 186 of 186. Four of the five inverters are finished and the fifth, with the last 23 boxes with terminals, is due Wednesday Sep 23; series connection and piercing are the only LV work left on the line.</strong> <strong>Sep 21: ECCS crimped and torqued 70 LV terminals at INV-01 (38) and INV-02 (32, cabinets 1 and 3) → inverter connections 70 of 186; labels, tape and fuses pending. INV-05: DC cabinets 1–4 terminated, ground pending. Plug-and-play A1 25 trackers.</strong> <strong>Sep 16 correction by the PM: the 68 ECCS harness first booked to 11A are E14 (INV-16, Line 4) and E15/E18 (INV-18, Line 3) — nothing new on Line 1. Sep 16: ECCS crimps and north side complete at INV-1/2/3; 13 LBD still to tape and torque. The Sep 17 LV finish PASSED with 108 box and 186 inverter connections open.</strong> <strong>Sep 15: no confirmed Line 1 production — the report re-assigns the LBD 04-xxx cable to INV-04 (Line 2), and ECCS’s 40 harness at E9/E14 are E blocks (Line 2) and not yet hung. Last working day to the Sep 17 LV finish.</strong> <strong>Sep 16 (Jose): LV box terminations 264 of 372 (71.0%) — 108 open; 186 inverter connections open.</strong> <strong>Sep 14: ECCS connected LBD 311, 312, 409 and 410 and taped/torqued 7 more (108, 205, 208, 207, 406, 106, 107) — the connection control still reads 52 of 372, so the 4 are held until the control books them. INV-05 now shows 2 circuits open before the trench can close. LBD 101/102 lengths recorded (580 / 585 ft). The report books ECCS’s 52 harness to 11A; this ledger books them to Line 2 (E blocks). 1 working day to the Sep 17 LV finish.</strong> <strong>Sep 12: INV-05 — 15 of 16 circuits arranged inside the cabinet (1 pending before the trench can close; not counted as inverter connections, 0 of 186). Megger: LBD 107 and 206 (INV-03) re-test PASS and released; LBD 309 (INV-01) positive cable still FAIL — change and retest. The PM’s by-line table books Saturday’s 50 harness (blocks E4/E6) to this line “under the control rule for harness without a documented inverter”, which takes his Line 1 to 1,167 of 1,117 (104.5%) — this ledger books them to Line 2 (E areas = Zone E) — Jose ruled Sep 14: they stay on Line 2 — and keeps Line 1 at 1,168 (Friday’s 51 at PB-05, still open). 3 working days to the Sep 17 LV-works date.</strong> <strong>Sep 11 PRODUCTION ABOVE THE COUNT — ruling needed: ECCS filed 51 harness at PB-05 (151 strings, 18,730 ft) and 600 ft of 500 kcmil homerun on LBD 316/317 (INV-03) on Friday Sep 11, after the superintendent’s count had Line 1 at 100% harness (1,117) and 100% homerun (60,075). Line 1 now reads 1,168 harness and 60,675 ft — either the count preceded Friday’s work or the Line 1 totals are higher than counted. 580 hook extensions at PB-05. LBD 309 (INV-03) failed its positive-cable megger — correct and retest before connection; LBD 316/317 approved. Inverter connections still 0 of 186 (due from Sep 11 on the plan).</strong> <strong>Sep 11 field count (site superintendent): Line 1 homerun COMPLETE — 60,075 lf pulled (its total is 60,075, above the 54,644 take-off); the ledger carried 43,264, and the 10,109 lf of ECCS homerun previously held without a line are absorbed by the count. Project homerun 67,783 lf, cable 85,177 of 269,748 lf (31.6%).</strong> <strong>Sep 11 field count (site superintendent): Line 1 harness is 100% complete — 1,117 of 1,117 (the line total confirmed Sep 11; the earlier 1,082 superseded); the ledger carried 453 from the daily reports, so +664 is booked as an adjustment, not as a day of production. ECCS work.</strong> CONFIRMED by the CM workbook: its <em>Detalle LBD</em> tab itemises <strong>92 boxes on 11A, not 93</strong>, so <strong>Line 1 boxes are 100% COMPLETE</strong> — Angel’s register agrees (92 of 92 installed). Homerun is in on PB-01/02/03/06 and <strong>zero on PB-05</strong>. Trunk is <strong>over its take-off (9,199 of 8,723 ft, 105.5%)</strong>, consistent with a take-off carrying no offcut allowance. What is missing on 11A is not cable and not boxes, it is <strong>terminations: 0 of 372 box and 0 of 186 inverter connections</strong>, PB-02 and PB-03 not started, crimpers and certified megger still owed. <strong>Note on the CM workbook’s own rate for this line:</strong> its <em>Resumen</em> tab asks 11A for <strong>9,052 ft/day, 154.6 harness/day and 13.3 boxes/day</strong>. Every one of those is <strong>full scope divided by the days left, crediting nothing as executed</strong> — it asks for 13.3 boxes a day on a line whose boxes are finished. Measured against what is actually left, 11A needs <strong>1,894 ft/day and 93 harness/day</strong>. The workbook rates are a scope-over-time figure, not a recovery rate, and should not be quoted as one. <strong>Sep 9: the first LV connections on the project — 12 box terminations (LBD 101, 102, 105 = INV-1, 4 per box) by ECCS; INV-1 and INV-2 trenches closed and INV-3 closing; the five inverters complete on the MV side (24 of 24). No cable, no harness filed on 11A on Sep 9.</strong> <strong>Sep 10: +25 harness (INV-06 Area C3 22 x 3, INV-02 Area A2 3 x 3), +2,356 ft of 750 kcmil homerun (INV-05 → LBD 209 and 310, INV-03 → LBD 412) and +40 LBD connections at INV-1 (LBD 304, 218, 119, 417, 213, 412, 208, 207, 406, 103) — 52 box connections of 372; inverter connections still 0 of 186.</strong>",
   "L2": "<strong>Oct 15 — 11B CLOSED ON CONSTRUCTION. INV-12, the last front on this circuit, is complete. Harness 1053 → 1,292 of 1,292 (+239), LV terminations inverter side 8 → 220 of 220 (+212), LV terminations box side 12 → 440 of 440 (+428), MV junction boxes installed 4 → 6 of 6, units closed 7 → 12 of 12, trenches compacted 40 → 45 of 45. Home run and trunk were already over their take-off on this circuit and are untouched. MV terminations were already complete at 69 of 69 since Oct 9.</strong> <strong>THE SAME REPORTING GAP AS 12A, AND LONGER: the CM stated on Oct 3 that 11B LV terminations were complete except INV-12 with the count pending. That count never arrived, so this circuit has been published at 8 of 220 and 12 of 440 for twelve days while the work stood finished on site.</strong> <strong>Oct 13-14: C1 combing and piercing connectors; backfill and compaction at the Bores 3, 9, 10 and 11 arrivals into INV-12, INTERRUPTED AT 2:30 PM ON OCT 14 BY VLF TESTING. Bores 3 and 9 closed on the EW side. NCU-7 pole and anemometer installed. NO DC FOOTAGE STATED.</strong> <strong>Oct 12: INV-12 — 11 circuits from Bores 3/9/10/11 organised and landed in the LV cabinets (500/750 kcmil, no footage stated so no cable added), 160 ft of grounding, PVC, fibre and NCU; INV-09 fuses, torque and NCU-3; communications and PVC at INV-09/INV-14. Oct 10: last Bore 3 circuits pulled and guided COMPLETE, cables cut and prepared for the cabinets; INV-14 PVC COMPLETE. Oct 9: INV-09 PVC and trench closure complete; Bore 10 three circuits done, Bore 9 two circuits plus fibre, Bore 3 final three in progress. The Oct 13 site log shows VLF testing running on this circuit.</strong> <strong>Oct 9: MV TERMINATIONS COMPLETE — 69 of 69 (junction-box side closed from 24 to 39 of 39, all six boxes); pull-in 12 of 12; 7 of 12 units closed. Oct 7: 3 LBD-side terminations at PS-12 E19 (LBD 111, 112, 210); PVC 1½ in installed at INV-11/12 and the INV-12 feeder pulled; DC-11 bore cable guiding in progress; central-post grounding at PS-12 and cabinet megger at PS-14 both partial; excavation and conduit at PS-12.</strong> <strong>Oct 6: series +16 rows (E8 4, E9 12; E10–E13 reported complete); PS-12 EW1/EW2 LBD terminations complete; ECCS fuses complete A4–A7 / Block A and E2–E11, E12 15 lines; SCADA box INV-12; ground on centre posts PS-13 E19/E20.</strong> <strong>Oct 5: self-perform LBD terminations at PS-12 (16, 15, 14, 13, 7 — the INV-12 exception) and PS-14 (8/9, 10/11, 12/13); grounds on messenger, boxes and transitions E4–E11; hand excavation PS-4/9/11; MVJB-11B-01 box top + fibre; 193 ECCS jumpers E17/E19/E20; 40 more strings IR-tested on 11A (PS-1/2 A2) → 95.</strong> <strong>Oct 3: self-perform cabinet terminations INV-14 (2, 3, 4); box terminations INV-12 (17, 18), INV-13 (17, 18), INV-14 (1–7) — inside the CM statement, no figure; SCADA boxes at PS 4/9/11/13/14 (5 of 6); E20 trench closed at PS-15; E19/E20 messenger drilling half done; FIRST 55 strings IR-tested on 11A (PS-1/2/3), all OK.</strong> <strong>Oct 4 (CM, Oct 3): LV terminations COMPLETE on 11B except INV-12 — the INV-12 cabinet terminations wait for the creek-crossing bore (ITS reported Bore-11 complete in Area EW on Oct 2 — confirm it is this crossing); the box and cabinet counts are owed by the field, so no figure is published. Junction-box terminations 15 of 39, only the 4 easement boxes left.</strong> <strong>Sep 29 – Oct 2: no cable on Line 2 — the INV-15 runs the report files under 11B are PB-15 = circuit 12B (Line 4) by the map. Series connection 535 rows cumulative (135 + 174 + 146 + the 80 of Sep 28); 746 lines jumpered; self-perform terminations at INV-9 (cabinets 2/4), INV-13 (cabinets 1–4), INV-14 (cabinet 1), INV-4 E2/E3 at 40% — no counts. MVJB-11B-02 installed Oct 2, 11B-03 base placed. JB terminations 6 of 39 (Oct 1 control).</strong> <strong>Sep 26: +3,004 ft of 500 kcmil homerun at PB-14 / INV-14 (LBD 101–104, 205, 206, 414, 415) → 53,565 against a 53,456 take-off — homerun pulled, 109 ft above the take-off (ruling). ECCS rows connected 135 of 145 (C1/C2/C4 complete, C5 45 of 55).</strong> <strong>Sep 23: +2,573 ft of 750 kcmil homerun at INV-13 (LBD 101–104, 205–207) → 45,096 of 53,456; 8,360 ft open on the Sep 24 LV date. Terminations at INV-03 / Area A finished; megger on 19 boxes at INV-04. MV junction boxes 05 and 06 complete, 04 in progress.</strong> <strong>Sep 22: +3,333 ft homerun at INV-13 (7 disconnect boxes reported) → 42,523 of 53,456, 10,933 open with 1 working day to the Sep 24 LV date. Harness +72 (200 strings) → 1,053 of 1,292; 27 lines blocked, 18 of them at E17 (1-string). Trenches N/S at INV-13 finished; work at INV-13, INV-18 and INV-05.</strong> <strong>Sep 21: +9,486 ft homerun (self-perform 1,340 at INV-12, ECCS 8,146 at INV-09) and +1,704 ft trunk → homerun 39,190 of 53,456, trunk 11,637 (1,228 above the 10,409 take-off — ruling needed). Harness +74 (ECCS 63 at E19/INV-14 and E20/INV-13; self-perform 11 at INV-11) → 981 of 1,292. INV-11: 2 welds pending.</strong> <strong>Sep 21 allocation: +1,505 ft trunk (980 Zone E Sep 16 + 525 EW Sep 17) → trunk 9,933 of 10,409; +3 ECCS boxes at E20 → 113 of 110 (3 above the count — ruling needed).</strong> <strong>Sep 18: self-perform homerun +2,930 (INV-12 boxes 14 and 15) and trunk +330 (boxes 13/14/15) → homerun 29,704 of 53,456, trunk 8,428 of 10,409; welding closed at INV-4 and INV-14; INV-11 5 inner lugs wait on 3/8 and 1/2 plate. Sep 19: rain.</strong> <strong>Sep 16: homerun +7,762 — ECCS 5,062 at INV-4 (13 LBD), self-perform 2,700 at INV-12 (boxes 7 and 13) → 26,774 of 53,456. Sep 17: megger and torque at INV-11 cabinet 4 (count not reported); partial trench backfill at INV-4 and INV-12. 3 wd to the Sep 24 finish.</strong> <strong>Sep 15: homerun +5,122 (self-perform 3,855 at INV-12 boxes 8/17/18; ECCS 1,267 at LBD 04-103/104) → 19,012 of 53,456; trunk +467 at LBD 04-310/311/312/313/406 → 8,098 of 10,409. ECCS’s 40 harness at E9/E14 (120 strings) are held until hung. Self-perform terminating INV-11 combiner boxes 15/17/19 (not counted). ITS at MVJB 11B-03/04 on the 750 cable. Trenches compacted 18 of 45.</strong> <strong>Sep 14: +52 harness by ECCS at blocks E5–E9 (156 strings, 20,472 ft) → 907 of 1,292; self-perform +3,482 ft homerun at INV-12 (170 hangers) → 13,890 of 53,456, and 13 LBD terminations at INV-11/12 held with the Sep 12 three pending the unit. 7 working days to Sep 24.</strong> <strong>Sep 12: +50 harness by ECCS at blocks E4 and E6 (150 strings, 20,013 ft) → 855 of 1,292 (Zone E = Line 2 on the line map; the PM’s table books them to Line 1 — Jose’s ruling Sep 14: they stay on Line 2). Self-perform terminated LBD 4, 5 and 6 at INV-11 (area E10) — held out of the box-connection ledger pending the unit (scope counts connections, 4 per box; the PM’s table keeps 0 of 440). No cable on Saturday.</strong> <strong>Sep 11: +1,360 ft of 500 kcmil homerun on LBD 414/415/418 (INV-04, ECCS, meggered and approved) + self-perform 1,340 ft of DC at INV-12 (circuits 10, 11, 19) → homerun 10,408 of 53,456; 8 circuits landed in the INV-12 cabinet (1, 2, 5, 6, 10, 11, 12, 19) — the first LV inverter connections, 8 of 220; 450 hangers, 180 ft of ground, 1,515 ft of messenger wire and 79 supports at E-W1/E-W2/E19/E20. No Line 2 harness on the day.</strong> <strong>Sep 11 field confirmation (site superintendent): LBD boxes COMPLETE — 110 of 110 (the ledger carried 68).</strong> <strong>Sep 11 field count (site superintendent): harness 805 of 1,292 (62.3%) — ECCS, including the 105 assemblies installed by the GreenSol electrical crew at INV-11/INV-12, which are inside the ledger from this cut; the ledger carried 100, so +705 is booked as an adjustment.</strong> Real production, published as zero until this cut. <strong>INV-11 closed on LV Sep 7</strong> by the self-perform crew (circuits 2,3,4,5,6,9,15,16), 7,631 ft of trunk (73.3% of the line’s trunk take-off) and 5,988 ft of homerun. Harness 74 in the contractual ledger <strong>plus 68 self-perform lines held outside it</strong> — 142 all-in. Boxes 33 (Angel 26 verified + 7 LBD set in Area E Sep 7). <strong>Sep 10: +26 harness at INV-04 (Area E1: 17 x 3 + 9 x 2), +35 LBD boxes set (E17 6, E18 2, E19 13, E20 14 → 68 of 110), self-perform +1,720 ft of DC cable, 17 combiner boxes, 1,171 ft of messenger wire and 64 supports at INV-12; MV inverter-side COMPLETE at 30 of 30 (+12 by AB Power). Zone E is 11B except PB-15 (12B) — the E17–E20 boxes are booked here.</strong>",
   "L3": "<strong>Oct 15 — LBD box connections on 12A closed too: 99 → 440 of 440 (+341). The per-circuit denominator was published all along in the Owner-report sync (372 / 440 / 440 / 424 = 1,676); I had said there was none, and that was wrong. 12A is now complete on EVERY column, with nothing left owed on this circuit.</strong> <strong>Oct 15 — TABLE CORRECTED. The +7,531 lf was first placed entirely on home run, which left trunk reading 581 short and home run 581 over. Split corrected: home run 65,846 of 65,846 and trunk 10,274 of 10,274, both COMPLETE, circuit total unchanged at 76,120. LV terminations inverter side 40 → 220 of 220. MV junction boxes installed 4 → 7 of 7. 12A NOW READS COMPLETE ON EVERY COLUMN OF THE BY-LINE TABLE.</strong> <strong>RE-BASED Oct 15 on the joint field position of the PM and the CONSTRUCTION MANAGER, both stating circuit 12A is 100% complete in its construction scope — cable, harness, inverters, boxes and junction boxes. The daily reports under-reported it; the reporting gap is itself a finding. No daily production row is appended — this is a re-base, not a production day.</strong> <strong>Cable 68,589 → 76,120 lf (+7,531, all placed on home run). Harness 414 → 1,258 (+844). MV junction-box terminations 12 → 45 of 45 (+33) and units closed 2 → 13 of 13. 12A IS NOW CLOSED ON EVERY LINE THIS LEDGER CARRIES BY CIRCUIT.</strong> <strong>NOT re-based because no per-line denominator is published for them: LBD box connections (L3 carries 99) and inverter connections (L3 carries 40) — the project scopes are 1,676 and 838 but there is no per-circuit split to close them against. Those two counts are owed.</strong> <strong>Oct 15, CLARIFIED — the PM states all inverters on 12A are fully connected, with the LV and MV terminations done. THAT DOES NOT CONFLICT WITH THIS LEDGER: the 12A INVERTER SIDE is already published COMPLETE at 30 of 30, and cable pull-in at 13 of 13. The 33 open terminations are on the MV COLLECTION JUNCTION BOXES out in the field (12 of 45), which are neither at the inverters nor the same scope or crew. So the MV line stands as published and the two positions agree.</strong> <strong>WHAT IS STILL OPEN AFTER THE CLARIFICATION — exactly two numbers: the 12A cable footage (ledger 68,589 of 76,120, so 7,531 lf) and the 12A harness count (ledger 414 of the 1,258 take-off, so 844 assemblies). Neither has been re-based. Those two figures are now the whole of the disagreement.</strong> <strong>STATED POSITION (Luis, PM — Oct 15): CIRCUIT 12A IS FULLY COMPLETE IN ITS CONSTRUCTION SCOPE — cable, harness, terminations. NOT RE-BASED, because the ledger disagrees on three lines and he gave no counts: cable stands at 68,589 of 76,120 lf, so 7,531 lf open with the date passed Oct 1; harness stands at 414 of the 1,258 take-off for this circuit, so 844 assemblies open; MV junction-box terminations stand at 12 of 45, so 33 open, with 2 of 13 units closed. The cable and harness gaps are the two that matter — 844 assemblies is not a rounding difference.</strong> <strong>THE QUESTION THAT PROBABLY CLOSES IT: does \"terminations\" mean the LV / LBD side, which the daily reports DO show closed on this circuit (PS-18 19/19, PS-19 17/17, PS-21 19/19), rather than the MV junction-box side, which is a different scope and a different crew? If so the MV line stands as published and only cable and harness need a count.</strong> <strong>COUNTS OWED before anything moves: the cable footage and the harness assemblies for 12A.</strong> <strong>Oct 13-14: PS-21 trench closed and levelled with SCADA conduit; PS-22 and PS-23 Master Control / SCADA trenches closed and SCADA terminations run; INV-18 closing finished 7:00 pm Oct 14; INV-19 MV-to-SCADA trench excavated. United string meggers PS-19 17/17 and PS-18 18/19, all >100 MΩ.</strong> <strong>Oct 12: PS-18 LBD side COMPLETE 19 of 19 and DC cable megger 19/19 PASS >1 GΩ; strings PS-18 3/19, PS-19 16/17, PS-20 18/18; SCADA PS-22/PS-23 installed; INV-23 north trench closure. Oct 9: 17 LBD-side terminations at PS-19; INV-18 excavation started and PVC prepared; INV-19/20 backfill and trench closure; INV-23 water extraction at the crossings. <strong>No cable footage on any day — 7,531 lf still open against a date that passed on Oct 1.</strong> Oct 12 control: junction-box terminations 6 → 12 of 45, second unit closed.</strong> <strong>Oct 7: +4,332 ft at PS-18 (3,828 homerun + 504 trunk across LBD 401/302/303/204) — PS-18 homerun 17 of 19; 11 boxes terminated LBD-side at PS-20 (11 of 18) and 36 DC insulation runs passed above 1 GΩ (PS-20 18 of 18); strings passed 19 of 19 at PS-22 and 13 of 19 at PS-21; 80 lines of piercing connectors and 18 pairs of shrink caps at PS-23, 5 pairs at PS-22; plug-and-play complete at PS-18/19; 388 hangers and 691 fuses. 7,531 lf open, the Oct 1 date passed. Oct 9 control: pull-in COMPLETE 13 of 13, trenches compacted 22 of 38 (+13), first unit closed; junction-box terminations still 6 of 45 — the largest open MV scope on the project.</strong> <strong>Oct 6: +4,251 ft (PS-19 homerun COMPLETE 17/17, PS-18 13/19; 3,694 homerun + 557 trunk); PS-21 LBD side 19/19, megger 6 runs passed, plug-and-play complete; PS-22 strings passed (17/19 LBD); 1,787 messenger hangers G2–G7. Open 11,863 lf (64,257 of 76,120).</strong> <strong>Oct 5: +9,129 ft at PS-19 (7,991 homerun in 12 runs + 1,138 trunk in 11 runs) — best Line 3 day since Oct 2; 10 LBD-side terminations PS-21 (F10, F6) → 49; PS-22 inverter side COMPLETE (38); megger PS-21 4 runs, PS-23 129/132 strings, PS-22 27 strings — all passed. Open 16,114 lf (60,006 of 76,120).</strong> <strong>Oct 3: +5,032 ft at PS-20 and PS-19 (4,263 homerun + 769 trunk) — PS-20 CLOSED 18 of 18 boxes; 9 LBD-side terminations PS-21/22 → 39; 220 fuses PS-23; PS-21 megger satisfactory; trenches closed at PS-23 F8/F9. Open 25,243 lf (50,877 of 76,120).</strong> <strong>Oct 2: +8,650.5 ft at INV-20 (13 boxes: 7,531 homerun + 1,119 trunk) — best United day; 13 LBD-side + 2 inverter-side terminations (INV-22/23); PS-22 megger all passed; 96 racks plug-and-play at PS-23; 441 lines jumpered; 2,970 ft messenger tensioned; 140 fuses F17; MVJB-12A-02 installed, 12A-01 base.</strong> <strong>Oct 1: +973 ft homerun PS-18/F4 (LBD 413/414/315); 11 LBD-side terminations PS-23; 1,749 hangers; 3,930 ft CAB line; 18 LBD + 3 MCU + 1 SCADA boxes (18 boxes → 142 of 110, ruling).</strong> <strong>Sep 30: +2,889 ft INV-18 / F4–F8 (2,066 homerun + 823 trunk); 6 LBD terminated INV-23; 1,504 ft messenger; 53 brackets G5.</strong> <strong>Sep 29: +5,880 ft PS-21 and PS-18 (4,764 homerun + 1,116 trunk) — PS-21 CLOSED 19 of 19 boxes; 79 brackets; 48 stub-ups sealed; 226 ft ground cable PS-22.</strong> <strong>LV date Oct 1 PASSED with 30,275 lf open (45,845 of 76,120).</strong> <strong>Sep 26: no new cable — United filed 781.8 ft of megger on the Sep 25 trunk runs (PS-22 F9/F12/F16, PS-21 F10); DC homerun megger PS-23 LBD-18 2,000 V pass; messenger routed to the PB-22 cabinets, no footage.</strong> <strong>Sep 23: +4,226 ft homerun at INV-22 and INV-23 and +283 ft trunk (LBD-22-301/404/405/406) → 10,750 and 1,542; 4,310 ft of messenger tensioned (F5, F10, G2, G3, G6) and heat-shrink on 17 blocks (B 9, F 5, G 3). MV junction boxes 05/06/07 complete, 04 in progress — the strongest junction-box line.</strong> <strong>Sep 22: +3,396 ft homerun (LBD 103/105/106/304) and +471 ft trunk (LBD 101/102/103/105/106/304) → 6,524 and 1,259; 4,671 ft of tension line in F6/F7/F10/F11/F14 and heat-shrink on 12 blocks. 68,337 ft open over 7 working days to Oct 1 = 9,762 ft/day.</strong> <strong>Sep 21: FIRST CABLE on Line 3 — 3,128 ft homerun + 788 ft trunk at PS23 (United, 15 people). 72,204 ft open over 8 working days to Oct 1 = 9,026 ft/day.</strong> <strong>Sep 21 allocation: +14 United boxes at G2/G5 (Sep 15) → 124 of 110 (14 above the count — ruling needed; likely a re-report of boxes already in the Sep 11 count).</strong> <strong>Sep 16: ECCS +37 harness at E15/E18 (INV-18; 85 strings, 11,247 ft) → 414 of 1,258; United 1,401 hangers and 2,100 ft of messenger tensioned at F7–F16.</strong> <strong>Sep 15: United strung 3,845 ft of messenger (F17, PS18 / PS20; not tensioned) with 317 hangers. MV inverter side 21 of 30; trenches compacted 6 of 38.</strong> <strong>Sep 12: MV terminations 15 of 30 on the inverter side on the PM’s control table (the 9 unlocated of Sep 11 are here, plus 6); SCADA boxes 5 of 6 mounted. United did not work on Saturday.</strong> <strong>Sep 11: United strung 5,300 ft of messenger wire at PS21 (4,143 ft) and PS22 (1,157 ft) — not tensioned (12A). Its 87 harness lines of the day carry no location and are booked to Line 4 under the Sep 12 allocation rule. United reports it is running short of Chemik cable for LV pulls.</strong> <strong>Sep 11 field confirmation (site superintendent): LBD boxes COMPLETE — 110 of 110, United work (the ledger carried none on the line; the 133 boxes held out without a line are absorbed).</strong> <strong>Sep 11 field count (site superintendent): harness 377 of 1,258 (30.0%) — all United work (PS18–PS23); the ledger carried 307, so +70 is booked as an adjustment.</strong> <strong>CONFIRMED by the CM workbook.</strong> Its <em>Circuitos MV</em> tab maps <strong>PB-18, 21, 22, 23 (Zone F) and PB-19, 20 (Zone G) to MV-12A</strong> — so the whole PS18–PS23 front the field has worked since Sep 1 is Line 3, and the <strong>307 harness lines booked to Line 1 are physically here</strong> (23 → 56 → 96 → 46 → 42 → 44), plus 280 supports and 1,611 ft of messenger wire on Sep 8 alone. It also settles the zone dispute: <strong>Zone G belongs to 12A, not 12B</strong>. <strong>Boxes are shown here at 0 of 110 and that is very probably wrong</strong> — see the unplaced-box row: the leading explanation is that United has been mounting boxes in Zones F and G all along and filing them without a line, which would put 12A at or near complete. Angel’s register carries no United rows at all (9 of 3,213 strings assigned), so none of that work could ever have reached it. <strong>Sep 9: United filed 201 harness lines at PS17–PS20 (38 x 2 + 163 x 3 strings) and 139 supports at PS19. PS18–PS20 are 12A but PS17 is PB-17 = 12B, the report gives no split, and 201 from 18 electricians (11 per person-day against 3 the day before) is under verification — so the 201 is HELD in the not-stated row, not booked here. It moves to this line when the split and the count are confirmed.</strong>",
-  "L4": "<strong>Oct 26 \u2014 THE ONLY CIRCUIT STILL PRODUCING. United filed 4,750 ft of DC home run and 1,156 ft of DC trunk on PS07/PS08, taking this line to 30,130.5 ft of home run and 6,114.9 ft of trunk. MV is now closed here: inverter side 18 \u2192 30 of 30, so 12B reads 63 of 63. Trenches 13 of 52 and units 6 of 11 are the last open MV measures on the project.</strong> <strong>Oct 13-14: MV junction-box terminations 9 → 18 of 33. INV-16 transition trench complete, road crossing and PVC; INV-17 transition excavation and down-pipe; INV-15 trench closed and levelled; INV-10 trench started and open. United piercing connectors in Area G: 106 lines / 212 clamps Oct 13 and 112 lines / 224 clamps Oct 14, with end caps in G1/G2/G4/G5. String meggers PS-17 16/18 and PS-08 3/18. NO DC FOOTAGE STATED.</strong> <strong>Oct 12: THE DATE HAS PASSED. The Oct 10 LV-works date went by with 54,692 lf still open and no cable filed on Oct 5, 6, 7, 9, 10 or 12 — six reported days. The card now prints “0 — date passed” and no required rate, because there is no date left to compute against and no demonstrated rate to carry: a re-forecast is owed. Work filed is preparation, not pull: INV-15 PVC 1½ in, INV-16/17 excavation and transition conditioning, INV-08 PVC downpipes, INV-17 transition and closure COMPLETE. Oct 12 control: junction-box terminations 3 → 9 of 33 and the FIRST unit on this circuit closed.</strong> <strong>Oct 7: no LV cable on Line 4 for a third reported day — 54,692 lf open over 3 working days to Oct 10 = 18,231 lf/day, above the best day ever recorded on this project (15,106). The date cannot be met. PS-16 conduit reported complete, PS-17 on material preparation, no footage confirmed. Oct 9 control: pull-in 8 of 11 (+2) — the only circuit with pull-in open; trenches compacted 12 of 52 (+6).</strong> <strong>Oct 6: no LV cable on Line 4 again — 54,692 lf open over 4 wd to Oct 10 = 13,673 lf/day; 650 fuses at PS-16/17; PS-15 east conduit, PS-08 master-control conduit.</strong> <strong>Oct 5: no LV cable on Line 4 — 54,692 lf still open over 5 wd to Oct 10 (10,938 lf/day); JB terminations 3 of 33 on the PM table; final MVJB base and box top at 12B-01.</strong> <strong>Oct 3: +2,659 ft homerun at INV-15 (LBD 307 1,380 + 306 1,279, 750 kcmil) — INV-15 homerun FINISHED; SCADA box at PS-15 (6 of 6); PS-15 cables ready for test; PS-7 (B7) two transitions at grade, PS-7 grounding complete. Homerun 10,084 of 55,488; open 54,692 lf over 5 wd to Oct 10 = 10,938 lf/day.</strong> <strong>FIRST CABLE ON LINE 4 — INV-15 (PB-15, Zone E, circuit 12B): Sep 29 2,895 ft homerun (8 runs, 500 kcmil); Sep 30 2,101 ft homerun (LBD 216/417/418); Oct 1 1,523 ft trunk (15 boxes) + 930 ft homerun (LBD 211/212/213/310); Oct 2 1,499 homerun + 96 trunk (LBD 308, 750 kcmil) → homerun 7,425 of 55,488, trunk 1,619 of 10,907. The daily reports file INV-15 under 11B; the circuit map puts PB-15 on 12B. Harness +153 (Oct 1, United at F2/D2/D1) → 621 of 1,340. 14 plug-and-play racks at F8 (Oct 2) → series. MVJB-12B-03 (Sep 29) and 12B-02 (Oct 2) installed. Open 57,351 lf over 6 wd to Oct 10 = 9,559 lf/day.</strong> <strong>Sep 23: no electrical production by line; MV junction box 05 complete and 04 in progress.</strong> <strong>Sep 22: no electrical production assigned to this line.</strong> <strong>Sep 21: no quantified production; phase megger with a failure under way (ITS).</strong> <strong>Sep 21 allocation: +22 United boxes in B + G (Sep 14, filed as 12B) → 128 of 107 (21 above the count — ruling needed; the PM held them to avoid a double count).</strong> <strong>Sep 16: harness +151 — United 120 at B4/B8/G5/B6/G7 (48,454 ft) + ECCS 31 at E14 (INV-16) → 468 of 1,340; United set 17 LBD boxes → 106 of 107; 2,244 ft of messenger strung (not tensioned).</strong> <strong>Sep 15: United +44 harness at B4/B9 — PS07/PS08 (42 x 3 + 2 x 2 = 130 strings, 23,547 ft) → 317 of 1,340; MV inverter side 12 of 30 (+6). United’s 14 boxes at G2/G5 held with the 22 of Sep 14 (36 to reconcile against the 401 count).</strong> <strong>Sep 14: United +62 harness at B4/B5/B7 — PS07/PS08 (25,167 ft) → 273 of 1,340; Topland set the first 2 MV junction boxes (2 of 6 on the line); self-perform 614 ft of messenger and 71 supports at E-W3. United’s 22 LBD boxes (Zones B + G) are held — 89 + 22 would exceed the 107 scope. 21 working days to Oct 10.</strong> <strong>Sep 12: no United work (Saturday). SCADA boxes 5 of 6 mounted; ITS at bore 9 (one fusion, pending run closed) and moving reels to the substation. The PM’s table carries 12B harness at 124 (the Sep 11 count) — this ledger carries 211 with Friday’s 87 booked here under the allocation rule; ruling needed.</strong> <strong>Sep 11: +87 United harness (64 x 3 + 6 x 2 + 17 x 1 = 221 strings, 38,510 ft), filed with no location and booked here under the Sep 12 allocation rule (United’s electrical crew works Zones F and G: unlocated United electrical production goes to Line 4 by default, to Line 3 only when a 12A power station is named) → 211 of 1,340 (15.7%).</strong> <strong>Sep 11 field count (site superintendent): harness 124 of 1,340 (9.3%) — all United work (INV-16/17), matching the ledger; LBD boxes 89 of 107 (83.2%), the ledger carried none on the line.</strong> Zero on cable, but <strong>not untouched</strong> — the self-perform log records MV and DC cable-entry penetrations drilled at <strong>PB-15, 16 and 17 on Sep 2</strong>. The CM workbook places 12B across <strong>four zones: B (PB-07), D (PB-08, PB-10), E (PB-15) and F (PB-16, PB-17)</strong> — not Zone G, as the older split had it. <strong>Its two Zone F blocks (PB-16, PB-17 — 36 boxes) sit inside United’s box front</strong>, so part of the unplaced boxes probably lands here too. Zone D is still pile-gated (712 in the tail). <strong>12B homerun was due to start Sep 8 on the plan and nothing has been filed.</strong> <strong>Sep 10: FIRST BOOKED PRODUCTION — United 124 harness lines at INV-16 and INV-17 (PB-16/17, Zone F blocks of 12B): 101 x 3 + 23 x 2 = 349 strings, 60,824 ft. Filed with its inverters, so it books here; Sep 9’s 201 at PS17–PS20 stays in the not-stated row.</strong>",
+  "L4": "<strong>Oct 27\u201329 \u2014 ONE CABLE DAY IN THREE. Tuesday filed 4,002 ft of home run and 3,096 ft of trunk at PS16/PS10/PS08 (7,098 lf); Wednesday and Thursday filed none, and the Wednesday part says the Tuesday figure is not carried forward. This line now stands at 34,132.5 ft of home run and 9,210.9 ft of trunk. Messenger +1,534 ft tensioned and +192 brackets over the two days. <strong>The trenches have not moved: 13 of 52 compacted and 6 of 11 units on the Oct 27 control, the same as Oct 26.</strong> On testing this circuit now reads Vdc 70 of 107 and VLF 100%, but SCADA communications 0 of 6.</strong> <strong>Oct 26 \u2014 THE ONLY CIRCUIT STILL PRODUCING. United filed 4,750 ft of DC home run and 1,156 ft of DC trunk on PS07/PS08, taking this line to 30,130.5 ft of home run and 6,114.9 ft of trunk. MV is now closed here: inverter side 18 \u2192 30 of 30, so 12B reads 63 of 63. Trenches 13 of 52 and units 6 of 11 are the last open MV measures on the project.</strong> <strong>Oct 13-14: MV junction-box terminations 9 → 18 of 33. INV-16 transition trench complete, road crossing and PVC; INV-17 transition excavation and down-pipe; INV-15 trench closed and levelled; INV-10 trench started and open. United piercing connectors in Area G: 106 lines / 212 clamps Oct 13 and 112 lines / 224 clamps Oct 14, with end caps in G1/G2/G4/G5. String meggers PS-17 16/18 and PS-08 3/18. NO DC FOOTAGE STATED.</strong> <strong>Oct 12: THE DATE HAS PASSED. The Oct 10 LV-works date went by with 54,692 lf still open and no cable filed on Oct 5, 6, 7, 9, 10 or 12 — six reported days. The card now prints “0 — date passed” and no required rate, because there is no date left to compute against and no demonstrated rate to carry: a re-forecast is owed. Work filed is preparation, not pull: INV-15 PVC 1½ in, INV-16/17 excavation and transition conditioning, INV-08 PVC downpipes, INV-17 transition and closure COMPLETE. Oct 12 control: junction-box terminations 3 → 9 of 33 and the FIRST unit on this circuit closed.</strong> <strong>Oct 7: no LV cable on Line 4 for a third reported day — 54,692 lf open over 3 working days to Oct 10 = 18,231 lf/day, above the best day ever recorded on this project (15,106). The date cannot be met. PS-16 conduit reported complete, PS-17 on material preparation, no footage confirmed. Oct 9 control: pull-in 8 of 11 (+2) — the only circuit with pull-in open; trenches compacted 12 of 52 (+6).</strong> <strong>Oct 6: no LV cable on Line 4 again — 54,692 lf open over 4 wd to Oct 10 = 13,673 lf/day; 650 fuses at PS-16/17; PS-15 east conduit, PS-08 master-control conduit.</strong> <strong>Oct 5: no LV cable on Line 4 — 54,692 lf still open over 5 wd to Oct 10 (10,938 lf/day); JB terminations 3 of 33 on the PM table; final MVJB base and box top at 12B-01.</strong> <strong>Oct 3: +2,659 ft homerun at INV-15 (LBD 307 1,380 + 306 1,279, 750 kcmil) — INV-15 homerun FINISHED; SCADA box at PS-15 (6 of 6); PS-15 cables ready for test; PS-7 (B7) two transitions at grade, PS-7 grounding complete. Homerun 10,084 of 55,488; open 54,692 lf over 5 wd to Oct 10 = 10,938 lf/day.</strong> <strong>FIRST CABLE ON LINE 4 — INV-15 (PB-15, Zone E, circuit 12B): Sep 29 2,895 ft homerun (8 runs, 500 kcmil); Sep 30 2,101 ft homerun (LBD 216/417/418); Oct 1 1,523 ft trunk (15 boxes) + 930 ft homerun (LBD 211/212/213/310); Oct 2 1,499 homerun + 96 trunk (LBD 308, 750 kcmil) → homerun 7,425 of 55,488, trunk 1,619 of 10,907. The daily reports file INV-15 under 11B; the circuit map puts PB-15 on 12B. Harness +153 (Oct 1, United at F2/D2/D1) → 621 of 1,340. 14 plug-and-play racks at F8 (Oct 2) → series. MVJB-12B-03 (Sep 29) and 12B-02 (Oct 2) installed. Open 57,351 lf over 6 wd to Oct 10 = 9,559 lf/day.</strong> <strong>Sep 23: no electrical production by line; MV junction box 05 complete and 04 in progress.</strong> <strong>Sep 22: no electrical production assigned to this line.</strong> <strong>Sep 21: no quantified production; phase megger with a failure under way (ITS).</strong> <strong>Sep 21 allocation: +22 United boxes in B + G (Sep 14, filed as 12B) → 128 of 107 (21 above the count — ruling needed; the PM held them to avoid a double count).</strong> <strong>Sep 16: harness +151 — United 120 at B4/B8/G5/B6/G7 (48,454 ft) + ECCS 31 at E14 (INV-16) → 468 of 1,340; United set 17 LBD boxes → 106 of 107; 2,244 ft of messenger strung (not tensioned).</strong> <strong>Sep 15: United +44 harness at B4/B9 — PS07/PS08 (42 x 3 + 2 x 2 = 130 strings, 23,547 ft) → 317 of 1,340; MV inverter side 12 of 30 (+6). United’s 14 boxes at G2/G5 held with the 22 of Sep 14 (36 to reconcile against the 401 count).</strong> <strong>Sep 14: United +62 harness at B4/B5/B7 — PS07/PS08 (25,167 ft) → 273 of 1,340; Topland set the first 2 MV junction boxes (2 of 6 on the line); self-perform 614 ft of messenger and 71 supports at E-W3. United’s 22 LBD boxes (Zones B + G) are held — 89 + 22 would exceed the 107 scope. 21 working days to Oct 10.</strong> <strong>Sep 12: no United work (Saturday). SCADA boxes 5 of 6 mounted; ITS at bore 9 (one fusion, pending run closed) and moving reels to the substation. The PM’s table carries 12B harness at 124 (the Sep 11 count) — this ledger carries 211 with Friday’s 87 booked here under the allocation rule; ruling needed.</strong> <strong>Sep 11: +87 United harness (64 x 3 + 6 x 2 + 17 x 1 = 221 strings, 38,510 ft), filed with no location and booked here under the Sep 12 allocation rule (United’s electrical crew works Zones F and G: unlocated United electrical production goes to Line 4 by default, to Line 3 only when a 12A power station is named) → 211 of 1,340 (15.7%).</strong> <strong>Sep 11 field count (site superintendent): harness 124 of 1,340 (9.3%) — all United work (INV-16/17), matching the ledger; LBD boxes 89 of 107 (83.2%), the ledger carried none on the line.</strong> Zero on cable, but <strong>not untouched</strong> — the self-perform log records MV and DC cable-entry penetrations drilled at <strong>PB-15, 16 and 17 on Sep 2</strong>. The CM workbook places 12B across <strong>four zones: B (PB-07), D (PB-08, PB-10), E (PB-15) and F (PB-16, PB-17)</strong> — not Zone G, as the older split had it. <strong>Its two Zone F blocks (PB-16, PB-17 — 36 boxes) sit inside United’s box front</strong>, so part of the unplaced boxes probably lands here too. Zone D is still pile-gated (712 in the tail). <strong>12B homerun was due to start Sep 8 on the plan and nothing has been filed.</strong> <strong>Sep 10: FIRST BOOKED PRODUCTION — United 124 harness lines at INV-16 and INV-17 (PB-16/17, Zone F blocks of 12B): 101 x 3 + 23 x 2 = 349 strings, 60,824 ft. Filed with its inverters, so it books here; Sep 9’s 201 at PS17–PS20 stays in the not-stated row.</strong>",
   "unstated": "<strong>Sep 21 (Jose): ECCS’s 40 harness at E9/E14 (Sep 15) COUNTED — carried here until the PM gives the split by block: E9 is Zone E (Line 2), E14 is INV-16 (Line 4, per the PM’s Sep 16 correction). The report gives one combined figure (40 lines / 120 strings / 15,748 ft).</strong> <strong>Sep 21 ALLOCATION (Jose: every reported quantity goes to its line): trunk 980 ft (self-perform, Zone E, Sep 16) and 525 ft (EW boxes 7/8/16/17/18, Sep 17) moved to Line 2 (E and EW = 11B); ECCS 3 boxes at E20 → Line 2; United 14 boxes at G2/G5 (Sep 15) → Line 3; United 22 boxes in B + G (Sep 14, filed as 12B) → Line 4; hangers and messenger allocated by line in the supports line under the table. What remains here: 564 ft of trunk that the PM’s own by-line matrix (Sep 12/14) carries as “not stated by line” — the PM owes its location — and 2 MV junction boxes set by Topland on Sep 16 with no location.</strong> <strong>Sep 18: 245 hangers at EW-3 without a line (not in the control).</strong> <strong>Sep 16–17: trunk 980 ft (self-perform, area E) + 525 ft (EW boxes 7/8/16/17/18) held here → 2,069 ft unstated; 2 MV junction boxes without a line; ECCS 3 boxes + 3 load panels at E20 held. 57 grounds in Areas A/C (not in the control).</strong> <strong>Production the daily report does not attribute to a line, held out rather than pushed onto a line.</strong> <strong>Sep 15: nothing booked here. Held elsewhere: ECCS’s 40 harness (not yet hung), United’s 14 + 22 boxes. The report’s own cumulatives (harness 2,631, homerun 76,387, trunk 17,861) stay one Friday below this ledger on harness and homerun.</strong> <strong>Sep 14: nothing new on this row. Held elsewhere pending checks: United’s 22 boxes (Line 4 scope), 13 self-perform box terminations (unit) and ECCS’s 4 connected boxes (not yet in the control). The report’s own MV cut (78 terminations, SCADA 10) is older than the Sep 15 workbook (81, 13) — the workbook stands.</strong> <strong>Sep 12: nothing new. The 9 MV terminations of Sep 11 are placed on 12A by the PM’s table (unstated MV now 0). Self-perform’s 3 LBD terminations at INV-11 are held on Line 2’s note pending the unit, not here.</strong> <strong>Sep 11: harness — none; United’s 87 unlocated lines are booked to Line 4 under the Sep 12 allocation rule (United electrical = Zones F and G → Line 4 by default, Line 3 when a 12A station is named). MV: +9 terminations not located by line. ECCS: 9 boxes with no location (Lines 1–2 read complete on the count) — held out of the box ledger.</strong> Cable: <strong>homerun none from Sep 11 — the superintendent’s count of Line 1 (60,075 lf, complete) absorbs the ECCS runs previously held here</strong>: Sep 3 (4,282 ft), the ECCS remainder of Sep 4 (1,348 ft) and <strong>ECCS’s 5,043 ft on Sep 8, filed with no line or inverter</strong>; the self-perform log puts 500 kcmil pulls at E11/E13 (Sep 3), E10/E12 (Sep 4) and the E11/E13 BLA trunk (Sep 5) — all Zone E, so a real share of those feet is <strong>Line 2</strong>, but the log carries no quantities. Harness: <strong>none from Sep 11</strong> — the superintendent’s count by circuit absorbs the 347 previously held here (the 87 of Sep 4, ECCS 59 of Sep 9, United 201 at PS17–PS20). <strong>Boxes — none from Sep 11: the superintendent confirmed all LBD boxes installed on Lines 1, 2 and 3, which absorbs the 133 previously held here.</strong> The earlier reading stands as the explanation: United had been mounting boxes in Zones F and G, filed without a line. The arithmetic fits: <strong>Zone F carries 111 boxes and Zone G 35, so F + G = 146 and the 133 sits inside it at 91%</strong>. It also explains the 258-vs-118 gap exactly — <strong>Angel’s register is ECCS-only (92 on 11A + 26 on 11B = 118) and carries no United rows</strong>, so United’s boxes could never appear in it. Note 12A alone is 110 boxes, so 133 does not fit on Line 3 by itself: if this is right, roughly <strong>110 belong to 12A and the balance to 12B’s Zone F blocks (PB-16, PB-17)</strong>. <strong>Closed by the Sep 11 field confirmation.</strong>"
  },
  "zonas": {
@@ -2524,6 +2525,12 @@ window.MURCH_DATA = {
    "v": 5906,
    "hr": 4750,
    "tr": 1156
+  },
+  {
+   "d": "27 oct",
+   "v": 7098,
+   "hr": 4002,
+   "tr": 3096
   }
  ],
  "harnessScope": 5007,
@@ -2933,12 +2940,13 @@ window.MURCH_DATA = {
  ]
 },
  equipmentNotes: [
- { contractor: 'United \u2014 electrical', equipment: 'not stated', output: 'Oct 26: 4,750 ft DC home run + 1,156 ft DC trunk (PS07/PS08) \u00b7 PS16 string megger complete across 14 LBDs \u00b7 198 pile grounds hung, NOT crimped' },
- { contractor: 'GreenSol (self-perform)', equipment: 'not stated', output: 'Oct 26: backfill/compaction F INV-16/17 and E INV-4/13/14 \u00b7 centre-pole grounds E20/EW2/EW3 \u00b7 piercing connectors E7\u2013E11 \u00b7 fibre replaced at INV-16/17 \u00b7 SCADA conduit PS10/PS17' },
+ { contractor: 'United \u2014 electrical', equipment: 'not stated', output: 'Oct 29: 164 pile grounds in Area B (83 drilled only) \u00b7 784 ft messenger tensioned \u00b7 121 brackets. Oct 28: DC-run megger at PS16 and ten PS07 LBDs \u00b7 3,655 ft pulled / 750 ft tensioned \u00b7 71 brackets. Oct 27: 7,098 lf DC cable' },
+ { contractor: 'GreenSol (self-perform)', equipment: '5 electrical + 3 civil (Oct 29)', output: 'Oct 29: Voc connector reinstallation INV3/5/4/11/6 \u00b7 MV cabinets INV12/14/18/16 \u00b7 INV16 compaction CLOSED. Oct 28: MV cabinets INV1\u2013INV12 (A/C/E) \u00b7 30 ft silt fence \u00b7 INV17 compaction 80%' },
+ { contractor: 'United \u2014 prefabrication', equipment: 'not stated', output: 'Aluminium 268 complete + 194 cut only (Oct 29) \u00b7 137 complete + 140 cut only (Oct 28). Iron 165 cut only (Oct 29) \u00b7 30 complete + 26 cut only (Oct 28)' },
  { contractor: 'ITS', equipment: 'not stated', output: 'MV plowing 46 of 46 and DC boring 14 of 14 \u2014 both closed' },
  { contractor: 'Topland', equipment: 'not stated', output: 'Junction-box bases complete 23 of 23' },
- { contractor: 'AB Power', equipment: 'not stated', output: 'Partial discharge on sections A and C (11A); SET 99.82% EV on the Oct 26 tracker' },
- { contractor: 'ECCS', equipment: 'not stated', output: 'No quantified production filed on either of the last two reports' },
+ { contractor: 'AB Power', equipment: 'not stated', output: 'SET global EV 99.85% on the Oct 30 tracker; two electrical items overdue (SCADA RTU config, AEP coordination)' },
+ { contractor: 'ECCS', equipment: 'not stated', output: 'No quantified production filed on any of the last three reports' },
  ],
  resourcePlan: [
  { label: 'Total site resources', actual: 239, target: 105, targetLabel: 'Acceleration peak 95-105', note: 'Aug 21 (Bethany): 228, DOWN 11, sums exactly. <strong>Substation erection cut 14 \u2192 6 (AB 11\u21926, Hi Tech 3\u21920)</strong>; United \u22123 to 71 on day 11 of the stop; survey and crane still zero.' },
@@ -3067,21 +3075,48 @@ window.MURCH_DATA = {
  },
  // ---- DOCUMENT SUBMITTALS (added Oct 3, 2026 at Jose's request) — transmittals to the Owner, Owner requests for documents, and what is owed. Numbers and roles only; no personal names.
  submittals: {
- "asOf": "Oct 27, 2026",
+ "asOf": "Oct 30, 2026",
  "counts": {
   "sent": 13,
-  "owed": 17,
-  "ownerComments": 3
+  "owed": 19,
+  "ownerComments": 5
  },
  "items": [
+  {
+   "ref": "MC-OPEN-02",
+   "date": "Oct 30",
+   "dir": "From Owner",
+   "what": "Joint review of the mechanical-completion open items, Owner and EPC, called for this morning. Circulated for onward distribution, so the list is expected to be worked item by item rather than answered in writing.",
+   "status": "Review today",
+   "badge": "watch",
+   "next": "Attend, then log the agreed closure actions per item"
+  },
+  {
+   "ref": "ENV-VSMP-01",
+   "date": "Oct 30",
+   "dir": "From Owner",
+   "what": "Owner comments returned on the stormwater management plan revision 01, together with the soil management consultant statement. Three documents attached to the return.",
+   "status": "Comments received",
+   "badge": "bad",
+   "next": "Close the comments and reissue the revision"
+  },
+  {
+   "ref": "QA-INSP-01",
+   "date": "Oct 30",
+   "dir": "From Owner",
+   "what": "Site inspection for conformance of the constructed works to the issued design, raised by the engineering side.",
+   "status": "Inspection raised",
+   "badge": "watch",
+   "next": "Agree scope and date, then issue the conformance record"
+  },
   {
    "ref": "ENV-SPCC-01",
    "date": "Oct 27",
    "dir": "To Owner",
-   "what": "Updated SPCC plan. The Owner set a submission deadline of Thursday Oct 29 and engineering has the document in revision; delivery is expected on the deadline itself, so there is no float.",
-   "status": "Due Oct 29",
+   "what": "Updated SPCC plan. The Owner set a submission deadline of Thursday Oct 29. No confirmation of issue has been seen in the mail sweep of Oct 30, so the item is carried as unconfirmed rather than closed.",
+   "status": "Issue unconfirmed",
    "badge": "bad",
-   "next": "Engineering to release the revision; issue on Oct 29"
+   "next": "Confirm the plan went out on Oct 29, or issue it now"
   },
   {
    "ref": "ENV-EGLE-01",
@@ -3303,7 +3338,7 @@ window.MURCH_DATA = {
 },
  // ---- COMMISSIONING (added Oct 3, 2026 at Jose's request) — substation test window, PV field commissioning plan, resources, milestones.
  commissioning: {
- "asOf": "Oct 26 — Vdc 341/419 · IV 131/752 samples · MV 264/264",
+ "asOf": "Oct 30 — Vdc 381/419 · IV 205/752 · SCADA comms 17/23",
  "set": {
   "tests": 74,
   "passed": 74,
@@ -3315,7 +3350,7 @@ window.MURCH_DATA = {
   "openItems": 23,
   "overdueItems": 18,
   "hFrameWaiting": 15,
-  "ev": 99.82,
+  "ev": 99.85,
   "heldNote": "<strong>HELD, not re-based: the Oct 26 SE tracker export carries NO COMMISSIONING TAB and the pictogram testing row reads #REF!. The test figures below stay on the Oct 21 ruling (74 of 74 executed) rather than being published as zero. A clean tracker cut is owed.</strong>",
   "groups": [
    {
@@ -3676,10 +3711,10 @@ window.MURCH_DATA = {
    }
   ],
   "fieldTests": {
-   "asOf": "Oct 26 (TVANT commissioning portal)",
-   "irStrings": 131,
+   "asOf": "Oct 30 (TVANT commissioning portal)",
+   "irStrings": 205,
    "irScope": 752,
-   "detail": "<strong>IV CURVE SAMPLING IS RUNNING: 131 of 752 string samples measured and ALL 131 VALIDATED \u2014 none rejected, none requiring review, none pending.</strong> Every sample so far is on 11A, across 71 LBDs. No LBD counts complete because an LBD only closes when its whole sample closes, so the LBD-basis figure is still 0 of 419 and both are published. The portal\u2019s own history shows the campaign starting Oct 23 and accelerating: 33 \u2192 49 \u2192 91 \u2192 131. <strong>Polarity and continuity (Vdc) 341 of 419</strong>, up from 277 on Oct 20. Grounding resistance 18 of 23 inverters and grounding continuity 18 of 23 blocks. VLF 1 of 4 circuits, OTDR 1 of 4, inverter precommissioning inspection 2 of 4, SCADA communications 5 of 23 inverters. Site megger records the same week: PS16 complete across 14 LBDs on polarity, Voc and insulation; PS19 on 11B approved above 100 M\u03a9."
+   "detail": "<strong>IV CURVE SAMPLING HAS REACHED A SECOND CIRCUIT: 205 of 752 string samples measured and ALL 205 VALIDATED \u2014 none rejected, none requiring review.</strong> 11A stands at 149 of its 165 samples and 11B has opened at 56 of 200; 12A (188) and 12B (199) are still at zero. LBD coverage is 137 of 396 sample boxes plus 1 of 23 full boxes. The campaign has run 131 \u2192 148 \u2192 205 since Oct 26. <strong>Polarity and continuity (Vdc) 381 of 419</strong>, up from 341 on Oct 26 \u2014 12B 30 \u2192 70 of 107 and zone B closed at 35 of 35. <strong>SCADA communications 5 \u2192 17 of 23 inverters</strong>, with 11B and 12A both closing this week; 12B is the only circuit still at zero. VLF 2.6 of 4 circuits (11A and 12B at 100%, 11B at 60%, <strong>12A still at zero</strong>), OTDR 2 of 4, inverter precommissioning 3 of 4. Grounding resistance and continuity hold at 18 of 23 each, unchanged since Oct 20. Site megger records this week: PS16 strings 18 of 18 (Oct 27); DC-run megger recorded at PS16 LBD-16-201 and across ten PS07 LBDs (Oct 28), with no approval stated in the part."
   },
   "stepTouch": "Step-and-touch tests at the substation to be executed by the substation contractor (equipment cost).",
   "readiness": [
@@ -3700,7 +3735,7 @@ window.MURCH_DATA = {
     "lv": "COMPLETE — INV-12 closed Oct 15; harness 1,292, LV terminations 220/220 and 440/440",
     "mvUnits": "12 / 12",
     "jbTerm": "39 / 39 · MV COMPLETE 69/69",
-    "scada": "boxes 6/6 \u00b7 comms 0/6",
+    "scada": "boxes 6/6 \u00b7 comms 6/6",
     "status": "At Risk"
    },
    {
@@ -3710,14 +3745,14 @@ window.MURCH_DATA = {
     "lv": "COMPLETE — 76,120 lf, harness 1,258 (re-based Oct 15 on the PM + CM position)",
     "mvUnits": "13 / 13 · pull-in 13/13",
     "jbTerm": "45 / 45 · MV COMPLETE 75/75",
-    "scada": "boxes 6/6 \u00b7 comms 0/6",
+    "scada": "boxes 6/6 \u00b7 comms 6/6",
     "status": "At Risk"
    },
    {
     "circuit": "12B",
     "mc": "MC Nov 10 \u00b7 trenches and testing",
     "series": 14,
-    "lv": "36,245 / 66,395 lf \u00b7 30,150 open \u00b7 +5,906 lf on Oct 26",
+    "lv": "43,343 / 66,395 lf \u00b7 23,052 open \u00b7 +7,098 lf on Oct 27",
     "mvUnits": "6 / 11 \u00b7 pull-in 11/11 \u00b7 trenches 13/52",
     "jbTerm": "33 / 33 \u00b7 MV COMPLETE 63/63",
     "scada": "boxes 6/6 \u00b7 comms 0/6",
@@ -3741,32 +3776,53 @@ window.MURCH_DATA = {
 },
  risks: [
  {
-  "headline": "12B trenches are now the only open MV front — 13 of 52 compacted, unchanged for a week, with RTE on Nov 10",
-  "title": "MV trench compaction on 12B, Oct 26, 2026 — the controlling constraint now that terminations are closed.",
-  "note": "<strong>With terminations complete at 264 of 264, the last MV measures still open are on 12B: trenches 13 of 52 compacted and 6 of 11 units closed. The trench line has not moved since Oct 20. 39 trenches and 5 unit closures stand between the circuit and MV close-out, against Ready-to-Energize on Nov 10.</strong> A daily compaction rate and a crew are owed.",
+  "headline": "12B trenches have not moved in a week — 13 of 52, with Ready-to-Energize on Nov 10",
+  "title": "MV trench compaction on 12B, Oct 27 control — the controlling constraint, and it is stalled.",
+  "note": "<strong>The Oct 27 MV control reads 12B trenches 13 of 52 compacted and 6 of 11 units closed — identical to the Oct 26 cut. A full week with no movement.</strong> Project-wide that is 142 of 181 trenches and 18 of 23 units; every open one is on this circuit. 39 trenches and 5 unit closures stand between 12B and MV close-out, against Ready-to-Energize on Nov 10. The daily reports for Oct 27, 28 and 29 record no trench production at all. A crew and a daily compaction rate are owed.",
   "level": "critical",
   "owner": "Construction + ITS"
  },
  {
-  "headline": "The SPCC plan is due to the Owner on Thursday Oct 29 and engineering still has it in revision",
-  "title": "SPCC plan submission, Oct 29, 2026 — a hard Owner deadline with no float.",
-  "note": "<strong>The Owner set Thursday Oct 29 as the submission deadline and the updated document is expected from engineering on that same day. There is no buffer: a one-day slip is a missed deadline. The EGLE excavation permit, by contrast, is confirmed for completion this week.</strong>",
-  "level": "critical",
-  "owner": "Engineering + Environmental"
- },
- {
-  "headline": "Energised testing is live across the plant — the site is a coordination problem, not a production one",
-  "title": "Site coordination, Oct 26, 2026 — partial discharge, VLF and polarity all running at once.",
-  "note": "<strong>Partial discharge ran on sections A and C (11A), VLF is on 12A then 12B, and polarity is closing at E19/E20 before moving to zone B. The testing subcontractor has asked to be told in advance of energised work so its crews can be warned before the emergency group is used. Mechanical and grounding crews are still working the same areas.</strong>",
-  "level": "critical",
-  "owner": "Commissioning + EHS"
- },
- {
-  "headline": "Polarity records are 341 of 419 and 77 of the 78 still open are on 12B — the same circuit as the trenches",
-  "title": "Vdc polarity and continuity, TVANT commissioning portal, cut Oct 26, 2026.",
-  "note": "<strong>Vdc has moved hard: 74 on Oct 11, 212 on Oct 15, 277 on Oct 20, 341 on Oct 26 of 419.</strong> 11A and 11B are closed at 92/92 and 110/110 and 12A is one record short at 109/110. <strong>12B carries 30 of 107 — 77 open records, 98.7% of the whole project shortfall</strong>, and by zone the holes are D at 0 of 18, B at 17 of 35 and F at 75 of 111. Grounding resistance and continuity both read 18 of 23, with the five open on 12B. The same circuit holds the open trenches, the open VLF and the open SCADA communications: 12B is one queue, not four.",
+  "headline": "12A closed construction first and is still untested — VLF 0%, OTDR 0 of 1, IV 0 of 188",
+  "title": "PV field testing by circuit, TVANT portal cut Oct 30, 2026.",
+  "note": "<strong>The testing order has come apart from the construction order. 12A finished construction first and reads VLF 0%, OTDR 0 of 1 and IV 0 of 188 samples; 12B, last in construction and still 37 Vdc records short, already reads VLF 100%.</strong> 11A and 11B carry all 205 IV samples between them and both have OTDR closed. 12A is otherwise ready — Vdc 109 of 110, grounding 6 of 6, SCADA communications 6 of 6, precommissioning inspection done — so nothing physical is blocking its test window. Whatever is sequencing the test crews is not following circuit readiness, and 12A is the circuit nearest to mechanical completion.",
   "level": "critical",
   "owner": "Commissioning"
+ },
+ {
+  "headline": "Trunk cable is 3,233 ft above its own take-off — up from 137 ft three days ago",
+  "title": "LV trunk quantity, Oct 27, 2026 — the overrun has stopped being a rounding note.",
+  "note": "<strong>Tuesday filed 3,096 ft of trunk on 12B, taking the project total to 43,545.9 ft against a 40,313 ft take-off: 3,232.9 ft above the count, from 137 ft on Oct 26.</strong> Held and flagged, not trimmed; the trunk component is capped at 100% in the composite so the overrun earns nothing and the published percentage is unaffected. Two readings fit: the take-off is short on 12B, or home run is being booked as trunk — the same day filed 4,002 ft of home run, and the split between the two is the reporter’s. <strong>This needs a ruling before the circuit closes, because the remaining 11,984 lf is priced and planned off the same take-off.</strong>",
+  "level": "critical",
+  "owner": "Director of Construction"
+ },
+ {
+  "headline": "Two SET items are overdue and one of them is AEP coordination for first energization, at 50%",
+  "title": "Substation open items, SE construction tracker cut Oct 30, 2026.",
+  "note": "<strong>The tracker carries exactly two open items, both electrical and both overdue: the SCADA RTU configuration at 95%, and AEP coordination for first energization at 50% against a target of Oct 22.</strong> Everything else is closed — civil 47 of 47, mechanical 61 of 61, bus and connectors 76 of 76, grounding 28 of 28 — and global earned value reads 99.85% at 255 of 257 activities. The AEP item is the one that does not close by working harder on site: it is the utility coordination behind Ready-to-Energize on Nov 10.",
+  "level": "critical",
+  "owner": "Commissioning + Owner"
+ },
+ {
+  "headline": "IV sampling has reached a second circuit — 205 of 752 validated, but 12A and 12B are still at zero",
+  "title": "IV curve campaign, TVANT portal cut Oct 30, 2026.",
+  "note": "<strong>205 of 752 string samples measured and ALL 205 Validated — none rejected, none requiring review. The campaign has run 131 → 148 → 205 since Oct 26 and has opened on 11B at 56 of 200, beside 11A at 149 of 165.</strong> <strong>12A (188 samples) and 12B (199) remain at zero</strong>, so half the plant has no IV coverage at all. LBD coverage is 137 of 396 sample boxes plus 1 of 23 full boxes. The irradiance constraint is real and the season is closing, and the open position with the Owner is still the contract’s 100% sampling against ~20% now with the balance in spring 2027.",
+  "level": "critical",
+  "owner": "Commissioning + QA/QC"
+ },
+ {
+  "headline": "Polarity records 381 of 419 and 37 of the 38 still open are on 12B — zone D untouched at 0 of 18",
+  "title": "Vdc polarity and continuity, TVANT portal cut Oct 30, 2026.",
+  "note": "<strong>Vdc moved 341 → 381 of 419 this week. 11A and 11B are closed, 12A is one record short, and 12B went 30 → 70 of 107.</strong> Zone B closed outright (17 → 35 of 35) and F moved 75 → 93 of 111. <strong>Zone D has not started: 0 of 18, and it is the last untouched zone on the project.</strong> Grounding resistance and continuity both hold at 18 of 23 and have not moved since Oct 20 — the five open are on 12B.",
+  "level": "high",
+  "owner": "Commissioning"
+ },
+ {
+  "headline": "The SPCC plan was due Thursday and no issue has been confirmed",
+  "title": "SPCC plan submission, Oct 30, 2026 — deadline passed, delivery unconfirmed.",
+  "note": "<strong>The Owner set Thursday Oct 29 as the submission deadline. The mail sweep of Oct 30 shows no confirmation that the updated plan went out, so the item is carried as unconfirmed rather than closed.</strong> Separately the Owner returned comments on the stormwater management plan revision 01 together with the soil management consultant statement, which is a second environmental document now in revision. The EGLE excavation permit was confirmed for completion this week.",
+  "level": "critical",
+  "owner": "Engineering + Environmental"
  },
  {
   "headline": "MV cable fault between INV9 and INV11 — on 11B, the circuit whose tests are meant to close first",
@@ -3776,60 +3832,18 @@ window.MURCH_DATA = {
   "owner": "Electrical + commissioning"
  },
  {
-  "headline": "MC on 11B, 12A and 12B now turns on SEVEN DOCUMENTS — and only one of them has a field gap: two inverters short on string tests",
-  "title": "QA/QC Manager’s outstanding-MC list for the three circuits, Oct 21, 2026.",
-  "note": "<strong>The list is SHORT, and that is the finding. Everything else on the MC register was either whole-plant (FAT reports) or substation-only, so what stands between 11B, 12A and 12B and Mechanical Completion is seven items: labelling and signage evidence (#11), interim as-builts with the .dwg (#15), inverter inspections (#44), PV string tests (#45), LV and MV cable tests (#46, already complete), communication cable tests (#50) and grounding system tests (#51).</strong> <strong>ONLY ONE IS A CONSTRUCTION GAP: string tests are TWO INVERTERS short. The other six are compilation and issue — work that is done but not evidenced, which is the same pattern that has understated this project all month.</strong> <strong>#11 is the cheapest and should go first: typical photographs of fence and gate warning signs, high-voltage signs on the substation and inverters, and termination labelling in the LBD / combiner boxes and inverters, plus a written statement that they are representative. That is a morning’s work on site.</strong> <strong>#15 is the one with a real lead time — interim as-builts revised for every field change, change order, relocation and reroute, with the .dwg. It should be started now, not when the other six close.</strong>",
-  "level": "high",
-  "owner": "QA/QC + Engineering"
- },
- {
-  "headline": "Tracker deflection: 270 rows pending, 80% of them on 11B — and 40% need a cut pile or a welded beam",
-  "title": "Director of Construction’s own count, Oct 21, 2026 — no detailed register received.",
-  "note": "<strong>270 rows are still pending repair. About 80 per cent sit on circuit 11B, mostly Area E with some filed under Area C — roughly 216 rows — and 11B is the circuit whose outstanding tests are meant to close first.</strong> <strong>THREE PROCEDURES, RISING DIFFICULTY: re-grading without touching the piles; cutting the pile; welding in an extra beam. About 40 per cent of the 270 (≈108 rows) need the cutting or the welded beam to bring the grade below the 1 degree tolerance — that is the slow, hot-work half of the scope, and it is the part that will decide the duration.</strong> <strong>NO DETAILED REPORTING HAS BEEN RECEIVED. The last row-by-row register is the Sep 21 QA cut (390 affected, 53 fixed, 337 open), so the total is now superseded while the breakdown is not. Ask QA for the current register split by zone, by procedure and by circuit — without it there is no way to forecast the welded-beam work or to tie it to the 11B test programme.</strong> <strong>ATTRIBUTION TO CHECK: Area C rows cannot be on 11B under the circuit map (11B is Zone E throughout; Area C is 11A). Either the circuit or the area label is wrong on part of this count.</strong>",
-  "level": "high",
-  "owner": "QA/QC + racking"
- },
- {
-  "headline": "IV curve sampling IS running — 131 of 752 string samples validated, but no LBD closes and all of it is on 11A",
-  "title": "PV field testing, TVANT commissioning portal, cut Oct 26, 2026.",
-  "note": "<strong>The portal’s own data retires the “not started” reading: 131 of 752 string samples are measured and ALL 131 are Validated — none rejected, none requiring review. The campaign began Oct 23 and is accelerating: 33 → 49 → 91 → 131.</strong> Two things still bite. <strong>First, no LBD counts complete (0 of 419)</strong> because an LBD only closes when its whole sample closes, so coverage earns nothing yet. <strong>Second, every sample so far is on 11A</strong> — 11B, 12A and 12B are at zero. The irradiance constraint is real and the season is closing, so the open position with the Owner is still the contract’s 100% sampling against ~20% now and the balance in spring 2027.",
-  "level": "critical",
-  "owner": "Commissioning + QA/QC"
- },
- {
-  "headline": "Trunk cable is 137 ft above its own take-off — 40,449.9 installed against a 40,313 scope",
-  "title": "LV trunk quantity, Oct 26, 2026 — the executed figure has passed the count.",
-  "note": "<strong>The Oct 26 filing of 1,156 ft of trunk on 12B takes the project total to 40,449.9 ft against a 40,313 ft scope. Held and flagged, not trimmed: the trunk component is capped at 100% in the composite so the overrun earns nothing. Either the take-off is short or some of the filed footage is home run booked as trunk — a ruling is owed.</strong>",
-  "level": "watch",
-  "owner": "Director of Construction"
- },
- {
-  "headline": "198 pile grounds were hung but not crimped — reported as work done, counted as nothing",
-  "title": "Grounding completion, Oct 26, 2026 — hung is not complete.",
-  "note": "<strong>United hung 198 pile grounds on Oct 26 without crimping them to the messenger: four people for five hours, about 20 man-hours still to do. Nothing is added to an executed count until the crimp is made. The same report leaves one messenger bond and two LBDs pending from Oct 23.</strong>",
-  "level": "watch",
-  "owner": "United Services"
- },
- {
-  "headline": "Messenger wire and the 450 replacement fuses are both still to land on site",
-  "title": "Material position, Oct 26, 2026 — two open deliveries against LV close-out.",
-  "note": "<strong>The messenger wire was released and due on site before the end of last week; arrival is unconfirmed. The 450 fuses ordered on Oct 20 to replace the set mislaid are awaiting arrival. Messenger support hardware is part-landed: the angle iron is on site, the bolts are pending, and the cutting and drilling is self-perform scope.</strong>",
-  "level": "watch",
-  "owner": "Procurement"
- },
- {
-  "headline": "SET tests EXECUTED 74 of 74 — what is outstanding is the evidence pack to the Owner, not the testing",
-  "title": "Jose, Oct 15: 95 per cent of the 74 substation tests have already been done. The reports upload tonight and AB Power commits to the complete reporting on Monday 19 October. The register reads 0 passed because passed means a report received and accepted, not a test performed.",
-  "note": "<strong>This resolves the question that ran all day. The register was never evidence that nothing had been tested — it is evidence that nothing had been REPORTED, exactly as the AB 205–227 matrix showed when its \"no evidence\" column turned out to mean no paperwork rather than no work. Same cause on three fronts today: 11B published at 8 of 220 LV terminations for twelve days, 12A with 7,531 ft and 844 assemblies unfiled, and this.</strong> <strong>NO TEST COUNT IS PUBLISHED OFF THE 95%. It is a stated figure, not a field count, so the register stays at 0 of 74 passed and moves only as reports are received. Tonight is the check: reports in, or the position has not changed.</strong> <strong>WHAT PAPERWORK STILL CANNOT CLOSE — the two rows the matrix documented as NOT done rather than not evidenced: Transformer T1 at 0 of 1, and MV/HV surge arresters at 2 of 13. If the 95% includes those, ask for them by name on tonight’s upload.</strong> Also still outside AB Power’s scope with no owner, while being predecessors of MC Achieved: the UPS battery and charger tests.",
-  "level": "high",
-  "owner": "Substation testing contractor PM | Commissioning Manager"
- },
- {
   "headline": "11A FIBRE OTDR TEST RETURNED UNACCEPTABLE VALUES — started Oct 14, and it is a direct predecessor of 11A Mechanical Completion",
   "title": "The planning manager’s Oct 16 follow-up records item 5 / ID 75, the Communication Cable Test (OTDR, fibre optic) on 11A, as started on 14 October with values that are NOT acceptable. The same workbook had carried it with no status since 9 October.",
   "note": "<strong>Oct 26 — the commissioning portal reads OTDR 1 of 4 circuits COMPLETE, and the one complete is 11A. That is DOCUMENTARY COVERAGE, not acceptance: the portal states its own counting basis as coverage and the unacceptable values are not retired by a filed record. Held on the register until a passing retest is evidenced.</strong> <strong>This is a FAILED TEST, not a missing report, and it is the first one today that cannot be explained by the reporting gap. It sits directly in front of 11A Mechanical Completion, the nearest milestone on the project, and 11A is otherwise closed on construction.</strong> <strong>What is not yet known and should be asked today: whether the unacceptable values are a splice problem, a connector problem or a test-setup problem; what the remediation is; and whether a re-test fits before the 11A MC date. Owner on the sheet is the Commissioning Manager.</strong> Related and still open on the same sheet: Fiber Optic Cable Tests (HV) at the substation, AB 224 / ID 404, which is only released when the 69 kV connection closes.",
   "level": "critical",
   "owner": "Commissioning Manager | Substation testing contractor"
+ },
+ {
+  "headline": "Energization chain: electrical permit still open, 69 kV jumper unanswered by the utility, and nobody knows what the energization approval requires",
+  "title": "From the planning manager’s Oct 16 follow-up. Three items on the path from MC to energization have no closure date and two of them depend on third parties.",
+  "note": "<strong>ELECTRICAL PERMIT (item 6) — a CONTRACTUAL REQUIREMENT OF MC, still open, GreenSol scope, owner in contact with the electrical subcontractor, commitment date Oct 19. Having it requested is explicitly not enough.</strong> <strong>69 kV JUMPER (item 12) — the e-mail went out Oct 15 and the utility has not answered. The high-voltage cable test hangs off it.</strong> <strong>ENERGIZATION APPROVAL (item 9) — ten working days, and the documentation it requires is still unknown. The Oct 16 note reads \"nothing new\". Item 10, whether a client or utility energization request form even exists, is also unresolved.</strong> Also open on the same sheet: the wetland HDD head needs the state EGLE permit, pending since Oct 2 and in process; ten IE permits carry an asterisk and are still to be supplied; the utility metering equipment and the ownership of the UPS, battery-charger and capacitor/reactor-to-NGR tests are both being clarified with the Owner today. SUNGROW’s 11A pre-commissioning report was issued Oct 14 and sent Oct 15, with attendance required from about Oct 26. The SCADA integrator is connected remotely; the Starlink antenna status is to be confirmed.",
+  "level": "critical",
+  "owner": "Construction Manager | Planning Manager | Project Manager"
  },
  {
   "headline": "Schedule update Oct 12: SC Dec 12 — 12 days past the contract Nov 30; overall MC Nov 10, PIS Nov 21, COD Dec 8, every milestone slips again",
@@ -3846,11 +3860,32 @@ window.MURCH_DATA = {
   "owner": "Construction Manager | QA/QC | Engineering | Electrical contractors"
  },
  {
-  "headline": "Energization chain: electrical permit still open, 69 kV jumper unanswered by the utility, and nobody knows what the energization approval requires",
-  "title": "From the planning manager’s Oct 16 follow-up. Three items on the path from MC to energization have no closure date and two of them depend on third parties.",
-  "note": "<strong>ELECTRICAL PERMIT (item 6) — a CONTRACTUAL REQUIREMENT OF MC, still open, GreenSol scope, owner in contact with the electrical subcontractor, commitment date Oct 19. Having it requested is explicitly not enough.</strong> <strong>69 kV JUMPER (item 12) — the e-mail went out Oct 15 and the utility has not answered. The high-voltage cable test hangs off it.</strong> <strong>ENERGIZATION APPROVAL (item 9) — ten working days, and the documentation it requires is still unknown. The Oct 16 note reads \"nothing new\". Item 10, whether a client or utility energization request form even exists, is also unresolved.</strong> Also open on the same sheet: the wetland HDD head needs the state EGLE permit, pending since Oct 2 and in process; ten IE permits carry an asterisk and are still to be supplied; the utility metering equipment and the ownership of the UPS, battery-charger and capacitor/reactor-to-NGR tests are both being clarified with the Owner today. SUNGROW’s 11A pre-commissioning report was issued Oct 14 and sent Oct 15, with attendance required from about Oct 26. The SCADA integrator is connected remotely; the Starlink antenna status is to be confirmed.",
-  "level": "critical",
-  "owner": "Construction Manager | Planning Manager | Project Manager"
+  "headline": "Tracker deflection: 270 rows pending, 80% of them on 11B — and 40% need a cut pile or a welded beam",
+  "title": "Director of Construction’s own count, Oct 21, 2026 — no detailed register received.",
+  "note": "<strong>270 rows are still pending repair. About 80 per cent sit on circuit 11B, mostly Area E with some filed under Area C — roughly 216 rows — and 11B is the circuit whose outstanding tests are meant to close first.</strong> <strong>THREE PROCEDURES, RISING DIFFICULTY: re-grading without touching the piles; cutting the pile; welding in an extra beam. About 40 per cent of the 270 (≈108 rows) need the cutting or the welded beam to bring the grade below the 1 degree tolerance — that is the slow, hot-work half of the scope, and it is the part that will decide the duration.</strong> <strong>NO DETAILED REPORTING HAS BEEN RECEIVED. The last row-by-row register is the Sep 21 QA cut (390 affected, 53 fixed, 337 open), so the total is now superseded while the breakdown is not. Ask QA for the current register split by zone, by procedure and by circuit — without it there is no way to forecast the welded-beam work or to tie it to the 11B test programme.</strong> <strong>ATTRIBUTION TO CHECK: Area C rows cannot be on 11B under the circuit map (11B is Zone E throughout; Area C is 11A). Either the circuit or the area label is wrong on part of this count.</strong>",
+  "level": "high",
+  "owner": "QA/QC + racking"
+ },
+ {
+  "headline": "SET tests EXECUTED 74 of 74 — what is outstanding is the evidence pack to the Owner, not the testing",
+  "title": "Jose, Oct 15: 95 per cent of the 74 substation tests have already been done. The reports upload tonight and AB Power commits to the complete reporting on Monday 19 October. The register reads 0 passed because passed means a report received and accepted, not a test performed.",
+  "note": "<strong>Oct 30 — the figure is HELD, not re-measured: the tracker has now shipped twice without its COMMISSIONING tab.</strong> <strong>This resolves the question that ran all day. The register was never evidence that nothing had been tested — it is evidence that nothing had been REPORTED, exactly as the AB 205–227 matrix showed when its \"no evidence\" column turned out to mean no paperwork rather than no work. Same cause on three fronts today: 11B published at 8 of 220 LV terminations for twelve days, 12A with 7,531 ft and 844 assemblies unfiled, and this.</strong> <strong>NO TEST COUNT IS PUBLISHED OFF THE 95%. It is a stated figure, not a field count, so the register stays at 0 of 74 passed and moves only as reports are received. Tonight is the check: reports in, or the position has not changed.</strong> <strong>WHAT PAPERWORK STILL CANNOT CLOSE — the two rows the matrix documented as NOT done rather than not evidenced: Transformer T1 at 0 of 1, and MV/HV surge arresters at 2 of 13. If the 95% includes those, ask for them by name on tonight’s upload.</strong> Also still outside AB Power’s scope with no owner, while being predecessors of MC Achieved: the UPS battery and charger tests.",
+  "level": "high",
+  "owner": "Substation testing contractor PM | Commissioning Manager"
+ },
+ {
+  "headline": "Pile grounding is reported in three states and only one of them counts",
+  "title": "Grounding completion, Oct 27 and Oct 29, 2026 — hung, drilled and complete are not the same.",
+  "note": "<strong>Oct 27: 313 pile grounds reported — 189 complete and 124 hung without crimping to the messenger. Oct 29: 164 installed in Area B and 83 piles there drilled only.</strong> Nothing is added to an executed count until the crimp is made, so the hung and the drilled-only sit as notes. Grounding has also started in Area D with no quantity reported. The same discipline applies to the prefabricated supports: angles cut to length are not finished supports, and the Thursday part says so itself.",
+  "level": "watch",
+  "owner": "United Services"
+ },
+ {
+  "headline": "Messenger wire has landed and is going up; the 450 replacement fuses are still the open delivery",
+  "title": "Material position, Oct 29, 2026.",
+  "note": "<strong>The messenger wire is on site and being installed — 1,534 ft tensioned and 192 brackets over Wednesday and Thursday, with 3,655 ft pulled ahead of tensioning.</strong> Support hardware is in prefabrication rather than short, though a large part of it is only cut to length and not yet drilled: 334 aluminium and 191 iron angles in that state. The 450 fuses ordered on Oct 20 to replace the set mislaid are still awaiting arrival.",
+  "level": "watch",
+  "owner": "Procurement"
  }
 ],
  };
