@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261110a - NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
+// CACHE BUSTER 20261110b - GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -1912,7 +1912,7 @@ window.MURCH_DATA = {
 }, electricalTotal: {
  "asOf": "Oct 29, 2026 (executed through Thu Oct 29; MV terminations complete at 264 of 264, LV cable 257,764.4 lf after the single cable day of Tue Oct 27, substation disciplines complete)",
  "basis": "Weighted composite of the four electrical fronts by labour content",
- "gatePct": 79.4,
+ "gatePct": 98,
  "earnedPct": 91.69,
  "components": [
   {
@@ -1932,23 +1932,23 @@ window.MURCH_DATA = {
   {
    "name": "Inverter stations",
    "weight": 18,
-   "gate": 0,
+   "gate": 100,
    "earned": 87,
-   "note": "All 23 set, welded and repaired as of Aug 4 — the setting scope is complete and unchanged. Zero terminated, which is the gate measure."
+   "note": "<strong>Nov 10 (Director of Construction): gate measure restated — the MV inverter-side terminations are complete at 114 of 114, so the gate reads 100.</strong> PRIOR: All 23 set, welded and repaired as of Aug 4 — the setting scope is complete and unchanged. Zero terminated, which is the gate measure."
   },
   {
    "name": "Substation (SET)",
    "weight": 15,
-   "gate": 96,
+   "gate": 100,
    "earned": 100,
-   "note": "<strong>Oct 13 tracker: 96.0% physical EV; 234 of 257 activities; tests 0 of 74 with 71 overdue, two days to the Oct 15 deadline.</strong> <strong>Oct 9 tracker: 95.0% physical EV; 231 of 257 activities; tests 0 of 74 with 62 overdue against the Oct 15 deadline.</strong> <strong>Oct 6 daily report: 94.8% EV.</strong> <strong>Oct 5 daily report: 93.3% EV.</strong> <strong>Oct 3 tracker: 89.6% EV; tests 0 of 74; 39 overdue construction items.</strong> <strong>Sep 21 tracker: 66.3% (civil 97.7, structural 69.6, electrical 48.0) — 26.8 points behind the advanced plan (93.1% today).</strong> <strong>Sep 15: 63.3% (electrical 42.9).</strong> <strong>Sep 15 tracker: 63.1% — civil 97.6, structural 67.6, electrical 42.4 (+0.1)</strong>; 21.2 points behind the advanced plan (84.5% on Sep 16); equipment-installation window closes Sep 18."
+   "note": "<strong>Nov 9 tracker: 256 of 257 activities, all six disciplines at 100% — gate 100.</strong> <strong>Oct 13 tracker: 96.0% physical EV; 234 of 257 activities; tests 0 of 74 with 71 overdue, two days to the Oct 15 deadline.</strong> <strong>Oct 9 tracker: 95.0% physical EV; 231 of 257 activities; tests 0 of 74 with 62 overdue against the Oct 15 deadline.</strong> <strong>Oct 6 daily report: 94.8% EV.</strong> <strong>Oct 5 daily report: 93.3% EV.</strong> <strong>Oct 3 tracker: 89.6% EV; tests 0 of 74; 39 overdue construction items.</strong> <strong>Sep 21 tracker: 66.3% (civil 97.7, structural 69.6, electrical 48.0) — 26.8 points behind the advanced plan (93.1% today).</strong> <strong>Sep 15: 63.3% (electrical 42.9).</strong> <strong>Sep 15 tracker: 63.1% — civil 97.6, structural 67.6, electrical 42.4 (+0.1)</strong>; 21.2 points behind the advanced plan (84.5% on Sep 16); equipment-installation window closes Sep 18."
   }
  ],
  "note": "Weights within electrical (LV 45 / MV 22 / inverters 18 / SET 15) are labour-content based — LV/DC is the largest block of hours on the project. One electrical total across all four fronts. <strong>Sep 1 is the first day every LV front produced at once — trunk moving again, three harness crews including United’s overdue start — yet the composite gains barely half a point: the denominators are that large.</strong> The 20-electrician GreenSol crew ordered twice remains unfielded; the Inverter 11-12 change order still requires ECCS’s targets re-based."
 },
  projectTotal: {
- "asOf": "Oct 29, 2026 (piles, trackers, modules, civil and the substation all complete; MV terminations complete at 264 of 264; cable executed through Tue Oct 27 at 257,764.4 lf \u2014 Wed Oct 28 and Thu Oct 29 filed no DC footage. PRIOR basis: Oct 26, cable 250,666.4 lf)",
- "gatePct": 96.92,
+ "asOf": "Oct 29, 2026 (piles, trackers, modules, civil and the substation all complete; MV terminations complete at 264 of 264; cable executed through Tue Oct 27 at 257,764.4 lf — Wed Oct 28 and Thu Oct 29 filed no DC footage. PRIOR basis: Oct 26, cable 250,666.4 lf)",
+ "gatePct": 99.72,
  "earnedPct": 98.84,
  "weights": {
   "piles": 28,
@@ -1979,17 +1979,17 @@ window.MURCH_DATA = {
   {
    "name": "Electrical (LV + MV + inverters + SET)",
    "weight": 14,
-   "gate": 79.4,
+   "gate": 98,
    "earned": 91.69
   },
   {
    "name": "Civil (excl. substation)",
    "weight": 10,
-   "gate": 98,
+   "gate": 100,
    "earned": 100
   }
  ],
- "note": "Weighted physical completion, same weighting as the client report so the two documents always agree. RE-BASED Jul 30: the electrical component now covers all four electrical fronts (LV/DC, MV collection, inverter stations, substation) instead of LV cable alone, and civil excludes the substation to avoid double counting it — civil is now the mean of the five remaining civil activities, re-based Aug 6 to 98.0%. The total moved from 46.1% to 49.4% on Jul 30 because MV collection was not counted anywhere in the previous roll-up. Jul 31 added 1.3 points of gate progress, the largest single day of the project. <strong>Aug 5 added another 1.1 points of gate progress</strong>: 4,134 modules (the largest contribution), 33 tracker rows, 100 piles including the first 48 in Zone D, and 1,915 lf of cable. <strong>CIVIL RE-BASED Aug 6</strong> on the Aug 5 civil control sheet: internal roads closed Aug 4 and PS foundations Jul 24, basins moved 83 to 95, so civil (excl. substation) goes 87.2 to 98.0% and adds a further 1.1 points. <strong>Aug 24 closes at 75.1% gate / 76.4% earned - +1.1 gate points in one partial day, the best day since Aug 5: 60 tracker rows lifted trackers 78.1 → 80.5 and United’s 4,095 lifted modules 63.8 → 66.2, while piles, cable and MV stayed flat - which is exactly the shape of the problem.</strong> Previously: A Saturday with one producing crew still added 0.2 gate points, because the substation carried it: <strong>SET 34.3 → 38.9 lifted electrical 27.8 → 28.5</strong>, and Brumont’s 768 lifted modules 63.3 → 63.8. Trackers, piles and LV cable were all flat. <strong>The headline number is now the least useful figure on this page:</strong> 75% overall sits on top of an Aug 30 tracker gate that needs 97 rows/day against a demonstrated best of 97, a module rate of 5,275/day with Zone G still without a module front, and an LV line at 13.9% needing 10,746 lf/day. Tracker earned credits the 16 open B5 rows at 7.2 row-equivalents. <strong>Four and a half weeks remain to Mechanical Completion.</strong>"
+ "note": "<strong>Nov 10 — gate figure restated 96.92 → 99.72 on the Director of Construction’s instruction: three gate inputs were stale (inverter stations 0 → 100, substation 96 → 100, civil 98 → 100). Weights unchanged.</strong> Weighted physical completion, same weighting as the client report so the two documents always agree. RE-BASED Jul 30: the electrical component now covers all four electrical fronts (LV/DC, MV collection, inverter stations, substation) instead of LV cable alone, and civil excludes the substation to avoid double counting it — civil is now the mean of the five remaining civil activities, re-based Aug 6 to 98.0%. The total moved from 46.1% to 49.4% on Jul 30 because MV collection was not counted anywhere in the previous roll-up. Jul 31 added 1.3 points of gate progress, the largest single day of the project. <strong>Aug 5 added another 1.1 points of gate progress</strong>: 4,134 modules (the largest contribution), 33 tracker rows, 100 piles including the first 48 in Zone D, and 1,915 lf of cable. <strong>CIVIL RE-BASED Aug 6</strong> on the Aug 5 civil control sheet: internal roads closed Aug 4 and PS foundations Jul 24, basins moved 83 to 95, so civil (excl. substation) goes 87.2 to 98.0% and adds a further 1.1 points. <strong>Aug 24 closes at 75.1% gate / 76.4% earned - +1.1 gate points in one partial day, the best day since Aug 5: 60 tracker rows lifted trackers 78.1 → 80.5 and United’s 4,095 lifted modules 63.8 → 66.2, while piles, cable and MV stayed flat - which is exactly the shape of the problem.</strong> Previously: A Saturday with one producing crew still added 0.2 gate points, because the substation carried it: <strong>SET 34.3 → 38.9 lifted electrical 27.8 → 28.5</strong>, and Brumont’s 768 lifted modules 63.3 → 63.8. Trackers, piles and LV cable were all flat. <strong>The headline number is now the least useful figure on this page:</strong> 75% overall sits on top of an Aug 30 tracker gate that needs 97 rows/day against a demonstrated best of 97, a module rate of 5,275/day with Zone G still without a module front, and an LV line at 13.9% needing 10,746 lf/day. Tracker earned credits the 16 open B5 rows at 7.2 row-equivalents. <strong>Four and a half weeks remain to Mechanical Completion.</strong>"
 },
  earnedMethod: {
  adopted: 'Jul 30, 2026',
