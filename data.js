@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261110b - GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
+// CACHE BUSTER 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -4961,9 +4961,9 @@ window.MURCH_DATA = {
   "owner": "Planning"
  },
  {
-  "headline": "Tracker deflection: 270 rows pending, 80% of them on 11B — and 40% need a cut pile or a welded beam",
+  "headline": "Tracker deflection: 257 rows still open — 186 repaired but not approved, 71 not repaired",
   "title": "Director of Construction’s own count, Oct 21, 2026 — no detailed register received.",
-  "note": "<strong>270 rows are still pending repair. About 80 per cent sit on circuit 11B, mostly Area E with some filed under Area C — roughly 216 rows — and 11B is the circuit whose outstanding tests are meant to close first.</strong> <strong>THREE PROCEDURES, RISING DIFFICULTY: re-grading without touching the piles; cutting the pile; welding in an extra beam. About 40 per cent of the 270 (≈108 rows) need the cutting or the welded beam to bring the grade below the 1 degree tolerance — that is the slow, hot-work half of the scope, and it is the part that will decide the duration.</strong> <strong>NO DETAILED REPORTING HAS BEEN RECEIVED. The last row-by-row register is the Sep 21 QA cut (390 affected, 53 fixed, 337 open), so the total is now superseded while the breakdown is not. Ask QA for the current register split by zone, by procedure and by circuit — without it there is no way to forecast the welded-beam work or to tie it to the 11B test programme.</strong> <strong>ATTRIBUTION TO CHECK: Area C rows cannot be on 11B under the circuit map (11B is Zone E throughout; Area C is 11A). Either the circuit or the area label is wrong on part of this count.</strong>",
+  "note": "<strong>Deflection control of Oct 29: 513 rows affected, 442 repaired (86%), 256 repaired and approved. 257 remain open — 186 need a second pass and 71 are untouched (C 31, E 36, EW 4).</strong> Remedy for the open rows: extensions 91, pile cuts 78, welded extensions 55, grading 23, concrete footing 10. The control workbook’s two summary tabs disagree (513 vs 500 affected) — the row-count tab is used. PRIOR: <strong>270 rows are still pending repair. About 80 per cent sit on circuit 11B, mostly Area E with some filed under Area C — roughly 216 rows — and 11B is the circuit whose outstanding tests are meant to close first.</strong> <strong>THREE PROCEDURES, RISING DIFFICULTY: re-grading without touching the piles; cutting the pile; welding in an extra beam. About 40 per cent of the 270 (≈108 rows) need the cutting or the welded beam to bring the grade below the 1 degree tolerance — that is the slow, hot-work half of the scope, and it is the part that will decide the duration.</strong> <strong>NO DETAILED REPORTING HAS BEEN RECEIVED. The last row-by-row register is the Sep 21 QA cut (390 affected, 53 fixed, 337 open), so the total is now superseded while the breakdown is not. Ask QA for the current register split by zone, by procedure and by circuit — without it there is no way to forecast the welded-beam work or to tie it to the 11B test programme.</strong> <strong>ATTRIBUTION TO CHECK: Area C rows cannot be on 11B under the circuit map (11B is Zone E throughout; Area C is 11A). Either the circuit or the area label is wrong on part of this count.</strong>",
   "level": "high",
   "owner": "QA/QC + racking"
  },
@@ -5095,3 +5095,158 @@ window.MURCH_DATA = {
  }
  window.addEventListener('resize', function () { window.setTimeout(patchFieldResources, 50); });
 }());
+
+// CLOSE-OUT BLOCKS (added Nov 10, 2026): quality remediation and punch list, rendered by the close-out layout in index.html
+window.MURCH_DATA.deflection = {
+ "asOf": "control of Oct 29, 2026",
+ "total": {
+  "rows": 513,
+  "repaired": 442,
+  "approved": 256,
+  "notApproved": 186,
+  "notRepaired": 71
+ },
+ "zones": [
+  {
+   "z": "A",
+   "rows": 36,
+   "repaired": 36,
+   "approved": 20,
+   "notApproved": 16,
+   "notRepaired": 0
+  },
+  {
+   "z": "B",
+   "rows": 43,
+   "repaired": 43,
+   "approved": 9,
+   "notApproved": 34,
+   "notRepaired": 0
+  },
+  {
+   "z": "C",
+   "rows": 85,
+   "repaired": 54,
+   "approved": 26,
+   "notApproved": 28,
+   "notRepaired": 31
+  },
+  {
+   "z": "E",
+   "rows": 345,
+   "repaired": 309,
+   "approved": 201,
+   "notApproved": 108,
+   "notRepaired": 36
+  },
+  {
+   "z": "EW",
+   "rows": 4,
+   "repaired": 0,
+   "approved": 0,
+   "notApproved": 0,
+   "notRepaired": 4
+  }
+ ],
+ "openRows": 257,
+ "remedy": [
+  {
+   "t": "Extensions",
+   "n": 91
+  },
+  {
+   "t": "Pile cuts",
+   "n": 78
+  },
+  {
+   "t": "Welded extensions",
+   "n": 55
+  },
+  {
+   "t": "Grading / tap-down",
+   "n": 23
+  },
+  {
+   "t": "Concrete footing",
+   "n": 10
+  }
+ ],
+ "note": "Source: QA deflection tracker control dated Oct 29, 2026 (project SharePoint, saved Nov 3). Open rows = repaired but not approved (186) + not repaired (71) = 257, which matches the remedy breakdown. Approval criterion is the measured grade after repair. The workbook’s area-summary tab reads 500 affected and 428 repaired against 513 and 442 on its row-count tab; the row-count tab is published and the difference is flagged to QA. This supersedes the 270 pending stated on Oct 21."
+};
+window.MURCH_DATA.punchList = {
+ "asOf": "register of Oct 29, 2026 · responses dated Nov 5",
+ "tiles": [
+  {
+   "big": "145",
+   "label": "Items on the register",
+   "small": "5 source walks and audits"
+  },
+  {
+   "big": "143",
+   "label": "Open",
+   "small": "none marked in progress",
+   "cls": "co-bad"
+  },
+  {
+   "big": "2",
+   "label": "Closed",
+   "small": "",
+   "cls": "co-ok"
+  },
+  {
+   "big": "94",
+   "label": "High priority, open",
+   "small": "",
+   "cls": "co-bad"
+  },
+  {
+   "big": "45",
+   "label": "Medium, open",
+   "small": "",
+   "cls": "co-watch"
+  },
+  {
+   "big": "4",
+   "label": "Low, open",
+   "small": ""
+  }
+ ],
+ "head": [
+  "Discipline",
+  "Items",
+  "Open"
+ ],
+ "rows": [
+  [
+   "Electrical",
+   "59",
+   "58"
+  ],
+  [
+   "Environmental",
+   "31",
+   "31"
+  ],
+  [
+   "MV electrical",
+   "10",
+   "10"
+  ],
+  [
+   "SCADA / comms",
+   "10",
+   "10"
+  ],
+  [
+   "Structural",
+   "10",
+   "10"
+  ],
+  [
+   "Other (civil, mechanical, modules, safety, building)",
+   "25",
+   "24"
+  ]
+ ],
+ "note": "Source: construction punch-list register dated Oct 29, 2026 (project SharePoint, saved Nov 9), with EPC responses dated Nov 5. Items come from the site visit notes of Aug 25–26 (46), the inverter-manual review of Oct 7 (9), the environmental compliance audit of Oct 6 (30), the site notes of Oct 21 (57) and the project team (3). The EPC is sole responsible party on 122 of the 143 open items. <strong>The status column has not moved: 143 open and none in progress, although responses are logged against the items — closures are not being recorded.</strong> Largest open groups by location: inverter DC feeder terminations 9, combiner boxes 8, MV collection 8, substation 8."
+};
