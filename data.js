@@ -1,12 +1,12 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
+// CACHE BUSTER 20261111b - DAILY SWEEP Nov 11. (1) PERMIT NUMBERS CORRECTED: LTE26-046 = 11A + 11B (licensed contractor of record for that scope, issued and sent to the Owner Oct 29) - this is the permit whose final electrical inspection PASSED Nov 11 (township approval tag). LTE26-047 = 12A + 12B (the second electrical contractor's scope, sent to the Owner Nov 6) - final inspection not yet booked. The 20261111a cut had the two numbers swapped. (2) LIENS: Dig IT recorded release of claim of lien (dated Nov 10) sent to the Owner Nov 11 - CLOSED; All State Crane - payment evidence sent to the Owner Nov 4, release from the claimant still awaited. (3) TVANT GEO cut Nov 11: IV 195 -> 256 of 492 samples (302 measurements, 241 validated, 61 pending review), 11B 109/110, 12A opens at 44/110, 12B 0; inverter precommissioning now counted per inverter 20 of 23 (12B 3 of 6); MCU 9 -> 12 of 13; Vdc 400/419, grounding 18/23, OTDR 3/4 unchanged. (4) SAFETY on the GreenSol EHS dashboard (revised totals Nov 10, through Oct 31): 250,323 h to date, 303 days without recordable, TRIR 0.00, DART 0.00 - published as the safety basis; the week-45 weekly figure 250,421 at Nov 6 is flagged as a divergence. (5) No daily production report since Oct 29 - quantities hold. LV DC tracker re-cut Nov 11 (16 LBD boxes, 11,395 ft, no daily log) not added. PRIOR 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
  "pvFieldTests": {
- "asOf": "TVANT commissioning portal (GEO), cut Wed Nov 4, 2026 (published 21:26 UTC)",
+ "asOf": "TVANT commissioning portal (GEO), cut Wed Nov 11, 2026 (published 16:35 UTC)",
  "source": "https://tvantuasworks.github.io/Murch-GEO-Dashboard/ — TVANT / GreenSol client portal. The earlier portal address stopped at its Oct 30 cut.",
  "basis": "The portal counts DOCUMENTARY COVERAGE, not electrical acceptance; Vdc may include legacy unclassified records. A test reading complete here does not retire a known field failure.",
  "scopeNote": "Vdc 419 LBD (92 / 110 / 110 / 107, matching this ledger’s own take-off). Grounding resistance 23 inverters, grounding continuity 23 blocks. IV sampling 492 string samples since the Nov 4 re-base (165 / 110 / 110 / 107). VLF, OTDR and precommissioning by circuit (4). SCADA: inverter fibre loop 23, control boxes by circuit (4), MCU 13, weather stations 3.",
@@ -36,20 +36,20 @@ window.MURCH_DATA = {
    "unit": "blocks"
   },
   {
-   "t": "IV curve — string samples (sample re-based Nov 4)",
+   "t": "IV curve — string samples",
    "scope": 492,
-   "done": 195,
-   "open": 297,
-   "pct": 39.63,
+   "done": 256,
+   "open": 236,
+   "pct": 52.03,
    "unit": "samples"
   },
   {
    "t": "Inverter precommissioning inspection",
-   "scope": 4,
-   "done": 3,
-   "open": 1,
-   "pct": 75,
-   "unit": "circuits"
+   "scope": 23,
+   "done": 20,
+   "open": 3,
+   "pct": 86.96,
+   "unit": "inverters"
   },
   {
    "t": "SCADA — inverter fibre loop",
@@ -70,9 +70,9 @@ window.MURCH_DATA = {
   {
    "t": "SCADA — MCU communications",
    "scope": 13,
-   "done": 9,
-   "open": 4,
-   "pct": 69.23,
+   "done": 12,
+   "open": 1,
+   "pct": 92.31,
    "unit": "equipment"
   },
   {
@@ -176,29 +176,29 @@ window.MURCH_DATA = {
    "cont": "5/5",
    "vlf": "100%",
    "otdr": "1/1",
-   "precomm": "1/1",
+   "precomm": "5/5",
    "scada": "5/5"
   },
   {
    "c": "11B",
    "vdc": "110/110",
-   "iv": "92/110 samples",
+   "iv": "109/110 samples",
    "ground": "6/6",
    "cont": "6/6",
    "vlf": "100%",
    "otdr": "1/1",
-   "precomm": "1/1",
+   "precomm": "6/6",
    "scada": "6/6"
   },
   {
    "c": "12A",
    "vdc": "109/110",
-   "iv": "0/110 samples",
+   "iv": "44/110 samples",
    "ground": "6/6",
    "cont": "6/6",
    "vlf": "100%",
    "otdr": "1/1",
-   "precomm": "1/1",
+   "precomm": "6/6",
    "scada": "6/6"
   },
   {
@@ -209,16 +209,16 @@ window.MURCH_DATA = {
    "cont": "1/6",
    "vlf": "100%",
    "otdr": "0/1",
-   "precomm": "0/1",
+   "precomm": "3/6",
    "scada": "6/6"
   }
  ],
- "trend": "<strong>Vdc: Oct 20 277 → Oct 26 341 → Oct 30 381 → Nov 4 400.</strong> VLF 2.6 → 4 of 4; OTDR 2 → 3 of 4; inverter fibre loop 17 → 23 of 23. Grounding resistance and continuity hold at 18 of 23 since Oct 20 — every open one is on 12B. The portal has not published a cut since Nov 4.",
- "ivNote": "<strong>TVANT re-based the IV sample on Nov 4: scope 752 → 492 string samples, with 195 counted against it (241 measurements taken, all 241 validated).</strong> On the old basis the count was 205 of 752. By circuit: 11A 103 of 165, 11B 92 of 110, 12A 0 of 110, 12B 0 of 107. The 11A figure reads LOWER than the 149 published Oct 30 and the portal gives no explanation — flagged, question open with the test supervisor.",
+ "trend": "<strong>Vdc: Oct 20 277 → Oct 26 341 → Oct 30 381 → Nov 4 400.</strong> VLF 2.6 → 4 of 4; OTDR 2 → 3 of 4; inverter fibre loop 17 → 23 of 23. Grounding resistance and continuity hold at 18 of 23 since Oct 20 — every open one is on 12B. IV Nov 4 195 → Nov 11 256 of 492. Inverter precommissioning is now counted per inverter: 20 of 23 (12B 3 of 6). MCU communications 9 → 12 of 13.",
+ "ivNote": "<strong>IV sampling 256 of 492 string samples (Nov 11), up from 195 on Nov 4.</strong> 302 measurements taken: 241 validated, 61 pending review. By circuit: 11A 103 of 165 (flat — still below the 149 shown Oct 30, question open with the test supervisor), 11B 109 of 110, 12A opens at 44 of 110, 12B 0 of 107.",
  "vlfNote": "<strong>VLF reads 100% on all four circuits (Nov 4).</strong> 12A, which read 0% on Oct 30, has closed, and 11B has moved from 60% to 100%.",
- "concentration": "12B carries 18 of the 19 open Vdc records and all 18 are zone D, which is still untouched at 0 of 18. 12B also holds every open grounding record (5 of 6 inverters), the open OTDR and the open precommissioning inspection. 11A and 11B are closed on everything except IV sampling.",
+ "concentration": "12B carries 18 of the 19 open Vdc records and all 18 are zone D, which is still untouched at 0 of 18. 12B also holds every open grounding record (5 of 6 inverters), the open OTDR and 3 of the 6 open precommissioning inspections. 11A and 11B are closed on everything except IV sampling (11B one sample short).",
  "otdrCaveat": "<strong>OTDR reads 3 of 4 complete (11A, 11B, 12A) — documentary coverage, not acceptance.</strong> The October 11A fibre result that returned unacceptable values is taken as closed by the mechanical-completion grant for 11A; no re-test record has been seen in this sweep.",
- "headline": "Vdc 400 of 419; VLF 4 of 4; inverter fibre loop 23 of 23; IV re-based to 195 of 492; 12B holds what is open"
+ "headline": "IV 256 of 492 — 12A started; precommissioning 20 of 23; Vdc 400 of 419; 12B holds what is open"
 },
  "selfPerform": {
   "asOf": "Executed through Oct 12, 2026 — the GreenSol crew log, re-read from SharePoint on Oct 21",
@@ -274,8 +274,8 @@ window.MURCH_DATA = {
   "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
- "asOfShort": "Nov 11 — inspección eléctrica final 11A+11B aprobada · MC 11A + 11B concedido · 12A entregado · energización ~Nov 19",
- "asOf": "<strong>Nov 9 — NO DAILY PRODUCTION REPORT HAS BEEN FILED SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> Mechanical completion is granted for circuits 11A and 11B; the 12A package was submitted Nov 3; 12B is the only circuit open, with stations 8 and 10 pending on the Nov 6 weekly. Township electrical permit LTE26-047 (issued Nov 5): <strong>final electrical inspection of 11A and 11B PASSED Wed Nov 11</strong> — approval tag issued by the township inspector. PV tests (TVANT portal, cut Nov 4): Vdc 400 of 419, VLF 4 of 4, OTDR 3 of 4, inverter fibre loop 23 of 23; the IV sample was re-based to 195 of 492. Substation tracker Nov 9: 256 of 257 items, the one open item being utility coordination for first energization. Energization is targeted Nov 19–20. Man-hours 250,421 on the Nov 6 weekly, zero lost-time and zero recordables.",
+ "asOfShort": "Nov 11 — final eléctrica 11A+11B aprobada · lien Dig IT liberado · IV 256/492 · energización ~Nov 19",
+ "asOf": "<strong>Nov 11 sweep (data Nov 9) — NO DAILY PRODUCTION REPORT HAS BEEN FILED SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> Mechanical completion is granted for circuits 11A and 11B; the 12A package was submitted Nov 3; 12B is the only circuit open, with stations 8 and 10 pending on the Nov 6 weekly. Township electrical permits: LTE26-046 (11A + 11B, Oct 29) — <strong>final electrical inspection PASSED Wed Nov 11</strong>; LTE26-047 (12A + 12B, sent Nov 6) — final not yet booked. <strong>Dig IT lien release recorded and sent Nov 11</strong>; All State Crane release still awaited. PV tests (TVANT portal, cut Nov 4): Vdc 400 of 419, VLF 4 of 4, OTDR 3 of 4, inverter fibre loop 23 of 23; the IV sample was re-based to 195 of 492. Substation tracker Nov 9: 256 of 257 items, the one open item being utility coordination for first energization. Energization is targeted Nov 19–20. Man-hours 250,421 on the Nov 6 weekly, zero lost-time and zero recordables.",
  "asOfISO": "2026-11-09",
  "piles": {
   "installed": 31352,
@@ -593,10 +593,10 @@ window.MURCH_DATA = {
   "name": "Mechanical Completion"
  },
  "safetyHours": {
-  "value": 250421,
-  "asOf": "Nov 6, 2026",
-  "asOfISO": "2026-11-06",
-  "source": "weekly construction report, week 45",
+  "value": 250323,
+  "asOf": "Oct 31, 2026",
+  "asOfISO": "2026-10-31",
+  "source": "GreenSol EHS performance dashboard (revised monthly totals supplied Nov 10)",
   "prev": {
    "value": 246745,
    "asOf": "Oct 23, 2026",
@@ -649,19 +649,19 @@ window.MURCH_DATA = {
     "src": "site safety banner"
    },
    {
-    "d": "Nov 6",
-    "c": 250421,
-    "src": "weekly construction report W45"
+    "d": "Oct 31",
+    "c": 250323,
+    "src": "GreenSol EHS dashboard, month-end"
    }
   ],
   "seriesNote": "Every point is a REPORTED cumulative reading from EHS — no interpolation and no modelled curve. The register only carries cumulative readings from Aug 24 onward, so the curve starts there rather than at the start of construction. Slope between two points is real man-hours worked, not an estimate: Aug 27 → Sep 17 ran at about 1,800 h per calendar day, Sep 17 → Oct 5 at about 1,534, and Oct 5 → Oct 15 at about 787 — the demobilisation into close-out, visible in the flattening tail.",
   "impliedHeadcount": 59,
   "impliedNote": "The weekly construction report books 3,524 man-hours in week 45 and 3,089 in week 44 — about 59 and 51 people a day at 10 h over six days. That is the demobilisation tail: down from about 106 a day across Oct 16–23. NOTE: the weekly register (250,421 at Nov 6) and the site safety banner (246,745 at Oct 23) are two registers and do not reconcile week by week — about 2,900 h apart. Both are reported readings; neither is modelled."
  },
- "safetyBasis": "Site safety banner photographed Oct 23, 2026: 246,745 safe man-work hours without recordable accidents (up from 239,337 at Oct 15). No headcount board has been received since Sep 17, so the days-LTI-free counter is still held on the last register and is not advanced on the calendar."
+ "safetyBasis": "GreenSol EHS performance dashboard, through Oct 31, 2026: 250,323 hours to date, 303 days without a recordable, TRIR 0.00, DART 0.00. The week-45 weekly figure (250,421 at Nov 6) is flagged as a divergence, not published."
 },
- safetyDaysLtiFree: 337,
- safetyBasis: "Weekly construction report, week 45 (Nov 6, 2026): 250,421 man-hours to date, zero lost-time incidents and zero recordables. No EHS headcount board has been received since Sep 17, so the days-without-LTI counter is HELD on its last register. All-hands safety meeting called for Tue Nov 10.",
+ safetyDaysLtiFree: 303,
+ safetyBasis: "GreenSol EHS performance dashboard, through Oct 31, 2026 (revised monthly totals supplied Nov 10): 250,323 hours to date, 303 days without a recordable at month-end, TRIR 0.00, DART 0.00, zero recordable and zero DART cases YTD. DIVERGENCE for ruling: the week-45 weekly report gives 250,421 at Nov 6 while also claiming 3,524 h that week — it cannot sit only 98 h above the EHS month-end. The old 337-day LTI counter is retired in favour of the EHS days-without-recordable.",
  wipReportingRule: {
  adopted: 'Jul 30, 2026 (Jose Romero)',
  rule: 'A <strong>Reported count of unfinished trackers is</strong> A <strong>Snapshot, never an increment</strong>. When a subcontractor reports partial rows, that number is a photograph of the total partial rows standing in the project for that crew at that moment. It REPLACES the previous open-row figure for that crew; it is never added to the rows they reported open on earlier days.',
@@ -1475,8 +1475,8 @@ window.MURCH_DATA = {
  asOf: 'September 2026 close',
  issued: 'Oct 5, 2026',
  source: 'Iván J. Alicea, Country EHS Manager USA — general health & safety rates, Greening Group USA (September 2026 pack)',
- eyebrow: 'Health & safety | Murch site KPI workbook to Oct 5 · corporate rates, September close',
- head: 'Zero lost-time, recordable and days-away injuries all year — every rate at 0.00',
+ eyebrow: 'Health & safety | GreenSol EHS dashboard, YTD through Oct 31 (revised Nov 10)',
+ head: '250,323 hours, zero recordable and zero DART cases — TRIR and DART 0.00',
  kpi: { incidence: 100, frequency: 4.0, severity: 0.30 },
  chartMax: 1,
  cards: [
@@ -4114,7 +4114,7 @@ window.MURCH_DATA = {
 },
  // ---- DOCUMENT SUBMITTALS (added Oct 3, 2026 at Jose's request) — transmittals to the Owner, Owner requests for documents, and what is owed. Numbers and roles only; no personal names.
  submittals: {
- "asOf": "Nov 9, 2026",
+ "asOf": "Nov 11, 2026",
  "counts": {
   "sent": 14,
   "owed": 20,
@@ -4149,13 +4149,40 @@ window.MURCH_DATA = {
    "next": "12A and 12B to follow; plant-wide request next week"
   },
   {
-   "ref": "PERMIT-LTE26-047",
-   "date": "Nov 5",
+   "ref": "LIEN-DIGIT",
+   "date": "Nov 11",
    "dir": "To Owner",
-   "what": "Township electrical permit LTE26-047 issued Nov 5 (solar PV DC wiring, 11 inverters, feeders; expires May 5, 2027) and sent to the Owner Nov 6. Final electrical inspection of 11A and 11B PASSED Wed Nov 11 — township approval tag (electrical, final) on file.",
+   "what": "Recorded release of claim of lien — Dig IT (dated Nov 10), sent on the MC punch-list thread.",
+   "status": "Released",
+   "badge": "ok",
+   "next": "Closed"
+  },
+  {
+   "ref": "LIEN-ALLSTATE",
+   "date": "Nov 4",
+   "dir": "To Owner",
+   "what": "All State Crane lien (claim against a racking subcontractor): payment evidence sent to the Owner; release from the claimant awaited.",
+   "status": "Release awaited",
+   "badge": "watch",
+   "next": "Obtain the recorded release and send it"
+  },
+  {
+   "ref": "PERMIT-LTE26-046",
+   "date": "Oct 29",
+   "dir": "To Owner",
+   "what": "Township electrical permit LTE26-046 for 11A + 11B, sent with the fee receipt Oct 29. Final electrical inspection PASSED Wed Nov 11 — township approval tag on file, official notification to follow.",
    "status": "Final passed",
    "badge": "ok",
-   "next": "File the tag; send to Owner with MC pack"
+   "next": "Send the official notification when issued"
+  },
+  {
+   "ref": "PERMIT-LTE26-047",
+   "date": "Nov 6",
+   "dir": "To Owner",
+   "what": "Township electrical permit LTE26-047 for 12A + 12B (second electrical contractor's scope), sent to the Owner Nov 6. Occupancy and use are not authorised until its final inspection is complete.",
+   "status": "Issued",
+   "badge": "ok",
+   "next": "Book the final once 12B closes"
   },
   {
    "ref": "PE-INSP-01",
@@ -4703,7 +4730,7 @@ window.MURCH_DATA = {
   "tests": {
    "ivRequired": 6600,
    "ivPlanned": 1500,
-   "basis": "Contract: 100% string sampling. Plan: ~20% now (autumn irradiance), balance proposed for spring 2027 with thermography — needs the Owner’s agreement. The commissioning portal runs its own sampling scope of 752 string samples (396 sample LBDs + 23 full LBDs); 131 are measured and validated, all on 11A."
+   "basis": "Contract: 100% string sampling. Plan: ~20% now (autumn irradiance), balance proposed for spring 2027 with thermography — needs the Owner’s agreement. The commissioning portal runs its own sampling scope of 492 string samples since Nov 4; 256 are counted at the Nov 11 cut."
   },
   "resources": [
    {
@@ -4777,10 +4804,10 @@ window.MURCH_DATA = {
    }
   ],
   "fieldTests": {
-   "asOf": "Nov 4 (TVANT commissioning portal)",
-   "irStrings": 195,
+   "asOf": "Nov 11 (TVANT commissioning portal)",
+   "irStrings": 256,
    "irScope": 492,
-   "detail": "<strong>TVANT re-based the IV sample on Nov 4: scope 752 → 492 string samples, with 195 counted against it (241 measurements taken, all 241 validated).</strong> On the old basis the count was 205 of 752. By circuit: 11A 103 of 165, 11B 92 of 110, 12A 0 of 110, 12B 0 of 107. The 11A figure reads LOWER than the 149 published Oct 30 and the portal gives no explanation — flagged, question open with the test supervisor."
+   "detail": "<strong>IV 256 of 492 string samples (Nov 11), up from 195 on Nov 4.</strong> 241 validated, 61 pending review. By circuit: 11A 103 of 165, 11B 109 of 110, 12A 44 of 110, 12B 0 of 107."
   },
   "stepTouch": "Step-and-touch tests at the substation to be executed by the substation contractor (equipment cost).",
   "readiness": [
@@ -4883,8 +4910,8 @@ window.MURCH_DATA = {
    {
     "name": "IV curve campaign",
     "plan": "Oct–Nov",
-    "now": "195/492",
-    "note": "sample re-based Nov 4; 12A and 12B at zero"
+    "now": "256/492",
+    "note": "12A started Nov 11 cut; 12B at zero"
    },
    {
     "name": "Substantial Completion",
@@ -4919,23 +4946,23 @@ window.MURCH_DATA = {
   "owner": "Construction + Procurement"
  },
  {
-  "headline": "Liens must be discharged for the MC documentation — one still waits on a bond promised for two weeks",
-  "title": "Lien discharge, Nov 9, 2026 — first item on the MC documentation review.",
-  "note": "<strong>Three liens were listed on the Nov 2 review.</strong> One has been largely settled with release requested; one is to be settled directly; the third depends on a bond that has not been produced. The township discharge process was to be confirmed with the Owner. No values are shown on this page.",
+  "headline": "Liens: Dig IT release recorded and sent Nov 11; All State Crane release still awaited",
+  "title": "Lien discharge, Nov 11, 2026 — first item on the MC documentation review.",
+  "note": "<strong>Dig IT: recorded release of claim of lien (dated Nov 10) sent to the Owner on the MC punch-list thread Nov 11 — closed.</strong> All State Crane (claim against a racking subcontractor): payment evidence sent to the Owner Nov 4; the release from the claimant has not been received. Chase the recorded release and send it the day it arrives. No values are shown on this page.",
   "level": "high",
   "owner": "Contracts + Finance"
  },
  {
-  "headline": "12B holds every open test: 18 Vdc records in zone D, 5 of 6 groundings, OTDR and precommissioning",
-  "title": "PV field tests, TVANT portal cut Nov 4, 2026.",
-  "note": "<strong>Vdc 400 of 419 — 18 of the 19 open records are 12B, all in zone D, untouched at 0 of 18.</strong> Grounding resistance and continuity have not moved from 18 of 23 since Oct 20. OTDR 3 of 4 and precommissioning 3 of 4, both open on 12B. The portal has not published since Nov 4.",
+  "headline": "12B holds every open test: 18 Vdc records in zone D, 5 of 6 groundings, OTDR and 3 of 6 precommissioning",
+  "title": "PV field tests, TVANT portal cut Nov 11, 2026.",
+  "note": "<strong>Vdc 400 of 419 — 18 of the 19 open records are 12B, all in zone D, untouched at 0 of 18.</strong> Grounding resistance and continuity have not moved from 18 of 23 since Oct 20. OTDR 3 of 4 open on 12B; inverter precommissioning 20 of 23, the three open all on 12B. No movement on Vdc or grounding between the Nov 4 and Nov 11 cuts.",
   "level": "high",
   "owner": "Commissioning"
  },
  {
-  "headline": "IV sample re-based to 195 of 492 — 11A reads lower than on Oct 30, and 12A and 12B are at zero",
-  "title": "IV curve sampling, TVANT portal cut Nov 4, 2026.",
-  "note": "<strong>TVANT re-based the IV sample on Nov 4: scope 752 → 492 string samples, with 195 counted against it (241 measurements taken, all 241 validated).</strong> On the old basis the count was 205 of 752. By circuit: 11A 103 of 165, 11B 92 of 110, 12A 0 of 110, 12B 0 of 107. The 11A figure reads LOWER than the 149 published Oct 30 and the portal gives no explanation — flagged, question open with the test supervisor. 12A is submitted for mechanical completion with no IV sample recorded; confirm what the Owner accepts as the IV basis per circuit.",
+  "headline": "IV 256 of 492 — 12A has started (44/110), 12B at zero, 11A flat at 103/165",
+  "title": "IV curve sampling, TVANT portal cut Nov 11, 2026.",
+  "note": "<strong>IV sampling moved 195 → 256 of 492 in a week.</strong> 11B is one sample short (109/110); 12A opened at 44 of 110; 12B is at 0 of 107. 11A still reads 103 of 165, below the 149 shown Oct 30 — no explanation from the portal, question open with the test supervisor. 61 measurements are pending review. Confirm what the Owner accepts as the IV basis per circuit for MC.",
   "level": "high",
   "owner": "Commissioning + QA/QC"
  },
@@ -4982,9 +5009,9 @@ window.MURCH_DATA = {
   "owner": "Construction Manager | QA/QC | Engineering | Electrical contractors"
  },
  {
-  "headline": "Electrical final PASSED Nov 11 for 11A + 11B — 12A/12B inspection and substation permit filing remain",
-  "title": "Electrical permit LTE26-047, final inspection Nov 11, 2026.",
-  "note": "<strong>Michigan Code Inspections approved the final electrical inspection on Wed Nov 11</strong> (green tag, electrical, final) — the LTE26-047 scope, circuits 11A and 11B, 11 inverters; the inspector reviewed the inverters and distribution boxes. Still open: 12A and 12B sit outside LTE26-047 and need their own permit coverage and final; the substation permit (reported obtained Nov 9) is still to be seen and filed; the engineer’s minor items remain open.",
+  "headline": "Electrical final PASSED Nov 11 for 11A + 11B — the 12A + 12B final under LTE26-047 is not yet booked",
+  "title": "Township electrical permits LTE26-046 and LTE26-047, Nov 11, 2026.",
+  "note": "<strong>LTE26-046 (11A + 11B): final electrical inspection approved Wed Nov 11</strong> — township approval tag (electrical, final); the inspector reviewed inverters and distribution boxes; official notification to follow. <strong>LTE26-047 (12A + 12B, second electrical contractor) was sent to the Owner Nov 6; its final inspection is not yet booked</strong> — book it as soon as 12B closes. The substation goes by third-party PE certification; the engineer’s minor items remain open.",
   "level": "watch",
   "owner": "Construction + Permits"
  }
