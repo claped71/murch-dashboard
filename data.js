@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
+// CACHE BUSTER 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -274,8 +274,8 @@ window.MURCH_DATA = {
   "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
- "asOfShort": "Nov 9 — MC 11A + 11B concedido · 12A entregado · Vdc 400/419 · VLF 4/4 · energización ~Nov 19 · proyecto 98.84%",
- "asOf": "<strong>Nov 9 — NO DAILY PRODUCTION REPORT HAS BEEN FILED SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> Mechanical completion is granted for circuits 11A and 11B; the 12A package was submitted Nov 3; 12B is the only circuit open, with stations 8 and 10 pending on the Nov 6 weekly. Township electrical permit LTE26-047 was issued Nov 5 and the final inspection of 11A and 11B is set for Wed Nov 11. PV tests (TVANT portal, cut Nov 4): Vdc 400 of 419, VLF 4 of 4, OTDR 3 of 4, inverter fibre loop 23 of 23; the IV sample was re-based to 195 of 492. Substation tracker Nov 9: 256 of 257 items, the one open item being utility coordination for first energization. Energization is targeted Nov 19–20. Man-hours 250,421 on the Nov 6 weekly, zero lost-time and zero recordables.",
+ "asOfShort": "Nov 11 — inspección eléctrica final 11A+11B aprobada · MC 11A + 11B concedido · 12A entregado · energización ~Nov 19",
+ "asOf": "<strong>Nov 9 — NO DAILY PRODUCTION REPORT HAS BEEN FILED SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> Mechanical completion is granted for circuits 11A and 11B; the 12A package was submitted Nov 3; 12B is the only circuit open, with stations 8 and 10 pending on the Nov 6 weekly. Township electrical permit LTE26-047 (issued Nov 5): <strong>final electrical inspection of 11A and 11B PASSED Wed Nov 11</strong> — approval tag issued by the township inspector. PV tests (TVANT portal, cut Nov 4): Vdc 400 of 419, VLF 4 of 4, OTDR 3 of 4, inverter fibre loop 23 of 23; the IV sample was re-based to 195 of 492. Substation tracker Nov 9: 256 of 257 items, the one open item being utility coordination for first energization. Energization is targeted Nov 19–20. Man-hours 250,421 on the Nov 6 weekly, zero lost-time and zero recordables.",
  "asOfISO": "2026-11-09",
  "piles": {
   "installed": 31352,
@@ -4152,10 +4152,10 @@ window.MURCH_DATA = {
    "ref": "PERMIT-LTE26-047",
    "date": "Nov 5",
    "dir": "To Owner",
-   "what": "Township electrical permit LTE26-047 issued Nov 5 (solar PV DC wiring, 11 inverters, feeders; expires May 5, 2027) and sent to the Owner Nov 6. Occupancy and use are not authorised until the final inspection is complete.",
-   "status": "Issued",
+   "what": "Township electrical permit LTE26-047 issued Nov 5 (solar PV DC wiring, 11 inverters, feeders; expires May 5, 2027) and sent to the Owner Nov 6. Final electrical inspection of 11A and 11B PASSED Wed Nov 11 — township approval tag (electrical, final) on file.",
+   "status": "Final passed",
    "badge": "ok",
-   "next": "Final inspection 11A + 11B, Wed Nov 11"
+   "next": "File the tag; send to Owner with MC pack"
   },
   {
    "ref": "PE-INSP-01",
@@ -4912,13 +4912,6 @@ window.MURCH_DATA = {
   "owner": "SET + Commissioning"
  },
  {
-  "headline": "Final electrical inspection of 11A and 11B is Wed Nov 11 — the permit only closes on a pass",
-  "title": "Electrical permit LTE26-047, issued Nov 5, 2026.",
-  "note": "<strong>The permit authorises no occupancy or use until the final inspection is complete.</strong> The inspection of 11A and 11B is booked for Wednesday Nov 11; whether it covers the whole field is not confirmed. The engineer’s inspection items are minor but open. The substation permit is reported as obtained (Nov 9); the document was not seen in this sweep — confirm and file it.",
-  "level": "high",
-  "owner": "Construction + Permits"
- },
- {
   "headline": "Inverter access: backfill around 23 inverters decided, no start date — the Owner has asked twice",
   "title": "Inverter access, Nov 9, 2026 — a mechanical-completion exposure.",
   "note": "<strong>The steel-platform option was never approved or ordered and its lead time rules it out.</strong> The decision is to backfill and raise the grade around all 23 inverters. An offer is in hand; the award and a start date are not. Earthworks capacity is tightening with winter.",
@@ -4987,6 +4980,13 @@ window.MURCH_DATA = {
   "note": "Punch list stays open for MC; Owner will update before SC. The hanger ruling affects the golden-row CAB-gap detail on every row series-connected so far.",
   "level": "critical",
   "owner": "Construction Manager | QA/QC | Engineering | Electrical contractors"
+ },
+ {
+  "headline": "Electrical final PASSED Nov 11 for 11A + 11B — 12A/12B inspection and substation permit filing remain",
+  "title": "Electrical permit LTE26-047, final inspection Nov 11, 2026.",
+  "note": "<strong>Michigan Code Inspections approved the final electrical inspection on Wed Nov 11</strong> (green tag, electrical, final) — the LTE26-047 scope, circuits 11A and 11B, 11 inverters; the inspector reviewed the inverters and distribution boxes. Still open: 12A and 12B sit outside LTE26-047 and need their own permit coverage and final; the substation permit (reported obtained Nov 9) is still to be seen and filed; the engineer’s minor items remain open.",
+  "level": "watch",
+  "owner": "Construction + Permits"
  }
 ],
  };
