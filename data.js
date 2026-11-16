@@ -1,225 +1,225 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261111c - hero summary and status line switched to English (Director of Construction, Nov 11). PRIOR 20261111b - DAILY SWEEP Nov 11. (1) PERMIT NUMBERS CORRECTED: LTE26-046 = 11A + 11B (licensed contractor of record for that scope, issued and sent to the Owner Oct 29) - this is the permit whose final electrical inspection PASSED Nov 11 (township approval tag). LTE26-047 = 12A + 12B (the second electrical contractor's scope, sent to the Owner Nov 6) - final inspection not yet booked. The 20261111a cut had the two numbers swapped. (2) LIENS: Dig IT recorded release of claim of lien (dated Nov 10) sent to the Owner Nov 11 - CLOSED; All State Crane - payment evidence sent to the Owner Nov 4, release from the claimant still awaited. (3) TVANT GEO cut Nov 11: IV 195 -> 256 of 492 samples (302 measurements, 241 validated, 61 pending review), 11B 109/110, 12A opens at 44/110, 12B 0; inverter precommissioning now counted per inverter 20 of 23 (12B 3 of 6); MCU 9 -> 12 of 13; Vdc 400/419, grounding 18/23, OTDR 3/4 unchanged. (4) SAFETY on the GreenSol EHS dashboard (revised totals Nov 10, through Oct 31): 250,323 h to date, 303 days without recordable, TRIR 0.00, DART 0.00 - published as the safety basis; the week-45 weekly figure 250,421 at Nov 6 is flagged as a divergence. (5) No daily production report since Oct 29 - quantities hold. LV DC tracker re-cut Nov 11 (16 LBD boxes, 11,395 ft, no daily log) not added. PRIOR 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
+// CACHE BUSTER 20261116a - PUNCH LIST from the CM update (Teams, Nov 16) of the Nov 13 register: 145 items, EPC status 60 closed / 15 pending closure / 8 under review / 62 open; Owner column 3 closed. TVANT GEO cut Nov 12: IV 316 of 479 (re-based from 492; 11A 149/152), all validated; OTDR 4/4; grounding resistance 20/23. SET backfeed Nov 19; ICCP/PJM test escalation; environmental permit HQQ received; remediation follow-up owed. LV DC tracker Nov 16 (99.8% cable, 838/838 inverter lugs on its own scope) flagged, not re-based. No production since Oct 29. PRIOR 20261111c - hero summary and status line switched to English (Director of Construction, Nov 11). PRIOR 20261111b - DAILY SWEEP Nov 11. (1) PERMIT NUMBERS CORRECTED: LTE26-046 = 11A + 11B (licensed contractor of record for that scope, issued and sent to the Owner Oct 29) - this is the permit whose final electrical inspection PASSED Nov 11 (township approval tag). LTE26-047 = 12A + 12B (the second electrical contractor's scope, sent to the Owner Nov 6) - final inspection not yet booked. The 20261111a cut had the two numbers swapped. (2) LIENS: Dig IT recorded release of claim of lien (dated Nov 10) sent to the Owner Nov 11 - CLOSED; All State Crane - payment evidence sent to the Owner Nov 4, release from the claimant still awaited. (3) TVANT GEO cut Nov 11: IV 195 -> 256 of 492 samples (302 measurements, 241 validated, 61 pending review), 11B 109/110, 12A opens at 44/110, 12B 0; inverter precommissioning now counted per inverter 20 of 23 (12B 3 of 6); MCU 9 -> 12 of 13; Vdc 400/419, grounding 18/23, OTDR 3/4 unchanged. (4) SAFETY on the GreenSol EHS dashboard (revised totals Nov 10, through Oct 31): 250,323 h to date, 303 days without recordable, TRIR 0.00, DART 0.00 - published as the safety basis; the week-45 weekly figure 250,421 at Nov 6 is flagged as a divergence. (5) No daily production report since Oct 29 - quantities hold. LV DC tracker re-cut Nov 11 (16 LBD boxes, 11,395 ft, no daily log) not added. PRIOR 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
 window.MURCH_DATA = {
  "pvFieldTests": {
- "asOf": "TVANT commissioning portal (GEO), cut Wed Nov 11, 2026 (published 16:35 UTC)",
- "source": "https://tvantuasworks.github.io/Murch-GEO-Dashboard/ — TVANT / GreenSol client portal. The earlier portal address stopped at its Oct 30 cut.",
- "basis": "The portal counts DOCUMENTARY COVERAGE, not electrical acceptance; Vdc may include legacy unclassified records. A test reading complete here does not retire a known field failure.",
- "scopeNote": "Vdc 419 LBD (92 / 110 / 110 / 107, matching this ledger’s own take-off). Grounding resistance 23 inverters, grounding continuity 23 blocks. IV sampling 492 string samples since the Nov 4 re-base (165 / 110 / 110 / 107). VLF, OTDR and precommissioning by circuit (4). SCADA: inverter fibre loop 23, control boxes by circuit (4), MCU 13, weather stations 3.",
- "types": [
-  {
-   "t": "Polarity & continuity (Vdc)",
-   "scope": 419,
-   "done": 400,
-   "open": 19,
-   "pct": 95.47,
-   "unit": "LBD"
+    "asOf": "TVANT commissioning portal (GEO), cut Thu Nov 12, 2026 (published 11:03 UTC)",
+    "source": "https://tvantuasworks.github.io/Murch-GEO-Dashboard/ — TVANT / GreenSol client portal. The earlier portal address stopped at its Oct 30 cut.",
+    "basis": "The portal counts DOCUMENTARY COVERAGE, not electrical acceptance; Vdc may include legacy unclassified records. A test reading complete here does not retire a known field failure.",
+    "scopeNote": "Vdc 419 LBD (92 / 110 / 110 / 107, matching this ledger’s own take-off). Grounding resistance 23 inverters, grounding continuity 23 blocks. IV sampling 479 string samples since the Nov 12 re-base (152 / 110 / 110 / 107; was 492 with 11A at 165). VLF, OTDR and precommissioning by circuit (4). SCADA: inverter fibre loop 23, control boxes by circuit (4), MCU 13, weather stations 3.",
+    "types": [
+      {
+        "t": "Polarity & continuity (Vdc)",
+        "scope": 419,
+        "done": 400,
+        "open": 19,
+        "pct": 95.47,
+        "unit": "LBD"
+      },
+      {
+        "t": "Grounding resistance",
+        "scope": 23,
+        "done": 20,
+        "open": 3,
+        "pct": 86.96,
+        "unit": "inverters"
+      },
+      {
+        "t": "Grounding continuity",
+        "scope": 23,
+        "done": 18,
+        "open": 5,
+        "pct": 78.26,
+        "unit": "blocks"
+      },
+      {
+        "t": "IV curve — string samples",
+        "scope": 479,
+        "done": 316,
+        "open": 163,
+        "pct": 65.97,
+        "unit": "samples"
+      },
+      {
+        "t": "Inverter precommissioning inspection",
+        "scope": 23,
+        "done": 20,
+        "open": 3,
+        "pct": 86.96,
+        "unit": "inverters"
+      },
+      {
+        "t": "SCADA — inverter fibre loop",
+        "scope": 23,
+        "done": 23,
+        "open": 0,
+        "pct": 100,
+        "unit": "inverters"
+      },
+      {
+        "t": "SCADA — control boxes",
+        "scope": 4,
+        "done": 4,
+        "open": 0,
+        "pct": 100,
+        "unit": "circuits"
+      },
+      {
+        "t": "SCADA — MCU communications",
+        "scope": 13,
+        "done": 12,
+        "open": 1,
+        "pct": 92.31,
+        "unit": "equipment"
+      },
+      {
+        "t": "SCADA — weather stations",
+        "scope": 3,
+        "done": 3,
+        "open": 0,
+        "pct": 100,
+        "unit": "equipment"
+      },
+      {
+        "t": "VLF",
+        "scope": 4,
+        "done": 4,
+        "open": 0,
+        "pct": 100,
+        "unit": "circuits"
+      },
+      {
+        "t": "OTDR — fibre optic",
+        "scope": 4,
+        "done": 4,
+        "open": 0,
+        "pct": 100,
+        "unit": "circuits"
+      }
+    ],
+    "byCircuit": [
+      {
+        "c": "11A",
+        "scope": 92,
+        "done": 92,
+        "open": 0,
+        "pct": 100
+      },
+      {
+        "c": "11B",
+        "scope": 110,
+        "done": 110,
+        "open": 0,
+        "pct": 100
+      },
+      {
+        "c": "12A",
+        "scope": 110,
+        "done": 109,
+        "open": 1,
+        "pct": 99.09
+      },
+      {
+        "c": "12B",
+        "scope": 107,
+        "done": 89,
+        "open": 18,
+        "pct": 83.18
+      }
+    ],
+    "byZone": [
+      {
+        "z": "A",
+        "scope": 54,
+        "done": 54
+      },
+      {
+        "z": "B",
+        "scope": 35,
+        "done": 35
+      },
+      {
+        "z": "C",
+        "scope": 38,
+        "done": 38
+      },
+      {
+        "z": "E",
+        "scope": 128,
+        "done": 128
+      },
+      {
+        "z": "F",
+        "scope": 111,
+        "done": 111
+      },
+      {
+        "z": "G",
+        "scope": 35,
+        "done": 34
+      },
+      {
+        "z": "D",
+        "scope": 18,
+        "done": 0
+      }
+    ],
+    "circuitMatrix": [
+      {
+        "c": "11A",
+        "vdc": "92/92",
+        "iv": "149/152 samples",
+        "ground": "5/5",
+        "cont": "5/5",
+        "vlf": "100%",
+        "otdr": "1/1",
+        "precomm": "5/5",
+        "scada": "5/5"
+      },
+      {
+        "c": "11B",
+        "vdc": "110/110",
+        "iv": "109/110 samples",
+        "ground": "6/6",
+        "cont": "6/6",
+        "vlf": "100%",
+        "otdr": "1/1",
+        "precomm": "6/6",
+        "scada": "6/6"
+      },
+      {
+        "c": "12A",
+        "vdc": "109/110",
+        "iv": "57/110 samples",
+        "ground": "6/6",
+        "cont": "6/6",
+        "vlf": "100%",
+        "otdr": "1/1",
+        "precomm": "6/6",
+        "scada": "6/6"
+      },
+      {
+        "c": "12B",
+        "vdc": "89/107",
+        "iv": "0/107 samples",
+        "ground": "3/6",
+        "cont": "1/6",
+        "vlf": "100%",
+        "otdr": "1/1",
+        "precomm": "3/6",
+        "scada": "6/6"
+      }
+    ],
+    "trend": "<strong>Nov 12 cut: IV 256 → 316 of 479; OTDR 3 → 4 of 4; grounding resistance 18 → 20 of 23.</strong> Vdc holds 400 of 419 (zone D 0 of 18); grounding continuity 18 of 23; precommissioning 20 of 23; MCU 12 of 13. PRIOR: Vdc Oct 20 277 → Oct 26 341 → Oct 30 381 → Nov 4 400; VLF 4 of 4 since Nov 4.",
+    "ivNote": "<strong>IV sampling 316 of 479 string samples (Nov 12), up from 256 on Nov 11 — all 316 measurements VALIDATED, none pending.</strong> TVANT re-based 11A from 165 to 152 samples and it now reads 149 of 152, which answers the Nov 4 question (11A had dropped to 103/165). By circuit: 11A 149/152, 11B 110/110, 12A 57/110, 12B 0/107.",
+    "vlfNote": "<strong>VLF reads 100% on all four circuits (Nov 4).</strong> 12A, which read 0% on Oct 30, has closed, and 11B has moved from 60% to 100%.",
+    "concentration": "12B carries 18 of the 19 open Vdc records (all zone D, 0 of 18), 3 of the 3 open grounding-resistance records, 5 of the 5 open continuity records and 3 of the 3 open precommissioning inspections. OTDR is now closed on all four circuits. 11A and 11B are closed on everything except IV (11A three samples short).",
+    "otdrCaveat": "<strong>OTDR reads 4 of 4 complete (Nov 12) — documentary coverage, not acceptance.</strong> The October 11A fibre result that returned unacceptable values is taken as closed by the 11A MC grant; no re-test record has been seen.",
+    "headline": "IV 316 of 479, all validated; OTDR 4 of 4; grounding 20 of 23 — what is open is 12B"
   },
-  {
-   "t": "Grounding resistance",
-   "scope": 23,
-   "done": 18,
-   "open": 5,
-   "pct": 78.26,
-   "unit": "inverters"
-  },
-  {
-   "t": "Grounding continuity",
-   "scope": 23,
-   "done": 18,
-   "open": 5,
-   "pct": 78.26,
-   "unit": "blocks"
-  },
-  {
-   "t": "IV curve — string samples",
-   "scope": 492,
-   "done": 256,
-   "open": 236,
-   "pct": 52.03,
-   "unit": "samples"
-  },
-  {
-   "t": "Inverter precommissioning inspection",
-   "scope": 23,
-   "done": 20,
-   "open": 3,
-   "pct": 86.96,
-   "unit": "inverters"
-  },
-  {
-   "t": "SCADA — inverter fibre loop",
-   "scope": 23,
-   "done": 23,
-   "open": 0,
-   "pct": 100,
-   "unit": "inverters"
-  },
-  {
-   "t": "SCADA — control boxes",
-   "scope": 4,
-   "done": 4,
-   "open": 0,
-   "pct": 100,
-   "unit": "circuits"
-  },
-  {
-   "t": "SCADA — MCU communications",
-   "scope": 13,
-   "done": 12,
-   "open": 1,
-   "pct": 92.31,
-   "unit": "equipment"
-  },
-  {
-   "t": "SCADA — weather stations",
-   "scope": 3,
-   "done": 3,
-   "open": 0,
-   "pct": 100,
-   "unit": "equipment"
-  },
-  {
-   "t": "VLF",
-   "scope": 4,
-   "done": 4,
-   "open": 0,
-   "pct": 100,
-   "unit": "circuits"
-  },
-  {
-   "t": "OTDR — fibre optic",
-   "scope": 4,
-   "done": 3,
-   "open": 1,
-   "pct": 75,
-   "unit": "circuits"
-  }
- ],
- "byCircuit": [
-  {
-   "c": "11A",
-   "scope": 92,
-   "done": 92,
-   "open": 0,
-   "pct": 100
-  },
-  {
-   "c": "11B",
-   "scope": 110,
-   "done": 110,
-   "open": 0,
-   "pct": 100
-  },
-  {
-   "c": "12A",
-   "scope": 110,
-   "done": 109,
-   "open": 1,
-   "pct": 99.09
-  },
-  {
-   "c": "12B",
-   "scope": 107,
-   "done": 89,
-   "open": 18,
-   "pct": 83.18
-  }
- ],
- "byZone": [
-  {
-   "z": "A",
-   "scope": 54,
-   "done": 54
-  },
-  {
-   "z": "B",
-   "scope": 35,
-   "done": 35
-  },
-  {
-   "z": "C",
-   "scope": 38,
-   "done": 38
-  },
-  {
-   "z": "E",
-   "scope": 128,
-   "done": 128
-  },
-  {
-   "z": "F",
-   "scope": 111,
-   "done": 111
-  },
-  {
-   "z": "G",
-   "scope": 35,
-   "done": 34
-  },
-  {
-   "z": "D",
-   "scope": 18,
-   "done": 0
-  }
- ],
- "circuitMatrix": [
-  {
-   "c": "11A",
-   "vdc": "92/92",
-   "iv": "103/165 samples",
-   "ground": "5/5",
-   "cont": "5/5",
-   "vlf": "100%",
-   "otdr": "1/1",
-   "precomm": "5/5",
-   "scada": "5/5"
-  },
-  {
-   "c": "11B",
-   "vdc": "110/110",
-   "iv": "109/110 samples",
-   "ground": "6/6",
-   "cont": "6/6",
-   "vlf": "100%",
-   "otdr": "1/1",
-   "precomm": "6/6",
-   "scada": "6/6"
-  },
-  {
-   "c": "12A",
-   "vdc": "109/110",
-   "iv": "44/110 samples",
-   "ground": "6/6",
-   "cont": "6/6",
-   "vlf": "100%",
-   "otdr": "1/1",
-   "precomm": "6/6",
-   "scada": "6/6"
-  },
-  {
-   "c": "12B",
-   "vdc": "89/107",
-   "iv": "0/107 samples",
-   "ground": "1/6",
-   "cont": "1/6",
-   "vlf": "100%",
-   "otdr": "0/1",
-   "precomm": "3/6",
-   "scada": "6/6"
-  }
- ],
- "trend": "<strong>Vdc: Oct 20 277 → Oct 26 341 → Oct 30 381 → Nov 4 400.</strong> VLF 2.6 → 4 of 4; OTDR 2 → 3 of 4; inverter fibre loop 17 → 23 of 23. Grounding resistance and continuity hold at 18 of 23 since Oct 20 — every open one is on 12B. IV Nov 4 195 → Nov 11 256 of 492. Inverter precommissioning is now counted per inverter: 20 of 23 (12B 3 of 6). MCU communications 9 → 12 of 13.",
- "ivNote": "<strong>IV sampling 256 of 492 string samples (Nov 11), up from 195 on Nov 4.</strong> 302 measurements taken: 241 validated, 61 pending review. By circuit: 11A 103 of 165 (flat — still below the 149 shown Oct 30, question open with the test supervisor), 11B 109 of 110, 12A opens at 44 of 110, 12B 0 of 107.",
- "vlfNote": "<strong>VLF reads 100% on all four circuits (Nov 4).</strong> 12A, which read 0% on Oct 30, has closed, and 11B has moved from 60% to 100%.",
- "concentration": "12B carries 18 of the 19 open Vdc records and all 18 are zone D, which is still untouched at 0 of 18. 12B also holds every open grounding record (5 of 6 inverters), the open OTDR and 3 of the 6 open precommissioning inspections. 11A and 11B are closed on everything except IV sampling (11B one sample short).",
- "otdrCaveat": "<strong>OTDR reads 3 of 4 complete (11A, 11B, 12A) — documentary coverage, not acceptance.</strong> The October 11A fibre result that returned unacceptable values is taken as closed by the mechanical-completion grant for 11A; no re-test record has been seen in this sweep.",
- "headline": "IV 256 of 492 — 12A started; precommissioning 20 of 23; Vdc 400 of 419; 12B holds what is open"
-},
  "selfPerform": {
   "asOf": "Executed through Oct 12, 2026 — the GreenSol crew log, re-read from SharePoint on Oct 21",
   "source": "SharePoint · 00 Production – Daily Report · \"DELIVERY AND MECHANICAL.xlsx\" → sheet GSol. Workbook last modified Oct 16; the log itself stops at Oct 8.",
@@ -274,392 +274,392 @@ window.MURCH_DATA = {
   "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
- "asOfShort": "Nov 11 — electrical final 11A+11B passed · Dig IT lien released · IV 256/492 · energization ~Nov 19",
- "asOf": "<strong>Nov 11 sweep (data Nov 9) — NO DAILY PRODUCTION REPORT HAS BEEN FILED SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> Mechanical completion is granted for circuits 11A and 11B; the 12A package was submitted Nov 3; 12B is the only circuit open, with stations 8 and 10 pending on the Nov 6 weekly. Township electrical permits: LTE26-046 (11A + 11B, Oct 29) — <strong>final electrical inspection PASSED Wed Nov 11</strong>; LTE26-047 (12A + 12B, sent Nov 6) — final not yet booked. <strong>Dig IT lien release recorded and sent Nov 11</strong>; All State Crane release still awaited. PV tests (TVANT portal, cut Nov 4): Vdc 400 of 419, VLF 4 of 4, OTDR 3 of 4, inverter fibre loop 23 of 23; the IV sample was re-based to 195 of 492. Substation tracker Nov 9: 256 of 257 items, the one open item being utility coordination for first energization. Energization is targeted Nov 19–20. Man-hours 250,421 on the Nov 6 weekly, zero lost-time and zero recordables.",
- "asOfISO": "2026-11-09",
- "piles": {
-  "installed": 31352,
-  "total": 31352,
-  "gate": "2026-07-28",
-  "gateLabel": "Jul 28 — MISSED · COMPLETE Sep 28",
-  "required": 0,
-  "capacity": null,
-  "name": "Piles",
-  "unit": "piles/day"
- },
- "trackers": {
-  "installed": 2486,
-  "released": 886,
-  "releasedGS": 2068,
-  "total": 2486,
-  "gate": "2026-08-30",
-  "gateLabel": "Aug 30 — MISSED · COMPLETE Sep 28",
-  "required": 0,
-  "capacity": 97,
-  "name": "Trackers incl. purlins",
-  "unit": "rows/day",
-  "byCrew": "<strong>Sep 9: the racking contractor reports 41 rows completed to 100% in Zone G (32 mechanical). The published Zone G figure is HELD at 256 of 256 under Jose’s Sep 7 ruling, so these 41 are absorbed into the flagged divergence and do NOT move the headline: on the workbook path G goes 177 → 218 and the gap to the held figure narrows from 79 to 38 rows. Forty-one completions in a zone the dashboard already carries as complete is the strongest evidence yet that the 256 was a premature closure — the ruling can now be made on numbers, not on argument.</strong> United reports 35 rows at 50% in Zone D (snapshot, replaces Monday’s 27; D is ECCS scope on the Aug 8 division — re-allocation to confirm). Basis 2,311 of 2,486 (93.0%), 175 open. The 4 E15 rows stay held out.",
-  "wipRows": 0,
-  "wipEquivalent": 0,
-  "earnedEquivalent": 2486,
-  "earnedPct": 100,
-  "earnedBasis": "<strong>Sep 28: 2,486 of 2,486 — all rows complete (CM); earned 100%.</strong> PRIOR: <strong>Sep 22: 2,303 of 2,486 (92.6%) — Zone E 656 → 666 on the last project update (8 trackers open, all in E; EW complete). Earned 94.1%.</strong> PRIOR: <strong>2,293 of 2,486 (92.2%) — Zone E re-based 674 → 656 on Sep 12 (Jose’s ruling on the field punch-list: 16 rows without torque tube, 2 without piles); Sep 9’s 41 Zone G completions are absorbed into the held G figure (workbook path 218 of 256, gap 38).</strong> Open register 74 rows / 38.2 row-equivalents: ECCS 5 at step 2 in Zone G, Workforce 16 at step 2 in B5 (stale since Aug 18), <strong>United 35 rows at 75% in Zone D (Sep 10 snapshot, 26.3 equivalents)</strong>, <strong>Zone E 16 rows without torque tube at step 1 (2.4 equivalents) + 2 unpiled</strong> — earned 93.8% beside the 92.2% gate. The 4 E15 rows are excluded pending reconciliation; tracker REPAIRS (8 on Sep 10) run on their own control.",
-  "releaseBasis": "<strong>NEW GREENSOL QA RELEASE Aug 24 (Maurin): 171 rows released for module installation - F 90, G 81 - taking the GreenSol line 559 → 730.</strong> CLIENT (Heelstone) release still 296 per the Jul 30 sheet. <strong>The GREENSOL release line finally MOVED Aug 17</strong>: Maurin released 67 EW trackers, 2,540 Zone G piles and 4,446 Zone E modules - the first release cut in twelve working days. ~100+ Zone F rows now await formal release; modules are mounted on pre-inspected unreleased rows (the E/EW practice). Daniel: Greensol QA runs AHEAD of the subs - their documentation delivery is the release blocker."
- },
- "modules": {
-  "installed": 171470,
-  "total": 171470,
-  "gate": "2026-09-06",
-  "gateLabel": "Sep 6 — MISSED · installation COMPLETE Oct 24",
-  "required": 0,
-  "capacity": null,
-  "name": "Modules",
-  "unit": "mod/day"
- },
- "electrical": {
-  "installed": 257764,
-  "total": 269748,
-  "gate": "2026-09-18",
-  "gateLabel": "Sep 18 — MISSED",
-  "required": 2996,
-  "capacity": 7098,
-  "name": "LV Electrical",
-  "unit": "lf/day",
-  "earnedPct": 86.74,
-  "earnedBasis": "weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)",
-  "lvDaily": [
-   {
-    "day": "Aug 4",
-    "value": 1956
-   },
-   {
-    "day": "Aug 5",
-    "value": 1915
-   },
-   {
-    "day": "Aug 6",
-    "value": 2560
-   },
-   {
-    "day": "Aug 7",
-    "value": 1969
-   },
-   {
-    "day": "Aug 8",
-    "value": 0
-   },
-   {
-    "day": "Aug 10",
-    "value": 3131
-   },
-   {
-    "day": "Aug 11",
-    "value": 0
-   },
-   {
-    "day": "Aug 12",
-    "value": 4735
-   },
-   {
-    "day": "Aug 13",
-    "value": 2550
-   },
-   {
-    "day": "Aug 14",
-    "value": 1873
-   },
-   {
-    "day": "Aug 15",
-    "value": 2805
-   },
-   {
-    "day": "Aug 17",
-    "value": 1548
-   },
-   {
-    "day": "Aug 18",
-    "value": 3316
-   },
-   {
-    "day": "Aug 19",
-    "value": 2509
-   },
-   {
-    "day": "Aug 20",
-    "value": 2766
-   },
-   {
-    "day": "Aug 21",
-    "value": 3610
-   },
-   {
-    "day": "Aug 22",
-    "value": 0
-   },
-   {
-    "day": "Aug 24",
-    "value": 185
-   },
-   {
-    "day": "Aug 25",
-    "value": 2744
-   },
-   {
-    "day": "Aug 26",
-    "value": 1359
-   },
-   {
-    "day": "Aug 27",
-    "value": 1425
-   },
-   {
-    "day": "Aug 28",
-    "value": 2633
-   },
-   {
-    "day": "Aug 29",
-    "value": 1464
-   },
-   {
-    "day": "Aug 31",
-    "value": 0
-   },
-   {
-    "day": "Sep 1",
-    "value": 1550
-   },
-   {
-    "day": "Sep 2",
-    "value": 7411
-   },
-   {
-    "day": "Sep 3",
-    "value": 4282
-   },
-   {
-    "day": "Sep 4",
-    "value": 2827
-   },
-   {
-    "day": "Sep 5",
-    "value": 4853
-   },
-   {
-    "day": "Sep 7",
-    "value": 890
-   },
-   {
-    "day": "Sep 8",
-    "value": 5533
-   },
-   {
-    "day": "Sep 9",
-    "value": 0
-   },
-   {
-    "day": "Sep 10",
-    "value": 4076
-   },
-   {
-    "day": "Sep 11",
-    "value": 3300
-   },
-   {
-    "day": "Sep 12",
-    "value": 0
-   },
-   {
-    "day": "Sep 14",
-    "value": 3482
-   },
-   {
-    "day": "Sep 15",
-    "value": 5589
-   },
-   {
-    "day": "Sep 16",
-    "value": 8742
-   },
-   {
-    "day": "Sep 17",
-    "value": 525
-   },
-   {
-    "day": "Sep 18",
-    "value": 3260
-   },
-   {
-    "day": "Sep 19",
-    "value": 0
-   },
-   {
-    "day": "Sep 21",
-    "value": 15106
-   },
-   {
-    "day": "Sep 22",
-    "value": 7200
-   },
-   {
-    "day": "Sep 23",
-    "value": 7082
-   },
-   {
-    "day": "Sep 24",
-    "value": 8532
-   },
-   {
-    "day": "Sep 25",
-    "value": 9208
-   },
-   {
-    "day": "Sep 26",
-    "value": 3004
-   },
-   {
-    "day": "Sep 28",
-    "value": 5547
-   },
-   {
-    "day": "Sep 29",
-    "value": 8775
-   },
-   {
-    "day": "Sep 30",
-    "value": 4990
-   },
-   {
-    "day": "Oct 1",
-    "value": 3426
-   },
-   {
-    "day": "Oct 2",
-    "value": 10245
-   },
-   {
-    "day": "Oct 3",
-    "value": 7691
-   },
-   {
-    "day": "Oct 5",
-    "value": 9129
-   },
-   {
-    "day": "Oct 6",
-    "value": 4251
-   },
-   {
-    "day": "Oct 7",
-    "value": 4332
-   }
-  ],
-  "note": "<strong>Oct 15: the ledger stands at 226,124 lf (83.8%) after 12A closed. 12B is the only circuit still open on cable — about 45,404 lf of home run and 9,288 of trunk, with the date passed Oct 10. The five reported days with no filed footage (Oct 9, 10, 12, 13, 14) are now understood: on 12A the work was being done and not reported.</strong> "
- },
- "mv": {
-  "pct": 100,
-  "gate": "2026-09-14",
-  "gateLabel": "Sep 14",
-  "name": "MV Collection",
-  "unit": "%",
-  "earnedPct": 99.32,
-  "basis": "weighted composite: plowing 45%, MV bores 25%, DC ducts 15%, MV terminations 15%"
- },
- "set": {
-  "pct": 100,
-  "gate": "2026-09-25",
-  "gateLabel": "Sep 25",
-  "name": "Substation (SET)",
-  "unit": "%",
-  "earnedPct": 100,
-  "planToDate": 100,
-  "planAnchor": {
-   "iso": "2026-08-24",
-   "pct": 45
+    "asOfShort": "Nov 16 — punch list 60 of 145 closed by the EPC · IV 316/479 · OTDR 4/4 · backfeed Nov 19",
+    "asOf": "<strong>Nov 16 sweep (punch list Nov 13, TVANT Nov 12) — NO DAILY PRODUCTION REPORT SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> <strong>Punch list (CM update of the Nov 13 register): 145 items — 60 closed by the EPC, 23 submitted for closure or under review, 62 still open; the Owner column still reads 3 closed.</strong> Tests (TVANT Nov 12): IV 316 of 479 samples, all validated; OTDR 4 of 4; grounding resistance 20 of 23; precommissioning 20 of 23. SET backfeed deadline Thu Nov 19; substation 256 of 257. A new LV DC tracker re-cut (Nov 16) reads cable 99.8% of its own route scope and inverter-side lugs 838 of 838 — flagged, not re-based.",
+    "asOfISO": "2026-11-09",
+    "piles": {
+      "installed": 31352,
+      "total": 31352,
+      "gate": "2026-07-28",
+      "gateLabel": "Jul 28 — MISSED · COMPLETE Sep 28",
+      "required": 0,
+      "capacity": null,
+      "name": "Piles",
+      "unit": "piles/day"
+    },
+    "trackers": {
+      "installed": 2486,
+      "released": 886,
+      "releasedGS": 2068,
+      "total": 2486,
+      "gate": "2026-08-30",
+      "gateLabel": "Aug 30 — MISSED · COMPLETE Sep 28",
+      "required": 0,
+      "capacity": 97,
+      "name": "Trackers incl. purlins",
+      "unit": "rows/day",
+      "byCrew": "<strong>Sep 9: the racking contractor reports 41 rows completed to 100% in Zone G (32 mechanical). The published Zone G figure is HELD at 256 of 256 under Jose’s Sep 7 ruling, so these 41 are absorbed into the flagged divergence and do NOT move the headline: on the workbook path G goes 177 → 218 and the gap to the held figure narrows from 79 to 38 rows. Forty-one completions in a zone the dashboard already carries as complete is the strongest evidence yet that the 256 was a premature closure — the ruling can now be made on numbers, not on argument.</strong> United reports 35 rows at 50% in Zone D (snapshot, replaces Monday’s 27; D is ECCS scope on the Aug 8 division — re-allocation to confirm). Basis 2,311 of 2,486 (93.0%), 175 open. The 4 E15 rows stay held out.",
+      "wipRows": 0,
+      "wipEquivalent": 0,
+      "earnedEquivalent": 2486,
+      "earnedPct": 100,
+      "earnedBasis": "<strong>Sep 28: 2,486 of 2,486 — all rows complete (CM); earned 100%.</strong> PRIOR: <strong>Sep 22: 2,303 of 2,486 (92.6%) — Zone E 656 → 666 on the last project update (8 trackers open, all in E; EW complete). Earned 94.1%.</strong> PRIOR: <strong>2,293 of 2,486 (92.2%) — Zone E re-based 674 → 656 on Sep 12 (Jose’s ruling on the field punch-list: 16 rows without torque tube, 2 without piles); Sep 9’s 41 Zone G completions are absorbed into the held G figure (workbook path 218 of 256, gap 38).</strong> Open register 74 rows / 38.2 row-equivalents: ECCS 5 at step 2 in Zone G, Workforce 16 at step 2 in B5 (stale since Aug 18), <strong>United 35 rows at 75% in Zone D (Sep 10 snapshot, 26.3 equivalents)</strong>, <strong>Zone E 16 rows without torque tube at step 1 (2.4 equivalents) + 2 unpiled</strong> — earned 93.8% beside the 92.2% gate. The 4 E15 rows are excluded pending reconciliation; tracker REPAIRS (8 on Sep 10) run on their own control.",
+      "releaseBasis": "<strong>NEW GREENSOL QA RELEASE Aug 24 (Maurin): 171 rows released for module installation - F 90, G 81 - taking the GreenSol line 559 → 730.</strong> CLIENT (Heelstone) release still 296 per the Jul 30 sheet. <strong>The GREENSOL release line finally MOVED Aug 17</strong>: Maurin released 67 EW trackers, 2,540 Zone G piles and 4,446 Zone E modules - the first release cut in twelve working days. ~100+ Zone F rows now await formal release; modules are mounted on pre-inspected unreleased rows (the E/EW practice). Daniel: Greensol QA runs AHEAD of the subs - their documentation delivery is the release blocker."
+    },
+    "modules": {
+      "installed": 171470,
+      "total": 171470,
+      "gate": "2026-09-06",
+      "gateLabel": "Sep 6 — MISSED · installation COMPLETE Oct 24",
+      "required": 0,
+      "capacity": null,
+      "name": "Modules",
+      "unit": "mod/day"
+    },
+    "electrical": {
+      "installed": 257764,
+      "total": 269748,
+      "gate": "2026-09-18",
+      "gateLabel": "Sep 18 — MISSED",
+      "required": 2996,
+      "capacity": 7098,
+      "name": "LV Electrical",
+      "unit": "lf/day",
+      "earnedPct": 86.74,
+      "earnedBasis": "weighted composite of the LV control line (cable 55%, boxes 10%, supports 10%, terminations 20%, testing 5%)",
+      "lvDaily": [
+        {
+          "day": "Aug 4",
+          "value": 1956
+        },
+        {
+          "day": "Aug 5",
+          "value": 1915
+        },
+        {
+          "day": "Aug 6",
+          "value": 2560
+        },
+        {
+          "day": "Aug 7",
+          "value": 1969
+        },
+        {
+          "day": "Aug 8",
+          "value": 0
+        },
+        {
+          "day": "Aug 10",
+          "value": 3131
+        },
+        {
+          "day": "Aug 11",
+          "value": 0
+        },
+        {
+          "day": "Aug 12",
+          "value": 4735
+        },
+        {
+          "day": "Aug 13",
+          "value": 2550
+        },
+        {
+          "day": "Aug 14",
+          "value": 1873
+        },
+        {
+          "day": "Aug 15",
+          "value": 2805
+        },
+        {
+          "day": "Aug 17",
+          "value": 1548
+        },
+        {
+          "day": "Aug 18",
+          "value": 3316
+        },
+        {
+          "day": "Aug 19",
+          "value": 2509
+        },
+        {
+          "day": "Aug 20",
+          "value": 2766
+        },
+        {
+          "day": "Aug 21",
+          "value": 3610
+        },
+        {
+          "day": "Aug 22",
+          "value": 0
+        },
+        {
+          "day": "Aug 24",
+          "value": 185
+        },
+        {
+          "day": "Aug 25",
+          "value": 2744
+        },
+        {
+          "day": "Aug 26",
+          "value": 1359
+        },
+        {
+          "day": "Aug 27",
+          "value": 1425
+        },
+        {
+          "day": "Aug 28",
+          "value": 2633
+        },
+        {
+          "day": "Aug 29",
+          "value": 1464
+        },
+        {
+          "day": "Aug 31",
+          "value": 0
+        },
+        {
+          "day": "Sep 1",
+          "value": 1550
+        },
+        {
+          "day": "Sep 2",
+          "value": 7411
+        },
+        {
+          "day": "Sep 3",
+          "value": 4282
+        },
+        {
+          "day": "Sep 4",
+          "value": 2827
+        },
+        {
+          "day": "Sep 5",
+          "value": 4853
+        },
+        {
+          "day": "Sep 7",
+          "value": 890
+        },
+        {
+          "day": "Sep 8",
+          "value": 5533
+        },
+        {
+          "day": "Sep 9",
+          "value": 0
+        },
+        {
+          "day": "Sep 10",
+          "value": 4076
+        },
+        {
+          "day": "Sep 11",
+          "value": 3300
+        },
+        {
+          "day": "Sep 12",
+          "value": 0
+        },
+        {
+          "day": "Sep 14",
+          "value": 3482
+        },
+        {
+          "day": "Sep 15",
+          "value": 5589
+        },
+        {
+          "day": "Sep 16",
+          "value": 8742
+        },
+        {
+          "day": "Sep 17",
+          "value": 525
+        },
+        {
+          "day": "Sep 18",
+          "value": 3260
+        },
+        {
+          "day": "Sep 19",
+          "value": 0
+        },
+        {
+          "day": "Sep 21",
+          "value": 15106
+        },
+        {
+          "day": "Sep 22",
+          "value": 7200
+        },
+        {
+          "day": "Sep 23",
+          "value": 7082
+        },
+        {
+          "day": "Sep 24",
+          "value": 8532
+        },
+        {
+          "day": "Sep 25",
+          "value": 9208
+        },
+        {
+          "day": "Sep 26",
+          "value": 3004
+        },
+        {
+          "day": "Sep 28",
+          "value": 5547
+        },
+        {
+          "day": "Sep 29",
+          "value": 8775
+        },
+        {
+          "day": "Sep 30",
+          "value": 4990
+        },
+        {
+          "day": "Oct 1",
+          "value": 3426
+        },
+        {
+          "day": "Oct 2",
+          "value": 10245
+        },
+        {
+          "day": "Oct 3",
+          "value": 7691
+        },
+        {
+          "day": "Oct 5",
+          "value": 9129
+        },
+        {
+          "day": "Oct 6",
+          "value": 4251
+        },
+        {
+          "day": "Oct 7",
+          "value": 4332
+        }
+      ],
+      "note": "<strong>Oct 15: the ledger stands at 226,124 lf (83.8%) after 12A closed. 12B is the only circuit still open on cable — about 45,404 lf of home run and 9,288 of trunk, with the date passed Oct 10. The five reported days with no filed footage (Oct 9, 10, 12, 13, 14) are now understood: on 12A the work was being done and not reported.</strong> "
+    },
+    "mv": {
+      "pct": 100,
+      "gate": "2026-09-14",
+      "gateLabel": "Sep 14",
+      "name": "MV Collection",
+      "unit": "%",
+      "earnedPct": 99.32,
+      "basis": "weighted composite: plowing 45%, MV bores 25%, DC ducts 15%, MV terminations 15%"
+    },
+    "set": {
+      "pct": 100,
+      "gate": "2026-09-25",
+      "gateLabel": "Sep 25",
+      "name": "Substation (SET)",
+      "unit": "%",
+      "earnedPct": 100,
+      "planToDate": 100,
+      "planAnchor": {
+        "iso": "2026-08-24",
+        "pct": 45
+      },
+      "binding": "Nov 9 tracker: 256 of 257 items, all six disciplines at 100% and SCADA 9 of 9 closed. The single open item is utility coordination for first energization (50%, target Oct 22, overdue). Tests HELD at 74 of 74 on the Oct 21 ruling — the tracker export carries no commissioning tab for the third run. SET MC achieved Oct 20.",
+      "projected": "Tracker Nov 9: energization Nov 20 (+5 d on its own plan). Owner coordination meeting Nov 3: Nov 19.",
+      "pill": "4.0 PTS BEHIND PLAN",
+      "laborWeights": {
+        "civil": 20,
+        "structural": 20,
+        "electrical": 60
+      },
+      "laborPct": null,
+      "basis": "Substation tracker dated Oct 13, physical activity-weighted earned value: 96.0% — civil 97.45, mechanical 95.90, electrical 95.71, bus and connectors 96.05; 17 of 24 equipment at 100%; 234 of 257 activities complete, 23 open, 18 overdue; 15 of the 48 activities that depend on the H-frame sequence are still open. The tracker states these four disciplines; grounding and control/communications come from the Oct 12 daily report at 99.96 and 61.11, the first movement on communications since the scope was opened. Plan-to-date reached 100% at the Sep 25 gate, so the front reads 4.0 points behind."
+    },
+    "mc": {
+      "target": "Sep 25",
+      "forecast": "11A + 11B MC GRANTED · 12A submitted Nov 3 · 12B this week · plant-wide request next week · energization ~Nov 19–20",
+      "name": "Mechanical Completion"
+    },
+    "safetyHours": {
+      "value": 250323,
+      "asOf": "Oct 31, 2026",
+      "asOfISO": "2026-10-31",
+      "source": "GreenSol EHS performance dashboard (revised monthly totals supplied Nov 10)",
+      "prev": {
+        "value": 246745,
+        "asOf": "Oct 23, 2026",
+        "asOfISO": "2026-10-23"
+      },
+      "series": [
+        {
+          "d": "Aug 24",
+          "c": 163438,
+          "src": "EHS man-hour register"
+        },
+        {
+          "d": "Aug 27",
+          "c": 165986.8,
+          "src": "EHS man-hour register"
+        },
+        {
+          "d": "Sep 8",
+          "c": 186351.6,
+          "src": "EHS headcount board"
+        },
+        {
+          "d": "Sep 9",
+          "c": 189206.1,
+          "src": "EHS headcount board"
+        },
+        {
+          "d": "Sep 15",
+          "c": 199425.6,
+          "src": "EHS headcount board"
+        },
+        {
+          "d": "Sep 17",
+          "c": 203862.6,
+          "src": "EHS headcount board (last issued)"
+        },
+        {
+          "d": "Oct 5",
+          "c": 231471,
+          "src": "site KPI workbook"
+        },
+        {
+          "d": "Oct 15",
+          "c": 239337,
+          "src": "site safety banner"
+        },
+        {
+          "d": "Oct 23",
+          "c": 246745,
+          "src": "site safety banner"
+        },
+        {
+          "d": "Oct 31",
+          "c": 250323,
+          "src": "GreenSol EHS dashboard, month-end"
+        }
+      ],
+      "seriesNote": "Every point is a REPORTED cumulative reading from EHS — no interpolation and no modelled curve. The register only carries cumulative readings from Aug 24 onward, so the curve starts there rather than at the start of construction. Slope between two points is real man-hours worked, not an estimate: Aug 27 → Sep 17 ran at about 1,800 h per calendar day, Sep 17 → Oct 5 at about 1,534, and Oct 5 → Oct 15 at about 787 — the demobilisation into close-out, visible in the flattening tail.",
+      "impliedHeadcount": 59,
+      "impliedNote": "The weekly construction report books 3,524 man-hours in week 45 and 3,089 in week 44 — about 59 and 51 people a day at 10 h over six days. That is the demobilisation tail: down from about 106 a day across Oct 16–23. NOTE: the weekly register (250,421 at Nov 6) and the site safety banner (246,745 at Oct 23) are two registers and do not reconcile week by week — about 2,900 h apart. Both are reported readings; neither is modelled."
+    },
+    "safetyBasis": "GreenSol EHS performance dashboard, through Oct 31, 2026: 250,323 hours to date, 303 days without a recordable, TRIR 0.00, DART 0.00. The week-45 weekly figure (250,421 at Nov 6) is flagged as a divergence, not published."
   },
-  "binding": "Nov 9 tracker: 256 of 257 items, all six disciplines at 100% and SCADA 9 of 9 closed. The single open item is utility coordination for first energization (50%, target Oct 22, overdue). Tests HELD at 74 of 74 on the Oct 21 ruling — the tracker export carries no commissioning tab for the third run. SET MC achieved Oct 20.",
-  "projected": "Tracker Nov 9: energization Nov 20 (+5 d on its own plan). Owner coordination meeting Nov 3: Nov 19.",
-  "pill": "4.0 PTS BEHIND PLAN",
-  "laborWeights": {
-   "civil": 20,
-   "structural": 20,
-   "electrical": 60
-  },
-  "laborPct": null,
-  "basis": "Substation tracker dated Oct 13, physical activity-weighted earned value: 96.0% — civil 97.45, mechanical 95.90, electrical 95.71, bus and connectors 96.05; 17 of 24 equipment at 100%; 234 of 257 activities complete, 23 open, 18 overdue; 15 of the 48 activities that depend on the H-frame sequence are still open. The tracker states these four disciplines; grounding and control/communications come from the Oct 12 daily report at 99.96 and 61.11, the first movement on communications since the scope was opened. Plan-to-date reached 100% at the Sep 25 gate, so the front reads 4.0 points behind."
- },
- "mc": {
-  "target": "Sep 25",
-  "forecast": "11A + 11B MC GRANTED · 12A submitted Nov 3 · 12B this week · plant-wide request next week · energization ~Nov 19–20",
-  "name": "Mechanical Completion"
- },
- "safetyHours": {
-  "value": 250323,
-  "asOf": "Oct 31, 2026",
-  "asOfISO": "2026-10-31",
-  "source": "GreenSol EHS performance dashboard (revised monthly totals supplied Nov 10)",
-  "prev": {
-   "value": 246745,
-   "asOf": "Oct 23, 2026",
-   "asOfISO": "2026-10-23"
-  },
-  "series": [
-   {
-    "d": "Aug 24",
-    "c": 163438,
-    "src": "EHS man-hour register"
-   },
-   {
-    "d": "Aug 27",
-    "c": 165986.8,
-    "src": "EHS man-hour register"
-   },
-   {
-    "d": "Sep 8",
-    "c": 186351.6,
-    "src": "EHS headcount board"
-   },
-   {
-    "d": "Sep 9",
-    "c": 189206.1,
-    "src": "EHS headcount board"
-   },
-   {
-    "d": "Sep 15",
-    "c": 199425.6,
-    "src": "EHS headcount board"
-   },
-   {
-    "d": "Sep 17",
-    "c": 203862.6,
-    "src": "EHS headcount board (last issued)"
-   },
-   {
-    "d": "Oct 5",
-    "c": 231471,
-    "src": "site KPI workbook"
-   },
-   {
-    "d": "Oct 15",
-    "c": 239337,
-    "src": "site safety banner"
-   },
-   {
-    "d": "Oct 23",
-    "c": 246745,
-    "src": "site safety banner"
-   },
-   {
-    "d": "Oct 31",
-    "c": 250323,
-    "src": "GreenSol EHS dashboard, month-end"
-   }
-  ],
-  "seriesNote": "Every point is a REPORTED cumulative reading from EHS — no interpolation and no modelled curve. The register only carries cumulative readings from Aug 24 onward, so the curve starts there rather than at the start of construction. Slope between two points is real man-hours worked, not an estimate: Aug 27 → Sep 17 ran at about 1,800 h per calendar day, Sep 17 → Oct 5 at about 1,534, and Oct 5 → Oct 15 at about 787 — the demobilisation into close-out, visible in the flattening tail.",
-  "impliedHeadcount": 59,
-  "impliedNote": "The weekly construction report books 3,524 man-hours in week 45 and 3,089 in week 44 — about 59 and 51 people a day at 10 h over six days. That is the demobilisation tail: down from about 106 a day across Oct 16–23. NOTE: the weekly register (250,421 at Nov 6) and the site safety banner (246,745 at Oct 23) are two registers and do not reconcile week by week — about 2,900 h apart. Both are reported readings; neither is modelled."
- },
- "safetyBasis": "GreenSol EHS performance dashboard, through Oct 31, 2026: 250,323 hours to date, 303 days without a recordable, TRIR 0.00, DART 0.00. The week-45 weekly figure (250,421 at Nov 6) is flagged as a divergence, not published."
-},
  safetyDaysLtiFree: 303,
  safetyBasis: "GreenSol EHS performance dashboard, through Oct 31, 2026 (revised monthly totals supplied Nov 10): 250,323 hours to date, 303 days without a recordable at month-end, TRIR 0.00, DART 0.00, zero recordable and zero DART cases YTD. DIVERGENCE for ruling: the week-45 weekly report gives 250,421 at Nov 6 while also claiming 3,524 h that week — it cannot sit only 98 h above the EHS month-end. The old 337-day LTI counter is retired in favour of the EHS days-without-recordable.",
  wipReportingRule: {
@@ -4114,908 +4114,944 @@ window.MURCH_DATA = {
 },
  // ---- DOCUMENT SUBMITTALS (added Oct 3, 2026 at Jose's request) — transmittals to the Owner, Owner requests for documents, and what is owed. Numbers and roles only; no personal names.
  submittals: {
- "asOf": "Nov 11, 2026",
- "counts": {
-  "sent": 14,
-  "owed": 20,
-  "ownerComments": 5
- },
- "items": [
-  {
-   "ref": "OWN-INV-ACCESS",
-   "date": "Nov 9",
-   "dir": "From Owner",
-   "what": "The Owner asked again for the inverter access solution. Decision taken: backfill and raise the grade around all 23 inverters; the steel-platform option was never approved or ordered. No start date is set.",
-   "status": "Start date owed",
-   "badge": "bad",
-   "next": "Award and give the Owner a start date"
+    "asOf": "Nov 16, 2026",
+    "counts": {
+      "sent": 15,
+      "owed": 22,
+      "ownerComments": 6
+    },
+    "items": [
+      {
+        "ref": "PL-REV-1113",
+        "date": "Nov 13",
+        "dir": "To Owner",
+        "what": "Punch-list revision with EPC responses and closure photos, promised to the Owner by end of day Nov 13. Internal register (Nov 13, CM update shared Nov 16): 60 closed, 23 submitted or under review, 62 open. Internal target: owner-ready version with responsible and status columns before Tue Nov 17.",
+        "status": "Confirm sent",
+        "badge": "watch",
+        "next": "Confirm issue; correct item 144 first"
+      },
+      {
+        "ref": "ENV-REMED-02",
+        "date": "Nov 12",
+        "dir": "From Owner",
+        "what": "Owner follow-up on the written environmental remediation plan and remediation progress (silt fence, basins, stabilization). Wet ground slowed post driving Nov 4–5.",
+        "status": "Answer owed",
+        "badge": "bad",
+        "next": "Progress note with photos"
+      },
+      {
+        "ref": "PJM-ICCP-01",
+        "date": "Nov 12",
+        "dir": "From Owner",
+        "what": "ICCP points list / PJM onboarding test with the Owner's operations team; Owner asked us to escalate the SCADA integrator to run it Nov 13.",
+        "status": "Test to confirm",
+        "badge": "watch",
+        "next": "Confirm run; extend integrator hours"
+      },
+      {
+        "ref": "EGLE-PERMIT-HQQ",
+        "date": "Nov 13",
+        "dir": "From Owner",
+        "what": "State environmental portal permit HQQ-2V5D-54E0K (PV portion) received; permit and placard circulated by the design engineer.",
+        "status": "Received",
+        "badge": "ok",
+        "next": "Post the placard on site"
+      },
+      {
+        "ref": "OWN-INV-ACCESS",
+        "date": "Nov 9",
+        "dir": "From Owner",
+        "what": "The Owner asked again for the inverter access solution. Decision taken: backfill and raise the grade around all 23 inverters; the steel-platform option was never approved or ordered. No start date is set.",
+        "status": "Start date owed",
+        "badge": "bad",
+        "next": "Award and give the Owner a start date"
+      },
+      {
+        "ref": "ASB-REDLINES",
+        "date": "Nov 9",
+        "dir": "Internal",
+        "what": "Red lines and As-Built delivery schedule. Substation civil red lines uploaded Nov 2. The design engineer asked for a coordination meeting (Nov 9–10) on drawing revisions, additional studies and PE-stamped As-Builts before committing delivery dates.",
+        "status": "Schedule owed",
+        "badge": "watch",
+        "next": "Coordination meeting, then dates"
+      },
+      {
+        "ref": "MC-CERT-11A-11B",
+        "date": "Nov 6",
+        "dir": "From Owner",
+        "what": "Mechanical completion for circuits 11A and 11B.",
+        "status": "Granted",
+        "badge": "ok",
+        "next": "12A and 12B to follow; plant-wide request next week"
+      },
+      {
+        "ref": "LIEN-DIGIT",
+        "date": "Nov 11",
+        "dir": "To Owner",
+        "what": "Recorded release of claim of lien — Dig IT (dated Nov 10), sent on the MC punch-list thread.",
+        "status": "Released",
+        "badge": "ok",
+        "next": "Closed"
+      },
+      {
+        "ref": "LIEN-ALLSTATE",
+        "date": "Nov 4",
+        "dir": "To Owner",
+        "what": "All State Crane lien (claim against a racking subcontractor): payment evidence sent to the Owner; release from the claimant awaited.",
+        "status": "Release awaited",
+        "badge": "watch",
+        "next": "Obtain the recorded release and send it"
+      },
+      {
+        "ref": "PERMIT-LTE26-046",
+        "date": "Oct 29",
+        "dir": "To Owner",
+        "what": "Township electrical permit LTE26-046 for 11A + 11B, sent with the fee receipt Oct 29. Final electrical inspection PASSED Wed Nov 11 — township approval tag on file, official notification to follow.",
+        "status": "Final passed",
+        "badge": "ok",
+        "next": "Send the official notification when issued"
+      },
+      {
+        "ref": "PERMIT-LTE26-047",
+        "date": "Nov 6",
+        "dir": "To Owner",
+        "what": "Township electrical permit LTE26-047 for 12A + 12B (second electrical contractor's scope), sent to the Owner Nov 6. Occupancy and use are not authorised until its final inspection is complete.",
+        "status": "Issued",
+        "badge": "ok",
+        "next": "Book the final once 12B closes"
+      },
+      {
+        "ref": "PE-INSP-01",
+        "date": "Nov 5",
+        "dir": "To Owner",
+        "what": "Engineer’s preliminary site inspection report (Nov 1) for the substation and PV plant, sent with our responses. The engineer accepted them with two clarifications: the control-building data outlet and the DIN-rail grounding in the inverter SCADA cabinets (since grounded, Nov 6).",
+        "status": "Minor items open",
+        "badge": "watch",
+        "next": "Close items; complete the permit forms"
+      },
+      {
+        "ref": "NERC-PROT-01",
+        "date": "Nov 4",
+        "dir": "Internal",
+        "what": "Proof of protection settings for the NERC compliance file: one screenshot of the configured parameters per inverter, requested from the inverter OEM.",
+        "status": "Requested",
+        "badge": "watch",
+        "next": "OEM to supply"
+      },
+      {
+        "ref": "MC-PKG-12A",
+        "date": "Nov 3",
+        "dir": "To Owner",
+        "what": "12A mechanical-completion package uploaded complete and reported to the Owner; a few signage photos still to add.",
+        "status": "Submitted",
+        "badge": "watch",
+        "next": "Owner review"
+      },
+      {
+        "ref": "MC-OPEN-02",
+        "date": "Oct 30",
+        "dir": "From Owner",
+        "what": "Joint review of the mechanical-completion open items, Owner and EPC, called for this morning. Circulated for onward distribution, so the list is expected to be worked item by item rather than answered in writing.",
+        "status": "Held Oct 30",
+        "badge": "ok",
+        "next": "Closure actions tracked per item"
+      },
+      {
+        "ref": "ENV-VSMP-01",
+        "date": "Oct 30",
+        "dir": "From Owner",
+        "what": "Owner comments returned on the stormwater management plan revision 01, together with the soil management consultant statement. Three documents attached to the return.",
+        "status": "Attachment B drafted",
+        "badge": "watch",
+        "next": "Issue revision to the Owner"
+      },
+      {
+        "ref": "QA-INSP-01",
+        "date": "Oct 30",
+        "dir": "From Owner",
+        "what": "Site inspection for conformance of the constructed works to the issued design, raised by the engineering side.",
+        "status": "Done Nov 1",
+        "badge": "ok",
+        "next": "Minor items — see PE-INSP-01"
+      },
+      {
+        "ref": "ENV-SPCC-01",
+        "date": "Oct 27",
+        "dir": "To Owner",
+        "what": "Updated SPCC plan. The Owner set a submission deadline of Thursday Oct 29. No confirmation of issue has been seen in the mail sweep of Oct 30, so the item is carried as unconfirmed rather than closed.",
+        "status": "Issue unconfirmed",
+        "badge": "bad",
+        "next": "Confirm the plan went out on Oct 29, or issue it now"
+      },
+      {
+        "ref": "ENV-EGLE-01",
+        "date": "Oct 27",
+        "dir": "From Owner",
+        "what": "EGLE excavation permit. The Owner’s environmental lead confirmed the permit will be completed by the end of this week.",
+        "status": "Confirmed this week",
+        "badge": "watch",
+        "next": "Receive the issued permit and file it"
+      },
+      {
+        "ref": "MC-OPEN-01",
+        "date": "Oct 27",
+        "dir": "To Owner",
+        "what": "Response to the Owner’s mechanical-completion open items. One listed item calls for an SSVT, which is not equipment on this substation — the response identifies the installed and wired devices and asks the Owner to correct the item or name the equipment it means.",
+        "status": "Response sent",
+        "badge": "watch",
+        "next": "Owner to confirm the correction"
+      },
+      {
+        "ref": "MC-DOC-45",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "PV string tests for 11B, 12A and 12B. QA/QC states TWO INVERTERS are still missing — the only item on this list with a quantified field gap.",
+        "status": "2 inverters short",
+        "badge": "bad",
+        "next": "Test the two outstanding inverters, then issue"
+      },
+      {
+        "ref": "MC-DOC-11",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "Labelling and signage plus wire management and wire labelling, evidenced for MC. GreenSol to supply typical photographs — fence and gate warning signs, high-voltage signs on substation and inverters, termination labelling in LBD / combiner boxes and inverters — with a written statement that they are representative of the whole project.",
+        "status": "Pending",
+        "badge": "watch",
+        "next": "Photo pack plus written statement"
+      },
+      {
+        "ref": "MC-DOC-15",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "Interim As-Built drawings to the Owner, revised from the originals for field changes, change orders, component relocations and rerouting — including the .dwg file.",
+        "status": "Pending",
+        "badge": "watch",
+        "next": "Issue interim as-builts + .dwg"
+      },
+      {
+        "ref": "MC-DOC-44",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "Inverter inspections for 11B, 12A and 12B.",
+        "status": "Pending",
+        "badge": "watch",
+        "next": "Compile and issue"
+      },
+      {
+        "ref": "MC-DOC-50",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "Communication cable tests for 11B, 12A and 12B.",
+        "status": "Pending",
+        "badge": "watch",
+        "next": "Compile and issue"
+      },
+      {
+        "ref": "MC-DOC-51",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "Grounding system tests for 11B, 12A and 12B.",
+        "status": "Pending",
+        "badge": "watch",
+        "next": "Compile and issue"
+      },
+      {
+        "ref": "MC-DOC-46",
+        "date": "Oct 21",
+        "dir": "Internal",
+        "what": "Low and medium voltage cable tests for 11B, 12A and 12B.",
+        "status": "Complete",
+        "badge": "ok",
+        "next": "Issue with the circuit packs"
+      },
+      {
+        "ref": "BOX-QA-11A-SET",
+        "date": "Oct 19",
+        "dir": "To Owner",
+        "what": "11A string tests and grounding, plus the substation QA/QC package the Owner is asking for, to be uploaded to the Owner’s document platform.",
+        "status": "Committed Oct 19",
+        "badge": "watch",
+        "next": "Upload by the committed date"
+      },
+      {
+        "ref": "PLAN-MC-20261016",
+        "date": "Oct 16",
+        "dir": "Internal",
+        "what": "Planning manager’s MC (11A + SET) and energization follow-up — 94-point workbook dated Oct 15. Open after the daily meeting: electrical permit (6), 11A fibre test (5), Game Change attendance (25), and whether an energization request form exists (10).",
+        "status": "Open",
+        "badge": "watch",
+        "next": "Owners to close items 5, 6, 10 and 25"
+      },
+      {
+        "ref": "Weekly schedule update (data date Oct 5)",
+        "date": "Oct 6",
+        "dir": "To Owner",
+        "what": "Planning update for the Owner weekly: MC 11A Oct 16, 11B Oct 20, 12A Oct 29, 12B Nov 4; SET MC Oct 16; RTE Oct 30; PIS Nov 18; COD Dec 5; SC Dec 9 (contract Nov 30). Supersedes the Oct 1 revision (SC Nov 30).",
+        "status": "HOLD — dates locked",
+        "badge": "bad",
+        "next": "Jose Oct 6: issued milestones stay; do not issue revised dates"
+      },
+      {
+        "ref": "NERC energization package",
+        "date": "Oct 6",
+        "dir": "To Owner",
+        "what": "Contract Attachment B §6 / App. C deliverables — first set uploaded to the Owner Box Oct 6; substation contractor part requested; missing: Planning Coordinator notification and joint-facility correspondence. Next sets: 4 weeks before COD (Oct 30) and 90 days after COD (end Feb 2027).",
+        "status": "2 docs owed",
+        "badge": "watch",
+        "next": "Close by Oct 9"
+      },
+      {
+        "ref": "MC check list (B&V Sep 24 list)",
+        "date": "Oct 6",
+        "dir": "To Owner",
+        "what": "QA/QC updated the MC list in Box: fence complete; piles, trackers and road compaction 100%; SCADA FAT Rev 02; inverter check-lists 1–6, 9, 11, 13, 14; surge-arrester and switch FATs uploaded. Relay, circuit-switcher and instrument-transformer field tests only after energization; UPS, weather station, MV transformer, breaker and relay items await Owner confirmation; breaker item #38 is Owner scope.",
+        "status": "Awaiting Owner",
+        "badge": "watch",
+        "next": "Review at Thursday Oct 8 meeting"
+      },
+      {
+        "ref": "Electrical safety procedures",
+        "date": "Sep 23",
+        "dir": "To Owner",
+        "what": "LOTO Rev.01, energized-work control, energized-area access Rev.04, switching / energization draft, arc-flash study",
+        "status": "Ack. — comments owed",
+        "badge": "watch",
+        "next": "Owner comments"
+      },
+      {
+        "ref": "MC permit list",
+        "date": "Sep 28",
+        "dir": "From Owner",
+        "what": "Owner IE list of permits required for MC certification — gaps: SPCC (construction), electrical and building permits (township), SESC array, drain-use, county ROW, MDOT oversize; chased Sep 30",
+        "status": "OWED",
+        "badge": "bad",
+        "next": "Return the missing permits to the Owner"
+      },
+      {
+        "ref": "Equipment and cable tags / labels",
+        "date": "Sep 30",
+        "dir": "From Owner",
+        "what": "Owner asking for tags and labels on equipment and cabling; tag list claimed from engineering (subcontractors install)",
+        "status": "OWED",
+        "badge": "bad",
+        "next": "Engineering tag list"
+      },
+      {
+        "ref": "Owner punch list (Sep 24)",
+        "date": "Oct 1",
+        "dir": "From Owner",
+        "what": "Cable-hanger proposal rejected by Owner Operations (stainless, listed, ≤36 in); Oct 2 feeder-termination finding at A3 — clarification requested Oct 3",
+        "status": "OPEN",
+        "badge": "bad",
+        "next": "Compliant hanger submittal · termination clarification"
+      },
+      {
+        "ref": "MC documentation (control workbook)",
+        "date": "Sep 25",
+        "dir": "To Owner",
+        "what": "MC control workbook shared with the Owner, updated daily, joint review every 2 days; FAT records ~100% (meters and arrestors outstanding); field-test records not yet loaded",
+        "status": "In progress",
+        "badge": "watch",
+        "next": "Load field-test records"
+      },
+      {
+        "ref": "Pollinator / native seed mix",
+        "date": "Sep 29",
+        "dir": "Internal",
+        "what": "RFQ for 302,523 sy of seed; SWPPP equivalence of the proposed mix under review before the change is justified",
+        "status": "Under review",
+        "badge": "watch",
+        "next": "SWPPP justification"
+      }
+    ]
   },
-  {
-   "ref": "ASB-REDLINES",
-   "date": "Nov 9",
-   "dir": "Internal",
-   "what": "Red lines and As-Built delivery schedule. Substation civil red lines uploaded Nov 2. The design engineer asked for a coordination meeting (Nov 9–10) on drawing revisions, additional studies and PE-stamped As-Builts before committing delivery dates.",
-   "status": "Schedule owed",
-   "badge": "watch",
-   "next": "Coordination meeting, then dates"
-  },
-  {
-   "ref": "MC-CERT-11A-11B",
-   "date": "Nov 6",
-   "dir": "From Owner",
-   "what": "Mechanical completion for circuits 11A and 11B.",
-   "status": "Granted",
-   "badge": "ok",
-   "next": "12A and 12B to follow; plant-wide request next week"
-  },
-  {
-   "ref": "LIEN-DIGIT",
-   "date": "Nov 11",
-   "dir": "To Owner",
-   "what": "Recorded release of claim of lien — Dig IT (dated Nov 10), sent on the MC punch-list thread.",
-   "status": "Released",
-   "badge": "ok",
-   "next": "Closed"
-  },
-  {
-   "ref": "LIEN-ALLSTATE",
-   "date": "Nov 4",
-   "dir": "To Owner",
-   "what": "All State Crane lien (claim against a racking subcontractor): payment evidence sent to the Owner; release from the claimant awaited.",
-   "status": "Release awaited",
-   "badge": "watch",
-   "next": "Obtain the recorded release and send it"
-  },
-  {
-   "ref": "PERMIT-LTE26-046",
-   "date": "Oct 29",
-   "dir": "To Owner",
-   "what": "Township electrical permit LTE26-046 for 11A + 11B, sent with the fee receipt Oct 29. Final electrical inspection PASSED Wed Nov 11 — township approval tag on file, official notification to follow.",
-   "status": "Final passed",
-   "badge": "ok",
-   "next": "Send the official notification when issued"
-  },
-  {
-   "ref": "PERMIT-LTE26-047",
-   "date": "Nov 6",
-   "dir": "To Owner",
-   "what": "Township electrical permit LTE26-047 for 12A + 12B (second electrical contractor's scope), sent to the Owner Nov 6. Occupancy and use are not authorised until its final inspection is complete.",
-   "status": "Issued",
-   "badge": "ok",
-   "next": "Book the final once 12B closes"
-  },
-  {
-   "ref": "PE-INSP-01",
-   "date": "Nov 5",
-   "dir": "To Owner",
-   "what": "Engineer’s preliminary site inspection report (Nov 1) for the substation and PV plant, sent with our responses. The engineer accepted them with two clarifications: the control-building data outlet and the DIN-rail grounding in the inverter SCADA cabinets (since grounded, Nov 6).",
-   "status": "Minor items open",
-   "badge": "watch",
-   "next": "Close items; complete the permit forms"
-  },
-  {
-   "ref": "NERC-PROT-01",
-   "date": "Nov 4",
-   "dir": "Internal",
-   "what": "Proof of protection settings for the NERC compliance file: one screenshot of the configured parameters per inverter, requested from the inverter OEM.",
-   "status": "Requested",
-   "badge": "watch",
-   "next": "OEM to supply"
-  },
-  {
-   "ref": "MC-PKG-12A",
-   "date": "Nov 3",
-   "dir": "To Owner",
-   "what": "12A mechanical-completion package uploaded complete and reported to the Owner; a few signage photos still to add.",
-   "status": "Submitted",
-   "badge": "watch",
-   "next": "Owner review"
-  },
-  {
-   "ref": "MC-OPEN-02",
-   "date": "Oct 30",
-   "dir": "From Owner",
-   "what": "Joint review of the mechanical-completion open items, Owner and EPC, called for this morning. Circulated for onward distribution, so the list is expected to be worked item by item rather than answered in writing.",
-   "status": "Held Oct 30",
-   "badge": "ok",
-   "next": "Closure actions tracked per item"
-  },
-  {
-   "ref": "ENV-VSMP-01",
-   "date": "Oct 30",
-   "dir": "From Owner",
-   "what": "Owner comments returned on the stormwater management plan revision 01, together with the soil management consultant statement. Three documents attached to the return.",
-   "status": "Attachment B drafted",
-   "badge": "watch",
-   "next": "Issue revision to the Owner"
-  },
-  {
-   "ref": "QA-INSP-01",
-   "date": "Oct 30",
-   "dir": "From Owner",
-   "what": "Site inspection for conformance of the constructed works to the issued design, raised by the engineering side.",
-   "status": "Done Nov 1",
-   "badge": "ok",
-   "next": "Minor items — see PE-INSP-01"
-  },
-  {
-   "ref": "ENV-SPCC-01",
-   "date": "Oct 27",
-   "dir": "To Owner",
-   "what": "Updated SPCC plan. The Owner set a submission deadline of Thursday Oct 29. No confirmation of issue has been seen in the mail sweep of Oct 30, so the item is carried as unconfirmed rather than closed.",
-   "status": "Issue unconfirmed",
-   "badge": "bad",
-   "next": "Confirm the plan went out on Oct 29, or issue it now"
-  },
-  {
-   "ref": "ENV-EGLE-01",
-   "date": "Oct 27",
-   "dir": "From Owner",
-   "what": "EGLE excavation permit. The Owner’s environmental lead confirmed the permit will be completed by the end of this week.",
-   "status": "Confirmed this week",
-   "badge": "watch",
-   "next": "Receive the issued permit and file it"
-  },
-  {
-   "ref": "MC-OPEN-01",
-   "date": "Oct 27",
-   "dir": "To Owner",
-   "what": "Response to the Owner’s mechanical-completion open items. One listed item calls for an SSVT, which is not equipment on this substation — the response identifies the installed and wired devices and asks the Owner to correct the item or name the equipment it means.",
-   "status": "Response sent",
-   "badge": "watch",
-   "next": "Owner to confirm the correction"
-  },
-  {
-   "ref": "MC-DOC-45",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "PV string tests for 11B, 12A and 12B. QA/QC states TWO INVERTERS are still missing — the only item on this list with a quantified field gap.",
-   "status": "2 inverters short",
-   "badge": "bad",
-   "next": "Test the two outstanding inverters, then issue"
-  },
-  {
-   "ref": "MC-DOC-11",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "Labelling and signage plus wire management and wire labelling, evidenced for MC. GreenSol to supply typical photographs — fence and gate warning signs, high-voltage signs on substation and inverters, termination labelling in LBD / combiner boxes and inverters — with a written statement that they are representative of the whole project.",
-   "status": "Pending",
-   "badge": "watch",
-   "next": "Photo pack plus written statement"
-  },
-  {
-   "ref": "MC-DOC-15",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "Interim As-Built drawings to the Owner, revised from the originals for field changes, change orders, component relocations and rerouting — including the .dwg file.",
-   "status": "Pending",
-   "badge": "watch",
-   "next": "Issue interim as-builts + .dwg"
-  },
-  {
-   "ref": "MC-DOC-44",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "Inverter inspections for 11B, 12A and 12B.",
-   "status": "Pending",
-   "badge": "watch",
-   "next": "Compile and issue"
-  },
-  {
-   "ref": "MC-DOC-50",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "Communication cable tests for 11B, 12A and 12B.",
-   "status": "Pending",
-   "badge": "watch",
-   "next": "Compile and issue"
-  },
-  {
-   "ref": "MC-DOC-51",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "Grounding system tests for 11B, 12A and 12B.",
-   "status": "Pending",
-   "badge": "watch",
-   "next": "Compile and issue"
-  },
-  {
-   "ref": "MC-DOC-46",
-   "date": "Oct 21",
-   "dir": "Internal",
-   "what": "Low and medium voltage cable tests for 11B, 12A and 12B.",
-   "status": "Complete",
-   "badge": "ok",
-   "next": "Issue with the circuit packs"
-  },
-  {
-   "ref": "BOX-QA-11A-SET",
-   "date": "Oct 19",
-   "dir": "To Owner",
-   "what": "11A string tests and grounding, plus the substation QA/QC package the Owner is asking for, to be uploaded to the Owner’s document platform.",
-   "status": "Committed Oct 19",
-   "badge": "watch",
-   "next": "Upload by the committed date"
-  },
-  {
-   "ref": "PLAN-MC-20261016",
-   "date": "Oct 16",
-   "dir": "Internal",
-   "what": "Planning manager’s MC (11A + SET) and energization follow-up — 94-point workbook dated Oct 15. Open after the daily meeting: electrical permit (6), 11A fibre test (5), Game Change attendance (25), and whether an energization request form exists (10).",
-   "status": "Open",
-   "badge": "watch",
-   "next": "Owners to close items 5, 6, 10 and 25"
-  },
-  {
-   "ref": "Weekly schedule update (data date Oct 5)",
-   "date": "Oct 6",
-   "dir": "To Owner",
-   "what": "Planning update for the Owner weekly: MC 11A Oct 16, 11B Oct 20, 12A Oct 29, 12B Nov 4; SET MC Oct 16; RTE Oct 30; PIS Nov 18; COD Dec 5; SC Dec 9 (contract Nov 30). Supersedes the Oct 1 revision (SC Nov 30).",
-   "status": "HOLD — dates locked",
-   "badge": "bad",
-   "next": "Jose Oct 6: issued milestones stay; do not issue revised dates"
-  },
-  {
-   "ref": "NERC energization package",
-   "date": "Oct 6",
-   "dir": "To Owner",
-   "what": "Contract Attachment B §6 / App. C deliverables — first set uploaded to the Owner Box Oct 6; substation contractor part requested; missing: Planning Coordinator notification and joint-facility correspondence. Next sets: 4 weeks before COD (Oct 30) and 90 days after COD (end Feb 2027).",
-   "status": "2 docs owed",
-   "badge": "watch",
-   "next": "Close by Oct 9"
-  },
-  {
-   "ref": "MC check list (B&V Sep 24 list)",
-   "date": "Oct 6",
-   "dir": "To Owner",
-   "what": "QA/QC updated the MC list in Box: fence complete; piles, trackers and road compaction 100%; SCADA FAT Rev 02; inverter check-lists 1–6, 9, 11, 13, 14; surge-arrester and switch FATs uploaded. Relay, circuit-switcher and instrument-transformer field tests only after energization; UPS, weather station, MV transformer, breaker and relay items await Owner confirmation; breaker item #38 is Owner scope.",
-   "status": "Awaiting Owner",
-   "badge": "watch",
-   "next": "Review at Thursday Oct 8 meeting"
-  },
-  {
-   "ref": "Electrical safety procedures",
-   "date": "Sep 23",
-   "dir": "To Owner",
-   "what": "LOTO Rev.01, energized-work control, energized-area access Rev.04, switching / energization draft, arc-flash study",
-   "status": "Ack. — comments owed",
-   "badge": "watch",
-   "next": "Owner comments"
-  },
-  {
-   "ref": "MC permit list",
-   "date": "Sep 28",
-   "dir": "From Owner",
-   "what": "Owner IE list of permits required for MC certification — gaps: SPCC (construction), electrical and building permits (township), SESC array, drain-use, county ROW, MDOT oversize; chased Sep 30",
-   "status": "OWED",
-   "badge": "bad",
-   "next": "Return the missing permits to the Owner"
-  },
-  {
-   "ref": "Equipment and cable tags / labels",
-   "date": "Sep 30",
-   "dir": "From Owner",
-   "what": "Owner asking for tags and labels on equipment and cabling; tag list claimed from engineering (subcontractors install)",
-   "status": "OWED",
-   "badge": "bad",
-   "next": "Engineering tag list"
-  },
-  {
-   "ref": "Owner punch list (Sep 24)",
-   "date": "Oct 1",
-   "dir": "From Owner",
-   "what": "Cable-hanger proposal rejected by Owner Operations (stainless, listed, ≤36 in); Oct 2 feeder-termination finding at A3 — clarification requested Oct 3",
-   "status": "OPEN",
-   "badge": "bad",
-   "next": "Compliant hanger submittal · termination clarification"
-  },
-  {
-   "ref": "MC documentation (control workbook)",
-   "date": "Sep 25",
-   "dir": "To Owner",
-   "what": "MC control workbook shared with the Owner, updated daily, joint review every 2 days; FAT records ~100% (meters and arrestors outstanding); field-test records not yet loaded",
-   "status": "In progress",
-   "badge": "watch",
-   "next": "Load field-test records"
-  },
-  {
-   "ref": "Pollinator / native seed mix",
-   "date": "Sep 29",
-   "dir": "Internal",
-   "what": "RFQ for 302,523 sy of seed; SWPPP equivalence of the proposed mix under review before the change is justified",
-   "status": "Under review",
-   "badge": "watch",
-   "next": "SWPPP justification"
-  }
- ]
-},
  // ---- COMMISSIONING (added Oct 3, 2026 at Jose's request) — substation test window, PV field commissioning plan, resources, milestones.
  commissioning: {
- "asOf": "Nov 9 — MC 11A + 11B granted · Vdc 400/419 · VLF 4/4 · energization ~Nov 19",
- "set": {
-  "tests": 74,
-  "passed": 74,
-  "failed": 0,
-  "overdue": 0,
-  "deadline": "Oct 15",
-  "window": "Oct 1 – Oct 15",
-  "energization": "Targeted Nov 19–20 — the Owner coordination meeting of Nov 3 set Nov 19; the substation tracker carries Nov 20. Utility coordination for first energization is the one open item.",
-  "openItems": 1,
-  "overdueItems": 1,
-  "hFrameWaiting": 0,
-  "ev": 100,
-  "heldNote": "<strong>HELD, not re-based: the Nov 9 SE tracker export again carries NO commissioning tab (third run) and its testing row reads #REF!.</strong> SET tests stay at 74 of 74 on the Oct 21 ruling — never published as zero.",
-  "groups": [
-   {
-    "tag": "T1 main transformer",
-    "tests": 10,
-    "passed": 10,
-    "planned": "Oct 1–5"
-   },
-   {
-    "tag": "52-T1 69 kV breaker",
-    "tests": 6,
-    "passed": 6,
-    "planned": "Oct 3–4"
-   },
-   {
-    "tag": "Control enclosure / relays / SCADA",
-    "tests": 9,
-    "passed": 9,
-    "planned": "Oct 1–14"
-   },
-   {
-    "tag": "52-F1 / 52-F2 feeder breakers",
-    "tests": 10,
-    "passed": 10,
-    "planned": "Oct 5–6"
-   },
-   {
-    "tag": "Station grounding, trench, masts",
-    "tests": 6,
-    "passed": 6,
-    "planned": "Oct 1–9"
-   },
-   {
-    "tag": "69 kV line, H-frame, arresters, 89-L1",
-    "tests": 10,
-    "passed": 10,
-    "planned": "Oct 7–15"
-   },
-   {
-    "tag": "Buses, CCVT, VT, NGR, SST, switches",
-    "tests": 19,
-    "passed": 19,
-    "planned": "Oct 2–8"
-   },
-   {
-    "tag": "Risers, MV cables, feeder phasing",
-    "tests": 3,
-    "passed": 3,
-    "planned": "Oct 8–11"
-   },
-   {
-    "tag": "Lighting",
-    "tests": 1,
-    "passed": 1,
-    "planned": "Oct 5"
-   }
-  ],
-  "blockers": "<strong>Nov 9 — ONE ITEM OPEN ON THE SUBSTATION: utility coordination for first energization, at 50% against an Oct 22 target.</strong> The SCADA RTU configuration has closed (9 of 9); the tracker reads 256 of 257. The engineer’s site inspection of the substation and all four circuits ran Oct 31–Nov 1; the responses were accepted with minor items open, which do not hold the permit signatures. Inverter OEM dispatch is requested for Nov 19 and awaits its service vendor; the tracker OEM has not confirmed attendance. Proof of protection settings (one screenshot per inverter) is requested for the NERC compliance file. All 23 inverters communicate with the control room since Nov 4; cold commissioning is done on 20 of 23, with the OEM’s reports due at the end of November after the last three and the hot commissioning.",
-  "abMatrix": {
-   "asOf": "Oct 14, 2026 18:50",
-   "source": "Commissioning Manager — substation test matrix, activities AB 205–227, 7 Oct against the latest report",
-   "counts": {
-    "activities": 23,
-    "noEvidence": 12,
-    "closed": 2,
-    "documentedZero": 1
-   },
-   "note": "READ THE COLUMN CORRECTLY: \"no evidence\" means NO DOCUMENTATION WAS FOUND IN THE LATEST REPORT — it is an evidence audit, not an execution audit. That is a different thing from a test that was not performed, and it is precisely what a report submission closes. The rows that carry a RATIO are documented: those counts are real, in both directions. * marks an activity whose DENOMINATOR grew between the two cuts (visual and mechanical 28 → 31, switches 56 → 57, outdoor bus 10 → 11), so a percentage against a moving total is not a fixed measure.",
-   "rows": [
-    {
-     "id": 205,
-     "act": "Visual & Mechanical Inspections HV",
-     "prev": "10/28 · 35.7%",
-     "now": "18/31 · 58.1%",
-     "delta": "+22.4 pp*",
-     "verdict": "Strong advance — but the SCOPE GREW from 28 to 31 in the same period.",
-     "badge": "watch"
+    "asOf": "Nov 9 — MC 11A + 11B granted · Vdc 400/419 · VLF 4/4 · energization ~Nov 19",
+    "set": {
+      "tests": 74,
+      "passed": 74,
+      "failed": 0,
+      "overdue": 0,
+      "deadline": "Oct 15",
+      "window": "Oct 1 – Oct 15",
+      "energization": "Targeted Nov 19–20 — the Owner coordination meeting of Nov 3 set Nov 19; the substation tracker carries Nov 20. Utility coordination for first energization is the one open item.",
+      "openItems": 1,
+      "overdueItems": 1,
+      "hFrameWaiting": 0,
+      "ev": 100,
+      "heldNote": "<strong>HELD, not re-based: the Nov 9 SE tracker export again carries NO commissioning tab (third run) and its testing row reads #REF!.</strong> SET tests stay at 74 of 74 on the Oct 21 ruling — never published as zero.",
+      "groups": [
+        {
+          "tag": "T1 main transformer",
+          "tests": 10,
+          "passed": 10,
+          "planned": "Oct 1–5"
+        },
+        {
+          "tag": "52-T1 69 kV breaker",
+          "tests": 6,
+          "passed": 6,
+          "planned": "Oct 3–4"
+        },
+        {
+          "tag": "Control enclosure / relays / SCADA",
+          "tests": 9,
+          "passed": 9,
+          "planned": "Oct 1–14"
+        },
+        {
+          "tag": "52-F1 / 52-F2 feeder breakers",
+          "tests": 10,
+          "passed": 10,
+          "planned": "Oct 5–6"
+        },
+        {
+          "tag": "Station grounding, trench, masts",
+          "tests": 6,
+          "passed": 6,
+          "planned": "Oct 1–9"
+        },
+        {
+          "tag": "69 kV line, H-frame, arresters, 89-L1",
+          "tests": 10,
+          "passed": 10,
+          "planned": "Oct 7–15"
+        },
+        {
+          "tag": "Buses, CCVT, VT, NGR, SST, switches",
+          "tests": 19,
+          "passed": 19,
+          "planned": "Oct 2–8"
+        },
+        {
+          "tag": "Risers, MV cables, feeder phasing",
+          "tests": 3,
+          "passed": 3,
+          "planned": "Oct 8–11"
+        },
+        {
+          "tag": "Lighting",
+          "tests": 1,
+          "passed": 1,
+          "planned": "Oct 5"
+        }
+      ],
+      "blockers": "<strong>Nov 9 — ONE ITEM OPEN ON THE SUBSTATION: utility coordination for first energization, at 50% against an Oct 22 target.</strong> The SCADA RTU configuration has closed (9 of 9); the tracker reads 256 of 257. The engineer’s site inspection of the substation and all four circuits ran Oct 31–Nov 1; the responses were accepted with minor items open, which do not hold the permit signatures. Inverter OEM dispatch is requested for Nov 19 and awaits its service vendor; the tracker OEM has not confirmed attendance. Proof of protection settings (one screenshot per inverter) is requested for the NERC compliance file. All 23 inverters communicate with the control room since Nov 4; cold commissioning is done on 20 of 23, with the OEM’s reports due at the end of November after the last three and the hot commissioning.",
+      "abMatrix": {
+        "asOf": "Oct 14, 2026 18:50",
+        "source": "Commissioning Manager — substation test matrix, activities AB 205–227, 7 Oct against the latest report",
+        "counts": {
+          "activities": 23,
+          "noEvidence": 12,
+          "closed": 2,
+          "documentedZero": 1
+        },
+        "note": "READ THE COLUMN CORRECTLY: \"no evidence\" means NO DOCUMENTATION WAS FOUND IN THE LATEST REPORT — it is an evidence audit, not an execution audit. That is a different thing from a test that was not performed, and it is precisely what a report submission closes. The rows that carry a RATIO are documented: those counts are real, in both directions. * marks an activity whose DENOMINATOR grew between the two cuts (visual and mechanical 28 → 31, switches 56 → 57, outdoor bus 10 → 11), so a percentage against a moving total is not a fixed measure.",
+        "rows": [
+          {
+            "id": 205,
+            "act": "Visual & Mechanical Inspections HV",
+            "prev": "10/28 · 35.7%",
+            "now": "18/31 · 58.1%",
+            "delta": "+22.4 pp*",
+            "verdict": "Strong advance — but the SCOPE GREW from 28 to 31 in the same period.",
+            "badge": "watch"
+          },
+          {
+            "id": 206,
+            "act": "UPS Battery Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. NOT INCLUDED IN AB POWER’S SCOPE — nobody owns it. Predecessor of MC Achieved.",
+            "badge": "bad"
+          },
+          {
+            "id": 207,
+            "act": "UPS Battery Charger Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. NOT INCLUDED — same ownership gap as 206.",
+            "badge": "bad"
+          },
+          {
+            "id": 208,
+            "act": "Transformer Tests — T1",
+            "prev": "0/1 · 0%",
+            "now": "0/1 · 0%",
+            "delta": "0.0 pp",
+            "verdict": "THE ONE GENUINE HOLE. This row is DOCUMENTED at 0 of 1 — it is not a missing-evidence row, it is evidence that the power transformer has not been tested. Nothing energizes without it.",
+            "badge": "bad"
+          },
+          {
+            "id": 209,
+            "act": "LV/MV/HV Cable Tests",
+            "prev": "no evidence",
+            "now": "2/2 · 100%*",
+            "delta": "—",
+            "verdict": "11A closed, but this does NOT represent all cables — partial scope.",
+            "badge": "watch"
+          },
+          {
+            "id": 210,
+            "act": "Switches LV/MV/HV",
+            "prev": "45/56 · 80.4%",
+            "now": "49/57 · 86.0%",
+            "delta": "+5.6 pp*",
+            "verdict": "Well advanced; denominator moved 56 → 57.",
+            "badge": "ok"
+          },
+          {
+            "id": 211,
+            "act": "Circuit Breaker Tests",
+            "prev": "29/30 · 96.7%",
+            "now": "30/30 · 100%",
+            "delta": "+3.3 pp",
+            "verdict": "CLOSED.",
+            "badge": "ok"
+          },
+          {
+            "id": 212,
+            "act": "Circuit Switcher Tests",
+            "prev": "not separable",
+            "now": "not separable",
+            "delta": "—",
+            "verdict": "Applicability and scope still to be confirmed.",
+            "badge": "watch"
+          },
+          {
+            "id": 213,
+            "act": "Protective Relay Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. CRITICAL — no evidence at all, and this is the MC gate. No movement since Jul 10 per the Oct 15 review.",
+            "badge": "bad"
+          },
+          {
+            "id": 214,
+            "act": "Instrument Transformers PT/CT",
+            "prev": "21/35 · 60.0%",
+            "now": "27/35 · 77.1%",
+            "delta": "+17.1 pp",
+            "verdict": "Important advance; CCVT injection still pending.",
+            "badge": "ok"
+          },
+          {
+            "id": 215,
+            "act": "Metering Device Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. Utility metering equipment is also a third-party predecessor with no date.",
+            "badge": "bad"
+          },
+          {
+            "id": 216,
+            "act": "Load Tap Changer Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
+            "badge": "bad"
+          },
+          {
+            "id": 217,
+            "act": "Ground-Fault Protection",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. — named in the Oct 15 review as a Control House test with no date since Jul 10.",
+            "badge": "bad"
+          },
+          {
+            "id": 218,
+            "act": "Grounding System Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. CONTRADICTS the field report that the grounding test was run on the afternoon of Oct 13 — either it was run and not reported, or it was not run.",
+            "badge": "bad"
+          },
+          {
+            "id": 219,
+            "act": "Fall-of-Potential",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
+            "badge": "bad"
+          },
+          {
+            "id": 220,
+            "act": "MV/HV Surge Arresters",
+            "prev": "1/13 · 7.7%",
+            "now": "2/13 · 15.4%",
+            "delta": "+7.7 pp",
+            "verdict": "Documented at 2 of 13 — a real count, not a documentation gap. 11 still to run.",
+            "badge": "bad"
+          },
+          {
+            "id": 221,
+            "act": "Capacitor / Reactor → NGR",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ; applicability to confirm. Predecessor of MC Achieved.",
+            "badge": "bad"
+          },
+          {
+            "id": 222,
+            "act": "Outdoor Bus Structure Tests",
+            "prev": "0/10 · 0%",
+            "now": "3/11 · 27.3%",
+            "delta": "+27.3 pp*",
+            "verdict": "Improved on F1, but the package stays critical and the denominator moved 10 → 11.",
+            "badge": "watch"
+          },
+          {
+            "id": 223,
+            "act": "Emergency Systems",
+            "prev": "no evidence",
+            "now": "no evidence · ATS 0 tests",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. — named in the Oct 15 review as a Control House test with no date.",
+            "badge": "bad"
+          },
+          {
+            "id": 224,
+            "act": "Fiber Optic Tests",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
+            "badge": "bad"
+          },
+          {
+            "id": 225,
+            "act": "Phase Rotation HV",
+            "prev": "no evidence",
+            "now": "no evidence",
+            "delta": "—",
+            "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
+            "badge": "bad"
+          },
+          {
+            "id": 226,
+            "act": "MV Switchgear / Switchboard",
+            "prev": "partial",
+            "now": "partial, advanced",
+            "delta": "—",
+            "verdict": "Breakers closed; THE BUSES ARE STILL OPEN.",
+            "badge": "watch"
+          },
+          {
+            "id": 227,
+            "act": "SST1 / MV Transformer",
+            "prev": "2/3 · 66.7%",
+            "now": "3/3 · 100%",
+            "delta": "+33.3 pp",
+            "verdict": "CLOSED.",
+            "badge": "ok"
+          }
+        ]
+      },
+      "executedStated": "97.1% per the planning manager’s MC-to-energization workbook (Oct 15, circulated Oct 16); Jose stated 95% on Oct 15 — the same position. AB Power committed to +90% by Oct 15 and the remainder on Oct 19. The register still reads 0 passed; no count is derived from either figure."
     },
-    {
-     "id": 206,
-     "act": "UPS Battery Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. NOT INCLUDED IN AB POWER’S SCOPE — nobody owns it. Predecessor of MC Achieved.",
-     "badge": "bad"
+    "pv": {
+      "subcontract": "Commissioning / start-up subcontractor recommended Sep 30 (SCADA & comms package, QA/QC + commissioning supervision, thermography) — approvals pending; technician arrives US Oct 7, on site Oct 8 if confirmed now.",
+      "scope": "String polarity, continuity and insulation · I-V curves (Isc/Voc) · grounding resistance and continuity · SCADA/MCU/weather-station checks · thermography (manual + aerial).",
+      "tests": {
+        "ivRequired": 6600,
+        "ivPlanned": 1500,
+        "basis": "Contract: 100% string sampling. Plan: ~20% now (autumn irradiance), balance proposed for spring 2027 with thermography — needs the Owner’s agreement. The commissioning portal runs its own sampling scope, 479 string samples since Nov 12; 316 are counted and validated."
+      },
+      "resources": [
+        {
+          "crew": "Polarity / continuity / insulation",
+          "people": 4,
+          "equipment": "2 owned testers (+1 owned tester moves to polarity when irradiance is too low for I-V)"
+        },
+        {
+          "crew": "I-V curves",
+          "people": 4,
+          "equipment": "2 rented I-V tracers (30 A)"
+        },
+        {
+          "crew": "Grounding",
+          "people": 0,
+          "equipment": "1 rented ground tester — I-V crew switches to grounds when irradiance is too low"
+        },
+        {
+          "crew": "SCADA troubleshooting",
+          "people": 1,
+          "equipment": "Subcontractor technician"
+        },
+        {
+          "crew": "Supervision",
+          "people": 1,
+          "equipment": ""
+        }
+      ],
+      "windows": [
+        {
+          "period": "Oct 4–7",
+          "polarity": "11A → 11B",
+          "iv": "—",
+          "ground": "—",
+          "tests": "—"
+        },
+        {
+          "period": "Oct 8–10",
+          "polarity": "11B",
+          "iv": "11A",
+          "ground": "11A",
+          "tests": "11A"
+        },
+        {
+          "period": "Oct 11–16",
+          "polarity": "12A",
+          "iv": "11B",
+          "ground": "11B",
+          "tests": "11B"
+        },
+        {
+          "period": "Oct 17–21",
+          "polarity": "12B",
+          "iv": "12A",
+          "ground": "12A",
+          "tests": "12A"
+        },
+        {
+          "period": "Oct 22–29",
+          "polarity": "Punch / retest",
+          "iv": "12B",
+          "ground": "12B",
+          "tests": "12B"
+        },
+        {
+          "period": "Oct 30 – Nov 25",
+          "polarity": "Hot-commissioning support",
+          "iv": "Additional I-V",
+          "ground": "QA / retest",
+          "tests": "SCADA / MCU / WS checks"
+        }
+      ],
+      "fieldTests": {
+        "asOf": "Nov 12 (TVANT commissioning portal)",
+        "irStrings": 316,
+        "irScope": 479,
+        "detail": "<strong>IV 316 of 479 string samples (Nov 12), up from 256 on Nov 11; all validated.</strong> By circuit: 11A 149 of 152, 11B 110 of 110, 12A 57 of 110, 12B 0 of 107."
+      },
+      "stepTouch": "Step-and-touch tests at the substation to be executed by the substation contractor (equipment cost).",
+      "readiness": [
+        {
+          "circuit": "11A",
+          "mc": "MC GRANTED",
+          "series": "92 counted · mostly complete (count pending)",
+          "lv": "complete · POLARITY TEST FINISHED · VLF complete · string insulation on A4/A6, no count",
+          "mvUnits": "10 / 10",
+          "jbTerm": "33 / 33 · MV COMPLETE 57/57",
+          "scada": "boxes 5/5 · fibre loop 5/5",
+          "status": "Complete"
+        },
+        {
+          "circuit": "11B",
+          "mc": "MC GRANTED",
+          "series": 535,
+          "lv": "COMPLETE — INV-12 closed Oct 15; harness 1,292, LV terminations 220/220 and 440/440",
+          "mvUnits": "12 / 12",
+          "jbTerm": "39 / 39 · MV COMPLETE 69/69",
+          "scada": "boxes 6/6 · fibre loop 6/6",
+          "status": "Complete"
+        },
+        {
+          "circuit": "12A",
+          "mc": "MC package submitted Nov 3",
+          "series": "96 · plug-and-play PS-16/17/18/19 complete",
+          "lv": "COMPLETE — 76,120 lf, harness 1,258 (re-based Oct 15 on the PM + CM position)",
+          "mvUnits": "13 / 13 · pull-in 13/13",
+          "jbTerm": "45 / 45 · MV COMPLETE 75/75",
+          "scada": "boxes 6/6 · fibre loop 6/6",
+          "status": "At Risk"
+        },
+        {
+          "circuit": "12B",
+          "mc": "MC package pending · INV-07/08/10 open",
+          "series": 14,
+          "lv": "43,343 / 66,395 lf · 23,052 open · +7,098 lf on Oct 27",
+          "mvUnits": "6 / 11 · pull-in 11/11 · trenches 13/52",
+          "jbTerm": "33 / 33 · MV COMPLETE 63/63",
+          "scada": "boxes 6/6 · fibre loop 6/6",
+          "status": "Critical"
+        }
+      ],
+      "milestones": [
+        {
+          "name": "SET mechanical completion",
+          "plan": "Oct 1",
+          "now": "ACHIEVED Oct 20",
+          "note": "4 d after the Oct 5 weekly"
+        },
+        {
+          "name": "SET tests complete",
+          "plan": "Oct 15",
+          "now": "EXECUTED 74/74",
+          "note": "reports to the Owner still owed for MC"
+        },
+        {
+          "name": "Circuit MC 11A / 11B",
+          "plan": "Oct 2 / Oct 10",
+          "now": "GRANTED",
+          "note": "12A submitted Nov 3; 12B this week"
+        },
+        {
+          "name": "Ready to Energize",
+          "plan": "Oct 15",
+          "now": "Nov 19 backfeed",
+          "note": "SET backfeed deadline Thu Nov 19 (Nov 11 thread); tracker Nov 20"
+        },
+        {
+          "name": "AEP backfeed",
+          "plan": "—",
+          "now": "Owner §4.7",
+          "note": "coordination item at 50%, overdue since Oct 22"
+        },
+        {
+          "name": "Consent to Energize",
+          "plan": "—",
+          "now": "10 BD",
+          "note": "Tax Equity per Darrin; Heelstone by contract"
+        },
+        {
+          "name": "SET hot commissioning",
+          "plan": "—",
+          "now": "4 days",
+          "note": "runs once backfeed is given"
+        },
+        {
+          "name": "SCADA point-to-point (Tenaska)",
+          "plan": "—",
+          "now": "ours",
+          "note": "ICCP/PJM onboarding test: Owner asked Nov 12 to escalate the SCADA integrator"
+        },
+        {
+          "name": "Test Energy to PJM",
+          "plan": "Nov 11",
+          "now": "not viable",
+          "note": "no margin for SET hot commissioning"
+        },
+        {
+          "name": "IV curve campaign",
+          "plan": "Oct–Nov",
+          "now": "316/479",
+          "note": "all validated; 12A 57/110, 12B at zero"
+        },
+        {
+          "name": "Substantial Completion",
+          "plan": "Nov 30",
+          "now": "Dec 9",
+          "note": "9 d past contract; downstream dates owed"
+        }
+      ]
     },
-    {
-     "id": 207,
-     "act": "UPS Battery Charger Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. NOT INCLUDED — same ownership gap as 206.",
-     "badge": "bad"
-    },
-    {
-     "id": 208,
-     "act": "Transformer Tests — T1",
-     "prev": "0/1 · 0%",
-     "now": "0/1 · 0%",
-     "delta": "0.0 pp",
-     "verdict": "THE ONE GENUINE HOLE. This row is DOCUMENTED at 0 of 1 — it is not a missing-evidence row, it is evidence that the power transformer has not been tested. Nothing energizes without it.",
-     "badge": "bad"
-    },
-    {
-     "id": 209,
-     "act": "LV/MV/HV Cable Tests",
-     "prev": "no evidence",
-     "now": "2/2 · 100%*",
-     "delta": "—",
-     "verdict": "11A closed, but this does NOT represent all cables — partial scope.",
-     "badge": "watch"
-    },
-    {
-     "id": 210,
-     "act": "Switches LV/MV/HV",
-     "prev": "45/56 · 80.4%",
-     "now": "49/57 · 86.0%",
-     "delta": "+5.6 pp*",
-     "verdict": "Well advanced; denominator moved 56 → 57.",
-     "badge": "ok"
-    },
-    {
-     "id": 211,
-     "act": "Circuit Breaker Tests",
-     "prev": "29/30 · 96.7%",
-     "now": "30/30 · 100%",
-     "delta": "+3.3 pp",
-     "verdict": "CLOSED.",
-     "badge": "ok"
-    },
-    {
-     "id": 212,
-     "act": "Circuit Switcher Tests",
-     "prev": "not separable",
-     "now": "not separable",
-     "delta": "—",
-     "verdict": "Applicability and scope still to be confirmed.",
-     "badge": "watch"
-    },
-    {
-     "id": 213,
-     "act": "Protective Relay Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. CRITICAL — no evidence at all, and this is the MC gate. No movement since Jul 10 per the Oct 15 review.",
-     "badge": "bad"
-    },
-    {
-     "id": 214,
-     "act": "Instrument Transformers PT/CT",
-     "prev": "21/35 · 60.0%",
-     "now": "27/35 · 77.1%",
-     "delta": "+17.1 pp",
-     "verdict": "Important advance; CCVT injection still pending.",
-     "badge": "ok"
-    },
-    {
-     "id": 215,
-     "act": "Metering Device Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. Utility metering equipment is also a third-party predecessor with no date.",
-     "badge": "bad"
-    },
-    {
-     "id": 216,
-     "act": "Load Tap Changer Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
-     "badge": "bad"
-    },
-    {
-     "id": 217,
-     "act": "Ground-Fault Protection",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. — named in the Oct 15 review as a Control House test with no date since Jul 10.",
-     "badge": "bad"
-    },
-    {
-     "id": 218,
-     "act": "Grounding System Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. CONTRADICTS the field report that the grounding test was run on the afternoon of Oct 13 — either it was run and not reported, or it was not run.",
-     "badge": "bad"
-    },
-    {
-     "id": 219,
-     "act": "Fall-of-Potential",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
-     "badge": "bad"
-    },
-    {
-     "id": 220,
-     "act": "MV/HV Surge Arresters",
-     "prev": "1/13 · 7.7%",
-     "now": "2/13 · 15.4%",
-     "delta": "+7.7 pp",
-     "verdict": "Documented at 2 of 13 — a real count, not a documentation gap. 11 still to run.",
-     "badge": "bad"
-    },
-    {
-     "id": 221,
-     "act": "Capacitor / Reactor → NGR",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ; applicability to confirm. Predecessor of MC Achieved.",
-     "badge": "bad"
-    },
-    {
-     "id": 222,
-     "act": "Outdoor Bus Structure Tests",
-     "prev": "0/10 · 0%",
-     "now": "3/11 · 27.3%",
-     "delta": "+27.3 pp*",
-     "verdict": "Improved on F1, but the package stays critical and the denominator moved 10 → 11.",
-     "badge": "watch"
-    },
-    {
-     "id": 223,
-     "act": "Emergency Systems",
-     "prev": "no evidence",
-     "now": "no evidence · ATS 0 tests",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. — named in the Oct 15 review as a Control House test with no date.",
-     "badge": "bad"
-    },
-    {
-     "id": 224,
-     "act": "Fiber Optic Tests",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
-     "badge": "bad"
-    },
-    {
-     "id": 225,
-     "act": "Phase Rotation HV",
-     "prev": "no evidence",
-     "now": "no evidence",
-     "delta": "—",
-     "verdict": "DOCUMENTATION GAP, not a stated failure — no evidence in the latest report. ",
-     "badge": "bad"
-    },
-    {
-     "id": 226,
-     "act": "MV Switchgear / Switchboard",
-     "prev": "partial",
-     "now": "partial, advanced",
-     "delta": "—",
-     "verdict": "Breakers closed; THE BUSES ARE STILL OPEN.",
-     "badge": "watch"
-    },
-    {
-     "id": 227,
-     "act": "SST1 / MV Transformer",
-     "prev": "2/3 · 66.7%",
-     "now": "3/3 · 100%",
-     "delta": "+33.3 pp",
-     "verdict": "CLOSED.",
-     "badge": "ok"
-    }
-   ]
+    "contractProvisions": "Control-building backup power: contract has no provision for a double backup — proposal is the 8 h DC battery for critical systems plus an auto-start diesel generator (good industry practice). Internet: contract requires ≥100 Mb/s with no connection type — 5G modem/antenna proposed; critical links (SCADA cellular backup, AEP via OPGW) are independent. Sent to the Owner Oct 2 to avoid a contractual dispute."
   },
-  "executedStated": "97.1% per the planning manager’s MC-to-energization workbook (Oct 15, circulated Oct 16); Jose stated 95% on Oct 15 — the same position. AB Power committed to +90% by Oct 15 and the remainder on Oct 19. The register still reads 0 passed; no count is derived from either figure."
- },
- "pv": {
-  "subcontract": "Commissioning / start-up subcontractor recommended Sep 30 (SCADA & comms package, QA/QC + commissioning supervision, thermography) — approvals pending; technician arrives US Oct 7, on site Oct 8 if confirmed now.",
-  "scope": "String polarity, continuity and insulation · I-V curves (Isc/Voc) · grounding resistance and continuity · SCADA/MCU/weather-station checks · thermography (manual + aerial).",
-  "tests": {
-   "ivRequired": 6600,
-   "ivPlanned": 1500,
-   "basis": "Contract: 100% string sampling. Plan: ~20% now (autumn irradiance), balance proposed for spring 2027 with thermography — needs the Owner’s agreement. The commissioning portal runs its own sampling scope of 492 string samples since Nov 4; 256 are counted at the Nov 11 cut."
-  },
-  "resources": [
-   {
-    "crew": "Polarity / continuity / insulation",
-    "people": 4,
-    "equipment": "2 owned testers (+1 owned tester moves to polarity when irradiance is too low for I-V)"
-   },
-   {
-    "crew": "I-V curves",
-    "people": 4,
-    "equipment": "2 rented I-V tracers (30 A)"
-   },
-   {
-    "crew": "Grounding",
-    "people": 0,
-    "equipment": "1 rented ground tester — I-V crew switches to grounds when irradiance is too low"
-   },
-   {
-    "crew": "SCADA troubleshooting",
-    "people": 1,
-    "equipment": "Subcontractor technician"
-   },
-   {
-    "crew": "Supervision",
-    "people": 1,
-    "equipment": ""
-   }
-  ],
-  "windows": [
-   {
-    "period": "Oct 4–7",
-    "polarity": "11A → 11B",
-    "iv": "—",
-    "ground": "—",
-    "tests": "—"
-   },
-   {
-    "period": "Oct 8–10",
-    "polarity": "11B",
-    "iv": "11A",
-    "ground": "11A",
-    "tests": "11A"
-   },
-   {
-    "period": "Oct 11–16",
-    "polarity": "12A",
-    "iv": "11B",
-    "ground": "11B",
-    "tests": "11B"
-   },
-   {
-    "period": "Oct 17–21",
-    "polarity": "12B",
-    "iv": "12A",
-    "ground": "12A",
-    "tests": "12A"
-   },
-   {
-    "period": "Oct 22–29",
-    "polarity": "Punch / retest",
-    "iv": "12B",
-    "ground": "12B",
-    "tests": "12B"
-   },
-   {
-    "period": "Oct 30 – Nov 25",
-    "polarity": "Hot-commissioning support",
-    "iv": "Additional I-V",
-    "ground": "QA / retest",
-    "tests": "SCADA / MCU / WS checks"
-   }
-  ],
-  "fieldTests": {
-   "asOf": "Nov 11 (TVANT commissioning portal)",
-   "irStrings": 256,
-   "irScope": 492,
-   "detail": "<strong>IV 256 of 492 string samples (Nov 11), up from 195 on Nov 4.</strong> 241 validated, 61 pending review. By circuit: 11A 103 of 165, 11B 109 of 110, 12A 44 of 110, 12B 0 of 107."
-  },
-  "stepTouch": "Step-and-touch tests at the substation to be executed by the substation contractor (equipment cost).",
-  "readiness": [
-   {
-    "circuit": "11A",
-    "mc": "MC GRANTED",
-    "series": "92 counted · mostly complete (count pending)",
-    "lv": "complete · POLARITY TEST FINISHED · VLF complete · string insulation on A4/A6, no count",
-    "mvUnits": "10 / 10",
-    "jbTerm": "33 / 33 · MV COMPLETE 57/57",
-    "scada": "boxes 5/5 · fibre loop 5/5",
-    "status": "Complete"
-   },
-   {
-    "circuit": "11B",
-    "mc": "MC GRANTED",
-    "series": 535,
-    "lv": "COMPLETE — INV-12 closed Oct 15; harness 1,292, LV terminations 220/220 and 440/440",
-    "mvUnits": "12 / 12",
-    "jbTerm": "39 / 39 · MV COMPLETE 69/69",
-    "scada": "boxes 6/6 · fibre loop 6/6",
-    "status": "Complete"
-   },
-   {
-    "circuit": "12A",
-    "mc": "MC package submitted Nov 3",
-    "series": "96 · plug-and-play PS-16/17/18/19 complete",
-    "lv": "COMPLETE — 76,120 lf, harness 1,258 (re-based Oct 15 on the PM + CM position)",
-    "mvUnits": "13 / 13 · pull-in 13/13",
-    "jbTerm": "45 / 45 · MV COMPLETE 75/75",
-    "scada": "boxes 6/6 · fibre loop 6/6",
-    "status": "At Risk"
-   },
-   {
-    "circuit": "12B",
-    "mc": "Package due this week · INV-08 / INV-10 open",
-    "series": 14,
-    "lv": "43,343 / 66,395 lf · 23,052 open · +7,098 lf on Oct 27",
-    "mvUnits": "6 / 11 · pull-in 11/11 · trenches 13/52",
-    "jbTerm": "33 / 33 · MV COMPLETE 63/63",
-    "scada": "boxes 6/6 · fibre loop 6/6",
-    "status": "Critical"
-   }
-  ],
-  "milestones": [
-   {
-    "name": "SET mechanical completion",
-    "plan": "Oct 1",
-    "now": "ACHIEVED Oct 20",
-    "note": "4 d after the Oct 5 weekly"
-   },
-   {
-    "name": "SET tests complete",
-    "plan": "Oct 15",
-    "now": "EXECUTED 74/74",
-    "note": "reports to the Owner still owed for MC"
-   },
-   {
-    "name": "Circuit MC 11A / 11B",
-    "plan": "Oct 2 / Oct 10",
-    "now": "GRANTED",
-    "note": "12A submitted Nov 3; 12B this week"
-   },
-   {
-    "name": "Ready to Energize",
-    "plan": "Oct 15",
-    "now": "Nov 19–20",
-    "note": "Owner meeting Nov 3 / tracker Nov 9"
-   },
-   {
-    "name": "AEP backfeed",
-    "plan": "—",
-    "now": "Owner §4.7",
-    "note": "coordination item at 50%, overdue since Oct 22"
-   },
-   {
-    "name": "Consent to Energize",
-    "plan": "—",
-    "now": "10 BD",
-    "note": "Tax Equity per Darrin; Heelstone by contract"
-   },
-   {
-    "name": "SET hot commissioning",
-    "plan": "—",
-    "now": "4 days",
-    "note": "runs once backfeed is given"
-   },
-   {
-    "name": "SCADA point-to-point (Tenaska)",
-    "plan": "—",
-    "now": "ours",
-    "note": "E2E 3 BD before Test Energy"
-   },
-   {
-    "name": "Test Energy to PJM",
-    "plan": "Nov 11",
-    "now": "not viable",
-    "note": "no margin for SET hot commissioning"
-   },
-   {
-    "name": "IV curve campaign",
-    "plan": "Oct–Nov",
-    "now": "256/492",
-    "note": "12A started Nov 11 cut; 12B at zero"
-   },
-   {
-    "name": "Substantial Completion",
-    "plan": "Nov 30",
-    "now": "Dec 9",
-    "note": "9 d past contract; downstream dates owed"
-   }
-  ]
- },
- "contractProvisions": "Control-building backup power: contract has no provision for a double backup — proposal is the 8 h DC battery for critical systems plus an auto-start diesel generator (good industry practice). Internet: contract requires ≥100 Mb/s with no connection type — 5G modem/antenna proposed; critical links (SCADA cellular backup, AEP via OPGW) are independent. Sent to the Owner Oct 2 to avoid a contractual dispute."
-},
  risks: [
- {
-  "headline": "12B is the last circuit open — stations 8 and 10 pending, and no dated production filed since Oct 29",
-  "title": "12B close-out, Nov 9, 2026 — eleven days without a measured quantity.",
-  "note": "<strong>No daily report has been filed since Oct 29, so cable holds at 257,764 lf with 11,984 lf open on the ledger.</strong> The Nov 6 weekly carries stations 15, 16, 17 and 7 complete and 8 and 10 pending. The new LV DC tracker (Nov 10) shows INV-10 with 18 of 18 boxes set and 11,029 of 11,514 ft of home run pulled, but 366 ft of trunk and no terminations — and NO entries at all for INV-07 or INV-08. The MV control has not been re-cut since Oct 27: 12B trenches 13 of 52, units 6 of 11. <strong>Three instruments disagree on what is left; a count is needed before the 12B package is promised for this week.</strong>",
-  "level": "critical",
-  "owner": "Construction"
- },
- {
-  "headline": "Energization ~Nov 19–20 hangs on one overdue item: utility coordination, at 50% since Oct 22",
-  "title": "First energization, Nov 9, 2026 — the path is no longer construction.",
-  "note": "<strong>The substation tracker reads 256 of 257; the one open item is utility coordination for first energization.</strong> The Owner repeated Nov 19 at the Nov 3 coordination meeting and expects both OEMs on site. The inverter OEM has submitted its dispatch for Nov 19 and awaits its service vendor; the tracker OEM has not answered. Establish in writing whether energization can proceed without the tracker OEM.",
-  "level": "critical",
-  "owner": "SET + Commissioning"
- },
- {
-  "headline": "Inverter access: backfill around 23 inverters decided, no start date — the Owner has asked twice",
-  "title": "Inverter access, Nov 9, 2026 — a mechanical-completion exposure.",
-  "note": "<strong>The steel-platform option was never approved or ordered and its lead time rules it out.</strong> The decision is to backfill and raise the grade around all 23 inverters. An offer is in hand; the award and a start date are not. Earthworks capacity is tightening with winter.",
-  "level": "high",
-  "owner": "Construction + Procurement"
- },
- {
-  "headline": "Liens: Dig IT release recorded and sent Nov 11; All State Crane release still awaited",
-  "title": "Lien discharge, Nov 11, 2026 — first item on the MC documentation review.",
-  "note": "<strong>Dig IT: recorded release of claim of lien (dated Nov 10) sent to the Owner on the MC punch-list thread Nov 11 — closed.</strong> All State Crane (claim against a racking subcontractor): payment evidence sent to the Owner Nov 4; the release from the claimant has not been received. Chase the recorded release and send it the day it arrives. No values are shown on this page.",
-  "level": "high",
-  "owner": "Contracts + Finance"
- },
- {
-  "headline": "12B holds every open test: 18 Vdc records in zone D, 5 of 6 groundings, OTDR and 3 of 6 precommissioning",
-  "title": "PV field tests, TVANT portal cut Nov 11, 2026.",
-  "note": "<strong>Vdc 400 of 419 — 18 of the 19 open records are 12B, all in zone D, untouched at 0 of 18.</strong> Grounding resistance and continuity have not moved from 18 of 23 since Oct 20. OTDR 3 of 4 open on 12B; inverter precommissioning 20 of 23, the three open all on 12B. No movement on Vdc or grounding between the Nov 4 and Nov 11 cuts.",
-  "level": "high",
-  "owner": "Commissioning"
- },
- {
-  "headline": "IV 256 of 492 — 12A has started (44/110), 12B at zero, 11A flat at 103/165",
-  "title": "IV curve sampling, TVANT portal cut Nov 11, 2026.",
-  "note": "<strong>IV sampling moved 195 → 256 of 492 in a week.</strong> 11B is one sample short (109/110); 12A opened at 44 of 110; 12B is at 0 of 107. 11A still reads 103 of 165, below the 149 shown Oct 30 — no explanation from the portal, question open with the test supervisor. 61 measurements are pending review. Confirm what the Owner accepts as the IV basis per circuit for MC.",
-  "level": "high",
-  "owner": "Commissioning + QA/QC"
- },
- {
-  "headline": "Trunk cable is 3,233 ft above its take-off — ruling still owed, and the new tracker estimates trunk lengths",
-  "title": "LV trunk quantity, Oct 27, 2026 — the overrun has stopped being a rounding note.",
-  "note": "<strong>Nov 10: the new LV DC tracker states that every trunk length on INV-07, INV-08 and INV-10 is an ESTIMATE (83.5 / 91.8 ft per box), and that 20 of 29 boxes on INV-01 to INV-03 were laid longer than IFC.</strong> That supports the short-take-off reading. <strong>Tuesday filed 3,096 ft of trunk on 12B, taking the project total to 43,545.9 ft against a 40,313 ft take-off: 3,232.9 ft above the count, from 137 ft on Oct 26.</strong> Held and flagged, not trimmed; the trunk component is capped at 100% in the composite so the overrun earns nothing and the published percentage is unaffected. Two readings fit: the take-off is short on 12B, or home run is being booked as trunk — the same day filed 4,002 ft of home run, and the split between the two is the reporter’s. <strong>This needs a ruling before the circuit closes, because the remaining 11,984 lf is priced and planned off the same take-off.</strong>",
-  "level": "high",
-  "owner": "Director of Construction"
- },
- {
-  "headline": "Milestone dates not restated since Oct 12 — its overall MC date of Nov 10 arrives with two circuits open",
-  "title": "Schedule basis, Nov 9, 2026.",
-  "note": "<strong>The last schedule update (data date Oct 12) carries overall MC Nov 10, PIS Nov 21, COD Dec 8 and SC Dec 12.</strong> 11A and 11B are granted, 12A is under review and 12B is not submitted. PIS on Nov 21 needs energization on Nov 19–20 to hold. A restated schedule is owed.",
-  "level": "high",
-  "owner": "Planning"
- },
- {
-  "headline": "Tracker deflection: 257 rows still open — 186 repaired but not approved, 71 not repaired",
-  "title": "Director of Construction’s own count, Oct 21, 2026 — no detailed register received.",
-  "note": "<strong>Deflection control of Oct 29: 513 rows affected, 442 repaired (86%), 256 repaired and approved. 257 remain open — 186 need a second pass and 71 are untouched (C 31, E 36, EW 4).</strong> Remedy for the open rows: extensions 91, pile cuts 78, welded extensions 55, grading 23, concrete footing 10. The control workbook’s two summary tabs disagree (513 vs 500 affected) — the row-count tab is used. PRIOR: <strong>270 rows are still pending repair. About 80 per cent sit on circuit 11B, mostly Area E with some filed under Area C — roughly 216 rows — and 11B is the circuit whose outstanding tests are meant to close first.</strong> <strong>THREE PROCEDURES, RISING DIFFICULTY: re-grading without touching the piles; cutting the pile; welding in an extra beam. About 40 per cent of the 270 (≈108 rows) need the cutting or the welded beam to bring the grade below the 1 degree tolerance — that is the slow, hot-work half of the scope, and it is the part that will decide the duration.</strong> <strong>NO DETAILED REPORTING HAS BEEN RECEIVED. The last row-by-row register is the Sep 21 QA cut (390 affected, 53 fixed, 337 open), so the total is now superseded while the breakdown is not. Ask QA for the current register split by zone, by procedure and by circuit — without it there is no way to forecast the welded-beam work or to tie it to the 11B test programme.</strong> <strong>ATTRIBUTION TO CHECK: Area C rows cannot be on 11B under the circuit map (11B is Zone E throughout; Area C is 11A). Either the circuit or the area label is wrong on part of this count.</strong>",
-  "level": "high",
-  "owner": "QA/QC + racking"
- },
- {
-  "headline": "As-Built schedule not committed — the design engineer wants scope aligned before dating PE stamps",
-  "title": "Red lines and As-Builts, Nov 9, 2026.",
-  "note": "<strong>Several requests are running in parallel: revisions to submitted drawings, additional studies and PE-stamped As-Built packages.</strong> The design engineer asked for a coordination meeting on Nov 9–10 before giving a consolidated delivery schedule.",
-  "level": "watch",
-  "owner": "Engineering"
- },
- {
-  "headline": "SPCC issue still unconfirmed; soil management plan Rev 01 with its Attachment B drafted Nov 2",
-  "title": "SPCC plan submission, Oct 30, 2026 — deadline passed, delivery unconfirmed.",
-  "note": "<strong>Nov 9: no confirmation of the SPCC issue has appeared in two sweeps.</strong> The soil management plan revision was answered on Nov 2 with an Attachment B of forms, keeping the SESC permit as the reference; erosion-control inspection reports are on file for Oct 29 and Nov 5. <strong>The Owner set Thursday Oct 29 as the submission deadline. The mail sweep of Oct 30 shows no confirmation that the updated plan went out, so the item is carried as unconfirmed rather than closed.</strong> Separately the Owner returned comments on the stormwater management plan revision 01 together with the soil management consultant statement, which is a second environmental document now in revision. The EGLE excavation permit was confirmed for completion this week.",
-  "level": "high",
-  "owner": "Engineering + Environmental"
- },
- {
-  "headline": "Owner punch list: cable-hanger product rejected by Operations; feeder terminations at A3 flagged",
-  "title": "OWNER PUNCH LIST (Sep 24 register, Owner Operations now approving closures) — the string-harness support proposed Sep 29 was rejected Oct 1 (zinc-plated, not listed for electrical use; EPCA/EOR require stainless wire management at ≤36 in). Oct 2: the Owner’s asset manager says the inverter feeder terminations (photo at A3) do not follow the manual and torqued hardware must be replaced — clarification requested Oct 3.",
-  "note": "Punch list stays open for MC; Owner will update before SC. The hanger ruling affects the golden-row CAB-gap detail on every row series-connected so far.",
-  "level": "critical",
-  "owner": "Construction Manager | QA/QC | Engineering | Electrical contractors"
- },
- {
-  "headline": "Electrical final PASSED Nov 11 for 11A + 11B — the 12A + 12B final under LTE26-047 is not yet booked",
-  "title": "Township electrical permits LTE26-046 and LTE26-047, Nov 11, 2026.",
-  "note": "<strong>LTE26-046 (11A + 11B): final electrical inspection approved Wed Nov 11</strong> — township approval tag (electrical, final); the inspector reviewed inverters and distribution boxes; official notification to follow. <strong>LTE26-047 (12A + 12B, second electrical contractor) was sent to the Owner Nov 6; its final inspection is not yet booked</strong> — book it as soon as 12B closes. The substation goes by third-party PE certification; the engineer’s minor items remain open.",
-  "level": "watch",
-  "owner": "Construction + Permits"
- }
-],
+    {
+      "headline": "12B is the last circuit open — stations 8 and 10 pending, and no dated production filed since Oct 29",
+      "title": "12B close-out, Nov 9, 2026 — eleven days without a measured quantity.",
+      "note": "<strong>No daily report has been filed since Oct 29, so cable holds at 257,764 lf with 11,984 lf open on the ledger.</strong> The Nov 6 weekly carries stations 15, 16, 17 and 7 complete and 8 and 10 pending. The new LV DC tracker (Nov 10) shows INV-10 with 18 of 18 boxes set and 11,029 of 11,514 ft of home run pulled, but 366 ft of trunk and no terminations — and NO entries at all for INV-07 or INV-08. The MV control has not been re-cut since Oct 27: 12B trenches 13 of 52, units 6 of 11. <strong>Three instruments disagree on what is left; a count is needed before the 12B package is promised for this week.</strong> <strong>Nov 16: the LV DC tracker re-cut reads route cable 283,182 of 283,727 ft (99.8%), inverter-side lugs 838 of 838, LBD-side lugs 1,590 of 1,674, strings 5,745 of 6,594, IR/QC 366 of 419 — INV-07/08/10 open (0 of 53 LBD at 100%). It has no daily log and a different scope basis from our 269,748 lf ledger; flagged for a ruling, not re-based.</strong>",
+      "level": "critical",
+      "owner": "Construction"
+    },
+    {
+      "headline": "SET backfeed deadline Thu Nov 19 — utility coordination still the one open item; ICCP/PJM test pending",
+      "title": "First energization, Nov 16, 2026 — the path is no longer construction.",
+      "note": "<strong>The substation tracker (Nov 16) reads 256 of 257; the one open item is utility coordination for first energization (50%, overdue since Oct 22). The SET backfeed deadline is Thu Nov 19.</strong> Nov 12: the Owner asked us to escalate the SCADA integrator to run the ICCP points / PJM onboarding test on Nov 13; site reports the integrator works Spanish hours and treats Fridays as non-working one week before energization. Confirm the test was run and get written cover for extended hours through Nov 20.",
+      "level": "critical",
+      "owner": "SET + Commissioning"
+    },
+    {
+      "headline": "Punch list: 60 of 145 closed by the EPC, 23 submitted — Owner still shows 3 closed; 30 environmental items open",
+      "title": "Owner punch list — CM update of the Nov 13 register (shared Nov 16).",
+      "note": "<strong>145 items: EPC status 60 closed, 15 pending closure, 8 under review, 62 open. The Owner's own status column still reads 142 open / 3 closed — closures have not been accepted.</strong> Environmental is the weak group: 30 of 31 open (SWCA audit Oct 6), and the Owner chased remediation progress Nov 12; we committed a punch-list revision with photos for Nov 13 — confirm it went. Item 144 (electrical permit) is marked closed although the 12A + 12B final under LTE26-047 is not booked. Item 143: 76 trackers need extensions for deflection. Next punch-list meeting Thu Nov 19.",
+      "level": "critical",
+      "owner": "Construction Manager | QA/QC | Environmental | Engineering"
+    },
+    {
+      "headline": "Inverter access: backfill around 23 inverters decided, no start date — the Owner has asked twice",
+      "title": "Inverter access, Nov 9, 2026 — a mechanical-completion exposure.",
+      "note": "<strong>The steel-platform option was never approved or ordered and its lead time rules it out.</strong> The decision is to backfill and raise the grade around all 23 inverters. An offer is in hand; the award and a start date are not. Earthworks capacity is tightening with winter.",
+      "level": "high",
+      "owner": "Construction + Procurement"
+    },
+    {
+      "headline": "Liens: Dig IT release recorded and sent Nov 11; All State Crane release still awaited",
+      "title": "Lien discharge, Nov 11, 2026 — first item on the MC documentation review.",
+      "note": "<strong>Dig IT: recorded release of claim of lien (dated Nov 10) sent to the Owner on the MC punch-list thread Nov 11 — closed.</strong> All State Crane (claim against a racking subcontractor): payment evidence sent to the Owner Nov 4; the release from the claimant has not been received. Chase the recorded release and send it the day it arrives. No values are shown on this page.",
+      "level": "high",
+      "owner": "Contracts + Finance"
+    },
+    {
+      "headline": "12B holds every open test: 18 Vdc in zone D, 3 groundings, 5 continuity, 3 precommissioning",
+      "title": "PV field tests, TVANT portal cut Nov 12, 2026.",
+      "note": "<strong>Vdc 400 of 419 — 18 of the 19 open records are 12B zone D, still 0 of 18.</strong> Grounding resistance 18 → 20 of 23 and OTDR 3 → 4 of 4 on the Nov 12 cut; continuity holds at 18 of 23 (12B 1 of 6); precommissioning 20 of 23, the three open all on 12B.",
+      "level": "high",
+      "owner": "Commissioning"
+    },
+    {
+      "headline": "IV 316 of 479, all validated — 11A answered (149/152 after re-base), 12A 57/110, 12B at zero",
+      "title": "IV curve sampling, TVANT portal cut Nov 12, 2026.",
+      "note": "<strong>IV moved 256 → 316 in a day and every measurement is validated.</strong> TVANT re-based 11A from 165 to 152 samples and it reads 149 of 152 — the Nov 4 drop is explained by the re-base. 12A is at 57 of 110; 12B has not started (0 of 107). Confirm the IV basis per circuit the Owner accepts for MC.",
+      "level": "high",
+      "owner": "Commissioning + QA/QC"
+    },
+    {
+      "headline": "Trunk cable is 3,233 ft above its take-off — ruling still owed, and the new tracker estimates trunk lengths",
+      "title": "LV trunk quantity, Oct 27, 2026 — the overrun has stopped being a rounding note.",
+      "note": "<strong>Nov 10: the new LV DC tracker states that every trunk length on INV-07, INV-08 and INV-10 is an ESTIMATE (83.5 / 91.8 ft per box), and that 20 of 29 boxes on INV-01 to INV-03 were laid longer than IFC.</strong> That supports the short-take-off reading. <strong>Tuesday filed 3,096 ft of trunk on 12B, taking the project total to 43,545.9 ft against a 40,313 ft take-off: 3,232.9 ft above the count, from 137 ft on Oct 26.</strong> Held and flagged, not trimmed; the trunk component is capped at 100% in the composite so the overrun earns nothing and the published percentage is unaffected. Two readings fit: the take-off is short on 12B, or home run is being booked as trunk — the same day filed 4,002 ft of home run, and the split between the two is the reporter’s. <strong>This needs a ruling before the circuit closes, because the remaining 11,984 lf is priced and planned off the same take-off.</strong>",
+      "level": "high",
+      "owner": "Director of Construction"
+    },
+    {
+      "headline": "Milestone dates not restated since Oct 12 — its overall MC date of Nov 10 arrives with two circuits open",
+      "title": "Schedule basis, Nov 9, 2026.",
+      "note": "<strong>The last schedule update (data date Oct 12) carries overall MC Nov 10, PIS Nov 21, COD Dec 8 and SC Dec 12.</strong> 11A and 11B are granted, 12A is under review and 12B is not submitted. PIS on Nov 21 needs energization on Nov 19–20 to hold. A restated schedule is owed.",
+      "level": "high",
+      "owner": "Planning"
+    },
+    {
+      "headline": "Tracker deflection: 257 rows still open — 186 repaired but not approved, 71 not repaired",
+      "title": "Director of Construction’s own count, Oct 21, 2026 — no detailed register received.",
+      "note": "<strong>Deflection control of Oct 29: 513 rows affected, 442 repaired (86%), 256 repaired and approved. 257 remain open — 186 need a second pass and 71 are untouched (C 31, E 36, EW 4).</strong> Remedy for the open rows: extensions 91, pile cuts 78, welded extensions 55, grading 23, concrete footing 10. The control workbook’s two summary tabs disagree (513 vs 500 affected) — the row-count tab is used. PRIOR: <strong>270 rows are still pending repair. About 80 per cent sit on circuit 11B, mostly Area E with some filed under Area C — roughly 216 rows — and 11B is the circuit whose outstanding tests are meant to close first.</strong> <strong>THREE PROCEDURES, RISING DIFFICULTY: re-grading without touching the piles; cutting the pile; welding in an extra beam. About 40 per cent of the 270 (≈108 rows) need the cutting or the welded beam to bring the grade below the 1 degree tolerance — that is the slow, hot-work half of the scope, and it is the part that will decide the duration.</strong> <strong>NO DETAILED REPORTING HAS BEEN RECEIVED. The last row-by-row register is the Sep 21 QA cut (390 affected, 53 fixed, 337 open), so the total is now superseded while the breakdown is not. Ask QA for the current register split by zone, by procedure and by circuit — without it there is no way to forecast the welded-beam work or to tie it to the 11B test programme.</strong> <strong>ATTRIBUTION TO CHECK: Area C rows cannot be on 11B under the circuit map (11B is Zone E throughout; Area C is 11A). Either the circuit or the area label is wrong on part of this count.</strong>",
+      "level": "high",
+      "owner": "QA/QC + racking"
+    },
+    {
+      "headline": "As-Built schedule not committed — the design engineer wants scope aligned before dating PE stamps",
+      "title": "Red lines and As-Builts, Nov 9, 2026.",
+      "note": "<strong>Several requests are running in parallel: revisions to submitted drawings, additional studies and PE-stamped As-Built packages.</strong> The design engineer asked for a coordination meeting on Nov 9–10 before giving a consolidated delivery schedule.",
+      "level": "watch",
+      "owner": "Engineering"
+    },
+    {
+      "headline": "SPCC issue still unconfirmed; soil management plan Rev 01 with its Attachment B drafted Nov 2",
+      "title": "SPCC plan submission, Oct 30, 2026 — deadline passed, delivery unconfirmed.",
+      "note": "<strong>Nov 9: no confirmation of the SPCC issue has appeared in two sweeps.</strong> The soil management plan revision was answered on Nov 2 with an Attachment B of forms, keeping the SESC permit as the reference; erosion-control inspection reports are on file for Oct 29 and Nov 5. <strong>The Owner set Thursday Oct 29 as the submission deadline. The mail sweep of Oct 30 shows no confirmation that the updated plan went out, so the item is carried as unconfirmed rather than closed.</strong> Separately the Owner returned comments on the stormwater management plan revision 01 together with the soil management consultant statement, which is a second environmental document now in revision. The EGLE excavation permit was confirmed for completion this week.",
+      "level": "high",
+      "owner": "Engineering + Environmental"
+    },
+    {
+      "headline": "Electrical final PASSED Nov 11 for 11A + 11B — the 12A + 12B final under LTE26-047 is not yet booked",
+      "title": "Township electrical permits LTE26-046 and LTE26-047, Nov 11, 2026.",
+      "note": "<strong>LTE26-046 (11A + 11B): final electrical inspection approved Wed Nov 11</strong> — township approval tag (electrical, final); the inspector reviewed inverters and distribution boxes; official notification to follow. <strong>LTE26-047 (12A + 12B, second electrical contractor) was sent to the Owner Nov 6; its final inspection is not yet booked</strong> — book it as soon as 12B closes. The substation goes by third-party PE certification; the engineer’s minor items remain open. <strong>Nov 13: punch item 144 is marked closed in the EPC column as \"permit signed off by the AHJ\" — true for 11A + 11B only; correct it before the register goes to the Owner.</strong>",
+      "level": "watch",
+      "owner": "Construction + Permits"
+    }
+  ],
  };
 
 // ---- Jul 13 field-snapshot render patch (runs after main dashboard script) ----
@@ -5201,79 +5237,94 @@ window.MURCH_DATA.deflection = {
  "note": "Source: QA deflection tracker control dated Oct 29, 2026 (project SharePoint, saved Nov 3). Open rows = repaired but not approved (186) + not repaired (71) = 257, which matches the remedy breakdown. Approval criterion is the measured grade after repair. The workbook’s area-summary tab reads 500 affected and 428 repaired against 513 and 442 on its row-count tab; the row-count tab is published and the difference is flagged to QA. This supersedes the 270 pending stated on Oct 21."
 };
 window.MURCH_DATA.punchList = {
- "asOf": "register of Oct 29, 2026 · responses dated Nov 5",
- "tiles": [
-  {
-   "big": "145",
-   "label": "Items on the register",
-   "small": "5 source walks and audits"
-  },
-  {
-   "big": "143",
-   "label": "Open",
-   "small": "none marked in progress",
-   "cls": "co-bad"
-  },
-  {
-   "big": "2",
-   "label": "Closed",
-   "small": "",
-   "cls": "co-ok"
-  },
-  {
-   "big": "94",
-   "label": "High priority, open",
-   "small": "",
-   "cls": "co-bad"
-  },
-  {
-   "big": "45",
-   "label": "Medium, open",
-   "small": "",
-   "cls": "co-watch"
-  },
-  {
-   "big": "4",
-   "label": "Low, open",
-   "small": ""
-  }
- ],
- "head": [
-  "Discipline",
-  "Items",
-  "Open"
- ],
- "rows": [
-  [
-   "Electrical",
-   "59",
-   "58"
+  "asOf": "register of Nov 13, 2026 · CM update shared Nov 16",
+  "tiles": [
+    {
+      "big": "145",
+      "label": "Items on the register",
+      "small": "5 source walks and audits"
+    },
+    {
+      "big": "60",
+      "label": "Closed by the EPC",
+      "small": "Owner has accepted 3",
+      "cls": "co-ok"
+    },
+    {
+      "big": "23",
+      "label": "Submitted / under review",
+      "small": "15 pending closure · 8 under review",
+      "cls": "co-watch"
+    },
+    {
+      "big": "62",
+      "label": "Still open",
+      "small": "",
+      "cls": "co-bad"
+    },
+    {
+      "big": "42",
+      "label": "High priority, open",
+      "small": "+14 submitted",
+      "cls": "co-bad"
+    },
+    {
+      "big": "30",
+      "label": "Environmental, open",
+      "small": "of 31 — SWCA audit Oct 6",
+      "cls": "co-bad"
+    }
   ],
-  [
-   "Environmental",
-   "31",
-   "31"
+  "head": [
+    "Discipline",
+    "Items",
+    "Open",
+    "Sent",
+    "Closed"
   ],
-  [
-   "MV electrical",
-   "10",
-   "10"
+  "rows": [
+    [
+      "Electrical",
+      "59",
+      "14",
+      "9",
+      "36"
+    ],
+    [
+      "Environmental",
+      "31",
+      "30",
+      "0",
+      "1"
+    ],
+    [
+      "MV electrical",
+      "10",
+      "3",
+      "0",
+      "7"
+    ],
+    [
+      "SCADA / comms",
+      "10",
+      "2",
+      "3",
+      "5"
+    ],
+    [
+      "Structural",
+      "10",
+      "5",
+      "4",
+      "1"
+    ],
+    [
+      "Other (civil, mech., safety, bldg.)",
+      "25",
+      "8",
+      "7",
+      "10"
+    ]
   ],
-  [
-   "SCADA / comms",
-   "10",
-   "10"
-  ],
-  [
-   "Structural",
-   "10",
-   "10"
-  ],
-  [
-   "Other (civil, mechanical, modules, safety, building)",
-   "25",
-   "24"
-  ]
- ],
- "note": "Source: construction punch-list register dated Oct 29, 2026 (project SharePoint, saved Nov 9), with EPC responses dated Nov 5. Items come from the site visit notes of Aug 25–26 (46), the inverter-manual review of Oct 7 (9), the environmental compliance audit of Oct 6 (30), the site notes of Oct 21 (57) and the project team (3). The EPC is sole responsible party on 122 of the 143 open items. <strong>The status column has not moved: 143 open and none in progress, although responses are logged against the items — closures are not being recorded.</strong> Largest open groups by location: inverter DC feeder terminations 9, combiner boxes 8, MV collection 8, substation 8."
+  "note": "Source: construction punch-list register Murch_Punch_List_20261113 (project SharePoint, version 6.0, last edited by the CM Nov 13; sent as the updated list Nov 16). <strong>Statuses are the EPC's internal column (added after the Nov 12 punch-list meeting): 60 closed, 15 pending closure, 8 under review, 62 open. The Owner's column still reads 142 open / 3 closed — none of our closures has been accepted yet.</strong> By source: site visit Aug 25–26 — 46 items, 23 closed, 18 submitted, 5 open; inverter-manual review Oct 7 — 9 of 9 closed; environmental audit Oct 6 — 29 of 30 open; site notes Oct 21 — 26 closed, 5 submitted, 26 open; project team Oct 28–29 — 1 closed, 2 open. Flags: item 144 (electrical permit) is closed internally but only 11A + 11B have passed final; item 143 (76 trackers need extensions for deflection) open; item 145 (groundwork inspection list) not yet received from the Owner. Next punch-list meeting Thu Nov 19."
 };
