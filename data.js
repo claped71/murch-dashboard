@@ -1,6 +1,6 @@
 'use strict';
 // Murch dashboard data - update THIS file for daily changes
-// CACHE BUSTER 20261116b - 250K-hour safety celebration banner (English) added to photos and shown in the safety section. PRIOR 20261116a - PUNCH LIST from the CM update (Teams, Nov 16) of the Nov 13 register: 145 items, EPC status 60 closed / 15 pending closure / 8 under review / 62 open; Owner column 3 closed. TVANT GEO cut Nov 12: IV 316 of 479 (re-based from 492; 11A 149/152), all validated; OTDR 4/4; grounding resistance 20/23. SET backfeed Nov 19; ICCP/PJM test escalation; environmental permit HQQ received; remediation follow-up owed. LV DC tracker Nov 16 (99.8% cable, 838/838 inverter lugs on its own scope) flagged, not re-based. No production since Oct 29. PRIOR 20261111c - hero summary and status line switched to English (Director of Construction, Nov 11). PRIOR 20261111b - DAILY SWEEP Nov 11. (1) PERMIT NUMBERS CORRECTED: LTE26-046 = 11A + 11B (licensed contractor of record for that scope, issued and sent to the Owner Oct 29) - this is the permit whose final electrical inspection PASSED Nov 11 (township approval tag). LTE26-047 = 12A + 12B (the second electrical contractor's scope, sent to the Owner Nov 6) - final inspection not yet booked. The 20261111a cut had the two numbers swapped. (2) LIENS: Dig IT recorded release of claim of lien (dated Nov 10) sent to the Owner Nov 11 - CLOSED; All State Crane - payment evidence sent to the Owner Nov 4, release from the claimant still awaited. (3) TVANT GEO cut Nov 11: IV 195 -> 256 of 492 samples (302 measurements, 241 validated, 61 pending review), 11B 109/110, 12A opens at 44/110, 12B 0; inverter precommissioning now counted per inverter 20 of 23 (12B 3 of 6); MCU 9 -> 12 of 13; Vdc 400/419, grounding 18/23, OTDR 3/4 unchanged. (4) SAFETY on the GreenSol EHS dashboard (revised totals Nov 10, through Oct 31): 250,323 h to date, 303 days without recordable, TRIR 0.00, DART 0.00 - published as the safety basis; the week-45 weekly figure 250,421 at Nov 6 is flagged as a divergence. (5) No daily production report since Oct 29 - quantities hold. LV DC tracker re-cut Nov 11 (16 LBD boxes, 11,395 ft, no daily log) not added. PRIOR 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
+// CACHE BUSTER 20261118a - DAILY SWEEP Nov 18: punch list re-saved Nov 18 (62 closed / 15 pending / 7 review / 61 open; Owner 3 closed); load test Nov 24 needs export (new critical risk); tracker tracking mode undated; landowner fence claim; utility fibre conduit not built; As-Built schedule still owed. TVANT (Nov 12), EHS (Oct 31), SE tracker (Nov 16) and LV DC tracker (Nov 17, same figures) unchanged. No production since Oct 29. PRIOR 20261116b - 250K-hour safety celebration banner (English) added to photos and shown in the safety section. PRIOR 20261116a - PUNCH LIST from the CM update (Teams, Nov 16) of the Nov 13 register: 145 items, EPC status 60 closed / 15 pending closure / 8 under review / 62 open; Owner column 3 closed. TVANT GEO cut Nov 12: IV 316 of 479 (re-based from 492; 11A 149/152), all validated; OTDR 4/4; grounding resistance 20/23. SET backfeed Nov 19; ICCP/PJM test escalation; environmental permit HQQ received; remediation follow-up owed. LV DC tracker Nov 16 (99.8% cable, 838/838 inverter lugs on its own scope) flagged, not re-based. No production since Oct 29. PRIOR 20261111c - hero summary and status line switched to English (Director of Construction, Nov 11). PRIOR 20261111b - DAILY SWEEP Nov 11. (1) PERMIT NUMBERS CORRECTED: LTE26-046 = 11A + 11B (licensed contractor of record for that scope, issued and sent to the Owner Oct 29) - this is the permit whose final electrical inspection PASSED Nov 11 (township approval tag). LTE26-047 = 12A + 12B (the second electrical contractor's scope, sent to the Owner Nov 6) - final inspection not yet booked. The 20261111a cut had the two numbers swapped. (2) LIENS: Dig IT recorded release of claim of lien (dated Nov 10) sent to the Owner Nov 11 - CLOSED; All State Crane - payment evidence sent to the Owner Nov 4, release from the claimant still awaited. (3) TVANT GEO cut Nov 11: IV 195 -> 256 of 492 samples (302 measurements, 241 validated, 61 pending review), 11B 109/110, 12A opens at 44/110, 12B 0; inverter precommissioning now counted per inverter 20 of 23 (12B 3 of 6); MCU 9 -> 12 of 13; Vdc 400/419, grounding 18/23, OTDR 3/4 unchanged. (4) SAFETY on the GreenSol EHS dashboard (revised totals Nov 10, through Oct 31): 250,323 h to date, 303 days without recordable, TRIR 0.00, DART 0.00 - published as the safety basis; the week-45 weekly figure 250,421 at Nov 6 is flagged as a divergence. (5) No daily production report since Oct 29 - quantities hold. LV DC tracker re-cut Nov 11 (16 LBD boxes, 11,395 ft, no daily log) not added. PRIOR 20261111a - ELECTRICAL FINAL INSPECTION PASSED Wed Nov 11: Michigan Code Inspections approval tag (electrical, final) for permit LTE26-047 - the 11A and 11B scope (11 inverters); inverters and distribution boxes reviewed on site. No production quantity moved. Risk card re-written and moved down the register; submittal closed. PRIOR 20261110c - CLOSE-OUT LAYOUT (Director of Construction, Nov 10): the page now carries milestones and MC, commissioning, PV tests, quality remediation, punch list, submittals, risks and safety only; production-era sections are retired from view and their data blocks remain. NEW BLOCKS deflection (QA control Oct 29: 513 affected, 442 repaired, 256 approved, 257 open) and punchList (register Oct 29: 145 items, 143 open). GATE TOTAL RESTATED 96.92 -> 99.72 (Director of Construction, Nov 10): stale gate inputs corrected - inverter stations 0 -> 100 (MV inverter-side terminations 114/114), substation 96 -> 100, civil 98 -> 100; electrical gate 79.4 -> 98.0; weights unchanged; earned total stays 98.84. NO DAILY PRODUCTION REPORT SINCE Oct 29: every production quantity HOLDS (cable 257,764 lf, 95.56%; project 98.84%). (1) MECHANICAL COMPLETION GRANTED for circuits 11A and 11B; 12A package submitted Nov 3; 12B is the last circuit open (stations 8 and 10 pending on the Nov 6 weekly). (2) Township electrical permit LTE26-047 issued Nov 5; final inspection of 11A and 11B Wed Nov 11. (3) TVANT portal MOVED to the GEO address, cut Nov 4: Vdc 381 -> 400 of 419, VLF 2.6 -> 4 of 4, OTDR 2 -> 3 of 4, inverter fibre loop 17 -> 23 of 23; grounding holds 18 of 23; IV sample RE-BASED by TVANT from 752 to 492 samples, 195 counted (241 measurements validated) - 11A reads lower than on Oct 30, flagged. (4) SE tracker Nov 9: 256 of 257, SCADA 9/9 closed, one open item = utility coordination for first energization (50%, overdue). Energization targeted Nov 19-20. Commissioning tab missing for the third run - SET tests HELD at 74 of 74. (5) Man-hours 250,421 on the week-45 weekly (Nov 6), zero LTI, zero recordables; no EHS board, LTI-day counter held. (6) New LV DC tracker (Nov 10) for INV-07/08/10: INV-10 18/18 boxes and 11,029 of 11,514 ft home run; no entries for INV-07/08 - NOT added to the ledger, flagged as a three-way divergence with the weekly and the cable ledger. (7) MV control not re-cut since Oct 27. (8) Risk register re-ranked to 13.
 // + Sep 8 control cuts (workbook re-cut, MV termination control, SE tracker, EHS headcount); Juan de la Chica's Sep 8 end-of-project plan added as planTracker (Jose, Sep 8)
 // Note: assetVersion, assetBase, asset(), and assetFallback() are defined in index.html\u2019s inline script
 // Duplicate declarations have been removed to fix SyntaxError: Identifier 'assetVersion' has already been declared
@@ -274,8 +274,8 @@ window.MURCH_DATA = {
   "headline": "1,728.5 person-days and 18,604 hours of GreenSol self-perform logged across 123 days on site — the log now runs to Oct 12, nine days short of today."
  },
  control: {
-    "asOfShort": "Nov 16 — punch list 60 of 145 closed by the EPC · IV 316/479 · OTDR 4/4 · backfeed Nov 19",
-    "asOf": "<strong>Nov 16 sweep (punch list Nov 13, TVANT Nov 12) — NO DAILY PRODUCTION REPORT SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> <strong>Punch list (CM update of the Nov 13 register): 145 items — 60 closed by the EPC, 23 submitted for closure or under review, 62 still open; the Owner column still reads 3 closed.</strong> Tests (TVANT Nov 12): IV 316 of 479 samples, all validated; OTDR 4 of 4; grounding resistance 20 of 23; precommissioning 20 of 23. SET backfeed deadline Thu Nov 19; substation 256 of 257. A new LV DC tracker re-cut (Nov 16) reads cable 99.8% of its own route scope and inverter-side lugs 838 of 838 — flagged, not re-based.",
+    "asOfShort": "Nov 18 — punch list 62/145 closed (EPC) · backfeed Nov 19 · load test Nov 24 · IV 316/479",
+    "asOf": "<strong>Nov 18 sweep (punch list re-saved Nov 18, TVANT Nov 12 — not re-cut) — NO DAILY PRODUCTION REPORT SINCE OCT 29, so every production quantity holds: cable 257,764 lf (95.56%), project 98.84%.</strong> <strong>Punch list: 145 items — 62 closed by the EPC, 22 submitted or under review, 61 open; the Owner column still reads 3 closed.</strong> <strong>Energization: SET backfeed Thu Nov 19; the 40 A protection load test is set for Tue Nov 24 and can only be reached by exporting to the grid — hot commissioning of up to 8 inverters planned Nov 22–23.</strong> Tracker tracking mode has no commissioning date and the Owner asked again Nov 17. Tests (TVANT Nov 12, unchanged): IV 316 of 479, OTDR 4/4, grounding 20/23, precommissioning 20/23. LV DC tracker re-cut Nov 17 carries the same figures as Nov 16 — still flagged, not re-based.",
     "asOfISO": "2026-11-09",
     "piles": {
       "installed": 31352,
@@ -4115,7 +4115,7 @@ window.MURCH_DATA = {
 },
  // ---- DOCUMENT SUBMITTALS (added Oct 3, 2026 at Jose's request) — transmittals to the Owner, Owner requests for documents, and what is owed. Numbers and roles only; no personal names.
  submittals: {
-    "asOf": "Nov 16, 2026",
+    "asOf": "Nov 18, 2026",
     "counts": {
       "sent": 15,
       "owed": 22,
@@ -4123,10 +4123,55 @@ window.MURCH_DATA = {
     },
     "items": [
       {
+        "ref": "TEST-ENERGY-01",
+        "date": "Nov 17",
+        "dir": "From Owner",
+        "what": "Revised Test Energy schedule from the Owner with our commissioning lead as alternate contact, plus the PJM commissioning guide. Load test date Nov 24. Power forecast sent Nov 17; the Owner asked why it is higher than the estimate of the week before — answered the same day (better irradiance forecast, up to 8 inverters hot-commissioned instead of 3). PJM Markets Gateway unit name still to be confirmed.",
+        "status": "Answered Nov 17",
+        "badge": "watch",
+        "next": "Confirm unit name; hold the inverter plan"
+      },
+      {
+        "ref": "OWN-FENCE-01",
+        "date": "Nov 17",
+        "dir": "From Owner",
+        "what": "Neighbouring landowner complaint forwarded by the Owner Nov 18: about 900 ft of his electric fence was cut and reinstated incorrectly by construction (broken poles, wire on the wrong side of the poles, bad splices that break the current). He wants to make the repair himself and not let the site crew do it.",
+        "status": "Answer owed",
+        "badge": "bad",
+        "next": "Verify on site; agree the remedy with the Owner"
+      },
+      {
+        "ref": "OWN-TRACKING",
+        "date": "Nov 17",
+        "dir": "From Owner",
+        "what": "The Owner asked again at the daily POD when the trackers will be in tracking mode. Tracker commissioning by the tracker supplier has no date; the rows sit in a fixed position.",
+        "status": "Date owed",
+        "badge": "bad",
+        "next": "Date from the tracker supplier"
+      },
+      {
+        "ref": "OWN-TRAILER",
+        "date": "Nov 18",
+        "dir": "From Owner",
+        "what": "The Owner’s site office furniture is being removed Nov 18; the Owner asked whether a container is ready at the substation for them today and whether they take over the substation contractor’s container. No confirmation given yet at the POD.",
+        "status": "Confirm today",
+        "badge": "watch",
+        "next": "Confirm the container"
+      },
+      {
+        "ref": "FIBER-UTIL-01",
+        "date": "Nov 17",
+        "dir": "Internal",
+        "what": "Utility fibre to the control building (Owner query MQ-20260818-0955): we committed Nov 6 to trench and pull the conduit from the substation fence to the road crossing the following week. Not built as of Nov 17. The telecom provider installs the fibre one week after the conduit is ready.",
+        "status": "Conduit not built",
+        "badge": "bad",
+        "next": "Trench and conduit, then notify the provider"
+      },
+      {
         "ref": "PL-REV-1113",
         "date": "Nov 13",
         "dir": "To Owner",
-        "what": "Punch-list revision with EPC responses and closure photos, promised to the Owner by end of day Nov 13. Internal register (Nov 13, CM update shared Nov 16): 60 closed, 23 submitted or under review, 62 open. Internal target: owner-ready version with responsible and status columns before Tue Nov 17.",
+        "what": "Punch-list revision with EPC responses and closure photos, promised to the Owner by end of day Nov 13. Internal register re-saved Nov 18 by the SET manager: 62 closed, 22 submitted or under review, 61 open (Nov 16: 60 / 23 / 62). Item 144 still reads closed although the 12A + 12B final is not booked.",
         "status": "Confirm sent",
         "badge": "watch",
         "next": "Confirm issue; correct item 144 first"
@@ -4169,12 +4214,12 @@ window.MURCH_DATA = {
       },
       {
         "ref": "ASB-REDLINES",
-        "date": "Nov 9",
+        "date": "Nov 17",
         "dir": "Internal",
-        "what": "Red lines and As-Built delivery schedule. Substation civil red lines uploaded Nov 2. The design engineer asked for a coordination meeting (Nov 9–10) on drawing revisions, additional studies and PE-stamped As-Builts before committing delivery dates.",
+        "what": "Red lines and As-Built delivery schedule (SET and PV). Nov 17: formal reminder to the design engineer — after the coordination meeting and several follow-ups, no delivery schedule received, not even a tentative one; asked to state any non-technical blocker.",
         "status": "Schedule owed",
-        "badge": "watch",
-        "next": "Coordination meeting, then dates"
+        "badge": "bad",
+        "next": "Dated schedule from the design engineer"
       },
       {
         "ref": "MC-CERT-11A-11B",
@@ -4912,7 +4957,7 @@ window.MURCH_DATA = {
           "name": "Ready to Energize",
           "plan": "Oct 15",
           "now": "Nov 19 backfeed",
-          "note": "SET backfeed deadline Thu Nov 19 (Nov 11 thread); tracker Nov 20"
+          "note": "SET backfeed Thu Nov 19; load test Tue Nov 24"
         },
         {
           "name": "AEP backfeed",
@@ -4941,8 +4986,8 @@ window.MURCH_DATA = {
         {
           "name": "Test Energy to PJM",
           "plan": "Nov 11",
-          "now": "not viable",
-          "note": "no margin for SET hot commissioning"
+          "now": "Nov 24 load test",
+          "note": "40 A protection check at 69 kV needs export; up to 8 inverters hot-commissioned Nov 22–23"
         },
         {
           "name": "IV curve campaign",
@@ -4962,6 +5007,20 @@ window.MURCH_DATA = {
   },
  risks: [
     {
+      "headline": "Load test Tue Nov 24: 40 A at 69 kV is only reachable by exporting to the grid — the Owner will not allow export before the test",
+      "title": "Protection load test — Nov 18, 2026.",
+      "note": "<strong>The substation protection check needs 40 A at 69 kV; as a consumer the plant draws no more than about 3 A, so the only way to reach it is to export.</strong> The Owner does not want injection to the grid before the test — the commissioning lead has told them this is impossible. Plan: hot-commission as many inverters as possible on Sun–Mon Nov 22–23, up to 8 (the earlier plan had 3). The chief engineer’s PVsyst check for November with the trackers parked: 2 inverters are enough on a clear afternoon, 4 at minimum and a full circuit (5–6 stations) to be safe under cloud; the site will run with at least 3, afternoon test preferred (rows face west). <strong>If the Owner keeps refusing export, the test date cannot hold.</strong> Settle it in writing with the Owner and the utility before Nov 22.",
+      "level": "critical",
+      "owner": "Commissioning + SET"
+    },
+    {
+      "headline": "SET backfeed Thu Nov 19 — utility coordination still the one open item; ICCP/PJM test pending",
+      "title": "First energization, Nov 18, 2026 — the path is no longer construction.",
+      "note": "<strong>The substation tracker (Nov 16) reads 256 of 257; the one open item is utility coordination for first energization (50%, overdue since Oct 22). The SET backfeed deadline is Thu Nov 19.</strong> Nov 12: the Owner asked us to escalate the SCADA integrator to run the ICCP points / PJM onboarding test on Nov 13; site reports the integrator works Spanish hours and treats Fridays as non-working one week before energization. Confirm the test was run and get written cover for extended hours through Nov 20.",
+      "level": "critical",
+      "owner": "SET + Commissioning"
+    },
+    {
       "headline": "12B is the last circuit open — stations 8 and 10 pending, and no dated production filed since Oct 29",
       "title": "12B close-out, Nov 9, 2026 — eleven days without a measured quantity.",
       "note": "<strong>No daily report has been filed since Oct 29, so cable holds at 257,764 lf with 11,984 lf open on the ledger.</strong> The Nov 6 weekly carries stations 15, 16, 17 and 7 complete and 8 and 10 pending. The new LV DC tracker (Nov 10) shows INV-10 with 18 of 18 boxes set and 11,029 of 11,514 ft of home run pulled, but 366 ft of trunk and no terminations — and NO entries at all for INV-07 or INV-08. The MV control has not been re-cut since Oct 27: 12B trenches 13 of 52, units 6 of 11. <strong>Three instruments disagree on what is left; a count is needed before the 12B package is promised for this week.</strong> <strong>Nov 16: the LV DC tracker re-cut reads route cable 283,182 of 283,727 ft (99.8%), inverter-side lugs 838 of 838, LBD-side lugs 1,590 of 1,674, strings 5,745 of 6,594, IR/QC 366 of 419 — INV-07/08/10 open (0 of 53 LBD at 100%). It has no daily log and a different scope basis from our 269,748 lf ledger; flagged for a ruling, not re-based.</strong>",
@@ -4969,18 +5028,25 @@ window.MURCH_DATA = {
       "owner": "Construction"
     },
     {
-      "headline": "SET backfeed deadline Thu Nov 19 — utility coordination still the one open item; ICCP/PJM test pending",
-      "title": "First energization, Nov 16, 2026 — the path is no longer construction.",
-      "note": "<strong>The substation tracker (Nov 16) reads 256 of 257; the one open item is utility coordination for first energization (50%, overdue since Oct 22). The SET backfeed deadline is Thu Nov 19.</strong> Nov 12: the Owner asked us to escalate the SCADA integrator to run the ICCP points / PJM onboarding test on Nov 13; site reports the integrator works Spanish hours and treats Fridays as non-working one week before energization. Confirm the test was run and get written cover for extended hours through Nov 20.",
-      "level": "critical",
-      "owner": "SET + Commissioning"
-    },
-    {
-      "headline": "Punch list: 60 of 145 closed by the EPC, 23 submitted — Owner still shows 3 closed; 30 environmental items open",
-      "title": "Owner punch list — CM update of the Nov 13 register (shared Nov 16).",
-      "note": "<strong>145 items: EPC status 60 closed, 15 pending closure, 8 under review, 62 open. The Owner's own status column still reads 142 open / 3 closed — closures have not been accepted.</strong> Environmental is the weak group: 30 of 31 open (SWCA audit Oct 6), and the Owner chased remediation progress Nov 12; we committed a punch-list revision with photos for Nov 13 — confirm it went. Item 144 (electrical permit) is marked closed although the 12A + 12B final under LTE26-047 is not booked. Item 143: 76 trackers need extensions for deflection. Next punch-list meeting Thu Nov 19.",
+      "headline": "Punch list: 62 of 145 closed by the EPC, 22 submitted — Owner still shows 3 closed; 30 environmental items open",
+      "title": "Owner punch list — register re-saved Nov 18.",
+      "note": "<strong>145 items: EPC status 62 closed, 15 pending closure, 7 under review, 61 open (Nov 16: 60 / 15 / 8 / 62). The Owner’s column still reads 142 open / 3 closed.</strong> Moves since Nov 16: LBD arc-flash and ID labels closed with photos (43); permanent mounting of the plant controller in the SCADA rack closed (79); DC feeder and trunk ground clearance moved to pending closure on a code-and-flood-level argument (100). <strong>Closures that rest on an argument, not a repair — item 57 (several grounds under one split bolt, closed on an NEC reading) and item 100 — need the Owner to accept the argument; expect pushback.</strong> Environmental is still 30 of 31 open. Item 144 (electrical permit) still reads closed although the 12A + 12B final is not booked. Next punch-list meeting Thu Nov 19.",
       "level": "critical",
       "owner": "Construction Manager | QA/QC | Environmental | Engineering"
+    },
+    {
+      "headline": "Trackers are not in tracking mode — supplier commissioning has no date; the Owner asked again at the POD Nov 17",
+      "title": "Tracker commissioning — Nov 18, 2026.",
+      "note": "The rows sit fixed. The tracker supplier has not given a commissioning date; the site’s holding answer (supplier saturated) no longer holds, and in September the supplier’s field team had been held back over an unpaid invoice. It also caps output for the Nov 24 load test. <strong>A date is needed this week.</strong>",
+      "level": "high",
+      "owner": "Procurement + Construction"
+    },
+    {
+      "headline": "Utility fibre conduit to the road not built — committed Nov 6 for the week after; provider needs a week after it is ready",
+      "title": "Control-building utility fibre — Nov 18, 2026.",
+      "note": "Owner query MQ-20260818-0955 is still open on our side: trench and conduit from the substation fence to the road crossing, then one week for the provider to pull the fibre.",
+      "level": "high",
+      "owner": "SET + Construction"
     },
     {
       "headline": "Inverter access: backfill around 23 inverters decided, no start date — the Owner has asked twice",
@@ -5032,10 +5098,10 @@ window.MURCH_DATA = {
       "owner": "QA/QC + racking"
     },
     {
-      "headline": "As-Built schedule not committed — the design engineer wants scope aligned before dating PE stamps",
+      "headline": "As-Built schedule still undated — formal reminder Nov 17 got no date, not even a tentative one",
       "title": "Red lines and As-Builts, Nov 9, 2026.",
-      "note": "<strong>Several requests are running in parallel: revisions to submitted drawings, additional studies and PE-stamped As-Built packages.</strong> The design engineer asked for a coordination meeting on Nov 9–10 before giving a consolidated delivery schedule.",
-      "level": "watch",
+      "note": "Nov 17: after the coordination meeting and several follow-ups, the design engineer has still not given a delivery schedule for the SET and PV As-Builts, and was asked to state any non-technical blocker. As-Builts are a close-out deliverable. <strong>Several requests are running in parallel: revisions to submitted drawings, additional studies and PE-stamped As-Built packages.</strong> The design engineer asked for a coordination meeting on Nov 9–10 before giving a consolidated delivery schedule.",
+      "level": "high",
       "owner": "Engineering"
     },
     {
@@ -5051,6 +5117,13 @@ window.MURCH_DATA = {
       "note": "<strong>LTE26-046 (11A + 11B): final electrical inspection approved Wed Nov 11</strong> — township approval tag (electrical, final); the inspector reviewed inverters and distribution boxes; official notification to follow. <strong>LTE26-047 (12A + 12B, second electrical contractor) was sent to the Owner Nov 6; its final inspection is not yet booked</strong> — book it as soon as 12B closes. The substation goes by third-party PE certification; the engineer’s minor items remain open. <strong>Nov 13: punch item 144 is marked closed in the EPC column as \"permit signed off by the AHJ\" — true for 11A + 11B only; correct it before the register goes to the Owner.</strong>",
       "level": "watch",
       "owner": "Construction + Permits"
+    },
+    {
+      "headline": "Landowner fence: ~900 ft of electric fence reinstated wrongly by construction — Owner forwarded the claim Nov 18",
+      "title": "Neighbour complaint — Nov 18, 2026.",
+      "note": "Cut fence put back with broken poles, wire on the wrong side and bad splices that break the current. The landowner wants to do the repair himself and does not trust the site crew. Verify on site and agree the remedy with the Owner.",
+      "level": "watch",
+      "owner": "Construction Manager"
     }
   ],
  };
@@ -5238,7 +5311,7 @@ window.MURCH_DATA.deflection = {
  "note": "Source: QA deflection tracker control dated Oct 29, 2026 (project SharePoint, saved Nov 3). Open rows = repaired but not approved (186) + not repaired (71) = 257, which matches the remedy breakdown. Approval criterion is the measured grade after repair. The workbook’s area-summary tab reads 500 affected and 428 repaired against 513 and 442 on its row-count tab; the row-count tab is published and the difference is flagged to QA. This supersedes the 270 pending stated on Oct 21."
 };
 window.MURCH_DATA.punchList = {
-  "asOf": "register of Nov 13, 2026 · CM update shared Nov 16",
+  "asOf": "register re-saved Nov 18, 2026 (SET manager)",
   "tiles": [
     {
       "big": "145",
@@ -5246,27 +5319,27 @@ window.MURCH_DATA.punchList = {
       "small": "5 source walks and audits"
     },
     {
-      "big": "60",
+      "big": "62",
       "label": "Closed by the EPC",
       "small": "Owner has accepted 3",
       "cls": "co-ok"
     },
     {
-      "big": "23",
+      "big": "22",
       "label": "Submitted / under review",
-      "small": "15 pending closure · 8 under review",
+      "small": "15 pending closure · 7 under review",
       "cls": "co-watch"
     },
     {
-      "big": "62",
+      "big": "61",
       "label": "Still open",
       "small": "",
       "cls": "co-bad"
     },
     {
-      "big": "42",
+      "big": "41",
       "label": "High priority, open",
-      "small": "+14 submitted",
+      "small": "+13 submitted",
       "cls": "co-bad"
     },
     {
@@ -5287,9 +5360,9 @@ window.MURCH_DATA.punchList = {
     [
       "Electrical",
       "59",
-      "14",
+      "13",
       "9",
-      "36"
+      "37"
     ],
     [
       "Environmental",
@@ -5309,8 +5382,8 @@ window.MURCH_DATA.punchList = {
       "SCADA / comms",
       "10",
       "2",
-      "3",
-      "5"
+      "2",
+      "6"
     ],
     [
       "Structural",
@@ -5327,5 +5400,5 @@ window.MURCH_DATA.punchList = {
       "10"
     ]
   ],
-  "note": "Source: construction punch-list register Murch_Punch_List_20261113 (project SharePoint, version 6.0, last edited by the CM Nov 13; sent as the updated list Nov 16). <strong>Statuses are the EPC's internal column (added after the Nov 12 punch-list meeting): 60 closed, 15 pending closure, 8 under review, 62 open. The Owner's column still reads 142 open / 3 closed — none of our closures has been accepted yet.</strong> By source: site visit Aug 25–26 — 46 items, 23 closed, 18 submitted, 5 open; inverter-manual review Oct 7 — 9 of 9 closed; environmental audit Oct 6 — 29 of 30 open; site notes Oct 21 — 26 closed, 5 submitted, 26 open; project team Oct 28–29 — 1 closed, 2 open. Flags: item 144 (electrical permit) is closed internally but only 11A + 11B have passed final; item 143 (76 trackers need extensions for deflection) open; item 145 (groundwork inspection list) not yet received from the Owner. Next punch-list meeting Thu Nov 19."
+  "note": "Source: construction punch-list register Murch_Punch_List_20261113 (project SharePoint, version 6.0, re-saved Nov 18 by the SET manager). <strong>EPC internal status: 62 closed, 15 pending closure, 7 under review, 61 open (Nov 16: 60 / 15 / 8 / 62). The Owner’s column still reads 142 open / 3 closed.</strong> Moves since Nov 16: item 43 (LBD labels) closed with photos; item 79 (plant controller permanently mounted) closed; item 100 (DC feeder ground clearance) to pending closure on a code and flood-level argument. Flags: item 144 (electrical permit) is closed internally but only 11A + 11B have passed final; items 57 and 100 rest on arguments the Owner must accept; item 143 (76 trackers need extensions for deflection) open; item 145 (groundwork inspection list) not yet received from the Owner. Next punch-list meeting Thu Nov 19."
 };
